@@ -34,7 +34,56 @@
 	///Height we occupy on the gridventory hud - Keep null to generate based on w_class
 	var/grid_height = 1 GRID_BOXES
 
-/datum/storage
+/datum/storage/vtm/satchel
+	screen_max_columns = 6
+	screen_max_rows = 6
+
+/datum/storage/vtm/backpack
+	screen_max_columns = 6
+	screen_max_rows = 7
+
+/datum/storage/vtm/duffel
+	screen_max_columns = 8
+	screen_max_rows = 6
+
+/datum/storage/vtm/firstaid
+	screen_max_columns = 4
+	screen_max_rows = 4
+
+/datum/storage/vtm/firstaid/ifak
+	screen_max_columns = 3
+	screen_max_rows = 3
+
+/obj/item/storage/backpack
+	component_type = /datum/storage/vtm/backpack
+
+/datum/storage/vtm/holster
+	screen_max_columns = 2
+	screen_max_rows = 2
+
+/datum/storage/vtm/belt
+	screen_max_columns = 2
+	screen_max_rows = 4
+
+/datum/storage/vtm/hardcase
+	screen_max_columns = 4
+	screen_max_rows = 4
+
+/datum/storage/vtm/car
+	max_w_class = WEIGHT_CLASS_HUGE
+	screen_max_columns = 7
+	screen_max_rows = 9
+
+/datum/storage/vtm/car/track
+	max_w_class = WEIGHT_CLASS_GIGANTIC
+	screen_max_columns = 13
+	screen_max_rows = 9
+
+/datum/storage/vtm/sheathe
+	screen_max_columns = 2
+	screen_max_rows = 5
+
+/datum/component/storage
 	screen_max_columns = 5
 	screen_max_rows = 5
 	screen_pixel_x = 0
@@ -42,7 +91,7 @@
 	screen_start_x = 1
 	screen_start_y = 9
 	/// Exactly what it sounds like, this makes it use the new RE4-like inventory system
-	var/grid = FALSE
+	var/grid = TRUE
 	var/static/grid_box_size
 	var/static/list/mutable_appearance/underlay_appearances_by_size = list()
 	var/list/grid_coordinates_to_item
@@ -52,11 +101,12 @@
 
 /obj/item/storage/Initialize(mapload)
 	. = ..()
+	// ! THESE SHOULD BE ARGS YOU PASS INTO ADDCOMPONENT
 	atom_storage.max_w_class = WEIGHT_CLASS_HUGE
 	atom_storage.max_items = 40 //max grid
 	atom_storage.max_combined_w_class = 100
 
-/datum/component/storage/Initialize(datum/storage/master)
+/datum/component/storage/Initialize(datum/component/storage/concrete/master)
 	if(!grid_box_size)
 		grid_box_size = world.icon_size
 	. = ..()
