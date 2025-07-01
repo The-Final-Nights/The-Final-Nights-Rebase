@@ -163,27 +163,6 @@
 			if(V.upper)
 				icon_state = "[initial(icon_state)]-snow"
 
-/obj/effect/decal/litter
-	name = "litter"
-	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
-	icon_state = "paper1"
-
-/obj/effect/decal/litter/Initialize(mapload)
-	. = ..()
-	icon_state = "paper[rand(1, 6)]"
-
-/obj/effect/decal/cardboard
-	name = "cardboard"
-	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
-	icon_state = "cardboard1"
-
-/obj/effect/decal/cardboard/Initialize(mapload)
-	. = ..()
-	icon_state = "cardboard[rand(1, 5)]"
-	var/matrix/M = matrix()
-	M.Turn(rand(0, 360))
-	transform = M
-
 /obj/structure/clothingrack
 	name = "clothing rack"
 	desc = "Have some clothes."
@@ -230,58 +209,6 @@
 	. = ..()
 	icon_state = "rack[rand(1, 5)]"
 
-/obj/structure/trashcan
-	name = "trash can"
-	desc = "Holds garbage inside."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "garbage"
-	plane = GAME_PLANE
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-
-/obj/structure/trashcan/Initialize(mapload)
-	. = ..()
-	if(prob(25))
-		icon_state = "garbage_open"
-	if(GLOB.winter)
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.upper)
-				icon_state = "[initial(icon_state)]-snow"
-
-/obj/structure/trashbag
-	name = "trash bag"
-	desc = "Holds garbage inside."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "garbage1"
-	anchored = TRUE
-
-/obj/structure/trashbag/Initialize(mapload)
-	. = ..()
-	var/garbagestate = rand(1, 9)
-	if(garbagestate > 6)
-		density = TRUE
-	icon_state = "garbage[garbagestate]"
-
-/obj/structure/hotelsign
-	name = "sign"
-	desc = "It says H O T E L."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "hotel"
-	plane = GAME_PLANE
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-
-/obj/structure/hotelsign/Initialize(mapload)
-	. = ..()
-	set_light(3, 3, "#8e509e")
-	if(GLOB.winter)
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.upper)
-				icon_state = "[initial(icon_state)]-snow"
-
 /obj/structure/hotelbanner
 	name = "banner"
 	desc = "It says H O T E L."
@@ -299,60 +226,6 @@
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
 				icon_state = "[initial(icon_state)]-snow"
-
-/obj/structure/milleniumsign
-	name = "sign"
-	desc = "It says M I L L E N I U M."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "millenium"
-	plane = GAME_PLANE
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-
-/obj/structure/milleniumsign/Initialize(mapload)
-	. = ..()
-	set_light(3, 3, "#4299bb")
-
-/obj/structure/anarchsign
-	name = "sign"
-	desc = "It says B A R."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "bar"
-	plane = GAME_PLANE
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-
-/obj/structure/anarchsign/Initialize(mapload)
-	. = ..()
-	set_light(3, 3, "#ffffff")
-	if(GLOB.winter)
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.upper)
-				icon_state = "[initial(icon_state)]-snow"
-
-/obj/structure/chinesesign
-	name = "sign"
-	desc = "雨天和血的机会."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "chinese1"
-	plane = GAME_PLANE
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-
-/obj/structure/chinesesign/Initialize(mapload)
-	. = ..()
-	if(GLOB.winter)
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.upper)
-				icon_state = "[initial(icon_state)]-snow"
-
-/obj/structure/chinesesign/alt
-	icon_state = "chinese2"
-
-/obj/structure/chinesesign/alt/alt
-	icon_state = "chinese3"
 
 /obj/structure/arc
 	name = "chinatown arc"
@@ -586,15 +459,6 @@
 	. = ..()
 	icon_state = "under[rand(1, 2)]"
 
-/obj/effect/decal/trash
-	name = "trash"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "trash1"
-
-/obj/effect/decal/trash/Initialize(mapload)
-	. = ..()
-	icon_state = "trash[rand(1, 30)]"
-
 /obj/cargotrain
 	name = "cargocrate"
 	desc = "It delivers a lot of things."
@@ -814,36 +678,6 @@
 /obj/structure/rack/bubway/west
 	icon_state = "bubway6"
 
-/obj/bacotell
-	name = "Baco Tell"
-	desc = "Eat some precious tacos and pizza!"
-	icon = 'modular_darkpack/modules/deprecated/icons/fastfood.dmi'
-	icon_state = "bacotell"
-	plane = GAME_PLANE
-	layer = CAR_LAYER
-	anchored = TRUE
-	pixel_w = -16
-
-/obj/bubway
-	name = "BubWay"
-	desc = "Eat some precious burgers and pizza!"
-	icon = 'modular_darkpack/modules/deprecated/icons/fastfood.dmi'
-	icon_state = "bubway"
-	plane = GAME_PLANE
-	layer = CAR_LAYER
-	anchored = TRUE
-	pixel_w = -16
-
-/obj/gummaguts
-	name = "Gumma Guts"
-	desc = "Eat some precious chicken nuggets and donuts!"
-	icon = 'modular_darkpack/modules/deprecated/icons/fastfood.dmi'
-	icon_state = "gummaguts"
-	plane = GAME_PLANE
-	layer = CAR_LAYER
-	anchored = TRUE
-	pixel_w = -16
-
 /obj/underplate
 	name = "underplate"
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
@@ -854,46 +688,6 @@
 
 /obj/underplate/stuff
 	icon_state = "stuff"
-
-/obj/order
-	name = "order sign"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "order"
-	plane = GAME_PLANE
-	layer = CAR_LAYER
-	anchored = TRUE
-
-/obj/order1
-	name = "order screen"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "order1"
-	plane = GAME_PLANE
-	layer = CAR_LAYER
-	anchored = TRUE
-
-/obj/order2
-	name = "order screen"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "order2"
-	plane = GAME_PLANE
-	layer = CAR_LAYER
-	anchored = TRUE
-
-/obj/order3
-	name = "order screen"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "order3"
-	plane = GAME_PLANE
-	layer = CAR_LAYER
-	anchored = TRUE
-
-/obj/order4
-	name = "order screen"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "order4"
-	plane = GAME_PLANE
-	layer = CAR_LAYER
-	anchored = TRUE
 
 /obj/matrix
 	name = "matrix"
@@ -978,16 +772,6 @@
 	. = ..()
 	icon_state = "billiard[rand(1, 3)]"
 
-/obj/police_department
-	name = "San Francisco Police Department"
-	desc = "Stop right there you criminal scum! Nobody can break the law on my watch!!"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "police"
-	plane = GAME_PLANE
-	layer = CAR_LAYER
-	anchored = TRUE
-	pixel_z = 40
-
 /obj/structure/pole
 	name = "stripper pole"
 	desc = "A pole fastened to the ceiling and floor, used to show of ones goods to company."
@@ -1046,47 +830,6 @@
 	user.do_jitter_animation()
 	sleep(6)
 	user.dir = 2
-
-/obj/structure/strip_club
-	name = "sign"
-	desc = "It says DO RA. Maybe it's some kind of strip club..."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x48.dmi'
-	icon_state = "dora"
-	plane = GAME_PLANE
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	pixel_w = -8
-	pixel_z = 32
-
-/obj/structure/strip_club/Initialize(mapload)
-	. = ..()
-	set_light(3, 2, "#8e509e")
-
-/obj/structure/cabaret_sign
-	name = "cabaret"
-	desc = "An enticing pair of legs... I wonder what's inside?"
-	icon = 'icons/cabaret.dmi'
-	icon_state = "cabar"
-	plane = GAME_PLANE
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-
-/obj/structure/cabaret_sign/Initialize(mapload)
-	. = ..()
-	set_light(3, 2, "#d98aec")
-
-/obj/structure/cabaret_sign2
-	name = "cabaret"
-	desc = "An enticing pair of legs... I wonder what's inside?"
-	icon = 'icons/cabaret.dmi'
-	icon_state = "et"
-	plane = GAME_PLANE
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-
-/obj/structure/cabaret_sign2/Initialize(mapload)
-	. = ..()
-	set_light(3, 2, "#d98aec")
 
 /obj/structure/fire_barrel
 	name = "barrel"
@@ -1159,15 +902,6 @@
 		for(var/turf/T in range(1, src))
 			if(T && !istype(T, /turf/open/floor/plating/bloodshit))
 				new /turf/open/floor/plating/bloodshit(T)
-
-/obj/american_flag
-	name = "american flag"
-	desc = "PATRIOTHICC!!!"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "flag_usa"
-	plane = GAME_PLANE
-	layer = CAR_LAYER
-	anchored = TRUE
 
 //flags
 
@@ -1567,3 +1301,32 @@
 			burying = FALSE
 		else
 			burying = FALSE
+
+/obj/structure/fluff/tv
+	name = "\improper TV"
+	desc = "A slightly battered looking TV. Various infomercials play on a loop, accompanied by a jaunty tune."
+	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon_state = "tv_news"
+
+/obj/structure/fluff/tv/order
+	name = "order screen"
+	desc = "A slightly battered looking TV. It shows a menu to order from."
+	icon_state = "order1"
+
+/obj/structure/fluff/tv/order/one
+	icon_state = "order1"
+
+/obj/structure/fluff/tv/order/two
+	icon_state = "order2"
+
+/obj/structure/fluff/tv/order/three
+	icon_state = "order3"
+
+/obj/structure/fluff/tv/order/four
+	icon_state = "order4"
+
+/obj/structure/fluff/tv/order/random
+
+/obj/structure/fluff/tv/order/random/Initialize()
+	. = ..()
+	icon_state = "order[rand(1,4)]"
