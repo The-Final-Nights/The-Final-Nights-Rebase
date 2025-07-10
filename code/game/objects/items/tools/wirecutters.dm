@@ -1,17 +1,22 @@
 /obj/item/wirecutters
 	name = "wirecutters"
 	desc = "This cuts wires."
-	icon = 'icons/obj/tools.dmi'
-	icon_state = "cutters_map"
+	// DARKPACK EDIT START
+	icon_state = "fixer"
+	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	// DARKPACK EDIT END
 	worn_icon_state = "cutters"
 	inhand_icon_state = "cutters"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 
+	/* DARKPACK EDIT START
 	greyscale_config = /datum/greyscale_config/wirecutters
 	greyscale_config_belt = /datum/greyscale_config/wirecutters_belt_overlay
 	greyscale_config_inhand_left = /datum/greyscale_config/wirecutter_inhand_left
 	greyscale_config_inhand_right = /datum/greyscale_config/wirecutter_inhand_right
+	*/ // DARKPACK EDIT END
 
 	obj_flags = CONDUCTS_ELECTRICITY
 	slot_flags = ITEM_SLOT_BELT
@@ -31,7 +36,9 @@
 	toolspeed = 1
 	armor_type = /datum/armor/item_wirecutters
 	/// If the item should be assigned a random color
-	var/random_color = TRUE
+	// DARKPACK EDIT START
+	var/random_color = FALSE
+	// DARKPACK EDIT END
 	/// List of possible random colors
 	var/static/list/wirecutter_colors = list(
 		COLOR_TOOL_BLUE,
