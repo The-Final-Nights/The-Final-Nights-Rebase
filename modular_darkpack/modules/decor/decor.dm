@@ -12,7 +12,6 @@
 	desc = "Protects places from walking in."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "fence"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -40,7 +39,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	icon_state = "gargoyle"
 	pixel_z = 8
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
@@ -49,7 +47,6 @@
 	desc = "Gives some light to the streets."
 	icon = 'modular_darkpack/modules/deprecated/icons/lamppost.dmi'
 	base_icon_state = "base"
-	plane = GAME_PLANE
 	layer = SPACEVINE_LAYER
 	var/number_of_lamps
 	pixel_w = -32
@@ -150,7 +147,6 @@
 	desc = "Shows when road is free or not."
 	icon = 'modular_darkpack/modules/deprecated/icons/lamppost.dmi'
 	icon_state = "traffic"
-	plane = GAME_PLANE
 	layer = SPACEVINE_LAYER
 	pixel_w = -32
 	anchored = TRUE
@@ -168,7 +164,6 @@
 	desc = "Have some clothes."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "rack"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -185,7 +180,6 @@
 	desc = "Have some clothes."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "hanger1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -199,7 +193,6 @@
 	desc = "Have some food."
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "rack2"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -214,7 +207,6 @@
 	desc = "It says H O T E L."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "banner"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -232,7 +224,6 @@
 	desc = "Cool chinese architecture."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "ark1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
@@ -252,7 +243,6 @@
 	desc = "Cool chinese lamp."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "trad"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
@@ -260,7 +250,6 @@
 	name = "pipes"
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "piping1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
@@ -268,7 +257,6 @@
 	name = "wall"
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "the_wall"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
@@ -299,7 +287,6 @@
 	desc = "It drives."
 	icon = 'modular_darkpack/modules/deprecated/icons/cars.dmi'
 	icon_state = "taxi"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -317,7 +304,6 @@
 	desc = "Protects places from walking in."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "roadblock"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -349,7 +335,6 @@
 	name = "painting"
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
 	icon_state = "painting1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/effect/decal/painting/second
@@ -363,7 +348,6 @@
 	desc = "Jesus said, “Father, forgive them, for they do not know what they are doing.” And they divided up his clothes by casting lots (Luke 23:34)."
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "cross"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -375,7 +359,6 @@
 	desc = "Do not drive your car cluelessly."
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	icon_state = "stop"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
@@ -428,7 +411,6 @@
 	desc = "Storage some liquids."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "barrel1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -445,7 +427,6 @@
 	desc = "Building material."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "bricks"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -464,7 +445,6 @@
 	desc = "It delivers a lot of things."
 	icon = 'modular_darkpack/modules/deprecated/icons/containers.dmi'
 	icon_state = "1"
-	plane = GAME_PLANE
 	anchored = TRUE
 	density = FALSE
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB | PASSGLASS | PASSCLOSEDTURF
@@ -490,7 +470,6 @@
 	desc = "It delivers a lot of things."
 	icon = 'modular_darkpack/modules/deprecated/icons/containers.dmi'
 	icon_state = "1"
-	plane = GAME_PLANE
 	anchored = TRUE
 
 
@@ -532,7 +511,6 @@
 	desc = "Recent stocks visualization."
 	icon = 'modular_darkpack/modules/deprecated/icons/stonks.dmi'
 	icon_state = "marketplace"
-	plane = GAME_PLANE
 	anchored = TRUE
 	density = TRUE
 	pixel_w = -24
@@ -543,7 +521,6 @@
 	desc = "Fuel your car here. 50 dollars per 1000 units."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "fuelstation"
-	plane = GAME_PLANE
 	anchored = TRUE
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
@@ -583,7 +560,6 @@
 	desc = "Extract blood in packs."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "bloodextractor"
-	plane = GAME_PLANE
 	anchored = TRUE
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
@@ -677,7 +653,6 @@
 	name = "underplate"
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "underplate"
-	plane = GAME_PLANE
 	layer = TABLE_LAYER
 	anchored = TRUE
 
@@ -689,7 +664,6 @@
 	desc = "Suicide is no exit..."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "matrix"
-	plane = GAME_PLANE
 	layer = ABOVE_NORMAL_TURF_LAYER
 	anchored = TRUE
 	opacity = TRUE
@@ -758,7 +732,6 @@
 	desc = "Come here, play some BALLS. I know you want it so much..."
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	icon_state = "billiard1"
-	plane = GAME_PLANE
 	anchored = TRUE
 	density = TRUE
 
@@ -830,7 +803,6 @@
 	desc = "Some kind of light and warm source..."
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
 	icon_state = "barrel"
-	plane = GAME_PLANE
 	anchored = TRUE
 	density = TRUE
 
@@ -843,7 +815,6 @@
 	desc = "Gothic water structure."
 	icon = 'modular_darkpack/modules/deprecated/icons/fountain.dmi'
 	icon_state = "fountain"
-	plane = GAME_PLANE
 	anchored = TRUE
 	density = TRUE
 	pixel_w = -16
@@ -854,7 +825,6 @@
 	desc = "See the time."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "clock"
-	plane = GAME_PLANE
 	anchored = TRUE
 	pixel_z = 32
 
@@ -865,7 +835,6 @@
 /obj/structure/coclock/grandpa
 	icon = 'modular_darkpack/modules/deprecated/icons/grandpa_cock.dmi'
 	icon_state = "cock"
-	plane = GAME_PLANE
 	anchored = TRUE
 	density = TRUE
 	pixel_z = 0
@@ -900,7 +869,6 @@
 	desc = "This shouldn't be used. If you see this in-game, someone has fucked up."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "flag_usa"
-	plane = GAME_PLANE
 	anchored = TRUE
 
 /obj/flag/usa
@@ -973,7 +941,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	icon_state = "graffiti1"
 	pixel_z = 32
-	plane = GAME_PLANE
 	anchored = TRUE
 	var/large = FALSE
 
@@ -994,7 +961,6 @@
 	desc = "Air to inside."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "roof1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -1052,7 +1018,6 @@
 	desc = "Cute and tall flora."
 	icon = 'modular_darkpack/modules/deprecated/icons/trees.dmi'
 	icon_state = "tree1"
-	plane = GAME_PLANE
 	layer = SPACEVINE_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -1079,7 +1044,6 @@
 	desc = "Cute and tall flora."
 	icon = 'modular_darkpack/modules/deprecated/icons/pines.dmi'
 	icon_state = "pine1"
-	plane = GAME_PLANE
 	layer = SPACEVINE_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -1108,7 +1072,6 @@
 	desc = "A cloaked figure forgotten to the ages."
 	icon = 'icons/effects/32x64.dmi'
 	icon_state = "statue"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -1131,7 +1094,6 @@
 	desc = "Not big enough for hiding in."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "tub"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -1144,7 +1106,6 @@
 	icon_state = "showcase"
 	density = TRUE
 	anchored = TRUE
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
@@ -1164,7 +1125,6 @@
 	desc = "Rokk."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "rock1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -1179,7 +1139,6 @@
 	desc = "Rokk."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "smallrock1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
@@ -1193,7 +1152,6 @@
 	desc = "Rokk."
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "rock1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -1209,7 +1167,6 @@
 	desc = "Rokk."
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "stalagmite1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -1225,7 +1182,6 @@
 	desc = "Stores some precious organs..."
 	icon = 'modular_darkpack/modules/deprecated/icons/werewolf_lupus.dmi'
 	icon_state = "ice_man"
-	plane = GAME_PLANE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 /obj/were_ice/lupus
@@ -1241,7 +1197,6 @@
 	desc = "You can bury someone here."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "pit0"
-	plane = GAME_PLANE
 	layer = ABOVE_OPEN_TURF_LAYER
 	anchored = TRUE
 	density = FALSE

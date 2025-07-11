@@ -33,7 +33,6 @@
 	desc = "It says M I L L E N I U M."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "millenium"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
@@ -46,7 +45,6 @@
 	desc = "It says B A R."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "bar"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
@@ -64,7 +62,6 @@
 	desc = "雨天和血的机会."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "chinese1"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
@@ -87,7 +84,6 @@
 	desc = "It says DO RA. Maybe it's some kind of strip club..."
 	icon = 'modular_darkpack/modules/deprecated/icons/48x48.dmi'
 	icon_state = "dora"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	pixel_w = -8
@@ -102,7 +98,6 @@
 	desc = "An enticing pair of legs... I wonder what's inside?"
 	icon = 'icons/cabaret.dmi'
 	icon_state = "cabar"
-	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
@@ -116,7 +111,6 @@
 /obj/structure/sign/city/store
 	icon = 'modular_darkpack/modules/decor/icons/store_sign.dmi'
 	icon_state = "bacotell"
-	plane = GAME_PLANE
 	anchored = TRUE
 	pixel_w = -16
 
