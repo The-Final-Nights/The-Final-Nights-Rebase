@@ -52,9 +52,8 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 		/obj/item/food/root_flatbread,
 		/obj/item/food/salami,
 		/obj/item/holochip,
-		// Start WoD13 Modification
-		/obj/item/stack/dollar,
-		// End WoD13 Modification
+		/obj/item/stack/spacecash,
+		/obj/item/stack/dollar, // DARKPACK EDIT ADDITION - Dollar Compat
 		/obj/item/throwing_star,
 	)
 	/// List with a fake-networks(not a fax actually), for request manager.
