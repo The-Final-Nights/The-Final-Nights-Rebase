@@ -11,7 +11,7 @@
 /datum/loadout_item/shoes/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	outfit.shoes = item_path
 
-// Start WoD13 Modification
+// DARKPACK EDIT REMOVAL START - Loadout categories
 // I can't fully untick this because of the code above, but we only need our own loadout items
 /*
 /datum/loadout_item/shoes/sneakers
@@ -46,4 +46,4 @@
 	name = "Shoes (Glowing, Colourable)"
 	item_path = /obj/item/clothing/shoes/glow
 */
-// End WoD13 Modification
+// DARKPACK EDIT REMOVAL END - Loadout categories

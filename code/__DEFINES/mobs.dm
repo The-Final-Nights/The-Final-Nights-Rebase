@@ -583,9 +583,7 @@
 #define SILENCE_RANGED_MESSAGE (1<<0)
 
 /// Returns whether or not the given mob can succumb
-// Start WoD13 Modification
-#define CAN_SUCCUMB(target) ((HAS_TRAIT(target, TRAIT_CRITICAL_CONDITION) || HAS_TRAIT(target, TRAIT_TORPOR)) && !HAS_TRAIT(target, TRAIT_NODEATH))
-// End WoD13 Modification
+#define CAN_SUCCUMB(target) ((HAS_TRAIT(target, TRAIT_CRITICAL_CONDITION) || HAS_TRAIT(target, TRAIT_DEATHCOMA)) && !HAS_TRAIT(target, TRAIT_NODEATH)) // DARKPACK EDIT CHANGE - Torpor
 
 // Body position defines.
 /// Mob is standing up, usually associated with lying_angle value of 0.
@@ -708,11 +706,13 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
 /// Also consider updating layers_to_offset
-// Start WoD13 Modification
+// DARKPACK EDIT CHANGE START - Shadows
 #define TOTAL_LAYERS 37
+// DARKPACK EDIT CHANGE END - Shadows
+// DARKPACK EDIT ADDITION START - Shadows
 /// Layer for shadow overlays under mobs
 #define UNDERSHADOW_LAYER 37
-// End WoD13 Modification
+// DARKPACK EDIT ADDITION END - Shadows
 /// Mutations layer - Tk headglows, cold resistance glow, etc
 #define MUTATIONS_LAYER 36
 /// Mutantrace features (tail when looking south) that must appear behind the body parts

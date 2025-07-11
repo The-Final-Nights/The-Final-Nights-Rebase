@@ -53,11 +53,9 @@
 
 @include meta.load-css('highlight.js/scss/github-dark.scss');
 
-// VtM Theme
+// NT Theme
 .Layout__content {
-  // Start WoD13 Modification
-  background-image: url('../assets/bg-vtm.svg');
-  // End WoD13 Modification
+  background-image: url('../assets/bg-vtm.svg'); // DARKPACK EDIT CHANGE - VtM theme
   background-size: 70% 70%;
   background-position: center;
   background-repeat: no-repeat;

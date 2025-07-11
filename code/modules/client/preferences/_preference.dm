@@ -32,7 +32,7 @@
 /// Preferences that aren't names, but change the name changes set by PREFERENCE_PRIORITY_NAMES.
 #define PREFERENCE_PRIORITY_NAME_MODIFICATIONS 9
 
-// Start WoD13 Modification
+// DARKPACK EDIT ADDITION START - TTRPG preferences
 /// Preferences that work with TTRPG mechanics but aren't magical
 #define PREFERENCE_PRIORITY_TABLETOP 10
 
@@ -41,7 +41,7 @@
 
 /// The maximum preference priority, keep this updated, but don't use it for `priority`.
 #define MAX_PREFERENCE_PRIORITY PREFERENCE_PRIORITY_WORLD_OF_DARKNESS
-// End WoD13 Modification
+// DARKPACK EDIT ADDITION END - TTRPG preferences
 
 /// For choiced preferences, this key will be used to set display names in constant data.
 #define CHOICED_PREFERENCE_DISPLAY_NAMES "display_names"

@@ -55,11 +55,6 @@
 	/// Can this action be shared with our rider?
 	var/can_be_shared = TRUE
 
-	// Start WoD13 Modification
-	/// If this action is a supernatural power and should go on the bottom of the screen
-	var/vampiric
-	// End WoD13 Modification
-
 /datum/action/New(Target)
 	link_to(Target)
 

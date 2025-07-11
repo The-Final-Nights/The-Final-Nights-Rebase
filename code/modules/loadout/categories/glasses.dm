@@ -13,7 +13,7 @@
 		LAZYADD(outfit.backpack_contents, outfit.glasses)
 	outfit.glasses = item_path
 
-// Start WoD13 Modification
+// DARKPACK EDIT REMOVAL START - Loadout categories
 /*
 /datum/loadout_item/glasses/regular
 	name = "Glasses"
@@ -67,4 +67,4 @@
 	name = "Monocle"
 	item_path = /obj/item/clothing/glasses/monocle
 */
-// Start WoD13 Modification
+// DARKPACK EDIT REMOVAL END - Loadout categories

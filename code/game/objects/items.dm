@@ -250,12 +250,6 @@
 	/// Do we apply a click cooldown when resisting this object if it is restraining them?
 	var/resist_cooldown = CLICK_CD_BREAKOUT
 
-	// Start WoD13 Modification
-	var/onflooricon
-	var/onflooricon_state
-	var/masquerade_violating
-	// End WoD13 Modification
-
 /obj/item/Initialize(mapload)
 	if(attack_verb_continuous)
 		attack_verb_continuous = string_list(attack_verb_continuous)
@@ -291,12 +285,6 @@
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_ITEM, src)
 
 	setup_reskinning()
-
-	// Start WoD13 Modification
-	if (onflooricon)
-		AddElement(/datum/element/dynamic_item_icon)
-	// End WoD13 Modification
-
 
 /obj/item/Destroy(force)
 	// This var exists as a weird proxy "owner" ref
@@ -798,10 +786,7 @@
  * polling ghosts while it's just being equipped as a visual preview for a dummy.
  */
 /obj/item/proc/visual_equipped(mob/user, slot, initial = FALSE)
-	// Start WoD13 Modification
-	SEND_SIGNAL(src, COMSIG_ITEM_VISUAL_EQUIPPED, user, slot)
-	SEND_SIGNAL(user, COMSIG_MOB_VISUAL_EQUIPPED_ITEM, src, slot)
-	// End WoD13 Modification
+	return
 
 /**
  * Called by on_equipped. Don't call this directly, we want the ITEM_POST_EQUIPPED signal to be sent after everything else.

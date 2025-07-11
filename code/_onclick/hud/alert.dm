@@ -510,7 +510,7 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 
 	var/title = pick(death_titles)
 
-	// Start WoD13 Modification
+	// DARKPACK EDIT CHANGE START - Torpor
 	if (HAS_TRAIT(living_owner, TRAIT_TORPOR))
 		// Can't say your final words if you're already "dead"
 		var/confirm_death = tgui_alert(usr, "Do you want to give up and succumb to Final Death?", "Succumb Confirmation", list("Yes", "No"))
@@ -525,7 +525,7 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 		if(length(last_whisper))
 			living_owner.say("#[last_whisper]")
 		living_owner.succumb(whispered = length(last_whisper) > 0)
-	// End WoD13 Modification
+	// DARKPACK EDIT CHANGE END - Torpor
 
 //ALIENS
 

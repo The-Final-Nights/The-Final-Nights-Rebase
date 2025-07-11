@@ -1,4 +1,4 @@
-// Start WoD13 Modification
+// DARKPACK EDIT REMOVAL START - Loadout categories
 /*
 /// Pocket items (Moved to backpack)
 /datum/loadout_category/pocket
@@ -347,4 +347,4 @@
 	var/datum/record/crew/record = find_record(source.real_name)
 	record?.medical_notes += new /datum/medical_note("Central Command", "Patient is a registered brain donor for Robotics research.", null)
 */
-// End WoD13 Modification
+// DARKPACK EDIT REMOVAL END - Loadout categories
