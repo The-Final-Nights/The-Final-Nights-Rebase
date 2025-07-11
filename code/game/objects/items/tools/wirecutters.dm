@@ -11,12 +11,12 @@
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 
-	/* DARKPACK EDIT START
+	/* DARKPACK REMOVAL START
 	greyscale_config = /datum/greyscale_config/wirecutters
 	greyscale_config_belt = /datum/greyscale_config/wirecutters_belt_overlay
 	greyscale_config_inhand_left = /datum/greyscale_config/wirecutter_inhand_left
 	greyscale_config_inhand_right = /datum/greyscale_config/wirecutter_inhand_right
-	*/ // DARKPACK EDIT END
+	*/ // DARKPACK REMOVAL END
 
 	obj_flags = CONDUCTS_ELECTRICITY
 	slot_flags = ITEM_SLOT_BELT
