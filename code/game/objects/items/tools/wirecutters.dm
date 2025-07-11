@@ -36,9 +36,7 @@
 	toolspeed = 1
 	armor_type = /datum/armor/item_wirecutters
 	/// If the item should be assigned a random color
-	// DARKPACK EDIT START
-	var/random_color = FALSE
-	// DARKPACK EDIT END
+	var/random_color = FALSE // DARKPACK EDIT, ORIGINAL: var/random_color = TRUE
 	/// List of possible random colors
 	var/static/list/wirecutter_colors = list(
 		COLOR_TOOL_BLUE,
