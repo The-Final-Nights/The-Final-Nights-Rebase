@@ -1,11 +1,9 @@
 /obj/item/wirecutters
 	name = "wirecutters"
 	desc = "This cuts wires."
-	// DARKPACK EDIT START
-	icon_state = "fixer"
-	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
-	// DARKPACK EDIT END
+	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi' //DARKPACK EDIT, ORIGINAL: icon = 'icons/obj/tools.dmi'
+	icon_state = "fixer" //DARKPACK EDIT, ORIGINAL: icon_state = "cutters_map"
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi' //DARKPACK ADDITION
 	worn_icon_state = "cutters"
 	inhand_icon_state = "cutters"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
