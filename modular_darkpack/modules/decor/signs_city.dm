@@ -117,7 +117,6 @@
 	icon = 'modular_darkpack/modules/decor/icons/store_sign.dmi'
 	icon_state = "bacotell"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	pixel_w = -16
 

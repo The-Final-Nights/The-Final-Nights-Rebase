@@ -41,7 +41,7 @@
 	icon_state = "gargoyle"
 	pixel_z = 8
 	plane = GAME_PLANE
-	layer = ABOVE_ALL_MOB_LAYERS_LAYER
+	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/lamppost
@@ -465,7 +465,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/containers.dmi'
 	icon_state = "1"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	density = FALSE
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB | PASSGLASS | PASSCLOSEDTURF
@@ -492,7 +491,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/containers.dmi'
 	icon_state = "1"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 
 
@@ -535,7 +533,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/stonks.dmi'
 	icon_state = "marketplace"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	density = TRUE
 	pixel_w = -24
@@ -547,7 +544,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "fuelstation"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
@@ -588,7 +584,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "bloodextractor"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
@@ -764,7 +759,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	icon_state = "billiard1"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	density = TRUE
 
@@ -837,7 +831,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
 	icon_state = "barrel"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	density = TRUE
 
@@ -851,7 +844,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/fountain.dmi'
 	icon_state = "fountain"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	density = TRUE
 	pixel_w = -16
@@ -863,7 +855,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "clock"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	pixel_z = 32
 
@@ -875,7 +866,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/grandpa_cock.dmi'
 	icon_state = "cock"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	density = TRUE
 	pixel_z = 0
@@ -911,7 +901,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "flag_usa"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 
 /obj/flag/usa
@@ -985,7 +974,6 @@
 	icon_state = "graffiti1"
 	pixel_z = 32
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	anchored = TRUE
 	var/large = FALSE
 
@@ -1238,7 +1226,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/werewolf_lupus.dmi'
 	icon_state = "ice_man"
 	plane = GAME_PLANE
-	layer = CAR_LAYER
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 /obj/were_ice/lupus
