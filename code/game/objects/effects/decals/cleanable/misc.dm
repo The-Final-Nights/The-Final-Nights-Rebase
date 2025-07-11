@@ -360,12 +360,12 @@ GLOBAL_LIST_EMPTY(nebula_vomits)
 	icon_state = "donk_pinata_shreds"
 
 /obj/effect/decal/cleanable/garbage
-	// Start WoD13 Modification
+	// DARKPACK EDIT START
 	name = "trash bag"
 	desc = "Holds garbage inside."
-	icon = 'icons/wod13/props.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "garbage1"
-	// End WoD13 Modification
+	// DARKPACK END
 	plane = GAME_PLANE
 	layer = CLEANABLE_OBJECT_LAYER
 	beauty = -150
@@ -373,9 +373,9 @@ GLOBAL_LIST_EMPTY(nebula_vomits)
 
 /obj/effect/decal/cleanable/garbage/Initialize(mapload)
 	. = ..()
-	// Start WoD13 Modification
+	// DARKPACK EDIT START
 	icon_state = "garbage[rand(1, 6)]"
-	// End WoD13 Modification
+	// DARKPACK EDIT END
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 15)
 
 /obj/effect/decal/cleanable/ants
