@@ -1,6 +1,6 @@
 //Considering having a subtype of this for "hanging" signs
 /obj/structure/sign/city
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/city_sign.dmi'
 
 /obj/structure/sign/city/police_department
 	name = "San Francisco Police Department"
@@ -31,7 +31,7 @@
 /obj/structure/sign/city/millenium
 	name = "sign"
 	desc = "It says M I L L E N I U M."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/city_sign.dmi'
 	icon_state = "millenium"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -43,7 +43,7 @@
 /obj/structure/sign/city/anarch
 	name = "sign"
 	desc = "It says B A R."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/city_sign.dmi'
 	icon_state = "bar"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -60,7 +60,7 @@
 /obj/structure/sign/city/chinese
 	name = "sign"
 	desc = "雨天和血的机会."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/city_sign.dmi'
 	icon_state = "chinese1"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
