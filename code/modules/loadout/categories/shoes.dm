@@ -45,5 +45,4 @@
 /datum/loadout_item/shoes/glow_shoes
 	name = "Shoes (Glowing, Colourable)"
 	item_path = /obj/item/clothing/shoes/glow
-*/
-// DARKPACK EDIT REMOVAL END - Loadout categories
+*/ // DARKPACK EDIT REMOVAL END - Loadout categories

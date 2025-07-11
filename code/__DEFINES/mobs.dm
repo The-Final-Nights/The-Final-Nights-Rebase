@@ -706,9 +706,7 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
 /// Also consider updating layers_to_offset
-// DARKPACK EDIT CHANGE START - Shadows
-#define TOTAL_LAYERS 37
-// DARKPACK EDIT CHANGE END - Shadows
+#define TOTAL_LAYERS 37 // DARKPACK EDIT CHANGE - Shadows
 // DARKPACK EDIT ADDITION START - Shadows
 /// Layer for shadow overlays under mobs
 #define UNDERSHADOW_LAYER 37

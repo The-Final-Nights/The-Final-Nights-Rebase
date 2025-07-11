@@ -1,5 +1,4 @@
-// DARKPACK EDIT REMOVAL START - Loadout categories
-/*
+/* // DARKPACK EDIT REMOVAL START - Loadout categories
 /// Pocket items (Moved to backpack)
 /datum/loadout_category/pocket
 	category_name = "Other"
@@ -346,5 +345,4 @@
 	UnregisterSignal(source, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	var/datum/record/crew/record = find_record(source.real_name)
 	record?.medical_notes += new /datum/medical_note("Central Command", "Patient is a registered brain donor for Robotics research.", null)
-*/
-// DARKPACK EDIT REMOVAL END - Loadout categories
+*/ // DARKPACK EDIT REMOVAL END - Loadout categories

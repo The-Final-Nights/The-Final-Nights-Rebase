@@ -199,16 +199,12 @@
 	// By default, discover ladders above and below us vertically
 	var/turf/base = get_turf(src)
 
-	// DARKPACK EDIT CHANGE START - Manholes
-	if(isnull(down) && connect_down)
-	// DARKPACK EDIT CHANGE END - Manholes
+	if(isnull(down) && connect_down) // DARKPACK EDIT CHANGE - Manholes
 		var/obj/structure/ladder/new_down = locate() in GET_TURF_BELOW(base)
 		if (new_down && crafted == new_down.crafted)
 			link_down(new_down)
 
-	// DARKPACK EDIT CHANGE START - Manholes
-	if(isnull(up) && connect_up)
-	// DARKPACK EDIT CHANGE END - Manholes
+	if(isnull(up) && connect_up) // DARKPACK EDIT CHANGE - Manholes
 		var/obj/structure/ladder/new_up = locate() in GET_TURF_ABOVE(base)
 		if (new_up && crafted == new_up.crafted)
 			link_up(new_up)

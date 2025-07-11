@@ -24,9 +24,7 @@ GLOBAL_LIST_INIT(phobia_types, sort_list(list(
 	"spiders",
 	"strangers",
 	"the supernatural",
-	// DARKPACK EDIT ADDITION START - Religious phobia
-	"religion",
-	// DARKPACK EDIT ADDITION END - Religious phobia
+	"religion", // DARKPACK EDIT ADDITION - Religious phobia
 )))
 
 GLOBAL_LIST_INIT(phobia_regexes, list(
@@ -53,9 +51,7 @@ GLOBAL_LIST_INIT(phobia_regexes, list(
 	"spiders" = construct_phobia_regex("spiders"),
 	"strangers" = construct_phobia_regex("strangers"),
 	"the supernatural" = construct_phobia_regex("the supernatural"),
-	// DARKPACK EDIT ADDITION START - Religious phobia
-	"religion" = construct_phobia_regex("religion"),
-	// DARKPACK EDIT ADDITION END - Religious phobia
+	"religion" = construct_phobia_regex("religion"), // DARKPACK EDIT ADDITION - Religious phobia
 ))
 
 GLOBAL_LIST_INIT(phobia_mobs, list(

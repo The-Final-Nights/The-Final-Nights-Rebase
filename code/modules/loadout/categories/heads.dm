@@ -16,8 +16,7 @@
 	else
 		outfit.head = item_path
 
-// DARKPACK EDIT REMOVAL START - Loadout categories
-/*
+/* // DARKPACK EDIT REMOVAL START - Loadout categories
 /datum/loadout_item/head/beanie
 	name = "Beanie (Colorable)"
 	item_path = /obj/item/clothing/head/beanie
@@ -157,5 +156,4 @@
 /datum/loadout_item/head/wig
 	name = "Natural Wig"
 	item_path = /obj/item/clothing/head/wig/natural
-*/
-// DARKPACK EDIT REMOVAL END - Loadout categories
+*/ // DARKPACK EDIT REMOVAL END - Loadout categories

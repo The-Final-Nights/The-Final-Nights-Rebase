@@ -1,5 +1,4 @@
-// DARKPACK EDIT REMOVAL START - Loadout categories
-/*
+/* // DARKPACK EDIT REMOVAL START - Loadout categories
 /// Accessory Items (Moves overrided items to backpack)
 /datum/loadout_category/accessories
 	category_name = "Accessory"
@@ -89,5 +88,4 @@
 	name = "Pride Pin"
 	item_path = /obj/item/clothing/accessory/pride
 	can_be_reskinned = TRUE
-*/
-// DARKPACK EDIT REMOVAL END - Loadout categories
+*/ // DARKPACK EDIT REMOVAL END - Loadout categories
