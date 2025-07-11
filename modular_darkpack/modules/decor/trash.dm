@@ -5,7 +5,7 @@
 	icon_state = "trash1"
 	clean_type = CLEAN_TYPE_HARD_DECAL
 
-/obj/effect/decal/cleanable/trash/Initialize()
+/obj/effect/decal/cleanable/trash/Initialize(mapload)
 	. = ..()
 	icon_state = "trash[rand(1, 30)]"
 
@@ -15,7 +15,7 @@
 	icon_state = "paper1"
 	clean_type = CLEAN_TYPE_HARD_DECAL
 
-/obj/effect/decal/cleanable/litter/Initialize()
+/obj/effect/decal/cleanable/litter/Initialize(mapload)
 	. = ..()
 	icon_state = "paper[rand(1, 6)]"
 
@@ -25,7 +25,7 @@
 	icon_state = "cardboard1"
 	clean_type = CLEAN_TYPE_HARD_DECAL
 
-/obj/effect/decal/cleanable/cardboard/Initialize()
+/obj/effect/decal/cleanable/cardboard/Initialize(mapload)
 	. = ..()
 	icon_state = "cardboard[rand(1, 5)]"
 	var/matrix/M = matrix()

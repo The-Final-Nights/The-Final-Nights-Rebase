@@ -19,7 +19,7 @@
 	//plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 
-/obj/structure/sign/city/hotel/Initialize()
+/obj/structure/sign/city/hotel/Initialize(mapload)
 	. = ..()
 	set_light(3, 3, "#8e509e")
 	if(GLOB.winter)
@@ -37,7 +37,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
-/obj/structure/sign/city/millenium/Initialize()
+/obj/structure/sign/city/millenium/Initialize(mapload)
 	. = ..()
 	set_light(3, 3, "#4299bb")
 
@@ -50,7 +50,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
-/obj/structure/sign/city/anarch/Initialize()
+/obj/structure/sign/city/anarch/Initialize(mapload)
 	. = ..()
 	set_light(3, 3, "#ffffff")
 	if(GLOB.winter)
@@ -68,7 +68,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
-/obj/structure/sign/city/chinese/Initialize()
+/obj/structure/sign/city/chinese/Initialize(mapload)
 	. = ..()
 	if(GLOB.winter)
 		if(istype(get_area(src), /area/vtm))
@@ -93,7 +93,7 @@
 	pixel_w = -8
 	pixel_z = 32
 
-/obj/structure/sign/city/strip_club/Initialize()
+/obj/structure/sign/city/strip_club/Initialize(mapload)
 	. = ..()
 	set_light(3, 2, "#8e509e")
 
@@ -106,7 +106,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
-/obj/structure/sign/city/cabaret_sign/Initialize()
+/obj/structure/sign/city/cabaret_sign/Initialize(mapload)
 	. = ..()
 	set_light(3, 2, "#d98aec")
 
@@ -114,7 +114,7 @@
 	icon_state = "et"
 
 /obj/structure/sign/city/store
-	icon = 'modular_darkpack/modules/deprecated/icons/fastfood.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/store_sign.dmi'
 	icon_state = "bacotell"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
