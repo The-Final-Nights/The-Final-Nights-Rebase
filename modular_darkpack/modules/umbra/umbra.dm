@@ -1,6 +1,3 @@
-/turf
-	var/umbra = FALSE
-
 /turf/open/floor/plating/umbra
 	gender = PLURAL
 	name = "nothing"

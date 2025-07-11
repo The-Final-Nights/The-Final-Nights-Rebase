@@ -49,7 +49,7 @@
 	if (in_frenzy)
 		return
 
-	SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sound/frenzy.ogg', 0, 0, 50))
+	SEND_SOUND(src, sound('modular_darkpack/modules/frenzy/frenzy.ogg', 0, 0, 50))
 	in_frenzy = TRUE
 	add_client_colour(/datum/client_colour/glass_colour/red)
 	demon_chi = 0
