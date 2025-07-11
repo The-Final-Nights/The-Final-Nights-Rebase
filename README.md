@@ -14,9 +14,9 @@ We are based on the Paradox Interactive World of Darkness(c) gamelines, with adm
 
 ## DOWNLOADING
 
-[Downloading](.github/DOWNLOADING.md)
+[Downloading](.github/guides/DOWNLOADING.md)
 
-[Running on the server](.github/RUNNING_A_SERVER.md)
+[Running a server](.github/guides/RUNNING_A_SERVER.md)
 
 ## Compilation
 
