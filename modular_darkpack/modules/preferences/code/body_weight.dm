@@ -6,7 +6,7 @@
 	main_feature_name = "Weight"
 	should_generate_icons = TRUE
 
-	var/list/options_to_sprites = list(
+	var/static/list/options_to_sprites = list(
 		"Slim" = SLIM_BODY_WEIGHT,
 		"Average" = AVERAGE_BODY_WEIGHT,
 		"Fat" = FAT_BODY_WEIGHT

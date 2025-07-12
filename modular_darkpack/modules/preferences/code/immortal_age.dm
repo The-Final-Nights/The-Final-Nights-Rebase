@@ -4,6 +4,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	priority = PREFERENCE_PRIORITY_TABLETOP
 	relevant_inherent_trait = TRAIT_UNAGING
+	must_have_relevant_trait = TRUE
 
 	minimum = 0
 	maximum = 1000

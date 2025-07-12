@@ -5,6 +5,7 @@
 	priority = PREFERENCE_PRIORITY_WORLD_OF_DARKNESS
 	main_feature_name = "Bloodline"
 	relevant_inherent_trait = TRAIT_VTM_CLANS
+	must_have_relevant_trait = TRUE
 	should_generate_icons = TRUE
 
 /datum/preference/choiced/vampire_clan/init_possible_values()
@@ -24,6 +25,7 @@
 	priority = PREFERENCE_PRIORITY_WORLD_OF_DARKNESS
 	main_feature_name = "Path"
 	relevant_inherent_trait = TRAIT_VTM_MORALITY
+	must_have_relevant_trait = TRUE
 	can_randomize = FALSE
 
 /datum/preference/choiced/vtm_morality/create_default_value()
@@ -33,8 +35,6 @@
 	return list("Humanity", "Enlightenment")
 
 /datum/preference/choiced/vtm_morality/apply_to_human(mob/living/carbon/human/target, value)
-	if (!iskindred(target))
-		return
 	if (value != "Enlightenment")
 		return
 
