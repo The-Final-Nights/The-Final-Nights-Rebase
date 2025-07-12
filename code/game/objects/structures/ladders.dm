@@ -18,6 +18,10 @@
 
 /obj/structure/ladder/Initialize(mapload, obj/structure/ladder/up, obj/structure/ladder/down)
 	..()
+	// DARKPACK EDIT ADDITION START - Manholes
+	if(!mapload)
+		requires_friend = FALSE
+	// DARKPACK EDIT ADDITION END - Manholes
 	GLOB.ladders += src
 	if(up)
 		link_up(up)
