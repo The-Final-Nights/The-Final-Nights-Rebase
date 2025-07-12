@@ -41,6 +41,7 @@
 	var/enlightenment
 	COOLDOWN_DECLARE(torpor_timer)
 
+/*
 /datum/species/human/kindred/on_species_gain(mob/living/carbon/human/new_kindred, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
 
@@ -105,6 +106,7 @@
 	for (var/datum/action/A in human.actions)
 		if (A.vampiric)
 			A.Remove(human)
+*/
 
 /datum/species/human/kindred/proc/damage_resistance(datum/source, list/damage_mods, damage_amount, damagetype, def_zone, sharpness, attack_direction, obj/item/attacking_item)
 	SIGNAL_HANDLER
