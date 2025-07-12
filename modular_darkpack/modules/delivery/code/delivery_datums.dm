@@ -83,11 +83,9 @@
 	var/final_payout = round((payout_quota / contract_takers.len),1)
 	broadcast_to_holders("<b>Delivery Complete.</b> <b>[final_payout]</b> paid to the accounts of all participants.")
 	for(var/mob/living/carbon/human/payee in contract_takers)
-		var/datum/bank_account/payee_account
-		var/p_bank_id = payee.account_id
-		var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[p_bank_id]"]
-		if(account)
-			payee_account = account
+		if(!payee.account_id)
+			continue
+		var/datum/bank_account/payee_account = SSeconomy.bank_accounts_by_id["[payee.account_id]"]
 		payee_account.account_balance += final_payout
 
 
