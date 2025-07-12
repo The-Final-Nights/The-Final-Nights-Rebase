@@ -48,7 +48,10 @@
 	var/list/data = list()
 	var/list/accounts = list()
 
-	for(var/datum/bank_account/account in GLOB.bank_account_list)
+	for(var/account_id in SSeconomy.bank_accounts_by_id)
+		var/datum/bank_account/account = SSeconomy.bank_accounts_by_id[account_id]
+		if(!account)
+			continue
 		if(account && account.account_holder)
 			accounts += list(
 				list("account_holder" = account.account_holder
@@ -67,10 +70,10 @@
 	data["atm_balance"] = atm_balance
 	data["bank_account_list"] = json_encode(accounts)
 	if(current_card)
-		data["account_balance"] = current_card.account.account_balance
-		data["account_holder"] = current_card.account.account_holder
-		data["account_id"] = current_card.account.account_id
-		data["bank_pin"] = current_card.account.bank_pin
+		data["account_balance"] = current_card.registered_account.account_balance
+		data["account_holder"] = current_card.registered_account.account_holder
+		data["account_id"] = current_card.registered_account.account_id
+		data["bank_pin"] = current_card.registered_account.bank_pin
 	else
 		data["account_balance"] = 0
 		data["account_holder"] = ""
@@ -85,7 +88,7 @@
 		return
 	switch(action)
 		if("login")
-			if(params["bank_pin"] == current_card.account.bank_pin)
+			if(params["bank_pin"] == current_card.registered_account.bank_pin)
 				logged_in = TRUE
 				return TRUE
 			else
@@ -99,7 +102,7 @@
 			var/amount = text2num(params["withdraw_amount"])
 			if(amount != round(amount))
 				to_chat(usr, "<span class='notice'>Withdraw amount must be a round number.")
-			else if(current_card.account.account_balance < amount)
+			else if(current_card.registered_account.account_balance < amount)
 				to_chat(usr, "<span class='notice'>Insufficient funds.</span>")
 			else
 				while(amount > 0)
@@ -109,7 +112,7 @@
 					to_chat(usr, "<span class='notice'>You have withdrawn [drop_amount] dollars.</span>")
 					try_put_in_hand(cash, usr)
 					amount -= drop_amount
-					current_card.account.account_balance -= drop_amount
+					current_card.registered_account.account_balance -= drop_amount
 			return TRUE
 		if("transfer")
 			var/amount = text2num(params["transfer_amount"])
@@ -122,32 +125,28 @@
 				to_chat(usr, "<span class='notice'>Invalid target account ID.</span>")
 				return FALSE
 
-			var/datum/bank_account/target_account = null
-			for(var/datum/bank_account/account in GLOB.bank_account_list)
-				if(account.account_holder == target_account_id)
-					target_account = account
-					break
+			var/datum/bank_account/target_account = SSeconomy.bank_accounts_by_id[target_account_id]
 
 			if(!target_account)
 				to_chat(usr, "<span class='notice'>Invalid target account.</span>")
 				return FALSE
-			if(current_card.account.account_balance < amount)
+			if(current_card.registered_account.account_balance < amount)
 				to_chat(usr, "<span class='notice'>Insufficient funds.</span>")
 				return FALSE
 
-			current_card.account.account_balance -= amount
+			current_card.registered_account.account_balance -= amount
 			target_account.account_balance += amount
 			to_chat(usr, "<span class='notice'>You have transferred [amount] dollars to account [target_account.account_holder].</span>")
 			return TRUE
 
 		if("change_pin")
 			var/new_pin = params["new_pin"]
-			current_card.account.bank_pin = new_pin
+			current_card.registered_account.bank_pin = new_pin
 			return TRUE
 		if("deposit")
 			if(atm_balance > 0)
-				current_card.account.account_balance += atm_balance
-				to_chat(usr, "<span class='notice'>You have deposited [atm_balance] dollars into your card. Your new account_balance is [current_card.account.account_balance] dollars.</span>")
+				current_card.registered_account.account_balance += atm_balance
+				to_chat(usr, "<span class='notice'>You have deposited [atm_balance] dollars into your card. Your new account_balance is [current_card.registered_account.account_balance] dollars.</span>")
 				atm_balance = 0
 				return TRUE
 

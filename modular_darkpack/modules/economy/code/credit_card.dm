@@ -14,10 +14,11 @@
 
 	var/registered_name
 	var/datum/bank_account/registered_account
+	var/has_checked = FALSE
 	var/min_starting_wealth = 600
 	var/max_starting_wealth = 1000
 
-obj/item/card/credit/prince
+/obj/item/card/credit/prince
 	icon_state = "card2"
 	inhand_icon_state = "card2"
 	min_starting_wealth = 10000
@@ -77,8 +78,8 @@ obj/item/card/credit/prince
 		if(card && card.has_checked == FALSE)
 			for(var/obj/item/card/credit/caard in b.contents)
 				if(caard)
-					H.account_id = caard.account.account_id
-					caard.account.account_holder = H.true_real_name
+					H.account_id = caard.registered_account.account_id
+					caard.registered_account.account_holder = H.true_real_name
 					caard.has_checked = TRUE
 
 

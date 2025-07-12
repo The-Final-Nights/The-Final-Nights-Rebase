@@ -85,10 +85,9 @@
 	for(var/mob/living/carbon/human/payee in contract_takers)
 		var/datum/bank_account/payee_account
 		var/p_bank_id = payee.account_id
-		for(var/datum/bank_account/account in GLOB.bank_account_list)
-			if(p_bank_id == account.account_id)
-				payee_account = account
-				break
+		var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[p_bank_id]"]
+		if(account)
+			payee_account = account
 		payee_account.account_balance += final_payout
 
 
