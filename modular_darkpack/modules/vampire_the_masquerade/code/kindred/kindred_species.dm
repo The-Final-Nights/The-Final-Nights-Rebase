@@ -88,6 +88,7 @@
 
 	human.set_clan()
 
+	UnregisterSignal(human, COMSIG_CARBON_LOSE_ORGAN)
 	UnregisterSignal(human, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION))
 	UnregisterSignal(human, COMSIG_MOB_VAMPIRE_SUCKED)
 	UnregisterSignal(human, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
