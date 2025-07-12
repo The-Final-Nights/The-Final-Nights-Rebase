@@ -92,7 +92,7 @@
 				if(incapacitated(TRUE, TRUE) && blocking)
 					SwitchBlocking()
 				return
-	..()
+	. = ..()
 
 /mob/living/carbon/human/attack_hand(mob/user)
 	if(getStaminaLoss() >= 50 && blocking)
@@ -114,7 +114,7 @@
 		if(incapacitated(TRUE, TRUE) && blocking)
 			SwitchBlocking()
 		return
-	..()
+	. = ..()
 
 /mob/living/carbon/human/proc/Parry(mob/M)
 	if(!pulledby && !parrying && world.time-parry_cd >= 30 && M != src)

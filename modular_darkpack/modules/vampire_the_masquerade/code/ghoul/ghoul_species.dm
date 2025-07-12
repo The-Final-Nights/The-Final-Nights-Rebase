@@ -136,7 +136,7 @@
 		onclose(host, "ghoul", src)
 
 /datum/species/ghoul/on_species_gain(mob/living/carbon/human/C)
-	..()
+	. = ..()
 	C.update_body(0)
 	C.last_experience = world.time+3000
 	var/datum/action/ghoulinfo/infor = new()

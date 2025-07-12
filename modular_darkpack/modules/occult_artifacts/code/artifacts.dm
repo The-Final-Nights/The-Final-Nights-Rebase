@@ -1,12 +1,12 @@
 /obj/item/vtm_artifact/pickup(mob/user)
-	..()
+	. = ..()
 	if(identified)
 		owner = user
 		START_PROCESSING(SSobj, src)
 		get_powers()
 
 /obj/item/vtm_artifact/dropped(mob/user)
-	..()
+	. = ..()
 	if(identified)
 		if(isturf(loc))
 			STOP_PROCESSING(SSobj, src)
@@ -56,13 +56,13 @@
 	icon_state = "w_thistle"
 
 /obj/item/vtm_artifact/weekapaug_thistle/get_powers()
-	..()
+	. = ..()
 	var/mob/living/carbon/human/H = owner
 	H.physiology.armor.melee = H.physiology.armor.melee+10
 	H.physiology.armor.bullet = H.physiology.armor.bullet+10
 
 /obj/item/vtm_artifact/weekapaug_thistle/remove_powers()
-	..()
+	. = ..()
 	var/mob/living/carbon/human/H = owner
 	H.physiology.armor.melee = H.physiology.armor.melee-10
 	H.physiology.armor.bullet = H.physiology.armor.bullet-10
@@ -73,11 +73,11 @@
 	icon_state = "tarulfang"
 
 /obj/item/vtm_artifact/weekapaug_thistle/get_powers()
-	..()
+	. = ..()
 	owner.frenzy_chance_boost = 5
 
 /obj/item/vtm_artifact/weekapaug_thistle/remove_powers()
-	..()
+	. = ..()
 	owner.frenzy_chance_boost = 10
 
 /obj/item/vtm_artifact/mummywrap_fetish
@@ -100,11 +100,11 @@
 	icon_state = "saulocept"
 
 /obj/item/vtm_artifact/saulocept/get_powers()
-	..()
+	. = ..()
 	owner.experience_plus = 10
 
 /obj/item/vtm_artifact/saulocept/remove_powers()
-	..()
+	. = ..()
 	owner.experience_plus = 0
 
 /obj/item/vtm_artifact/galdjum
@@ -113,11 +113,11 @@
 	icon_state = "galdjum"
 
 /obj/item/vtm_artifact/galdjum/get_powers()
-	..()
+	. = ..()
 	owner.discipline_time_plus = 25
 
 /obj/item/vtm_artifact/galdjum/remove_powers()
-	..()
+	. = ..()
 	owner.discipline_time_plus = 0
 
 /datum/movespeed_modifier/fae_charm
@@ -129,11 +129,11 @@
 	icon_state = "fae_charm"
 
 /obj/item/vtm_artifact/fae_charm/get_powers()
-	..()
+	. = ..()
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/fae_charm)
 
 /obj/item/vtm_artifact/fae_charm/remove_powers()
-	..()
+	. = ..()
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/fae_charm)
 
 /obj/item/vtm_artifact/heart_of_eliza
@@ -142,13 +142,13 @@
 	icon_state = "h_eliza"
 
 /obj/item/vtm_artifact/heart_of_eliza/get_powers()
-	..()
+	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna)
 		H.dna.species.meleemod = H.dna.species.meleemod+0.5
 
 /obj/item/vtm_artifact/heart_of_eliza/remove_powers()
-	..()
+	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna)
 		H.dna.species.meleemod = H.dna.species.meleemod-0.5
@@ -159,11 +159,11 @@
 	icon_state = "bloodstar"
 
 /obj/item/vtm_artifact/bloodstar/get_powers()
-	..()
+	. = ..()
 	owner.bloodpower_time_plus = 50
 
 /obj/item/vtm_artifact/bloodstar/remove_powers()
-	..()
+	. = ..()
 	owner.bloodpower_time_plus = 0
 
 /obj/item/vtm_artifact/daimonori
@@ -172,11 +172,11 @@
 	icon_state = "daimonori"
 
 /obj/item/vtm_artifact/daimonori/get_powers()
-	..()
+	. = ..()
 	owner.thaum_damage_plus = 20
 
 /obj/item/vtm_artifact/daimonori/remove_powers()
-	..()
+	. = ..()
 	owner.thaum_damage_plus = 0
 
 /obj/item/vtm_artifact/key_of_alamut
@@ -185,7 +185,7 @@
 	icon_state = "k_alamut"
 
 /obj/item/vtm_artifact/key_of_alamut/get_powers()
-	..()
+	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna.species.brutemod == 0.3)
 		return
@@ -194,7 +194,7 @@
 		H.dna.species.burnmod = H.dna.species.burnmod-0.2
 
 /obj/item/vtm_artifact/key_of_alamut/remove_powers()
-	..()
+	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna.species.brutemod == 0.5)
 		return

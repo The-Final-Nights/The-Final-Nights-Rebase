@@ -16,7 +16,7 @@
 	if(selling_component.illegal == black_market)
 		sell_one_item(W, user)
 	else
-		..()
+		. = ..()
 
 /obj/lombard/proc/sell_one_item(obj/item/sold, mob/living/user)
 	var/datum/component/selling/sold_sc = sold.GetComponent(/datum/component/selling)
@@ -75,7 +75,7 @@
 
 //Click-dragging to the vendor to mass-sell a certain type of item
 /obj/lombard/MouseDrop_T(obj/item/sold, mob/living/user)
-	..()
+	. = ..()
 	if(!istype(sold))
 		return
 	var/datum/component/selling/sold_sc = sold.GetComponent(/datum/component/selling)

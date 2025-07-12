@@ -158,7 +158,7 @@ SUBSYSTEM_DEF(die_in_a_fire)
 			icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 
 /turf/open/floor/Initialize(mapload)
-	..()
+	. = ..()
 	if(istype(get_area(src), /area/vtm))
 		var/area/vtm/V = get_area(src)
 		if(!V.upper)

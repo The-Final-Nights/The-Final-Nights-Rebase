@@ -60,7 +60,7 @@
 				complete()
 
 /obj/abyssrune/AltClick(mob/user)
-	..()
+	. = ..()
 	qdel(src)
 
 /obj/abyssrune/selfgib
