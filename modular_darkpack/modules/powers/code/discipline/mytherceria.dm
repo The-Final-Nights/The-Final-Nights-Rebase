@@ -91,7 +91,7 @@
 /obj/item/clothing/mask/facehugger/kiasyd
 	name = "goblin"
 	desc = "A green changeling creature."
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
 	icon_state = "goblin"
 	sterile = TRUE

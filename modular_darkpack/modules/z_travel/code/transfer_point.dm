@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(unallocted_transfer_points)
+
 /obj/transfer_point_vamp
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "matrix_go"
@@ -13,10 +15,22 @@
 /obj/transfer_point_vamp/Initialize(mapload)
 	. = ..()
 	if(!exit)
-		for(var/obj/transfer_point_vamp/T in world)
+		GLOB.unallocted_transfer_points += src
+		for(var/obj/transfer_point_vamp/T in GLOB.unallocted_transfer_points)
 			if(T.id == id && T != src)
 				exit = T
+				GLOB.unallocted_transfer_points -= T
 				T.exit = src
+				GLOB.unallocted_transfer_points -= src
+				break
+
+/obj/transfer_point_vamp/Destroy(force)
+	// Clear the refernce to ourselves to prevent hard del
+	if(exit)
+		exit.exit = null
+
+	GLOB.unallocted_transfer_points -= src
+	return ..()
 
 /obj/transfer_point_vamp/backrooms
 	id = "backrooms"

@@ -2,7 +2,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	can_suppress = FALSE
 	recoil = 2
@@ -11,7 +11,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	can_suppress = FALSE
 	recoil = 2
@@ -133,7 +133,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "deagle"
 	ammo_type = /obj/item/ammo_casing/vampire/c44
@@ -175,7 +175,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "deagle"
 	ammo_type = /obj/item/ammo_casing/vampire/c50
@@ -197,7 +197,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "m1911"
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp
@@ -238,7 +238,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "glock19"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
@@ -279,7 +279,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "glock21"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
@@ -362,7 +362,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "semi9mm"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
@@ -379,7 +379,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "uzi"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
@@ -412,7 +412,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "mp5"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
@@ -445,7 +445,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "rifle"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm
@@ -507,7 +507,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "ak"
 	ammo_type = /obj/item/ammo_casing/vampire/c545mm
@@ -543,7 +543,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "aug"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm
@@ -580,7 +580,7 @@
 	icon_state = "thompson"
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp
 	caliber = CALIBER_45
@@ -666,7 +666,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	icon_state = "pomp"
@@ -686,7 +686,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "spas15"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g/buck

@@ -124,9 +124,6 @@
 		if (istype(discipline, searched_discipline))
 			return discipline
 
-/datum/species/human/kindred/check_roundstart_eligible()
-	return TRUE
-
 /**
  * Signal handler for lose_organ to near-instantly kill Kindred whose hearts have been removed.
  *
@@ -348,3 +345,6 @@
 			return "vamp11"
 		else
 			return value
+
+/mob/living/carbon/human/species/kindred
+	race = /datum/species/human/kindred

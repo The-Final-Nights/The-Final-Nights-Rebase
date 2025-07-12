@@ -76,7 +76,8 @@
 
 /**
  * Assigns the Discipline to a mob, setting its owner and applying
- * post_gain effects.
+ * post_gain effects while also setting up reference cleaning when
+ * the owner is destroyed.
  *
  * Arguments:
  * * owner - the mob to assign the Discipline to
@@ -89,6 +90,25 @@
 	if (!post_gain_applied)
 		post_gain()
 	post_gain_applied = TRUE
+
+	// Destroy self and contained powers when owner is destroyed
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_owner_destroy))
+
+/**
+ * When the Discipline's owner is destroyed, this deletes all
+ * contained powers, clears out references to the destroyed owner,
+ * and then deletes itself.
+ */
+/datum/discipline/proc/on_owner_destroy(mob/living/source, force)
+	SIGNAL_HANDLER
+
+	// Clear out Discipline powers
+	current_power = null
+	QDEL_LIST(known_powers)
+
+	// Destroy self when owner is destroyed
+	owner = null
+	qdel(src)
 
 /**
  * Returns a known Discipline power in this Discipline

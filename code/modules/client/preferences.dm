@@ -506,10 +506,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if (preference.savefile_identifier != PREFERENCE_CHARACTER)
 			continue
 		// DARKPACK EDIT ADDITION START - TTRPG preferences
-		// It's useful to not have this for rare uses of species DNA, but not for our purposes
-		// Checks for /client to exclude /datum/client_interface
-		if (istype(parent, /client) && !preference.is_accessible(src))
-			continue
+		// Preferences with must_have_relevant_trait are skipped for characters who
+		// don't have the relevant trait.
+		if (preference.must_have_relevant_trait && preference.relevant_inherent_trait)
+			if (!HAS_TRAIT(character, preference.relevant_inherent_trait))
+				continue
 		// DARKPACK EDIT ADDITION END - TTRPG preferences
 
 		preference.apply_to_human(character, read_preference(preference.type))

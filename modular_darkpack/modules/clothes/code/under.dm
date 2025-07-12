@@ -4,8 +4,8 @@
 	has_sensor = NO_SENSORS
 	random_sensor = FALSE
 	can_adjust = FALSE
-	icon = 'modular_darkpack/modules/deprecated/icons/clothing.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	icon = 'modular_darkpack/modules/clothes/icons/clothing.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	female_sprite_flags = NO_FEMALE_UNIFORM
 

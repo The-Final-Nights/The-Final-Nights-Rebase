@@ -2,7 +2,7 @@
 	name = "\improper wrist watch"
 	desc = "A portable device to check time."
 	icon = 'modular_darkpack/modules/deprecated/icons/clock.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	icon_state = "watch"
 	worn_icon_state = "watch"
 	item_flags = NOBLUDGEON

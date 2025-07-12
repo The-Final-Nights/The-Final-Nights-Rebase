@@ -1,5 +1,6 @@
 /obj/structure/ladder/manhole
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon_state = "manhole"
 	plane = GAME_PLANE
 	layer = ABOVE_NORMAL_TURF_LAYER
 	anchored = TRUE
