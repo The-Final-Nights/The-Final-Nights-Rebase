@@ -551,10 +551,10 @@
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		. += "-[human_owner.mob_height]"
-	// Start WoD13 Modification
+	// DARKPACK EDIT ADDITION START - Body weight sprites
 	if (body_weight)
 		. += "-[body_weight]"
-	// End WoD13 Modification
+	// DARKPACK EDIT ADDITION END - Body weight sprites
 	return .
 
 ///Generates a cache key specifically for husks

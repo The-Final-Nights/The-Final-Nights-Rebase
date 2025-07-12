@@ -505,12 +505,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
 		if (preference.savefile_identifier != PREFERENCE_CHARACTER)
 			continue
-		// Start WoD13 Modification
+		// DARKPACK EDIT ADDITION START - TTRPG preferences
 		// It's useful to not have this for rare uses of species DNA, but not for our purposes
 		// Checks for /client to exclude /datum/client_interface
 		if (istype(parent, /client) && !preference.is_accessible(src))
 			continue
-		// End WoD13 Modification
+		// DARKPACK EDIT ADDITION END - TTRPG preferences
 
 		preference.apply_to_human(character, read_preference(preference.type))
 

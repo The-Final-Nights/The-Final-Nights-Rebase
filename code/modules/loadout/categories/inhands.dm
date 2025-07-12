@@ -1,5 +1,4 @@
-// Start WoD13 Modification
-/*
+/* // DARKPACK EDIT REMOVAL START - Loadout categories
 /// Inhand items (Moves overrided items to backpack)
 /datum/loadout_category/inhands
 	category_name = "Inhand"
@@ -33,5 +32,4 @@
 /datum/loadout_item/inhand/briefcase_secure
 	name = "Briefcase (Secure)"
 	item_path = /obj/item/storage/briefcase/secure
-*/
-// End Wod13 Modification
+*/ // DARKPACK EDIT REMOVAL END - Loadout categories
