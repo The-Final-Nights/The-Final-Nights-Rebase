@@ -386,7 +386,7 @@
 	..()
 	icon_state = "decal[rand(1, 24)]"
 	update_icon()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -412,7 +412,7 @@
 	..()
 	icon_state = "[initial(icon_state)][rand(1, 3)]"
 	update_icon()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -428,7 +428,7 @@
 	..()
 	icon_state = "crosswalk[rand(1, 3)]"
 	update_icon()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -449,7 +449,7 @@
 
 /turf/open/floor/plating/asphalt/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -492,7 +492,7 @@
 
 /turf/open/floor/plating/sidewalkalt/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -521,7 +521,7 @@
 	. = ..()
 	icon_state = "[based_icon_state][rand(1, number_of_variations)]"
 	set_light(1, 0.5, "#a4b7ff")
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -560,7 +560,7 @@
 
 /turf/open/floor/plating/roofwalk/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -585,7 +585,7 @@
 
 /obj/effect/decal/bordur/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -708,7 +708,7 @@
 	..()
 	set_light(1, 0.5, "#a4b7ff")
 	icon_state = "grass[rand(1, 3)]"
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -785,7 +785,7 @@
 /turf/open/floor/plating/vampdirt/Initialize(mapload)
 	. = ..()
 	set_light(1, 0.5, "#a4b7ff")
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -801,7 +801,7 @@
 
 /turf/open/floor/plating/vampdirt/rails/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -1050,7 +1050,7 @@
 /turf/open/floor/plating/vampwood/Initialize(mapload)
 	..()
 	set_light(1, 0.5, "#a4b7ff")
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -1115,7 +1115,7 @@
 	..()
 	icon_state = "sand[rand(1, 4)]"
 	set_light(1, 0.5, "#a4b7ff")
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)

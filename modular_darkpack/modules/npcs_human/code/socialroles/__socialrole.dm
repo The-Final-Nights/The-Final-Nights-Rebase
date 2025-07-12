@@ -251,7 +251,7 @@
 	last_health = health
 
 	is_criminal = socialrole.is_criminal
-	if (GLOB.winter)
+	if (check_holidays(CHRISTMAS))
 		if (!length(socialrole.suits))
 			socialrole.suits = list(
 				/obj/item/clothing/suit/vampire/coat/winter,

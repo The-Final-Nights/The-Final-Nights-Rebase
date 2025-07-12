@@ -23,7 +23,7 @@
 
 /obj/structure/ladder/manhole/down/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)

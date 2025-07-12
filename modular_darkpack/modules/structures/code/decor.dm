@@ -66,7 +66,7 @@
 
 /obj/structure/lamppost/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -157,7 +157,7 @@
 
 /obj/structure/trafficlight/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -244,7 +244,7 @@
 	. = ..()
 	if(prob(25))
 		icon_state = "garbage_open"
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -276,7 +276,7 @@
 /obj/structure/hotelsign/Initialize(mapload)
 	. = ..()
 	set_light(3, 3, "#8e509e")
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -294,7 +294,7 @@
 
 /obj/structure/hotelbanner/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -325,7 +325,7 @@
 /obj/structure/anarchsign/Initialize(mapload)
 	. = ..()
 	set_light(3, 3, "#ffffff")
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -342,7 +342,7 @@
 
 /obj/structure/chinesesign/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -365,7 +365,7 @@
 
 /obj/structure/arc/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -408,7 +408,7 @@
 
 /obj/structure/hydrant/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -1279,7 +1279,7 @@
 
 /obj/structure/roofstuff/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -1341,7 +1341,7 @@
 /obj/structure/vamptree/Initialize(mapload)
 	. = ..()
 	icon_state = "tree[rand(1, 11)]"
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -1367,7 +1367,7 @@
 /obj/structure/vamptree/pine/Initialize(mapload)
 	. = ..()
 	icon_state = "pine[rand(1, 4)]"
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
