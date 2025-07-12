@@ -555,7 +555,7 @@
 		else
 			to_chat(src, span_warning("You are unable to succumb to death! This life continues."), type=MESSAGE_TYPE_INFO)
 			return
-	// Start WoD13 Modification
+	// DARKPACK EDIT CHANGE START - Torpor
 	if (HAS_TRAIT(src, TRAIT_CAN_ENTER_TORPOR) && !HAS_TRAIT(src, TRAIT_TORPOR))
 		log_message("Has [whispered ? "whispered his final words and" : ""]succumbed to Torpor with [round(health, 0.1)] points of health!", LOG_ATTACK)
 		adjustOxyLoss(health - HEALTH_THRESHOLD_DEAD)
@@ -572,7 +572,7 @@
 			to_chat(src, span_notice("You have given up life and succumbed to death."))
 		investigate_log("has succumbed to death.", INVESTIGATE_DEATHS)
 		death()
-	// End WoD13 Modification
+	// DARKPACK EDIT CHANGE END - Torpor
 
 // Remember, anything that influences this needs to call update_incapacitated somehow when it changes
 // Most often best done in [code/modules/mob/living/init_signals.dm]

@@ -741,7 +741,7 @@
 	if(HAS_TRAIT(src, TRAIT_GODMODE))
 		return
 	if(stat != DEAD)
-		// Start WoD13 Modification
+		// DARKPACK EDIT CHANGE START - Torpor
 		if(health <= HEALTH_THRESHOLD_DEAD)
 			if (HAS_TRAIT(src, TRAIT_CAN_ENTER_TORPOR) && (health > HEALTH_THRESHOLD_TORPOR_DEAD))
 				INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living, torpor))
@@ -749,7 +749,7 @@
 			else if (!HAS_TRAIT(src, TRAIT_NODEATH))
 				death()
 				return
-		// End WoD13 Modification
+		// DARKPACK EDIT CHANGE END - Torpor
 		if(HAS_TRAIT_FROM(src, TRAIT_DISSECTED, AUTOPSY_TRAIT))
 			REMOVE_TRAIT(src, TRAIT_DISSECTED, AUTOPSY_TRAIT)
 		if(health <= hardcrit_threshold && !HAS_TRAIT(src, TRAIT_NOHARDCRIT))

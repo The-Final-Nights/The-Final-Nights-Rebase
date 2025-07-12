@@ -127,15 +127,6 @@
 	/// Are shuttles allowed to dock in this area
 	var/allow_shuttle_docking = FALSE
 
-	// Start WoD13 Modification
-	var/fire_controled = FALSE
-	var/fire_controling = FALSE
-	//Chi stuff
-	var/yang_chi = 1
-	var/yin_chi = 1
-	var/wall_rating = VERY_HIGH_WALL_RATING
-	// End WoD13 Modification
-
 /**
  * A list of teleport locations
  *
