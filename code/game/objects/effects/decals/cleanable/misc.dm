@@ -360,12 +360,10 @@ GLOBAL_LIST_EMPTY(nebula_vomits)
 	icon_state = "donk_pinata_shreds"
 
 /obj/effect/decal/cleanable/garbage
-	// DARKPACK EDIT START
-	name = "trash bag"
-	desc = "Holds garbage inside."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "garbage1"
-	// DARKPACK END
+	name = "trash bag" // DARKPACK EDIT CHANGE, ORIGINAL: name = "decomposing garbage"
+	desc = "Holds garbage inside." // DARKPACK EDIT CHANGE, ORIGINAL: desc = "A split open garbage bag, its stinking content seems to be partially liquified. Yuck!"
+	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi' // DARKPACK EDIT CHANGE, ORIGINAL: icon = 'icons/obj/debris.dmi'
+	icon_state = "garbage1" // DARKPACK EDIT CHANGE, ORIGINAL: icon_state = "garbage"
 	plane = GAME_PLANE
 	layer = CLEANABLE_OBJECT_LAYER
 	beauty = -150
