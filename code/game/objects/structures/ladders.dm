@@ -219,7 +219,7 @@
 
 /obj/structure/ladder/update_icon_state()
 	// DARKPACK EDIT CHANGE START - Manholes
-	if(!static_apperance)
+	if(!static_appearance)
 		icon_state = "[base_icon_state][!!up][!!down]"
 	// DARKPACK EDIT CHANGE END - Manholes
 	return ..()

@@ -7,7 +7,7 @@
 	travel_time = 5 SECONDS
 	travel_sound = 'modular_darkpack/modules/deprecated/sounds/manhole.ogg'
 	requires_friend = TRUE
-	static_apperance = TRUE
+	static_appearance = TRUE
 
 /obj/structure/ladder/manhole/up
 	name = "ladder"
