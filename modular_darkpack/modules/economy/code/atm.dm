@@ -1,6 +1,6 @@
 /obj/machinery/vamp/atm
 	name = "ATM Machine"
-	desc = "Check your account_balance or make a transaction"
+	desc = "Check your balance or make a transaction"
 	icon = 'modular_darkpack/modules/economy/icons/atm.dmi'
 	icon_state = "atm"
 	plane = GAME_PLANE
@@ -107,8 +107,7 @@
 			else
 				while(amount > 0)
 					var/drop_amount = min(amount, 1000)
-					var/obj/item/stack/dollar/cash = new /obj/item/stack/dollar()
-					cash.amount = drop_amount
+					var/obj/item/stack/dollar/cash = new /obj/item/stack/dollar(loc, drop_amount)
 					to_chat(usr, "<span class='notice'>You have withdrawn [drop_amount] dollars.</span>")
 					try_put_in_hand(cash, usr)
 					amount -= drop_amount
