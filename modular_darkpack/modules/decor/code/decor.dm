@@ -523,7 +523,7 @@
 					var/mob/living/carbon/human/H = starter
 					H.AdjustHumanity(-1, 0)
 		L.gib()
-	..()
+	. = ..()
 
 /obj/cargocrate
 	name = "cargocrate"

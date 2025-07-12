@@ -5,7 +5,7 @@
 	mouse_opacity = 0
 
 /obj/effect/turf_decal/asphalt/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "decal[rand(1, 24)]"
 	update_icon()
 	if(check_holidays(CHRISTMAS))
@@ -32,7 +32,7 @@
 	icon_state = "line_alt"
 
 /obj/effect/turf_decal/asphaltline/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "[initial(icon_state)][rand(1, 3)]"
 	update_icon()
 	if(check_holidays(CHRISTMAS))
@@ -48,7 +48,7 @@
 	mouse_opacity = 0
 
 /obj/effect/turf_decal/crosswalk/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "crosswalk[rand(1, 3)]"
 	update_icon()
 	if(check_holidays(CHRISTMAS))
