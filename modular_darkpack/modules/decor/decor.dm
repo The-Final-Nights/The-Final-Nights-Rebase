@@ -63,7 +63,7 @@
 
 /obj/structure/lamppost/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -153,7 +153,7 @@
 
 /obj/structure/trafficlight/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -213,7 +213,7 @@
 
 /obj/structure/hotelbanner/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -229,7 +229,7 @@
 
 /obj/structure/arc/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -269,7 +269,7 @@
 
 /obj/structure/hydrant/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -324,7 +324,7 @@
 			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 			s.set_up(5, 1, get_turf(src))
 			s.start()
-			playsound(loc, 'modular_darkpack/modules/deprecated/sound/explode.ogg', 100, TRUE)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/explode.ogg', 100, TRUE)
 			qdel(src)
 
 /obj/machinery/light/prince/broken
@@ -551,7 +551,7 @@
 			var/money_to_spend = round(gas_to_dispense/20)
 			G.stored_gasoline = min(1000, G.stored_gasoline+gas_to_dispense)
 			stored_money = max(0, stored_money-money_to_spend)
-			playsound(loc, 'modular_darkpack/modules/deprecated/sound/gas_fill.ogg', 50, TRUE)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 50, TRUE)
 			to_chat(user, "<span class='notice'>You fill [I].</span>")
 			say("Gas filled.")
 
@@ -895,7 +895,7 @@
 
 /obj/structure/roofstuff/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -956,7 +956,7 @@
 /obj/structure/vamptree/Initialize(mapload)
 	. = ..()
 	icon_state = "tree[rand(1, 11)]"
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -981,7 +981,7 @@
 /obj/structure/vamptree/pine/Initialize(mapload)
 	. = ..()
 	icon_state = "pine[rand(1, 4)]"
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)

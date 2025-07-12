@@ -92,10 +92,6 @@
 	///30 seconds by default, so there's no major changes to AI behaviour, beyond actually bailing if stuck forever
 	var/lose_patience_timeout = 300
 
-	// Start WoD13 Modification
-	var/mob/living/carbon/human/my_creator
-	// End WoD13 Modification
-
 /mob/living/simple_animal/hostile/Initialize(mapload)
 	. = ..()
 	wanted_objects = typecacheof(wanted_objects)

@@ -8,7 +8,7 @@
 	..()
 	icon_state = "decal[rand(1, 24)]"
 	update_icon()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -35,7 +35,7 @@
 	..()
 	icon_state = "[initial(icon_state)][rand(1, 3)]"
 	update_icon()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -51,7 +51,7 @@
 	..()
 	icon_state = "crosswalk[rand(1, 3)]"
 	update_icon()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
@@ -71,7 +71,7 @@
 
 /obj/effect/turf_decal/bordur/Initialize(mapload)
 	. = ..()
-	if(GLOB.winter)
+	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
