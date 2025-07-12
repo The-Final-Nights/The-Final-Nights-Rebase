@@ -1,4 +1,4 @@
-/obj/item/Initialize()
+/obj/item/Initialize(mapload)
 	. = ..()
 
 	// Add element for swapping icon to onfloor_icon and back

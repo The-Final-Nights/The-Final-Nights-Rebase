@@ -83,7 +83,7 @@
 		Stun(20)
 	shake_camera(src, 5, 4)
 
-/mob/living/carbon/werewolf/Initialize()
+/mob/living/carbon/werewolf/Initialize(mapload)
 	var/datum/action/gift/rage_heal/GH = new()
 	GH.Grant(src)
 	add_verb(src, /mob/living/proc/mob_sleep)
@@ -215,13 +215,13 @@
 /datum/movespeed_modifier/silver_slowdown
 	multiplicative_slowdown = 0.3
 
-/mob/living/carbon/werewolf/crinos/Initialize()
+/mob/living/carbon/werewolf/crinos/Initialize(mapload)
 	. = ..()
 	var/datum/action/change_apparel/A = new()
 	A.Grant(src)
 //	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_CLAW, 0.5, -11)
 
-/mob/living/carbon/werewolf/lupus/Initialize()
+/mob/living/carbon/werewolf/lupus/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_CLAW, 0.5, -11)
 	var/datum/action/gift/hispo/hispo = new()

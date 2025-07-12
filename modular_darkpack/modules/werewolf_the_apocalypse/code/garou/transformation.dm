@@ -6,7 +6,7 @@
 	var/transformating = FALSE
 	var/given_quirks = FALSE
 
-/obj/werewolf_holder/transformation/Initialize()
+/obj/werewolf_holder/transformation/Initialize(mapload)
 	. = ..()
 	crinos_form = new()
 	crinos_form.transformator = src
