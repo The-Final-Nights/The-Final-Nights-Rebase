@@ -350,3 +350,6 @@
 			return "vamp11"
 		else
 			return value
+
+/mob/living/carbon/human/species/kindred
+	race = /datum/species/human/kindred
