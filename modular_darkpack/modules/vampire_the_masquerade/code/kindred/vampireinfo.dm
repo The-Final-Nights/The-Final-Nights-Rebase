@@ -41,7 +41,7 @@
 			if(host.mind.enslaved_to)
 				dat += "<p>My Regnant is [host.mind.enslaved_to], I should obey their wants.</p>"
 		for(var/datum/bank_account/account in GLOB.bank_account_list)
-			if(host.bank_id == account.bank_id)
+			if(host.account_id == account.account_id)
 				dat += "<p>My bank account code is: [account.code]</b></p>"
 				break
 		var/obj/keypad/armory/armory = find_keypad(/obj/keypad/armory)

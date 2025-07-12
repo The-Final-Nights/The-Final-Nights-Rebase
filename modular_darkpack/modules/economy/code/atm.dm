@@ -1,6 +1,6 @@
 /obj/machinery/vamp/atm
 	name = "ATM Machine"
-	desc = "Check your balance or make a transaction"
+	desc = "Check your account_balance or make a transaction"
 	icon = 'modular_darkpack/modules/economy/icons/atm.dmi'
 	icon_state = "atm"
 	plane = GAME_PLANE
@@ -43,20 +43,21 @@
 		ui = new(user, src, "Atm", name)
 		ui.open()
 
+#warn need to port and update the tgui to use new vars
 /obj/machinery/vamp/atm/ui_data(mob/user)
 	var/list/data = list()
 	var/list/accounts = list()
 
 	for(var/datum/bank_account/account in GLOB.bank_account_list)
-		if(account && account.account_owner)
+		if(account && account.account_holder)
 			accounts += list(
-				list("account_owner" = account.account_owner
+				list("account_holder" = account.account_holder
 				)
 			)
 		else
 			accounts += list(
 				list(
-					"account_owner" = "Unnamed Account"
+					"account_holder" = "Unnamed Account"
 				)
 			)
 
@@ -66,15 +67,15 @@
 	data["atm_balance"] = atm_balance
 	data["bank_account_list"] = json_encode(accounts)
 	if(current_card)
-		data["balance"] = current_card.account.balance
-		data["account_owner"] = current_card.account.account_owner
-		data["bank_id"] = current_card.account.bank_id
-		data["code"] = current_card.account.code
+		data["account_balance"] = current_card.account.account_balance
+		data["account_holder"] = current_card.account.account_holder
+		data["account_id"] = current_card.account.account_id
+		data["bank_pin"] = current_card.account.bank_pin
 	else
-		data["balance"] = 0
-		data["account_owner"] = ""
-		data["bank_id"] = ""
-		data["code"] = ""
+		data["account_balance"] = 0
+		data["account_holder"] = ""
+		data["account_id"] = ""
+		data["bank_pin"] = ""
 
 	return data
 
@@ -84,7 +85,7 @@
 		return
 	switch(action)
 		if("login")
-			if(params["code"] == current_card.account.code)
+			if(params["bank_pin"] == current_card.account.bank_pin)
 				logged_in = TRUE
 				return TRUE
 			else
@@ -98,7 +99,7 @@
 			var/amount = text2num(params["withdraw_amount"])
 			if(amount != round(amount))
 				to_chat(usr, "<span class='notice'>Withdraw amount must be a round number.")
-			else if(current_card.account.balance < amount)
+			else if(current_card.account.account_balance < amount)
 				to_chat(usr, "<span class='notice'>Insufficient funds.</span>")
 			else
 				while(amount > 0)
@@ -108,7 +109,7 @@
 					to_chat(usr, "<span class='notice'>You have withdrawn [drop_amount] dollars.</span>")
 					try_put_in_hand(cash, usr)
 					amount -= drop_amount
-					current_card.account.balance -= drop_amount
+					current_card.account.account_balance -= drop_amount
 			return TRUE
 		if("transfer")
 			var/amount = text2num(params["transfer_amount"])
@@ -123,30 +124,30 @@
 
 			var/datum/bank_account/target_account = null
 			for(var/datum/bank_account/account in GLOB.bank_account_list)
-				if(account.account_owner == target_account_id)
+				if(account.account_holder == target_account_id)
 					target_account = account
 					break
 
 			if(!target_account)
 				to_chat(usr, "<span class='notice'>Invalid target account.</span>")
 				return FALSE
-			if(current_card.account.balance < amount)
+			if(current_card.account.account_balance < amount)
 				to_chat(usr, "<span class='notice'>Insufficient funds.</span>")
 				return FALSE
 
-			current_card.account.balance -= amount
-			target_account.balance += amount
-			to_chat(usr, "<span class='notice'>You have transferred [amount] dollars to account [target_account.account_owner].</span>")
+			current_card.account.account_balance -= amount
+			target_account.account_balance += amount
+			to_chat(usr, "<span class='notice'>You have transferred [amount] dollars to account [target_account.account_holder].</span>")
 			return TRUE
 
 		if("change_pin")
 			var/new_pin = params["new_pin"]
-			current_card.account.code = new_pin
+			current_card.account.bank_pin = new_pin
 			return TRUE
 		if("deposit")
 			if(atm_balance > 0)
-				current_card.account.balance += atm_balance
-				to_chat(usr, "<span class='notice'>You have deposited [atm_balance] dollars into your card. Your new balance is [current_card.account.balance] dollars.</span>")
+				current_card.account.account_balance += atm_balance
+				to_chat(usr, "<span class='notice'>You have deposited [atm_balance] dollars into your card. Your new account_balance is [current_card.account.account_balance] dollars.</span>")
 				atm_balance = 0
 				return TRUE
 
@@ -175,7 +176,7 @@
 
 /obj/machinery/vamp/atm/ui_data(mob/user)
 	var/list/data = list()
-//	data["balance"] = balance
+//	data["account_balance"] = account_balance
 	data["atm_balance"] = atm_balance
 
 	return data

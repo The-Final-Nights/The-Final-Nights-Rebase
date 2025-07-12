@@ -84,12 +84,12 @@
 	broadcast_to_holders("<b>Delivery Complete.</b> <b>[final_payout]</b> paid to the accounts of all participants.")
 	for(var/mob/living/carbon/human/payee in contract_takers)
 		var/datum/bank_account/payee_account
-		var/p_bank_id = payee.bank_id
+		var/p_bank_id = payee.account_id
 		for(var/datum/bank_account/account in GLOB.bank_account_list)
-			if(p_bank_id == account.bank_id)
+			if(p_bank_id == account.account_id)
 				payee_account = account
 				break
-		payee_account.balance += final_payout
+		payee_account.account_balance += final_payout
 
 
 /datum/delivery_datum/proc/parse_grade(grade)

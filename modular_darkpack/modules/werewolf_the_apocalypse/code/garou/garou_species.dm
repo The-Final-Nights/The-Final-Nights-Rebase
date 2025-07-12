@@ -55,7 +55,7 @@
 				dat += "."
 			dat += "</p>"
 		for(var/datum/bank_account/account in GLOB.bank_account_list)
-			if(host.bank_id == account.bank_id)
+			if(host.account_id == account.account_id)
 				dat += "<p>My bank account code is: [account.code]</b></p>"
 				break
 		if(host.mind.special_role)
