@@ -38,7 +38,7 @@
 /datum/component/selling/organ/Initialize(new_cost, new_object_category, new_illegal, new_humanity_loss, new_humanity_loss_limit)
 	if(!istype(parent, /obj/item/organ))
 		return COMPONENT_INCOMPATIBLE
-	..()
+	. = ..()
 
 /datum/component/selling/organ/can_sell()
 	var/obj/item/organ/organ = parent

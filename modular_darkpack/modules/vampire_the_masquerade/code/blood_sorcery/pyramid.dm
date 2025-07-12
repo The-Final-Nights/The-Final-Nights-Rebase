@@ -85,7 +85,7 @@
 				complete()
 
 /obj/ritualrune/AltClick(mob/user)
-	..()
+	. = ..()
 	qdel(src)
 
 /obj/ritualrune/selfgib
@@ -136,7 +136,7 @@
 		alpha = 28
 
 /obj/ritualrune/blood_trap/Crossed(atom/movable/AM)
-	..()
+	. = ..()
 	if(isliving(AM) && activated)
 		var/mob/living/L = AM
 		L.adjustFireLoss(50+activator_bonus)
@@ -239,7 +239,7 @@
 		icon_state = "teleport"
 
 /obj/ritualrune/teleport/attack_hand(mob/user)
-	..()
+	. = ..()
 	if(activated)
 		if(last_activator != user)
 			to_chat(user, "<span class='warning'>You are not the one who activated this rune!</span>")
@@ -315,7 +315,7 @@
 		activated = TRUE
 
 /obj/ritualrune/curse/attack_hand(mob/user)
-	..()
+	. = ..()
 	var/cursed
 	if(activated)
 		var/namem = input(user, "Choose target name:", "Curse Rune") as text|null

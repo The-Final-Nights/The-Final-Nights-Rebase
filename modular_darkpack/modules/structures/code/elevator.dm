@@ -44,7 +44,7 @@
 		D.riding = FALSE
 		here = FALSE
 		D.here = TRUE
-	..()
+	. = ..()
 
 /obj/elevator_button_down
 	name = "elevator panel"
@@ -92,7 +92,7 @@
 		U.riding = FALSE
 		here = FALSE
 		U.here = TRUE
-	..()
+	. = ..()
 
 /obj/elevator_button
 	name = "elevator button"
@@ -151,7 +151,7 @@
 					V.open()
 				O.riding = FALSE
 				O.D.riding = FALSE
-	..()
+	. = ..()
 
 /obj/elevator_door
 	name = "elevator door"

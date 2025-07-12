@@ -98,4 +98,4 @@
 				catching = FALSE
 				user.isfishing = FALSE
 		return
-	..()
+	. = ..()
