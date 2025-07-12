@@ -3,13 +3,13 @@
 		if(user.a_intent != INTENT_HELP)
 			for(var/mob/living/simple_animal/hostile/beastmaster/B in beastmaster)
 				B.add_beastmaster_enemies(user)
-	..()
+	. = ..()
 
 /mob/living/carbon/human/attack_animal(mob/user)
 	if(user)
 		for(var/mob/living/simple_animal/hostile/beastmaster/B in beastmaster)
 			B.add_beastmaster_enemies(user)
-	..()
+	. = ..()
 
 /mob/living/carbon/human/on_hit(obj/projectile/P)
 	. = ..()

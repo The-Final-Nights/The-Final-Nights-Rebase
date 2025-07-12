@@ -85,7 +85,7 @@
 	return
 
 /turf/closed/wall/vampwall/Initialize(mapload)
-	..()
+	. = ..()
 	if(window)
 		var/obj/W = new window(src)
 		W.plane = GAME_PLANE
@@ -100,12 +100,12 @@
 		AddElement(/datum/element/climbable)
 
 /turf/closed/wall/vampwall/set_smoothed_icon_state(new_junction)
-	..()
+	. = ..()
 	if(addwall)
 		addwall.icon_state = icon_state
 
 /turf/closed/wall/vampwall/Destroy()
-	..()
+	. = ..()
 	if(addwall)
 		qdel(addwall)
 
@@ -564,7 +564,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/concrete/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "concrete[rand(1, 4)]"
 
 /turf/open/floor/plating/vampgrass
@@ -620,7 +620,7 @@
 
 
 /turf/open/floor/plating/vampgrass/Initialize(mapload)
-	..()
+	. = ..()
 	set_light(1, 0.5, "#a4b7ff")
 	icon_state = "grass[rand(1, 3)]"
 	if(check_holidays(CHRISTMAS))
@@ -799,7 +799,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/toilet/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "toilet[rand(1, 9)]"
 
 /turf/open/floor/plating/circled
@@ -816,7 +816,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/circled/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "circle[rand(1, 8)]"
 
 /turf/open/floor/plating/church
@@ -833,7 +833,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/church/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "church[rand(1, 4)]"
 
 /turf/open/floor/plating/saint
@@ -850,7 +850,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/saint/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "saint[rand(1, 2)]"
 
 //OBOI
@@ -864,7 +864,7 @@
 	mouse_opacity = 0
 
 /obj/effect/decal/wallpaper/Initialize(mapload)
-	..()
+	. = ..()
 	if(isclosedturf(loc))
 		forceMove(get_step(src, SOUTH))
 		pixel_y = 32
@@ -963,7 +963,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/vampwood/Initialize(mapload)
-	..()
+	. = ..()
 	set_light(1, 0.5, "#a4b7ff")
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
@@ -1027,7 +1027,7 @@
 					new /obj/structure/bury_pit(src)
 
 /turf/open/floor/plating/vampbeach/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "sand[rand(1, 4)]"
 	set_light(1, 0.5, "#a4b7ff")
 	if(check_holidays(CHRISTMAS))
@@ -1051,7 +1051,7 @@
 	density = TRUE
 
 /turf/open/floor/plating/vampocean/Initialize(mapload)
-	..()
+	. = ..()
 	set_light(1, 0.5, "#a4b7ff")
 
 /turf/open/floor/plating/vampacid
@@ -1069,7 +1069,7 @@
 	density = FALSE
 
 /turf/open/floor/plating/vampacid/Initialize(mapload)
-	..()
+	. = ..()
 	set_light(1, 0.5, "#1b7c4c")
 
 /turf/open/floor/plating/vampacid/Entered(atom/movable/AM)
@@ -1151,7 +1151,7 @@
 			new /mob/living/simple_animal/pet/rat(oldloc)
 
 /turf/open/floor/plating/vampcanal/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "canal[rand(1, 3)]"
 
 /turf/open/floor/plating/vampcanalplating
@@ -1174,7 +1174,7 @@
 			new /mob/living/simple_animal/pet/rat(oldloc)
 
 /turf/open/floor/plating/vampcanal/Initialize(mapload)
-	..()
+	. = ..()
 	icon_state = "canal_plating[rand(1, 4)]"
 
 /turf/closed/indestructible/elevatorshaft

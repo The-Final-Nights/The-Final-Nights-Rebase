@@ -154,7 +154,7 @@ SUBSYSTEM_DEF(carpool)
 			L.apply_damage(P.damage, P.damage_type, pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST))
 
 /obj/vampire_car/AltClick(mob/user)
-	..()
+	. = ..()
 	if(!repairing)
 		if(locked)
 			to_chat(user, "<span class='warning'>[src] is locked!</span>")
@@ -286,7 +286,7 @@ SUBSYSTEM_DEF(carpool)
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
 				locked = FALSE
 
-	..()
+	. = ..()
 
 /obj/vampire_car/Destroy()
 	GLOB.car_list -= src
@@ -619,7 +619,7 @@ SUBSYSTEM_DEF(carpool)
 	icon_state = "[pick(1, 3, 5)]"
 	if(access == "none")
 		access = "npc[rand(1, 20)]"
-	..()
+	. = ..()
 
 /obj/vampire_car/rand
 	icon_state = "4"
@@ -629,7 +629,7 @@ SUBSYSTEM_DEF(carpool)
 	icon_state = "[pick(2, 4, 6)]"
 	if(access == "none")
 		access = "npc[rand(1, 20)]"
-	..()
+	. = ..()
 
 /obj/vampire_car/rand/camarilla
 	access = "camarilla"
@@ -703,7 +703,7 @@ SUBSYSTEM_DEF(carpool)
 		if(last_color_change+10 <= world.time)
 			last_color_change = world.time
 			set_light(0)
-	..()
+	. = ..()
 
 /obj/vampire_car/taxi
 	icon_state = "taxi"
@@ -725,7 +725,7 @@ SUBSYSTEM_DEF(carpool)
 /obj/vampire_car/track/Initialize(mapload)
 	if(access == "none")
 		access = "npc[rand(1, 20)]"
-	..()
+	. = ..()
 
 /obj/vampire_car/track/volkswagen
 	icon_state = "volkswagen"

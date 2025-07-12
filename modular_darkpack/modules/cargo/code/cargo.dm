@@ -627,4 +627,4 @@
 		to_chat(user, "<span class='notice'>You place the box at [src].</span>")
 		new /obj/item/stack/dollar/five(get_turf(user))
 		return
-	..()
+	. = ..()

@@ -182,7 +182,7 @@
 	var/mob/owner
 
 /obj/mytherceria_trap/Crossed(atom/movable/AM)
-	..()
+	. = ..()
 	if(isliving(AM) && owner)
 		if(AM != owner)
 			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/kiasyd.ogg', 100, FALSE)
@@ -202,7 +202,7 @@
 	icon_state = "rune2"
 
 /obj/mytherceria_trap/disorient/Crossed(atom/movable/AM)
-	..()
+	. = ..()
 	if(isliving(AM) && owner)
 		if(AM != owner)
 			var/mob/living/L = AM
@@ -225,7 +225,7 @@
 	icon_state = "rune3"
 
 /obj/mytherceria_trap/drop/Crossed(atom/movable/AM)
-	..()
+	. = ..()
 	if(iscarbon(AM) && owner)
 		if(AM != owner)
 			var/mob/living/carbon/L = AM

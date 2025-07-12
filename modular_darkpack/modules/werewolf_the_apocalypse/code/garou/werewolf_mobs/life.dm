@@ -93,7 +93,7 @@
 	return
 
 /mob/living/carbon/werewolf/handle_status_effects()
-	..()
+	. = ..()
 	//natural reduction of movement delay due to stun.
 	if(move_delay_add > 0)
 		move_delay_add = max(0, move_delay_add - rand(1, 2))

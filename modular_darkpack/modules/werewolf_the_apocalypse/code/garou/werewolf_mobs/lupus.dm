@@ -70,4 +70,4 @@
 /mob/living/carbon/werewolf/lupus/Life()
 	if(hispo)
 		CheckEyewitness(src, src, 7, FALSE)
-	..()
+	. = ..()

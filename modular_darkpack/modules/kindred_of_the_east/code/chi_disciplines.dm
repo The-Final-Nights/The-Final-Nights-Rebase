@@ -308,7 +308,7 @@
 	hit_stunned_targets = TRUE
 
 /datum/chi_discipline/blood_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(level_casting)
 		if(1)
 			var/result = alert(caster, "How do you manage your shape?",,"Shrink","Inflate")
@@ -400,7 +400,7 @@
 	return FALSE
 
 /datum/chi_discipline/jade_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(level_casting)
 		if(1)
 			var/obj/structure/bury_pit/burial_pit = new (get_turf(caster))
@@ -485,7 +485,7 @@
 	is_iron = FALSE
 
 /datum/chi_discipline/bone_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(level_casting)
 		if(1)
 			ADD_TRAIT(caster, TRAIT_NOSOFTCRIT, MAGIC_TRAIT)
@@ -607,7 +607,7 @@
 		qdel(src)
 
 /datum/chi_discipline/ghost_flame_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	var/limit = min(2, level) + caster.social + caster.more_companions - 1
 	if(length(caster.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/random_beast = pick(caster.beastmaster)
@@ -730,7 +730,7 @@
 			var/mob/living/carbon/human/H = firer
 			if(H.CheckEyewitness(H, H, 7, FALSE))
 				H.adjust_masquerade(-1)
-	..()
+	. = ..()
 
 /obj/projectile/flesh_shintai/on_hit(atom/target)
 	. = ..()
@@ -799,7 +799,7 @@
 	qdel(src)
 
 /datum/chi_discipline/flesh_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(level_casting)
 		if(1)
 			var/obj/item/gun/magic/hook/flesh_shintai/fleshhook = new (caster)
@@ -856,7 +856,7 @@
 	discipline_type = "Demon"
 
 /datum/chi_discipline/black_wind/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(level_casting)
 		if(1)
 			caster.add_movespeed_modifier(/datum/movespeed_modifier/celerity)
@@ -952,7 +952,7 @@
 	multiplicative_slowdown = -5
 
 /datum/chi_discipline/demon_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(current_form)
 		if("Samurai")
 			var/mod = 10*level_casting
@@ -1122,7 +1122,7 @@
 	multiplicative_slowdown = 6
 
 /datum/chi_discipline/hellweaving/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	var/mypower = caster.get_total_social()
 	var/theirpower = target.get_total_mentality()
 	if(theirpower >= mypower)
@@ -1174,7 +1174,7 @@
 	discipline_type = "Demon"
 
 /datum/chi_discipline/iron_mountain/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	var/mod = level_casting
 	var/bonus = 15 * mod
 //	caster.remove_overlay(FORTITUDE_LAYER)
@@ -1211,7 +1211,7 @@
 		UnarmedAttack(caster)
 
 /datum/chi_discipline/kiai/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	var/sound_gender = 'modular_darkpack/modules/deprecated/sounds/kiai_male.ogg'
 	switch(caster.gender)
 		if(MALE)
@@ -1301,7 +1301,7 @@
 	dodging = TRUE
 
 /datum/chi_discipline/beast_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	if(!wolflike_shapeshift)
 		wolflike_shapeshift = new(caster)
 	var/limit = min(2, level) + caster.social + caster.more_companions - 1
@@ -1414,7 +1414,7 @@
 	speed = 5
 
 /datum/chi_discipline/smoke_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	if(!smoke_shapeshift)
 		smoke_shapeshift = new(caster)
 	if(!hidden_smoke_shapeshift)
@@ -1519,7 +1519,7 @@
 	if(human_target.anti_magic_check())
 		to_chat(user, "<span class='warning'>The spell can't seem to affect [human_target]!</span>")
 		to_chat(human_target, "<span class='warning'>You feel your flesh turn to stone for a moment, then revert back!</span>")
-		..()
+		. = ..()
 		return
 	human_target.electrocute_act(50, src, siemens_coeff = 1, flags = NONE)
 	return ..()
@@ -1566,7 +1566,7 @@
 			var/mob/living/carbon/human/H = firer
 			if(H.CheckEyewitness(H, H, 7, FALSE))
 				H.adjust_masquerade(-1)
-	..()
+	. = ..()
 
 /obj/projectile/storm_shintai/on_hit(atom/target)
 	. = ..()
@@ -1587,7 +1587,7 @@
 	return ..()
 
 /datum/chi_discipline/storm_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(level_casting)
 		if(1)
 			caster.remove_overlay(FORTITUDE_LAYER)
@@ -1666,7 +1666,7 @@
 		rebalance.Grant(user)
 
 /datum/chi_discipline/equilibrium/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(level_casting)
 		if(1)
 			caster.dna.species.punchdamagehigh += 5
@@ -1787,7 +1787,7 @@
 	multiplicative_slowdown = 3
 
 /datum/chi_discipline/feng_shui/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(level_casting)
 		if(1)
 			var/sound/auspexbeat = sound('modular_darkpack/modules/deprecated/sounds/auspex.ogg', repeat = TRUE)
@@ -1933,7 +1933,7 @@
 		qdel(src)
 
 /obj/effect/anomaly/grav_kuei/anomalyEffect()
-	..()
+	. = ..()
 	boing = TRUE
 	for(var/obj/affected_object in orange(4, src))
 		if(!affected_object.anchored)
@@ -1974,7 +1974,7 @@
 		boing = FALSE
 
 /datum/chi_discipline/tapestry/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(level_casting)
 		if(1)
 			caster.client.prefs.chat_toggles ^= CHAT_DEAD
@@ -2107,7 +2107,7 @@
 	return ..()
 
 /datum/chi_discipline/yin_prana/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	switch(level_casting)
 		if(1)
 			animate(caster, alpha = 10, time = 1 SECONDS)
@@ -2155,7 +2155,7 @@
 	var/obj/effect/proc_holder/spell/targeted/ethereal_jaunt/jaunt
 
 /datum/chi_discipline/yang_prana/activate(mob/living/target, mob/living/carbon/human/caster)
-	..()
+	. = ..()
 	if(!jaunt)
 		jaunt = new(caster)
 	switch(level_casting)

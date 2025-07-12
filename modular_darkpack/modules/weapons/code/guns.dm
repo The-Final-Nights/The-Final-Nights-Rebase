@@ -56,11 +56,11 @@
 		chambered = magazine.stored_ammo[1]
 
 /obj/item/gun/ballistic/vampire/revolver/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	..()
+	. = ..()
 	chamber_round()
 
 /obj/item/gun/ballistic/vampire/revolver/AltClick(mob/user)
-	..()
+	. = ..()
 	spin()
 
 /obj/item/gun/ballistic/vampire/revolver/verb/spin()

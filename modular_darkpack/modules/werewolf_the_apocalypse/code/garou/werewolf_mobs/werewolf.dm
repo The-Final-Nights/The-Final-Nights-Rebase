@@ -69,7 +69,7 @@
 		if(step_variable == 2)
 			step_variable = 0
 			playsound(get_turf(src), 'code/modules/wod13/sounds/werewolf_step.ogg', 50, FALSE)
-	..()
+	. = ..()
 
 /mob/living/carbon/proc/epic_fall(var/apply_stun_self = TRUE, var/apply_stun_others = TRUE)
 	playsound(get_turf(src), 'code/modules/wod13/sounds/werewolf_fall.ogg', 100, FALSE)
@@ -258,7 +258,7 @@
 			dropItemToGround(r_store)
 			dropItemToGround(l_store)
 
-	..()
+	. = ..()
 
 /mob/living/carbon/werewolf/crinos/resist_grab(moving_resist)
 	if(pulledby.grab_state)
