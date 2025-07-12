@@ -333,7 +333,7 @@
 	. = ..()
 
 	if(HAS_TRAIT(user, TRAIT_DWARF)) //Only lean on the fire hydrant if we are smol
-		//Adds the component only once. We do it here & not in Initialize() because there are tons of windows & we don't want to add to their init times
+		//Adds the component only once. We do it here & not in Initialize(mapload) because there are tons of windows & we don't want to add to their init times
 		LoadComponent(/datum/component/leanable, dropping)
 */
 
@@ -516,7 +516,7 @@
 	icon_state = "[rand(2, 5)]"
 
 /obj/cargotrain/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
-	for(var/mob/living/L in get_step(src, Dir))
+	for(var/mob/living/L in get_step(src, movement_dir))
 		if(isnpc(L))
 			if(starter)
 				if(ishuman(starter))
@@ -1205,6 +1205,6 @@
 
 /obj/structure/fluff/tv/order/random
 
-/obj/structure/fluff/tv/order/random/Initialize()
+/obj/structure/fluff/tv/order/random/Initialize(mapload)
 	. = ..()
 	icon_state = "order[rand(1,4)]"
