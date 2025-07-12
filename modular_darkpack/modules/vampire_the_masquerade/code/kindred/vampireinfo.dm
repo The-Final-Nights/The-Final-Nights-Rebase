@@ -40,7 +40,7 @@
 			dat += "</p>"
 			if(host.mind.enslaved_to)
 				dat += "<p>My Regnant is [host.mind.enslaved_to], I should obey their wants.</p>"
-		for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
+		for(var/datum/bank_account/account in GLOB.bank_account_list)
 			if(host.bank_id == account.bank_id)
 				dat += "<p>My bank account code is: [account.code]</b></p>"
 				break

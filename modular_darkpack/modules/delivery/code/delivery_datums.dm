@@ -83,9 +83,9 @@
 	var/final_payout = round((payout_quota / contract_takers.len),1)
 	broadcast_to_holders("<b>Delivery Complete.</b> <b>[final_payout]</b> paid to the accounts of all participants.")
 	for(var/mob/living/carbon/human/payee in contract_takers)
-		var/datum/vtm_bank_account/payee_account
+		var/datum/bank_account/payee_account
 		var/p_bank_id = payee.bank_id
-		for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
+		for(var/datum/bank_account/account in GLOB.bank_account_list)
 			if(p_bank_id == account.bank_id)
 				payee_account = account
 				break

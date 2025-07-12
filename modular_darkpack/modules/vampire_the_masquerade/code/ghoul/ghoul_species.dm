@@ -63,7 +63,7 @@
 				if(G.master.clan.name != "Caitiff")
 					dat += "Regnant's clan is [G.master.clan], maybe I can try some of it's disciplines..."
 			dat += "</p>"
-		for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
+		for(var/datum/bank_account/account in GLOB.bank_account_list)
 			if(host.bank_id == account.bank_id)
 				dat += "<p><b>My bank account code is: [account.code]</b></p>"
 				break

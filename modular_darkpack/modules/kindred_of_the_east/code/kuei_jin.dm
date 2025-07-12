@@ -166,7 +166,7 @@
 			if(!host.mind.assigned_role)
 				dat += "."
 			dat += "</p>"
-		for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
+		for(var/datum/bank_account/account in GLOB.bank_account_list)
 			if(host.bank_id == account.bank_id)
 				dat += "<p>My bank account code is: [account.code]</b></p>"
 				break

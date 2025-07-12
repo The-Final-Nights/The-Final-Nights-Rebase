@@ -1,13 +1,7 @@
-/proc/create_bank_code()
-	var/bank_code = ""
-	for(var/i = 1 to 4)
-		bank_code += "[rand(0, 9)]"
-	return bank_code
-
 /obj/machinery/vamp/atm
 	name = "ATM Machine"
 	desc = "Check your balance or make a transaction"
-	icon = 'icons/obj/vtm_atm.dmi'
+	icon = 'modular_darkpack/modules/economy/icons/atm.dmi'
 	icon_state = "atm"
 	plane = GAME_PLANE
 	layer = BELOW_MOB_LAYER
@@ -17,98 +11,15 @@
 	var/entered_code
 
 	var/atm_balance = 0
-	var/obj/item/vamp/creditcard/current_card = null
-	light_system = STATIC_LIGHT
+	var/obj/item/card/credit/current_card = null
+	//light_system = STATIC_LIGHT
 	light_color = COLOR_GREEN
 	light_range = 2
 	light_power = 1
 	light_on = TRUE
 
-/obj/machinery/vamp/atm/New()
-	..()
-	logged_in = FALSE
-	current_card = null
-
-
-
-/datum/vtm_bank_account
-	var/account_owner = ""
-	var/bank_id = 0
-	var/balance = 0
-	var/code = ""
-	var/list/credit_cards = list()
-
-/datum/vtm_bank_account/New()
-	..()
-	if(!code || code == "")
-		code = create_bank_code()
-		var/random_id = rand(1, 999999)
-		bank_id = random_id
-		GLOB.bank_account_list += src
-
-/obj/item/vamp/creditcard
-	name = "debit card"
-	desc = "Used to access bank money."
-	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	icon_state = "card1"
-	inhand_icon_state = "card1"
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	item_flags = NOBLUDGEON
-	flags_1 = HEAR_1
-	w_class = WEIGHT_CLASS_SMALL
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
-	resistance_flags = FIRE_PROOF | ACID_PROOF
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
-
-	var/owner = ""
-	var/datum/vtm_bank_account/account
-	var/code
-	var/balance = 0
-	var/has_checked = FALSE
-
-/obj/item/vamp/creditcard/prince
-	icon_state = "card2"
-	inhand_icon_state = "card2"
-
-/obj/item/vamp/creditcard/seneschal
-	icon_state = "card2"
-	inhand_icon_state = "card2"
-
-/obj/item/vamp/creditcard/elder
-	icon_state = "card3"
-	inhand_icon_state = "card3"
-
-/obj/item/vamp/creditcard/giovanniboss
-	icon_state = "card2"
-	inhand_icon_state = "card2"
-
-/obj/item/vamp/creditcard/rich
-
-/obj/item/vamp/creditcard/New(mob/user)
-	..()
-	if(!account || code == "")
-		account = new /datum/vtm_bank_account()
-	if(user)
-		owner = user.ckey
-	if(istype(src, /obj/item/vamp/creditcard/prince))
-		account.balance = rand(10000, 15000)
-	else if(istype(src, /obj/item/vamp/creditcard/elder))
-		account.balance = rand(3000, 7000)
-	else if(istype(src, /obj/item/vamp/creditcard/rich))
-		account.balance = rand(1000, 4000)
-	else if(istype(src, /obj/item/vamp/creditcard/giovanniboss))
-		account.balance = rand(8000, 15000)
-	else if(istype(src, /obj/item/vamp/creditcard/seneschal))
-		account.balance = rand(4000, 8000)
-	else
-		account.balance = rand(600, 1000)
-
-/obj/machinery/vamp/atm/Initialize(mapload)
-	..()
-
 /obj/machinery/vamp/atm/attackby(obj/item/P, mob/user, params)
-	if(istype(P, /obj/item/vamp/creditcard))
+	if(istype(P, /obj/item/card/credit))
 		if(logged_in)
 			to_chat(user, "<span class='notice'>Someone is already logged in.</span>")
 			return
@@ -136,7 +47,7 @@
 	var/list/data = list()
 	var/list/accounts = list()
 
-	for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
+	for(var/datum/bank_account/account in GLOB.bank_account_list)
 		if(account && account.account_owner)
 			accounts += list(
 				list("account_owner" = account.account_owner
@@ -210,8 +121,8 @@
 				to_chat(usr, "<span class='notice'>Invalid target account ID.</span>")
 				return FALSE
 
-			var/datum/vtm_bank_account/target_account = null
-			for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
+			var/datum/bank_account/target_account = null
+			for(var/datum/bank_account/account in GLOB.bank_account_list)
 				if(account.account_owner == target_account_id)
 					target_account = account
 					break
@@ -248,7 +159,7 @@
 	ui_interact(user)
 
 /obj/machinery/vamp/atm/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/vamp/creditcard))
+	if(istype(W, /obj/item/card/credit))
 		inserted_card = W
 		to_chat(user, "<span class='notice'>Card inserted into ATM.</span>")
 		user.ui_interact(src)
