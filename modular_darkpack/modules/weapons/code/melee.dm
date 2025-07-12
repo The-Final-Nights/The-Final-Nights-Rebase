@@ -1,7 +1,7 @@
 /obj/item/melee/vampirearms
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	var/quieted = FALSE
 
@@ -243,7 +243,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	component_type = /datum/component/storage/concrete/vtm/sheathe
 

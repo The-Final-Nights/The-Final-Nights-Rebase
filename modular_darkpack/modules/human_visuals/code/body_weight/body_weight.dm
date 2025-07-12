@@ -15,13 +15,13 @@
 	switch (new_body_weight)
 		if (SLIM_BODY_WEIGHT)
 			if (gender == FEMALE)
-				AddComponent(/datum/component/clothes_weight_sprites, 'modular_darkpack/modules/deprecated/icons/worn_slim_f.dmi')
+				AddComponent(/datum/component/clothes_weight_sprites, 'modular_darkpack/modules/clothes/icons/worn_slim_f.dmi')
 			else
-				AddComponent(/datum/component/clothes_weight_sprites, 'modular_darkpack/modules/deprecated/icons/worn_slim_m.dmi')
+				AddComponent(/datum/component/clothes_weight_sprites, 'modular_darkpack/modules/clothes/icons/worn_slim_m.dmi')
 		if (AVERAGE_BODY_WEIGHT)
 			var/datum/component/weight_icon_component = GetComponent(/datum/component/clothes_weight_sprites)
 			qdel(weight_icon_component)
 		if (FAT_BODY_WEIGHT)
-			AddComponent(/datum/component/clothes_weight_sprites, 'modular_darkpack/modules/deprecated/icons/worn_fat.dmi')
+			AddComponent(/datum/component/clothes_weight_sprites, 'modular_darkpack/modules/clothes/icons/worn_fat.dmi')
 
 	update_body_parts()

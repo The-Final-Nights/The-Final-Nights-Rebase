@@ -2,7 +2,7 @@
 	name = "\improper fake passport"
 	desc = "Just some book with words, none of real identity here."
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	worn_icon = 'modular_darkpack/modules/deprecated/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	icon_state = "passport1"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_ID
