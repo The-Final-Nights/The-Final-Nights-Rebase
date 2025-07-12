@@ -21,7 +21,7 @@
 	melee_damage_upper = 25
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
-	attack_sound = 'modular_darkpack/modules/deprecated/sound/dog.ogg'
+	attack_sound = 'modular_darkpack/modules/deprecated/sounds/dog.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
@@ -30,7 +30,7 @@
 //	retreat_distance = 3
 //	minimum_distance = 5
 //	casingtype = /obj/item/ammo_casing/vampire/c556mm
-//	projectilesound = 'modular_darkpack/modules/deprecated/sound/rifle.ogg'
+//	projectilesound = 'modular_darkpack/modules/deprecated/sounds/rifle.ogg'
 	loot = list()
 	AIStatus = AI_OFF
 

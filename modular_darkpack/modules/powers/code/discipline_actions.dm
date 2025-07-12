@@ -102,7 +102,7 @@
 	return .
 
 /datum/action/discipline/proc/switch_level(to_advance = 1)
-	SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sound/highlight.ogg', 0, 0, 50))
+	SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/highlight.ogg', 0, 0, 50))
 
 	if (discipline.level_casting + to_advance > length(discipline.known_powers))
 		discipline.level_casting = 1
@@ -142,7 +142,7 @@
 
 	//ensure we actually need a target, or cancel on right click
 	if (!targeting || modifiers["right"])
-		SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sound/highlight.ogg', 0, 0, 50))
+		SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/highlight.ogg', 0, 0, 50))
 		end_targeting()
 		return
 
@@ -161,7 +161,7 @@
 		return
 	if (!discipline.current_power.can_activate_untargeted(TRUE))
 		return
-	SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sound/highlight.ogg', 0, 0, 50))
+	SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/highlight.ogg', 0, 0, 50))
 	RegisterSignal(owner, COMSIG_MOB_CLICKON, PROC_REF(handle_click))
 	targeting = TRUE
 	client.mouse_pointer_icon = 'modular_darkpack/modules/deprecated/icons/effects/mouse_pointers/discipline.dmi'

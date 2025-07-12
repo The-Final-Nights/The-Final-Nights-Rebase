@@ -310,10 +310,10 @@
 									if(!H.warrant && !H.ignores_warrant)
 										if(H.killed_count >= 5)
 											H.warrant = TRUE
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sound/suspect.ogg', 0, 0, 75))
+											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
 											to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
 										else
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sound/sus.ogg', 0, 0, 75))
+											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 											to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (corpse)</b></span>")
 			for(var/obj/item/I in H.contents)
 				if(I)
@@ -329,10 +329,10 @@
 										if(!H.warrant && !H.ignores_warrant)
 											if(H.killed_count >= 5)
 												H.warrant = TRUE
-												SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sound/suspect.ogg', 0, 0, 75))
+												SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
 												to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
 											else
-												SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sound/sus.ogg', 0, 0, 75))
+												SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 												to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (equipment)</b></span>")
 
 	if(H.key && (H.stat <= HARD_CRIT) && H.mind.dharma)
@@ -568,7 +568,7 @@
 		return
 	COOLDOWN_START(kueijin.mind.dharma, chi_heal, cooldown)
 
-	SEND_SOUND(usr, sound('modular_darkpack/modules/deprecated/sound/chi_use.ogg', 0, 0, 75))
+	SEND_SOUND(usr, sound('modular_darkpack/modules/deprecated/sounds/chi_use.ogg', 0, 0, 75))
 	kueijin.visible_message("<span class='warning'>Some of [kueijin]'s visible injuries disappear!</span>", "<span class='warning'>Some of your injuries disappear!</span>")
 	kueijin.mind.dharma?.animated = "Yin"
 	kueijin.skin_tone = get_vamp_skin_color(kueijin.skin_tone)
@@ -627,7 +627,7 @@
 		return
 	COOLDOWN_START(kueijin.mind.dharma, chi_heal, cooldown)
 
-	SEND_SOUND(usr, sound('modular_darkpack/modules/deprecated/sound/chi_use.ogg', 0, 0, 75))
+	SEND_SOUND(usr, sound('modular_darkpack/modules/deprecated/sounds/chi_use.ogg', 0, 0, 75))
 	kueijin.visible_message("<span class='warning'>Some of [kueijin]'s visible injuries disappear!</span>", "<span class='warning'>Some of your injuries disappear!</span>")
 	kueijin.mind.dharma?.animated = "Yang"
 	kueijin.skin_tone = kueijin.mind.dharma?.initial_skin_color

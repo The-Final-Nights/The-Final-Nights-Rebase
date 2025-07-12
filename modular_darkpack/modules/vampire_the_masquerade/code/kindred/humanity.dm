@@ -42,7 +42,7 @@
 	// Change Humanity according to calculated values
 	humanity += humanity_change
 	if (humanity_change > 0)
-		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sound/humanity_gain.ogg', 0, 0, 75))
+		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/humanity_gain.ogg', 0, 0, 75))
 		to_chat(src, span_boldnicegreen("[uppertext(path)] INCREASED!"))
 
 		// Gaining Path flavour text
@@ -50,7 +50,7 @@
 			if (10)
 				to_chat(src, span_green("As your [path] reaches its peak, you feel the Beast [is_enlightenment ? "reaching perfect harmony with you" : "falling into a deep slumber, waiting"]."))
 	else if (humanity_change < 0)
-		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sound/humanity_loss.ogg', 0, 0, 75))
+		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/humanity_loss.ogg', 0, 0, 75))
 		to_chat(src, span_userdanger(span_bold("[uppertext(path)] DECREASED!")))
 
 		// Losing Path flavour text

@@ -14,7 +14,7 @@
 	name = "Dominate power name"
 	desc = "Dominate power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/dominate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/dominate.ogg'
 
 /datum/discipline_power/dominate/activate(mob/living/target)
 	. = ..()

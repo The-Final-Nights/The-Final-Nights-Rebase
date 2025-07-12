@@ -20,7 +20,7 @@
 		if (masquerade <= 0)
 			return
 
-		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sound/masquerade_violation.ogg', 0, 0, 75))
+		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/masquerade_violation.ogg', 0, 0, 75))
 		to_chat(src, span_userdanger("<b>MASQUERADE VIOLATION!</b>"))
 	else if (value > 0)
 		if (vampirism.enlightenment)
@@ -32,7 +32,7 @@
 		if (masquerade >= 5)
 			return
 
-		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sound/general_good.ogg', 0, 0, 75))
+		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/general_good.ogg', 0, 0, 75))
 		to_chat(src, span_boldnicegreen("<b>MASQUERADE REINFORCED!</b>"))
 
 	masquerade = clamp(masquerade + value, 0, 5)

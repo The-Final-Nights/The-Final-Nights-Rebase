@@ -56,7 +56,7 @@
 		return TRUE
 
 	if(added_ephed == 3 && added_iod == 2 && added_gas == TRUE)
-		playsound(src, 'modular_darkpack/modules/deprecated/sound/methcook.ogg', 50, TRUE)
+		playsound(src, 'modular_darkpack/modules/deprecated/sounds/methcook.ogg', 50, TRUE)
 		spawn(3 SECONDS)
 			health -= 1
 			if(health <= 16)
@@ -110,15 +110,15 @@
 			if(!added_iod)
 				troll_explode = TRUE
 			G.stored_gasoline = max(0, G.stored_gasoline-100)
-			playsound(loc, 'modular_darkpack/modules/deprecated/sound/gas_fill.ogg', 25, TRUE)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 25, TRUE)
 			to_chat(user, "You [pick("spill", "add", "blender")] [used_item] in [src].")
 			added_gas = TRUE
 			if(prob(20))
 				to_chat(user, "Something may be going wrong, or may not...")
 	if(added_ephed == 3 && added_iod == 2 && added_gas == TRUE)
-		playsound(src, 'modular_darkpack/modules/deprecated/sound/methcook.ogg', 50, TRUE)
+		playsound(src, 'modular_darkpack/modules/deprecated/sounds/methcook.ogg', 50, TRUE)
 		spawn(3 SECONDS)
-			playsound(src, 'modular_darkpack/modules/deprecated/sound/methcook.ogg', 100, TRUE)
+			playsound(src, 'modular_darkpack/modules/deprecated/sounds/methcook.ogg', 100, TRUE)
 			if(troll_explode)
 				explosion(loc,0,1,3,4)
 			else

@@ -638,7 +638,7 @@
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	attack_verb_continuous = list("attacks", "chops", "rocks", "hits")
 	attack_verb_simple = list("attack", "chop", "rock", "hit")
-	hitsound = 'modular_darkpack/modules/deprecated/sound/rock.ogg'
+	hitsound = 'modular_darkpack/modules/deprecated/sounds/rock.ogg'
 	sharpness = SHARP_EDGED
 	max_integrity = 200
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 30)
@@ -660,13 +660,13 @@
 	if(result)
 		last_solo = world.time
 		if(result == "1")
-			playsound(loc, 'modular_darkpack/modules/deprecated/sound/solo1.ogg', 100, FALSE)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/solo1.ogg', 100, FALSE)
 		if(result == "2")
-			playsound(loc, 'modular_darkpack/modules/deprecated/sound/solo2.ogg', 100, FALSE)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/solo2.ogg', 100, FALSE)
 		if(result == "3")
-			playsound(loc, 'modular_darkpack/modules/deprecated/sound/solo3.ogg', 100, FALSE)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/solo3.ogg', 100, FALSE)
 		if(result == "4")
-			playsound(loc, 'modular_darkpack/modules/deprecated/sound/solo4.ogg', 100, FALSE)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/solo4.ogg', 100, FALSE)
 
 /obj/item/melee/vampirearms/eguitar/Initialize(mapload)
 	. = ..()

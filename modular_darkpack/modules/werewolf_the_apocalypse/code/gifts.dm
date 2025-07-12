@@ -23,12 +23,12 @@
 		if(rage_req)
 			if(H.auspice.rage < rage_req)
 				to_chat(owner, "<span class='warning'>You don't have enough <b>RAGE</b> to do that!</span>")
-				SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sound/werewolf_cast_failed.ogg', 0, 0, 75))
+				SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/werewolf_cast_failed.ogg', 0, 0, 75))
 				allowed_to_proceed = FALSE
 				return
 			if(H.auspice.gnosis < gnosis_req)
 				to_chat(owner, "<span class='warning'>You don't have enough <b>GNOSIS</b> to do that!</span>")
-				SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sound/werewolf_cast_failed.ogg', 0, 0, 75))
+				SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/werewolf_cast_failed.ogg', 0, 0, 75))
 				allowed_to_proceed = FALSE
 				return
 		if(cool_down+150 >= world.time)
@@ -52,7 +52,7 @@
 	. = ..()
 	if(allowed_to_proceed)
 		var/mob/living/carbon/H = owner
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/falling_touch.ogg', 75, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/falling_touch.ogg', 75, FALSE)
 		H.put_in_active_hand(new /obj/item/melee/touch_attack/werewolf(H))
 
 /datum/action/gift/inspiration
@@ -84,7 +84,7 @@
 	. = ..()
 	if(allowed_to_proceed)
 		var/mob/living/carbon/H = owner
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/inspiration.ogg', 75, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/inspiration.ogg', 75, FALSE)
 		H.emote("scream")
 		for(var/mob/living/carbon/C in range(5, owner))
 			if(C)
@@ -102,7 +102,7 @@
 	. = ..()
 	if(allowed_to_proceed)
 		if(ishuman(owner))
-			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/razor_claws.ogg', 75, FALSE)
+			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/razor_claws.ogg', 75, FALSE)
 			var/mob/living/carbon/human/H = owner
 			H.dna.species.attack_verb = "slash"
 			H.dna.species.attack_sound = 'sound/weapons/slash.ogg'
@@ -120,7 +120,7 @@
 				H.agg_damage_plus = 0
 				to_chat(owner, "<span class='warning'>Your claws are not sharp anymore...</span>")
 		else
-			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/razor_claws.ogg', 75, FALSE)
+			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/razor_claws.ogg', 75, FALSE)
 			var/mob/living/carbon/H = owner
 			H.melee_damage_lower = H.melee_damage_lower+15
 			H.melee_damage_upper = H.melee_damage_upper+15
@@ -146,7 +146,7 @@
 		if(length(C.beastmaster) > 3)
 			var/mob/living/simple_animal/hostile/beastmaster/B = pick(C.beastmaster)
 			qdel(B)
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/wolves.ogg', 75, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/wolves.ogg', 75, FALSE)
 		if(!length(C.beastmaster))
 			var/datum/action/beastmaster_stay/E1 = new()
 			E1.Grant(C)
@@ -168,12 +168,12 @@
 	if(allowed_to_proceed)
 		var/mob/living/carbon/C = owner
 		C.emote("howl")
-		playsound(get_turf(C), pick('modular_darkpack/modules/deprecated/sound/awo1.ogg', 'modular_darkpack/modules/deprecated/sound/awo2.ogg'), 100, FALSE)
+		playsound(get_turf(C), pick('modular_darkpack/modules/deprecated/sounds/awo1.ogg', 'modular_darkpack/modules/deprecated/sounds/awo2.ogg'), 100, FALSE)
 		for(var/mob/living/carbon/A in orange(6, owner))
 			if(A)
 				if(isgarou(A) || iswerewolf(A))
 					A.emote("howl")
-					playsound(get_turf(A), pick('modular_darkpack/modules/deprecated/sound/awo1.ogg', 'modular_darkpack/modules/deprecated/sound/awo2.ogg'), 100, FALSE)
+					playsound(get_turf(A), pick('modular_darkpack/modules/deprecated/sounds/awo1.ogg', 'modular_darkpack/modules/deprecated/sounds/awo2.ogg'), 100, FALSE)
 					spawn(10)
 						adjust_gnosis(1, A, TRUE)
 //	awo1
@@ -207,7 +207,7 @@
 	. = ..()
 	if(allowed_to_proceed)
 		if(ishuman(owner))
-			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/resist_pain.ogg', 75, FALSE)
+			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/resist_pain.ogg', 75, FALSE)
 			var/mob/living/carbon/human/H = owner
 			H.physiology.armor.melee = 40
 			H.physiology.armor.bullet = 25
@@ -217,7 +217,7 @@
 				H.physiology.armor.bullet = initial(H.physiology.armor.bullet)
 				to_chat(owner, "<span class='warning'>Your skin is thin again...</span>")
 		else
-			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/resist_pain.ogg', 75, FALSE)
+			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/resist_pain.ogg', 75, FALSE)
 			var/mob/living/carbon/werewolf/H = owner
 			H.werewolf_armor = 40
 			to_chat(owner, "<span class='notice'>You feel your skin thickering...</span>")
@@ -270,7 +270,7 @@
 	if(allowed_to_proceed)
 		var/mob/living/carbon/C = owner
 		C.sight = SEE_MOBS|SEE_OBJS
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/sense_wyrm.ogg', 75, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/sense_wyrm.ogg', 75, FALSE)
 		to_chat(owner, "<span class='notice'>You feel your sense sharpening...</span>")
 		spawn(200)
 			C.sight = initial(C.sight)
@@ -302,7 +302,7 @@
 	if(allowed_to_proceed)
 		var/mob/living/carbon/C = owner
 		C.alpha = 36
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/milky_blur.ogg', 75, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/milky_blur.ogg', 75, FALSE)
 		spawn(20 SECONDS)
 			C.alpha = 255
 
@@ -340,7 +340,7 @@
 		var/mob/living/carbon/C = owner
 		C.emote("laugh")
 		C.Stun(10)
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/infectious_laughter.ogg', 100, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/infectious_laughter.ogg', 100, FALSE)
 		for(var/mob/living/L in oviewers(4, owner))
 			if(L)
 				L.emote("laugh")
@@ -358,7 +358,7 @@
 	if(allowed_to_proceed)
 		var/mob/living/carbon/C = owner
 		if(C.stat != DEAD)
-			SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sound/rage_heal.ogg', 0, 0, 75))
+			SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/rage_heal.ogg', 0, 0, 75))
 			C.adjustBruteLoss(-40*C.auspice.level, TRUE)
 			C.adjustFireLoss(-30*C.auspice.level, TRUE)
 			C.adjustCloneLoss(-10*C.auspice.level, TRUE)
@@ -409,7 +409,7 @@
 	. = ..()
 	if(allowed_to_proceed)
 		var/mob/living/carbon/werewolf/lupus/H = owner
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/transform.ogg', 50, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/transform.ogg', 50, FALSE)
 		if(H.hispo)
 			H.icon = 'modular_darkpack/modules/deprecated/icons/werewolf_lupus.dmi'
 			H.pixel_w = 0
@@ -441,7 +441,7 @@
 	if(allowed_to_proceed)
 		var/mob/living/carbon/human/H = owner
 		var/datum/species/garou/G = H.dna.species
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/transform.ogg', 50, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/transform.ogg', 50, FALSE)
 		if(G.glabro)
 			H.remove_overlay(PROTEAN_LAYER)
 			G.punchdamagelow -= 15

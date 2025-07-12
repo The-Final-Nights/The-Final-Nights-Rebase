@@ -8,8 +8,8 @@
 	name = "Potence power name"
 	desc = "Potence power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/potence_activate.ogg'
-	deactivate_sound = 'modular_darkpack/modules/deprecated/sound/potence_deactivate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/potence_activate.ogg'
+	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/potence_deactivate.ogg'
 
 //POTENCE 1
 /datum/discipline_power/potence/one
@@ -37,7 +37,7 @@
 	owner.dna.species.punchdamagelow += 8
 	owner.dna.species.punchdamagehigh += 8
 	owner.dna.species.meleemod += 0.4
-	owner.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sound/heavypunch.ogg'
+	owner.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sounds/heavypunch.ogg'
 	tackler = owner.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 3, speed = 1, skill_mod = 0, min_distance = 0)
 	owner.potential = 1
 
@@ -77,7 +77,7 @@
 	owner.dna.species.punchdamagelow += 16
 	owner.dna.species.punchdamagehigh += 16
 	owner.dna.species.meleemod += 0.8
-	owner.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sound/heavypunch.ogg'
+	owner.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sounds/heavypunch.ogg'
 	tackler = owner.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 4, speed = 1, skill_mod = 0, min_distance = 0)
 	owner.potential = 2
 
@@ -117,7 +117,7 @@
 	owner.dna.species.punchdamagelow += 24
 	owner.dna.species.punchdamagehigh += 24
 	owner.dna.species.meleemod += 1.2
-	owner.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sound/heavypunch.ogg'
+	owner.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sounds/heavypunch.ogg'
 	tackler = owner.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 5, speed = 1, skill_mod = 0, min_distance = 0)
 	owner.potential = 3
 
@@ -157,7 +157,7 @@
 	owner.dna.species.punchdamagelow += 32
 	owner.dna.species.punchdamagehigh += 32
 	owner.dna.species.meleemod += 1.6
-	owner.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sound/heavypunch.ogg'
+	owner.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sounds/heavypunch.ogg'
 	tackler = owner.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 6, speed = 1, skill_mod = 0, min_distance = 0)
 	owner.potential = 4
 
@@ -197,7 +197,7 @@
 	owner.dna.species.punchdamagelow += 40
 	owner.dna.species.punchdamagehigh += 40
 	owner.dna.species.meleemod += 2
-	owner.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sound/heavypunch.ogg'
+	owner.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sounds/heavypunch.ogg'
 	tackler = owner.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 7, speed = 1, skill_mod = 0, min_distance = 0)
 	owner.potential = 5
 

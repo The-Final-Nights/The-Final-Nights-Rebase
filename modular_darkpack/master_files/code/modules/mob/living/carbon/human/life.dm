@@ -21,10 +21,10 @@
 							for(var/turf/open/O in range(1, src))
 								if(prob(25))
 									new /obj/effect/temp_visual/desant(O)
-							playsound(loc, 'modular_darkpack/modules/deprecated/sound/helicopter.ogg', 50, TRUE)
+							playsound(loc, 'modular_darkpack/modules/deprecated/sounds/helicopter.ogg', 50, TRUE)
 				if(last_showed+9000 < world.time)
 					to_chat(src, "<b>POLICE STOPPED SEARCHING</b>")
-					SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sound/humanity_gain.ogg', 0, 0, 75))
+					SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/humanity_gain.ogg', 0, 0, 75))
 					killed_count = 0
 					warrant = FALSE
 			else

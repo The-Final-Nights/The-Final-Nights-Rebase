@@ -237,10 +237,10 @@
 									if(!H.warrant && !H.ignores_warrant)
 										if(H.killed_count >= 5)
 											H.warrant = TRUE
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sound/suspect.ogg', 0, 0, 75))
+											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
 											to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
 										else
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sound/sus.ogg', 0, 0, 75))
+											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 											to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (corpse)</b></span>")
 			for (var/obj/item/I in H.contents)
 				if (!I.masquerade_violating || (I.loc != H))
@@ -265,10 +265,10 @@
 
 				if (H.killed_count >= 5)
 					H.warrant = TRUE
-					SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sound/suspect.ogg', 0, 0, 75))
+					SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
 					to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 				else
-					SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sound/sus.ogg', 0, 0, 75))
+					SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 					to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 
 	if(H.key && (H.stat <= HARD_CRIT))

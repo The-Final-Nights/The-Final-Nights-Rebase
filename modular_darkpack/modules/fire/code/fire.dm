@@ -48,7 +48,7 @@ SUBSYSTEM_DEF(die_in_a_fire)
 		color = "#808080"
 
 /obj/effect/fire/proc/handle_automated_spread()
-	playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sound/fire.ogg', 80, TRUE)
+	playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/fire.ogg', 80, TRUE)
 	var/area/AR = get_area(src)
 	if(AR.fire_controled)
 		AR.fire_extinguishment()
@@ -118,7 +118,7 @@ SUBSYSTEM_DEF(die_in_a_fire)
 				if(A != loc && A.burn_material)
 					var/obj/effect/fire/F = locate() in A
 					if(!F && prob(A.spread_chance))
-						playsound(get_turf(A), 'modular_darkpack/modules/deprecated/sound/spread.ogg', 80, TRUE)
+						playsound(get_turf(A), 'modular_darkpack/modules/deprecated/sounds/spread.ogg', 80, TRUE)
 						var/obj/effect/fire/R = new(A)
 						R.color = color
 	else

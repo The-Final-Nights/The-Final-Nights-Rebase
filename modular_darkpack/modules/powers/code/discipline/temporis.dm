@@ -9,7 +9,7 @@
 	name = "Temporis power name"
 	desc = "Temporis power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/temporis.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/temporis.ogg'
 
 /datum/discipline_power/temporis/proc/celerity_explode(datum/source, datum/discipline_power/power, atom/target)
 	SIGNAL_HANDLER

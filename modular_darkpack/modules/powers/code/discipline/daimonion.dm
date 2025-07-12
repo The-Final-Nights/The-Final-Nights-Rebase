@@ -9,8 +9,8 @@
 	name = "Daimonion power name"
 	desc = "Daimonion power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/protean_activate.ogg'
-	deactivate_sound = 'modular_darkpack/modules/deprecated/sound/protean_deactivate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/protean_activate.ogg'
+	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/protean_deactivate.ogg'
 
 //SENSE THE SIN
 /datum/discipline_power/daimonion/sense_the_sin

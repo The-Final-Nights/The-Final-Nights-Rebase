@@ -117,7 +117,7 @@
 	BG.my_creator = last_activator
 	BG.melee_damage_lower = BG.melee_damage_lower+activator_bonus
 	BG.melee_damage_upper = BG.melee_damage_upper+activator_bonus
-	playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+	playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 	if(length(H.beastmaster) > 3+H.mentality)
 		var/mob/living/simple_animal/hostile/beastmaster/B = pick(H.beastmaster)
 		B.death()
@@ -131,7 +131,7 @@
 
 /obj/ritualrune/blood_trap/complete()
 	if(!activated)
-		playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 		activated = TRUE
 		alpha = 28
 
@@ -140,7 +140,7 @@
 	if(isliving(AM) && activated)
 		var/mob/living/L = AM
 		L.adjustFireLoss(50+activator_bonus)
-		playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 		qdel(src)
 
 /obj/ritualrune/blood_wall
@@ -152,7 +152,7 @@
 
 /obj/ritualrune/blood_wall/complete()
 	new /obj/structure/bloodwall(loc)
-	playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+	playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 	qdel(src)
 
 /obj/structure/bloodwall
@@ -189,7 +189,7 @@
 	for(var/obj/item/vtm_artifact/VA in loc)
 		if(VA)
 			VA.identificate()
-			playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 			qdel(src)
 			return
 
@@ -219,7 +219,7 @@
 		var/mob/living/simple_animal/hostile/ghost/tremere/TR = new(loc)
 		TR.key = C.key
 		TR.name = C.name
-		playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 		qdel(src)
 	else
 		visible_message("<span class='notice'>No one answers the [src.name] rune's call.</span>")
@@ -294,7 +294,7 @@
 					step += 1
 
 			if(valid_destination)
-				playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+				playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 				user.forceMove(destination)
 				qdel(src)
 			else
@@ -310,7 +310,7 @@
 
 /obj/ritualrune/curse/complete()
 	if(!activated)
-		playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 		color = rgb(255,0,0)
 		activated = TRUE
 
@@ -325,7 +325,7 @@
 			for(var/mob/living/carbon/human/H in GLOB.player_list)
 				if(H.real_name == cursed)
 					H.adjustCloneLoss(25)
-					playsound(H.loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+					playsound(H.loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 					to_chat(H, "<span class='warning'>You feel someone repeating your name from the shadows...</span>")
 					H.Stun(10)
 					return
@@ -373,11 +373,11 @@
 						H.key = C.key
 //					Y.key = C.key
 //					Y.my_creator = last_activator
-				playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+				playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 				qdel(src)
 				return
 			else
-				playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+				playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 				H.adjustBruteLoss(25)
 				H.emote("scream")
 				return
@@ -398,7 +398,7 @@
 			if(!HAS_TRAIT(H, TRAIT_STAKE_RESISTANT))
 				ADD_TRAIT(H, TRAIT_STAKE_RESISTANT, MAGIC_TRAIT)
 				qdel(src)
-		playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 		color = rgb(255,0,0)
 		activated = TRUE
 
@@ -426,7 +426,7 @@
 							to_chat(user, "The blood speaks not-it is empty of power!")
 					else
 						to_chat(user, "This reagent is lifeless, unworthy of the ritual!")
-		playsound(loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 		color = rgb(255,0,0)
 		activated = TRUE
 		qdel(src)

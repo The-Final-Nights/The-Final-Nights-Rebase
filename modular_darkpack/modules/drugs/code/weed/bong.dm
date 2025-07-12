@@ -91,7 +91,7 @@
 	if(!packed_item || !lit)
 		return
 	hit_mob.visible_message("<span class='notice'>[user] starts [hit_mob == user ? "taking a hit from [src]." : "forcing [hit_mob] to take a hit from [src]!"]", "[hit_mob == user ? "<span class='notice'>You start taking a hit from [src].</span>" : "<span class='danger'>[user] starts forcing you to take a hit from [src]!</span>"]")
-	playsound(src, 'modular_darkpack/modules/deprecated/sound/heatdam.ogg', 50, TRUE)
+	playsound(src, 'modular_darkpack/modules/deprecated/sounds/heatdam.ogg', 50, TRUE)
 	if(!do_after(user, 40, src))
 		return
 	to_chat(hit_mob, "<span class='notice'>You finish taking a hit from [src].</span>")
@@ -104,10 +104,10 @@
 			spawn_cloud(pos, smoke_range)
 	if(moan_chance > 0)
 		if(prob(moan_chance))
-			playsound(hit_mob, pick('modular_darkpack/modules/deprecated/sound/lungbust_moan1.ogg','modular_darkpack/modules/deprecated/sound/lungbust_moan2.ogg', 'modular_darkpack/modules/deprecated/sound/lungbust_moan3.ogg'), 50, TRUE)
+			playsound(hit_mob, pick('modular_darkpack/modules/deprecated/sounds/lungbust_moan1.ogg','modular_darkpack/modules/deprecated/sounds/lungbust_moan2.ogg', 'modular_darkpack/modules/deprecated/sounds/lungbust_moan3.ogg'), 50, TRUE)
 			hit_mob.emote("moan")
 		else
-			playsound(hit_mob, pick('modular_darkpack/modules/deprecated/sound/lungbust_cough1.ogg','modular_darkpack/modules/deprecated/sound/lungbust_cough2.ogg'), 50, TRUE)
+			playsound(hit_mob, pick('modular_darkpack/modules/deprecated/sounds/lungbust_cough1.ogg','modular_darkpack/modules/deprecated/sounds/lungbust_cough2.ogg'), 50, TRUE)
 			hit_mob.emote("cough")
 	if(bong_hits <= 0)
 		to_chat(hit_mob, "<span class='warning'>Out of uses!</span>")

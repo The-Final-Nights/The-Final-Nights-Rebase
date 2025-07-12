@@ -9,7 +9,7 @@
 	name = "Serpentis power name"
 	desc = "Serpentis power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/serpentis.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/serpentis.ogg'
 
 //THE EYES OF THE SERPENT
 /datum/discipline_power/serpentis/the_eyes_of_the_serpent
@@ -75,7 +75,7 @@
 	target_type = TARGET_LIVING
 	range = 3
 
-	effect_sound = 'modular_darkpack/modules/deprecated/sound/tongue.ogg'
+	effect_sound = 'modular_darkpack/modules/deprecated/sounds/tongue.ogg'
 	aggravating = TRUE
 	hostile = TRUE
 	violates_masquerade = TRUE

@@ -6,7 +6,7 @@
 	desc = "Not a real checkpoint."
 	icon = 'icons/obj/wod13/barrier.dmi'
 	icon_state = "camarilla_blocking"
-	var/block_sound = "modular_darkpack/modules/deprecated/sound/bouncer_blocked.ogg"
+	var/block_sound = "modular_darkpack/modules/deprecated/sounds/bouncer_blocked.ogg"
 
 	//Social bypass numbers
 	var/social_bypass_allowed = TRUE

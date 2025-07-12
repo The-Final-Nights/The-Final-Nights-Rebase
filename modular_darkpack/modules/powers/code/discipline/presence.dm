@@ -8,8 +8,8 @@
 	name = "Presence power name"
 	desc = "Presence power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/presence_activate.ogg'
-	deactivate_sound = 'modular_darkpack/modules/deprecated/sound/presence_deactivate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/presence_activate.ogg'
+	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/presence_deactivate.ogg'
 
 //AWE
 /datum/discipline_power/presence/awe

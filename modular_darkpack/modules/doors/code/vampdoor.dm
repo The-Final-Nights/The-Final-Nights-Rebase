@@ -23,9 +23,9 @@
 	var/lockpick_timer = 17 //[Lucifernix] - Never have the lockpick timer lower than 7. At 7 it will unlock instantly!!
 	var/lockpick_difficulty = 2
 
-	var/open_sound = 'modular_darkpack/modules/deprecated/sound/door_open.ogg'
-	var/close_sound = 'modular_darkpack/modules/deprecated/sound/door_close.ogg'
-	var/lock_sound = 'modular_darkpack/modules/deprecated/sound/door_locked.ogg'
+	var/open_sound = 'modular_darkpack/modules/deprecated/sounds/door_open.ogg'
+	var/close_sound = 'modular_darkpack/modules/deprecated/sounds/door_close.ogg'
+	var/lock_sound = 'modular_darkpack/modules/deprecated/sounds/door_locked.ogg'
 	var/burnable = FALSE
 
 /obj/structure/vampdoor/New()
@@ -130,7 +130,7 @@
 				var/mob/living/carbon/human/H = user
 				if(H.potential > 0)
 					if((H.potential * 2) >= lockpick_difficulty)
-						playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sound/get_bent.ogg', 100, FALSE)
+						playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 100, FALSE)
 						var/obj/item/shield/door/D = new(get_turf(src))
 						D.icon_state = baseicon
 						var/atom/throw_target = get_edge_target_turf(src, user.dir)
@@ -140,7 +140,7 @@
 					else
 						pixel_z = pixel_z+rand(-1, 1)
 						pixel_w = pixel_w+rand(-1, 1)
-						playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sound/get_bent.ogg', 50, TRUE)
+						playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 50, TRUE)
 						proc_unlock(5)
 						to_chat(user, "<span class='warning'>[src] is locked, and you aren't strong enough to break it down!</span>")
 						spawn(2)
@@ -149,7 +149,7 @@
 				else
 					pixel_z = pixel_z+rand(-1, 1)
 					pixel_w = pixel_w+rand(-1, 1)
-					playsound(src, 'modular_darkpack/modules/deprecated/sound/knock.ogg', 75, TRUE)
+					playsound(src, 'modular_darkpack/modules/deprecated/sounds/knock.ogg', 75, TRUE)
 					to_chat(user, "<span class='warning'>[src] is locked!</span>")
 					spawn(2)
 						pixel_z = initial(pixel_z)
@@ -203,7 +203,7 @@
 		if(locked)
 			hacking = TRUE
 			proc_unlock(5)
-			playsound(src, 'modular_darkpack/modules/deprecated/sound/hack.ogg', 100, TRUE)
+			playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
 			for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
 				if(P)
 					P.Aggro(user)
@@ -232,7 +232,7 @@
 			if (closed && lock_id) //yes, this is a thing you can extremely easily do in real life... FOR DOORS WITH LOCKS!
 				to_chat(user, "<span class='notice'>You re-lock the door with your lockpick.</span>")
 				locked = TRUE
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/hack.ogg', 100, TRUE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
 				return
 	else if(istype(W, /obj/item/vamp/keys))
 		var/obj/item/vamp/keys/KEY = W

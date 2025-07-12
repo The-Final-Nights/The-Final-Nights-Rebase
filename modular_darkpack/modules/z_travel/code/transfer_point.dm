@@ -44,7 +44,7 @@
 
 /obj/transfer_point_vamp/umbral/Bumped(atom/movable/AM)
 	. = ..()
-	playsound(get_turf(AM), 'modular_darkpack/modules/deprecated/sound/portal_enter.ogg', 75, FALSE)
+	playsound(get_turf(AM), 'modular_darkpack/modules/deprecated/sounds/portal_enter.ogg', 75, FALSE)
 
 /obj/transfer_point_vamp/Bumped(atom/movable/AM)
 	. = ..()

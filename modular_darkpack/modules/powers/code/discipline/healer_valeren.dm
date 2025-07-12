@@ -9,7 +9,7 @@
 	name = "Valeren power name"
 	desc = "Valeren power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/valeren.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/valeren.ogg'
 
 //SENSE VITALITY
 /datum/discipline_power/valeren/sense_vitality

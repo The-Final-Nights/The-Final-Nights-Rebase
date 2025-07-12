@@ -2,7 +2,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
-	eatsound = 'modular_darkpack/modules/deprecated/sound/eat.ogg'
+	eatsound = 'modular_darkpack/modules/deprecated/sounds/eat.ogg'
 	var/biten = FALSE
 
 /obj/item/food/vampire/proc/got_biten()
@@ -120,7 +120,7 @@
 	tastes = list("salt" = 1, "crisps" = 1)
 	food_flags = FOOD_IN_CONTAINER
 	foodtypes = JUNKFOOD | FRIED
-	eatsound = 'modular_darkpack/modules/deprecated/sound/crisp.ogg'
+	eatsound = 'modular_darkpack/modules/deprecated/sounds/crisp.ogg'
 
 /obj/item/food/vampire/crisps/proc/open_crisps(mob/user)
 	to_chat(user, "<span class='notice'>You pull back the wrapper of \the [src].</span>")

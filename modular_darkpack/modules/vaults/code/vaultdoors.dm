@@ -21,9 +21,9 @@
 	var/is_broken = FALSE
 	var/door_health = 100
 
-	var/open_sound = 'modular_darkpack/modules/deprecated/sound/vault_door_opening.ogg'
-	var/close_sound = 'modular_darkpack/modules/deprecated/sound/vault_door_closing.ogg'
-	var/lock_sound = 'modular_darkpack/modules/deprecated/sound/vault_door_lock.ogg'
+	var/open_sound = 'modular_darkpack/modules/deprecated/sounds/vault_door_opening.ogg'
+	var/close_sound = 'modular_darkpack/modules/deprecated/sounds/vault_door_closing.ogg'
+	var/lock_sound = 'modular_darkpack/modules/deprecated/sounds/vault_door_lock.ogg'
 
 	//[Lucifernix] - Do the doors use keys, combination locks, or electric pin codes, or a mix of all three?
 	var/uses_key_lock = FALSE

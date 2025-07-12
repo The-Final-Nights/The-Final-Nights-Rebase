@@ -179,5 +179,5 @@
 		if (interacting_mob.client)
 			var/turf/T = get_step(exit, get_dir(interacting_mob, src))
 			interacting_mob.forceMove(T)
-			playsound(loc, 'modular_darkpack/modules/deprecated/sound/portal_enter.ogg', 75, FALSE)
-			playsound(T, 'modular_darkpack/modules/deprecated/sound/portal_enter.ogg', 75, FALSE)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/portal_enter.ogg', 75, FALSE)
+			playsound(T, 'modular_darkpack/modules/deprecated/sounds/portal_enter.ogg', 75, FALSE)

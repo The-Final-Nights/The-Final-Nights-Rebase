@@ -46,7 +46,7 @@
 			current_button.button_icon_state = button_icon_state
 
 /datum/action/chi_discipline/proc/switch_level()
-	SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sound/highlight.ogg', 0, 0, 50))
+	SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/highlight.ogg', 0, 0, 50))
 	if(discipline)
 		if(discipline.level_casting < discipline.level)
 			discipline.level_casting = discipline.level_casting+1
@@ -108,7 +108,7 @@
 	///What rank, or how many dots the caster has in this Discipline.
 	var/level = 1
 	///The sound that plays when any power of this Discipline is activated.
-	var/activate_sound = 'modular_darkpack/modules/deprecated/sound/chi_use.ogg'
+	var/activate_sound = 'modular_darkpack/modules/deprecated/sounds/chi_use.ogg'
 
 	var/dead_restricted
 	///What rank of this Discipline is currently being casted.
@@ -131,17 +131,17 @@
 		return FALSE
 
 	if(caster.yin_chi < cost_yin)
-		SEND_SOUND(caster, sound('modular_darkpack/modules/deprecated/sound/need_blood.ogg', 0, 0, 75))
+		SEND_SOUND(caster, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 		to_chat(caster, "<span class='warning'>You don't have enough <b>Yin Chi</b> to use [src].</span>")
 		return FALSE
 
 	if(caster.yang_chi < cost_yang)
-		SEND_SOUND(caster, sound('modular_darkpack/modules/deprecated/sound/need_blood.ogg', 0, 0, 75))
+		SEND_SOUND(caster, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 		to_chat(caster, "<span class='warning'>You don't have enough <b>Yang Chi</b> to use [src].</span>")
 		return FALSE
 
 	if(caster.demon_chi < cost_demon)
-		SEND_SOUND(caster, sound('modular_darkpack/modules/deprecated/sound/need_blood.ogg', 0, 0, 75))
+		SEND_SOUND(caster, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 		to_chat(caster, "<span class='warning'>You don't have enough <b>Demon Chi</b> to use [src].</span>")
 		return FALSE
 
@@ -194,7 +194,7 @@
 	ranged = FALSE
 	delay = 10 SECONDS
 	cost_yin = 1
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/bloodshintai_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/bloodshintai_activate.ogg'
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/bloodcrawler/kuei_jin/bloodcrawler_shapeshift
 
 /datum/movespeed_modifier/blood_fat
@@ -337,7 +337,7 @@
 						animate(caster, transform = initial, 1 SECONDS)
 						caster.remove_movespeed_modifier(/datum/movespeed_modifier/blood_slim)
 		if(2)
-			playsound(get_turf(caster), 'modular_darkpack/modules/deprecated/sound/spit.ogg', 50, FALSE)
+			playsound(get_turf(caster), 'modular_darkpack/modules/deprecated/sounds/spit.ogg', 50, FALSE)
 			spawn(1 SECONDS)
 				var/obj/item/reagent_containers/spray/pepper/kuei_jin/sprayer = new (get_turf(caster))
 				//spits the weird pepper spray 3 tiles ahead of the caster
@@ -379,7 +379,7 @@
 	ranged = FALSE
 	delay = 12 SECONDS
 	cost_yang = 1
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/jadeshintai_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/jadeshintai_activate.ogg'
 
 /obj/item/melee/powerfist/stone
 	name = "stone-fist"
@@ -458,7 +458,7 @@
 	ranged = FALSE
 	delay = 12 SECONDS
 	cost_yin = 1
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/boneshintai_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/boneshintai_activate.ogg'
 
 /obj/effect/particle_effect/smoke/bad/green/bone_shintai
 	name = "green dangerous smoke"
@@ -572,7 +572,7 @@
 	ranged = FALSE
 	delay = 12 SECONDS
 	cost_yang = 1
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/ghostflameshintai_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/ghostflameshintai_activate.ogg'
 
 /obj/item/gun/magic/ghostflame_shintai
 	name = "fire spit"
@@ -680,7 +680,7 @@
 	ranged = FALSE
 	cost_yin = 1
 	delay = 12 SECONDS
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/fleshshintai_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/fleshshintai_activate.ogg'
 	var/datum/component/tackler
 
 /obj/item/chameleon/temp
@@ -700,7 +700,7 @@
 	inhand_icon_state = "hook_hand"
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/vicissitude.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg'
 	max_charges = 1
 	item_flags = DROPDEL | NOBLUDGEON
 	force = 18
@@ -815,7 +815,7 @@
 			caster.dna.species.punchdamagelow += 20
 			caster.dna.species.punchdamagehigh += 20
 			caster.dna.species.meleemod += 1
-			caster.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sound/heavypunch.ogg'
+			caster.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sounds/heavypunch.ogg'
 			tackler = caster.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 2+level_casting, speed = 1, skill_mod = 0, min_distance = 0)
 			caster.potential = 4
 			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
@@ -850,7 +850,7 @@
 	desc = "Gain control over speed of reaction."
 	icon_state = "blackwind"
 	ranged = FALSE
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/blackwind_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/blackwind_activate.ogg'
 	delay = 12 SECONDS
 	cost_demon = 1
 	discipline_type = "Demon"
@@ -863,7 +863,7 @@
 			caster.celerity_visual = TRUE
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/blackwind_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/blackwind_deactivate.ogg', 50, FALSE)
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/celerity)
 					caster.celerity_visual = FALSE
 		if(2)
@@ -871,7 +871,7 @@
 			caster.celerity_visual = TRUE
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/blackwind_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/blackwind_deactivate.ogg', 50, FALSE)
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/celerity2)
 					caster.celerity_visual = FALSE
 		if(3)
@@ -879,7 +879,7 @@
 			caster.celerity_visual = TRUE
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/blackwind_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/blackwind_deactivate.ogg', 50, FALSE)
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/celerity3)
 					caster.celerity_visual = FALSE
 		if(4)
@@ -887,7 +887,7 @@
 			caster.celerity_visual = TRUE
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/blackwind_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/blackwind_deactivate.ogg', 50, FALSE)
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/celerity4)
 					caster.celerity_visual = FALSE
 		if(5)
@@ -895,7 +895,7 @@
 			caster.celerity_visual = TRUE
 			spawn((delay)+caster.discipline_time_plus)
 				if(caster)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/blackwind_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/blackwind_deactivate.ogg', 50, FALSE)
 					caster.remove_movespeed_modifier(/datum/movespeed_modifier/celerity5)
 					caster.celerity_visual = FALSE
 
@@ -907,7 +907,7 @@
 	delay = 12 SECONDS
 	cost_demon = 1
 	discipline_type = "Demon"
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/demonshintai_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/demonshintai_activate.ogg'
 	var/current_form = "Samurai"
 
 /datum/chi_discipline/demon_shintai/post_gain(mob/living/carbon/human/user)
@@ -969,7 +969,7 @@
 					caster.physiology.armor.bullet -= mod
 					caster.remove_overlay(UNICORN_LAYER)
 					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/demonshintai_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/demonshintai_deactivate.ogg', 50, FALSE)
 		if("Tentacles")
 			var/mod = level_casting
 			caster.remove_overlay(UNICORN_LAYER)
@@ -1003,7 +1003,7 @@
 						REMOVE_TRAIT(caster, TRAIT_SLEEPIMMUNE, SPECIES_TRAIT)
 					if(mod > 4)
 						REMOVE_TRAIT(caster, TRAIT_STUNIMMUNE, SPECIES_TRAIT)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/demonshintai_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/demonshintai_deactivate.ogg', 50, FALSE)
 		if("Demon")
 			var/mod = level_casting
 			caster.remove_overlay(UNICORN_LAYER)
@@ -1037,7 +1037,7 @@
 							caster.remove_movespeed_modifier(/datum/movespeed_modifier/demonform4)
 						if(5)
 							caster.remove_movespeed_modifier(/datum/movespeed_modifier/demonform5)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/demonshintai_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/demonshintai_deactivate.ogg', 50, FALSE)
 		if("Giant")
 			var/mod = level_casting*10
 			var/meleemod = level_casting*0.5
@@ -1056,7 +1056,7 @@
 					caster.dna.species.punchdamagehigh -= mod
 					caster.dna.species.meleemod -= meleemod
 					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/demonshintai_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/demonshintai_deactivate.ogg', 50, FALSE)
 		if("Foul")
 			caster.remove_overlay(UNICORN_LAYER)
 			var/mutable_appearance/potence_overlay = mutable_appearance('modular_darkpack/modules/deprecated/icons/icons.dmi', "foul", -UNICORN_LAYER)
@@ -1069,7 +1069,7 @@
 				if(caster)
 					caster.remove_overlay(UNICORN_LAYER)
 					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/demonshintai_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/demonshintai_deactivate.ogg', 50, FALSE)
 
 /datum/chi_discipline/demon_shintai/proc/foul_aura_loop(mob/living/carbon/human/caster, duration, strength)
 	var/loop_started_time = world.time
@@ -1090,7 +1090,7 @@
 	ranged = TRUE
 	delay = 12 SECONDS
 	cost_demon = 1
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/hellweaving_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/hellweaving_activate.ogg'
 	discipline_type = "Demon"
 
 /atom/movable/screen/fullscreen/yomi_world
@@ -1133,7 +1133,7 @@
 			target.overlay_fullscreen("yomi", /atom/movable/screen/fullscreen/yomi_world)
 			target.clear_fullscreen("yomi", 5)
 		if(2)
-			playsound(get_turf(target), 'modular_darkpack/modules/deprecated/sound/portal.ogg', 100, TRUE)
+			playsound(get_turf(target), 'modular_darkpack/modules/deprecated/sounds/portal.ogg', 100, TRUE)
 			var/datum/effect_system/smoke_spread/bad/yomi/smoke = new
 			smoke.set_up(2, target)
 			smoke.start()
@@ -1168,7 +1168,7 @@
 	desc = "Gain the stoicism and endurability of your P'o."
 	icon_state = "ironmountain"
 	ranged = FALSE
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/ironmountain_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/ironmountain_activate.ogg'
 	delay = 12 SECONDS
 	cost_demon = 1
 	discipline_type = "Demon"
@@ -1185,7 +1185,7 @@
 	caster.physiology.armor.bullet += bonus
 	spawn(delay+caster.discipline_time_plus)
 		if(caster)
-			caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/ironmountain_deactivate.ogg', 50, FALSE)
+			caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/ironmountain_deactivate.ogg', 50, FALSE)
 			caster.physiology.armor.melee -= bonus
 			caster.physiology.armor.bullet -= bonus
 //			caster.remove_overlay(FORTITUDE_LAYER)
@@ -1197,7 +1197,7 @@
 	ranged = TRUE
 	delay = 12 SECONDS
 	cost_demon = 1
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/kiai_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/kiai_activate.ogg'
 	discipline_type = "Demon"
 
 /mob/living/carbon/human/proc/combat_to_caster()
@@ -1212,12 +1212,12 @@
 
 /datum/chi_discipline/kiai/activate(mob/living/target, mob/living/carbon/human/caster)
 	..()
-	var/sound_gender = 'modular_darkpack/modules/deprecated/sound/kiai_male.ogg'
+	var/sound_gender = 'modular_darkpack/modules/deprecated/sounds/kiai_male.ogg'
 	switch(caster.gender)
 		if(MALE)
-			sound_gender = 'modular_darkpack/modules/deprecated/sound/kiai_male.ogg'
+			sound_gender = 'modular_darkpack/modules/deprecated/sounds/kiai_male.ogg'
 		if(FEMALE)
-			sound_gender = 'modular_darkpack/modules/deprecated/sound/kiai_female.ogg'
+			sound_gender = 'modular_darkpack/modules/deprecated/sounds/kiai_female.ogg'
 	caster.emote("scream")
 	playsound(caster.loc, sound_gender, 100, FALSE)
 	var/mypower = caster.get_total_social()
@@ -1263,7 +1263,7 @@
 	ranged = FALSE
 	delay = 12 SECONDS
 	cost_yang = 1
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/beastshintai_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/beastshintai_activate.ogg'
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/werewolf_like/wolflike_shapeshift
 
 /obj/effect/proc_holder/spell/targeted/shapeshift/werewolf_like
@@ -1359,7 +1359,7 @@
 	ranged = FALSE
 	delay = 12 SECONDS
 	cost_yang = 1
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/smokeshintai_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/smokeshintai_activate.ogg'
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/smoke_form/smoke_shapeshift
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/hidden_smoke_form/hidden_smoke_shapeshift
 
@@ -1499,13 +1499,13 @@
 	ranged = FALSE
 	delay = 12 SECONDS
 	cost_yang = 1
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/stormshintai_activate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/stormshintai_activate.ogg'
 
 /obj/item/melee/touch_attack/storm_shintai
 	name = "Storm touch"
 	desc = "ELECTROCUTE YOURSELF!"
 	catchphrase = null
-	on_use_sound = 'modular_darkpack/modules/deprecated/sound/lightning.ogg'
+	on_use_sound = 'modular_darkpack/modules/deprecated/sounds/lightning.ogg'
 	icon_state = "zapper"
 	inhand_icon_state = "zapper"
 
@@ -1532,7 +1532,7 @@
 	icon = 'icons/obj/items_and_weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/lightning.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/lightning.ogg'
 	max_charges = 1
 	item_flags = DROPDEL | NOBLUDGEON
 	force = 18
@@ -1555,7 +1555,7 @@
 	pass_flags = PASSTABLE
 	damage = 0
 	stamina = 20
-	hitsound = 'modular_darkpack/modules/deprecated/sound/lightning.ogg'
+	hitsound = 'modular_darkpack/modules/deprecated/sounds/lightning.ogg'
 	var/chain
 	var/knockdown_time = (0.5 SECONDS)
 
@@ -1575,7 +1575,7 @@
 		if(A.anchored)
 			return
 		A.visible_message("<span class='danger'>[A] is snagged by lightning!</span>")
-		playsound(get_turf(target), 'modular_darkpack/modules/deprecated/sound/lightning.ogg', 100, FALSE)
+		playsound(get_turf(target), 'modular_darkpack/modules/deprecated/sounds/lightning.ogg', 100, FALSE)
 		if (isliving(target))
 			var/mob/living/L = target
 			L.Stun(0.5 SECONDS)
@@ -1644,7 +1644,7 @@
 			var/turf/lightning_source = get_turf(caster)
 			lightning_source.Beam(shocked_mob, icon_state="lightning[rand(1,12)]", time = 0.5 SECONDS)
 			shocked_mob.Stun(0.5 SECONDS)
-			playsound(get_turf(shocked_mob), 'modular_darkpack/modules/deprecated/sound/lightning.ogg', 100, FALSE)
+			playsound(get_turf(shocked_mob), 'modular_darkpack/modules/deprecated/sounds/lightning.ogg', 100, FALSE)
 
 		sleep(6 SECONDS)
 
@@ -1657,7 +1657,7 @@
 	cost_yang = 1
 	cost_yin = 1
 	discipline_type = "Chi"
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/equilibrium.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/equilibrium.ogg'
 
 /datum/chi_discipline/equilibrium/post_gain(mob/living/carbon/human/user)
 	. = ..()
@@ -1759,7 +1759,7 @@
 			for(var/mob/living/affected_mob in oviewers(5, caster))
 				affected_mob.AdjustKnockdown(2 SECONDS, TRUE)
 				affected_mob.emote("scream")
-				playsound(get_turf(affected_mob), 'modular_darkpack/modules/deprecated/sound/vicissitude.ogg', 75, FALSE)
+				playsound(get_turf(affected_mob), 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 75, FALSE)
 				step_away(affected_mob, caster)
 		if(5)
 			caster.yin_chi += 1
@@ -1781,7 +1781,7 @@
 	cost_yang = 1
 	cost_yin = 1
 	discipline_type = "Chi"
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/feng_shui.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/feng_shui.ogg'
 
 /datum/movespeed_modifier/pacifisting
 	multiplicative_slowdown = 3
@@ -1790,7 +1790,7 @@
 	..()
 	switch(level_casting)
 		if(1)
-			var/sound/auspexbeat = sound('modular_darkpack/modules/deprecated/sound/auspex.ogg', repeat = TRUE)
+			var/sound/auspexbeat = sound('modular_darkpack/modules/deprecated/sounds/auspex.ogg', repeat = TRUE)
 			caster.playsound_local(caster, auspexbeat, 75, 0, channel = CHANNEL_DISCIPLINES, use_reverb = FALSE)
 			ADD_TRAIT(caster, TRAIT_NIGHT_VISION, TRAIT_GENERIC)
 			caster.update_sight()
@@ -1804,12 +1804,12 @@
 					caster.see_invisible = initial(caster.see_invisible)
 					abductor_hud.remove_hud_from(caster)
 					caster.stop_sound_channel(CHANNEL_DISCIPLINES)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/auspex_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/auspex_deactivate.ogg', 50, FALSE)
 					REMOVE_TRAIT(caster, TRAIT_NIGHT_VISION, TRAIT_GENERIC)
 					caster.remove_client_colour(/datum/client_colour/glass_colour/lightblue)
 					caster.update_sight()
 		if(2)
-			var/sound/auspexbeat = sound('modular_darkpack/modules/deprecated/sound/auspex.ogg', repeat = TRUE)
+			var/sound/auspexbeat = sound('modular_darkpack/modules/deprecated/sounds/auspex.ogg', repeat = TRUE)
 			caster.playsound_local(caster, auspexbeat, 75, 0, channel = CHANNEL_DISCIPLINES, use_reverb = FALSE)
 			ADD_TRAIT(caster, TRAIT_THERMAL_VISION, TRAIT_GENERIC)
 			ADD_TRAIT(caster, TRAIT_NIGHT_VISION, TRAIT_GENERIC)
@@ -1823,7 +1823,7 @@
 					caster.see_invisible = initial(caster.see_invisible)
 					health_hud.remove_hud_from(caster)
 					caster.stop_sound_channel(CHANNEL_DISCIPLINES)
-					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/auspex_deactivate.ogg', 50, FALSE)
+					caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/auspex_deactivate.ogg', 50, FALSE)
 					REMOVE_TRAIT(caster, TRAIT_THERMAL_VISION, TRAIT_GENERIC)
 					REMOVE_TRAIT(caster, TRAIT_NIGHT_VISION, TRAIT_GENERIC)
 					caster.update_sight()
@@ -1839,7 +1839,7 @@
 						cursing_mob.yin_chi = max(0, cursing_mob.yin_chi-2)
 					else
 						cursing_mob.adjust_nutrition(-100)
-					playsound(get_turf(cursing_mob), 'modular_darkpack/modules/deprecated/sound/hunger.ogg', 100, FALSE)
+					playsound(get_turf(cursing_mob), 'modular_darkpack/modules/deprecated/sounds/hunger.ogg', 100, FALSE)
 					to_chat(caster, "You send your curse on [cursing_mob], the last creature you attacked.")
 				else
 					to_chat(caster, "You don't seem to have last attacked soul earlier...")
@@ -1901,7 +1901,7 @@
 	cost_yang = 1
 	cost_yin = 1
 	discipline_type = "Chi"
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/tapestry.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/tapestry.ogg'
 	//var/prev_z
 
 //nonfunctional
@@ -2028,7 +2028,7 @@
 					ghost.name = caster.name
 					ghost.alpha = 128
 					caster.forceMove(ghost)
-				playsound(get_turf(caster), 'modular_darkpack/modules/deprecated/sound/portal.ogg', 100, TRUE)
+				playsound(get_turf(caster), 'modular_darkpack/modules/deprecated/sounds/portal.ogg', 100, TRUE)
 			*/
 		if(3)
 			ADD_TRAIT(caster, TRAIT_SUPERNATURAL_LUCK, "tapestry 3")
@@ -2075,7 +2075,7 @@
 	delay = 12 SECONDS
 	cost_yin = 2
 	discipline_type = "Chi"
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/yin_prana.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/yin_prana.ogg'
 
 /obj/item/melee/touch_attack/yin_touch
 	name = "\improper shadow touch"
@@ -2094,7 +2094,7 @@
 		var/obj/structure/vampdoor/door = target
 		if (door.lockpick_difficulty > 10)
 			return ..()
-		playsound(get_turf(target), 'modular_darkpack/modules/deprecated/sound/get_bent.ogg', 100, FALSE)
+		playsound(get_turf(target), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 100, FALSE)
 		var/obj/item/shield/door/door_item = new(get_turf(target))
 		door_item.icon_state = door.baseicon
 		var/atom/throw_target = get_edge_target_turf(target, user.dir)
@@ -2114,7 +2114,7 @@
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
 					if(caster.alpha != 255)
-						caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sound/obfuscate_deactivate.ogg', 50, FALSE)
+						caster.playsound_local(caster.loc, 'modular_darkpack/modules/deprecated/sounds/obfuscate_deactivate.ogg', 50, FALSE)
 						caster.alpha = 255
 		if(2)
 			var/atom/movable/light_source = new(target)
@@ -2151,7 +2151,7 @@
 	delay = 12 SECONDS
 	cost_yang = 2
 	discipline_type = "Chi"
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/yang_prana.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/yang_prana.ogg'
 	var/obj/effect/proc_holder/spell/targeted/ethereal_jaunt/jaunt
 
 /datum/chi_discipline/yang_prana/activate(mob/living/target, mob/living/carbon/human/caster)

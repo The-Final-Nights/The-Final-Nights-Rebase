@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 				icon_state = "b_sarcophagus-open1"
 				to_chat(world, "<span class='userdanger'><b>UNKNOWN SARCOPHAGUS HAS BEEN OPENED</b></span>")
 				SEND_SOUND(world, sound('modular_darkpack/modules/masquerade/sounds/announce.ogg'))
-				playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sound/mp_hello.ogg', 100, TRUE)
+				playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/mp_hello.ogg', 100, TRUE)
 				spawn(200)
 					icon_state = "b_sarcophagus-open0"
 					new /mob/living/simple_animal/hostile/megafauna/wendigo(loc)

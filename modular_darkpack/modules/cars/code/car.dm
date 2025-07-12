@@ -72,7 +72,7 @@ SUBSYSTEM_DEF(carpool)
 			return
 		stored_gasoline = max(0, stored_gasoline-50)
 		new /obj/effect/decal/cleanable/gasoline(get_turf(A))
-		playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sound/gas_splat.ogg', 50, TRUE)
+		playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = A
 		if(!proximity)
@@ -81,7 +81,7 @@ SUBSYSTEM_DEF(carpool)
 			return
 		stored_gasoline = max(0, stored_gasoline-50)
 		H.fire_stacks = min(10, H.fire_stacks+10)
-		playsound(get_turf(H), 'modular_darkpack/modules/deprecated/sound/gas_splat.ogg', 50, TRUE)
+		playsound(get_turf(H), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
 		user.visible_message("<span class='warning'>[user] covers [A] in something flammable!</span>")
 
 
@@ -91,7 +91,7 @@ SUBSYSTEM_DEF(carpool)
 		var/mob/living/carbon/human/H = user
 		if(H.a_intent == INTENT_HARM && H.potential >= 4)
 			var/atom/throw_target = get_edge_target_turf(src, user.dir)
-			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sound/bump.ogg', 100, FALSE)
+			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 100, FALSE)
 			get_damage(10)
 			throw_at(throw_target, rand(4, 6), 4, user)
 
@@ -133,7 +133,7 @@ SUBSYSTEM_DEF(carpool)
 	var/baggage_max = WEIGHT_CLASS_BULKY
 
 	var/exploded = FALSE
-	var/beep_sound = 'modular_darkpack/modules/deprecated/sound/beep.ogg'
+	var/beep_sound = 'modular_darkpack/modules/deprecated/sounds/beep.ogg'
 
 	var/gas = 1000
 
@@ -191,7 +191,7 @@ SUBSYSTEM_DEF(carpool)
 			var/gas_to_transfer = min(1000-gas, min(100, max(1, G.stored_gasoline)))
 			G.stored_gasoline = max(0, G.stored_gasoline-gas_to_transfer)
 			gas = min(1000, gas+gas_to_transfer)
-			playsound(loc, 'modular_darkpack/modules/deprecated/sound/gas_fill.ogg', 25, TRUE)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 25, TRUE)
 			to_chat(user, "<span class='notice'>You transfer [gas_to_transfer] fuel to [src].</span>")
 		return
 	if(istype(I, /obj/item/vamp/keys))
@@ -211,10 +211,10 @@ SUBSYSTEM_DEF(carpool)
 						locked = FALSE
 						repairing = FALSE
 						to_chat(user, "<span class='notice'>You've managed to open [src]'s lock.</span>")
-						playsound(src, 'modular_darkpack/modules/deprecated/sound/open.ogg', 50, TRUE)
+						playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
 					else
 						to_chat(user, "<span class='warning'>You've failed to open [src]'s lock.</span>")
-						playsound(src, 'modular_darkpack/modules/deprecated/sound/signal.ogg', 50, FALSE)
+						playsound(src, 'modular_darkpack/modules/deprecated/sounds/signal.ogg', 50, FALSE)
 						for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
 							if(P)
 								P.Aggro(user)
@@ -235,7 +235,7 @@ SUBSYSTEM_DEF(carpool)
 			for(var/i in K.accesslocks)
 				if(i == access)
 					to_chat(user, "<span class='notice'>You [locked ? "open" : "close"] [src]'s lock.</span>")
-					playsound(src, 'modular_darkpack/modules/deprecated/sound/open.ogg', 50, TRUE)
+					playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
 					locked = !locked
 					return
 		return
@@ -253,7 +253,7 @@ SUBSYSTEM_DEF(carpool)
 				"<span class='notice'>You begin repairing [src]. Stop at any time to only partially repair it.</span>")
 			if(do_mob(user, src, time_to_repair SECONDS))
 				health = maxhealth
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/repair.ogg', 50, TRUE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
 				user.visible_message("<span class='notice'>[user] repairs [src].</span>", \
 					"<span class='notice'>You finish repairing all the dents on [src].</span>")
 				color = "#ffffff"
@@ -261,7 +261,7 @@ SUBSYSTEM_DEF(carpool)
 				return
 			else
 				get_damage((world.time - start_time) * -2 / 5) //partial repair
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/repair.ogg', 50, TRUE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
 				user.visible_message("<span class='notice'>[user] repairs [src].</span>", \
 					"<span class='notice'>You repair some of the dents on [src].</span>")
 				color = "#ffffff"
@@ -278,12 +278,12 @@ SUBSYSTEM_DEF(carpool)
 
 			if(!driver && !length(passengers) && last_beep+70 < world.time && locked)
 				last_beep = world.time
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/signal.ogg', 50, FALSE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/signal.ogg', 50, FALSE)
 				for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
 					P.Aggro(user)
 
 			if(prob(10) && locked)
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/open.ogg', 50, TRUE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
 				locked = FALSE
 
 	..()
@@ -425,7 +425,7 @@ SUBSYSTEM_DEF(carpool)
 		var/obj/vampire_car/V = owner.loc
 		var/datum/component/storage/STR = V.GetComponent(/datum/component/storage)
 		STR.locked = !STR.locked
-		playsound(V, 'modular_darkpack/modules/deprecated/sound/door.ogg', 50, TRUE)
+		playsound(V, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
 		if(STR.locked)
 			to_chat(owner, "<span class='notice'>You lock [V]'s baggage.</span>")
 		else
@@ -442,12 +442,12 @@ SUBSYSTEM_DEF(carpool)
 		if(!V.on)
 			if(V.health == V.maxhealth)
 				V.on = TRUE
-				playsound(V, 'modular_darkpack/modules/deprecated/sound/start.ogg', 50, TRUE)
+				playsound(V, 'modular_darkpack/modules/deprecated/sounds/start.ogg', 50, TRUE)
 				to_chat(owner, "<span class='notice'>You managed to start [V]'s engine.</span>")
 				return
 			if(prob(100*(V.health/V.maxhealth)))
 				V.on = TRUE
-				playsound(V, 'modular_darkpack/modules/deprecated/sound/start.ogg', 50, TRUE)
+				playsound(V, 'modular_darkpack/modules/deprecated/sounds/start.ogg', 50, TRUE)
 				to_chat(owner, "<span class='notice'>You managed to start [V]'s engine.</span>")
 				return
 			else
@@ -455,7 +455,7 @@ SUBSYSTEM_DEF(carpool)
 				return
 		else
 			V.on = FALSE
-			playsound(V, 'modular_darkpack/modules/deprecated/sound/stop.ogg', 50, TRUE)
+			playsound(V, 'modular_darkpack/modules/deprecated/sounds/stop.ogg', 50, TRUE)
 			to_chat(owner, "<span class='notice'>You stop [V]'s engine.</span>")
 			V.set_light(0)
 			return
@@ -495,7 +495,7 @@ SUBSYSTEM_DEF(carpool)
 			if(owner.client)
 				owner.client.pixel_x = 0
 				owner.client.pixel_y = 0
-		playsound(V, 'modular_darkpack/modules/deprecated/sound/door.ogg', 50, TRUE)
+		playsound(V, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
 		for(var/datum/action/carr/C in owner.actions)
 			qdel(C)
 
@@ -538,7 +538,7 @@ SUBSYSTEM_DEF(carpool)
 				E.Grant(src)
 			visible_message("<span class='notice'>[src] enters [V].</span>", \
 				"<span class='notice'>You enter [V].</span>")
-			playsound(V, 'modular_darkpack/modules/deprecated/sound/door.ogg', 50, TRUE)
+			playsound(V, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
 			return
 		else
 			to_chat(src, "<span class='warning'>You fail to enter [V].")
@@ -555,24 +555,24 @@ SUBSYSTEM_DEF(carpool)
 		var/mob/living/hit_mob = A
 		switch(hit_mob.mob_size)
 			if(MOB_SIZE_HUGE) 	//gangrel warforms, werewolves, bears, ppl with fortitude
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/bump.ogg', 75, TRUE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 75, TRUE)
 				speed_in_pixels = 0
 				impact_delay = world.time
 				hit_mob.Paralyze(1 SECONDS)
 			if(MOB_SIZE_LARGE)	//ppl with fat bodytype
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/bump.ogg', 60, TRUE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 60, TRUE)
 				speed_in_pixels = round(speed_in_pixels * 0.35)
 				hit_mob.Knockdown(1 SECONDS)
 			if(MOB_SIZE_SMALL)	//small animals
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/bump.ogg', 40, TRUE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 40, TRUE)
 				speed_in_pixels = round(speed_in_pixels * 0.75)
 				hit_mob.Knockdown(1 SECONDS)
 			else				//everything else
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/bump.ogg', 50, TRUE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 50, TRUE)
 				speed_in_pixels = round(speed_in_pixels * 0.5)
 				hit_mob.Knockdown(1 SECONDS)
 	else
-		playsound(src, 'modular_darkpack/modules/deprecated/sound/bump.ogg', 75, TRUE)
+		playsound(src, 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 75, TRUE)
 		speed_in_pixels = 0
 		impact_delay = world.time
 
@@ -680,7 +680,7 @@ SUBSYSTEM_DEF(carpool)
 	icon_state = "police"
 	max_passengers = 3
 	dir = WEST
-	beep_sound = 'modular_darkpack/modules/deprecated/sound/migalka.ogg'
+	beep_sound = 'modular_darkpack/modules/deprecated/sounds/migalka.ogg'
 	access = "police"
 	baggage_limit = 45
 	baggage_max = WEIGHT_CLASS_BULKY
@@ -847,7 +847,7 @@ SUBSYSTEM_DEF(carpool)
 			to_chat(driver, "<span class='warning'>No fuel in the tank!</span>")
 	if(on)
 		if(last_vzhzh+10 < world.time)
-			playsound(src, 'modular_darkpack/modules/deprecated/sound/work.ogg', 25, FALSE)
+			playsound(src, 'modular_darkpack/modules/deprecated/sounds/work.ogg', 25, FALSE)
 			last_vzhzh = world.time
 	if(!on || !driver)
 		speed_in_pixels = (speed_in_pixels < 0 ? -1 : 1) * max(abs(speed_in_pixels) - 15, 0)
@@ -1001,23 +1001,23 @@ SUBSYSTEM_DEF(carpool)
 	if(adjusting_speed)
 		if(on)
 			if(adjusting_speed > 0 && speed_in_pixels <= 0)
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/stopping.ogg', 10, FALSE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/stopping.ogg', 10, FALSE)
 				speed_in_pixels = speed_in_pixels+adjusting_speed*3
 				movement_vector = SIMPLIFY_DEGREES(movement_vector+adjust_true*drift)
 			else if(adjusting_speed < 0 && speed_in_pixels > 0)
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/stopping.ogg', 10, FALSE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/stopping.ogg', 10, FALSE)
 				speed_in_pixels = speed_in_pixels+adjusting_speed*3
 				movement_vector = SIMPLIFY_DEGREES(movement_vector+adjust_true*drift)
 			else
 				speed_in_pixels = min(stage*64, max(-stage*64, speed_in_pixels+adjusting_speed*stage))
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/drive.ogg', 10, FALSE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/drive.ogg', 10, FALSE)
 		else
 			if(adjusting_speed > 0 && speed_in_pixels < 0)
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/stopping.ogg', 10, FALSE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/stopping.ogg', 10, FALSE)
 				speed_in_pixels = min(0, speed_in_pixels+adjusting_speed*3)
 				movement_vector = SIMPLIFY_DEGREES(movement_vector+adjust_true*drift)
 			else if(adjusting_speed < 0 && speed_in_pixels > 0)
-				playsound(src, 'modular_darkpack/modules/deprecated/sound/stopping.ogg', 10, FALSE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/stopping.ogg', 10, FALSE)
 				speed_in_pixels = max(0, speed_in_pixels+adjusting_speed*3)
 				movement_vector = SIMPLIFY_DEGREES(movement_vector+adjust_true*drift)
 

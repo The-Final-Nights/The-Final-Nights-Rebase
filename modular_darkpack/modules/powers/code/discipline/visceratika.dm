@@ -9,7 +9,7 @@
 	name = "Visceratika power name"
 	desc = "Visceratika power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/visceratika.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/visceratika.ogg'
 
 //WHISPERS OF THE CHAMBER
 /datum/discipline_power/visceratika/whispers_of_the_chamber

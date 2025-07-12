@@ -9,7 +9,7 @@
 	emote_see = list("shakes its head.", "shivers.")
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
-	attack_sound = 'modular_darkpack/modules/deprecated/sound/rat.ogg'
+	attack_sound = 'modular_darkpack/modules/deprecated/sounds/rat.ogg'
 	speak_chance = 0
 	turns_per_move = 5
 	see_in_dark = 6

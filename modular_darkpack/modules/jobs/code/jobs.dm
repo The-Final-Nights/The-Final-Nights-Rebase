@@ -52,7 +52,7 @@
 		return
 	last_detonated = world.time
 	do_sparks(rand(5, 9), FALSE, user)
-	playsound(user.loc, 'modular_darkpack/modules/deprecated/sound/cross.ogg', 100, FALSE, 8, 0.9)
+	playsound(user.loc, 'modular_darkpack/modules/deprecated/sounds/cross.ogg', 100, FALSE, 8, 0.9)
 	for(var/mob/living/M in get_hearers_in_view(4, user.loc))
 		bang(get_turf(M), M, user)
 

@@ -57,7 +57,7 @@
 	kill_objective.owner = owner
 	kill_objective.find_target()
 	objectives += kill_objective
-	owner.current.playsound_local(get_turf(owner.current), 'modular_darkpack/modules/deprecated/sound/sad_start.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'modular_darkpack/modules/deprecated/sounds/sad_start.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 	return ..()
 
 /datum/antagonist/caitiff/on_removal()

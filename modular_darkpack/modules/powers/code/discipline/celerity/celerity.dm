@@ -8,8 +8,8 @@
 	name = "Celerity power name"
 	desc = "Celerity power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/celerity_activate.ogg'
-	deactivate_sound = 'modular_darkpack/modules/deprecated/sound/celerity_deactivate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/celerity_activate.ogg'
+	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/celerity_deactivate.ogg'
 
 /datum/discipline_power/celerity/proc/temporis_explode(datum/source, datum/discipline_power/power, atom/target)
 	SIGNAL_HANDLER

@@ -9,7 +9,7 @@
 	name = "Melpominee power name"
 	desc = "Melpominee power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/melpominee.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/melpominee.ogg'
 
 //THE MISSING VOICE
 /datum/discipline_power/melpominee/the_missing_voice
@@ -143,7 +143,7 @@
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_SPEAK
 
-	effect_sound = 'modular_darkpack/modules/deprecated/sound/killscream.ogg'
+	effect_sound = 'modular_darkpack/modules/deprecated/sounds/killscream.ogg'
 
 	duration_length = 2 SECONDS
 	cooldown_length = 7.5 SECONDS
@@ -173,7 +173,7 @@
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_SPEAK
 
-	effect_sound = 'modular_darkpack/modules/deprecated/sound/killscream.ogg'
+	effect_sound = 'modular_darkpack/modules/deprecated/sounds/killscream.ogg'
 
 	duration_length = 2 SECONDS
 	cooldown_length = 7.5 SECONDS

@@ -9,7 +9,7 @@
 	name = "Quietus power name"
 	desc = "Quietus power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/quietus.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/quietus.ogg'
 
 //SILENCE OF DEATH
 /datum/discipline_power/quietus/silence_of_death
@@ -182,7 +182,7 @@
 	if(charges == 0)
 		qdel(src)
 /*
-	playsound(target.loc, 'modular_darkpack/modules/deprecated/sound/quietus.ogg', 50, TRUE)
+	playsound(target.loc, 'modular_darkpack/modules/deprecated/sounds/quietus.ogg', 50, TRUE)
 	target.Stun(5*level_casting)
 	if(level_casting >= 3)
 		if(target.bloodpool > 1)

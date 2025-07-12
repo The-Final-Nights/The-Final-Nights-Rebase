@@ -49,7 +49,7 @@
 			user.apply_damage(10, STAMINA)
 		user.do_attack_animation(src)
 		visible_message("<span class='danger'>[src] parries the attack!</span>", "<span class='danger'>You parry the attack!</span>")
-		playsound(src, 'modular_darkpack/modules/deprecated/sound/parried.ogg', 70, TRUE)
+		playsound(src, 'modular_darkpack/modules/deprecated/sounds/parried.ogg', 70, TRUE)
 		clear_parrying()
 		return
 	if(HAS_TRAIT(src, TRAIT_ENHANCED_MELEE_DODGE))
@@ -122,7 +122,7 @@
 		if(blocking)
 			SwitchBlocking()
 		visible_message("<span class='warning'>[src] prepares to parry [M]'s next attack.</span>", "<span class='warning'>You prepare to parry [M]'s next attack.</span>")
-		playsound(src, 'modular_darkpack/modules/deprecated/sound/parry.ogg', 70, TRUE)
+		playsound(src, 'modular_darkpack/modules/deprecated/sounds/parry.ogg', 70, TRUE)
 		remove_overlay(FIGHT_LAYER)
 		var/mutable_appearance/parry_overlay = mutable_appearance('modular_darkpack/modules/deprecated/icons/icons.dmi', "parry", -FIGHT_LAYER)
 		overlays_standing[FIGHT_LAYER] = parry_overlay

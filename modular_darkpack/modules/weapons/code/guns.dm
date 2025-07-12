@@ -30,7 +30,7 @@
 	worn_icon_state = "revolver"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
 	initial_caliber = CALIBER_44
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/revolver.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/revolver.ogg'
 	load_sound = 'sound/weapons/gun/revolver/load_bullet.ogg'
 	eject_sound = 'sound/weapons/gun/revolver/empty.ogg'
 	vary_fire_sound = FALSE
@@ -154,7 +154,7 @@
 	fire_delay = 0
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/deagle.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/deagle.ogg'
 	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
 	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
 	load_empty_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
@@ -217,7 +217,7 @@
 	fire_delay = 0
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/m1911.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/m1911.ogg'
 	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
 	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
 	load_empty_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
@@ -258,7 +258,7 @@
 	fire_delay = 1
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/glock.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/glock.ogg'
 	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
 	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
 	load_empty_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
@@ -299,7 +299,7 @@
 	fire_delay = 1
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/glock.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/glock.ogg'
 	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
 	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
 	load_empty_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
@@ -328,7 +328,7 @@
 	dual_wield_spread = 10 //DUAL ELITES!
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/glock.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/glock.ogg'
 	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
 	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
 	load_empty_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
@@ -401,7 +401,7 @@
 	show_bolt_icon = FALSE
 	mag_display = TRUE
 	rack_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/uzi.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/uzi.ogg'
 
 /obj/item/gun/ballistic/automatic/vampire/uzi/Initialize(mapload)
 	. = ..()
@@ -434,7 +434,7 @@
 	show_bolt_icon = FALSE
 	mag_display = TRUE
 	rack_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/mp5.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/mp5.ogg'
 
 /obj/item/gun/ballistic/automatic/vampire/mp5/Initialize(mapload)
 	. = ..()
@@ -473,7 +473,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	show_bolt_icon = FALSE
 	mag_display = TRUE
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/rifle.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/rifle.ogg'
 	masquerade_violating = TRUE
 
 /obj/item/gun/ballistic/automatic/vampire/ar15/Initialize(mapload)
@@ -495,7 +495,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	show_bolt_icon = FALSE
 	mag_display = TRUE
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/rifle.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/rifle.ogg'
 	masquerade_violating = FALSE
 
 /obj/item/gun/ballistic/automatic/vampire/huntrifle/Initialize(mapload)
@@ -531,7 +531,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	show_bolt_icon = FALSE
 	mag_display = TRUE
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/ak.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/ak.ogg'
 	masquerade_violating = TRUE
 
 /obj/item/gun/ballistic/automatic/vampire/ak74/Initialize(mapload)
@@ -566,7 +566,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	show_bolt_icon = FALSE
 	mag_display = TRUE
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/rifle.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/rifle.ogg'
 	masquerade_violating = TRUE
 	is_iron = FALSE
 
@@ -603,7 +603,7 @@
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 	mag_display = TRUE
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/thompson.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/thompson.ogg'
 	masquerade_violating = TRUE
 
 /obj/item/gun/ballistic/automatic/vampire/thompson/Initialize(mapload)
@@ -631,7 +631,7 @@
 	bolt_type = BOLT_TYPE_STANDARD
 	semi_auto = FALSE
 	internal_magazine = TRUE
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/sniper.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/sniper.ogg'
 	fire_sound_volume = 90
 	vary_fire_sound = FALSE
 	rack_sound = 'sound/weapons/gun/rifle/bolt_out.ogg'
@@ -676,7 +676,7 @@
 	fire_delay = 6
 	mag_type = /obj/item/ammo_box/magazine/internal/vampshotgun
 	can_be_sawn_off	= FALSE
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/pomp.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/pomp.ogg'
 	recoil = 4
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
@@ -709,7 +709,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	show_bolt_icon = FALSE
 	mag_display = TRUE
-	fire_sound = 'modular_darkpack/modules/deprecated/sound/pomp.ogg'
+	fire_sound = 'modular_darkpack/modules/deprecated/sounds/pomp.ogg'
 	slot_flags = ITEM_SLOT_BACK
 	projectile_damage_multiplier = 0.9
 	masquerade_violating = TRUE
@@ -790,7 +790,7 @@
 	if(active)
 		new /obj/effect/fire(explode_location)
 
-	playsound(explode_location, 'modular_darkpack/modules/deprecated/sound/explode.ogg', 100, TRUE)
+	playsound(explode_location, 'modular_darkpack/modules/deprecated/sounds/explode.ogg', 100, TRUE)
 	qdel(src)
 
 /obj/item/vampire_flamethrower
@@ -814,7 +814,7 @@
 			G.stored_gasoline = max(0, G.stored_gasoline-gas_to_transfer)
 			oil = min(1000, oil+gas_to_transfer)
 			if(oil)
-				playsound(get_turf(user), 'modular_darkpack/modules/deprecated/sound/gas_fill.ogg', 50, TRUE)
+				playsound(get_turf(user), 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 50, TRUE)
 				to_chat(user, "<span class='notice'>You fill [src].</span>")
 				icon_state = "flamethrower4"
 
@@ -832,7 +832,7 @@
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, "<span class='warning'>You can't bring yourself to fire \the [src]! You don't want to risk harming anyone...</span>")
 		return
-	playsound(get_turf(user), 'modular_darkpack/modules/deprecated/sound/flamethrower.ogg', 50, TRUE)
+	playsound(get_turf(user), 'modular_darkpack/modules/deprecated/sounds/flamethrower.ogg', 50, TRUE)
 	visible_message("<span class='warning'>[user] fires [src]!</span>", "<span class='warning'>You fire [src]!</span>")
 	if(user && user.get_active_held_item() == src) // Make sure our user is still holding us
 		var/turf/target_turf = get_turf(target)

@@ -25,7 +25,7 @@
 	target_type = TARGET_LIVING
 	range = 7
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/thaum.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/thaum.ogg'
 	aggravating = TRUE
 	hostile = TRUE
 	violates_masquerade = TRUE
@@ -52,7 +52,7 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	damage = 5
 	damage_type = BURN
-	hitsound = 'modular_darkpack/modules/deprecated/sound/drinkblood1.ogg'
+	hitsound = 'modular_darkpack/modules/deprecated/sounds/drinkblood1.ogg'
 	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
 	flag = LASER
 	light_system = MOVABLE_LIGHT
@@ -187,7 +187,7 @@
 
 	level = 4
 
-	effect_sound = 'modular_darkpack/modules/deprecated/sound/vomit.ogg'
+	effect_sound = 'modular_darkpack/modules/deprecated/sounds/vomit.ogg'
 
 	grouped_powers = list(
 		/datum/discipline_power/thaumaturgy/a_taste_for_blood,
@@ -215,7 +215,7 @@
 
 	level = 5
 
-	effect_sound = 'modular_darkpack/modules/deprecated/sound/vomit.ogg'
+	effect_sound = 'modular_darkpack/modules/deprecated/sounds/vomit.ogg'
 
 	grouped_powers = list(
 		/datum/discipline_power/thaumaturgy/a_taste_for_blood,
@@ -310,7 +310,7 @@
 		to_chat(owner, span_warning("You don't have enough <b>BLOOD</b> to do that!"))
 		return
 	H.bloodpool = max(H.bloodpool - 2, 0)
-	playsound(H.loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+	playsound(H.loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 	abuse_fix = world.time
 	H.physiology.damage_resistance += 60
 	animate(H, color = "#ff0000", time = 10, loop = 1)
@@ -318,7 +318,7 @@
 		H.adjust_masquerade(-1)
 	spawn(15 SECONDS)
 		if(H)
-			playsound(H.loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+			playsound(H.loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 			H.physiology.damage_resistance -= 60
 			H.color = initial(H.color)
 
@@ -330,7 +330,7 @@
 	cost = 2
 	ranged = FALSE
 	delay = 15 SECONDS
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/thaum.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/thaum.ogg'
 
 /datum/discipline/bloodshield/activate(mob/living/target, mob/living/carbon/human/owner)
 	..()
@@ -341,7 +341,7 @@
 //	owner.color = "#ff0000"
 	spawn(delay+owner.discipline_time_plus)
 		if(owner)
-			playsound(owner.loc, 'modular_darkpack/modules/deprecated/sound/thaum.ogg', 50, FALSE)
+			playsound(owner.loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 			owner.physiology.armor.melee = owner.physiology.armor.melee-(15*mod)
 			owner.physiology.armor.bullet = owner.physiology.armor.bullet-(15*mod)
 			owner.color = initial(owner.color)

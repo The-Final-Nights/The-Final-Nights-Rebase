@@ -13,7 +13,7 @@
 	name = "Dementation power name"
 	desc = "Dementation power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/insanity.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/insanity.ogg'
 
 //PASSION
 /datum/discipline_power/dementation/passion

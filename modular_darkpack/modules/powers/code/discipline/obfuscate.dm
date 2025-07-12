@@ -11,8 +11,8 @@
 	name = "Obfuscate power name"
 	desc = "Obfuscate power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/obfuscate_activate.ogg'
-	deactivate_sound = 'modular_darkpack/modules/deprecated/sound/obfuscate_deactivate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/obfuscate_activate.ogg'
+	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/obfuscate_deactivate.ogg'
 
 	var/static/list/aggressive_signals = list(
 		COMSIG_MOB_ATTACK_HAND,

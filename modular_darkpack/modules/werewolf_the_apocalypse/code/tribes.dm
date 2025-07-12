@@ -8,7 +8,7 @@
 /datum/action/gift/stoic_pose/Trigger()
 	. = ..()
 	if(allowed_to_proceed)
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/ice_blocking.ogg', 100, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/ice_blocking.ogg', 100, FALSE)
 		var/mob/living/carbon/C = owner
 		if(isgarou(C))
 			var/obj/were_ice/W = new (get_turf(owner))
@@ -42,7 +42,7 @@
 /datum/action/gift/freezing_wind/Trigger()
 	. = ..()
 	if(allowed_to_proceed)
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/wind_cast.ogg', 100, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/wind_cast.ogg', 100, FALSE)
 		for(var/turf/T in range(3, get_step(get_step(owner, owner.dir), owner.dir)))
 			if(owner.loc != T)
 				var/obj/effect/wind/W = new(T)
@@ -67,7 +67,7 @@
 			if(isliving(C.pulling))
 				var/mob/living/L = C.pulling
 				if(L.stat == DEAD)
-					playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/bloody_feast.ogg', 50, FALSE)
+					playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/bloody_feast.ogg', 50, FALSE)
 					qdel(L)
 					C.revive(full_heal = TRUE, admin_revive = TRUE)
 
@@ -79,7 +79,7 @@
 /datum/action/gift/stinky_fur/Trigger()
 	. = ..()
 	if(allowed_to_proceed)
-		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/necromancy.ogg', 75, FALSE)
+		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/necromancy.ogg', 75, FALSE)
 		for(var/mob/living/carbon/C in orange(5, owner))
 			if(C)
 				if(prob(25))
@@ -97,7 +97,7 @@
 	. = ..()
 	if(allowed_to_proceed)
 		if(ishuman(owner))
-			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/venom_claws.ogg', 75, FALSE)
+			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/venom_claws.ogg', 75, FALSE)
 			var/mob/living/carbon/human/H = owner
 			H.melee_damage_lower = initial(H.melee_damage_lower)+15
 			H.melee_damage_upper = initial(H.melee_damage_upper)+15
@@ -109,7 +109,7 @@
 				H.melee_damage_upper = initial(H.melee_damage_upper)
 				to_chat(owner, "<span class='warning'>Your claws are not poison anymore...</span>")
 		else
-			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/venom_claws.ogg', 75, FALSE)
+			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/venom_claws.ogg', 75, FALSE)
 			var/mob/living/carbon/H = owner
 			H.melee_damage_lower = initial(H.melee_damage_lower)+10
 			H.melee_damage_upper = initial(H.melee_damage_upper)+10
@@ -190,7 +190,7 @@
 	if(allowed_to_proceed)
 		animate(owner, color = "#6a839a", time = 10)
 		if(ishuman(owner))
-			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/electro_cast.ogg', 75, FALSE)
+			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/electro_cast.ogg', 75, FALSE)
 			var/mob/living/carbon/human/H = owner
 			H.physiology.armor.melee = 25
 			H.physiology.armor.bullet = 45
@@ -201,7 +201,7 @@
 				to_chat(owner, "<span class='warning'>Your skin is natural again...</span>")
 				owner.color = "#FFFFFF"
 		else
-			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sound/electro_cast.ogg', 75, FALSE)
+			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/electro_cast.ogg', 75, FALSE)
 			var/mob/living/carbon/werewolf/H = owner
 			H.werewolf_armor = 45
 			to_chat(owner, "<span class='notice'>You feel your skin replaced with the machine...</span>")

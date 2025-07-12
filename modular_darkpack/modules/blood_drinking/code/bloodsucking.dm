@@ -19,7 +19,7 @@
 	suckbar.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	if(client)
 		client.images += suckbar
-	var/sound/heartbeat = sound('modular_darkpack/modules/deprecated/sound/drinkblood2.ogg', repeat = TRUE)
+	var/sound/heartbeat = sound('modular_darkpack/modules/deprecated/sounds/drinkblood2.ogg', repeat = TRUE)
 	if(HAS_TRAIT(src, TRAIT_BLOODY_SUCKER))
 		src.emote("moan")
 		Immobilize(30, TRUE)
@@ -105,7 +105,7 @@
 		if(HAS_TRAIT(src, TRAIT_FEEDING_RESTRICTION) && mob.bloodquality < BLOOD_QUALITY_NORMAL)	//Ventrue can suck on normal people, but not homeless people and animals. BLOOD_QUALITY_LOV - 1, BLOOD_QUALITY_NORMAL - 2, BLOOD_QUALITY_HIGH - 3. Blue blood gives +1 to suction
 			to_chat(src, "<span class='warning'>You are too privileged to drink that awful <b>BLOOD</b>. Go get something better.</span>")
 			visible_message("<span class='danger'>[src] throws up!</span>", "<span class='userdanger'>You throw up!</span>")
-			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sound/vomit.ogg', 75, TRUE)
+			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/vomit.ogg', 75, TRUE)
 			if(isturf(loc))
 				add_splatter_floor(loc)
 			stop_sound_channel(CHANNEL_BLOOD)
@@ -192,9 +192,9 @@
 						Npc.last_attacker = null
 						killed_count = killed_count+1
 						if(killed_count >= 5)
-							SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sound/humanity_loss.ogg', 0, 0, 75))
+							SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/humanity_loss.ogg', 0, 0, 75))
 							to_chat(src, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
-					SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sound/feed_failed.ogg', 0, 0, 75))
+					SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/feed_failed.ogg', 0, 0, 75))
 					to_chat(src, "<span class='warning'>This sad sacrifice for your own pleasure affects something deep in your mind.</span>")
 					adjust_masquerade(-1)
 					AdjustHumanity(-1, 0)

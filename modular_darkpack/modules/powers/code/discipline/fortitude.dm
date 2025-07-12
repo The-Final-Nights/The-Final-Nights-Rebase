@@ -8,8 +8,8 @@
 	name = "Fortitude power name"
 	desc = "Fortitude power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sound/fortitude_activate.ogg'
-	deactivate_sound = 'modular_darkpack/modules/deprecated/sound/fortitude_deactivate.ogg'
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/fortitude_activate.ogg'
+	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/fortitude_deactivate.ogg'
 
 //FORTITUDE 1
 /datum/discipline_power/fortitude/one

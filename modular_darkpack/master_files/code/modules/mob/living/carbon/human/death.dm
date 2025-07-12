@@ -39,7 +39,7 @@
 
 		if(in_frenzy)
 			exit_frenzymod()
-		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sound/final_death.ogg', 0, 0, 50))
+		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/final_death.ogg', 0, 0, 50))
 
 		var/years_undead = chronological_age - age
 		switch (years_undead)
@@ -59,9 +59,9 @@
 				visible_message(span_warning("[src]'s body rapidly skeletonises!"))
 			if (200 to INFINITY) //turn to ash
 				if (iskindred(src))
-					playsound(src, 'modular_darkpack/modules/deprecated/sound/burning_death.ogg', 80, TRUE)
+					playsound(src, 'modular_darkpack/modules/deprecated/sounds/burning_death.ogg', 80, TRUE)
 				else if (iscathayan(src))
-					playsound(src, 'modular_darkpack/modules/deprecated/sound/vicissitude.ogg', 80, TRUE)
+					playsound(src, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 80, TRUE)
 				lying_fix()
 				dir = SOUTH
 				INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/carbon/human, dust), TRUE, TRUE)
