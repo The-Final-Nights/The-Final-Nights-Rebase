@@ -1,4 +1,4 @@
-/mob/living/carbon/human/death()
+/mob/living/carbon/human/death(gibbed)
 	. = ..()
 
 	if(iskindred(src))

@@ -1,4 +1,3 @@
-
 /datum/phonecontact
 	var/name = "Unknown"
 	var/number = ""
