@@ -371,9 +371,7 @@ GLOBAL_LIST_EMPTY(nebula_vomits)
 
 /obj/effect/decal/cleanable/garbage/Initialize(mapload)
 	. = ..()
-	// DARKPACK EDIT START
-	icon_state = "garbage[rand(1, 6)]"
-	// DARKPACK EDIT END
+	icon_state = "garbage[rand(1, 6)]" // DARKPACK EDIT ADDITION
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 15)
 
 /obj/effect/decal/cleanable/ants
