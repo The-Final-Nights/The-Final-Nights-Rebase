@@ -214,6 +214,7 @@ GLOBAL_LIST_INIT(allowed_money, typecacheof(list(
 	/obj/item/coin,
 	/obj/item/holochip,
 	/obj/item/stack/spacecash,
+	/obj/item/stack/dollar, // DARKPACK EDIT ADDITION - Dollar Compat
 )))
 
 /// Inits GLOB.plant_traits

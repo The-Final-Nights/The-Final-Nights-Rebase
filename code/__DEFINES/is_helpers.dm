@@ -271,7 +271,9 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define ispickedupmob(A) (istype(A, /obj/item/mob_holder)) // Checks if clothing item is actually a held mob
 
-#define iscash(A) (istype(A, /obj/item/coin) || istype(A, /obj/item/stack/spacecash) || istype(A, /obj/item/holochip))
+// DARKPACK EDIT CHANGE START - Dollar Compat
+#define iscash(A) (istype(A, /obj/item/coin) || istype(A, /obj/item/stack/spacecash) || istype(A, /obj/item/stack/dollar) || istype(A, /obj/item/holochip))
+// DARKPACK EDIT CHANGE END - Dollar Compat
 
 #define isbodypart(A) (istype(A, /obj/item/bodypart))
 
