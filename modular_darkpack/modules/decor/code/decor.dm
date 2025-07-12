@@ -231,7 +231,7 @@
 		if(prob(95))
 			new /obj/effect/spawner/random/trash/garbage(src)
 		else //Pretty rare while the loot table is un-audited
-			new /obj/effect/spawner/random/maintenance/random(src)
+			new /obj/effect/spawner/random/maintenance(src)
 	if(prob(external_trash_chance))
 		new /obj/effect/spawner/random/trash/grime(loc)
 
@@ -328,12 +328,14 @@
 			if(V.upper)
 				icon_state = "[initial(icon_state)]-snow"
 
+/* Dwarfs arent real
 /obj/structure/hydrant/MouseDrop_T(atom/dropping, mob/user, params)
 	. = ..()
 
 	if(HAS_TRAIT(user, TRAIT_DWARF)) //Only lean on the fire hydrant if we are smol
 		//Adds the component only once. We do it here & not in Initialize() because there are tons of windows & we don't want to add to their init times
 		LoadComponent(/datum/component/leanable, dropping)
+*/
 
 /obj/structure/vampcar
 	name = "car"
@@ -369,10 +371,15 @@
 
 /obj/machinery/light/prince/ghost
 
-/obj/machinery/light/prince/ghost/Crossed(atom/movable/AM)
+/obj/machinery/light/prince/ghost/Initialize(mapload)
 	. = ..()
-	if(ishuman(AM))
-		var/mob/living/L = AM
+	RegisterSignal(src, COMSIG_ATOM_ENTERED, PROC_REF(jumpscare))
+
+/obj/machinery/light/prince/ghost/proc/jumpscare(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/L = arrived
 		if(L.client)
 			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 			s.set_up(5, 1, get_turf(src))
@@ -590,6 +597,8 @@
 	. = ..()
 	. += "<b>Balance</b>: [stored_money] dollars"
 
+// TODO: [Rebase] - Requires /obj/item/gas_can
+/*
 /obj/structure/fuelstation/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/stack/dollar))
 		var/obj/item/stack/dollar/D = I
@@ -607,6 +616,7 @@
 			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 50, TRUE)
 			to_chat(user, "<span class='notice'>You fill [I].</span>")
 			say("Gas filled.")
+*/
 
 /obj/structure/bloodextractor
 	name = "blood extractor"
@@ -624,6 +634,7 @@
 	reagent_id = /datum/reagent/space_cleaner
 	icon_state = "water"
 
+/*
 /mob/living/carbon/human/MouseDrop(atom/over_object)
 	. = ..()
 	if(istype(over_object, /obj/structure/bloodextractor))
@@ -648,7 +659,7 @@
 			else
 				new /obj/item/drinkable_bloodpack/vitae(get_step(V, SOUTH))
 				bloodpool = max(0, bloodpool-4)
-
+*/
 
 /obj/structure/rack/tacobell
 	name = "table"
@@ -712,74 +723,6 @@
 /obj/underplate/stuff
 	icon_state = "stuff"
 
-/obj/matrix
-	name = "matrix"
-	desc = "Suicide is no exit..."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "matrix"
-	layer = ABOVE_NORMAL_TURF_LAYER
-	anchored = TRUE
-	opacity = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	var/matrixing = FALSE
-
-/obj/matrix/attack_hand(mob/user)
-	if(user.client)
-		if(!matrixing)
-			matrixing = TRUE
-			if(do_after(user, 100, src))
-				cryoMob(user, src)
-				matrixing = FALSE
-			else
-				matrixing = FALSE
-	return TRUE
-
-/proc/cryoMob(mob/living/mob_occupant, obj/pod)
-	if(isnpc(mob_occupant))
-		return
-	if(iscarbon(mob_occupant))
-		var/mob/living/carbon/C = mob_occupant
-		if(C.transformator)
-			qdel(C.transformator)
-	var/list/crew_member = list()
-	crew_member["name"] = mob_occupant.real_name
-
-	if(mob_occupant.mind)
-		// Handle job slot/tater cleanup.
-		var/job = mob_occupant.mind.assigned_role
-		crew_member["job"] = job
-		SSjob.FreeRole(job, mob_occupant)
-//		if(LAZYLEN(mob_occupant.mind.objectives))
-//			mob_occupant.mind.objectives.Cut()
-		mob_occupant.mind.special_role = null
-	else
-		crew_member["job"] = "N/A"
-
-	if (pod)
-		pod.visible_message("\The [pod] hums and hisses as it teleports [mob_occupant.real_name].")
-
-	var/list/gear = list()
-	if(ishuman(mob_occupant))		// sorry simp-le-mobs deserve no mercy
-		var/mob/living/carbon/human/C = mob_occupant
-		if(C.bloodhunted)
-			SSbloodhunt.hunted -= C
-			C.bloodhunted = FALSE
-			SSbloodhunt.update_shit()
-		if(C.dna)
-			GLOB.fucking_joined -= C.dna.real_name
-		gear = C.get_all_gear()
-		for(var/obj/item/item_content as anything in gear)
-			qdel(item_content)
-		for(var/mob/living/L in mob_occupant.GetAllContents() - mob_occupant)
-			L.forceMove(pod.loc)
-		if(mob_occupant.client)
-			mob_occupant.client.screen.Cut()
-//			mob_occupant.client.screen += mob_ocupant.client.void
-			var/mob/dead/new_player/M = new /mob/dead/new_player()
-			M.key = mob_occupant.key
-	QDEL_NULL(mob_occupant)
-
 /obj/structure/billiard_table
 	name = "billiard table"
 	desc = "Come here, play some BALLS. I know you want it so much..."
@@ -802,25 +745,27 @@
 	var/icon_state_inuse
 	layer = 4 //make it the same layer as players.
 	density = 0 //easy to step up on
+	/// Is the pole in use currently?
+	var/pole_in_use
 
 /obj/structure/pole/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
-	if(obj_flags & IN_USE)
+	if(pole_in_use)
 		to_chat(user, "It's already in use - wait a bit.")
 		return
 	if(user.dancing)
 		return
 	else
-		obj_flags |= IN_USE
+		pole_in_use = TRUE
 		user.setDir(SOUTH)
 		user.Stun(100)
 		user.forceMove(src.loc)
 		user.visible_message("<B>[user] dances on [src]!</B>")
 		animatepole(user)
 		user.layer = layer //set them to the poles layer
-		obj_flags &= ~IN_USE
+		pole_in_use = FALSE
 		user.pixel_y = 0
 		icon_state = initial(icon_state)
 
@@ -883,7 +828,8 @@
 
 /obj/structure/coclock/examine(mob/user)
 	. = ..()
-	to_chat(user, "<b>[SScity_time.timeofnight]</b>")
+	// TODO: [Rebase] - Port https://github.com/ApocryphaXIII/ApocryphaXIII/pull/51
+	//to_chat(user, "<b>[SScity_time.timeofnight]</b>")
 
 /obj/structure/coclock/grandpa
 	icon = 'modular_darkpack/modules/deprecated/icons/grandpa_cock.dmi'
@@ -988,7 +934,7 @@
 			total_corpses += 1
 			if(total_corpses >= 20)
 				total_corpses = 0
-				playsound(get_turf(src), 'sound/magic/demon_dies.ogg', 100, TRUE)
+				playsound(get_turf(src), 'sound/effects/magic/demon_dies.ogg', 100, TRUE)
 				new /mob/living/simple_animal/hostile/baali_guard(get_turf(src))
 //			var/datum/preferences/P = GLOB.preferences_datums[ckey(user.key)]
 //			if(P)
@@ -1051,7 +997,7 @@
 /obj/structure/vampstatue
 	name = "statue"
 	desc = "A cloaked figure forgotten to the ages."
-	icon = 'icons/effects/32x64.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/32x64.dmi'
 	icon_state = "statue"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -1184,6 +1130,8 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	var/burying = FALSE
 
+// TODO: [Rebase]
+/*
 /obj/structure/bury_pit/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
 		if(!burying)
@@ -1224,6 +1172,7 @@
 			burying = FALSE
 		else
 			burying = FALSE
+*/
 
 /obj/structure/fluff/tv
 	name = "\improper TV"
