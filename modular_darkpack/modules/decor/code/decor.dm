@@ -586,12 +586,15 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	var/stored_money = 0
 
+// TODO: [Rebase] - Refactor into signal handler
+/*
 /obj/structure/fuelstation/AltClick(mob/user)
 	if(stored_money)
 		say("Money refunded.")
 		for(var/i in 1 to stored_money)
 			new /obj/item/stack/dollar(loc)
 		stored_money = 0
+*/
 
 /obj/structure/fuelstation/examine(mob/user)
 	. = ..()
@@ -925,6 +928,8 @@
 	icon_state = "baali"
 	var/total_corpses = 0
 
+// TODO: [Rebase] - Requires /mob/living/simple_animal/hostile/baali_guard
+/*
 /obj/effect/decal/baalirune/attack_hand(mob/living/user)
 	. = ..()
 	var/mob/living/carbon/human/H = locate() in get_turf(src)
@@ -939,6 +944,7 @@
 //			var/datum/preferences/P = GLOB.preferences_datums[ckey(user.key)]
 //			if(P)
 //				P.exper = min(calculate_mob_max_exper(user), P.exper+15)
+*/
 
 /obj/structure/vamptree
 	name = "tree"
