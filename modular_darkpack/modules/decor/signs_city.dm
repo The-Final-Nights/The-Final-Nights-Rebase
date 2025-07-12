@@ -96,7 +96,7 @@
 /obj/structure/sign/city/cabaret_sign
 	name = "cabaret"
 	desc = "An enticing pair of legs... I wonder what's inside?"
-	icon = 'icons/cabaret.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/cabaret.dmi'
 	icon_state = "cabar"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
