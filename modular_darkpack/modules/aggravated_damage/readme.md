@@ -28,8 +28,6 @@ unless you have some kind of supernatural ability for it.
 	- `#define COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES`
 - [code/__DEFINES/mobs.dm](/code/__DEFINES/mobs.dm):
 	- `#define HEAL_DAMAGE`
-- [code/__DEFINES/mobs.dm](/code/__DEFINES/mobs.dm):
-	- `#define HEAL_DAMAGE`
 - [code/controllers/subsystem/blackbox.dm](/code/controllers/subsystem/blackbox.dm):
 	- `/datum/controller/subsystem/blackbox/proc/ReportDeath()`
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
