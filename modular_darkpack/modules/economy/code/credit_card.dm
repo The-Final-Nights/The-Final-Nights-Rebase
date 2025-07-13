@@ -48,7 +48,11 @@
 
 /obj/item/card/credit/Initialize(mapload)
 	. = ..()
-	var/mob/living/carbon/human/user = null
+	var/datum/bank_account/blank_bank_account = new("Unassigned", SSjob.get_job_type(/datum/job/unassigned), player_account = FALSE)
+	registered_account = blank_bank_account
+	registered_account.replaceable = TRUE
+
+	/*
 	if(ishuman(loc)) // In pockets
 		user = loc
 	else if(ishuman(loc?.loc)) // In backpack
@@ -60,6 +64,12 @@
 	if(!isnull(user))
 		registered_name = user.real_name
 	registered_account.account_balance = rand(min_starting_wealth, max_starting_wealth)
+	*/
+
+/obj/item/card/credit/Destroy(force)
+	if (registered_account)
+		registered_account.bank_cards -= src
+	return ..()
 
 /obj/item/card/credit/examine(mob/user)
 	. = ..()
@@ -69,18 +79,22 @@
 /obj/item/card/credit/GetCreditCard()
 	return src
 
-/datum/outfit/job/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
 	. = ..()
 
-	var/obj/item/storage/backpack/b = locate() in H
+	var/obj/item/storage/backpack/b = locate() in user
 	if(b)
 		var/obj/item/card/credit/card = locate() in b.contents
 		if(card && card.has_checked == FALSE)
-			for(var/obj/item/card/credit/caard in b.contents)
-				if(caard)
-					H.account_id = caard.registered_account.account_id
-					caard.registered_account.account_holder = H.true_real_name
-					caard.has_checked = TRUE
+			card.registered_name = user.real_name
+
+			//card.update_label()
+			//card.update_icon()
+			var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[user.account_id]"]
+
+			if(account && account.account_id == user.account_id)
+				card.registered_account = account
+				account.bank_cards += card
 
 
 /obj/item/proc/GetCreditCard()
