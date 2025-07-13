@@ -19,7 +19,7 @@
 	light_on = TRUE
 
 /obj/machinery/vamp/atm/attackby(obj/item/P, mob/user, params)
-	if(istype(P, /obj/item/card/credit))
+	if(is_creditcard(P))
 		if(logged_in)
 			to_chat(user, "<span class='notice'>Someone is already logged in.</span>")
 			return

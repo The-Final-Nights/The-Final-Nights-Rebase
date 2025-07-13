@@ -405,11 +405,13 @@
 
 		card.update_label()
 		card.update_icon()
+		/* DARKPACK REMOVAL - Credit Cards
 		var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[equipped.account_id]"]
 
 		if(account && account.account_id == equipped.account_id)
 			card.registered_account = account
 			account.bank_cards += card
+		*/
 
 		equipped.sec_hud_set_ID()
 

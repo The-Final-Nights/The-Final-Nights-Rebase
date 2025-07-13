@@ -137,9 +137,11 @@
 /obj/item/card/id/Initialize(mapload)
 	. = ..()
 
+	/* DARKPACK REMOVAL - Credit Cards
 	var/datum/bank_account/blank_bank_account = new("Unassigned", SSjob.get_job_type(/datum/job/unassigned), player_account = FALSE)
 	registered_account = blank_bank_account
 	registered_account.replaceable = TRUE
+	*/
 
 	// Applying the trim updates the label and icon, so don't do this twice.
 	if(ispath(trim))
@@ -534,10 +536,12 @@
 	else if(istype(held_item, /obj/item/rupee))
 		context[SCREENTIP_CONTEXT_LMB] = "Insert?"
 
+	/* DARKPACK REMOVAL - Credit Cards
 	if(isnull(registered_account) || registered_account.replaceable) //Same check we use when we check if we can assign an account
 		context[SCREENTIP_CONTEXT_ALT_RMB] = "Assign account"
 	else if(registered_account.account_balance > 0)
 		context[SCREENTIP_CONTEXT_ALT_LMB] = "Withdraw credits"
+	*/
 	if(trim && length(trim.honorifics))
 		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Toggle honorific"
 	return CONTEXTUAL_SCREENTIP_SET
@@ -825,6 +829,7 @@
 	if(!user.can_read(src))
 		return
 
+	/* DARKPACK REMOVAL - Credit Cards
 	if(registered_account && !isnull(registered_account.account_id))
 		. += "The account linked to the ID belongs to '[registered_account.account_holder]' and reports a balance of [registered_account.account_balance] cr."
 		if(ACCESS_COMMAND in access)
@@ -832,6 +837,7 @@
 			. += "The [linked_dept.account_holder] linked to the ID reports a balance of [linked_dept.account_balance] cr."
 	else
 		. += span_notice("Alt-Right-Click the ID to set the linked bank account.")
+	*/
 
 	if(HAS_TRAIT(user, TRAIT_ID_APPRAISER))
 		. += HAS_TRAIT(src, TRAIT_JOB_FIRST_ID_CARD) ? span_boldnotice("Hmm... yes, this ID was issued from Central Command!") : span_boldnotice("This ID was created in this sector, not by Central Command.")
@@ -866,6 +872,7 @@
 
 	if(registered_age)
 		. += "The card indicates that the holder is [registered_age] years old. [(registered_age < AGE_MINOR) ? "There's a holographic stripe that reads <b>[span_danger("'MINOR: DO NOT SERVE ALCOHOL OR TOBACCO'")]</b> along the bottom of the card." : ""]"
+	/* DARKPACK REMOVAL - Credit Cards
 	if(registered_account)
 		if(registered_account.mining_points)
 			. += "There's [registered_account.mining_points] mining point\s loaded onto the card's bank account."
@@ -889,6 +896,7 @@
 			. += span_boldnotice("If you lose this ID card, you can reclaim your account by Alt-Clicking a blank ID card while holding it and entering your account ID number.")
 	else
 		. += span_info("There is no registered account linked to this card. Alt-Click to add one.")
+	*/
 
 	return .
 
