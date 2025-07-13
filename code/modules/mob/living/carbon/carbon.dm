@@ -454,7 +454,7 @@
 		var/obj/item/bodypart/BP = X
 		total_brute += (BP.brute_dam * BP.body_damage_coeff)
 		total_burn += (BP.burn_dam * BP.body_damage_coeff)
-	set_health(round(maxHealth - getOxyLoss() - getToxLoss() - total_burn - total_brute, DAMAGE_PRECISION))
+	set_health(round(maxHealth - getOxyLoss() - getToxLoss() - total_burn - total_brute - getAggLoss(), DAMAGE_PRECISION)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	update_stat()
 	update_stamina()
 

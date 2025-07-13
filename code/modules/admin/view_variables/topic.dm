@@ -91,6 +91,11 @@
 			if("stamina")
 				L.adjustStaminaLoss(amount, forced = TRUE)
 				newamt = L.getStaminaLoss()
+			// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+			if("aggravated")
+				L.adjustAggLoss(amount, forced = TRUE)
+				newamt = L.getAggLoss()
+			// DARKPACK EDIT ADDITION END
 			else
 				to_chat(usr, "You caused an error. DEBUG: Text:[Text] Mob:[L]", confidential = TRUE)
 				return
@@ -123,7 +128,7 @@
 
 		var/new_val
 		if(href_list["var_tweak"] == "damtype")
-			new_val = input("Enter the new damage type for [editing]","Set Damtype", existing_val) in list(BRUTE, BURN, TOX, OXY, STAMINA, BRAIN)
+			new_val = input("Enter the new damage type for [editing]","Set Damtype", existing_val) in list(BRUTE, BURN, TOX, OXY, STAMINA, BRAIN, AGGRAVATED) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		else
 			new_val = input("Enter the new value for [editing]'s [href_list["var_tweak"]]","Set [href_list["var_tweak"]]", existing_val) as num|null
 		if(isnull(new_val) || new_val == existing_val || QDELETED(editing) || !check_rights(R_VAREDIT))

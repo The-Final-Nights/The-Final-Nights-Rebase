@@ -24,12 +24,23 @@ unless you have some kind of supernatural ability for it.
 	- `/mob/living/proc/apply_damages()`
 - [code/modules/mob/living/living.dm](/code/modules/mob/living/living.dm):
 	- `/mob/living/proc/updatehealth()`
+	- `/mob/living/vv_get_header()`
+	- `/mob/living/proc/heal_and_revive()`
+	- `/mob/living/proc/fully_heal()`
+- [code/modules/mob/living/carbon/carbon.dm](/code/modules/mob/living/carbon/carbon.dm)
+	- `/mob/living/carbon/updatehealth()`
 - [code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm](/code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm)
 	- `#define COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES`
 - [code/__DEFINES/mobs.dm](/code/__DEFINES/mobs.dm):
 	- `#define HEAL_DAMAGE`
 - [code/controllers/subsystem/blackbox.dm](/code/controllers/subsystem/blackbox.dm):
 	- `/datum/controller/subsystem/blackbox/proc/ReportDeath()`
+- [code/modules/admin/tag.dm](/code/modules/admin/tag.dm)
+	- `#define TAG_CARBON_HEALTH()`
+- [code/modules/admin/topic.dm](/code/modules/admin/topic.dm)
+	- `/datum/admins/Topic()`
+- [code/modules/admin/view_variables/topic.dm](/code/modules/admin/view_variables/topic.dm)
+	- `/client/proc/view_var_Topic()`
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
