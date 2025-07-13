@@ -24,7 +24,7 @@ E.g:
 
 ### Modular Overrides:
 
-- N/A
+- [modular_darkpack/master_files/code/modules/mob/living/living_defines.dm](/modular_darkpack/master_files/code/modules/mob/living/living_defines.dm): `var/aggloss = 0`
 <!-- If you added a new modular override (file or code-wise) for your module, you should list it here. Code files should specify what procs they changed, in case of multiple modules using the same file.
 E.g:
 - `modular_nova/master_files/sound/my_cool_sound.ogg`
@@ -33,16 +33,20 @@ E.g:
 
 ### Defines:
 
-- [code/\_\_DEFINES/~darkpack/aggravated_damage.dm](/code/__DEFINES/~darkpack/aggravated_damage.dm) > `#define AGGRAVATED "aggravated"`
-<!-- If you needed to add any defines, mention the files you added those defines in, along with the name of the defines. -->
+- [code/\_\_DEFINES/~darkpack/aggravated_damage.dm](/code/__DEFINES/~darkpack/aggravated_damage.dm):
+  - `#define AGGRAVATED "aggravated"`
+  - `#define COMSIG_LIVING_ADJUST_AGGRAVATED_DAMAGE "living_adjust_aggravated_damage"`
+  <!-- If you needed to add any defines, mention the files you added those defines in, along with the name of the defines. -->
 
 ### Included files that are not contained in this module:
 
-- N/A
+- [code/\_\_DEFINES/~darkpack/aggravated_damage.dm](/code/__DEFINES/~darkpack/aggravated_damage.dm)
+- [code/modules/mob/living/damage_procs.dm](/code/modules/mob/living/damage_procs.dm)
+- [code/\_\_DEFINES/dcs/signals/signals_mob/signals_mob_living.dm](/code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm)
 <!-- Likewise, be it a non-modular file or a modular one that's not contained within the folder belonging to this specific module, it should be mentioned here. Good examples are icons or sounds that are used between multiple modules, or other such edge-cases. -->
 
 ### Credits:
 
-@TheCarnalest
+- Created by @TheCarnalest
 
 <!-- Here go the credits to you, dear coder, and in case of collaborative work or ports, credits to the original source of the code. -->
