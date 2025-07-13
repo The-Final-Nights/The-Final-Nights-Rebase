@@ -49,7 +49,7 @@
 			wound.remove_wound()
 
 	//aggravated damage
-	owner.heal_ordered_damage(HEAL_AGGRAVATED * vitae_cost, list(BURN, CLONE))
+	owner.heal_ordered_damage(HEAL_AGGRAVATED * vitae_cost, list(BURN, AGGRAVATED))
 
 	//brain damage and traumas healing
 	var/obj/item/organ/brain/brain = owner.getorganslot(ORGAN_SLOT_BRAIN)

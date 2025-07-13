@@ -350,7 +350,7 @@
 			if(prob(50))
 				adjust_gnosis(-1, M)
 
-		M.apply_damage(20, CLONE)
+		M.apply_damage(20, AGGRAVATED)
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
 
 /obj/projectile/beam/beam_rifle/vampire/vamp9mm/silver
@@ -364,7 +364,7 @@
 			if(prob(50))
 				adjust_gnosis(-1, M)
 
-		M.apply_damage(10, CLONE)
+		M.apply_damage(10, AGGRAVATED)
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
 
 /obj/projectile/beam/beam_rifle/vampire/vamp45acp/silver
@@ -378,7 +378,7 @@
 			if(prob(50))
 				adjust_gnosis(-1, M)
 
-		M.apply_damage(15, CLONE)
+		M.apply_damage(15, AGGRAVATED)
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
 
 /obj/projectile/beam/beam_rifle/vampire/vamp44/silver
@@ -393,7 +393,7 @@
 			if(prob(50))
 				adjust_gnosis(-1, M)
 
-		M.apply_damage(20, CLONE)
+		M.apply_damage(20, AGGRAVATED)
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
 
 /obj/item/ammo_casing/vampire/c9mm/silver
