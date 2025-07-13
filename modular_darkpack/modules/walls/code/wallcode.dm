@@ -12,7 +12,7 @@
 
 /obj/effect/addwall/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/seethrough, SEE_THROUGH_MAP_DEFAULT)
+	AddComponent(/datum/component/seethrough, SEE_THROUGH_MAP_WALLS )
 /* If we want to have transpanecy for ALL mobs instead of just you.
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(update_alpha),
