@@ -137,7 +137,7 @@
 
 /turf/closed/wall/vampwall/rich/low/window/reinforced
 	icon_state = "rich-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructable
+	window = /obj/structure/window/reinforced/fulltile/indestructible
 
 /turf/closed/wall/vampwall/junk
 	name = "junk brick wall"
@@ -187,7 +187,7 @@
 
 /turf/closed/wall/vampwall/market/low/window/reinforced
 	icon_state = "market-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructable
+	window = /obj/structure/window/reinforced/fulltile/indestructible
 
 /turf/closed/wall/vampwall/old
 	name = "old brick wall"
@@ -207,7 +207,7 @@
 
 /turf/closed/wall/vampwall/old/low/window/reinforced
 	icon_state = "old-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructable
+	window = /obj/structure/window/reinforced/fulltile/indestructible
 
 /turf/closed/wall/vampwall/painted
 	name = "painted brick wall"
@@ -227,7 +227,7 @@
 
 /turf/closed/wall/vampwall/painted/low/window/reinforced
 	icon_state = "painted-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructable
+	window = /obj/structure/window/reinforced/fulltile/indestructible
 
 /turf/closed/wall/vampwall/rich/old
 	name = "old rich-looking wall"
@@ -247,7 +247,7 @@
 
 /turf/closed/wall/vampwall/rich/old/low/window/reinforced
 	icon_state = "theater-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructable
+	window = /obj/structure/window/reinforced/fulltile/indestructible
 
 /turf/closed/wall/vampwall/brick
 	name = "brick wall"
@@ -395,7 +395,7 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				new /obj/effect/decal/snow_overlay(src)
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -421,8 +421,8 @@
 	flags_1 = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
@@ -432,7 +432,7 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -448,8 +448,8 @@
 	flags_1 = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
@@ -461,7 +461,7 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -489,8 +489,8 @@
 	flags_1 = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
@@ -500,7 +500,7 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -542,8 +542,8 @@
 	flags_1 = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
@@ -558,8 +558,8 @@
 	flags_1 = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
@@ -580,6 +580,8 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
+#warn reimplment
+/*
 /turf/open/floor/plating/vampgrass/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
 		var/obj/structure/bury_pit/P = locate() in src
@@ -617,7 +619,7 @@
 				if(!locate(/obj/structure/bury_pit) in src)
 					user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
 					new /obj/structure/bury_pit(src)
-
+*/
 
 /turf/open/floor/plating/vampgrass/Initialize(mapload)
 	. = ..()
@@ -627,7 +629,7 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -659,6 +661,8 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
+#warn reimplment
+/*
 /turf/open/floor/plating/vampdirt/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
 		var/obj/structure/bury_pit/P = locate() in src
@@ -696,6 +700,7 @@
 				if(!locate(/obj/structure/bury_pit) in src)
 					user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
 					new /obj/structure/bury_pit(src)
+*/
 
 /turf/open/floor/plating/vampdirt/Initialize(mapload)
 	. = ..()
@@ -704,7 +709,7 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -720,7 +725,7 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow_rails"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -734,8 +739,8 @@
 	flags_1 = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
@@ -753,8 +758,8 @@
 	flags_1 = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
@@ -773,8 +778,8 @@
 	flags_1 = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
@@ -969,7 +974,7 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -1191,8 +1196,8 @@
 	flags_1 = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
@@ -1204,7 +1209,7 @@
 	flags_1 = NONE
 	attachment_holes = FALSE
 	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
