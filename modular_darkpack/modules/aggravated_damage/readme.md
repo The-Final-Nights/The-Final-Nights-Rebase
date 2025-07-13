@@ -16,7 +16,21 @@ unless you have some kind of supernatural ability for it.
 
 ### TG Proc/File Changes:
 
-- N/A
+- [code/modules/mob/living/damage_procs.dm](/code/modules/mob/living/damage_procs.dm):
+	- `/mob/living/proc/apply_damage()`
+	- `/mob/living/proc/heal_damage_type()`
+	- `/mob/living/proc/get_current_damage_of_type()`
+	- `/mob/living/proc/get_total_damage()`
+	- `/mob/living/proc/apply_damages()`
+- [code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm](/code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm)
+- [code/modules/mob/living/living.dm](/code/modules/mob/living/living.dm):
+	- `/mob/living/proc/updatehealth()`
+- [code/__DEFINES/mobs.dm](/code/__DEFINES/mobs.dm):
+	- `#define HEAL_DAMAGE`
+- [code/__DEFINES/mobs.dm](/code/__DEFINES/mobs.dm):
+	- `#define HEAL_DAMAGE`
+- [code/controllers/subsystem/blackbox.dm](/code/controllers/subsystem/blackbox.dm):
+	- `/datum/controller/subsystem/blackbox/proc/ReportDeath()`
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
@@ -34,15 +48,14 @@ E.g:
 ### Defines:
 
 - [code/\_\_DEFINES/~darkpack/aggravated_damage.dm](/code/__DEFINES/~darkpack/aggravated_damage.dm):
-  - `#define AGGRAVATED "aggravated"`
-  - `#define COMSIG_LIVING_ADJUST_AGGRAVATED_DAMAGE "living_adjust_aggravated_damage"`
+	- `#define AGGRAVATED "aggravated"`
+	- `#define COMSIG_LIVING_ADJUST_AGGRAVATED_DAMAGE "living_adjust_aggravated_damage"`
+	- `#define HEAL_AGGRAVATED (1<<19)`
   <!-- If you needed to add any defines, mention the files you added those defines in, along with the name of the defines. -->
 
 ### Included files that are not contained in this module:
 
 - [code/\_\_DEFINES/~darkpack/aggravated_damage.dm](/code/__DEFINES/~darkpack/aggravated_damage.dm)
-- [code/modules/mob/living/damage_procs.dm](/code/modules/mob/living/damage_procs.dm)
-- [code/\_\_DEFINES/dcs/signals/signals_mob/signals_mob_living.dm](/code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm)
 <!-- Likewise, be it a non-modular file or a modular one that's not contained within the folder belonging to this specific module, it should be mentioned here. Good examples are icons or sounds that are used between multiple modules, or other such edge-cases. -->
 
 ### Credits:

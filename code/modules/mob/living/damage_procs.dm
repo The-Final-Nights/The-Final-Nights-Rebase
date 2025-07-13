@@ -92,6 +92,10 @@
 			damage_dealt = -1 * adjustStaminaLoss(damage_amount, forced = forced)
 		if(BRAIN)
 			damage_dealt = -1 * adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_amount)
+		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		if(AGGRAVATED)
+			damage_dealt = -1 * adjustAggLoss(damage_amount, forced = forced)
+		// DARKPACK EDIT ADDITION END
 
 	SEND_SIGNAL(src, COMSIG_MOB_AFTER_APPLY_DAMAGE, damage_dealt, damagetype, def_zone, blocked, wound_bonus, exposed_wound_bonus, sharpness, attack_direction, attacking_item, wound_clothing)
 	return damage_dealt
@@ -136,6 +140,10 @@
 			return adjustOxyLoss(heal_amount)
 		if(STAMINA)
 			return adjustStaminaLoss(heal_amount)
+		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		if(AGGRAVATED)
+			return adjustAggLoss(heal_amount)
+		// DARPACK EDIT ADDITION END
 
 /// return the damage amount for the type given
 /**
@@ -154,10 +162,14 @@
 			return getOxyLoss()
 		if(STAMINA)
 			return getStaminaLoss()
+		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		if(AGGRAVATED)
+			return getAggLoss()
+		// DARKPACK EDIT ADDITION END
 
 /// return the total damage of all types which update your health
 /mob/living/proc/get_total_damage(precision = DAMAGE_PRECISION)
-	return round(getBruteLoss() + getFireLoss() + getToxLoss() + getOxyLoss(), precision)
+	return round(getBruteLoss() + getFireLoss() + getToxLoss() + getOxyLoss() + getAggLoss(), precision) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 
 /// Applies multiple damages at once via [apply_damage][/mob/living/proc/apply_damage]
 /mob/living/proc/apply_damages(
@@ -169,6 +181,7 @@
 	blocked = 0,
 	stamina = 0,
 	brain = 0,
+	aggravated = 0, // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 )
 	var/total_damage = 0
 	if(brute)
@@ -183,6 +196,10 @@
 		total_damage += apply_damage(stamina, STAMINA, def_zone, blocked)
 	if(brain)
 		total_damage += apply_damage(brain, BRAIN, def_zone, blocked)
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(aggravated)
+		total_damage += apply_damage(aggravated, AGGRAVATED, def_zone, blocked)
+	// DARKPACK EDIT ADDITION END
 	return total_damage
 
 /// applies various common status effects or common hardcoded mob effects

@@ -834,7 +834,7 @@
 /mob/living/proc/updatehealth()
 	if(HAS_TRAIT(src, TRAIT_GODMODE))
 		return
-	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss())
+	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getAggLoss()) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	update_stat()
 	med_hud_set_health()
 	med_hud_set_status()

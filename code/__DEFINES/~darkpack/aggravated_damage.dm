@@ -8,3 +8,6 @@
 
 /// Send when aggloss is modified (type, amount, forced)
 #define COMSIG_LIVING_ADJUST_AGGRAVATED_DAMAGE "living_adjust_aggravated_damage"
+
+/* Adding onto [code/__DEFINES/mobs.dm] */
+#define HEAL_AGGRAVATED (1<<19)
