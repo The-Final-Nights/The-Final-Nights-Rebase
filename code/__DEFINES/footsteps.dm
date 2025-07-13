@@ -17,6 +17,13 @@
 //misc footstep sounds
 #define FOOTSTEP_GENERIC_HEAVY "heavy"
 
+// DARKPACK ADDITION START
+#define FOOTSTEP_PARKET "parket"
+#define FOOTSTEP_ASPHALT "asphalt"
+#define FOOTSTEP_TRAVA "trava"
+#define FOOTSTEP_TROTUAR "trotuar"
+#define FOOTSTEP_SNOW "snow"
+// DARKPACK ADDITION END
 
 //footstep mob defines
 #define FOOTSTEP_MOB_CLAW "footstep_claw"
@@ -100,6 +107,23 @@ GLOBAL_LIST_INIT(footstep, list(
 		'sound/effects/footstep/catwalk3.ogg',
 		'sound/effects/footstep/catwalk4.ogg',
 		'sound/effects/footstep/catwalk5.ogg'), 100, 1),
+	FOOTSTEP_PARKET = list(list(
+		'modular_darkpack/modules/deprecated/sounds/parket1.ogg',
+		'modular_darkpack/modules/deprecated/sounds/parket2.ogg',
+		'modular_darkpack/modules/deprecated/sounds/parket3.ogg'), 75, 1),
+	FOOTSTEP_ASPHALT = list(list(
+		'modular_darkpack/modules/deprecated/sounds/asphalt1.ogg',
+		'modular_darkpack/modules/deprecated/sounds/asphalt2.ogg'), 75, 1),
+	FOOTSTEP_SNOW = list(list(
+		'modular_darkpack/modules/deprecated/sounds/snow2.ogg'), 10, 1),
+	FOOTSTEP_TRAVA = list(list(
+		'modular_darkpack/modules/deprecated/sounds/trava1.ogg',
+		'modular_darkpack/modules/deprecated/sounds/trava2.ogg',
+		'modular_darkpack/modules/deprecated/sounds/trava3.ogg'), 75, 1),
+	FOOTSTEP_TROTUAR = list(list(
+		'modular_darkpack/modules/deprecated/sounds/trotuar1.ogg',
+		'modular_darkpack/modules/deprecated/sounds/trotuar2.ogg',
+		'modular_darkpack/modules/deprecated/sounds/trotuar3.ogg'), 75, 1),
 ))
 
 //bare footsteps lists
@@ -144,6 +168,31 @@ GLOBAL_LIST_INIT(barefootstep, list(
 		'sound/effects/footstep/lava3.ogg'), 100, 0),
 	FOOTSTEP_MEAT = list(list(
 		'sound/effects/meatslap.ogg'), 100, 0),
+	FOOTSTEP_PARKET = list(list(
+		'sound/effects/footstep/woodbarefoot1.ogg',
+		'sound/effects/footstep/woodbarefoot2.ogg',
+		'sound/effects/footstep/woodbarefoot3.ogg',
+		'sound/effects/footstep/woodbarefoot4.ogg',
+		'sound/effects/footstep/woodbarefoot5.ogg'), 75, 1),
+	FOOTSTEP_ASPHALT = list(list(
+		'sound/effects/footstep/hardbarefoot1.ogg',
+		'sound/effects/footstep/hardbarefoot2.ogg',
+		'sound/effects/footstep/hardbarefoot3.ogg',
+		'sound/effects/footstep/hardbarefoot4.ogg',
+		'sound/effects/footstep/hardbarefoot5.ogg'), 75, 1),
+	FOOTSTEP_SNOW = list(list(
+		'modular_darkpack/modules/deprecated/sounds/snow1.ogg',
+		'modular_darkpack/modules/deprecated/sounds/snow2.ogg'), 75, 1),
+	FOOTSTEP_TRAVA = list(list(
+		'modular_darkpack/modules/deprecated/sounds/trava1.ogg',
+		'modular_darkpack/modules/deprecated/sounds/trava2.ogg',
+		'modular_darkpack/modules/deprecated/sounds/trava3.ogg'), 75, 1),
+	FOOTSTEP_TROTUAR = list(list(
+		'sound/effects/footstep/hardbarefoot1.ogg',
+		'sound/effects/footstep/hardbarefoot2.ogg',
+		'sound/effects/footstep/hardbarefoot3.ogg',
+		'sound/effects/footstep/hardbarefoot4.ogg',
+		'sound/effects/footstep/hardbarefoot5.ogg'), 75, 1),
 ))
 
 //claw footsteps lists
