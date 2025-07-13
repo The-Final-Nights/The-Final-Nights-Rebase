@@ -22,9 +22,10 @@ unless you have some kind of supernatural ability for it.
 	- `/mob/living/proc/get_current_damage_of_type()`
 	- `/mob/living/proc/get_total_damage()`
 	- `/mob/living/proc/apply_damages()`
-- [code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm](/code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm)
 - [code/modules/mob/living/living.dm](/code/modules/mob/living/living.dm):
 	- `/mob/living/proc/updatehealth()`
+- [code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm](/code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm)
+	- `#define COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES`
 - [code/__DEFINES/mobs.dm](/code/__DEFINES/mobs.dm):
 	- `#define HEAL_DAMAGE`
 - [code/__DEFINES/mobs.dm](/code/__DEFINES/mobs.dm):
