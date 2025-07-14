@@ -54,6 +54,9 @@ unless you have some kind of supernatural ability for it.
 	- `/datum/unit_test/mob_damage/proc/apply_damage()`
 	- `/datum/unit_test/mob_damage/proc/set_damage()`
 	- `/datum/unit_test/mob_damage/animal/verify_damage()`
+- [code/datums/components/dejavu.dm](/code/datums/components/dejavu.dm)
+	- `/datum/component/dejavu/Initialize()`
+	- `/datum/component/dejavu/proc/rewind_living()`
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
@@ -62,6 +65,7 @@ E.g:
 ### Modular Overrides:
 
 - [modular_darkpack/master_files/code/modules/mob/living/living_defines.dm](/modular_darkpack/master_files/code/modules/mob/living/living_defines.dm): `var/aggloss = 0`
+- [modular_darkpack/master_files/code/datums/components/dejavu.dm](/modular_darkpack/master_files/code/datums/components/dejavu.dm): `var/aggravated_loss = 0`
 <!-- If you added a new modular override (file or code-wise) for your module, you should list it here. Code files should specify what procs they changed, in case of multiple modules using the same file.
 E.g:
 - `modular_nova/master_files/sound/my_cool_sound.ogg`
