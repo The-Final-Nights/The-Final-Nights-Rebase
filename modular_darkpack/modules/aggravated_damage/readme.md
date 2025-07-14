@@ -43,6 +43,8 @@ unless you have some kind of supernatural ability for it.
 	- `/client/proc/view_var_Topic()`
 - [SQL/tgstation_schema.sql](/SQL/tgstation_schema.sql)
 	- `CREATE TABLE \`death\``
+- [SQL/tgstation_schema_prefixed.sql](/SQL/tgstation_schema_prefixed.sql)
+	- `CREATE TABLE \`death\``
 - [code/modules/mob/living/carbon/human/death.dm](/code/modules/mob/living/carbon/human/death.dm)
 	- `/mob/living/carbon/human/death()`
 - [code/modules/unit_tests/full_heal.dm](/code/modules/unit_tests/full_heal.dm)
