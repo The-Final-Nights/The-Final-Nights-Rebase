@@ -41,6 +41,10 @@ unless you have some kind of supernatural ability for it.
 	- `/datum/admins/Topic()`
 - [code/modules/admin/view_variables/topic.dm](/code/modules/admin/view_variables/topic.dm)
 	- `/client/proc/view_var_Topic()`
+- [SQL/tgstation_schema.sql](/SQL/tgstation_schema.sql)
+	- `CREATE TABLE \`death\``
+- [code/modules/mob/living/carbon/human/death.dm](/code/modules/mob/living/carbon/human/death.dm)
+	- `/mob/living/carbon/human/death()`
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
