@@ -139,7 +139,13 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_TURF_OPEN_CLIFF S_TURF(60) ///turf/open/cliff
 #define SMOOTH_GROUP_HIEROPHANT S_TURF(61) ///turf/closed/indestructible/riveted/hierophant
 
-#define MAX_S_TURF 61 //Always match this value with the one above it.
+// DARKPACK EDIT START
+#define SMOOTH_GROUP_CITY_WALL S_TURF(62) ///turf/closed/wall/vampwall
+//#define SMOOTH_GROUP_CITY_LOW_WALL S_TURF(63) ///turf/closed/wall/vampwall that have the low var
+
+#define MAX_S_TURF 62 //Always match this value with the one above it.
+// DARKPACK EDIT END
+
 
 #define S_OBJ(num) ("-" + #num + ",")
 /* /obj included */

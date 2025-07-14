@@ -1,3 +1,20 @@
+#define LOW_WALL_HELPER(wall_type)						\
+	/turf/closed/wall/##wall_type/low {					\
+		icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'; \
+		opacity = FALSE;								\
+		low = TRUE;										\
+		blocks_air = FALSE;								\
+	}	\
+	/turf/closed/wall/##wall_type/low/window {			\
+		window = /obj/structure/window/fulltile;		\
+	}	\
+	/turf/closed/wall/##wall_type/low/window/reinforced { \
+		window = /obj/structure/window/reinforced/fulltile; \
+	}
+
+//		smoothing_groups = SMOOTH_GROUP_CITY_LOW_WALL;	\
+//		canSmoothWith = SMOOTH_GROUP_CITY_LOW_WALL;		\
+
 //Smooth Operator soset biby
 
 /obj/effect/addwall
@@ -36,6 +53,8 @@
 	opacity = TRUE
 	density = TRUE
 	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = SMOOTH_GROUP_CITY_WALL
+	canSmoothWith = SMOOTH_GROUP_CITY_WALL
 
 	var/obj/effect/addwall/addwall
 	var/low = FALSE
@@ -107,11 +126,7 @@
 	if(addwall)
 		qdel(addwall)
 
-/turf/closed/wall/vampwall/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE //Let the windows block the air transfer
+LOW_WALL_HELPER(vampwall)
 
 /turf/closed/wall/vampwall/low/window
 	icon_state = "wall-window"
@@ -123,19 +138,11 @@
 	icon_state = "rich-0"
 	base_icon_state = "rich"
 
-/turf/closed/wall/vampwall/rich/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/rich)
 /turf/closed/wall/vampwall/rich/low/window
 	icon_state = "rich-window"
-	window = /obj/structure/window/fulltile
-
 /turf/closed/wall/vampwall/rich/low/window/reinforced
 	icon_state = "rich-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructible
 
 /turf/closed/wall/vampwall/junk
 	name = "junk brick wall"
@@ -143,29 +150,17 @@
 	icon_state = "junk-0"
 	base_icon_state = "junk"
 
-/turf/closed/wall/vampwall/junk/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/junk)
 /turf/closed/wall/vampwall/junk/low/window
 	icon_state = "junk-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/junk/alt
 	icon_state = "junkalt-0"
 	base_icon_state = "junkalt"
 
-/turf/closed/wall/vampwall/junk/alt/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/junk/alt)
 /turf/closed/wall/vampwall/junk/alt/low/window
 	icon_state = "junkalt-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/market
 	name = "concrete wall"
@@ -173,19 +168,11 @@
 	icon_state = "market-0"
 	base_icon_state = "market"
 
-/turf/closed/wall/vampwall/market/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/market)
 /turf/closed/wall/vampwall/market/low/window
 	icon_state = "market-window"
-	window = /obj/structure/window/fulltile
-
 /turf/closed/wall/vampwall/market/low/window/reinforced
 	icon_state = "market-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructible
 
 /turf/closed/wall/vampwall/old
 	name = "old brick wall"
@@ -193,19 +180,11 @@
 	icon_state = "old-0"
 	base_icon_state = "old"
 
-/turf/closed/wall/vampwall/old/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/low)
 /turf/closed/wall/vampwall/old/low/window
 	icon_state = "old-window"
-	window = /obj/structure/window/fulltile
-
 /turf/closed/wall/vampwall/old/low/window/reinforced
 	icon_state = "old-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructible
 
 /turf/closed/wall/vampwall/painted
 	name = "painted brick wall"
@@ -213,19 +192,11 @@
 	icon_state = "painted-0"
 	base_icon_state = "painted"
 
-/turf/closed/wall/vampwall/painted/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/painted)
 /turf/closed/wall/vampwall/painted/low/window
 	icon_state = "painted-window"
-	window = /obj/structure/window/fulltile
-
 /turf/closed/wall/vampwall/painted/low/window/reinforced
 	icon_state = "painted-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructible
 
 /turf/closed/wall/vampwall/rich/old
 	name = "old rich-looking wall"
@@ -233,19 +204,11 @@
 	icon_state = "theater-0"
 	base_icon_state = "theater"
 
-/turf/closed/wall/vampwall/rich/old/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/rich/old)
 /turf/closed/wall/vampwall/rich/old/low/window
 	icon_state = "theater-window"
-	window = /obj/structure/window/fulltile
-
 /turf/closed/wall/vampwall/rich/old/low/window/reinforced
 	icon_state = "theater-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructible
 
 /turf/closed/wall/vampwall/brick
 	name = "brick wall"
@@ -253,15 +216,9 @@
 	icon_state = "brick-0"
 	base_icon_state = "brick"
 
-/turf/closed/wall/vampwall/brick/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/brick)
 /turf/closed/wall/vampwall/brick/low/window
 	icon_state = "brick-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/rock
 	name = "rock wall"
@@ -275,15 +232,9 @@
 	icon_state = "city-0"
 	base_icon_state = "city"
 
-/turf/closed/wall/vampwall/city/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/city)
 /turf/closed/wall/vampwall/city/low/window
 	icon_state = "city-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/metal
 	name = "metal wall"
@@ -316,15 +267,9 @@
 	icon_state = "bar-0"
 	base_icon_state = "bar"
 
-/turf/closed/wall/vampwall/bar/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/bar)
 /turf/closed/wall/vampwall/bar/low/window
 	icon_state = "bar-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/wood
 	name = "wood wall"
@@ -332,15 +277,9 @@
 	icon_state = "wood-0"
 	base_icon_state = "wood"
 
-/turf/closed/wall/vampwall/wood/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/wood)
 /turf/closed/wall/vampwall/wood/low/window
 	icon_state = "wood-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/rust
 	name = "rusty wall"
