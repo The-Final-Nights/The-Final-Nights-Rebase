@@ -105,8 +105,6 @@
 	. = ..()
 	if(window)
 		var/obj/W = new window(src)
-		W.plane = GAME_PLANE
-		W.layer = ABOVE_ALL_MOB_LAYER
 	else if(!low)
 		addwall = new(get_step(src, NORTH))
 		addwall.icon_state = icon_state
@@ -127,7 +125,6 @@
 		qdel(addwall)
 
 LOW_WALL_HELPER(vampwall)
-
 /turf/closed/wall/vampwall/low/window
 	icon_state = "wall-window"
 	window = /obj/structure/window/fulltile
