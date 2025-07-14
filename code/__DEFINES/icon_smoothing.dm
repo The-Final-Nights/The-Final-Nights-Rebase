@@ -141,9 +141,9 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 // DARKPACK EDIT START
 #define SMOOTH_GROUP_CITY_WALL S_TURF(62) ///turf/closed/wall/vampwall
-//#define SMOOTH_GROUP_CITY_LOW_WALL S_TURF(63) ///turf/closed/wall/vampwall that have the low var
+#define SMOOTH_GROUP_CITY_LOW_WALL S_TURF(63) ///turf/closed/wall/vampwall/low
 
-#define MAX_S_TURF 62 //Always match this value with the one above it.
+#define MAX_S_TURF 63 //Always match this value with the one above it.
 // DARKPACK EDIT END
 
 

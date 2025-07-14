@@ -4,6 +4,8 @@
 		opacity = FALSE;								\
 		low = TRUE;										\
 		blocks_air = FALSE;								\
+		smoothing_groups = SMOOTH_GROUP_CITY_LOW_WALL;	\
+		canSmoothWith = SMOOTH_GROUP_CITY_LOW_WALL;		\
 	}	\
 	/turf/closed/wall/##wall_type/low/window {			\
 		window = /obj/structure/window/fulltile;		\
@@ -12,8 +14,7 @@
 		window = /obj/structure/window/reinforced/fulltile; \
 	}
 
-//		smoothing_groups = SMOOTH_GROUP_CITY_LOW_WALL;	\
-//		canSmoothWith = SMOOTH_GROUP_CITY_LOW_WALL;		\
+
 
 //Smooth Operator soset biby
 
@@ -104,7 +105,7 @@
 /turf/closed/wall/vampwall/Initialize(mapload)
 	. = ..()
 	if(window)
-		var/obj/W = new window(src)
+		new window(src)
 	else if(!low)
 		addwall = new(get_step(src, NORTH))
 		addwall.icon_state = icon_state
