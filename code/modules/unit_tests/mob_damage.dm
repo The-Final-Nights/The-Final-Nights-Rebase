@@ -109,6 +109,11 @@
 	if(included_types & STAMINALOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getStaminaLoss(), amount, \
 			"[testing_mob] should have [amount] stamina damage, instead they have [testing_mob.getStaminaLoss()]!")
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(included_types & AGGLOSS)
+		TEST_ASSERT_EQUAL(round(testing_mob.getAggLoss(), 1), amount, \
+			"[testing_mob] should have [amount] aggravated damage, instead they have [testing_mob.getAggLoss()]!")
+	// DARKPACK EDIT ADDITION END
 	return TRUE
 
 /**
@@ -146,6 +151,12 @@
 		damage_returned = testing_mob.adjustStaminaLoss(amount, updating_stamina = FALSE, forced = forced, required_biotype = biotypes)
 		TEST_ASSERT_EQUAL(damage_returned, expected, \
 			"adjustStaminaLoss() should have returned [expected], but returned [damage_returned] instead!")
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(included_types & AGGLOSS)
+		damage_returned = round(testing_mob.adjustAggLoss(amount, updating_stamina = FALSE, forced = forced, required_biotype = biotypes), 1)
+		TEST_ASSERT_EQUAL(damage_returned, expected, \
+			"adjustAggLoss() should have returned [expected], but returned [damage_returned] instead!")
+	// DARKPACK EDIT ADDITION END
 	return TRUE
 
 /**
@@ -183,6 +194,12 @@
 		damage_returned = testing_mob.setStaminaLoss(amount, updating_stamina = FALSE, forced = forced, required_biotype = biotypes)
 		TEST_ASSERT_EQUAL(damage_returned, expected, \
 			"setStaminaLoss() should have returned [expected], but returned [damage_returned] instead!")
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(included_types & AGGLOSS)
+		damage_returned = round(testing_mob.setAggLoss(amount, updating_health = FALSE, forced = forced), 1)
+		TEST_ASSERT_EQUAL(damage_returned, expected, \
+			"setAggLoss() should have returned [expected], but returned [damage_returned] instead!")
+	// DARKPACK EDIT ADDITION END
 	return TRUE
 
 ///	Sanity tests damage and healing using adjustToxLoss, adjustBruteLoss, etc
@@ -485,6 +502,11 @@
 	if(included_types & STAMINALOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getStaminaLoss(), amount, \
 			"[testing_mob] should have [amount] stamina damage, instead they have [testing_mob.getStaminaLoss()]!")
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(included_types & AGGLOSS)
+		TEST_ASSERT_EQUAL(testing_mob.getAggLoss(), amount, \
+			"[testing_mob] should have [amount] aggravated damage, instead they have [testing_mob.getAggLoss()]!")
+	// DARKPACK EDIT ADDITION END
 	return TRUE
 
 /datum/unit_test/mob_damage/animal/test_sanity_simple(mob/living/test_mob)

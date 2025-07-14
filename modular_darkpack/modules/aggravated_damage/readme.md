@@ -45,6 +45,13 @@ unless you have some kind of supernatural ability for it.
 	- `CREATE TABLE \`death\``
 - [code/modules/mob/living/carbon/human/death.dm](/code/modules/mob/living/carbon/human/death.dm)
 	- `/mob/living/carbon/human/death()`
+- [code/modules/unit_tests/full_heal.dm](/code/modules/unit_tests/full_heal.dm)
+	- `/datum/unit_test/full_heal_damage_types/Run()`
+- [code/modules/unit_tests/mob_damage.dm](/code/modules/unit_tests/mob_damage.dm)
+	- `/datum/unit_test/mob_damage/proc/verify_damage()`
+	- `/datum/unit_test/mob_damage/proc/apply_damage()`
+	- `/datum/unit_test/mob_damage/proc/set_damage()`
+	- `/datum/unit_test/mob_damage/animal/verify_damage()`
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
@@ -63,6 +70,7 @@ E.g:
 
 - [code/\_\_DEFINES/~darkpack/aggravated_damage.dm](/code/__DEFINES/~darkpack/aggravated_damage.dm):
 	- `#define AGGRAVATED "aggravated"`
+	- `#define AGGLOSS (1<<8)`
 	- `#define COMSIG_LIVING_ADJUST_AGGRAVATED_DAMAGE "living_adjust_aggravated_damage"`
 	- `#define HEAL_AGGRAVATED (1<<19)`
   <!-- If you needed to add any defines, mention the files you added those defines in, along with the name of the defines. -->
