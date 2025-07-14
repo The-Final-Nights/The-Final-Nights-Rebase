@@ -309,6 +309,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "redbrick-0"
 	base_icon_state = "redbrick"
 
+// TODO: [Rebase] - Move these to there own file in deticated pr. Want changes visable in this pr.
 //TURFS
 
 /turf/open/floor/plating/asphalt
@@ -474,7 +475,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	. = ..()
 	icon_state = "concrete[rand(1, 4)]"
 
-/turf/open/floor/plating/vampgrass
+/turf/open/misc/grass/vamp
 	name = "grass"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "grass1"
@@ -482,10 +483,11 @@ LOW_WALL_HELPER(vampwall/wood)
 	barefootstep = FOOTSTEP_TRAVA
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	baseturfs = /turf/open/misc/dirt
 
 #warn reimplment
 /*
-/turf/open/floor/plating/vampgrass/attackby(obj/item/I, mob/living/user, params)
+/turf/open/misc/grass/vamp/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
 		var/obj/structure/bury_pit/P = locate() in src
 		if(P)
@@ -524,7 +526,7 @@ LOW_WALL_HELPER(vampwall/wood)
 					new /obj/structure/bury_pit(src)
 */
 
-/turf/open/floor/plating/vampgrass/Initialize(mapload)
+/turf/open/misc/grass/vamp/Initialize(mapload)
 	. = ..()
 	set_light(1, 0.5, "#a4b7ff")
 	icon_state = "grass[rand(1, 3)]"
@@ -547,7 +549,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
-/turf/open/floor/plating/vampdirt
+/turf/open/misc/dirt/vamp
 	name = "dirt"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "dirt"
@@ -558,7 +560,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 #warn reimplment
 /*
-/turf/open/floor/plating/vampdirt/attackby(obj/item/I, mob/living/user, params)
+/turf/open/misc/dirt/vamp/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
 		var/obj/structure/bury_pit/P = locate() in src
 		if(P)
@@ -597,7 +599,7 @@ LOW_WALL_HELPER(vampwall/wood)
 					new /obj/structure/bury_pit(src)
 */
 
-/turf/open/floor/plating/vampdirt/Initialize(mapload)
+/turf/open/misc/dirt/vamp/Initialize(mapload)
 	. = ..()
 	set_light(1, 0.5, "#a4b7ff")
 	if(check_holidays(CHRISTMAS))
@@ -610,11 +612,11 @@ LOW_WALL_HELPER(vampwall/wood)
 				barefootstep = FOOTSTEP_SNOW
 				heavyfootstep = FOOTSTEP_SNOW
 
-/turf/open/floor/plating/vampdirt/rails
+/turf/open/misc/dirt/vamp/rails
 	name = "rails"
 	icon_state = "dirt_rails"
 
-/turf/open/floor/plating/vampdirt/rails/Initialize(mapload)
+/turf/open/misc/dirt/vamp/rails/Initialize(mapload)
 	. = ..()
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
@@ -843,7 +845,7 @@ LOW_WALL_HELPER(vampwall/wood)
 				barefootstep = FOOTSTEP_SNOW
 				heavyfootstep = FOOTSTEP_SNOW
 
-/turf/open/floor/plating/vampbeach
+/turf/open/misc/beach/vamp
 	name = "sand"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "sand1"
@@ -854,7 +856,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 #warn reimplment
 /*
-/turf/open/floor/plating/vampbeach/attackby(obj/item/I, mob/living/user, params)
+/turf/open/misc/beach/vamp/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
 		var/obj/structure/bury_pit/P = locate() in src
 		if(P)
@@ -893,7 +895,7 @@ LOW_WALL_HELPER(vampwall/wood)
 					new /obj/structure/bury_pit(src)
 */
 
-/turf/open/floor/plating/vampbeach/Initialize(mapload)
+/turf/open/misc/beach/vamp/Initialize(mapload)
 	. = ..()
 	icon_state = "sand[rand(1, 4)]"
 	set_light(1, 0.5, "#a4b7ff")
@@ -903,39 +905,41 @@ LOW_WALL_HELPER(vampwall/wood)
 			if(V.upper)
 				icon_state = "snow[rand(1, 14)]"
 
-/turf/open/floor/plating/vampocean
+/turf/open/water/beach/vamp
 	name = "water"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "ocean"
-	footstep = FOOTSTEP_WATER
-	barefootstep = FOOTSTEP_WATER
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	density = TRUE
+	baseturfs = /turf/open/water/beach/vamp
 
-/turf/open/floor/plating/vampocean/Initialize(mapload)
+/turf/open/water/beach/vamp/deep
+	name = "deep water"
+	desc = "Don't forget your life jacket."
+	immerse_overlay = "immerse_deep"
+	baseturfs = /turf/open/water/beach/vamp/deep
+	immerse_overlay_color = "#57707c"
+	is_swimming_tile = TRUE
+
+/turf/open/water/beach/vamp/Initialize(mapload)
 	. = ..()
 	set_light(1, 0.5, "#a4b7ff")
 
-/turf/open/floor/plating/vampacid
+//Make a pr to TG eventually adding acid from shiptest mabye.
+/turf/open/water/acid/vamp
 	name = "goop"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "acid"
-	footstep = FOOTSTEP_WATER
-	barefootstep = FOOTSTEP_WATER
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	density = FALSE
+	baseturfs = /turf/open/water/acid/vamp
+	immerse_overlay_color = "#1b7c4c"
 
-/turf/open/floor/plating/vampacid/Initialize(mapload)
+/turf/open/water/acid/vamp/Initialize(mapload)
 	. = ..()
 	set_light(1, 0.5, "#1b7c4c")
 
-/turf/open/floor/plating/vampacid/Entered(atom/movable/AM)
+/turf/open/water/acid/vamp/Entered(atom/movable/AM)
 	if(acid_burn(AM))
 		START_PROCESSING(SSobj, src)
 
-/turf/open/floor/plating/vampacid/proc/acid_burn(mob/living/L)
+/turf/open/water/acid/vamp/proc/acid_burn(mob/living/L)
 	if(isliving(L))
 		if(L.movement_type & FLYING)
 			return
@@ -968,23 +972,19 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "support"
 
-/turf/open/floor/plating/shit
+/turf/open/water/vamp_sewer
 	name = "sewage"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "shit"
-	footstep = FOOTSTEP_WATER
-	barefootstep = FOOTSTEP_WATER
-	clawfootstep = FOOTSTEP_WATER
-	heavyfootstep = FOOTSTEP_WATER
 
 /*
-/turf/open/floor/plating/shit/Initialize(mapload)
+/turf/open/water/vamp_sewer/Initialize(mapload)
 	. = ..()
 	if(prob(50))
 		new /obj/effect/realistic_fog(src)
 */
 
-/turf/open/floor/plating/shit/border
+/turf/open/water/vamp_sewer/border
 	icon_state = "shit_border"
 
 /turf/open/floor/plating/vampcanal

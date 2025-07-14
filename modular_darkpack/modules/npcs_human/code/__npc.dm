@@ -220,7 +220,7 @@
 	// TODO: [Lucia] reimplement walls
 	/*
 	if (HAS_TRAIT(src, TRAIT_RUBICON))
-		if(istype(NewLoc, /turf/open/floor/plating/shit))
+		if(istype(NewLoc, /turf/open/water/vamp_sewer))
 			return
 	*/
 
