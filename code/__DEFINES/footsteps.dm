@@ -20,9 +20,7 @@
 // DARKPACK ADDITION START
 #define FOOTSTEP_PARKET "parket"
 #define FOOTSTEP_ASPHALT "asphalt"
-#warn Means grass which means we need to remove it
 #define FOOTSTEP_TRAVA "trava"
-#warn rename the oggs
 #define FOOTSTEP_SIDEWALK "sidewalk"
 #define FOOTSTEP_SNOW "snow"
 // DARKPACK ADDITION END
@@ -123,9 +121,9 @@ GLOBAL_LIST_INIT(footstep, list(
 		'modular_darkpack/modules/deprecated/sounds/trava2.ogg',
 		'modular_darkpack/modules/deprecated/sounds/trava3.ogg'), 75, 1),
 	FOOTSTEP_SIDEWALK = list(list(
-		'modular_darkpack/modules/deprecated/sounds/trotuar1.ogg',
-		'modular_darkpack/modules/deprecated/sounds/trotuar2.ogg',
-		'modular_darkpack/modules/deprecated/sounds/trotuar3.ogg'), 75, 1),
+		'modular_darkpack/modules/deprecated/sounds/sidewalk1.ogg',
+		'modular_darkpack/modules/deprecated/sounds/sidewalk2.ogg',
+		'modular_darkpack/modules/deprecated/sounds/sidewalk3.ogg'), 75, 1),
 ))
 
 //bare footsteps lists

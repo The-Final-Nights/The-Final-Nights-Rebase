@@ -82,7 +82,7 @@
 /turf/closed/wall/vampwall/attack_hand(mob/user)
 	return
 
-#warn reimplement
+// TODO: [Rebase] - Reimplement climbing
 /*
 /turf/closed/wall/vampwall/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
@@ -485,7 +485,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	baseturfs = /turf/open/misc/dirt
 
-#warn reimplment
 /*
 /turf/open/misc/grass/vamp/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
@@ -854,7 +853,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
-#warn reimplment
 /*
 /turf/open/misc/beach/vamp/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
