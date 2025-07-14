@@ -371,7 +371,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "sidewalk1"
 	var/number_of_variations = 3
-	var/based_icon_state = "sidewalk"
+	base_icon_state = "sidewalk"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
@@ -379,7 +379,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/floor/plating/sidewalk/Initialize(mapload)
 	. = ..()
-	icon_state = "[based_icon_state][rand(1, number_of_variations)]"
+	icon_state = "[base_icon_state][rand(1, number_of_variations)]"
 	set_light(1, 0.5, "#a4b7ff")
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
@@ -393,17 +393,17 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/floor/plating/sidewalk/poor
 	icon_state = "sidewalk_poor1"
-	based_icon_state = "sidewalk_poor"
+	base_icon_state = "sidewalk_poor"
 
 /turf/open/floor/plating/sidewalk/rich
 	icon_state = "sidewalk_rich1"
 	number_of_variations = 6
-	based_icon_state = "sidewalk_rich"
+	base_icon_state = "sidewalk_rich"
 
 /turf/open/floor/plating/sidewalk/old
 	icon_state = "sidewalk_old1"
 	number_of_variations = 4
-	based_icon_state = "sidewalk_old"
+	base_icon_state = "sidewalk_old"
 
 /turf/open/floor/plating/roofwalk
 	name = "roof"
