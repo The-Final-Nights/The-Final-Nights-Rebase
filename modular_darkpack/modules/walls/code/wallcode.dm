@@ -64,7 +64,7 @@
 
 #warn reimplement
 /*
-/turf/closed/wall/vampwall/MouseDrop_T(atom/dropping, mob/user, params)
+/turf/closed/wall/vampwall/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
 	if(user.a_intent != INTENT_HARM)
 		//Adds the component only once. We do it here & not in Initialize() because there are tons of windows & we don't want to add to their init times

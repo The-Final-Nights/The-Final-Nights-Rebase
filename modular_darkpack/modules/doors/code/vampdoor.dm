@@ -82,11 +82,11 @@
 		var/odds = value ? clamp((value/max_rand_value), 0, 1) : 0
 		. += "<span class='notice'>As an expert in lockpicking, you estimate that you have a [round(odds*100, 1)]% chance to lockpick this door successfully.</span>"
 
-/obj/structure/vampdoor/MouseDrop_T(atom/dropping, mob/user, params)
+/obj/structure/vampdoor/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
 
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of windows & we don't want to add to their init times
-	LoadComponent(/datum/component/leanable, dropping)
+	LoadComponent(/datum/component/leanable, dropped)
 
 /obj/structure/vampdoor/proc/proc_unlock(method) //I am here so that dwelling doors can call me to properly process their alarms.
 	return
