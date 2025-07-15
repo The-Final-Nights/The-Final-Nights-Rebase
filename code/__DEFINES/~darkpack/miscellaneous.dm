@@ -8,4 +8,4 @@
 #define BLOOD_QUALITY_NORMAL 2
 #define BLOOD_QUALITY_HIGH 3
 
-#define CITY_NAME "San Fransico"
+#define CITY_NAME "San Francisco"
