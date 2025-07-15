@@ -124,7 +124,7 @@ GLOBAL_LIST_INIT(footstep, list(
 		'modular_darkpack/modules/deprecated/sounds/sidewalk1.ogg',
 		'modular_darkpack/modules/deprecated/sounds/sidewalk2.ogg',
 		'modular_darkpack/modules/deprecated/sounds/sidewalk3.ogg'), 75, 1),
-))
+)) // DARKPACK EDIT
 
 //bare footsteps lists
 GLOBAL_LIST_INIT(barefootstep, list(
@@ -193,7 +193,7 @@ GLOBAL_LIST_INIT(barefootstep, list(
 		'sound/effects/footstep/hardbarefoot3.ogg',
 		'sound/effects/footstep/hardbarefoot4.ogg',
 		'sound/effects/footstep/hardbarefoot5.ogg'), 75, 1),
-))
+)) // DARKPACK EDIT
 
 //claw footsteps lists
 GLOBAL_LIST_INIT(clawfootstep, list(
