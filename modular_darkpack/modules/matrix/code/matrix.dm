@@ -16,8 +16,7 @@
 	message_admins("[ADMIN_LOOKUP(despawning_mob)] has exited through the matrix.")
 	log_game("[despawning_mob] has exited through the matrix.")
 
-	// When TG cut cryo pods they removed freeing up roles. Hrm.
-	//SSjob.FreeRole(despawning_mob.mind.assigned_role)
+	SSjob.FreeRole(despawning_mob.mind.assigned_role)
 
 	GLOB.joined_player_list -= despawning_mob.ckey
 
