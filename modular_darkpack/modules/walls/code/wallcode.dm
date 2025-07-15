@@ -557,7 +557,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
-#warn reimplment
 /*
 /turf/open/misc/dirt/vamp/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
