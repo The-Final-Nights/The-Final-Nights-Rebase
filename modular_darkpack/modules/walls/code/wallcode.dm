@@ -327,8 +327,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "asphalt1"
 	footstep = FOOTSTEP_ASPHALT
 	barefootstep = FOOTSTEP_ASPHALT
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/asphalt/Initialize(mapload)
 	. = ..()
@@ -360,8 +358,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "sidewalk_alt"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/sidewalkalt/Initialize(mapload)
 	. = ..()
@@ -383,8 +379,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	base_icon_state = "sidewalk"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/sidewalk/Initialize(mapload)
 	. = ..()
@@ -420,8 +414,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "roof"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/roofwalk/Initialize(mapload)
 	. = ..()
@@ -450,8 +442,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "parquet"
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/parquetry/old
 	icon_state = "parquet-old"
@@ -465,8 +455,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "granite"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/granite/black
 	icon_state = "granite-black"
@@ -477,8 +465,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "concrete1"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/concrete/Initialize(mapload)
 	. = ..()
@@ -490,8 +476,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "grass1"
 	footstep = FOOTSTEP_TRAVA
 	barefootstep = FOOTSTEP_TRAVA
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	baseturfs = /turf/open/misc/dirt
 
 /*
@@ -554,8 +538,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "carpet_black"
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/misc/dirt/vamp
 	name = "dirt"
@@ -563,8 +545,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "dirt"
 	footstep = FOOTSTEP_ASPHALT
 	barefootstep = FOOTSTEP_ASPHALT
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /*
 /turf/open/misc/dirt/vamp/attackby(obj/item/I, mob/living/user, params)
@@ -641,8 +621,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "plating"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/vampplating/mono
 	icon_state = "plating-mono"
@@ -656,8 +634,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "rough"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/rough/cave
 	icon_state = "cave1"
@@ -672,8 +648,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "stone"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/stone
 	icon_state = "stone1"
@@ -688,8 +662,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "toilet1"
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/toilet/Initialize(mapload)
 	. = ..()
@@ -701,8 +673,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "circle1"
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/circled/Initialize(mapload)
 	. = ..()
@@ -714,8 +684,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "church1"
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/church/Initialize(mapload)
 	. = ..()
@@ -727,8 +695,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "saint1"
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/saint/Initialize(mapload)
 	. = ..()
@@ -836,8 +802,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "bwood"
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/vampwood/Initialize(mapload)
 	. = ..()
@@ -858,8 +822,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "sand1"
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /*
 /turf/open/misc/beach/vamp/attackby(obj/item/I, mob/living/user, params)
@@ -998,9 +960,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "canal1"
 	footstep = FOOTSTEP_FLOOR
-	barefootstep = FOOTSTEP_HARD_BAREFOOT
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 // TODO: [Rebase] - Port https://github.com/ApocryphaXIII/ApocryphaXIII/pull/52
 /*
@@ -1021,8 +980,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "canal_plating1"
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 // TODO: [Rebase] - Port https://github.com/ApocryphaXIII/ApocryphaXIII/pull/52
 /*
@@ -1049,8 +1006,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "bacotell"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/gummaguts
 	name = "plating"
@@ -1058,7 +1013,5 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "gummaguts"
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 #undef LOW_WALL_HELPER
