@@ -178,11 +178,20 @@ LOW_WALL_HELPER(vampwall/market)
 	icon_state = "old-0"
 	base_icon_state = "old"
 
+/turf/closed/wall/vampwall/old/low
+	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
+	opacity = FALSE
+	low = TRUE
+	blocks_air = FALSE
+	smoothing_groups = SMOOTH_GROUP_CITY_LOW_WALL
+	canSmoothWith = SMOOTH_GROUP_CITY_LOW_WALL
+/* Currently missing icon states for window
 LOW_WALL_HELPER(vampwall/low)
 /turf/closed/wall/vampwall/old/low/window
 	icon_state = "old-window"
 /turf/closed/wall/vampwall/old/low/window/reinforced
 	icon_state = "old-reinforced"
+*/
 
 /turf/closed/wall/vampwall/painted
 	name = "painted brick wall"
@@ -1051,3 +1060,5 @@ LOW_WALL_HELPER(vampwall/wood)
 	barefootstep = FOOTSTEP_SIDEWALK
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+#undef LOW_WALL_HELPER
