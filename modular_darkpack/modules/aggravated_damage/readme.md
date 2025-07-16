@@ -60,6 +60,7 @@ unless you have some kind of supernatural ability for it.
 	- `/datum/unit_test/mob_damage/proc/apply_damage()`
 	- `/datum/unit_test/mob_damage/proc/set_damage()`
 	- `/datum/unit_test/mob_damage/animal/verify_damage()`
+	- `/datum/unit_test/mob_damage/animal/Run()`
 - [code/datums/components/dejavu.dm](/code/datums/components/dejavu.dm)
 	- `/datum/component/dejavu/Initialize()`
 	- `/datum/component/dejavu/proc/rewind_living()`
@@ -84,6 +85,10 @@ unless you have some kind of supernatural ability for it.
 	- `/mob/living/carbon/human/Topic()`
 - [code/modules/mob/living/carbon/examine.dm](/code/modules/mob/living/carbon/examine.dm)
 	- `/mob/living/carbon/examine()`
+- [code/modules/mob/living/simple_animal/simple_animal.dm](/code/modules/mob/living/simple_animal/simple_animal.dm)
+	- `var/list/damage_coeff`
+- [code/modules/mob/living/basic/basic.dm](/code/modules/mob/living/simple_animal/simple_animal.dm)
+	- `var/list/damage_coeff`
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`

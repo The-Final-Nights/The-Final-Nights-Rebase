@@ -460,7 +460,7 @@
 	// Basic mobs
 	var/mob/living/basic/mouse/gray/gusgus = allocate(/mob/living/basic/mouse/gray)
 	// give gusgus a damage_coeff of 1 for this test
-	gusgus.damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1)
+	gusgus.damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1, AGGRAVATED = 1) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	// tank mouse
 	gusgus.maxHealth = 200
 
@@ -470,7 +470,7 @@
 	// Simplemobs
 	var/mob/living/simple_animal/abstract_thing = allocate(/mob/living/simple_animal)
 	// give the mob a damage_coeff of 1 for this test
-	abstract_thing.damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1)
+	abstract_thing.damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1, AGGRAVATED = 1) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	abstract_thing.maxHealth = 200
 
 	test_sanity_simple(abstract_thing)
