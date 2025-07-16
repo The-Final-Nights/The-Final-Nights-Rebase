@@ -505,7 +505,7 @@
 	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
 	if(included_types & AGGLOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getAggLoss(), amount, \
-			"[testing_mob] should have [amount] aggravated damage, instead they have [testing_mob.getAggLoss()]!")
+			"[testing_mob] should have [0] aggravated damage, instead they have [testing_mob.getAggLoss()]!")
 	// DARKPACK EDIT ADDITION END
 	return TRUE
 
