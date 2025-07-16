@@ -1019,4 +1019,30 @@ LOW_WALL_HELPER(vampwall/wood)
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
 
+//Refactor into a water subtype.
+/turf/open/floor/plating/bloodshit
+	gender = PLURAL
+	name = "blood"
+	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
+	icon_state = "blood"
+	flags_1 = NONE
+	attachment_holes = FALSE
+	bullet_bounce_sound = null
+	footstep = FOOTSTEP_WATER
+	barefootstep = FOOTSTEP_WATER
+	clawfootstep = FOOTSTEP_WATER
+	heavyfootstep = FOOTSTEP_WATER
+
+/* Rework this. Idk why its like this.
+/turf/open/floor/plating/bloodshit/Initialize(mapload)
+	. = ..()
+	for(var/mob/living/L in src)
+		if(L)
+			L.death()
+	spawn(5)
+		for(var/turf/T in range(1, src))
+			if(T && !istype(T, /turf/open/floor/plating/bloodshit))
+				new /turf/open/floor/plating/bloodshit(T)
+*/
+
 #undef LOW_WALL_HELPER
