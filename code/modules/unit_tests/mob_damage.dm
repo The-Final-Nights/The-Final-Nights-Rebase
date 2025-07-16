@@ -153,7 +153,7 @@
 			"adjustStaminaLoss() should have returned [expected], but returned [damage_returned] instead!")
 	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
 	if(included_types & AGGLOSS)
-		damage_returned = round(testing_mob.adjustAggLoss(amount, updating_stamina = FALSE, forced = forced, required_biotype = biotypes), 1)
+		damage_returned = round(testing_mob.adjustAggLoss(amount, updating_health = FALSE, forced = forced, required_bodytype = bodytypes), 1)
 		TEST_ASSERT_EQUAL(damage_returned, expected, \
 			"adjustAggLoss() should have returned [expected], but returned [damage_returned] instead!")
 	// DARKPACK EDIT ADDITION END

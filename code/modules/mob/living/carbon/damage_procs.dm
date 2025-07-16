@@ -78,6 +78,10 @@
 			final_mod *= physiology.stamina_mod
 		if(BRAIN)
 			final_mod *= physiology.brain_mod
+		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		if(AGGRAVATED)
+			final_mod *= physiology.aggravated_mod
+		// DARKPACK EDIT ADDITION END
 
 	return final_mod
 
