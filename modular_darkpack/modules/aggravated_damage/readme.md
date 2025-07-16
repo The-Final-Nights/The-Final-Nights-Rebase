@@ -33,6 +33,8 @@ unless you have some kind of supernatural ability for it.
 	- `/mob/living/proc/fully_heal()`
 - [code/modules/mob/living/carbon/carbon.dm](/code/modules/mob/living/carbon/carbon.dm)
 	- `/mob/living/carbon/updatehealth()`
+	- `/mob/living/carbon/update_damage_hud()`
+	- `/mob/living/carbon/proc/can_defib()`
 - [code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm](/code/__DEFINES/dcs/signals/signals_mob/signals_mob_living.dm)
 	- `#define COMSIG_LIVING_ADJUST_STANDARD_DAMAGE_TYPES`
 - [code/__DEFINES/mobs.dm](/code/__DEFINES/mobs.dm):
@@ -78,6 +80,10 @@ unless you have some kind of supernatural ability for it.
 	- `/obj/item/bodypart/proc/get_damage()`
 	- `/obj/item/bodypart/proc/update_disabled()`
 	- `/obj/item/bodypart/proc/update_bodypart_damage_state()`
+- [code/modules/mob/living/carbon/human/human.dm](/code/modules/mob/living/carbon/human/human.dm)
+	- `/mob/living/carbon/human/Topic()`
+- [code/modules/mob/living/carbon/examine.dm](/code/modules/mob/living/carbon/examine.dm)
+	- `/mob/living/carbon/examine()`
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
@@ -107,6 +113,7 @@ E.g:
 	- `#define AGGLOSS (1<<8)`
 	- `#define COMSIG_LIVING_ADJUST_AGGRAVATED_DAMAGE "living_adjust_aggravated_damage"`
 	- `#define HEAL_AGGRAVATED (1<<19)`
+	- `#define MAX_REVIVE_AGGRAVATED_DAMAGE 100`
   <!-- If you needed to add any defines, mention the files you added those defines in, along with the name of the defines. -->
 
 ### Included files that are not contained in this module:

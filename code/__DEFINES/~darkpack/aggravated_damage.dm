@@ -13,5 +13,7 @@
 /* Adding onto [code/__DEFINES/mobs.dm] */
 #define HEAL_AGGRAVATED (1<<19)
 
+#define MAX_REVIVE_AGGRAVATED_DAMAGE 100
+
 /* Adding onto [code/__DEFINES/mobs.dm] */
-#define DEFAULT_AGGRAVATED_EXAMINE_TEXT "cellular damage"
+#define DEFAULT_AGGRAVATED_EXAMINE_TEXT "festering wounds"

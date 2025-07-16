@@ -450,11 +450,13 @@
 		return
 	var/total_burn = 0
 	var/total_brute = 0
+	var/total_aggravated = 0 // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 	for(var/X in bodyparts) //hardcoded to streamline things a bit
 		var/obj/item/bodypart/BP = X
 		total_brute += (BP.brute_dam * BP.body_damage_coeff)
 		total_burn += (BP.burn_dam * BP.body_damage_coeff)
-	set_health(round(maxHealth - getOxyLoss() - getToxLoss() - total_burn - total_brute - getAggLoss(), DAMAGE_PRECISION)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
+		total_aggravated += (BP.aggravated_dam * BP.body_damage_coeff) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	set_health(round(maxHealth - getOxyLoss() - getToxLoss() - total_burn - total_brute - total_aggravated, DAMAGE_PRECISION)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	update_stat()
 	update_stamina()
 
@@ -635,8 +637,8 @@
 	else
 		clear_fullscreen("oxy")
 
-	//Fire and Brute damage overlay (BSSR)
-	var/hurtdamage = getBruteLoss() + getFireLoss() + damageoverlaytemp
+	//Fire and Brute and Aggravated damage overlay (BSSR)
+	var/hurtdamage = getBruteLoss() + getFireLoss() + getAggLoss() + damageoverlaytemp // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	if(hurtdamage && !HAS_TRAIT(src, TRAIT_NO_DAMAGE_OVERLAY))
 		var/severity = 0
 		switch(hurtdamage)
@@ -867,7 +869,7 @@
 	if (HAS_TRAIT(src, TRAIT_DEFIB_BLACKLISTED))
 		return DEFIB_FAIL_BLACKLISTED
 
-	if ((getBruteLoss() >= MAX_REVIVE_BRUTE_DAMAGE) || (getFireLoss() >= MAX_REVIVE_FIRE_DAMAGE))
+	if ((getBruteLoss() >= MAX_REVIVE_BRUTE_DAMAGE) || (getFireLoss() >= MAX_REVIVE_FIRE_DAMAGE) || (getAggLoss() >= MAX_REVIVE_AGGRAVATED_DAMAGE)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		return DEFIB_FAIL_TISSUE_DAMAGE
 
 	// Only check for a heart if they actually need a heart. Who would've thunk
