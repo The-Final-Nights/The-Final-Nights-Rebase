@@ -22,5 +22,5 @@
 // Knowledges
 
 // Advantages
-#define ST_TRAIT_BLOOD /datum/st_trait/blood
+#define ST_TRAIT_BLOOD_POOL /datum/st_trait/blood_pool
 #define ST_TRAIT_WILLPOWER /datum/st_trait/willpower
