@@ -7,9 +7,11 @@
 	icon_state = "matrix"
 
 /turf/closed/indestructible/the_matrix/attack_hand(mob/user)
-	if(user.client)
-		if(do_after(user, 10 SECONDS, src, interaction_key = DOAFTER_SOURCE_MATRIX))
-			despawn_mob(user, src)
+	if(!user.client)
+		return FALSE
+	if(!do_after(user, 10 SECONDS, src, interaction_key = DOAFTER_SOURCE_MATRIX))
+		return FALSE
+	despawn_mob(user, src)
 	return TRUE
 
 /turf/closed/indestructible/the_matrix/proc/despawn_mob(mob/living/despawning_mob)
