@@ -483,7 +483,7 @@
  * Arguments:
  * * testing_mob - the mob to check the damage of
  * * amount - the amount of damage to verify that the mob has
- * * expected - the expected return value of the damage procs, if it differs from the default of (amount * 4)
+ * * expected - the expected return value of the damage procs, if it differs from the default of (amount * 5)
  * * included_types - Bitflag of damage types to check.
  */
 /datum/unit_test/mob_damage/animal/verify_damage(mob/living/testing_mob, amount, expected, included_types = ALL)
@@ -491,8 +491,8 @@
 		TEST_ASSERT_EQUAL(testing_mob.getToxLoss(), 0, \
 			"[testing_mob] should have [0] toxin damage, instead they have [testing_mob.getToxLoss()]!")
 	if(included_types & BRUTELOSS)
-		TEST_ASSERT_EQUAL(round(testing_mob.getBruteLoss(), 1), expected || amount * 4, \
-			"[testing_mob] should have [expected || amount * 4] brute damage, instead they have [testing_mob.getBruteLoss()]!")
+		TEST_ASSERT_EQUAL(round(testing_mob.getBruteLoss(), 1), expected || amount * 5, \
+			"[testing_mob] should have [expected || amount * 5] brute damage, instead they have [testing_mob.getBruteLoss()]!") // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	if(included_types & FIRELOSS)
 		TEST_ASSERT_EQUAL(round(testing_mob.getFireLoss(), 1), 0, \
 			"[testing_mob] should have [0] burn damage, instead they have [testing_mob.getFireLoss()]!")
@@ -520,18 +520,18 @@
 	if(!test_apply_damage(test_mob, amount = -1))
 		TEST_FAIL("ABOVE FAILURE: failed test_sanity_simple! healing was not applied correctly")
 
-	// Give 2 damage of every time (translates to 8 brute, 2 staminaloss)
+	// Give 2 damage of every time (translates to 10 brute, 2 staminaloss)
 	if(!test_apply_damage(test_mob, amount = 2))
 		TEST_FAIL("ABOVE FAILURE: failed test_sanity_simple! damage was not applied correctly")
 
-	// underhealing: heal 1 damage of every type (translates to 4 brute, 1 staminaloss)
+	// underhealing: heal 1 damage of every type (translates to 5 brute, 1 staminaloss)
 	if(!test_apply_damage(test_mob, amount = -1))
 		TEST_FAIL("ABOVE FAILURE: failed test_sanity_simple! healing was not applied correctly")
 
 	// overhealing
 
-	// heal 11 points of toxloss (should take care of all 4 brute damage remaining)
-	if(!apply_damage(test_mob, -11, expected = 4, included_types = TOXLOSS))
+	// heal 11 points of toxloss (should take care of all 5 brute damage remaining)
+	if(!apply_damage(test_mob, -11, expected = 5, included_types = TOXLOSS)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		TEST_FAIL("ABOVE FAILURE: failed test_sanity_simple! toxloss was not applied correctly")
 	// heal the remaining point of staminaloss
 	if(!apply_damage(test_mob, -11, expected = 1, included_types = STAMINALOSS))

@@ -61,6 +61,7 @@ unless you have some kind of supernatural ability for it.
 	- `/datum/unit_test/mob_damage/proc/set_damage()`
 	- `/datum/unit_test/mob_damage/animal/verify_damage()`
 	- `/datum/unit_test/mob_damage/animal/Run()`
+	- `/datum/unit_test/mob_damage/animal/test_sanity_simple()`
 - [code/datums/components/dejavu.dm](/code/datums/components/dejavu.dm)
 	- `/datum/component/dejavu/Initialize()`
 	- `/datum/component/dejavu/proc/rewind_living()`
