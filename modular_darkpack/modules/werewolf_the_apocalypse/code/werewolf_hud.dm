@@ -78,7 +78,7 @@
 		to_chat(C, "<span class='notice'>The Moon is [GLOB.moon_state].</span>")
 //		icon_state = "[GLOB.moon_state]"
 		C.emote("howl")
-		playsound(get_turf(C), pick('code/modules/wod13/sounds/awo1.ogg', 'code/modules/wod13/sounds/awo2.ogg'), 100, FALSE)
+		playsound(get_turf(C), pick('modular_darkpack/modules/deprecated/sounds/awo1.ogg', 'modular_darkpack/modules/deprecated/sounds/awo2.ogg'), 100, FALSE)
 		icon_state = "[GLOB.moon_state]"
 		spawn(10)
 			adjust_rage(1, C, TRUE)

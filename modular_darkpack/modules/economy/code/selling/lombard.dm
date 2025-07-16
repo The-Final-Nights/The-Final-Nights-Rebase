@@ -34,7 +34,7 @@
 //This assumes that all items are of the same type
 /obj/lombard/proc/sell_multiple_items(list/items_to_sell, mob/living/user)
 	var/succeeded_sale
-	var/list/sold_items = list() //This will be returned at the end of the proc for use in lombard/MouseDrop_T()
+	var/list/sold_items = list() //This will be returned at the end of the proc for use in lombard/mouse_drop_receive()
 	for(var/obj/item/sold in items_to_sell)
 		var/datum/component/selling/sold_sc = sold.GetComponent(/datum/component/selling)
 		if(!sold_sc.can_sell())
@@ -47,7 +47,7 @@
 	if(succeeded_sale)
 		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/sell.ogg', 50, TRUE)
 	return sold_items
-	//Humanity adjustment and item deletion is handled in lombard/MouseDrop_T()
+	//Humanity adjustment and item deletion is handled in lombard/mouse_drop_receive()
 
 /obj/lombard/proc/generate_money(obj/item/sold, mob/living/user)
 	var/datum/component/selling/sold_sc = sold.GetComponent(/datum/component/selling)
@@ -74,7 +74,7 @@
 	money_to_spawn.forceMove(loc)
 
 //Click-dragging to the vendor to mass-sell a certain type of item
-/obj/lombard/MouseDrop_T(obj/item/sold, mob/living/user)
+/obj/lombard/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
 	if(!istype(sold))
 		return

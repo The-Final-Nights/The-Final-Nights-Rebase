@@ -71,7 +71,7 @@
 
 /obj/item/fishing_rod/attack_hand(mob/living/user)
 	if(anchored)
-		if(!istype(get_step(src, dir), /turf/open/floor/plating/vampocean))
+		if(!istype(get_step(src, dir), /turf/open/water))
 			return
 		if(user.isfishing)
 			return

@@ -164,7 +164,7 @@ SUBSYSTEM_DEF(die_in_a_fire)
 		if(!V.upper)
 			spread_chance += 10
 
-/turf/open/floor
+/turf/open
 	var/spread_chance = 3
 	var/burn_material = 3
 
@@ -176,7 +176,7 @@ SUBSYSTEM_DEF(die_in_a_fire)
 	spread_chance = 10
 	burn_material = 20
 
-/turf/open/floor/plating/vampgrass
+/turf/open/misc/grass/vamp
 	spread_chance = 10
 	burn_material = 10
 
@@ -188,7 +188,7 @@ SUBSYSTEM_DEF(die_in_a_fire)
 	spread_chance = 20
 	burn_material = 20
 
-/turf/open/floor/plating/vampdirt
+/turf/open/misc/dirt/vamp
 	spread_chance = 5
 	burn_material = 5
 
@@ -204,15 +204,15 @@ SUBSYSTEM_DEF(die_in_a_fire)
 	spread_chance = 10
 	burn_material = 10
 
-/turf/open/floor/plating/vampbeach
+/turf/open/misc/beach/vamp
 	spread_chance = 1
 	burn_material = 1
 
-/turf/open/floor/plating/vampocean
+/turf/open/water
 	spread_chance = 0
 	burn_material = 0
 
-/turf/open/floor/plating/shit
+/turf/open/water/vamp_sewer
 	spread_chance = 20
 	burn_material = 20
 

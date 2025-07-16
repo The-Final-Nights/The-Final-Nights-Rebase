@@ -302,3 +302,12 @@
   - bugfix: material sheets show their proper amounts on crate manifests
   TheCarnalest:
   - code_imp: Initial work for the rebase
+2025-07-14:
+  FalloutFalcon:
+  - bugfix: decals like road lines and curbs are now attached to their tile as elements
+      rather then objects that sit on top of them. This should result in them layering
+      more realistically and responding to things acting upon there turfs (such as
+      deleting or replacing)
+  - bugfix: turf decals no longer have drop shadows
+  - qol: trash on the streets is now cleanable
+  - qol: more fluff in the city can be properly damaged
