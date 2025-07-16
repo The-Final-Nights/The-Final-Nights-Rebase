@@ -1,18 +1,3 @@
-/*
-/mob/living
-	var/strength = 1
-	var/dexterity = 1
-	var/social = 1
-	var/mentality = 1
-	var/blood = 1
-
-	var/additional_strength = 0
-	var/additional_dexterity = 0
-	var/additional_mentality = 0
-	var/additional_social = 0
-	var/additional_blood = 0
-*/
-
 /datum/st_trait/attribute
 	score = 1
 
