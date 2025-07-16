@@ -12,3 +12,6 @@
 
 /* Adding onto [code/__DEFINES/mobs.dm] */
 #define HEAL_AGGRAVATED (1<<19)
+
+/* Adding onto [code/__DEFINES/mobs.dm] */
+#define DEFAULT_AGGRAVATED_EXAMINE_TEXT "cellular damage"

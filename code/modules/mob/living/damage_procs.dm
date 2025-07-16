@@ -94,7 +94,25 @@
 			damage_dealt = -1 * adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_amount)
 		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
 		if(AGGRAVATED)
-			damage_dealt = -1 * adjustAggLoss(damage_amount, forced = forced)
+			if(isbodypart(def_zone))
+				var/obj/item/bodypart/actual_hit = def_zone
+				var/delta = actual_hit.get_damage()
+				if(actual_hit.receive_damage(
+					brute = 0,
+					burn = 0,
+					forced = forced,
+					wound_bonus = wound_bonus,
+					exposed_wound_bonus = exposed_wound_bonus,
+					sharpness = sharpness,
+					attack_direction = attack_direction,
+					damage_source = attacking_item,
+					wound_clothing = wound_clothing,
+					aggravated = damage_amount,
+				))
+					update_damage_overlays()
+				damage_dealt = actual_hit.get_damage() - delta // See above
+			else
+				damage_dealt = -1 * adjustAggLoss(damage_amount, forced = forced)
 		// DARKPACK EDIT ADDITION END
 
 	SEND_SIGNAL(src, COMSIG_MOB_AFTER_APPLY_DAMAGE, damage_dealt, damagetype, def_zone, blocked, wound_bonus, exposed_wound_bonus, sharpness, attack_direction, attacking_item, wound_clothing)
@@ -514,36 +532,38 @@
  *
  * returns the net change in damage
  */
-/mob/living/proc/heal_bodypart_damage(brute = 0, burn = 0, updating_health = TRUE, required_bodytype = NONE, target_zone = null)
-	. = (adjustBruteLoss(-abs(brute), updating_health = FALSE) + adjustFireLoss(-abs(burn), updating_health = FALSE))
+/mob/living/proc/heal_bodypart_damage(brute = 0, burn = 0, updating_health = TRUE, required_bodytype = NONE, target_zone = null, aggravated = 0) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
+	. = (adjustBruteLoss(-abs(brute), updating_health = FALSE) + adjustFireLoss(-abs(burn), updating_health = FALSE) + adjustAggLoss(-abs(aggravated), updating_health = FALSE)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	if(!.) // no change, no need to update
 		return FALSE
 	if(updating_health)
 		updatehealth()
 
 /// damage ONE external organ, organ gets randomly selected from damaged ones.
-/mob/living/proc/take_bodypart_damage(brute = 0, burn = 0, updating_health = TRUE, required_bodytype, check_armor = FALSE, wound_bonus = 0, exposed_wound_bonus = 0, sharpness = NONE)
-	. = (adjustBruteLoss(abs(brute), updating_health = FALSE) + adjustFireLoss(abs(burn), updating_health = FALSE))
+/mob/living/proc/take_bodypart_damage(brute = 0, burn = 0, updating_health = TRUE, required_bodytype, check_armor = FALSE, wound_bonus = 0, exposed_wound_bonus = 0, sharpness = NONE, aggravated = 0) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
+	. = (adjustBruteLoss(abs(brute), updating_health = FALSE) + adjustFireLoss(abs(burn), updating_health = FALSE) + adjustAggLoss(abs(aggravated), updating_health = FALSE)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	if(!.) // no change, no need to update
 		return FALSE
 	if(updating_health)
 		updatehealth()
 
 /// heal MANY bodyparts, in random order. note: stamina arg nonfunctional for carbon mobs
-/mob/living/proc/heal_overall_damage(brute = 0, burn = 0, stamina = 0, required_bodytype, updating_health = TRUE, forced = FALSE)
+/mob/living/proc/heal_overall_damage(brute = 0, burn = 0, stamina = 0, required_bodytype, updating_health = TRUE, forced = FALSE, aggravated = 0) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	. = (adjustBruteLoss(-abs(brute), updating_health = FALSE, forced = forced) + \
 			adjustFireLoss(-abs(burn), updating_health = FALSE, forced = forced) + \
-			adjustStaminaLoss(-abs(stamina), updating_stamina = FALSE, forced = forced))
+			adjustStaminaLoss(-abs(stamina), updating_stamina = FALSE, forced = forced) + \
+			adjustAggLoss(-abs(aggravated), updating_health = FALSE, forced = forced)) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 	if(!.) // no change, no need to update
 		return FALSE
 	if(updating_health)
 		updatehealth()
 
 /// damage MANY bodyparts, in random order. note: stamina arg nonfunctional for carbon mobs
-/mob/living/proc/take_overall_damage(brute = 0, burn = 0, stamina = 0, updating_health = TRUE, forced = FALSE, required_bodytype)
+/mob/living/proc/take_overall_damage(brute = 0, burn = 0, stamina = 0, updating_health = TRUE, forced = FALSE, required_bodytype, aggravated = 0) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	. = (adjustBruteLoss(abs(brute), updating_health = FALSE, forced = forced) + \
 			adjustFireLoss(abs(burn), updating_health = FALSE, forced = forced) + \
-			adjustStaminaLoss(abs(stamina), updating_stamina = FALSE, forced = forced))
+			adjustStaminaLoss(abs(stamina), updating_stamina = FALSE, forced = forced) + \
+			adjustAggLoss(abs(aggravated), updating_health = FALSE, forced = forced))
 	if(!.) // no change, no need to update
 		return FALSE
 	if(updating_health)
