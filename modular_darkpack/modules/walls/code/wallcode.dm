@@ -1,3 +1,26 @@
+#define LOW_WALL_HELPER(wall_type)						\
+	/turf/closed/wall/##wall_type/low {					\
+		icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'; \
+		opacity = FALSE;								\
+		low = TRUE;										\
+		blocks_air = FALSE;								\
+		smoothing_groups = SMOOTH_GROUP_CITY_LOW_WALL;	\
+		canSmoothWith = SMOOTH_GROUP_CITY_LOW_WALL;		\
+	}	\
+	/turf/closed/wall/##wall_type/low/window {			\
+		window = /obj/structure/window/fulltile;		\
+	}	\
+	/turf/closed/wall/##wall_type/low/window/reinforced { \
+		window = /obj/structure/window/reinforced/fulltile; \
+	}
+
+
+/obj/structure/window/fulltile
+	icon = 'modular_darkpack/modules/deprecated/icons/obj/smooth_structures/window.dmi'
+
+/obj/structure/window/reinforced/fulltile
+	icon = 'modular_darkpack/modules/deprecated/icons/obj/smooth_structures/reinforced_window.dmi'
+
 //Smooth Operator soset biby
 
 /obj/effect/addwall
@@ -10,27 +33,22 @@
 	anchored = TRUE
 	mouse_opacity = 0
 
-/obj/effect/addwall/Crossed(atom/movable/AM, oldloc)
+/obj/effect/addwall/Initialize(mapload)
 	. = ..()
-	var/someoneshere = FALSE
-	for(var/mob/living/L in get_turf(src))
-		if(L)
-			someoneshere = TRUE
-	if(!someoneshere)
-		alpha = 255
-	else
-		alpha = 128
+	AddComponent(/datum/component/seethrough, SEE_THROUGH_MAP_WALLS)
+/* If we want to have transpanecy for ALL mobs instead of just you.
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(update_alpha),
+		COMSIG_ATOM_EXITED = PROC_REF(update_alpha),
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/effect/addwall/Uncrossed(atom/movable/AM)
-	. = ..()
-	var/someoneshere = FALSE
-	for(var/mob/living/L in get_turf(src))
-		if(L)
-			someoneshere = TRUE
-	if(!someoneshere)
-		alpha = 255
-	else
+/obj/effect/addwall/proc/update_alpha()
+	if(locate(/mob/living) in get_turf(src))
 		alpha = 128
+	else
+		alpha = 255
+*/
 
 /turf/closed/wall/vampwall
 	name = "old brick wall"
@@ -41,6 +59,8 @@
 	opacity = TRUE
 	density = TRUE
 	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = SMOOTH_GROUP_CITY_WALL
+	canSmoothWith = SMOOTH_GROUP_CITY_WALL
 
 	var/obj/effect/addwall/addwall
 	var/low = FALSE
@@ -67,7 +87,9 @@
 /turf/closed/wall/vampwall/attack_hand(mob/user)
 	return
 
-/turf/closed/wall/vampwall/MouseDrop_T(atom/dropping, mob/user, params)
+// TODO: [Rebase] - Reimplement climbing
+/*
+/turf/closed/wall/vampwall/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
 	if(user.a_intent != INTENT_HARM)
 		//Adds the component only once. We do it here & not in Initialize() because there are tons of windows & we don't want to add to their init times
@@ -80,6 +102,7 @@
 				carbon_human.climb_wall(above_turf)
 			else
 				to_chat(user, "<span class='warning'>You can't climb there!</span>")
+*/
 
 /turf/closed/wall/vampwall/ex_act(severity, target)
 	return
@@ -87,9 +110,7 @@
 /turf/closed/wall/vampwall/Initialize(mapload)
 	. = ..()
 	if(window)
-		var/obj/W = new window(src)
-		W.plane = GAME_PLANE
-		W.layer = ABOVE_ALL_MOB_LAYER
+		new window(src)
 	else if(!low)
 		addwall = new(get_step(src, NORTH))
 		addwall.icon_state = icon_state
@@ -109,12 +130,7 @@
 	if(addwall)
 		qdel(addwall)
 
-/turf/closed/wall/vampwall/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE //Let the windows block the air transfer
-
+LOW_WALL_HELPER(vampwall)
 /turf/closed/wall/vampwall/low/window
 	icon_state = "wall-window"
 	window = /obj/structure/window/fulltile
@@ -125,19 +141,11 @@
 	icon_state = "rich-0"
 	base_icon_state = "rich"
 
-/turf/closed/wall/vampwall/rich/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/rich)
 /turf/closed/wall/vampwall/rich/low/window
 	icon_state = "rich-window"
-	window = /obj/structure/window/fulltile
-
 /turf/closed/wall/vampwall/rich/low/window/reinforced
 	icon_state = "rich-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructable
 
 /turf/closed/wall/vampwall/junk
 	name = "junk brick wall"
@@ -145,29 +153,17 @@
 	icon_state = "junk-0"
 	base_icon_state = "junk"
 
-/turf/closed/wall/vampwall/junk/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/junk)
 /turf/closed/wall/vampwall/junk/low/window
 	icon_state = "junk-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/junk/alt
 	icon_state = "junkalt-0"
 	base_icon_state = "junkalt"
 
-/turf/closed/wall/vampwall/junk/alt/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/junk/alt)
 /turf/closed/wall/vampwall/junk/alt/low/window
 	icon_state = "junkalt-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/market
 	name = "concrete wall"
@@ -175,19 +171,11 @@
 	icon_state = "market-0"
 	base_icon_state = "market"
 
-/turf/closed/wall/vampwall/market/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/market)
 /turf/closed/wall/vampwall/market/low/window
 	icon_state = "market-window"
-	window = /obj/structure/window/fulltile
-
 /turf/closed/wall/vampwall/market/low/window/reinforced
 	icon_state = "market-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructable
 
 /turf/closed/wall/vampwall/old
 	name = "old brick wall"
@@ -200,14 +188,15 @@
 	opacity = FALSE
 	low = TRUE
 	blocks_air = FALSE
-
+	smoothing_groups = SMOOTH_GROUP_CITY_LOW_WALL
+	canSmoothWith = SMOOTH_GROUP_CITY_LOW_WALL
+/* Currently missing icon states for window
+LOW_WALL_HELPER(vampwall/low)
 /turf/closed/wall/vampwall/old/low/window
 	icon_state = "old-window"
-	window = /obj/structure/window/fulltile
-
 /turf/closed/wall/vampwall/old/low/window/reinforced
 	icon_state = "old-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructable
+*/
 
 /turf/closed/wall/vampwall/painted
 	name = "painted brick wall"
@@ -215,19 +204,11 @@
 	icon_state = "painted-0"
 	base_icon_state = "painted"
 
-/turf/closed/wall/vampwall/painted/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/painted)
 /turf/closed/wall/vampwall/painted/low/window
 	icon_state = "painted-window"
-	window = /obj/structure/window/fulltile
-
 /turf/closed/wall/vampwall/painted/low/window/reinforced
 	icon_state = "painted-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructable
 
 /turf/closed/wall/vampwall/rich/old
 	name = "old rich-looking wall"
@@ -235,19 +216,11 @@
 	icon_state = "theater-0"
 	base_icon_state = "theater"
 
-/turf/closed/wall/vampwall/rich/old/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/rich/old)
 /turf/closed/wall/vampwall/rich/old/low/window
 	icon_state = "theater-window"
-	window = /obj/structure/window/fulltile
-
 /turf/closed/wall/vampwall/rich/old/low/window/reinforced
 	icon_state = "theater-reinforced"
-	window = /obj/structure/window/reinforced/fulltile/indestructable
 
 /turf/closed/wall/vampwall/brick
 	name = "brick wall"
@@ -255,15 +228,9 @@
 	icon_state = "brick-0"
 	base_icon_state = "brick"
 
-/turf/closed/wall/vampwall/brick/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/brick)
 /turf/closed/wall/vampwall/brick/low/window
 	icon_state = "brick-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/rock
 	name = "rock wall"
@@ -277,15 +244,9 @@
 	icon_state = "city-0"
 	base_icon_state = "city"
 
-/turf/closed/wall/vampwall/city/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/city)
 /turf/closed/wall/vampwall/city/low/window
 	icon_state = "city-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/metal
 	name = "metal wall"
@@ -318,15 +279,9 @@
 	icon_state = "bar-0"
 	base_icon_state = "bar"
 
-/turf/closed/wall/vampwall/bar/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/bar)
 /turf/closed/wall/vampwall/bar/low/window
 	icon_state = "bar-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/wood
 	name = "wood wall"
@@ -334,15 +289,9 @@
 	icon_state = "wood-0"
 	base_icon_state = "wood"
 
-/turf/closed/wall/vampwall/wood/low
-	icon = 'modular_darkpack/modules/deprecated/icons/lowwalls.dmi'
-	opacity = FALSE
-	low = TRUE
-	blocks_air = FALSE
-
+LOW_WALL_HELPER(vampwall/wood)
 /turf/closed/wall/vampwall/wood/low/window
 	icon_state = "wood-window"
-	window = /obj/structure/window/fulltile
 
 /turf/closed/wall/vampwall/rust
 	name = "rusty wall"
@@ -374,20 +323,15 @@
 	icon_state = "redbrick-0"
 	base_icon_state = "redbrick"
 
+// TODO: [Rebase] - Move these to there own file in deticated pr. Want changes visable in this pr.
 //TURFS
 
 /turf/open/floor/plating/asphalt
-	gender = PLURAL
 	name = "asphalt"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "asphalt1"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_ASPHALT
 	barefootstep = FOOTSTEP_ASPHALT
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/asphalt/Initialize(mapload)
 	. = ..()
@@ -395,7 +339,7 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				new /obj/effect/decal/snow_overlay(src)
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -414,17 +358,11 @@
 	contents_explosion(severity, target)
 
 /turf/open/floor/plating/sidewalkalt
-	gender = PLURAL
 	name = "sidewalk"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "sidewalk_alt"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 
 /turf/open/floor/plating/sidewalkalt/Initialize(mapload)
 	. = ..()
@@ -432,36 +370,30 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
 				heavyfootstep = FOOTSTEP_SNOW
 
 /turf/open/floor/plating/sidewalk
-	gender = PLURAL
 	name = "sidewalk"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "sidewalk1"
 	var/number_of_variations = 3
-	var/based_icon_state = "sidewalk"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	base_icon_state = "sidewalk"
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 
 /turf/open/floor/plating/sidewalk/Initialize(mapload)
 	. = ..()
-	icon_state = "[based_icon_state][rand(1, number_of_variations)]"
+	icon_state = "[base_icon_state][rand(1, number_of_variations)]"
 	set_light(1, 0.5, "#a4b7ff")
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -469,30 +401,24 @@
 
 /turf/open/floor/plating/sidewalk/poor
 	icon_state = "sidewalk_poor1"
-	based_icon_state = "sidewalk_poor"
+	base_icon_state = "sidewalk_poor"
 
 /turf/open/floor/plating/sidewalk/rich
 	icon_state = "sidewalk_rich1"
 	number_of_variations = 6
-	based_icon_state = "sidewalk_rich"
+	base_icon_state = "sidewalk_rich"
 
 /turf/open/floor/plating/sidewalk/old
 	icon_state = "sidewalk_old1"
 	number_of_variations = 4
-	based_icon_state = "sidewalk_old"
+	base_icon_state = "sidewalk_old"
 
 /turf/open/floor/plating/roofwalk
-	gender = PLURAL
 	name = "roof"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "roof"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 
 /turf/open/floor/plating/roofwalk/Initialize(mapload)
 	. = ..()
@@ -500,7 +426,7 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
@@ -516,17 +442,11 @@
 //OTHER TURFS
 
 /turf/open/floor/plating/parquetry
-	gender = PLURAL
 	name = "parquetry"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "parquet"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/parquetry/old
 	icon_state = "parquet-old"
@@ -535,52 +455,36 @@
 	icon_state = "parquet-rich"
 
 /turf/open/floor/plating/granite
-	gender = PLURAL
 	name = "granite"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "granite"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 
 /turf/open/floor/plating/granite/black
 	icon_state = "granite-black"
 
 /turf/open/floor/plating/concrete
-	gender = PLURAL
 	name = "concrete"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "concrete1"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 
 /turf/open/floor/plating/concrete/Initialize(mapload)
 	. = ..()
 	icon_state = "concrete[rand(1, 4)]"
 
-/turf/open/floor/plating/vampgrass
-	gender = PLURAL
+/turf/open/misc/grass/vamp
 	name = "grass"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "grass1"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_TRAVA
 	barefootstep = FOOTSTEP_TRAVA
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	baseturfs = /turf/open/misc/dirt
 
-/turf/open/floor/plating/vampgrass/attackby(obj/item/I, mob/living/user, params)
+/*
+/turf/open/misc/grass/vamp/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
 		var/obj/structure/bury_pit/P = locate() in src
 		if(P)
@@ -617,9 +521,9 @@
 				if(!locate(/obj/structure/bury_pit) in src)
 					user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
 					new /obj/structure/bury_pit(src)
+*/
 
-
-/turf/open/floor/plating/vampgrass/Initialize(mapload)
+/turf/open/misc/grass/vamp/Initialize(mapload)
 	. = ..()
 	set_light(1, 0.5, "#a4b7ff")
 	icon_state = "grass[rand(1, 3)]"
@@ -627,39 +531,28 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
 				heavyfootstep = FOOTSTEP_SNOW
 
 /turf/open/floor/plating/vampcarpet
-	gender = PLURAL
 	name = "carpet"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "carpet_black"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
-/turf/open/floor/plating/vampdirt
-	gender = PLURAL
+/turf/open/misc/dirt/vamp
 	name = "dirt"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "dirt"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_ASPHALT
 	barefootstep = FOOTSTEP_ASPHALT
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
-/turf/open/floor/plating/vampdirt/attackby(obj/item/I, mob/living/user, params)
+/*
+/turf/open/misc/dirt/vamp/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
 		var/obj/structure/bury_pit/P = locate() in src
 		if(P)
@@ -696,48 +589,43 @@
 				if(!locate(/obj/structure/bury_pit) in src)
 					user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
 					new /obj/structure/bury_pit(src)
+*/
 
-/turf/open/floor/plating/vampdirt/Initialize(mapload)
+/turf/open/misc/dirt/vamp/Initialize(mapload)
 	. = ..()
 	set_light(1, 0.5, "#a4b7ff")
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
 				heavyfootstep = FOOTSTEP_SNOW
 
-/turf/open/floor/plating/vampdirt/rails
+/turf/open/misc/dirt/vamp/rails
 	name = "rails"
 	icon_state = "dirt_rails"
 
-/turf/open/floor/plating/vampdirt/rails/Initialize(mapload)
+/turf/open/misc/dirt/vamp/rails/Initialize(mapload)
 	. = ..()
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow_rails"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
 				heavyfootstep = FOOTSTEP_SNOW
 
 /turf/open/floor/plating/vampplating
-	gender = PLURAL
 	name = "plating"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "plating"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 
 /turf/open/floor/plating/vampplating/mono
 	icon_state = "plating-mono"
@@ -746,17 +634,11 @@
 	icon_state = "plating-stone"
 
 /turf/open/floor/plating/rough
-	gender = PLURAL
 	name = "rough floor"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "rough"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 
 /turf/open/floor/plating/rough/cave
 	icon_state = "cave1"
@@ -766,17 +648,11 @@
 	icon_state = "cave[rand(1, 7)]"
 
 /turf/open/floor/plating/stone
-	gender = PLURAL
 	name = "rough floor"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "stone"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 
 /turf/open/floor/plating/stone
 	icon_state = "stone1"
@@ -786,68 +662,44 @@
 	icon_state = "cave[rand(1, 7)]"
 
 /turf/open/floor/plating/toilet
-	gender = PLURAL
 	name = "plating"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "toilet1"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/toilet/Initialize(mapload)
 	. = ..()
 	icon_state = "toilet[rand(1, 9)]"
 
 /turf/open/floor/plating/circled
-	gender = PLURAL
 	name = "fancy plating"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "circle1"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/circled/Initialize(mapload)
 	. = ..()
 	icon_state = "circle[rand(1, 8)]"
 
 /turf/open/floor/plating/church
-	gender = PLURAL
 	name = "fancy plating"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "church1"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/church/Initialize(mapload)
 	. = ..()
 	icon_state = "church[rand(1, 4)]"
 
 /turf/open/floor/plating/saint
-	gender = PLURAL
 	name = "fancy plating"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "saint1"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/saint/Initialize(mapload)
 	. = ..()
@@ -950,17 +802,11 @@
 	icon_state = "wallpaper-gold_low"
 
 /turf/open/floor/plating/vampwood
-	gender = PLURAL
 	name = "wood"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "bwood"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/vampwood/Initialize(mapload)
 	. = ..()
@@ -969,26 +815,21 @@
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
 			if(V.upper)
-				initial_gas_mix = WINTER_DEFAULT_ATMOS
+				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
 				barefootstep = FOOTSTEP_SNOW
 				heavyfootstep = FOOTSTEP_SNOW
 
-/turf/open/floor/plating/vampbeach
-	gender = PLURAL
+/turf/open/misc/beach/vamp
 	name = "sand"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "sand1"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
-/turf/open/floor/plating/vampbeach/attackby(obj/item/I, mob/living/user, params)
+/*
+/turf/open/misc/beach/vamp/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
 		var/obj/structure/bury_pit/P = locate() in src
 		if(P)
@@ -1025,8 +866,9 @@
 				if(!locate(/obj/structure/bury_pit) in src)
 					user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
 					new /obj/structure/bury_pit(src)
+*/
 
-/turf/open/floor/plating/vampbeach/Initialize(mapload)
+/turf/open/misc/beach/vamp/Initialize(mapload)
 	. = ..()
 	icon_state = "sand[rand(1, 4)]"
 	set_light(1, 0.5, "#a4b7ff")
@@ -1036,47 +878,41 @@
 			if(V.upper)
 				icon_state = "snow[rand(1, 14)]"
 
-/turf/open/floor/plating/vampocean
-	gender = PLURAL
+/turf/open/water/beach/vamp
 	name = "water"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "ocean"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_WATER
-	barefootstep = FOOTSTEP_WATER
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	density = TRUE
+	baseturfs = /turf/open/water/beach/vamp
 
-/turf/open/floor/plating/vampocean/Initialize(mapload)
+/turf/open/water/beach/vamp/deep
+	name = "deep water"
+	desc = "Don't forget your life jacket."
+	immerse_overlay = "immerse_deep"
+	baseturfs = /turf/open/water/beach/vamp/deep
+	immerse_overlay_color = "#57707c"
+	is_swimming_tile = TRUE
+
+/turf/open/water/beach/vamp/Initialize(mapload)
 	. = ..()
 	set_light(1, 0.5, "#a4b7ff")
 
-/turf/open/floor/plating/vampacid
-	gender = PLURAL
+//Make a pr to TG eventually adding acid from shiptest mabye.
+/turf/open/water/acid/vamp
 	name = "goop"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "acid"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_WATER
-	barefootstep = FOOTSTEP_WATER
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	density = FALSE
+	baseturfs = /turf/open/water/acid/vamp
+	immerse_overlay_color = "#1b7c4c"
 
-/turf/open/floor/plating/vampacid/Initialize(mapload)
+/turf/open/water/acid/vamp/Initialize(mapload)
 	. = ..()
 	set_light(1, 0.5, "#1b7c4c")
 
-/turf/open/floor/plating/vampacid/Entered(atom/movable/AM)
+/turf/open/water/acid/vamp/Entered(atom/movable/AM)
 	if(acid_burn(AM))
 		START_PROCESSING(SSobj, src)
 
-/turf/open/floor/plating/vampacid/proc/acid_burn(mob/living/L)
+/turf/open/water/acid/vamp/proc/acid_burn(mob/living/L)
 	if(isliving(L))
 		if(L.movement_type & FLYING)
 			return
@@ -1108,70 +944,55 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "support"
 
-/turf/open/floor/plating/shit
-	gender = PLURAL
+/turf/open/water/vamp_sewer
 	name = "sewage"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "shit"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_WATER
-	barefootstep = FOOTSTEP_WATER
-	clawfootstep = FOOTSTEP_WATER
-	heavyfootstep = FOOTSTEP_WATER
 
 /*
-/turf/open/floor/plating/shit/Initialize(mapload)
+/turf/open/water/vamp_sewer/Initialize(mapload)
 	. = ..()
 	if(prob(50))
 		new /obj/effect/realistic_fog(src)
 */
 
-/turf/open/floor/plating/shit/border
+/turf/open/water/vamp_sewer/border
 	icon_state = "shit_border"
 
 /turf/open/floor/plating/vampcanal
-	gender = PLURAL
 	name = "plating"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "canal1"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_FLOOR
-	barefootstep = FOOTSTEP_HARD_BAREFOOT
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
+// TODO: [Rebase] - Port https://github.com/ApocryphaXIII/ApocryphaXIII/pull/52
+/*
 /turf/open/floor/plating/vampcanal/Enter(atom/movable/mover, atom/oldloc)
 	. = ..()
 	if(istype(mover, /mob/living/carbon/human))
 		if(prob(10))
 			new /mob/living/simple_animal/pet/rat(oldloc)
+*/
 
 /turf/open/floor/plating/vampcanal/Initialize(mapload)
 	. = ..()
 	icon_state = "canal[rand(1, 3)]"
 
 /turf/open/floor/plating/vampcanalplating
-	gender = PLURAL
 	name = "plating"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "canal_plating1"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
+// TODO: [Rebase] - Port https://github.com/ApocryphaXIII/ApocryphaXIII/pull/52
+/*
 /turf/open/floor/plating/vampcanalplating/Enter(atom/movable/mover, atom/oldloc)
 	. = ..()
 	if(istype(mover, /mob/living/carbon/human))
 		if(prob(10))
 			new /mob/living/simple_animal/pet/rat(oldloc)
+*/
 
 /turf/open/floor/plating/vampcanal/Initialize(mapload)
 	. = ..()
@@ -1184,27 +1005,69 @@
 	icon_state = "black"
 
 /turf/open/floor/plating/bacotell
-	gender = PLURAL
 	name = "plating"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "bacotell"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
 
 /turf/open/floor/plating/gummaguts
-	gender = PLURAL
 	name = "plating"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "gummaguts"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_TROTUAR
-	barefootstep = FOOTSTEP_TROTUAR
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	footstep = FOOTSTEP_SIDEWALK
+	barefootstep = FOOTSTEP_SIDEWALK
+
+//Code mostly taken from /obj/crystal_mass
+/turf/open/water/bloodwave
+	gender = PLURAL
+	name = "blood"
+	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
+	icon_state = "blood"
+	baseturfs = /turf/open/water/bloodwave
+	immerse_overlay_color = COLOR_MAROON
+	immerse_overlay = "immerse_deep"
+	is_swimming_tile = TRUE
+	///All dirs we can expand to
+	var/list/available_dirs = list(NORTH,SOUTH,EAST,WEST,DOWN)
+	///Cooldown on the expansion process
+	COOLDOWN_DECLARE(wave_cooldown)
+
+/turf/open/water/bloodwave/Initialize(mapload, dir_to_remove)
+	. = ..()
+	set_light(1, 0.5, COLOR_MAROON)
+	if(mapload)
+		return
+	START_PROCESSING(SSsupermatter_cascade, src)
+	available_dirs -= dir_to_remove
+
+/turf/open/water/bloodwave/proc/start_flood()
+	SSsupermatter_cascade.can_fire = TRUE
+	SSsupermatter_cascade.cascade_initiated = TRUE
+
+/turf/open/water/bloodwave/process()
+
+	if(!COOLDOWN_FINISHED(src, wave_cooldown))
+		return
+
+	if(!available_dirs || available_dirs.len <= 0)
+		return PROCESS_KILL
+
+	COOLDOWN_START(src, wave_cooldown, rand(0, 2 SECONDS))
+
+	var/picked_dir = pick_n_take(available_dirs)
+	var/turf/next_turf = get_step_multiz(src, picked_dir)
+
+	if(!next_turf || locate(/turf/open/water/bloodwave) in next_turf)
+		return
+
+	for(var/atom/movable/checked_atom as anything in next_turf)
+		if(isliving(checked_atom))
+			var/mob/living/checked_mob = checked_atom
+			checked_mob.death()
+		//else if(isitem(checked_atom))
+		//	qdel(checked_atom)
+
+	new /turf/open/water/bloodwave(next_turf, get_dir(next_turf, src))
+
+#undef LOW_WALL_HELPER

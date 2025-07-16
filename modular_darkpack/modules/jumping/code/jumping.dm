@@ -58,7 +58,7 @@
 		var/dy = target.y - loc.y
 		var/scale = adjusted_jump_range / distance
 		adjusted_target = locate(loc.x + round(dx * scale), loc.y + round(dy * scale), loc.z)
-	playsound(loc, 'code/modules/wod13/sounds/jump_neutral.ogg', 50, TRUE)
+	playsound(loc, 'modular_darkpack/modules/deprecated/sounds/jump_neutral.ogg', 50, TRUE)
 
 	var/atom/movable/thrown_thing = src
 

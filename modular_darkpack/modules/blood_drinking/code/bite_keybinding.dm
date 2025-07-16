@@ -28,19 +28,19 @@
 				var/mob/living/carbon/human/PB = BD.pulling
 				if(isghoul(user.mob))
 					if(!iskindred(PB))
-						SEND_SOUND(BD, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
+						SEND_SOUND(BD, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 						to_chat(BD, "<span class='warning'>Eww, that is <b>GROSS</b>.</span>")
 						return
 				if(!isghoul(user.mob) && !iskindred(user.mob) && !iscathayan(user.mob))
-					SEND_SOUND(BD, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
+					SEND_SOUND(BD, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 					to_chat(BD, "<span class='warning'>Eww, that is <b>GROSS</b>.</span>")
 					return
 				if(PB.stat == DEAD && !HAS_TRAIT(BD, TRAIT_GULLET) && !iscathayan(user.mob))
-					SEND_SOUND(BD, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
+					SEND_SOUND(BD, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 					to_chat(BD, "<span class='warning'>This creature is <b>DEAD</b>.</span>")
 					return
 				if(PB.bloodpool <= 0 && (!iskindred(BD.pulling) || !iskindred(BD)))
-					SEND_SOUND(BD, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
+					SEND_SOUND(BD, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 					to_chat(BD, "<span class='warning'>There is no <b>BLOOD</b> in this creature.</span>")
 					return
 				var/special_clan = FALSE
@@ -58,28 +58,28 @@
 				PB.add_bite_animation()
 			if(isliving(BD.pulling))
 				if(!iskindred(BD) && !iscathayan(BD))
-					SEND_SOUND(BD, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
+					SEND_SOUND(BD, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 					to_chat(BD, "<span class='warning'>Eww, that is <b>GROSS</b>.</span>")
 					return
 				var/mob/living/LV = BD.pulling
 				if(LV.bloodpool <= 0 && (!iskindred(BD.pulling) || !iskindred(BD)))
-					SEND_SOUND(BD, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
+					SEND_SOUND(BD, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 					to_chat(BD, "<span class='warning'>There is no <b>BLOOD</b> in this creature.</span>")
 					return
 				if(LV.stat == DEAD && !HAS_TRAIT(BD, TRAIT_GULLET) && !iscathayan(user.mob))
-					SEND_SOUND(BD, sound('code/modules/wod13/sounds/need_blood.ogg', 0, 0, 75))
+					SEND_SOUND(BD, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 					to_chat(BD, "<span class='warning'>This creature is <b>DEAD</b>.</span>")
 					return
 				var/skipface = (BD.wear_mask && (BD.wear_mask.flags_inv & HIDEFACE)) || (BD.head && (BD.head.flags_inv & HIDEFACE))
 				if(!skipface)
 					if(!HAS_TRAIT(BD, TRAIT_BLOODY_LOVER))
-						playsound(BD, 'code/modules/wod13/sounds/drinkblood1.ogg', 50, TRUE)
+						playsound(BD, 'modular_darkpack/modules/deprecated/sounds/drinkblood1.ogg', 50, TRUE)
 						LV.visible_message("<span class='warning'><b>[BD] bites [LV]'s neck!</b></span>", "<span class='warning'><b>[BD] bites your neck!</b></span>")
 					if(!HAS_TRAIT(BD, TRAIT_BLOODY_LOVER))
 						if(BD.CheckEyewitness(LV, BD, 7, FALSE))
 							BD.AdjustMasquerade(-1)
 					else
-						playsound(BD, 'code/modules/wod13/sounds/kiss.ogg', 50, TRUE)
+						playsound(BD, 'modular_darkpack/modules/deprecated/sounds/kiss.ogg', 50, TRUE)
 						LV.visible_message("<span class='italics'><b>[BD] kisses [LV]!</b></span>", "<span class='userlove'><b>[BD] kisses you!</b></span>")
 					if(iskindred(LV))
 						var/mob/living/carbon/human/HV = BD.pulling

@@ -3,9 +3,6 @@
 	name = "nothing"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "black"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
 	footstep = FOOTSTEP_SNOW
 	barefootstep = FOOTSTEP_SNOW
 	heavyfootstep = FOOTSTEP_SNOW

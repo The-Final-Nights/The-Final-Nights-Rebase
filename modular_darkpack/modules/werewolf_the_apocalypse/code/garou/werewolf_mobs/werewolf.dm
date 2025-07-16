@@ -41,7 +41,7 @@
 	var/attack_verb_simple = "attack"
 	var/friendly_verb_continuous = "nuzzles"
 	var/friendly_verb_simple = "nuzzle"
-	var/attack_sound = 'code/modules/wod13/sounds/werewolf_bite.ogg'
+	var/attack_sound = 'modular_darkpack/modules/deprecated/sounds/werewolf_bite.ogg'
 
 	var/sprite_color = "black"
 	var/sprite_scar = 0
@@ -68,11 +68,11 @@
 		step_variable = step_variable+1
 		if(step_variable == 2)
 			step_variable = 0
-			playsound(get_turf(src), 'code/modules/wod13/sounds/werewolf_step.ogg', 50, FALSE)
+			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/werewolf_step.ogg', 50, FALSE)
 	. = ..()
 
 /mob/living/carbon/proc/epic_fall(var/apply_stun_self = TRUE, var/apply_stun_others = TRUE)
-	playsound(get_turf(src), 'code/modules/wod13/sounds/werewolf_fall.ogg', 100, FALSE)
+	playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/werewolf_fall.ogg', 100, FALSE)
 	new /obj/effect/temp_visual/dir_setting/crack_effect(get_turf(src))
 	new /obj/effect/temp_visual/dir_setting/fall_effect(get_turf(src))
 	for(var/mob/living/carbon/C in range(5, src))
