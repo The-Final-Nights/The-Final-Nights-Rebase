@@ -100,7 +100,7 @@
 //				humanity = "I'm slowly falling into madness..."
 //		dat += "[humanity]<BR>"
 		dat += "<p>"
-		dat += "<b>Physique</b>: [host.physique] + [host.additional_physique]<BR>"
+		dat += "<b>Strength</b>: [host.strength] + [host.additional_strength]<BR>"
 		dat += "<b>Dexterity</b>: [host.dexterity] + [host.additional_dexterity]<BR>"
 		dat += "<b>Social</b>: [host.social] + [host.additional_social]<BR>"
 		dat += "<b>Mentality</b>: [host.mentality] + [host.additional_mentality]<BR>"
