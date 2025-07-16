@@ -1114,7 +1114,7 @@
 /obj/effect/particle_effect/smoke/bad/yomi/smoke_mob(mob/living/carbon/inhaling_mob)
 	. = ..()
 	if(.)
-		inhaling_mob.adjustCloneLoss(10, TRUE)
+		inhaling_mob.adjustAggLoss(10, TRUE)
 		inhaling_mob.emote(pick("scream", "groan", "cry"))
 		return TRUE
 
@@ -2102,7 +2102,7 @@
 		qdel(target)
 	if(isliving(target))
 		var/mob/living/target_mob = target
-		target_mob.adjustCloneLoss(20)
+		target_mob.adjustAggLoss(20)
 		target_mob.AdjustKnockdown(2 SECONDS)
 	return ..()
 

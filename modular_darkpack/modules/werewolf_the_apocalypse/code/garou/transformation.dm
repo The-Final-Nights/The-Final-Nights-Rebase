@@ -19,7 +19,7 @@
 	second.adjustBruteLoss(round((first.getBruteLoss()/100)*percentage)-second.getBruteLoss())
 	second.adjustFireLoss(round((first.getFireLoss()/100)*percentage)-second.getFireLoss())
 	second.adjustToxLoss(round((first.getToxLoss()/100)*percentage)-second.getToxLoss())
-	second.adjustCloneLoss(round((first.getCloneLoss()/100)*percentage)-second.getCloneLoss())
+	second.adjustAggLoss(round((first.getAggLoss()/100)*percentage)-second.getAggLoss())
 
 /obj/werewolf_holder/transformation/proc/trans_gender(mob/living/carbon/trans, form)
 	if(!given_quirks)

@@ -1,7 +1,7 @@
 /mob/living/carbon/human/Life()
 	if(!iskindred(src) && !iscathayan(src))
 		if(prob(5))
-			adjustCloneLoss(-5, TRUE)
+			adjustAggLoss(-5, TRUE)
 	update_blood_hud()
 	update_zone_hud()
 	update_rage_hud()

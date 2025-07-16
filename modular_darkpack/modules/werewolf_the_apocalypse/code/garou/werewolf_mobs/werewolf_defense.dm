@@ -41,7 +41,7 @@
 			if(OXY)
 				adjustOxyLoss(damage)
 			if(AGGRAVATED)
-				adjustCloneLoss(damage)
+				adjustAggLoss(damage)
 			if(STAMINA)
 				adjustStaminaLoss(damage)
 

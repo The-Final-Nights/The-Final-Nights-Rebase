@@ -257,7 +257,7 @@
 			for(var/i in 1 to min(5, length(H.all_wounds)))
 				var/datum/wound/W = pick(H.all_wounds)
 				W.remove_wound()
-		H.adjustCloneLoss(-5, TRUE)
+		H.adjustAggLoss(-5, TRUE)
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 		if(eyes)
 			H.adjust_blindness(-2)

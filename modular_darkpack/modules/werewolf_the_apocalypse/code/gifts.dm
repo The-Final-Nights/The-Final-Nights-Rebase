@@ -361,7 +361,7 @@
 			SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/rage_heal.ogg', 0, 0, 75))
 			C.adjustBruteLoss(-40*C.auspice.level, TRUE)
 			C.adjustFireLoss(-30*C.auspice.level, TRUE)
-			C.adjustCloneLoss(-10*C.auspice.level, TRUE)
+			C.adjustAggLoss(-10*C.auspice.level, TRUE)
 			C.adjustToxLoss(-10*C.auspice.level, TRUE)
 			C.adjustOxyLoss(-20*C.auspice.level, TRUE)
 			C.bloodpool = min(C.bloodpool + C.auspice.level, C.maxbloodpool)

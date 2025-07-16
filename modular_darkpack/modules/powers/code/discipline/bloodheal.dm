@@ -88,7 +88,7 @@
 	vitae_cost = initial(vitae_cost)
 	//tally up damage
 	var/total_bashing_lethal_damage = owner.getBruteLoss() + owner.getToxLoss() + owner.getOxyLoss()
-	var/total_aggravated_damage = owner.getCloneLoss() + owner.getFireLoss()
+	var/total_aggravated_damage = owner.getAggLoss() + owner.getFireLoss()
 
 	//lower blood expenditure to what's necessary
 	var/vitae_to_heal_bashing_lethal = ceil(total_bashing_lethal_damage / HEAL_BASHING_LETHAL)
