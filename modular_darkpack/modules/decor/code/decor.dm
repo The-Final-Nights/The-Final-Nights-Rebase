@@ -328,14 +328,10 @@
 			if(V.upper)
 				icon_state = "[initial(icon_state)]-snow"
 
-/* Dwarfs arent real
-/obj/structure/hydrant/MouseDrop_T(atom/dropping, mob/user, params)
-	. = ..()
-
+/obj/structure/hydrant/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(HAS_TRAIT(user, TRAIT_DWARF)) //Only lean on the fire hydrant if we are smol
 		//Adds the component only once. We do it here & not in Initialize(mapload) because there are tons of windows & we don't want to add to their init times
-		LoadComponent(/datum/component/leanable, dropping)
-*/
+		LoadComponent(/datum/component/leanable, dropped)
 
 /obj/structure/vampcar
 	name = "car"
@@ -840,31 +836,6 @@
 	anchored = TRUE
 	density = TRUE
 	pixel_z = 0
-
-/turf/open/floor/plating/bloodshit
-	gender = PLURAL
-	name = "blood"
-	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
-	icon_state = "blood"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_WATER
-	barefootstep = FOOTSTEP_WATER
-	clawfootstep = FOOTSTEP_WATER
-	heavyfootstep = FOOTSTEP_WATER
-
-/turf/open/floor/plating/bloodshit/Initialize(mapload)
-	. = ..()
-	for(var/mob/living/L in src)
-		if(L)
-			L.death()
-	spawn(5)
-		for(var/turf/T in range(1, src))
-			if(T && !istype(T, /turf/open/floor/plating/bloodshit))
-				new /turf/open/floor/plating/bloodshit(T)
-
-
 
 /obj/effect/decal/graffiti
 	name = "graffiti"
