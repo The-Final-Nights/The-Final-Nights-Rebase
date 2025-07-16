@@ -1036,10 +1036,15 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/water/bloodwave/Initialize(mapload, dir_to_remove)
 	. = ..()
+	set_light(1, 0.5, COLOR_MAROON)
 	if(mapload)
 		return
-	START_PROCESSING(SSprocessing, src)
+	START_PROCESSING(SSsupermatter_cascade, src)
 	available_dirs -= dir_to_remove
+
+/turf/open/water/bloodwave/proc/start_flood()
+	SSsupermatter_cascade.can_fire = TRUE
+	SSsupermatter_cascade.cascade_initiated = TRUE
 
 /turf/open/water/bloodwave/process()
 
@@ -1049,7 +1054,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(!available_dirs || available_dirs.len <= 0)
 		return PROCESS_KILL
 
-	COOLDOWN_START(src, wave_cooldown, rand(0, 3 SECONDS))
+	COOLDOWN_START(src, wave_cooldown, rand(0, 2 SECONDS))
 
 	var/picked_dir = pick_n_take(available_dirs)
 	var/turf/next_turf = get_step_multiz(src, picked_dir)
