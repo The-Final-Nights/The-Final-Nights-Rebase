@@ -299,7 +299,7 @@
 		. += span_warning("This limb has [burn_dam > 30 ? "severe" : "minor"] burns.")
 	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
 	if(aggravated_dam > DAMAGE_PRECISION)
-		. += span_warning("This limb has [aggravated_dam > 30 ? "severe" : "minor"] cellular damage.")
+		. += span_warning("This limb has [aggravated_dam > 30 ? "severe" : "minor"] festering wounds.")
 	// DARKPACK EDIT ADDITION END
 
 	for(var/datum/wound/wound as anything in wounds)
