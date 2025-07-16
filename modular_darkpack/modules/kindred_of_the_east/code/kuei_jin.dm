@@ -207,15 +207,6 @@
 		dat += "<b>Hun/P'o</b>[host.mind.dharma?.Hun]/[host.max_demon_chi]<BR>"
 		dat += "</p>"
 
-		dat += "<p>"
-		dat += "<b>Strength</b>: [host.strength] + [host.additional_strength]<BR>"
-		dat += "<b>Dexterity</b>: [host.dexterity] + [host.additional_dexterity]<BR>"
-		dat += "<b>Social</b>: [host.social] + [host.additional_social]<BR>"
-		dat += "<b>Mentality</b>: [host.mentality] + [host.additional_mentality]<BR>"
-		dat += "<b>Cruelty</b>: [host.blood] + [host.additional_blood]<BR>"
-		dat += "<b>Lockpicking</b>: [host.lockpicking] + [host.additional_lockpicking]<BR>"
-		dat += "<b>Athletics</b>: [host.athletics] + [host.additional_athletics]<BR>"
-		dat += "</p>"
 //		if(host.hud_used)
 //			dat += "<b>Known disciplines:</b><BR>"
 //			for(var/datum/action/discipline/D in host.actions)

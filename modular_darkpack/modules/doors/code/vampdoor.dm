@@ -54,7 +54,7 @@
 	if(!H.is_holding_item_of_type(/obj/item/vamp/keys/hack))
 		return
 	var/message //So the code isn't flooded with . +=, it's just a visual thing
-	var/difference = (H.lockpicking * 2 + H.dexterity) - lockpick_difficulty //Lower number = higher difficulty
+	var/difference = (H.trait_holder.get_stat(ST_TRAIT_LOCKPICKING) * 2 + H.dexterity) - lockpick_difficulty //Lower number = higher difficulty
 	switch(difference) //Because rand(1,20) always adds a minimum of 1 we take that into consideration for our theoretical roll ranges, which really makes it a random range of 19.
 		if(-INFINITY to -11) //Roll can never go above 10 (-11 + 20 = 9), impossible to lockpick.
 			message = "<span class='warning'>You don't have any chance of lockpicking this with your current skills!</span>"

@@ -63,13 +63,6 @@
 				if(A.objectives)
 					dat += "<p>[printobjectives(A.objectives)]</p>"
 
-		dat += "<p>"
-		dat += "<b>Strength</b>: [host.strength]<BR>"
-		dat += "<b>Dexterity</b>: [host.dexterity]<BR>"
-		dat += "<b>Social</b>: [host.social]<BR>"
-		dat += "<b>Mentality</b>: [host.mentality]<BR>"
-		dat += "<b>Cruelty</b>: [host.blood]<BR>"
-		dat += "</p>"
 		if(host.Myself)
 			if(host.Myself.Friend)
 				if(host.Myself.Friend.owner)
