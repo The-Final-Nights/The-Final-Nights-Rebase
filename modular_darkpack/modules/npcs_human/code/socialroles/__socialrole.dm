@@ -240,14 +240,13 @@
 
 	fully_replace_character_name(name, real_name)
 
-	strength = rand(1, max_stat)
-	social = rand(1, max_stat)
-	mentality = rand(1, max_stat)
-	lockpicking = rand(1, max_stat)
-	blood = rand(1, 2)
 
-	maxHealth = round(initial(maxHealth)+(initial(maxHealth)/3)*(strength))
-	health = round(initial(health)+(initial(health)/3)*(strength))
+	trait_holder = new()
+	trait_holder.randomize_attributes(1, max_stat)
+	trait_holder.randomize_abilities(1, max_stat)
+
+	maxHealth = round(initial(maxHealth)+(initial(maxHealth)/3)*(trait_holder.get_stat(ST_TRAIT_STRENGTH)))
+	health = round(initial(health)+(initial(health)/3)*(trait_holder.get_stat(ST_TRAIT_STRENGTH)))
 	last_health = health
 
 	is_criminal = socialrole.is_criminal
@@ -270,7 +269,7 @@
 		gender = pick(MALE, FEMALE)
 		if(socialrole.preferred_gender)
 			gender = socialrole.preferred_gender
-		strength = gender
+		physique = gender
 		var/list/m_names = list()
 		var/list/f_names = list()
 		var/list/s_names = list()

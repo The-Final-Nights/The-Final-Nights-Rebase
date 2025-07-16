@@ -50,8 +50,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/command/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
 
 	if (HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		return TRUE
@@ -87,8 +87,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/mesmerize/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
 
 	if (HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		return TRUE
@@ -126,8 +126,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/the_forgetful_mind/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
 
 	if (HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		return TRUE
@@ -164,8 +164,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/conditioning/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
 
 	if (HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		return TRUE
@@ -201,8 +201,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/possession/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
 
 	if (HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		return TRUE

@@ -116,7 +116,7 @@
 		return
 
 
-	if(!do_mob(user, bouncer, max(5 SECONDS, social_bypass_time - (user.get_total_social() * 2 SECONDS))))
+	if(!do_mob(user, bouncer, max(5 SECONDS, social_bypass_time - (user.trait_holder.get_stat(ST_TRAIT_CHARISMA) * 2 SECONDS))))
 		return
 
 
@@ -125,7 +125,7 @@
 	if(used_badge)
 		involved_social_roll -= 1
 
-	if(user.storyteller_roll(user.get_total_social(), involved_social_roll) == ROLL_SUCCESS)
+	if(user.storyteller_roll(user.trait_holder.get_stat(ST_TRAIT_CHARISMA), involved_social_roll) == ROLL_SUCCESS)
 		to_chat(user, "<span class='notice'>You manage to persuade your way past the guards.</span>")
 		linked_perm.allow_list += user.get_face_name()
 		return

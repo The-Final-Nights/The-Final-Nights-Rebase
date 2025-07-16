@@ -1123,8 +1123,8 @@
 
 /datum/chi_discipline/hellweaving/activate(mob/living/target, mob/living/carbon/human/caster)
 	. = ..()
-	var/mypower = caster.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = caster.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
 	if(theirpower >= mypower)
 		to_chat(caster, "<span class='warning'>[target]'s mind is too powerful to cause flashbacks for!</span>")
 		return
@@ -1220,8 +1220,8 @@
 			sound_gender = 'modular_darkpack/modules/deprecated/sounds/kiai_female.ogg'
 	caster.emote("scream")
 	playsound(caster.loc, sound_gender, 100, FALSE)
-	var/mypower = caster.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = caster.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
 	if(theirpower >= mypower)
 		to_chat(caster, "<span class='warning'>[target]'s mind is too powerful to affect!</span>")
 		return

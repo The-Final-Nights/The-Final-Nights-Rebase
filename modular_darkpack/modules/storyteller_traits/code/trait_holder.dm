@@ -41,3 +41,11 @@
 	if(LAZYACCESS(A.modifiers, source))
 		A.modifiers -= source
 		A.update_modifiers()
+
+/datum/storyteller_traits/proc/randomize_attributes(min_score, max_score)
+	for(var/datum/st_trait/attribute/A in st_traits)
+		A.setter(rand(min_score, max_score))
+
+/datum/storyteller_traits/proc/randomize_abilities(min_score, max_score)
+	for(var/datum/st_trait/ability/A in st_traits)
+		A.setter(rand(min_score, max_score))
