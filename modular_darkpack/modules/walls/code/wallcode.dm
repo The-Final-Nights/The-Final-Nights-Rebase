@@ -1019,30 +1019,51 @@ LOW_WALL_HELPER(vampwall/wood)
 	footstep = FOOTSTEP_SIDEWALK
 	barefootstep = FOOTSTEP_SIDEWALK
 
-//Refactor into a water subtype.
-/turf/open/floor/plating/bloodshit
+//Code mostly taken from /obj/crystal_mass
+/turf/open/water/bloodwave
 	gender = PLURAL
 	name = "blood"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "blood"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_WATER
-	barefootstep = FOOTSTEP_WATER
-	clawfootstep = FOOTSTEP_WATER
-	heavyfootstep = FOOTSTEP_WATER
+	baseturfs = /turf/open/water/bloodwave
+	immerse_overlay_color = COLOR_MAROON
+	immerse_overlay = "immerse_deep"
+	is_swimming_tile = TRUE
+	///All dirs we can expand to
+	var/list/available_dirs = list(NORTH,SOUTH,EAST,WEST,DOWN)
+	///Cooldown on the expansion process
+	COOLDOWN_DECLARE(wave_cooldown)
 
-/* Rework this. Idk why its like this.
-/turf/open/floor/plating/bloodshit/Initialize(mapload)
+/turf/open/water/bloodwave/Initialize(mapload, dir_to_remove)
 	. = ..()
-	for(var/mob/living/L in src)
-		if(L)
-			L.death()
-	spawn(5)
-		for(var/turf/T in range(1, src))
-			if(T && !istype(T, /turf/open/floor/plating/bloodshit))
-				new /turf/open/floor/plating/bloodshit(T)
-*/
+	if(mapload)
+		return
+	START_PROCESSING(SSprocessing, src)
+	available_dirs -= dir_to_remove
+
+/turf/open/water/bloodwave/process()
+
+	if(!COOLDOWN_FINISHED(src, wave_cooldown))
+		return
+
+	if(!available_dirs || available_dirs.len <= 0)
+		return PROCESS_KILL
+
+	COOLDOWN_START(src, wave_cooldown, rand(0, 3 SECONDS))
+
+	var/picked_dir = pick_n_take(available_dirs)
+	var/turf/next_turf = get_step_multiz(src, picked_dir)
+
+	if(!next_turf || locate(/turf/open/water/bloodwave) in next_turf)
+		return
+
+	for(var/atom/movable/checked_atom as anything in next_turf)
+		if(isliving(checked_atom))
+			var/mob/living/checked_mob = checked_atom
+			checked_mob.death()
+		//else if(isitem(checked_atom))
+		//	qdel(checked_atom)
+
+	new /turf/open/water/bloodwave(next_turf, get_dir(next_turf, src))
 
 #undef LOW_WALL_HELPER
