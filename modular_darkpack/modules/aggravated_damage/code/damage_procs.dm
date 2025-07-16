@@ -15,7 +15,7 @@
 	return TRUE
 
 /mob/living/proc/adjustAggLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype = ALL)
-	if(!can_adjust_fire_loss(amount, forced, required_bodytype))
+	if(!can_adjust_agg_loss(amount, forced, required_bodytype))
 		return 0
 	. = aggloss
 	aggloss = clamp((aggloss + (amount * CONFIG_GET(number/damage_multiplier))), 0, maxHealth * 2)
@@ -34,7 +34,7 @@
 		. = heal_overall_damage(aggravated = abs(amount), required_bodytype = required_bodytype, updating_health = updating_health, forced = forced)
 
 /mob/living/simple_animal/adjustAggLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
-	if(!can_adjust_fire_loss(amount, forced, required_bodytype))
+	if(!can_adjust_agg_loss(amount, forced, required_bodytype))
 		return 0
 	if(forced)
 		. = adjustHealth(amount * CONFIG_GET(number/damage_multiplier), updating_health, forced)
@@ -42,7 +42,7 @@
 		. = adjustHealth(amount * damage_coeff[AGGRAVATED] * CONFIG_GET(number/damage_multiplier), updating_health, forced)
 
 /mob/living/basic/adjustAggLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
-	if(!can_adjust_fire_loss(amount, forced, required_bodytype))
+	if(!can_adjust_agg_loss(amount, forced, required_bodytype))
 		return 0
 	if(forced)
 		. = adjust_health(amount * CONFIG_GET(number/damage_multiplier), updating_health, forced)
