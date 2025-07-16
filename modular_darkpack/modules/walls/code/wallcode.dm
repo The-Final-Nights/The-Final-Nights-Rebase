@@ -15,6 +15,11 @@
 	}
 
 
+/obj/structure/window/fulltile
+	icon = 'modular_darkpack/modules/deprecated/icons/obj/smooth_structures/window.dmi'
+
+/obj/structure/window/reinforced/fulltile
+	icon = 'modular_darkpack/modules/deprecated/icons/obj/smooth_structures/reinforced_window.dmi'
 
 //Smooth Operator soset biby
 
