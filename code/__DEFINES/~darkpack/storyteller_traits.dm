@@ -11,10 +11,8 @@
 #define ST_TRAIT_INTELLIGENCE /datum/st_trait/attribute/intelligence
 #define ST_TRAIT_WITS /datum/st_trait/attribute/wits
 
-#define ST_TRAIT_CRUEL /datum/st_trait/attribute/cruelty
-
 // Talents
-#define ST_TRAIT_ATHLETICS /datum/st_trat/abiltiy/athletics
+#define ST_TRAIT_ATHLETICS /datum/st_trait/ability/athletics
 // Skills
 #define ST_TRAIT_FIREARMS /datum/st_trait/ability/firearms
 #define ST_TRAIT_LOCKPICKING /datum/st_trait/ability/lockpicking
