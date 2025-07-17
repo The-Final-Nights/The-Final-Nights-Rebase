@@ -240,8 +240,6 @@
 
 	fully_replace_character_name(name, real_name)
 
-
-	trait_holder = new()
 	trait_holder.randomize_attributes(1, max_stat)
 	trait_holder.randomize_abilities(1, max_stat)
 

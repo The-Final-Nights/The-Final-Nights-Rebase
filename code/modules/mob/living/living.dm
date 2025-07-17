@@ -16,6 +16,7 @@
 	update_fov()
 	gravity_setup()
 	ADD_TRAIT(src, TRAIT_UNIQUE_IMMERSE, INNATE_TRAIT)
+	trait_holder = new() // DARKPACK EDIT ADDITION - STORYTELLER_TRAITS
 
 /mob/living/prepare_huds()
 	..()
