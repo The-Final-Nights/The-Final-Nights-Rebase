@@ -1,3 +1,7 @@
+SUBSYSTEM_DEF(roll)
+	name = "Dice Rolling"
+	flags = SS_NO_INIT | SS_NO_FIRE
+
 /**
  * Rolls a number of dice according to Storyteller system rules to find
  * success or number of successes.
@@ -12,81 +16,64 @@
  * Arguments:
  * * dice - number of 10-sided dice to roll.
  * * difficulty - the number that a dice must come up as to count as a success.
- * * numerical - whether the proc returns number of successes or outcome (botch, failure, success)
+ * * mobs_to_show_output - mobs shown the result
+ * * alert_atom - the atom over which balloon alerts should appear
  */
-/proc/storyteller_roll(dice = 1, difficulty = 6, numerical = FALSE)
-	var/successes = 0
-	var/had_one = FALSE
-	var/had_success = FALSE
 
-	if (dice < 1)
-		if (numerical)
-			return 0
+/datum/controller/subsystem/roll/proc/storyteller_roll(dice = 2, difficulty = 2, list/mobs_to_show_output = list(), atom/alert_atom = null)
+
+	if(!islist(mobs_to_show_output) && mobs_to_show_output)
+		mobs_to_show_output = list(mobs_to_show_output)
+
+	var/success_count = roll_dice(dice)
+
+	if(alert_atom)
+		var/alert_text
+		if(!success_count || success_count < difficulty)
+			alert_text = "<span style='color: #ff0000;'>[success_count]</span>"
 		else
-			return ROLL_FAILURE
+			alert_text = "<span style='color: #14a833;'>[success_count]</span>"
 
-	for (var/i in 1 to dice)
-		var/roll = rand(1, 10)
+		for(var/mob/show_mob in mobs_to_show_output)
+			alert_atom.balloon_alert(show_mob, alert_text, TRUE)
 
-		if (roll == 1)
-			successes--
-			if (!had_one)
-				had_one = TRUE
-			continue
+	return success_count
 
-		if (roll >= difficulty)
-			successes++
-			if (!had_success)
-				had_success = TRUE
+/datum/controller/subsystem/roll/proc/opposed_roll(mob/player_a, mob/player_b, dice_a = 1, dice_b = 1, show_player_a=TRUE, show_player_b=TRUE, atom/alert_atom = null, draw_goes_to_b=TRUE, numerical=FALSE)
+	var/success_count_a = roll_dice(dice_a)
+	var/success_count_b = roll_dice(dice_b)
 
-	if (numerical)
-		return successes
-	else
-		if (!had_success && had_one)
-			return ROLL_BOTCH
-		else if (successes <= 0)
-			return ROLL_FAILURE
-		else
-			return ROLL_SUCCESS
+	var/player_a_succeeded = FALSE
+	if(success_count_a > success_count_b || (success_count_a == success_count_b && !draw_goes_to_b))
+		player_a_succeeded = TRUE
 
-/proc/vampireroll(dices_num = 1, hardness = 1, atom/rollviewer)
-	var/wins = 0
-	var/crits = 0
-	var/brokes = 0
-	for(var/i in 1 to dices_num)
-		var/roll = rand(1, 10)
-		if(roll == 10)
-			crits += 1
-		if(roll == 1)
-			brokes += 1
-		else if(roll >= hardness)
-			wins += 1
-	if(crits > brokes)
-		if(rollviewer)
-			to_chat(rollviewer, "<b>Critical <span class='nicegreen'>hit</span>!</b>")
-			return DICE_CRIT_WIN
-	if(crits < brokes)
-		if(rollviewer)
-			to_chat(rollviewer, "<b>Critical <span class='danger'>failure</span>!</b>")
-			return DICE_CRIT_FAILURE
-	if(crits == brokes && !wins)
-		if(rollviewer)
-			to_chat(rollviewer, "<span class='danger'>Failed</span>")
-			return DICE_FAILURE
-	if(wins)
-		switch(wins)
-			if(1)
-				to_chat(rollviewer, "<span class='tinynotice'>Maybe</span>")
-				return DICE_WIN
-			if(2)
-				to_chat(rollviewer, "<span class='smallnotice'>Okay</span>")
-				return DICE_WIN
-			if(3)
-				to_chat(rollviewer, "<span class='notice'>Good</span>")
-				return DICE_WIN
-			if(4)
-				to_chat(rollviewer, "<span class='notice'>Lucky</span>")
-				return DICE_WIN
+	if(alert_atom)
+		var/is_zero = ((success_count_a - success_count_b) == 0)
+		if(show_player_a)
+			var/alert_text
+			if(player_a_succeeded)
+				alert_text = "<span style='color: #14a833;'>[is_zero ?"":"+"][success_count_a - success_count_b]</span>"
 			else
-				to_chat(rollviewer, "<span class='boldnotice'>Phenomenal</span>")
-				return DICE_WIN
+				alert_text = "<span style='color: #ff0000;'>[success_count_a - success_count_b]</span>"
+			alert_atom.balloon_alert(player_a, alert_text, TRUE)
+		if(show_player_b)
+			var/alert_text
+			if(!player_a_succeeded)
+				alert_text = "<span style='color: #14a833;'>[is_zero ?"":"+"][success_count_b - success_count_a]</span>"
+			else
+				alert_text = "<span style='color: #ff0000;'>[success_count_b - success_count_a]</span>"
+			alert_atom.balloon_alert(player_b, alert_text, TRUE)
+
+	if(numerical)
+		return success_count_a - success_count_b
+	else
+		return player_a_succeeded
+
+//Flip each coin, see what numbers we get.
+/datum/controller/subsystem/roll/proc/roll_dice(dice)
+	if(dice < 1)
+		dice = 1
+	var/rolled_dice
+	for(var/i in 1 to dice)
+		rolled_dice += rand(0, 1)
+	return rolled_dice
