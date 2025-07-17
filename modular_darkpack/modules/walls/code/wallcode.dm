@@ -916,8 +916,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(isliving(L))
 		if(L.movement_type & FLYING)
 			return
-		// TODO: [Rebase] - aggravated damage
-		//L.apply_damage(10, CLONE)
+		L.apply_damage(10, AGGRAVATED)
 		L.apply_damage(30, TOX)
 		to_chat(L, "<span class='warning'>Your flesh burns!</span>")
 

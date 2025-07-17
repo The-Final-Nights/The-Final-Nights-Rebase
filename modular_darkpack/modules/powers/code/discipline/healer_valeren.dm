@@ -73,7 +73,7 @@
 	. = ..()
 	owner.Beam(target, icon_state="sm_arc", time = 5 SECONDS, maxdistance = 9, beam_type = /obj/effect/ebeam/medical)
 
-	target.heal_ordered_damage(60, list(BRUTE, TOX, BURN, CLONE, OXY, BRAIN))
+	target.heal_ordered_damage(60, list(BRUTE, TOX, BURN, AGGRAVATED, OXY, BRAIN))
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
 		if(length(human_target.all_wounds))

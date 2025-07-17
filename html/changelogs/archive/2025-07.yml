@@ -311,3 +311,11 @@
   - bugfix: turf decals no longer have drop shadows
   - qol: trash on the streets is now cleanable
   - qol: more fluff in the city can be properly damaged
+2025-07-17:
+  FalloutFalcon:
+  - rscadd: You can now swim in the ocean and dip in the sewers!
+  - rscadd: Wall "frills" now turn transparent around you rather then from any mob
+      standing under them
+  - bugfix: Low walls no longer tile with wallening walls
+  - rscadd: new "edge" turf for spots where the matrix is not suited
+  - refactor: the matrix is now turf instead of an obj

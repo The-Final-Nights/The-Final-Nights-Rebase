@@ -131,7 +131,7 @@
 	. = ..()
 	if (isliving(target) && proximity)
 		var/mob/living/burnt_mob = target
-		burnt_mob.apply_damage(30, CLONE)
+		burnt_mob.apply_damage(30, AGGRAVATED)
 
 /obj/item/melee/vampirearms/rapier
 	name = "rapier"
@@ -439,7 +439,7 @@
 		return
 	if(isliving(target))
 		var/mob/living/L = target
-		L.apply_damage(30, CLONE)
+		L.apply_damage(30, AGGRAVATED)
 
 /obj/item/melee/vampirearms/knife/gangrel/lasombra
 	name = "shadow tentacle"
@@ -454,7 +454,7 @@
 		return
 	if(isliving(target))
 		var/mob/living/L = target
-		L.apply_damage(16, CLONE)
+		L.apply_damage(16, AGGRAVATED)
 		L.apply_damage(7, BURN)
 
 /obj/item/melee/touch_attack/werewolf

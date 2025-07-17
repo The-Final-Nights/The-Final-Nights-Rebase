@@ -85,3 +85,7 @@
 	var/max_demon_chi = 0
 	COOLDOWN_DECLARE(chi_restore)
 	var/datum/action/chi_discipline/chi_ranged
+
+	//Damage related vars, NOTE: THESE SHOULD ONLY BE MODIFIED BY PROCS
+	///Aggravated damage caused by supernatural attacks.
+	var/aggloss = 0

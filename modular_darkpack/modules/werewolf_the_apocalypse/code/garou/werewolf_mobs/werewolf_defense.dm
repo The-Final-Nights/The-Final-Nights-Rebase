@@ -40,8 +40,8 @@
 				adjustToxLoss(damage)
 			if(OXY)
 				adjustOxyLoss(damage)
-			if(CLONE)
-				adjustCloneLoss(damage)
+			if(AGGRAVATED)
+				adjustAggLoss(damage)
 			if(STAMINA)
 				adjustStaminaLoss(damage)
 

@@ -16,7 +16,7 @@
 	if(!iscathayan(src))
 		if((yang_chi == 0 && max_yang_chi != 0) && (yang_chi == 0 && max_yang_chi != 0))
 			to_chat(src, "<span clas='warning'>Your vital energies seem to disappear...</span>")
-			adjustCloneLoss(5, TRUE)
+			adjustAggLoss(5, TRUE)
 		else if(yang_chi == 0 && max_yang_chi != 0)
 			if(max_yin_chi != 0)
 				to_chat(src, "<span clas='warning'>You lack dynamic part of life...</span>")
@@ -24,7 +24,7 @@
 				adjustFireLoss(5, TRUE)
 			else
 				to_chat(src, "<span clas='warning'>Your vital energies seem to disappear...</span>")
-				adjustCloneLoss(5, TRUE)
+				adjustAggLoss(5, TRUE)
 		else if(yin_chi == 0 && max_yin_chi != 0)
 			if(max_yang_chi != 0)
 				to_chat(src, "<span clas='warning'>You lack static part of life...</span>")
@@ -32,7 +32,7 @@
 				adjustFireLoss(5, TRUE)
 			else
 				to_chat(src, "<span clas='warning'>Your vital energies seem to disappear...</span>")
-				adjustCloneLoss(5, TRUE)
+				adjustAggLoss(5, TRUE)
 
 	if(!iscathayan(src))
 		if (COOLDOWN_FINISHED(src, chi_restore))
@@ -584,7 +584,7 @@
 
 	var/heal_level = min(kueijin.mind.dharma.level, 4)
 	kueijin.heal_ordered_damage(20 * heal_level, list(OXY, STAMINA, BRUTE, TOX))
-	kueijin.heal_ordered_damage(5 * heal_level, list(BURN, CLONE))
+	kueijin.heal_ordered_damage(5 * heal_level, list(BURN, AGGRAVATED))
 	kueijin.blood_volume = min(kueijin.blood_volume + 56, 560)
 	kueijin.yin_chi = max(0, kueijin.yin_chi - 1)
 
@@ -643,7 +643,7 @@
 
 	var/heal_level = min(kueijin.mind.dharma.level, 4)
 	kueijin.heal_ordered_damage(10 * heal_level, list(OXY, STAMINA, BRUTE, TOX))
-	kueijin.heal_ordered_damage(2.5 * heal_level, list(BURN, CLONE))
+	kueijin.heal_ordered_damage(2.5 * heal_level, list(BURN, AGGRAVATED))
 	kueijin.blood_volume = min(kueijin.blood_volume + 28, 560)
 	kueijin.yang_chi = max(0, kueijin.yang_chi - 1)
 
