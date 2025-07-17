@@ -127,22 +127,22 @@
 		return FALSE
 
 	if(!COOLDOWN_FINISHED(src, activate))
-		to_chat(caster, "<span class='warning'>Wait [DisplayTimeText(COOLDOWN_TIMELEFT(src, activate))] before you can use [src] again!</span>")
+		to_chat(caster, span_warning("Wait [DisplayTimeText(COOLDOWN_TIMELEFT(src, activate))] before you can use [src] again!"))
 		return FALSE
 
 	if(caster.yin_chi < cost_yin)
 		SEND_SOUND(caster, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
-		to_chat(caster, "<span class='warning'>You don't have enough <b>Yin Chi</b> to use [src].</span>")
+		to_chat(caster, span_warning("You don't have enough <b>Yin Chi</b> to use [src]."))
 		return FALSE
 
 	if(caster.yang_chi < cost_yang)
 		SEND_SOUND(caster, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
-		to_chat(caster, "<span class='warning'>You don't have enough <b>Yang Chi</b> to use [src].</span>")
+		to_chat(caster, span_warning("You don't have enough <b>Yang Chi</b> to use [src]."))
 		return FALSE
 
 	if(caster.demon_chi < cost_demon)
 		SEND_SOUND(caster, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
-		to_chat(caster, "<span class='warning'>You don't have enough <b>Demon Chi</b> to use [src].</span>")
+		to_chat(caster, span_warning("You don't have enough <b>Demon Chi</b> to use [src]."))
 		return FALSE
 
 	if(HAS_TRAIT(caster, TRAIT_PACIFISM))
@@ -152,7 +152,7 @@
 		return FALSE
 
 	if(target.resistant_to_disciplines)
-		to_chat(caster, "<span class='danger'>[target] resists your powers!</span>")
+		to_chat(caster, span_danger("[target] resists your powers!"))
 		return FALSE
 
 	return TRUE
@@ -184,7 +184,7 @@
 		if(caster.CheckEyewitness(target, caster, 7, TRUE))
 			caster.adjust_masquerade(-1)
 
-	to_chat(caster, "<span class='notice'>You activate [src][(ranged && target) ? " on [target]" : ""].</span>")
+	to_chat(caster, span_notice("You activate [src][(ranged && target) ? " on [target]" : ""]."))
 	log_attack("[key_name(caster)] casted level [src.level_casting] of the Discipline [src.name][target == caster ? "." : " on [key_name(target)]"]")
 
 /datum/chi_discipline/blood_shintai
@@ -239,7 +239,7 @@
 	. = ..()
 	if(ishuman(O))
 		var/mob/living/carbon/C = O
-		to_chat(C, "<span class='notice'>You slipped[ O ? " on the [O.name]" : ""]!</span>")
+		to_chat(C, span_notice("You slipped[ O ? " on the [O.name]" : ""]!"))
 		playsound(C.loc, 'sound/misc/slip.ogg', 50, TRUE)
 
 		SEND_SIGNAL(C, COMSIG_ON_CARBON_SLIP)
@@ -738,7 +738,7 @@
 		var/atom/movable/movable_target = target
 		if(movable_target.anchored)
 			return
-		movable_target.visible_message("<span class='danger'>[movable_target] is snagged by [firer]'s hand!</span>")
+		movable_target.visible_message(span_danger("[movable_target] is snagged by [firer]'s hand!"))
 		movable_target.forceMove(get_turf(get_step_towards(firer, movable_target)))
 		if (isliving(target))
 			var/mob/living/fresh_meat = target
@@ -768,22 +768,22 @@
 /obj/structure/flesh_grip/user_unbuckle_mob(mob/living/buckled_mob, mob/living/carbon/human/user)
 	if(buckled_mob)
 		if(buckled_mob != user)
-			buckled_mob.visible_message("<span class='notice'>[user] tries to pull [buckled_mob] free of [src]!</span>",\
-				"<span class='notice'>[user] is trying to pull you off [src], opening up fresh wounds!</span>",\
-				"<span class='hear'>You hear a squishy wet noise.</span>")
+			buckled_mob.visible_message(span_notice("[user] tries to pull [buckled_mob] free of [src]!"),\
+				span_notice("[user] is trying to pull you off [src], opening up fresh wounds!"),\
+				span_hear("You hear a squishy wet noise."))
 			if(!do_after(user, 10 SECONDS, target = src))
 				if(buckled_mob?.buckled)
-					buckled_mob.visible_message("<span class='notice'>[user] fails to free [buckled_mob]!</span>",\
-					"<span class='notice'>[user] fails to pull you off of [src].</span>")
+					buckled_mob.visible_message(span_notice("[user] fails to free [buckled_mob]!"),\
+					span_notice("[user] fails to pull you off of [src]."))
 				return
 		else
-			buckled_mob.visible_message("<span class='warning'>[buckled_mob] struggles to break free from [src]!</span>",\
-			"<span class='notice'>You struggle to break free from [src], exacerbating your wounds! (Stay still for twenty seconds)</span>",\
-			"<span class='hear'>You hear a wet squishing noise..</span>")
+			buckled_mob.visible_message(span_warning("[buckled_mob] struggles to break free from [src]!"),\
+			span_notice("You struggle to break free from [src], exacerbating your wounds! (Stay still for twenty seconds)"),\
+			span_hear("You hear a wet squishing noise.."))
 			buckled_mob.adjustBruteLoss(30)
 			if(!do_after(buckled_mob, 20 SECONDS, target = src))
 				if(buckled_mob?.buckled)
-					to_chat(buckled_mob, "<span class='warning'>You fail to free yourself!</span>")
+					to_chat(buckled_mob, span_warning("You fail to free yourself!"))
 				return
 		if(!buckled_mob.buckled)
 			return
@@ -792,7 +792,7 @@
 /obj/structure/flesh_grip/proc/release_mob(mob/living/buckled_mob)
 	buckled_mob.pixel_y = buckled_mob.base_pixel_y + PIXEL_Y_OFFSET_LYING
 	buckled_mob.adjustBruteLoss(30)
-	visible_message(text("<span class='danger'>[buckled_mob] falls free of [src]!</span>"))
+	visible_message(text(span_danger("[buckled_mob] falls free of [src]!")))
 	unbuckle_mob(buckled_mob, force = TRUE)
 	buckled_mob.emote("scream")
 	buckled_mob.AdjustParalyzed(2 SECONDS)
@@ -831,11 +831,11 @@
 					REMOVE_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)
 		if(3)
 			ADD_TRAIT(caster, TRAIT_HANDS_BLOCK_PROJECTILES, "flesh shintai 3")
-			to_chat(caster, "<span class='notice'>Your muscles relax and start moving unintentionally. You feel perfect at projectile evasion skills...</span>")
+			to_chat(caster, span_notice("Your muscles relax and start moving unintentionally. You feel perfect at projectile evasion skills..."))
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
 					REMOVE_TRAIT(caster, TRAIT_HANDS_BLOCK_PROJECTILES, "flesh shintai 3")
-					to_chat(caster, "<span class='warning'>Your muscles feel natural again..</span>")
+					to_chat(caster, span_warning("Your muscles feel natural again.."))
 		if(4)
 			var/obj/structure/flesh_grip/flesh_grip = new (get_turf(caster))
 			if(caster.pulling && caster.grab_state > GRAB_PASSIVE)
@@ -1126,7 +1126,7 @@
 	var/mypower = caster.get_total_social()
 	var/theirpower = target.get_total_mentality()
 	if(theirpower >= mypower)
-		to_chat(caster, "<span class='warning'>[target]'s mind is too powerful to cause flashbacks for!</span>")
+		to_chat(caster, span_warning("[target]'s mind is too powerful to cause flashbacks for!"))
 		return
 	switch(level_casting)
 		if(1)
@@ -1223,7 +1223,7 @@
 	var/mypower = caster.get_total_social()
 	var/theirpower = target.get_total_mentality()
 	if(theirpower >= mypower)
-		to_chat(caster, "<span class='warning'>[target]'s mind is too powerful to affect!</span>")
+		to_chat(caster, span_warning("[target]'s mind is too powerful to affect!"))
 		return
 	switch(level_casting)
 		if(1)
@@ -1513,12 +1513,12 @@
 	if(!proximity || target == user || !isliving(target) || !iscarbon(user)) //getting hard after touching yourself would also be bad
 		return
 	if(!(user.mobility_flags & MOBILITY_USE))
-		to_chat(user, "<span class='warning'>You can't reach out!</span>")
+		to_chat(user, span_warning("You can't reach out!"))
 		return
 	var/mob/living/human_target = target
 	if(human_target.anti_magic_check())
-		to_chat(user, "<span class='warning'>The spell can't seem to affect [human_target]!</span>")
-		to_chat(human_target, "<span class='warning'>You feel your flesh turn to stone for a moment, then revert back!</span>")
+		to_chat(user, span_warning("The spell can't seem to affect [human_target]!"))
+		to_chat(human_target, span_warning("You feel your flesh turn to stone for a moment, then revert back!"))
 		. = ..()
 		return
 	human_target.electrocute_act(50, src, siemens_coeff = 1, flags = NONE)
@@ -1574,7 +1574,7 @@
 		var/atom/movable/A = target
 		if(A.anchored)
 			return
-		A.visible_message("<span class='danger'>[A] is snagged by lightning!</span>")
+		A.visible_message(span_danger("[A] is snagged by lightning!"))
 		playsound(get_turf(target), 'modular_darkpack/modules/deprecated/sounds/lightning.ogg', 100, FALSE)
 		if (isliving(target))
 			var/mob/living/L = target
@@ -1695,13 +1695,13 @@
 				var/actually_shifted = min(min(caster.max_yin_chi, caster.yin_chi + caster.yang_chi) - init_yin, caster.yang_chi)
 				caster.yang_chi -= actually_shifted
 				caster.yin_chi += actually_shifted
-				to_chat(caster, "<span class='warning'>You put your Yang into your Yin.</span>")
+				to_chat(caster, span_warning("You put your Yang into your Yin."))
 			if(yang_shift == "Demon Pool")
 				var/init_demon = caster.demon_chi
 				var/actually_shifted = min(min(caster.max_demon_chi, caster.demon_chi + caster.yang_chi) - init_demon, caster.yang_chi)
 				caster.yang_chi -= actually_shifted
 				caster.demon_chi += actually_shifted
-				to_chat(caster, "<span class='warning'>You put your Yang into your Demon.</span>")
+				to_chat(caster, span_warning("You put your Yang into your Demon."))
 
 			var/yin_shift = input(caster, "Where do you want to shift your Yin Chi?", "Chi Shift") as null|anything in list("Yang Pool", "Demon Pool", "Nowhere")
 			if(yin_shift == "Yang Pool")
@@ -1709,13 +1709,13 @@
 				var/actually_shifted = min(min(caster.max_yang_chi, caster.yang_chi + caster.yin_chi) - init_yang, caster.yin_chi)
 				caster.yin_chi -= actually_shifted
 				caster.yang_chi += actually_shifted
-				to_chat(caster, "<span class='warning'>You put your Yin into your Yang.</span>")
+				to_chat(caster, span_warning("You put your Yin into your Yang."))
 			if(yin_shift == "Demon Pool")
 				var/init_demon = caster.demon_chi
 				var/actually_shifted = min(min(caster.max_demon_chi, caster.demon_chi + caster.yin_chi) - init_demon, caster.yin_chi)
 				caster.yin_chi -= actually_shifted
 				caster.demon_chi += actually_shifted
-				to_chat(caster, "<span class='warning'>You put your Yin into your Demon.</span>")
+				to_chat(caster, span_warning("You put your Yin into your Demon."))
 
 			var/demon_shift = input(caster, "Where do you want to shift your Demon Chi?", "Chi Shift") as null|anything in list("Yin Pool", "Yang Pool", "Nowhere")
 			if(demon_shift == "Yin Pool")
@@ -1723,13 +1723,13 @@
 				var/actually_shifted = min(min(caster.max_yin_chi, caster.yin_chi + caster.demon_chi) - init_yin, caster.demon_chi)
 				caster.demon_chi -= actually_shifted
 				caster.yin_chi += actually_shifted
-				to_chat(caster, "<span class='warning'>You put your Demon into your Yin.</span>")
+				to_chat(caster, span_warning("You put your Demon into your Yin."))
 			if(demon_shift == "Yang Pool")
 				var/init_yang = caster.yang_chi
 				var/actually_shifted = min(min(caster.max_yang_chi, caster.yang_chi + caster.demon_chi) - init_yang, caster.demon_chi)
 				caster.demon_chi -= actually_shifted
 				caster.yang_chi += actually_shifted
-				to_chat(caster, "<span class='warning'>You put your Demon into your Yang.</span>")
+				to_chat(caster, span_warning("You put your Demon into your Yang."))
 		if(3)
 			for(var/mob/living/carbon/human/affected_mob in oviewers(5, caster))
 				affected_mob.dna.species.punchdamagehigh += 5
@@ -1767,10 +1767,10 @@
 			var/area/current_area = get_area(caster)
 			if(current_area.yang_chi)
 				caster.yang_chi = min(caster.yang_chi + current_area.yang_chi, caster.max_yang_chi)
-				to_chat(caster, "<span class='engradio'>Some <b>Yang</b> Chi energy enters you...</span>")
+				to_chat(caster, span_engradio("Some <b>Yang</b> Chi energy enters you..."))
 			if(current_area.yin_chi)
 				caster.yin_chi = min(caster.yin_chi + current_area.yin_chi, caster.max_yin_chi)
-				to_chat(caster, "<span class='medradio'>Some <b>Yin</b> Chi energy enters you...</span>")
+				to_chat(caster, span_medradio("Some <b>Yin</b> Chi energy enters you..."))
 
 /datum/chi_discipline/feng_shui
 	name = "Feng Shui"
@@ -1831,7 +1831,7 @@
 			if(caster.lastattacked)
 				if(isliving(caster.lastattacked))
 					var/mob/living/cursing_mob = caster.lastattacked
-					to_chat(cursing_mob, "<span class='warning'>You feel bigger hunger than usual.</span>")
+					to_chat(cursing_mob, span_warning("You feel bigger hunger than usual."))
 					if(iskindred(cursing_mob))
 						cursing_mob.bloodpool = max(0, cursing_mob.bloodpool-3)
 					else if(iscathayan(cursing_mob))
@@ -2010,7 +2010,7 @@
 				var/area/cross_area = get_area(to_wall)
 				if(cross_area)
 					if(cross_area.wall_rating > LOW_WALL_RATING)
-						to_chat(caster, "<span class='warning'><b>GAUNTLET</b> rating there is too high! You can't cross <b>PENUMBRA</b> like this...</span>")
+						to_chat(caster, span_warning("<b>GAUNTLET</b> rating there is too high! You can't cross <b>PENUMBRA</b> like this..."))
 						caster.yin_chi += 1
 						caster.yang_chi += 1
 						return
@@ -2036,7 +2036,7 @@
 			spawn(30 SECONDS)
 				if(caster)
 					REMOVE_TRAIT(caster, TRAIT_SUPERNATURAL_LUCK, "tapestry 3")
-					to_chat(caster, "<span class='warning'>Your luck wanes...</span>")
+					to_chat(caster, span_warning("Your luck wanes..."))
 		if(4)
 			var/teleport_to
 			teleport_to = input(caster, "Dragon Nest to travel to:", "BOOYEA", teleport_to) as null|anything in GLOB.teleportlocs
@@ -2054,13 +2054,13 @@
 							available_turfs += area_turf
 
 					if(!available_turfs.len)
-						to_chat(caster, "<span class='warning'>There are no available destinations in that area!</span>")
+						to_chat(caster, span_warning("There are no available destinations in that area!"))
 						return
 
 					if(do_teleport(caster, pick(available_turfs), forceMove = TRUE, channel = TELEPORT_CHANNEL_MAGIC, forced = TRUE))
 						smoke.start()
 					else
-						to_chat(caster, "<span class='warning'>Something disrupted your travel!</span>")
+						to_chat(caster, span_warning("Something disrupted your travel!"))
 		if(5)
 			var/obj/effect/anomaly/grav_kuei/grav_anomaly = new (get_turf(caster))
 			grav_anomaly.owner = caster
@@ -2189,7 +2189,7 @@
 					caster.set_light(0)
 		if(3)
 			ADD_TRAIT(caster, TRAIT_ENHANCED_MELEE_DODGE, "yang prana 3")
-			to_chat(caster, "<span class='notice'>Your muscles relax and start moving on their own. You feel like you could dodge any strike...</span>")
+			to_chat(caster, span_notice("Your muscles relax and start moving on their own. You feel like you could dodge any strike..."))
 			if(prob(50))
 				dancefirst(caster)
 			else
@@ -2197,10 +2197,10 @@
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
 					REMOVE_TRAIT(caster, TRAIT_ENHANCED_MELEE_DODGE, "yang prana 3")
-					to_chat(caster, "<span class='warning'>Your muscles feel normal again.</span>")
+					to_chat(caster, span_warning("Your muscles feel normal again."))
 		if(4)
 			ADD_TRAIT(caster, TRAIT_HANDS_BLOCK_PROJECTILES, "yang prana 4")
-			to_chat(caster, "<span class='notice'>Your muscles relax and start moving on their own. You feel like you could deflect bullets...</span>")
+			to_chat(caster, span_notice("Your muscles relax and start moving on their own. You feel like you could deflect bullets..."))
 			if(prob(50))
 				dancefirst(caster)
 			else
@@ -2208,7 +2208,7 @@
 			spawn(delay+caster.discipline_time_plus)
 				if(caster)
 					REMOVE_TRAIT(caster, TRAIT_HANDS_BLOCK_PROJECTILES, "yang prana 4")
-					to_chat(caster, "<span class='warning'>Your muscles feel normal again.</span>")
+					to_chat(caster, span_warning("Your muscles feel normal again."))
 		if(5)
 			jaunt.cast(list(caster), caster)
 

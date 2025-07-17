@@ -20,38 +20,38 @@
 
 /obj/structure/methlab/movable/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Alt-click to [anchored ? "un" : ""]secure [src] [anchored ? "from" : "to"] the ground.</span>"
+	. += span_notice("Alt-click to [anchored ? "un" : ""]secure [src] [anchored ? "from" : "to"] the ground.")
 
 	if(health == 20)
-		. += "<span class='notice'>[src] is in good condition.</span>"
+		. += span_notice("[src] is in good condition.")
 	else if(health > 16)
-		. += "<span class='notice'>[src] is lightly damaged.</span>"
+		. += span_notice("[src] is lightly damaged.")
 	else if(health > 10)
-		. += "<span class='warning'>[src] has sustained some damage.</span>"
+		. += span_warning("[src] has sustained some damage.")
 	else if(health > 6)
 
-		. += "<span class='warning'>[src] is close to breaking!</span>"
+		. += span_warning("[src] is close to breaking!")
 	else
-		. += "<span class='warning'>[src] is about to fall apart!</span>"
+		. += span_warning("[src] is about to fall apart!")
 
 /obj/structure/methlab/AltClick(mob/user)
 	if(!user.Adjacent(src))
 		return
-	to_chat(user, "<span class='notice'>You start [anchored ? "unsecuring" : "securing"] [src] [anchored ? "from" : "to"] the ground.</span>")
+	to_chat(user, span_notice("You start [anchored ? "unsecuring" : "securing"] [src] [anchored ? "from" : "to"] the ground."))
 	if(do_after(user, 15))
 		if(anchored)
-			to_chat(user, "<span class='notice'>You unsecure [src] from the ground.</span>")
+			to_chat(user, span_notice("You unsecure [src] from the ground."))
 			anchored = FALSE
 			return
 		else
-			to_chat(user, "<span class='notice'>You secure [src] to the ground.</span>")
+			to_chat(user, span_notice("You secure [src] to the ground."))
 			anchored = TRUE
 			return
 
 /obj/structure/methlab/movable/attackby(obj/item/used_item, mob/user, params)
 	if(..(used_item, user, params))
 		if(health <= 0)
-			to_chat(user, "<span class='warning'>[src] is too damaged to use!</span>")
+			to_chat(user, span_warning("[src] is too damaged to use!"))
 			return
 		return TRUE
 

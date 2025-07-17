@@ -101,12 +101,12 @@
 
 /datum/antagonist/national_guard/on_removal()
 	..()
-	to_chat(owner.current,"<span class='userdanger'>You are no longer in the National Guard!</span>")
+	to_chat(owner.current,span_userdanger("You are no longer in the National Guard!"))
 	owner.special_role = null
 
 /datum/antagonist/national_guard/greet()
-	to_chat(owner.current, "<span class='alertsyndie'>You're in the national guard.</span>")
-	to_chat(owner, "<span class='notice'>You are a [national_guard_team ? national_guard_team.national_guard_name : "national guard"] soldier!</span>")
+	to_chat(owner.current, span_alertsyndie("You're in the national guard."))
+	to_chat(owner, span_notice("You are a [national_guard_team ? national_guard_team.national_guard_name : "national guard"] soldier!"))
 	owner.announce_objectives()
 
 
@@ -336,9 +336,9 @@
 
 /datum/team/national_guard/roundend_report()
 	var/list/parts = list()
-	parts += "<span class='header'>[national_guard_name] Operatives:</span>"
+	parts += span_header("[national_guard_name] Operatives:")
 
-	var/text = "<br><span class='header'>The national guard were:</span>"
+	var/text = "<br>[span_header("The national guard were:")]"
 	text += printplayerlist(members)
 	parts += text
 

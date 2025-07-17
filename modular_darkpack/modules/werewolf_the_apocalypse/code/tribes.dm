@@ -102,24 +102,24 @@
 			H.melee_damage_lower = initial(H.melee_damage_lower)+15
 			H.melee_damage_upper = initial(H.melee_damage_upper)+15
 			H.tox_damage_plus = 15
-			to_chat(owner, "<span class='notice'>You feel your claws filling with pure venom...</span>")
+			to_chat(owner, span_notice("You feel your claws filling with pure venom..."))
 			spawn(12 SECONDS)
 				H.tox_damage_plus = 0
 				H.melee_damage_lower = initial(H.melee_damage_lower)
 				H.melee_damage_upper = initial(H.melee_damage_upper)
-				to_chat(owner, "<span class='warning'>Your claws are not poison anymore...</span>")
+				to_chat(owner, span_warning("Your claws are not poison anymore..."))
 		else
 			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/venom_claws.ogg', 75, FALSE)
 			var/mob/living/carbon/H = owner
 			H.melee_damage_lower = initial(H.melee_damage_lower)+10
 			H.melee_damage_upper = initial(H.melee_damage_upper)+10
 			H.tox_damage_plus = 10
-			to_chat(owner, "<span class='notice'>You feel your claws filling with pure venom...</span>")
+			to_chat(owner, span_notice("You feel your claws filling with pure venom..."))
 			spawn(12 SECONDS)
 				H.tox_damage_plus = 0
 				H.melee_damage_lower = initial(H.melee_damage_lower)
 				H.melee_damage_upper = initial(H.melee_damage_upper)
-				to_chat(owner, "<span class='warning'>Your claws are not poison anymore...</span>")
+				to_chat(owner, span_warning("Your claws are not poison anymore..."))
 
 /datum/action/gift/burning_scars
 	name = "Burning Scars"
@@ -131,7 +131,7 @@
 /datum/action/gift/burning_scars/Trigger()
 	. = ..()
 	if(allowed_to_proceed)
-		owner.visible_message("<span class='danger'>[owner.name] crackles with heat!</span>", "<span class='danger'>You crackle with heat, charging up your Gift!</span>")
+		owner.visible_message(span_danger("[owner.name] crackles with heat!"), span_danger("You crackle with heat, charging up your Gift!"))
 		if(do_after(owner, 3 SECONDS))
 			for(var/mob/living/L in orange(5, owner))
 				if(L)
@@ -153,7 +153,7 @@
 		var/turf/T = get_turf(get_step(get_step(get_step(owner, owner.dir), owner.dir), owner.dir))
 		if(!T || T == owner.loc)
 			return
-		owner.visible_message("<span class='danger'>[owner] charges!</span>")
+		owner.visible_message(span_danger("[owner] charges!"))
 		owner.setDir(get_dir(owner, T))
 		var/obj/effect/temp_visual/decoy/D = new /obj/effect/temp_visual/decoy(owner.loc,owner)
 		animate(D, alpha = 0, color = "#FF0000", transform = matrix()*2, time = 1)
@@ -170,7 +170,7 @@
 /datum/action/gift/digital_feelings/Trigger()
 	. = ..()
 	if(allowed_to_proceed)
-		owner.visible_message("<span class='danger'>[owner.name] crackles with static electricity!</span>", "<span class='danger'>You crackle with static electricity, charging up your Gift!</span>")
+		owner.visible_message(span_danger("[owner.name] crackles with static electricity!"), span_danger("You crackle with static electricity, charging up your Gift!"))
 		if(do_after(owner, 3 SECONDS))
 			playsound(owner, 'sound/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
 			tesla_zap(owner, 3, 30, ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_ALLOW_DUPLICATES)
@@ -194,18 +194,18 @@
 			var/mob/living/carbon/human/H = owner
 			H.physiology.armor.melee = 25
 			H.physiology.armor.bullet = 45
-			to_chat(owner, "<span class='notice'>You feel your skin replaced with the machine...</span>")
+			to_chat(owner, span_notice("You feel your skin replaced with the machine..."))
 			spawn(20 SECONDS)
 				H.physiology.armor.melee = initial(H.physiology.armor.melee)
 				H.physiology.armor.bullet = initial(H.physiology.armor.bullet)
-				to_chat(owner, "<span class='warning'>Your skin is natural again...</span>")
+				to_chat(owner, span_warning("Your skin is natural again..."))
 				owner.color = "#FFFFFF"
 		else
 			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/electro_cast.ogg', 75, FALSE)
 			var/mob/living/carbon/werewolf/H = owner
 			H.werewolf_armor = 45
-			to_chat(owner, "<span class='notice'>You feel your skin replaced with the machine...</span>")
+			to_chat(owner, span_notice("You feel your skin replaced with the machine..."))
 			spawn(20 SECONDS)
 				H.werewolf_armor = initial(H.werewolf_armor)
-				to_chat(owner, "<span class='warning'>Your skin is natural again...</span>")
+				to_chat(owner, span_warning("Your skin is natural again..."))
 				owner.color = "#FFFFFF"

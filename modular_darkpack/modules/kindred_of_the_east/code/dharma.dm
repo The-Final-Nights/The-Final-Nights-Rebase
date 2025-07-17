@@ -137,10 +137,10 @@
 
 	if(dot < 0)
 		SEND_SOUND(kueijin, sound('modular_darkpack/modules/deprecated/sounds/dharma_decrease.ogg', 0, 0, 75))
-		to_chat(kueijin, "<span class='userdanger'><b>DHARMA FALLS!</b></span>")
+		to_chat(kueijin, span_userdanger("<b>DHARMA FALLS!</b>"))
 	else if(dot > 0)
 		SEND_SOUND(kueijin, sound('modular_darkpack/modules/deprecated/sounds/dharma_increase.ogg', 0, 0, 75))
-		to_chat(kueijin, "<span class='userdanger'><b>DHARMA RISES!</b></span>")
+		to_chat(kueijin, span_userdanger("<b>DHARMA RISES!</b>"))
 
 	if(dharma.level < 5)
 		for(var/datum/action/breathe_chi/breathe_action in kueijin.actions)
@@ -188,7 +188,7 @@
 
 	Po_Focus = Source
 	owner.demon_chi = min(owner.demon_chi + 1, owner.max_demon_chi)
-	to_chat(owner, "<span class='warning'>Some <b>DEMON</b> Chi energy fills you...</span>")
+	to_chat(owner, span_warning("Some <b>DEMON</b> Chi energy fills you..."))
 
 //good luck to whoever wants to fix this thing
 /mob/living/carbon/human/frenzystep()

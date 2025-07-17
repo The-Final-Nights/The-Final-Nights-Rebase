@@ -30,13 +30,13 @@
 		if(istype(item, /obj/item/storage))
 			total_list |= item.contents
 		total_list |= item
-	to_chat(owner, "<span class='purple'>Your fae senses reach out to detect what they're carrying...</span>")
+	to_chat(owner, span_purple("Your fae senses reach out to detect what they're carrying..."))
 	for(var/obj/item/item in total_list)
 		if(item)
 			if(item.is_magic)
-				to_chat(owner, "- <span class='nicegreen'>[item.name]</span>")
+				to_chat(owner, "- [span_nicegreen("[item.name]")]")
 			else if(item.is_iron)
-				to_chat(owner, "- <span class='danger'>[item.name]</span>")
+				to_chat(owner, "- [span_danger("[item.name]")]")
 			else
 				to_chat(owner, "- [item.name]")
 
@@ -113,7 +113,7 @@
 		if(target.wear_mask && istype(target.wear_mask, /obj/item/clothing/mask/facehugger/kiasyd))
 			return FALSE
 	M.visible_message(span_danger("[src] leaps at [M]'s face!"), \
-		"<span class='userdanger'>[src] leaps at your face!</span>")
+		span_userdanger("[src] leaps at your face!"))
 	if(iscarbon(M))
 		var/mob/living/carbon/target = M
 
@@ -126,7 +126,7 @@
 			if(target.dropItemToGround(W, TRUE))
 				target.visible_message(
 					span_danger("[src] tears [W] off of [target]'s face!"), \
-					"<span class='userdanger'>[src] tears [W] off of your face!</span>")
+					span_userdanger("[src] tears [W] off of your face!"))
 		target.equip_to_slot_if_possible(src, ITEM_SLOT_MASK, 0, 1, 1)
 		var/datum/cb = CALLBACK(src,/obj/item/clothing/mask/facehugger/kiasyd/proc/eat_head)
 		for(var/i in 1 to 10)
@@ -400,7 +400,7 @@
 			answerer.clear_alert("riddle")
 	else
 		to_chat(answerer,
-			"<span class='nicegreen'>You feel the riddle's hold over you vanish.</span>")
+			span_nicegreen("You feel the riddle's hold over you vanish."))
 		alert.riddle = null
 		answerer.remove_movespeed_modifier(/datum/movespeed_modifier/riddle)
 		answerer.say(the_answer)

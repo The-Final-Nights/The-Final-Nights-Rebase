@@ -187,19 +187,19 @@
 							VIT.bloodpool = max(0, VIT.bloodpool-1)
 							H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)
 							H.update_blood_hud()
-							to_chat(owner, "<span class='warning'>You feel precious <b>VITAE</b> entering your mouth and suspending your addiction.</span>")
+							to_chat(owner, span_warning("You feel precious <b>VITAE</b> entering your mouth and suspending your addiction."))
 							return
 						else
 							taking = FALSE
 							return
 					else
-						to_chat(owner, "<span class='warning'>Damage [VIT] before taking vitae.</span>")
+						to_chat(owner, span_warning("Damage [VIT] before taking vitae."))
 						return
 				else
-					to_chat(owner, "<span class='warning'>There is not enough <b>VITAE</b> in [VIT] to feed your addiction.</span>")
+					to_chat(owner, span_warning("There is not enough <b>VITAE</b> in [VIT] to feed your addiction."))
 					return
 			else
-				to_chat(owner, "<span class='warning'>You don't sense the <b>VITAE</b> in [VIT].</span>")
+				to_chat(owner, span_warning("You don't sense the <b>VITAE</b> in [VIT]."))
 				return
 
 /datum/action/blood_heal
@@ -234,10 +234,10 @@
 		level = clamp(13-H.generation, 1, 4)
 		if(HAS_TRAIT(H, TRAIT_COFFIN_THERAPY))
 			if(!istype(H.loc, /obj/structure/closet/crate/coffin))
-				to_chat(usr, "<span class='warning'>You need to be in a coffin to use that!</span>")
+				to_chat(usr, span_warning("You need to be in a coffin to use that!"))
 				return
 		if(H.bloodpool < 1)
-			to_chat(owner, "<span class='warning'>You don't have enough <b>BLOOD</b> to do that!</span>")
+			to_chat(owner, span_warning("You don't have enough <b>BLOOD</b> to do that!"))
 			SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', 0, 0, 75))
 			return
 		if((last_heal + 30) >= world.time)
@@ -269,7 +269,7 @@
 		H.update_damage_overlays()
 		H.update_health_hud()
 		H.update_blood_hud()
-		H.visible_message("<span class='warning'>Some of [H]'s visible injuries disappear!</span>", "<span class='warning'>Some of your injuries disappear!</span>")
+		H.visible_message(span_warning("Some of [H]'s visible injuries disappear!"), span_warning("Some of your injuries disappear!"))
 
 /datum/species/ghoul/check_roundstart_eligible()
 	return TRUE
@@ -297,10 +297,10 @@
 										if(H.killed_count >= 5)
 											H.warrant = TRUE
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 										else
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (corpse)</b></span>")
+											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
 				if(I)
 					if(I.masquerade_violating)
@@ -314,10 +314,10 @@
 										if(H.killed_count >= 5)
 											H.warrant = TRUE
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 										else
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (equipment)</b></span>")
+											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 	if(H.key && H.stat != DEAD)
 		var/datum/preferences/P = GLOB.preferences_datums[ckey(H.key)]
 		if(P)
@@ -330,10 +330,10 @@
 				if(prob(5))
 					if(prob(50))
 						H.Stun(20)
-						to_chat(H, "<span class='warning'>You stop in fear and remember your crimes against humanity...</span>")
+						to_chat(H, span_warning("You stop in fear and remember your crimes against humanity..."))
 						H.emote("cry")
 					else
-						to_chat(H, "<span class='warning'>You feel the rage rising as your last sins come to your head...</span>")
+						to_chat(H, span_warning("You feel the rage rising as your last sins come to your head..."))
 						H.drop_all_held_items()
 						H.emote("scream")
 
@@ -360,10 +360,10 @@
 										if(H.killed_count >= 5)
 											H.warrant = TRUE
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 										else
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (corpse)</b></span>")
+											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
 				if(I)
 					if(I.masquerade_violating)
@@ -377,10 +377,10 @@
 										if(H.killed_count >= 5)
 											H.warrant = TRUE
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 										else
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (equipment)</b></span>")
+											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
 		H.last_bloodpool_restore = world.time
 		H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)
@@ -408,10 +408,10 @@
 										if(H.killed_count >= 5)
 											H.warrant = TRUE
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 										else
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (corpse)</b></span>")
+											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
 				if(I)
 					if(I.masquerade_violating)
@@ -425,10 +425,10 @@
 										if(H.killed_count >= 5)
 											H.warrant = TRUE
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 										else
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (equipment)</b></span>")
+											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
 		H.last_bloodpool_restore = world.time
 		H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)

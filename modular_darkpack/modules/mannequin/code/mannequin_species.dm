@@ -59,7 +59,7 @@
 				if(get_dist(man, H) < 2)
 					var/obj/item/bodypart/affected = H.get_bodypart(pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
 					if(affected != null)
-						man.visible_message("[man] slices off [H]'s [affected]!", "<span class='notice'>You slice [man]'s [affected] off.</span>")
+						man.visible_message("[man] slices off [H]'s [affected]!", span_notice("You slice [man]'s [affected] off."))
 						affected.dismember(BRUTE)
 					H.lock_on_by_mannequin = FALSE
 

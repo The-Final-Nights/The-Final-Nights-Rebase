@@ -68,14 +68,14 @@
 		return
 	var/area/vtm/V = get_area(C)
 	if(!V.upper)
-		to_chat(C, "<span class='warning'>You need to be outside to look at the moon!</span>")
+		to_chat(C, span_warning("You need to be outside to look at the moon!"))
 		return
 	if(C.last_moon_look == 0 || C.last_moon_look+600 < world.time)
 //		last_moon_look = world.time
 		C.transformator.lupus_form.last_moon_look = world.time
 		C.transformator.crinos_form.last_moon_look = world.time
 		C.transformator.human_form.last_moon_look = world.time
-		to_chat(C, "<span class='notice'>The Moon is [GLOB.moon_state].</span>")
+		to_chat(C, span_notice("The Moon is [GLOB.moon_state]."))
 //		icon_state = "[GLOB.moon_state]"
 		C.emote("howl")
 		playsound(get_turf(C), pick('modular_darkpack/modules/deprecated/sounds/awo1.ogg', 'modular_darkpack/modules/deprecated/sounds/awo2.ogg'), 100, FALSE)

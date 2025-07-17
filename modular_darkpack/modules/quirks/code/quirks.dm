@@ -20,8 +20,8 @@ Dancer
 	name = "Broker"
 	desc = "You are working on stock market in Millenium Tower."
 	value = 0
-	gain_text = "<span class='notice'>You feel more financial stable.</span>"
-	lose_text = "<span class='warning'>You don't feel rich anymore.</span>"
+	gain_text = span_notice("You feel more financial stable.")
+	lose_text = span_warning("You don't feel rich anymore.")
 
 /datum/quirk/broker/on_spawn()
 	if(!iswerewolf(quirk_holder))
@@ -42,15 +42,15 @@ Dancer
 	desc = "Driving, repairing and sustaining a car is much easier to you."
 	mob_trait = TRAIT_EXP_DRIVER
 	value = 2
-	gain_text = "<span class='notice'>You feel more experienced about cars.</span>"
-	lose_text = "<span class='warning'>You feel more clueless about cars.</span>"
+	gain_text = span_notice("You feel more experienced about cars.")
+	lose_text = span_warning("You feel more clueless about cars.")
 
 /datum/quirk/annonymus
 	name = "Anonymous"
 	desc = "You always bring a mask."
 	value = 1
-	gain_text = "<span class='notice'>You feel more anonymus.</span>"
-	lose_text = "<span class='warning'>You don't feel anonymous anymore.</span>"
+	gain_text = span_notice("You feel more anonymus.")
+	lose_text = span_warning("You don't feel anonymous anymore.")
 
 /datum/quirk/annonymus/on_spawn()
 	if(!iswerewolf(quirk_holder))
@@ -62,8 +62,8 @@ Dancer
 	desc = "Your bites feel more like a kiss."
 	mob_trait = TRAIT_BLOODY_LOVER
 	value = 2
-	gain_text = "<span class='notice'>You feel more experienced in love.</span>"
-	lose_text = "<span class='warning'>You feel more clueless in love.</span>"
+	gain_text = span_notice("You feel more experienced in love.")
+	lose_text = span_warning("You feel more clueless in love.")
 	allowed_species = list("Vampire", "Kuei-Jin")
 
 /datum/quirk/tough_flesh
@@ -71,8 +71,8 @@ Dancer
 	desc = "Your flesh is much sturdier than normal. You are much better in resisting stuns, bumps and hits."
 	mob_trait = TRAIT_TOUGH_FLESH
 	value = 3
-	gain_text = "<span class='notice'>You feel tough.</span>"
-	lose_text = "<span class='warning'>You feel fragile again.</span>"
+	gain_text = span_notice("You feel tough.")
+	lose_text = span_warning("You feel fragile again.")
 
 /datum/movespeed_modifier/slowpoke
 	multiplicative_slowdown = 1
@@ -81,8 +81,8 @@ Dancer
 	name = "Slowpoke"
 	desc = "You move slower."
 	value = -3
-	gain_text = "<span class='warning'>You feel slo-o-o-o-o-o-o-o-o-o-o-o-ow.</span>"
-	lose_text = "<span class='notice'>You can feel a normal speed again.</span>"
+	gain_text = span_warning("You feel slo-o-o-o-o-o-o-o-o-o-o-o-ow.")
+	lose_text = span_notice("You can feel a normal speed again.")
 
 /datum/quirk/slowpoke/on_spawn()
 	var/mob/living/carbon/H = quirk_holder
@@ -93,8 +93,8 @@ Dancer
 	desc = "You just can't stop sucking, before your victim dies."
 	mob_trait = TRAIT_BLOODY_SUCKER
 	value = -2
-	gain_text = "<span class='warning'>You feel anxious about the way you feed.</span>"
-	lose_text = "<span class='warning'>You can feed normal again.</span>"
+	gain_text = span_warning("You feel anxious about the way you feed.")
+	lose_text = span_warning("You can feed normal again.")
 	allowed_species = list("Vampire", "Kuei-Jin")
 
 /datum/quirk/lazy
@@ -102,15 +102,15 @@ Dancer
 	desc = "You do things much more slowly than others."
 	mob_trait = TRAIT_LAZY
 	value = -2
-	gain_text = "<span class='warning'>You feel anxious about the way you feed.</span>"
-	lose_text = "<span class='warning'>You can feed normal again.</span>"
+	gain_text = span_warning("You feel anxious about the way you feed.")
+	lose_text = span_warning("You can feed normal again.")
 
 /datum/quirk/one_hand
 	name = "One Handed"
 	desc = "You've lost an arm before the embrace, and it's still unhealed."
 	value = -3
-	gain_text = "<span class='warning'>You don't feel one of your arms.</span>"
-	lose_text = "<span class='notice'>You feel both of your arms again.</span>"
+	gain_text = span_warning("You don't feel one of your arms.")
+	lose_text = span_notice("You feel both of your arms again.")
 
 /datum/quirk/one_hand/on_spawn()
 	if(!iswerewolf(quirk_holder))
@@ -129,8 +129,8 @@ Dancer
 	desc = "You are far more special than other beings from your kind, so you gain experience slower."
 	mob_trait = TRAIT_NON_INT
 	value = -5
-	gain_text = "<span class='warning'>You feel dumb.</span>"
-	lose_text = "<span class='notice'>You don't feel dumb anymore.</span>"
+	gain_text = span_warning("You feel dumb.")
+	lose_text = span_notice("You don't feel dumb anymore.")
 	allowed_species = list("Vampire", "Human", "Ghoul", "Kuei-Jin")
 
 /datum/quirk/coffin_therapy
@@ -138,8 +138,8 @@ Dancer
 	desc = "Your wounds heal only in a coffin."
 	mob_trait = TRAIT_COFFIN_THERAPY
 	value = -2
-	gain_text = "<span class='warning'>You feel like you need a coffin.</span>"
-	lose_text = "<span class='notice'>You don't need a coffin anymore.</span>"
+	gain_text = span_warning("You feel like you need a coffin.")
+	lose_text = span_notice("You don't need a coffin anymore.")
 	allowed_species = list("Vampire", "Ghoul")
 
 /datum/quirk/rubicon
@@ -147,8 +147,8 @@ Dancer
 	desc = "You are afraid of water, so you can't cross it."
 	mob_trait = TRAIT_RUBICON
 	value = -1
-	gain_text = "<span class='warning'>You feel afraid of water.</span>"
-	lose_text = "<span class='notice'>You aren't afraid of water anymore.</span>"
+	gain_text = span_warning("You feel afraid of water.")
+	lose_text = span_notice("You aren't afraid of water anymore.")
 	allowed_species = list("Vampire", "Ghoul")
 
 /datum/quirk/hungry
@@ -156,8 +156,8 @@ Dancer
 	desc = "You need more food to feed your hunger."
 	mob_trait = TRAIT_HUNGRY
 	value = -3
-	gain_text = "<span class='warning'>You feel extra <b>HUNGRY</b>.</span>"
-	lose_text = "<span class='notice'>You don't feel extra <b>HUNGRY</b> anymore.</span>"
+	gain_text = span_warning("You feel extra <b>HUNGRY</b>.")
+	lose_text = span_notice("You don't feel extra <b>HUNGRY</b> anymore.")
 	allowed_species = list("Vampire", "Ghoul")
 
 /datum/action/fly_upper
@@ -174,8 +174,8 @@ Dancer
 	name = "Dancer"
 	desc = "You know a couple of dance moves."
 	value = 2
-	gain_text = "<span class='notice'>You want to dance.</span>"
-	lose_text = "<span class='warning'>You don't want to dance anymore.</span>"
+	gain_text = span_notice("You want to dance.")
+	lose_text = span_warning("You don't want to dance anymore.")
 
 /datum/quirk/dancer/on_spawn()
 	var/mob/living/carbon/H = quirk_holder
@@ -191,11 +191,11 @@ Dancer
 
 /datum/action/dance/Trigger()
 	if(HAS_TRAIT(owner, TRAIT_INCAPACITATED))
-		to_chat(owner, "<span class='warning'>You're a little too close to being dead to get down!</span>")
+		to_chat(owner, span_warning("You're a little too close to being dead to get down!"))
 		return
 
 	if(HAS_TRAIT(owner, TRAIT_FLOORED))
-		to_chat(owner, "<span class='warning'>You got to get up before you get down!</span>")
+		to_chat(owner, span_warning("You got to get up before you get down!"))
 		return
 //	var/mob/living/carbon/H = owner
 	if(prob(50))
@@ -216,8 +216,8 @@ Dancer
 	name = "Dwarf"
 	desc = "You are short."
 	value = 0
-	gain_text = "<span class='notice'>You feel short.</span>"
-	lose_text = "<span class='notice'>You don't feel short anymore.</span>"
+	gain_text = span_notice("You feel short.")
+	lose_text = span_notice("You don't feel short anymore.")
 
 /datum/quirk/dwarf/add()
 	if(iswerewolf(quirk_holder))
@@ -281,8 +281,8 @@ Dancer
 	desc = "You love your gender more than the opposite."
 	value = 0
 	mob_trait = TRAIT_HOMOSEXUAL
-	gain_text = "<span class='notice'>You feel gay.</span>"
-	lose_text = "<span class='notice'>You don't feel gay anymore.</span>"
+	gain_text = span_notice("You feel gay.")
+	lose_text = span_notice("You don't feel gay anymore.")
 
 /datum/quirk/foreign
 	name = "Foreigner"
@@ -413,8 +413,8 @@ Dancer
 	name = "Consumption"
 	desc = "Your blood is wrought with flesh eating bacteria that is literally eating you from inside out. You take some damage every random amount of time."
 	value = -4
-	gain_text = "<span class='danger'>You feel injured from inside.</span>"
-	lose_text = "<span class='notice'>You feel healthy again.</span>"
+	gain_text = span_danger("You feel injured from inside.")
+	lose_text = span_notice("You feel healthy again.")
 	medical_record_text = "Patient has aggressive flesh eating bacteria in their boody."
 	allowed_species = list("Vampire", "Ghoul", "Human", "Kuei-Jin")
 
@@ -439,8 +439,8 @@ Dancer
 	name = "Nearsighted"
 	desc = "Your eye illness somehow did not become cured after the Embrace, and you need to wear perception glasses."
 	value = -1
-	gain_text = "<span class='danger'>Things far away from you start looking blurry.</span>"
-	lose_text = "<span class='notice'>You start seeing faraway things normally again.</span>"
+	gain_text = span_danger("Things far away from you start looking blurry.")
+	lose_text = span_notice("You start seeing faraway things normally again.")
 	medical_record_text = "Patient requires prescription glasses in order to counteract nearsightedness."
 
 /datum/quirk/badvision/add()
@@ -466,8 +466,8 @@ Dancer
 	desc = "You don't mind sucking up cold blood from corpses. Though there's rarely that much left."
 	value = 3
 	mob_trait = TRAIT_GULLET
-	gain_text = "<span class='notice'>You feel necroresistant.</span>"
-	lose_text = "<span class='notice'>You don't want necrophilia anymore.</span>"
+	gain_text = span_notice("You feel necroresistant.")
+	lose_text = span_notice("You don't want necrophilia anymore.")
 	allowed_species = list("Vampire")
 
 /datum/quirk/charmer
@@ -475,16 +475,16 @@ Dancer
 	desc = "You charm people around you."
 	value = 2
 	mob_trait = TRAIT_CHARMER
-	gain_text = "<span class='notice'>You feel charismatic.</span>"
-	lose_text = "<span class='notice'>You don't feel charismatic anymore.</span>"
+	gain_text = span_notice("You feel charismatic.")
+	lose_text = span_notice("You don't feel charismatic anymore.")
 	allowed_species = list("Vampire", "Kuei-Jin")
 
 /datum/quirk/tower
 	name = "Tower"
 	desc = "You are tall."
 	value = 0
-	gain_text = "<span class='notice'>You feel tall.</span>"
-	lose_text = "<span class='notice'>You don't feel tall anymore.</span>"
+	gain_text = span_notice("You feel tall.")
+	lose_text = span_notice("You don't feel tall anymore.")
 
 /datum/quirk/tower/add()
 	if(iswerewolf(quirk_holder))
@@ -549,13 +549,13 @@ Dancer
 	desc = "Learn the cryptology of victorian flower language."
 	mob_trait = TRAIT_FLOWER_LANGUAGE
 	value = 0
-	gain_text = "<span class='notice'>You recall the Victorian language of flowers.</span>"
-	lose_text = "<span class='warning'>Your knowledge of the Victorian language of flowers slips away.</span>"
+	gain_text = span_notice("You recall the Victorian language of flowers.")
+	lose_text = span_warning("Your knowledge of the Victorian language of flowers slips away.")
 
 /datum/quirk/flower_language_japanese //ideally this would be a subset of the above somehow but I lack the knowledge
 	name = "Hanakotoba" //sourced from https://hananokotoba.com/sagisou/
 	desc = "Learn the cryptology of japanese flower language."
 	mob_trait = TRAIT_FLOWER_LANGUAGE_JAPANESE
 	value = 0
-	gain_text = "<span class='notice'>You recall the art of Hanakotoba.</span>"
-	lose_text = "<span class='warning'>Your knowledge of Hanakotoba slips away.</span>"
+	gain_text = span_notice("You recall the art of Hanakotoba.")
+	lose_text = span_warning("Your knowledge of Hanakotoba slips away.")

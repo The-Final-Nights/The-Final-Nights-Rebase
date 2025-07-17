@@ -30,7 +30,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 	. = ..()
 	var/list/dat = list()
 	dat += "<div class='statusDisplay'>"
-	dat += "Status: [active ? "<span class='good'>ONLINE</span>" : "<span class='bad'>OFFLINE</span>"]<BR>"
+	dat += "Status: [active ? span_good("ONLINE") : span_bad("OFFLINE")]<BR>"
 	dat += "<A href='byond:?src=[REF(src)];toggle=1'>[active ? "Turn Off" : "Turn On"]</A><BR><BR>"
 	dat += "<A href='byond:?src=[REF(src)];view_callsigns=1'>View Registered Callsigns</A>"
 	dat += "</div>"
@@ -66,20 +66,20 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 	if(href_list["toggle"])
 		if(active)
 			active = FALSE
-			to_chat(usr, "<span class='notice'>You deactivate [src].</span>")
+			to_chat(usr, span_notice("You deactivate [src]."))
 			for(var/obj/item/p25radio/R in connected_radios)
 				if(R.linked_network == p25_network)
 					playsound(R, 'sound/effects/radiodestatic.ogg', 50, FALSE)
 					for(var/mob/M in get_hearers_in_view(1, get_turf(R)))
-						to_chat(M, "<span class='warning'>The [R] emits a burst of static as it loses connection to the transceiver.</span>")
+						to_chat(M, span_warning("The [R] emits a burst of static as it loses connection to the transceiver."))
 		else
 			active = TRUE
-			to_chat(usr, "<span class='notice'>You activate [src].</span>")
+			to_chat(usr, span_notice("You activate [src]."))
 			for(var/obj/item/p25radio/R in connected_radios)
 				if(R.linked_network == p25_network)
 					playsound(R, 'sound/effects/radioonn.ogg', 50, FALSE)
 					for(var/mob/M in get_hearers_in_view(1, get_turf(R)))
-						to_chat(M, "<span class='notice'>The [R] chirps as it establishes connection to the transceiver.</span>")
+						to_chat(M, span_notice("The [R] chirps as it establishes connection to the transceiver."))
 		update_icon()
 
 	if(href_list["view_callsigns"])
@@ -144,7 +144,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 /obj/machinery/p25transceiver/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/p25radio))
 		if(!active)
-			to_chat(user, "<span class='warning'>[src] needs to be powered on first!</span>")
+			to_chat(user, span_warning("[src] needs to be powered on first!"))
 			return
 		var/obj/item/p25radio/radio = W
 		if(radio.linked_network == p25_network)
@@ -152,7 +152,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 			radio.linked_network = null
 			radio.linked_transceiver = null
 			connected_radios -= radio
-			to_chat(user, "<span class='notice'>You unlink [W] from [src].</span>")
+			to_chat(user, span_notice("You unlink [W] from [src]."))
 			return
 
 		var/new_callsign = input(user, "Enter a callsign for this radio:", "Register Callsign") as text|null
@@ -160,13 +160,13 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 			return
 		var/registration_result = register_callsign(radio, new_callsign, user)
 		if(registration_result != "Successfully registered callsign [new_callsign]")
-			to_chat(user, "<span class='warning'>[registration_result]</span>")
+			to_chat(user, span_warning("[registration_result]"))
 			return
 
 		radio.linked_network = p25_network
 		radio.linked_transceiver = src
 		connected_radios |= radio
-		to_chat(user, "<span class='notice'>You link [W] to [src] with callsign [new_callsign].</span>")
+		to_chat(user, span_notice("You link [W] to [src] with callsign [new_callsign]."))
 		playsound(src, 'sound/effects/radioonn.ogg', 25, FALSE)
 	else
 		return ..()
@@ -246,7 +246,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 			radio.linked_network = null
 			radio.linked_transceiver = null
 			transceiver.connected_radios -= radio
-			to_chat(user, "<span class='notice'>You unlink [W] from [src].</span>")
+			to_chat(user, span_notice("You unlink [W] from [src]."))
 			return
 
 		var/new_callsign = input(user, "Enter a callsign for this radio:", "Register Callsign") as text|null
@@ -254,13 +254,13 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 			return
 		var/registration_result = transceiver.register_callsign(radio, new_callsign, user)
 		if(registration_result != "Successfully registered callsign [new_callsign]")
-			to_chat(user, "<span class='warning'>[registration_result]</span>")
+			to_chat(user, span_warning("[registration_result]"))
 			return
 
 		radio.linked_network = transceiver.p25_network
 		radio.linked_transceiver = transceiver
 		transceiver.connected_radios |= radio
-		to_chat(user, "<span class='notice'>You link [W] to [transceiver] with callsign [new_callsign].</span>")
+		to_chat(user, span_notice("You link [W] to [transceiver] with callsign [new_callsign]."))
 		playsound(src, 'sound/effects/radioonn.ogg', 25, FALSE)
 	else
 		return ..()
@@ -371,7 +371,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 	var/current_time = world.time
 	if(radio_emergency_cooldowns[source] && current_time < radio_emergency_cooldowns[source])
 		var/remaining = max(0, round((radio_emergency_cooldowns[source] - current_time)/10, 0.1))
-		to_chat(usr, "<span class='warning'>The transceiver is still reconfiguring from the previous emergency alert! It will be available again in [remaining] seconds.</span>")
+		to_chat(usr, span_warning("The transceiver is still reconfiguring from the previous emergency alert! It will be available again in [remaining] seconds."))
 		return FALSE
 
 	radio_emergency_cooldowns[source] = current_time + emergency_cooldown
@@ -380,7 +380,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 	var/area/A = get_area(source)
 	var/coords = "[T.x], [T.y]"
 	var/prefix = source.get_prefix()
-	var/emergency_msg = "\[<b><span class='red'>[prefix]-[source.callsign]</span></b>\]: <span class='robot'><b><span class='red'>11-99 OFFICER NEEDS ASSISTANCE AT: [A.name] ([coords])</span></b></span>"
+	var/emergency_msg = "\[<b>[span_red("[prefix]-[source.callsign]")]</b>\]: [span_robot("<b><span class='red'>11-99 OFFICER NEEDS ASSISTANCE AT: [A.name] ([coords])")]</b></span>"
 	var/formatted = "[icon2html(source, world)] [emergency_msg]"
 
 	return broadcast_to_network(formatted, "police", 'sound/effects/radioalert.ogg', 100)
@@ -415,7 +415,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 			message = "Burglary at [A.name], [coords]"
 
 	if(should_announce)
-		var/formatted = "[icon2html(src, world)]\[<b>DISPATCH</b>\]: <span class='robot'>[message]</span>"
+		var/formatted = "[icon2html(src, world)]\[<b>DISPATCH</b>\]: [span_robot("[message]")]"
 		broadcast_to_network(formatted, "police", 'sound/effects/radioclick.ogg', 10, TRUE)
 
 /obj/machinery/p25transceiver/police/proc/announce_status(obj/item/p25radio/radio, mob/user, connecting)
@@ -431,7 +431,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 	else
 		return
 
-	var/status_message = "[icon2html(src, world)]\[<b>DISPATCH</b>\]: <span class='robot'>[radio.callsign], [user.real_name], is [connecting ? "10-8" : "10-7"].</span>"
+	var/status_message = "[icon2html(src, world)]\[<b>DISPATCH</b>\]: [span_robot("[radio.callsign], [user.real_name], is [connecting ? "10-8" : "10-7"].")]"
 	broadcast_to_network(status_message, "police")
 
 // ==============================
@@ -466,10 +466,10 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 /obj/item/p25radio/examine(mob/user)
 	. = ..()
 	if(linked_network)
-		. += "<span class='notice'>This radio is linked to the [linked_network] network.</span>"
+		. += span_notice("This radio is linked to the [linked_network] network.")
 	else
-		. += "<span class='notice'>This radio is not linked to any network. Click on a transceiver with it to link it.</span>"
-	. += "<span class='notice'>The radio is currently [powered ? "ON" : "OFF"].</span>"
+		. += span_notice("This radio is not linked to any network. Click on a transceiver with it to link it.")
+	. += span_notice("The radio is currently [powered ? "ON" : "OFF"].")
 
 /obj/item/p25radio/proc/register_callsign(callsign)
 	if(!callsign || !istext(callsign))
@@ -520,9 +520,9 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 
 /obj/item/p25radio/proc/format_message(message)
 	if(!callsign)
-		return "[icon2html(src, world)] \[UNREGISTERED\]: <span class='robot'>\"[message]\"</span>"
+		return "[icon2html(src, world)] \[UNREGISTERED\]: [span_robot("\"[message]\"")]"
 	var/prefix = get_prefix()
-	return "[icon2html(src, world)] \[<b>[prefix]-[callsign]</b>\]: <span class='robot'>\"[message]\"</span>"
+	return "[icon2html(src, world)] \[<b>[prefix]-[callsign]</b>\]: [span_robot("\"[message]\"")]"
 
 /obj/item/p25radio/proc/can_receive(atom/movable/speaker, message_mods)
 	if(!powered)
@@ -540,13 +540,13 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 
 	if(currently_restricted && !in_restricted_area)
 		for(var/mob/M in get_hearers_in_view(1, get_turf(src)))
-			to_chat(M, "<span class='warning'>The [src] emits a burst of static as it loses connection to the transceiver.</span>")
+			to_chat(M, span_warning("The [src] emits a burst of static as it loses connection to the transceiver."))
 		playsound(src, 'sound/effects/radiodestatic.ogg', 50, FALSE)
 		in_restricted_area = TRUE
 		return FALSE
 	else if(!currently_restricted && in_restricted_area)
 		for(var/mob/M in get_hearers_in_view(1, get_turf(src)))
-			to_chat(M, "<span class='notice'>The [src] chirps as it establishes connection to the transceiver.</span>")
+			to_chat(M, span_notice("The [src] chirps as it establishes connection to the transceiver."))
 		playsound(src, 'sound/effects/radioonn.ogg', 50, FALSE)
 		in_restricted_area = FALSE
 
@@ -566,7 +566,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 /obj/item/p25radio/proc/p25_talk_into(atom/movable/speaker, message, channel, list/spans, datum/language/language, list/message_mods = list())
 	if(!linked_network)
 		if(ismob(speaker))
-			to_chat(speaker, "<span class='warning'>The radio fails to transmit because it is not linked to a transceiver.</span>")
+			to_chat(speaker, span_warning("The radio fails to transmit because it is not linked to a transceiver."))
 		return NONE
 
 	if(!ismob(speaker))
@@ -582,14 +582,14 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 
 	if(!check_signal())
 		if(!is_in_valid_area(src))
-			to_chat(speaker, "<span class='warning'>The radio fails to transmit from this location!</span>")
+			to_chat(speaker, span_warning("The radio fails to transmit from this location!"))
 		else if(linked_transceiver && !linked_transceiver.active)
-			to_chat(speaker, "<span class='warning'>The radio fails to transmit because the transceiver has been disabled.</span>")
+			to_chat(speaker, span_warning("The radio fails to transmit because the transceiver has been disabled."))
 		return ITALICS | REDUCE_RANGE
 
 	if(isliving(speaker))
 		if(L.get_item_by_slot(ITEM_SLOT_BELT) == src || L.get_item_by_slot(ITEM_SLOT_EARS) == src || L.get_active_held_item() == src || L.get_inactive_held_item() == src)
-			L.visible_message("<span class='notice'>[L] talks into the [src].</span>", "<span class='notice'>You talk into the [src].</span>")
+			L.visible_message(span_notice("[L] talks into the [src]."), span_notice("You talk into the [src]."))
 		else
 			return FALSE
 
@@ -636,7 +636,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	powered = !powered
-	to_chat(user, "<span class='notice'>You turn the radio [powered ? "ON" : "OFF"].</span>")
+	to_chat(user, span_notice("You turn the radio [powered ? "ON" : "OFF"]."))
 	playsound(src, 'sound/effects/radioonn.ogg', 100, FALSE)
 
 /obj/item/p25radio/Moved()
@@ -673,8 +673,8 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 
 /obj/item/p25radio/police/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Radio receiving is [receiving ? "enabled" : "disabled"]</span>"
-	. += "<span class='notice'>Dispatch monitoring is [dispatch_monitoring ? "enabled" : "disabled"]</span>"
+	. += span_notice("Radio receiving is [receiving ? "enabled" : "disabled"]")
+	. += span_notice("Dispatch monitoring is [dispatch_monitoring ? "enabled" : "disabled"]")
 	var/turf/T = get_turf(user)
 	if(T)
 		. += "<b>Location:</b> [T.x]:[T.y]"
@@ -706,7 +706,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 	switch(choices[choice])
 		if("power")
 			powered = !powered
-			to_chat(user, "<span class='notice'>You turn the radio [powered ? "ON" : "OFF"].</span>")
+			to_chat(user, span_notice("You turn the radio [powered ? "ON" : "OFF"]."))
 		if("dispatch")
 			toggle_dispatch(user)
 		if("emergency")
@@ -716,27 +716,27 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 
 /obj/item/p25radio/police/proc/toggle_receiving(mob/user)
 	receiving = !receiving
-	to_chat(user, "<span class='notice'>You [receiving ? "enable" : "disable"] radio receiving.</span>")
+	to_chat(user, span_notice("You [receiving ? "enable" : "disable"] radio receiving."))
 
 /obj/item/p25radio/police/proc/toggle_dispatch(mob/user)
 	dispatch_monitoring = !dispatch_monitoring
-	to_chat(user, "<span class='notice'>You [dispatch_monitoring ? "enable" : "disable"] dispatch monitoring.</span>")
+	to_chat(user, span_notice("You [dispatch_monitoring ? "enable" : "disable"] dispatch monitoring."))
 
 /obj/item/p25radio/police/proc/trigger_emergency(mob/user)
 	if(!linked_network || linked_network != "police")
-		to_chat(user, "<span class='warning'>Emergency alert only works on police network!</span>")
+		to_chat(user, span_warning("Emergency alert only works on police network!"))
 		return
 
 	if(!check_signal())
 		if(!is_in_valid_area(src))
-			to_chat(user, "<span class='warning'>The radio fails to transmit from this location!</span>")
+			to_chat(user, span_warning("The radio fails to transmit from this location!"))
 		else if(linked_transceiver && !linked_transceiver.active)
-			to_chat(user, "<span class='warning'>The radio crackles with static as it loses connection to the [get_network_display_name()].</span>")
+			to_chat(user, span_warning("The radio crackles with static as it loses connection to the [get_network_display_name()]."))
 		return
 
 	var/obj/machinery/p25transceiver/police/police_transceiver = linked_transceiver
 	if(!istype(police_transceiver))
-		to_chat(user, "<span class='warning'>Emergency alert only works with police transceivers!</span>")
+		to_chat(user, span_warning("Emergency alert only works with police transceivers!"))
 		return
 
 	if(!police_transceiver.broadcast_emergency(src))
