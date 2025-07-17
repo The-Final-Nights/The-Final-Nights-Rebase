@@ -608,7 +608,7 @@
 
 /datum/chi_discipline/ghost_flame_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
 	. = ..()
-	var/limit = min(2, level) + caster.social + caster.more_companions - 1
+	var/limit = min(2, level) + caster.trait_holder.get_stat(ST_TRAIT_LEADERSHIP)
 	if(length(caster.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/random_beast = pick(caster.beastmaster)
 		random_beast.death()
@@ -1123,8 +1123,8 @@
 
 /datum/chi_discipline/hellweaving/activate(mob/living/target, mob/living/carbon/human/caster)
 	. = ..()
-	var/mypower = caster.trait_holder.get_stat(ST_TRAIT_CHARISMA)
-	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
+	var/mypower = caster.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if(theirpower >= mypower)
 		to_chat(caster, "<span class='warning'>[target]'s mind is too powerful to cause flashbacks for!</span>")
 		return
@@ -1221,7 +1221,7 @@
 	caster.emote("scream")
 	playsound(caster.loc, sound_gender, 100, FALSE)
 	var/mypower = caster.trait_holder.get_stat(ST_TRAIT_CHARISMA)
-	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if(theirpower >= mypower)
 		to_chat(caster, "<span class='warning'>[target]'s mind is too powerful to affect!</span>")
 		return
