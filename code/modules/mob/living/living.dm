@@ -834,7 +834,7 @@
 /mob/living/proc/updatehealth()
 	if(HAS_TRAIT(src, TRAIT_GODMODE))
 		return
-	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss())
+	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getAggLoss()) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	update_stat()
 	med_hud_set_health()
 	med_hud_set_status()
@@ -941,6 +941,7 @@
 	var/burn_to_heal = heal_to - getFireLoss()
 	var/oxy_to_heal = heal_to - getOxyLoss()
 	var/tox_to_heal = heal_to - getToxLoss()
+	var/agg_to_heal = heal_to - getAggLoss() // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 	if(brute_to_heal < 0)
 		adjustBruteLoss(brute_to_heal, updating_health = FALSE)
 	if(burn_to_heal < 0)
@@ -949,6 +950,10 @@
 		adjustOxyLoss(oxy_to_heal, updating_health = FALSE)
 	if(tox_to_heal < 0)
 		adjustToxLoss(tox_to_heal, updating_health = FALSE, forced = TRUE)
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(agg_to_heal < 0)
+		adjustAggLoss(agg_to_heal, updating_health = FALSE)
+	// DARKPACK EDIT ADDITION END
 
 	// Run updatehealth once to set health for the revival check
 	updatehealth()
@@ -988,6 +993,10 @@
 		setFireLoss(0, updating_health = FALSE, forced = TRUE)
 	if(heal_flags & HEAL_STAM)
 		setStaminaLoss(0, updating_stamina = FALSE, forced = TRUE)
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(heal_flags & HEAL_AGGRAVATED)
+		setAggLoss(0, updating_health = FALSE, forced = TRUE)
+	// DARKPACK EDIT ADDITION END
 
 	// I don't really care to keep this under a flag
 	set_nutrition(NUTRITION_LEVEL_FED + 50)
@@ -2080,8 +2089,9 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 			OXY:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=oxygen' id='oxygen'>[getOxyLoss()]</a>
 			BRAIN:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brain' id='brain'>[get_organ_loss(ORGAN_SLOT_BRAIN)]</a>
 			STAMINA:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=stamina' id='stamina'>[getStaminaLoss()]</a>
+			AGGRAVATED:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=aggravated' id='aggravated'>[getAggLoss()]</a>
 		</font>
-	"}
+	"} // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 
 /mob/living/vv_get_dropdown()
 	. = ..()

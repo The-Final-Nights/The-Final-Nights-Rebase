@@ -58,7 +58,7 @@
 		var/dy = target.y - loc.y
 		var/scale = adjusted_jump_range / distance
 		adjusted_target = locate(loc.x + round(dx * scale), loc.y + round(dy * scale), loc.z)
-	playsound(loc, 'code/modules/wod13/sounds/jump_neutral.ogg', 50, TRUE)
+	playsound(loc, 'modular_darkpack/modules/deprecated/sounds/jump_neutral.ogg', 50, TRUE)
 
 	var/atom/movable/thrown_thing = src
 
@@ -72,7 +72,7 @@
 
 		newtonian_move(get_dir(adjusted_target, src))
 		thrown_thing.safe_throw_at(adjusted_target, thrown_thing.throw_range, thrown_thing.throw_speed + power_throw, src, null, null, null, move_force, spin = FALSE)
-		visible_message("<span class='danger'>[src] jumps towards [adjusted_target].</span>")
+		visible_message(span_danger("[src] jumps towards [adjusted_target]."))
 
 
 
@@ -84,6 +84,6 @@
 
 //		newtonian_move(get_dir(target, src))
 //		thrown_thing.safe_throw_at(target, thrown_thing.throw_range, thrown_thing.throw_speed + power_throw, src, null, null, null, move_force)
-//		visible_message("<span class='danger'>[src] jumps towards [target].</span>")
+//		visible_message(span_danger("[src] jumps towards [target]."))
 
 		last_jump_time = current_time

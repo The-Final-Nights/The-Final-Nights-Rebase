@@ -67,13 +67,13 @@ SUBSYSTEM_DEF(zombiepool)
 	var/total_health = round((100/initial(punches_to_break))*punches_to_break)
 	switch(total_health)
 		if(0 to 25)
-			. += "<span class='warning'><b>Density: [punches_to_break]/[initial(punches_to_break)]</b></span>"
+			. += span_warning("<b>Density: [punches_to_break]/[initial(punches_to_break)]</b>")
 		if(26 to 50)
-			. += "<span class='warning'>Density: [punches_to_break]/[initial(punches_to_break)]</span>"
+			. += span_warning("Density: [punches_to_break]/[initial(punches_to_break)]")
 		if(51 to 75)
-			. += "<span class='notice'>Density: [punches_to_break]/[initial(punches_to_break)]</span>"
+			. += span_notice("Density: [punches_to_break]/[initial(punches_to_break)]")
 		if(76 to 100)
-			. += "<span class='notice'><b>Density: [punches_to_break]/[initial(punches_to_break)]</b></span>"
+			. += span_notice("<b>Density: [punches_to_break]/[initial(punches_to_break)]</b>")
 
 /obj/structure/vampgate/Initialize(mapload)
 	. = ..()
@@ -89,10 +89,10 @@ SUBSYSTEM_DEF(zombiepool)
 					density = TRUE
 					icon_state = "gate"
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
-				to_chat(user, "<span class='notice'>You repair some dents on [src].</span>")
+				to_chat(user, span_notice("You repair some dents on [src]."))
 				repairing = FALSE
 			else
-				to_chat(user, "<span class='warning'>You failed to repair [src].</span>")
+				to_chat(user, span_warning("You failed to repair [src]."))
 				repairing = FALSE
 		return
 	else

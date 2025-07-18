@@ -17,7 +17,7 @@
 	if(cooldown < world.time - 50)
 		var/hryuk = pick('modular_darkpack/modules/toys/sounds/pig1.ogg', 'modular_darkpack/modules/toys/sounds/pig2.ogg', 'modular_darkpack/modules/toys/sounds/pig3.ogg')
 		playsound(src, hryuk, 70, TRUE)
-		user.visible_message("<span class='notice'>[user] pushes the rubberpig.</span>", "<span class='notice'>You push the rubberpig.</span>")
+		user.visible_message(span_notice("[user] pushes the rubberpig."), span_notice("You push the rubberpig."))
 		cooldown = world.time
 
 /obj/item/toy/rubberpig/MouseDrop(atom/over_object)
@@ -28,10 +28,10 @@
 	if(Adjacent(usr))
 		if(over_object == M && loc != M)
 			M.put_in_hands(src)
-			to_chat(usr, "<span class='notice'>You pick up the rubberpig.</span>")
+			to_chat(usr, span_notice("You pick up the rubberpig."))
 		else if(istype(over_object, /atom/movable/screen/inventory/hand))
 			var/atom/movable/screen/inventory/hand/H = over_object
 			if(M.putItemFromInventoryInHandIfPossible(src, H.held_index))
-				to_chat(usr, "<span class='notice'>You pick up the rubberpig.</span>")
+				to_chat(usr, span_notice("You pick up the rubberpig."))
 	else
 		return

@@ -64,7 +64,7 @@ SUBSYSTEM_DEF(masquerade)
 						H.last_nonraid = world.time
 						H.warrant = TRUE
 						SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/humanity_loss.ogg', 0, 0, 75))
-						to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+						to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 //Spotted body -25
 //Blood -5 for each
 //Masquerade violation -50

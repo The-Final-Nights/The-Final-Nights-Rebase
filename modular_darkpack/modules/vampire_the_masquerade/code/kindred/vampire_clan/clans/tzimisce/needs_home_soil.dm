@@ -49,7 +49,7 @@
 
 	// Deal 25% of their health in clone damage and reduce their bloodpool size by 3, to a minimum of 8
 	var/mob/living/lacking_soil = parent
-	lacking_soil.apply_damage(0.25 * lacking_soil.getMaxHealth(), CLONE)
+	lacking_soil.apply_damage(0.25 * lacking_soil.getMaxHealth(), AGGRAVATED)
 	// Currently nonfunctional, will be fixed in the splat rework
 	lacking_soil.maxbloodpool = max(lacking_soil.maxbloodpool - 3, 8)
 	lacking_soil.bloodpool = clamp(lacking_soil.bloodpool - 3, 0, lacking_soil.maxbloodpool)

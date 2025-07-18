@@ -57,17 +57,17 @@
 	var/difference = (H.lockpicking * 2 + H.dexterity) - lockpick_difficulty //Lower number = higher difficulty
 	switch(difference) //Because rand(1,20) always adds a minimum of 1 we take that into consideration for our theoretical roll ranges, which really makes it a random range of 19.
 		if(-INFINITY to -11) //Roll can never go above 10 (-11 + 20 = 9), impossible to lockpick.
-			message = "<span class='warning'>You don't have any chance of lockpicking this with your current skills!</span>"
+			message = span_warning("You don't have any chance of lockpicking this with your current skills!")
 		if(-10 to -7)
 			message = "<span class='warning'>This door looks extremely complicated. You figure you will have to be lucky to break it open."
 		if(-6 to -3)
 			message = "<span class='notice'>This door looks very complicated. You might need a few tries to lockpick it."
 		if(-2 to 0) //Only 3 numbers here instead of 4.
-			message = "<span class='notice'>This door looks mildly complicated. It shouldn't be too hard to lockpick it.</span>"
+			message = span_notice("This door looks mildly complicated. It shouldn't be too hard to lockpick it.")
 		if(1 to 4) //Impossible to break the lockpick from here on because minimum rand(1,20) will always move the value to 2.
-			message = "<span class='nicegreen'>This door is somewhat simple. It should be pretty easy for you to lockpick it.</span>"
+			message = span_nicegreen("This door is somewhat simple. It should be pretty easy for you to lockpick it.")
 		if(5 to INFINITY) //Becomes guaranteed to lockpick at 9.
-			message = "<span class='nicegreen'>This door is really simple to you. It should be very easy to lockpick it.</span>"
+			message = span_nicegreen("This door is really simple to you. It should be very easy to lockpick it.")
 	. += "[message]"
 	if(H.lockpicking >= 5) //The difference between a 1/19 and a 4/19 is about 4x. An expert in lockpicks is more discerning.
 		//Converting the difference into a number that can be divided by the max value of the rand() used in lockpicking calculations.
@@ -80,13 +80,13 @@
 		//I'm sure there has to be a better method for this because it's ugly, but it works.
 		//Putting a condition here to avoid dividing 0.
 		var/odds = value ? clamp((value/max_rand_value), 0, 1) : 0
-		. += "<span class='notice'>As an expert in lockpicking, you estimate that you have a [round(odds*100, 1)]% chance to lockpick this door successfully.</span>"
+		. += span_notice("As an expert in lockpicking, you estimate that you have a [round(odds*100, 1)]% chance to lockpick this door successfully.")
 
-/obj/structure/vampdoor/MouseDrop_T(atom/dropping, mob/user, params)
+/obj/structure/vampdoor/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
 
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of windows & we don't want to add to their init times
-	LoadComponent(/datum/component/leanable, dropping)
+	LoadComponent(/datum/component/leanable, dropped)
 
 /obj/structure/vampdoor/proc/proc_unlock(method) //I am here so that dwelling doors can call me to properly process their alarms.
 	return
@@ -124,7 +124,7 @@
 	if(locked)
 		if(N.a_intent != INTENT_HARM)
 			playsound(src, lock_sound, 75, TRUE)
-			to_chat(user, "<span class='warning'>[src] is locked!</span>")
+			to_chat(user, span_warning("[src] is locked!"))
 		else
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
@@ -142,7 +142,7 @@
 						pixel_w = pixel_w+rand(-1, 1)
 						playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 50, TRUE)
 						proc_unlock(5)
-						to_chat(user, "<span class='warning'>[src] is locked, and you aren't strong enough to break it down!</span>")
+						to_chat(user, span_warning("[src] is locked, and you aren't strong enough to break it down!"))
 						spawn(2)
 							pixel_z = initial(pixel_z)
 							pixel_w = initial(pixel_w)
@@ -150,7 +150,7 @@
 					pixel_z = pixel_z+rand(-1, 1)
 					pixel_w = pixel_w+rand(-1, 1)
 					playsound(src, 'modular_darkpack/modules/deprecated/sounds/knock.ogg', 75, TRUE)
-					to_chat(user, "<span class='warning'>[src] is locked!</span>")
+					to_chat(user, span_warning("[src] is locked!"))
 					spawn(2)
 						pixel_z = initial(pixel_z)
 						pixel_w = initial(pixel_w)
@@ -162,14 +162,14 @@
 		density = FALSE
 		opacity = FALSE
 		layer = OPEN_DOOR_LAYER
-		to_chat(user, "<span class='notice'>You open [src].</span>")
+		to_chat(user, span_notice("You open [src]."))
 		closed = FALSE
 		SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN)
 	else
 		for(var/mob/living/L in src.loc)
 			if(L)
 				playsound(src, lock_sound, 75, TRUE)
-				to_chat(user, "<span class='warning'>[L] is preventing you from closing [src].</span>")
+				to_chat(user, span_warning("[L] is preventing you from closing [src]."))
 				return
 		playsound(src, close_sound, 75, TRUE)
 		icon_state = "[baseicon]-1"
@@ -177,7 +177,7 @@
 		if(!glass)
 			opacity = TRUE
 		layer = ABOVE_ALL_MOB_LAYER
-		to_chat(user, "<span class='notice'>You close [src].</span>")
+		to_chat(user, span_notice("You close [src]."))
 		closed = TRUE
 
 /obj/structure/vampdoor/attackby(obj/item/W, mob/living/user, params)
@@ -211,26 +211,26 @@
 			if(do_mob(user, src, (lockpick_timer - total_lockpicking * 2) SECONDS))
 				var/roll = rand(1, 20) + (total_lockpicking * 2 + user.get_total_dexterity()) - lockpick_difficulty
 				if(roll <=1)
-					to_chat(user, "<span class='warning'>Your lockpick broke!</span>")
+					to_chat(user, span_warning("Your lockpick broke!"))
 					qdel(W)
 					hacking = FALSE
 				if(roll >=10)
-					to_chat(user, "<span class='notice'>You pick the lock.</span>")
+					to_chat(user, span_notice("You pick the lock."))
 					locked = FALSE
 					hacking = FALSE
 					return
 
 				else
-					to_chat(user, "<span class='warning'>You failed to pick the lock.</span>")
+					to_chat(user, span_warning("You failed to pick the lock."))
 					hacking = FALSE
 					return
 			else
-				to_chat(user, "<span class='warning'>You failed to pick the lock.</span>")
+				to_chat(user, span_warning("You failed to pick the lock."))
 				hacking = FALSE
 				return
 		else
 			if (closed && lock_id) //yes, this is a thing you can extremely easily do in real life... FOR DOORS WITH LOCKS!
-				to_chat(user, "<span class='notice'>You re-lock the door with your lockpick.</span>")
+				to_chat(user, span_notice("You re-lock the door with your lockpick."))
 				locked = TRUE
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
 				return

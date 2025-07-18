@@ -10,10 +10,10 @@
 	if(!L.prepared_to_jump)
 		L.prepared_to_jump = TRUE
 		icon_state = "act_jump_on"
-		to_chat(usr, "<span class='notice'>You prepare to jump.</span>")
+		to_chat(usr, span_notice("You prepare to jump."))
 	else
 		L.prepared_to_jump = FALSE
 		icon_state = "act_jump_off"
-		to_chat(usr, "<span class='notice'>You are not prepared to jump anymore.</span>")
+		to_chat(usr, span_notice("You are not prepared to jump anymore."))
 
 	. = ..()

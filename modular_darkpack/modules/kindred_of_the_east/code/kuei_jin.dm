@@ -16,7 +16,7 @@
 	if(!iscathayan(src))
 		if((yang_chi == 0 && max_yang_chi != 0) && (yang_chi == 0 && max_yang_chi != 0))
 			to_chat(src, "<span clas='warning'>Your vital energies seem to disappear...</span>")
-			adjustCloneLoss(5, TRUE)
+			adjustAggLoss(5, TRUE)
 		else if(yang_chi == 0 && max_yang_chi != 0)
 			if(max_yin_chi != 0)
 				to_chat(src, "<span clas='warning'>You lack dynamic part of life...</span>")
@@ -24,7 +24,7 @@
 				adjustFireLoss(5, TRUE)
 			else
 				to_chat(src, "<span clas='warning'>Your vital energies seem to disappear...</span>")
-				adjustCloneLoss(5, TRUE)
+				adjustAggLoss(5, TRUE)
 		else if(yin_chi == 0 && max_yin_chi != 0)
 			if(max_yang_chi != 0)
 				to_chat(src, "<span clas='warning'>You lack static part of life...</span>")
@@ -32,7 +32,7 @@
 				adjustFireLoss(5, TRUE)
 			else
 				to_chat(src, "<span clas='warning'>Your vital energies seem to disappear...</span>")
-				adjustCloneLoss(5, TRUE)
+				adjustAggLoss(5, TRUE)
 
 	if(!iscathayan(src))
 		if (COOLDOWN_FINISHED(src, chi_restore))
@@ -310,10 +310,10 @@
 										if(H.killed_count >= 5)
 											H.warrant = TRUE
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 										else
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (corpse)</b></span>")
+											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
 				if(I)
 					if(I.masquerade_violating)
@@ -329,17 +329,17 @@
 											if(H.killed_count >= 5)
 												H.warrant = TRUE
 												SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-												to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+												to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 											else
 												SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-												to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (equipment)</b></span>")
+												to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 
 	if(H.key && (H.stat <= HARD_CRIT) && H.mind.dharma)
 		var/datum/preferences/P = GLOB.preferences_datums[ckey(H.key)]
 		if(P)
 			if(H.mind.dharma.level < 1)
 				H.enter_frenzymod()
-				to_chat(H, "<span class='userdanger'>You have lost control of the P'o within you, and it has taken your body. Stay closer to your Dharma next time.</span>")
+				to_chat(H, span_userdanger("You have lost control of the P'o within you, and it has taken your body. Stay closer to your Dharma next time."))
 				H.ghostize(FALSE)
 				P.reason_of_death = "Lost control to the P'o ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
 				return
@@ -436,7 +436,7 @@
 
 /datum/action/breathe_chi/Trigger()
 	if(!COOLDOWN_FINISHED(src, use))
-		to_chat(usr, "<span class='warning'>You need to wait [DisplayTimeText(COOLDOWN_TIMELEFT(src, use))] to Inhale Chi again!</span>")
+		to_chat(usr, span_warning("You need to wait [DisplayTimeText(COOLDOWN_TIMELEFT(src, use))] to Inhale Chi again!"))
 		return
 	if(!istype(owner, /mob/living/carbon/human))
 		return
@@ -447,7 +447,7 @@
 	for (var/mob/living/adding_victim in oviewers(3, kueijin))
 		victims_list += adding_victim
 	if(!length(victims_list))
-		to_chat(owner, "<span class='warning'>There's no one with <b>Chi</b> around...</span>")
+		to_chat(owner, span_warning("There's no one with <b>Chi</b> around..."))
 		return
 
 	var/mob/living/victim
@@ -475,20 +475,20 @@
 	if ((iskindred(victim) || isghoul(victim)) && (victim.bloodpool > 0)) //drain vitae bloodpool
 		victim.bloodpool = max(0, victim.bloodpool - 1)
 		kueijin.yin_chi = min(kueijin.yin_chi + 1, kueijin.max_yin_chi)
-		to_chat(kueijin, "<span class='medradio'>Some bitter <b>Yin</b> Chi enters you...</span>")
+		to_chat(kueijin, span_medradio("Some bitter <b>Yin</b> Chi enters you..."))
 	else if ((isgarou(victim) || iswerewolf(victim)) && has_gnosis) //drain gnosis
 		adjust_gnosis(-1, victim, sound = TRUE)
 		kueijin.yang_chi = min(kueijin.yang_chi + 1, kueijin.max_yang_chi)
-		to_chat(kueijin, "<span class='engradio'>Some fiery <b>Yang</b> Chi enters you...</span>")
+		to_chat(kueijin, span_engradio("Some fiery <b>Yang</b> Chi enters you..."))
 	else if ((victim.yin_chi > 0) || (victim.yang_chi > 0)) //normally drain chi from humans and simplemobs and kuei-jin
 		if ((prob(50) || victim.yang_chi == 0) && (victim.yin_chi > 0))
 			victim.yin_chi = max(0, victim.yin_chi - 1)
 			kueijin.yin_chi = min(kueijin.yin_chi + 1, kueijin.max_yin_chi)
-			to_chat(kueijin, "<span class='medradio'>Some <b>Yin</b> Chi enters you...</span>")
+			to_chat(kueijin, span_medradio("Some <b>Yin</b> Chi enters you..."))
 		else if ((victim.yang_chi > 0))
 			victim.yang_chi = max(0, victim.yang_chi - 1)
 			kueijin.yang_chi = min(kueijin.yang_chi + 1, kueijin.max_yang_chi)
-			to_chat(kueijin, "<span class='engradio'>Some <b>Yang</b> Chi enters you...</span>")
+			to_chat(kueijin, span_engradio("Some <b>Yang</b> Chi enters you..."))
 	else
 		return
 
@@ -519,23 +519,23 @@
 
 /datum/action/area_chi/Trigger()
 	if(!COOLDOWN_FINISHED(src, use))
-		to_chat(usr, "<span class='warning'>You need to wait [DisplayTimeText(COOLDOWN_TIMELEFT(src, use))] to gather Chi again!</span>")
+		to_chat(usr, span_warning("You need to wait [DisplayTimeText(COOLDOWN_TIMELEFT(src, use))] to gather Chi again!"))
 		return
 	if(!istype(owner, /mob/living/carbon/human))
 		return
 
 	var/mob/living/carbon/human/kueijin = usr
 
-	to_chat(usr, "<span class='notify'>You begin to gather <b>Chi</b> from your environment...</span>")
+	to_chat(usr, span_notify("You begin to gather <b>Chi</b> from your environment..."))
 	if (do_after(kueijin, 15 SECONDS))
 		COOLDOWN_START(src, use, cooldown)
 		var/area/draining_area = get_area(kueijin)
 		if(draining_area.yang_chi)
 			kueijin.yang_chi = min(kueijin.yang_chi + draining_area.yang_chi, kueijin.max_yang_chi)
-			to_chat(kueijin, "<span class='engradio'>Some <b>Yang</b> Chi energy enters you...</span>")
+			to_chat(kueijin, span_engradio("Some <b>Yang</b> Chi energy enters you..."))
 		if(draining_area.yin_chi)
 			kueijin.yin_chi = min(kueijin.yin_chi + draining_area.yin_chi, kueijin.max_yin_chi)
-			to_chat(kueijin, "<span class='medradio'>Some <b>Yin</b> Chi energy enters you...</span>")
+			to_chat(kueijin, span_medradio("Some <b>Yin</b> Chi energy enters you..."))
 
 		button.color = "#970000"
 		animate(button, color = "#ffffff", time = cooldown)
@@ -558,17 +558,17 @@
 	if(HAS_TRAIT(owner, TRAIT_TORPOR))
 		return
 	if (!kueijin.yin_chi > 0)
-		to_chat(kueijin, "<span class='warning'>You don't have enough Yin Chi to heal!</span>")
+		to_chat(kueijin, span_warning("You don't have enough Yin Chi to heal!"))
 		return
 	if (!kueijin.mind?.dharma)
 		return
 	if (!COOLDOWN_FINISHED(kueijin.mind.dharma, chi_heal))
-		to_chat(kueijin, "<span class='warning'>You need to wait [DisplayTimeText(COOLDOWN_TIMELEFT(kueijin.mind.dharma, chi_heal))] before you can heal again!</span>")
+		to_chat(kueijin, span_warning("You need to wait [DisplayTimeText(COOLDOWN_TIMELEFT(kueijin.mind.dharma, chi_heal))] before you can heal again!"))
 		return
 	COOLDOWN_START(kueijin.mind.dharma, chi_heal, cooldown)
 
 	SEND_SOUND(usr, sound('modular_darkpack/modules/deprecated/sounds/chi_use.ogg', 0, 0, 75))
-	kueijin.visible_message("<span class='warning'>Some of [kueijin]'s visible injuries disappear!</span>", "<span class='warning'>Some of your injuries disappear!</span>")
+	kueijin.visible_message(span_warning("Some of [kueijin]'s visible injuries disappear!"), span_warning("Some of your injuries disappear!"))
 	kueijin.mind.dharma?.animated = "Yin"
 	kueijin.skin_tone = get_vamp_skin_color(kueijin.skin_tone)
 	kueijin.dna?.species.brutemod = initial(kueijin.dna?.species.brutemod)
@@ -592,7 +592,7 @@
 
 	var/heal_level = min(kueijin.mind.dharma.level, 4)
 	kueijin.heal_ordered_damage(20 * heal_level, list(OXY, STAMINA, BRUTE, TOX))
-	kueijin.heal_ordered_damage(5 * heal_level, list(BURN, CLONE))
+	kueijin.heal_ordered_damage(5 * heal_level, list(BURN, AGGRAVATED))
 	kueijin.blood_volume = min(kueijin.blood_volume + 56, 560)
 	kueijin.yin_chi = max(0, kueijin.yin_chi - 1)
 
@@ -617,17 +617,17 @@
 	if(HAS_TRAIT(owner, TRAIT_TORPOR))
 		return
 	if (!kueijin.yang_chi > 0)
-		to_chat(kueijin, "<span class='warning'>You don't have enough Yang Chi to heal!</span>")
+		to_chat(kueijin, span_warning("You don't have enough Yang Chi to heal!"))
 		return
 	if (!kueijin.mind?.dharma)
 		return
 	if (!COOLDOWN_FINISHED(kueijin.mind.dharma, chi_heal))
-		to_chat(kueijin, "<span class='warning'>You need to wait [DisplayTimeText(COOLDOWN_TIMELEFT(kueijin.mind.dharma, chi_heal))] before you can heal again!</span>")
+		to_chat(kueijin, span_warning("You need to wait [DisplayTimeText(COOLDOWN_TIMELEFT(kueijin.mind.dharma, chi_heal))] before you can heal again!"))
 		return
 	COOLDOWN_START(kueijin.mind.dharma, chi_heal, cooldown)
 
 	SEND_SOUND(usr, sound('modular_darkpack/modules/deprecated/sounds/chi_use.ogg', 0, 0, 75))
-	kueijin.visible_message("<span class='warning'>Some of [kueijin]'s visible injuries disappear!</span>", "<span class='warning'>Some of your injuries disappear!</span>")
+	kueijin.visible_message(span_warning("Some of [kueijin]'s visible injuries disappear!"), span_warning("Some of your injuries disappear!"))
 	kueijin.mind.dharma?.animated = "Yang"
 	kueijin.skin_tone = kueijin.mind.dharma?.initial_skin_color
 	kueijin.dna?.species.brutemod = 1
@@ -651,7 +651,7 @@
 
 	var/heal_level = min(kueijin.mind.dharma.level, 4)
 	kueijin.heal_ordered_damage(10 * heal_level, list(OXY, STAMINA, BRUTE, TOX))
-	kueijin.heal_ordered_damage(2.5 * heal_level, list(BURN, CLONE))
+	kueijin.heal_ordered_damage(2.5 * heal_level, list(BURN, AGGRAVATED))
 	kueijin.blood_volume = min(kueijin.blood_volume + 28, 560)
 	kueijin.yang_chi = max(0, kueijin.yang_chi - 1)
 

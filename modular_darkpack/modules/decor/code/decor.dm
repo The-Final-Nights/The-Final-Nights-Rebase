@@ -328,14 +328,10 @@
 			if(V.upper)
 				icon_state = "[initial(icon_state)]-snow"
 
-/* Dwarfs arent real
-/obj/structure/hydrant/MouseDrop_T(atom/dropping, mob/user, params)
-	. = ..()
-
+/obj/structure/hydrant/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(HAS_TRAIT(user, TRAIT_DWARF)) //Only lean on the fire hydrant if we are smol
 		//Adds the component only once. We do it here & not in Initialize(mapload) because there are tons of windows & we don't want to add to their init times
-		LoadComponent(/datum/component/leanable, dropping)
-*/
+		LoadComponent(/datum/component/leanable, dropped)
 
 /obj/structure/vampcar
 	name = "car"
@@ -606,7 +602,7 @@
 	if(istype(I, /obj/item/stack/dollar))
 		var/obj/item/stack/dollar/dolla = I
 		stored_money += dolla.get_item_credit_value()
-		to_chat(user, "<span class='notice'>You insert [dolla.get_item_credit_value()] dollars into [src].</span>")
+		to_chat(user, span_notice("You insert [dolla.get_item_credit_value()] dollars into [src]."))
 		qdel(I)
 		say("Payment received.")
 	if(istype(I, /obj/item/gas_can))
@@ -617,7 +613,7 @@
 			G.stored_gasoline = min(1000, G.stored_gasoline+gas_to_dispense)
 			stored_money = max(0, stored_money-money_to_spend)
 			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 50, TRUE)
-			to_chat(user, "<span class='notice'>You fill [I].</span>")
+			to_chat(user, span_notice("You fill [I]."))
 			say("Gas filled.")
 */
 
@@ -644,16 +640,16 @@
 		if(get_dist(src, over_object) < 2)
 			var/obj/structure/bloodextractor/V = over_object
 			if(!buckled)
-				V.visible_message("<span class='warning'>Buckle [src] fist!</span>")
+				V.visible_message(span_warning("Buckle [src] fist!"))
 			if(bloodpool < 2)
-				V.visible_message("<span class='warning'>[V] can't find enough blood in [src]!</span>")
+				V.visible_message(span_warning("[V] can't find enough blood in [src]!"))
 				return
 			if(iskindred(src))
 				if(bloodpool < 4)
-					V.visible_message("<span class='warning'>[V] can't find enough blood in [src]!</span>")
+					V.visible_message(span_warning("[V] can't find enough blood in [src]!"))
 					return
 			if(V.last_extracted+1200 > world.time)
-				V.visible_message("<span class='warning'>[V] isn't ready!</span>")
+				V.visible_message(span_warning("[V] isn't ready!"))
 				return
 			V.last_extracted = world.time
 			if(!iskindred(src))
@@ -840,31 +836,6 @@
 	anchored = TRUE
 	density = TRUE
 	pixel_z = 0
-
-/turf/open/floor/plating/bloodshit
-	gender = PLURAL
-	name = "blood"
-	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
-	icon_state = "blood"
-	flags_1 = NONE
-	attachment_holes = FALSE
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_WATER
-	barefootstep = FOOTSTEP_WATER
-	clawfootstep = FOOTSTEP_WATER
-	heavyfootstep = FOOTSTEP_WATER
-
-/turf/open/floor/plating/bloodshit/Initialize(mapload)
-	. = ..()
-	for(var/mob/living/L in src)
-		if(L)
-			L.death()
-	spawn(5)
-		for(var/turf/T in range(1, src))
-			if(T && !istype(T, /turf/open/floor/plating/bloodshit))
-				new /turf/open/floor/plating/bloodshit(T)
-
-
 
 /obj/effect/decal/graffiti
 	name = "graffiti"
@@ -1142,7 +1113,7 @@
 	if(istype(I, /obj/item/melee/vampirearms/shovel))
 		if(!burying)
 			burying = TRUE
-			user.visible_message("<span class='warning'>[user] starts to dig [src]</span>", "<span class='warning'>You start to dig [src].</span>")
+			user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))
 			if(do_mob(user, src, 10 SECONDS))
 				burying = FALSE
 				if(icon_state == "pit0")
@@ -1152,7 +1123,7 @@
 						if(L.stat == DEAD)
 							dead_amongst = TRUE
 						icon_state = "pit1"
-						user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+						user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 						if(dead_amongst)
 							call_dharma("respect", user)
 				else
@@ -1162,7 +1133,7 @@
 						if(L.stat == DEAD)
 							dead_amongst = TRUE
 					icon_state = "pit0"
-					user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+					user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 					if(dead_amongst)
 						call_dharma("disrespect", user)
 			else

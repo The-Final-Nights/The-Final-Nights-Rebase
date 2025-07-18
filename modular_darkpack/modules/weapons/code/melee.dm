@@ -131,7 +131,7 @@
 	. = ..()
 	if (isliving(target) && proximity)
 		var/mob/living/burnt_mob = target
-		burnt_mob.apply_damage(30, CLONE)
+		burnt_mob.apply_damage(30, AGGRAVATED)
 
 /obj/item/melee/vampirearms/rapier
 	name = "rapier"
@@ -285,21 +285,21 @@
 /obj/item/storage/belt/vampire/sheathe/examine(mob/user)
 	. = ..()
 	if(length(contents))
-		. += "<span class='notice'>Alt-click it to quickly draw the blade.</span>"
+		. += span_notice("Alt-click it to quickly draw the blade.")
 
 /obj/item/storage/belt/vampire/sheathe/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	if(length(contents))
 		var/obj/item/I = contents[1]
-		user.visible_message("<span class='notice'>[user] takes [I] out of [src].</span>", "<span class='notice'>You take [I] out of [src].</span>")
+		user.visible_message(span_notice("[user] takes [I] out of [src]."), span_notice("You take [I] out of [src]."))
 		user.put_in_hands(I)
 		var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 		if(STR)
 			STR.grid_remove_item(I)
 		update_icon()
 	else
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, span_warning("[src] is empty!"))
 
 /obj/item/storage/belt/vampire/sheathe/update_icon_state()
 	icon_state = initial(icon_state)
@@ -439,7 +439,7 @@
 		return
 	if(isliving(target))
 		var/mob/living/L = target
-		L.apply_damage(30, CLONE)
+		L.apply_damage(30, AGGRAVATED)
 
 /obj/item/melee/vampirearms/knife/gangrel/lasombra
 	name = "shadow tentacle"
@@ -454,7 +454,7 @@
 		return
 	if(isliving(target))
 		var/mob/living/L = target
-		L.apply_damage(16, CLONE)
+		L.apply_damage(16, AGGRAVATED)
 		L.apply_damage(7, BURN)
 
 /obj/item/melee/touch_attack/werewolf
@@ -571,14 +571,14 @@
 		return
 	if(!target.IsParalyzed() && iskindred(target) && !target.stakeimmune)
 		if(HAS_TRAIT(target, TRAIT_STAKE_RESISTANT))
-			visible_message("<span class='warning'>[user]'s stake splinters as it touches [target]'s heart!</span>", "<span class='warning'>Your stake splinters as it touches [target]'s heart!</span>")
+			visible_message(span_warning("[user]'s stake splinters as it touches [target]'s heart!"), span_warning("Your stake splinters as it touches [target]'s heart!"))
 			REMOVE_TRAIT(target, TRAIT_STAKE_RESISTANT, MAGIC_TRAIT)
 			qdel(src)
 		else
-			visible_message("<span class='warning'>[user] aims [src] straight to the [target]'s heart!</span>", "<span class='warning'>You aim [src] straight to the [target]'s heart!</span>")
+			visible_message(span_warning("[user] aims [src] straight to the [target]'s heart!"), span_warning("You aim [src] straight to the [target]'s heart!"))
 			if(do_after(user, 20, target))
 				user.do_attack_animation(target)
-				visible_message("<span class='warning'>[user] pierces [target]'s torso!</span>", "<span class='warning'>You pierce [target]'s torso!</span>")
+				visible_message(span_warning("[user] pierces [target]'s torso!"), span_warning("You pierce [target]'s torso!"))
 				target.Paralyze(1200)
 				target.Sleeping(1200)
 				qdel(src)
@@ -604,7 +604,7 @@
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
 	if(!target.IsStun() && prob(25))
-		visible_message("<span class='warning'>[user] bonks [src]'s head!</span>", "<span class='warning'>You bonk[target]'s head!</span>")
+		visible_message(span_warning("[user] bonks [src]'s head!"), span_warning("You bonk[target]'s head!"))
 		target.Stun(5)
 		target.drop_all_held_items()
 

@@ -43,7 +43,7 @@
 /datum/unit_test/full_heal_damage_types/Run()
 	var/mob/living/carbon/human/dummy = allocate(/mob/living/carbon/human/consistent)
 
-	dummy.apply_damages(brute = 10, burn = 10, tox = 10, oxy = 10, stamina = 10)
+	dummy.apply_damages(brute = 10, burn = 10, tox = 10, oxy = 10, stamina = 10, aggravated = 10) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	dummy.fully_heal(HEAL_DAMAGE)
 
 	if(dummy.getBruteLoss())
@@ -56,3 +56,7 @@
 		TEST_FAIL("The dummy still had oxy damage after a fully heal!")
 	if(dummy.getStaminaLoss())
 		TEST_FAIL("The dummy still had stamina damage after a fully heal!")
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(dummy.getAggLoss())
+		TEST_FAIL("The dummy still had aggravated damage after a fully heal!")
+	// DARKPACK EDIT ADDITION END

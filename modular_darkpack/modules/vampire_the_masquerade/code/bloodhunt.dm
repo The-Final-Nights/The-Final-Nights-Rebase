@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(bloodhunt)
 		H.bloodhunted = TRUE
 		for(var/mob/living/carbon/human/R in GLOB.player_list)
 			if(R && iskindred(R) && R.client)
-				to_chat(R, "<b>The Blood Hunt after <span class='warning'>[H.true_real_name]</span> has been announced! <br> Reason: [reason]</b>")
+				to_chat(R, "<b>The Blood Hunt after [span_warning("[H.true_real_name]")] has been announced! <br> Reason: [reason]</b>")
 				SEND_SOUND(R, sound('modular_darkpack/modules/masquerade/sounds/announce.ogg'))
 		hunted += H
 		update_shit()

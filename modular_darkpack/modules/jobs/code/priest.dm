@@ -55,7 +55,7 @@
 				remove_verb(H, /datum/job/vampire/priest/verb/choose_special)
 				switch(loadout_type)
 					if("Numina")
-						to_chat(H, "<span class='alertsyndie'>You have been blessed with psychic powers. They make you extraordinary among mortals, yet you still fear the horrors lurking unknown.</span>")
+						to_chat(H, span_alertsyndie("You have been blessed with psychic powers. They make you extraordinary among mortals, yet you still fear the horrors lurking unknown."))
 						var/obj/effect/proc_holder/spell/targeted/numina_freeze/n_freeze = new(H)
 						var/obj/effect/proc_holder/spell/self/numina_heal/n_heal = new(H)
 						H.mind.AddSpell(n_freeze)
@@ -63,7 +63,7 @@
 					if("True Faith")
 						H.mind.holy_role = HOLY_ROLE_PRIEST
 						H.resistant_to_disciplines = TRUE
-						to_chat(H, "<span class='alertsyndie'>Your faith in God is made of iron. None could shake it, and even in the darkest moments it holds you up.</span>")
+						to_chat(H, span_alertsyndie("Your faith in God is made of iron. None could shake it, and even in the darkest moments it holds you up."))
 
 /obj/effect/landmark/start/priest
 	name = "Priest"

@@ -16,24 +16,24 @@
 
 /obj/structure/weedshit/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Alt-click to [anchored ? "un" : ""]secure [src] [anchored ? "from" : "to"] the ground.</span>"
+	. += span_notice("Alt-click to [anchored ? "un" : ""]secure [src] [anchored ? "from" : "to"] the ground.")
 	if(!wet)
-		. += "<span class='warning'>[src] is dry!</span>"
+		. += span_warning("[src] is dry!")
 	if(growth_stage == 5)
-		. += "<span class='warning'>The crop is dead!</span>"
+		. += span_warning("The crop is dead!")
 	else
 		if(health <= 2)
-			. += "<span class='warning'>The crop is looking unhealthy.</span>"
+			. += span_warning("The crop is looking unhealthy.")
 
 /obj/structure/weedshit/attack_hand(mob/user, params)
 	. = ..()
 	if(growth_stage == 5)
 		growth_stage = 0
 		health = 3
-		to_chat(user, "<span class='notice'>You rip the rotten weed out of [src].</span>")
+		to_chat(user, span_notice("You rip the rotten weed out of [src]."))
 	if(growth_stage == 4)
 		growth_stage = 1
-		to_chat(user, "<span class='notice'>You pull the grown weed out of [src].</span>")
+		to_chat(user, span_notice("You pull the grown weed out of [src]."))
 		var/mob/living/carbon/human/H = user
 		var/amount
 		switch(storyteller_roll(H.get_total_mentality(), 6, TRUE))
@@ -52,14 +52,14 @@
 /obj/structure/weedshit/AltClick(mob/user)
 	if(!user.Adjacent(src))
 		return
-	to_chat(user, "<span class='notice'>You start [anchored ? "unsecuring" : "securing"] [src] [anchored ? "from" : "to"] the ground.</span>")
+	to_chat(user, span_notice("You start [anchored ? "unsecuring" : "securing"] [src] [anchored ? "from" : "to"] the ground."))
 	if(do_after(user, 15))
 		if(anchored)
-			to_chat(user, "<span class='notice'>You unsecure [src] from the ground.</span>")
+			to_chat(user, span_notice("You unsecure [src] from the ground."))
 			anchored = FALSE
 			return
 		else
-			to_chat(user, "<span class='notice'>You secure [src] to the ground.</span>")
+			to_chat(user, span_notice("You secure [src] to the ground."))
 			anchored = TRUE
 			return
 
@@ -69,11 +69,11 @@
 		if(B.amount_of_water)
 			B.amount_of_water = max(0, B.amount_of_water-1)
 			wet = TRUE
-			to_chat(user, "<span class='notice'>You fill [src] with water.</span>")
+			to_chat(user, span_notice("You fill [src] with water."))
 			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 			call_dharma("cleangrow", user)
 		else
-			to_chat(user, "<span class='warning'>[W] is empty!</span>")
+			to_chat(user, span_warning("[W] is empty!"))
 	if(istype(W, /obj/item/weedseed))
 		if(growth_stage == 0)
 			health = 3
