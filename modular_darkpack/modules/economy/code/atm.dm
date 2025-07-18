@@ -1,10 +1,9 @@
-/obj/machinery/vamp/atm
+#warn update path /obj/machinery/vamp/atm : /obj/machinery/atm
+/obj/machinery/atm
 	name = "ATM Machine"
 	desc = "Check your balance or make a transaction"
 	icon = 'modular_darkpack/modules/economy/icons/atm.dmi'
 	icon_state = "atm"
-	plane = GAME_PLANE
-	layer = BELOW_MOB_LAYER
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	var/logged_in = FALSE
@@ -18,7 +17,7 @@
 	light_power = 1
 	light_on = TRUE
 
-/obj/machinery/vamp/atm/attackby(obj/item/P, mob/user, params)
+/obj/machinery/atm/attackby(obj/item/P, mob/user, params)
 	if(is_creditcard(P))
 		if(logged_in)
 			to_chat(user, span_notice("Someone is already logged in."))
@@ -37,14 +36,14 @@
 			qdel(P)
 			return
 
-/obj/machinery/vamp/atm/ui_interact(mob/user, datum/tgui/ui)
+/obj/machinery/atm/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Atm", name)
 		ui.open()
 
-#warn need to port and update the tgui to use new vars
-/obj/machinery/vamp/atm/ui_data(mob/user)
+/obj/machinery/atm/ui_data(mob/user)
 	var/list/data = list()
 	var/list/accounts = list()
 
@@ -82,8 +81,8 @@
 
 	return data
 
-/obj/machinery/vamp/atm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	.=..()
+/obj/machinery/atm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
 	if(.)
 		return
 	switch(action)
@@ -152,50 +151,3 @@
 			else
 				to_chat(usr, span_notice("The ATM is empty. Nothing to deposit."))
 				return TRUE
-/*
-/obj/machinery/vamp/atm/attack_hand(mob/user)
-	.=..()
-	ui_interact(user)
-
-/obj/machinery/vamp/atm/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/card/credit))
-		inserted_card = W
-		to_chat(user, span_notice("Card inserted into ATM."))
-		user.ui_interact(src)
-		return
-	else
-		return
-
-/obj/machinery/vamp/atm/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "Atm")
-		ui.open()
-
-/obj/machinery/vamp/atm/ui_data(mob/user)
-	var/list/data = list()
-//	data["account_balance"] = account_balance
-	data["atm_balance"] = atm_balance
-
-	return data
-
-/obj/machinery/vamp/atm/ui_act(action, params)
-	.=..()
-	if(.)
-		return
-
-	switch(action)
-		if("login")
-			var/input_code = input(usr, "Enter your code:", "ATM access")
-			if(input_code == inserted_card.account.code)
-				to_chat(usr, span_notice("Access granted."))
-				logged_in = TRUE
-			else
-				to_chat(usr, span_notice("Invalid PIN Code."))
-				logged_in = FALSE
-
-
-/obj/machinery/vamp/atm/attack_hand(mob/user)
-	.=..()
-	ui_interact(user)
-*/
