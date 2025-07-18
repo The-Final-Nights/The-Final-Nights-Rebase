@@ -1,6 +1,6 @@
 <!-- This should be copy-pasted into the root of your module folder as readme.md -->
 
-https://github.com/NovaSector/NovaSector/pull/<!--PR Number-->
+https://github.com/DarkPack13/SecondCity/pull/14<!--PR Number-->
 
 ## Economy <!--Title of your addition.-->
 
