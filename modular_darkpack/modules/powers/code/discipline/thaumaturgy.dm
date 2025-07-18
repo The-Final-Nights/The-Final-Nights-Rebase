@@ -76,7 +76,7 @@
 					var/sucked = min(VL.bloodpool, 2)
 					VL.bloodpool = max(VL.bloodpool - sucked, 0)
 					VL.apply_damage(45, BURN)
-					VL.visible_message(span_danger("[target]'s wounds spray boiling hot blood!"), "<span class='userdanger'>Your blood boils!</span>")
+					VL.visible_message(span_danger("[target]'s wounds spray boiling hot blood!"), span_userdanger("Your blood boils!"))
 					VL.add_splatter_floor(get_turf(target))
 					VL.add_splatter_floor(get_turf(get_step(target, target.dir)))
 				if(!iskindred(target))
@@ -200,7 +200,7 @@
 	. = ..()
 	if(iscarbon(target))
 		target.Stun(2.5 SECONDS)
-		target.visible_message(span_danger("[target] throws up!"), "<span class='userdanger'>You throw up!</span>")
+		target.visible_message(span_danger("[target] throws up!"), span_userdanger("You throw up!"))
 		target.add_splatter_floor(get_turf(target))
 		target.add_splatter_floor(get_turf(get_step(target, target.dir)))
 	else
@@ -228,7 +228,7 @@
 	. = ..()
 	if(iscarbon(target))
 		target.Stun(2.5 SECONDS)
-		target.visible_message(span_danger("[target] throws up!"), "<span class='userdanger'>You throw up!</span>")
+		target.visible_message(span_danger("[target] throws up!"), span_userdanger("You throw up!"))
 		target.add_splatter_floor(get_turf(target))
 		target.add_splatter_floor(get_turf(get_step(target, target.dir)))
 	else

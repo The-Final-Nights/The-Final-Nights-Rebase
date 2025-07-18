@@ -64,7 +64,7 @@
 
 /datum/discipline_power/dominate/command/activate(mob/living/target)
 	. = ..()
-	to_chat(target, "<span class='userdanger'><b>FORGET ABOUT IT</b></span>")
+	to_chat(target, span_userdanger("<b>FORGET ABOUT IT</b>"))
 	owner.say("FORGET ABOUT IT!!")
 	ADD_TRAIT(target, TRAIT_BLIND, "dominate")
 
@@ -103,11 +103,11 @@
 	. = ..()
 	target.Immobilize(0.5 SECONDS)
 	if(target.body_position == STANDING_UP)
-		to_chat(target, "<span class='userdanger'><b>GET DOWN</b></span>")
+		to_chat(target, span_userdanger("<b>GET DOWN</b>"))
 		target.toggle_resting()
 		owner.say("GET DOWN!!")
 	else
-		to_chat(target, "<span class='userdanger'><b>STAY DOWN</b></span>")
+		to_chat(target, span_userdanger("<b>STAY DOWN</b>"))
 		owner.say("STAY DOWN!!")
 
 //THE FORGETFUL MIND
@@ -140,7 +140,7 @@
 
 /datum/discipline_power/dominate/the_forgetful_mind/activate(mob/living/target)
 	. = ..()
-	to_chat(target, "<span class='userdanger'><b>THINK TWICE</b></span>")
+	to_chat(target, span_userdanger("<b>THINK TWICE</b>"))
 	owner.say("THINK TWICE!!")
 	target.add_movespeed_modifier(/datum/movespeed_modifier/dominate)
 
@@ -178,7 +178,7 @@
 
 /datum/discipline_power/dominate/conditioning/activate(mob/living/target)
 	. = ..()
-	to_chat(target, "<span class='userdanger'><b>THINK TWICE</b></span>")
+	to_chat(target, span_userdanger("<b>THINK TWICE</b>"))
 	owner.say("THINK TWICE!!")
 	target.add_movespeed_modifier(/datum/movespeed_modifier/dominate)
 
@@ -215,7 +215,7 @@
 
 /datum/discipline_power/dominate/possession/activate(mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, "<span class='userdanger'><b>YOU SHOULD HARM YOURSELF NOW</b></span>")
+	to_chat(target, span_userdanger("<b>YOU SHOULD HARM YOURSELF NOW</b>"))
 	owner.say("YOU SHOULD HARM YOURSELF NOW!!")
 	var/datum/cb = CALLBACK(target, /mob/living/carbon/human/proc/attack_myself_command)
 	for(var/i in 1 to 20)

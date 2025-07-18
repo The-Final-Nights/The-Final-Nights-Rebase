@@ -101,7 +101,7 @@
 				var/mob/living/carbon/human/carbon_human = user
 				carbon_human.climb_wall(above_turf)
 			else
-				to_chat(user, "<span class='warning'>You can't climb there!</span>")
+				to_chat(user, span_warning("You can't climb there!"))
 */
 
 /turf/closed/wall/vampwall/ex_act(severity, target)
@@ -490,7 +490,7 @@ LOW_WALL_HELPER(vampwall/wood)
 		if(P)
 			if(!P.burying)
 				P.burying = TRUE
-				user.visible_message("<span class='warning'>[user] starts to dig [src]</span>", "<span class='warning'>You start to dig [src].</span>")
+				user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))
 				if(do_mob(user, src, 10 SECONDS))
 					P.burying = FALSE
 					if(P.icon_state == "pit0")
@@ -500,7 +500,7 @@ LOW_WALL_HELPER(vampwall/wood)
 							if(L.stat == DEAD)
 								dead_amongst = TRUE
 						P.icon_state = "pit1"
-						user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+						user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 						if(dead_amongst)
 							call_dharma("respect", user)
 					else
@@ -510,16 +510,16 @@ LOW_WALL_HELPER(vampwall/wood)
 							if(L.stat == DEAD)
 								dead_amongst = TRUE
 						P.icon_state = "pit0"
-						user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+						user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 						if(dead_amongst)
 							call_dharma("disrespect", user)
 				else
 					P.burying = FALSE
 		else
-			user.visible_message("<span class='warning'>[user] starts to dig [src]</span>", "<span class='warning'>You start to dig [src].</span>")
+			user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))
 			if(do_mob(user, src, 10 SECONDS))
 				if(!locate(/obj/structure/bury_pit) in src)
-					user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+					user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 					new /obj/structure/bury_pit(src)
 */
 
@@ -558,7 +558,7 @@ LOW_WALL_HELPER(vampwall/wood)
 		if(P)
 			if(!P.burying)
 				P.burying = TRUE
-				user.visible_message("<span class='warning'>[user] starts to dig [src]</span>", "<span class='warning'>You start to dig [src].</span>")
+				user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))
 				if(do_mob(user, src, 10 SECONDS))
 					P.burying = FALSE
 					if(P.icon_state == "pit0")
@@ -568,7 +568,7 @@ LOW_WALL_HELPER(vampwall/wood)
 							if(L.stat == DEAD)
 								dead_amongst = TRUE
 						P.icon_state = "pit1"
-						user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+						user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 						if(dead_amongst)
 							call_dharma("respect", user)
 					else
@@ -578,16 +578,16 @@ LOW_WALL_HELPER(vampwall/wood)
 							if(L.stat == DEAD)
 								dead_amongst = TRUE
 						P.icon_state = "pit0"
-						user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+						user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 						if(dead_amongst)
 							call_dharma("disrespect", user)
 				else
 					P.burying = FALSE
 		else
-			user.visible_message("<span class='warning'>[user] starts to dig [src]</span>", "<span class='warning'>You start to dig [src].</span>")
+			user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))
 			if(do_mob(user, src, 10 SECONDS))
 				if(!locate(/obj/structure/bury_pit) in src)
-					user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+					user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 					new /obj/structure/bury_pit(src)
 */
 
@@ -835,7 +835,7 @@ LOW_WALL_HELPER(vampwall/wood)
 		if(P)
 			if(!P.burying)
 				P.burying = TRUE
-				user.visible_message("<span class='warning'>[user] starts to dig [src]</span>", "<span class='warning'>You start to dig [src].</span>")
+				user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))
 				if(do_mob(user, src, 10 SECONDS))
 					P.burying = FALSE
 					if(P.icon_state == "pit0")
@@ -845,7 +845,7 @@ LOW_WALL_HELPER(vampwall/wood)
 							if(L.stat == DEAD)
 								dead_amongst = TRUE
 						P.icon_state = "pit1"
-						user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+						user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 						if(dead_amongst)
 							call_dharma("respect", user)
 					else
@@ -855,16 +855,16 @@ LOW_WALL_HELPER(vampwall/wood)
 							if(L.stat == DEAD)
 								dead_amongst = TRUE
 						P.icon_state = "pit0"
-						user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+						user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 						if(dead_amongst)
 							call_dharma("disrespect", user)
 				else
 					P.burying = FALSE
 		else
-			user.visible_message("<span class='warning'>[user] starts to dig [src]</span>", "<span class='warning'>You start to dig [src].</span>")
+			user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))
 			if(do_mob(user, src, 10 SECONDS))
 				if(!locate(/obj/structure/bury_pit) in src)
-					user.visible_message("<span class='warning'>[user] digs a hole in [src].</span>", "<span class='warning'>You dig a hole in [src].</span>")
+					user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
 					new /obj/structure/bury_pit(src)
 */
 
@@ -918,7 +918,7 @@ LOW_WALL_HELPER(vampwall/wood)
 			return
 		L.apply_damage(10, AGGRAVATED)
 		L.apply_damage(30, TOX)
-		to_chat(L, "<span class='warning'>Your flesh burns!</span>")
+		to_chat(L, span_warning("Your flesh burns!"))
 
 /obj/effect/decal/coastline
 	name = "water"

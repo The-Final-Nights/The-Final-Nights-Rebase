@@ -22,12 +22,12 @@
 			return
 		if(rage_req)
 			if(H.auspice.rage < rage_req)
-				to_chat(owner, "<span class='warning'>You don't have enough <b>RAGE</b> to do that!</span>")
+				to_chat(owner, span_warning("You don't have enough <b>RAGE</b> to do that!"))
 				SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/werewolf_cast_failed.ogg', 0, 0, 75))
 				allowed_to_proceed = FALSE
 				return
 			if(H.auspice.gnosis < gnosis_req)
-				to_chat(owner, "<span class='warning'>You don't have enough <b>GNOSIS</b> to do that!</span>")
+				to_chat(owner, span_warning("You don't have enough <b>GNOSIS</b> to do that!"))
 				SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/werewolf_cast_failed.ogg', 0, 0, 75))
 				allowed_to_proceed = FALSE
 				return
@@ -40,7 +40,7 @@
 			adjust_rage(-rage_req, owner, FALSE)
 		if(gnosis_req)
 			adjust_gnosis(-gnosis_req, owner, FALSE)
-		to_chat(owner, "<span class='notice'>You activate the [name]...</span>")
+		to_chat(owner, span_notice("You activate the [name]..."))
 
 /datum/action/gift/falling_touch
 	name = "Falling Touch"
@@ -75,9 +75,9 @@
 
 /mob/living/carbon/proc/inspired()
 	inspired = TRUE
-	to_chat(src, "<span class='notice'>You feel inspired...</span>")
+	to_chat(src, span_notice("You feel inspired..."))
 	spawn(150)
-		to_chat(src, "<span class='warning'>You no longer feel inspired...</span>")
+		to_chat(src, span_warning("You no longer feel inspired..."))
 		inspired = FALSE
 
 /datum/action/gift/inspiration/Trigger()
@@ -110,7 +110,7 @@
 			H.dna.species.punchdamagelow = 20
 			H.dna.species.punchdamagehigh = 20
 			H.agg_damage_plus = 5
-			to_chat(owner, "<span class='notice'>You feel your claws sharpening...</span>")
+			to_chat(owner, span_notice("You feel your claws sharpening..."))
 			spawn(150)
 				H.dna.species.attack_verb = initial(H.dna.species.attack_verb)
 				H.dna.species.attack_sound = initial(H.dna.species.attack_sound)
@@ -118,19 +118,19 @@
 				H.dna.species.punchdamagelow = initial(H.dna.species.punchdamagelow)
 				H.dna.species.punchdamagehigh = initial(H.dna.species.punchdamagehigh)
 				H.agg_damage_plus = 0
-				to_chat(owner, "<span class='warning'>Your claws are not sharp anymore...</span>")
+				to_chat(owner, span_warning("Your claws are not sharp anymore..."))
 		else
 			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/razor_claws.ogg', 75, FALSE)
 			var/mob/living/carbon/H = owner
 			H.melee_damage_lower = H.melee_damage_lower+15
 			H.melee_damage_upper = H.melee_damage_upper+15
 			H.agg_damage_plus = 3
-			to_chat(owner, "<span class='notice'>You feel your claws sharpening...</span>")
+			to_chat(owner, span_notice("You feel your claws sharpening..."))
 			spawn(150)
 				H.melee_damage_lower = initial(H.melee_damage_lower)
 				H.melee_damage_upper = initial(H.melee_damage_upper)
 				H.agg_damage_plus = 0
-				to_chat(owner, "<span class='warning'>Your claws are not sharp anymore...</span>")
+				to_chat(owner, span_warning("Your claws are not sharp anymore..."))
 
 /datum/action/gift/beast_speech
 	name = "Beast Speech"
@@ -211,19 +211,19 @@
 			var/mob/living/carbon/human/H = owner
 			H.physiology.armor.melee = 40
 			H.physiology.armor.bullet = 25
-			to_chat(owner, "<span class='notice'>You feel your skin thickering...</span>")
+			to_chat(owner, span_notice("You feel your skin thickering..."))
 			spawn(15 SECONDS)
 				H.physiology.armor.melee = initial(H.physiology.armor.melee)
 				H.physiology.armor.bullet = initial(H.physiology.armor.bullet)
-				to_chat(owner, "<span class='warning'>Your skin is thin again...</span>")
+				to_chat(owner, span_warning("Your skin is thin again..."))
 		else
 			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/resist_pain.ogg', 75, FALSE)
 			var/mob/living/carbon/werewolf/H = owner
 			H.werewolf_armor = 40
-			to_chat(owner, "<span class='notice'>You feel your skin thickering...</span>")
+			to_chat(owner, span_notice("You feel your skin thickering..."))
 			spawn(15 SECONDS)
 				H.werewolf_armor = initial(H.werewolf_armor)
-				to_chat(owner, "<span class='warning'>Your skin is thin again...</span>")
+				to_chat(owner, span_warning("Your skin is thin again..."))
 
 /datum/action/gift/scent_of_the_true_form
 	name = "Scent Of The True Form"
@@ -271,10 +271,10 @@
 		var/mob/living/carbon/C = owner
 		C.sight = SEE_MOBS|SEE_OBJS
 		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/sense_wyrm.ogg', 75, FALSE)
-		to_chat(owner, "<span class='notice'>You feel your sense sharpening...</span>")
+		to_chat(owner, span_notice("You feel your sense sharpening..."))
 		spawn(200)
 			C.sight = initial(C.sight)
-			to_chat(owner, "<span class='warning'>You no longer sense anything more than normal...</span>")
+			to_chat(owner, span_warning("You no longer sense anything more than normal..."))
 
 /datum/action/gift/spirit_speech
 	name = "Spirit Speech"
@@ -325,7 +325,7 @@
 						V.density = FALSE
 						V.opacity = FALSE
 						V.layer = OPEN_DOOR_LAYER
-						to_chat(owner, "<span class='notice'>You open [V].</span>")
+						to_chat(owner, span_notice("You open [V]."))
 						V.closed = FALSE
 
 /datum/action/gift/infectious_laughter

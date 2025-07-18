@@ -6,7 +6,7 @@
 
 /mob/living/carbon/human/proc/SwitchBlocking()
 	if(!blocking)
-		visible_message("<span class='warning'>[src] prepares to block.</span>", "<span class='warning'>You prepare to block.</span>")
+		visible_message(span_warning("[src] prepares to block."), span_warning("You prepare to block."))
 		blocking = TRUE
 		if(hud_used)
 			hud_used.block_icon.icon_state = "act_block_on"
@@ -19,7 +19,7 @@
 		if(move_intent == MOVE_INTENT_RUN)
 			toggle_move_intent(src)
 	else
-		to_chat(src, "<span class='warning'>You lower your defense.</span>")
+		to_chat(src, span_warning("You lower your defense."))
 		remove_overlay(FIGHT_LAYER)
 		blocking = FALSE
 		if(move_intent != last_move_intent)
@@ -48,7 +48,7 @@
 		else
 			user.apply_damage(10, STAMINA)
 		user.do_attack_animation(src)
-		visible_message("<span class='danger'>[src] parries the attack!</span>", "<span class='danger'>You parry the attack!</span>")
+		visible_message(span_danger("[src] parries the attack!"), span_danger("You parry the attack!"))
 		playsound(src, 'modular_darkpack/modules/deprecated/sounds/parried.ogg', 70, TRUE)
 		clear_parrying()
 		return
@@ -57,7 +57,7 @@
 		user.do_attack_animation(src)
 		playsound(src, 'sound/weapons/tap.ogg', 70, TRUE)
 		emote("flip")
-		visible_message("<span class='danger'>[src] dodges the attack!</span>", "<span class='danger'>You dodge the attack!</span>")
+		visible_message(span_danger("[src] dodges the attack!"), span_danger("You dodge the attack!"))
 		return
 	if(blocking)
 		if(istype(W, /obj/item/melee))
@@ -69,7 +69,7 @@
 					apply_damage(10, STAMINA)
 					user.do_attack_animation(src)
 					playsound(src, 'sound/weapons/tap.ogg', 70, TRUE)
-					visible_message("<span class='danger'>[src] blocks the attack!</span>", "<span class='danger'>You block the attack!</span>")
+					visible_message(span_danger("[src] blocks the attack!"), span_danger("You block the attack!"))
 					if(incapacitated(TRUE, TRUE) && blocking)
 						SwitchBlocking()
 					return
@@ -79,7 +79,7 @@
 					apply_damage(hand_damage, WEP.damtype, assexing)
 					apply_damage(30, STAMINA)
 					user.do_attack_animation(src)
-					visible_message("<span class='warning'>[src] weakly blocks the attack!</span>", "<span class='warning'>You weakly block the attack!</span>")
+					visible_message(span_warning("[src] weakly blocks the attack!"), span_warning("You weakly block the attack!"))
 					if(incapacitated(TRUE, TRUE) && blocking)
 						SwitchBlocking()
 					return
@@ -88,7 +88,7 @@
 				apply_damage(round(WEP.force/2), WEP.damtype, assexing)
 				apply_damage(30, STAMINA)
 				user.do_attack_animation(src)
-				visible_message("<span class='warning'>[src] blocks the attack with [gender == MALE ? "his" : "her"] bare hands!</span>", "<span class='warning'>You block the attack with your bare hands!</span>")
+				visible_message(span_warning("[src] blocks the attack with [gender == MALE ? "his" : "her"] bare hands!"), span_warning("You block the attack with your bare hands!"))
 				if(incapacitated(TRUE, TRUE) && blocking)
 					SwitchBlocking()
 				return
@@ -104,13 +104,13 @@
 		apply_damage(3, STAMINA)
 		user.do_attack_animation(src)
 		emote("flip")
-		visible_message("<span class='danger'>[src] dodges the punch!</span>", "<span class='danger'>You dodge the punch!</span>")
+		visible_message(span_danger("[src] dodges the punch!"), span_danger("You dodge the punch!"))
 		return
 	if(user.a_intent == INTENT_HARM && blocking)
 		playsound(src, 'sound/weapons/tap.ogg', 70, TRUE)
 		apply_damage(10, STAMINA)
 		user.do_attack_animation(src)
-		visible_message("<span class='danger'>[src] blocks the punch!</span>", "<span class='danger'>You block the punch!</span>")
+		visible_message(span_danger("[src] blocks the punch!"), span_danger("You block the punch!"))
 		if(incapacitated(TRUE, TRUE) && blocking)
 			SwitchBlocking()
 		return
@@ -121,7 +121,7 @@
 		parrying = M
 		if(blocking)
 			SwitchBlocking()
-		visible_message("<span class='warning'>[src] prepares to parry [M]'s next attack.</span>", "<span class='warning'>You prepare to parry [M]'s next attack.</span>")
+		visible_message(span_warning("[src] prepares to parry [M]'s next attack."), span_warning("You prepare to parry [M]'s next attack."))
 		playsound(src, 'modular_darkpack/modules/deprecated/sounds/parry.ogg', 70, TRUE)
 		remove_overlay(FIGHT_LAYER)
 		var/mutable_appearance/parry_overlay = mutable_appearance('modular_darkpack/modules/deprecated/icons/icons.dmi', "parry", -FIGHT_LAYER)
@@ -136,4 +136,4 @@
 	if(parrying)
 		parrying = null
 		remove_overlay(FIGHT_LAYER)
-		to_chat(src, "<span class='warning'>You lower your defense.</span>")
+		to_chat(src, span_warning("You lower your defense."))

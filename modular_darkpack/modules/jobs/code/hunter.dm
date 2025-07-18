@@ -93,9 +93,9 @@
 
 /datum/antagonist/hunter/on_removal()
 	..()
-	to_chat(owner.current,"<span class='userdanger'>You are no longer the Hunter!</span>")
+	to_chat(owner.current,span_userdanger("You are no longer the Hunter!"))
 	owner.special_role = null
 
 /datum/antagonist/hunter/greet()
-	to_chat(owner.current, "<span class='alertsyndie'>You are the Hunter.</span>")
+	to_chat(owner.current, span_alertsyndie("You are the Hunter."))
 	owner.announce_objectives()

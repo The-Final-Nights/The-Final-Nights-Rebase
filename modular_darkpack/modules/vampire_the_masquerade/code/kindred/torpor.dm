@@ -59,7 +59,7 @@
 	// TODO: [Lucia] implement kuei-jin
 	/*
 	if(iscathayan(src))
-		to_chat(src, "<span class='notice'>You have awoken from your Little Death.</span>")
+		to_chat(src, span_notice("You have awoken from your Little Death."))
 	*/
 
 /mob/living/proc/untorpor()
@@ -79,13 +79,13 @@
 		if (yang_chi > 0)
 			yang_chi -= 1
 			cure_torpor()
-			to_chat(src, "<span class='notice'>You have awoken from your Little Death.</span>")
+			to_chat(src, span_notice("You have awoken from your Little Death."))
 		else if (yin_chi > 0)
 			yin_chi -= 1
 			cure_torpor()
-			to_chat(src, "<span class='notice'>You have awoken from your Little Death.</span>")
+			to_chat(src, span_notice("You have awoken from your Little Death."))
 		else
-			to_chat(src, "<span class='warning'>You have no Chi to re-awaken with...</span>")
+			to_chat(src, span_warning("You have no Chi to re-awaken with..."))
 	*/
 
 /atom/movable/screen/alert/untorpor
@@ -129,10 +129,10 @@
 			spawn()
 				vampire.clear_alert("succumb")
 		else
-			to_chat(usr, "<span class='purple'><i>You are in the Little Death, the state that Kuei-Jin go into when injured or exhausted.</i></span>")
+			to_chat(usr, span_purple("<i>You are in the Little Death, the state that Kuei-Jin go into when injured or exhausted.</i>"))
 			if (vampire.yang_chi > 0 || vampire.yin_chi > 0)
-				to_chat(usr, "<span class='purple'><i>You will be able to awaken in <b>[DisplayTimeText(COOLDOWN_TIMELEFT(dharma, torpor_timer))]</b>.</i></span>")
-				to_chat(usr, "<span class='purple'><i>The time to re-awaken depends on your [vampire.max_yin_chi <= 4 ? "low" : "high"] permanent Yin Chi rating of [vampire.max_yin_chi].</i></span>")
+				to_chat(usr, span_purple("<i>You will be able to awaken in <b>[DisplayTimeText(COOLDOWN_TIMELEFT(dharma, torpor_timer))]</b>.</i>"))
+				to_chat(usr, span_purple("<i>The time to re-awaken depends on your [vampire.max_yin_chi <= 4 ? "low" : "high"] permanent Yin Chi rating of [vampire.max_yin_chi].</i>"))
 			else
-				to_chat(usr, "<span class='danger'><i>You will not be able to re-awaken, because you have no Chi available to do so.</i></span>")
+				to_chat(usr, span_danger("<i>You will not be able to re-awaken, because you have no Chi available to do so.</i>"))
 	*/

@@ -187,28 +187,28 @@
 
 			// Fingerprints
 			if(length(fingerprints))
-				to_chat(user, "<span class='info'><B>Prints:</B></span>")
+				to_chat(user, span_info("<B>Prints:</B>"))
 				for(var/finger in fingerprints)
 					to_chat(user, "[finger]")
 				found_something = TRUE
 
 			// Blood
 			if (length(blood))
-				to_chat(user, "<span class='info'><B>Blood:</B></span>")
+				to_chat(user, span_info("<B>Blood:</B>"))
 				found_something = TRUE
 				for(var/B in blood)
 					to_chat(user, "Type: <font color='red'>[blood[B]]</font> DNA (UE): <font color='red'>[B]</font>")
 
 			//Fibers
 			if(length(fibers))
-				to_chat(user, "<span class='info'><B>Fibers:</B></span>")
+				to_chat(user, span_info("<B>Fibers:</B>"))
 				for(var/fiber in fibers)
 					to_chat(user, "[fiber]")
 				found_something = TRUE
 
 			//Reagents
 			if(length(reagents))
-				to_chat(user, "<span class='info'><B>Reagents:</B></span>")
+				to_chat(user, span_info("<B>Reagents:</B>"))
 				for(var/R in reagents)
 					to_chat(user, "Reagent: <font color='red'>[R]</font> Volume: <font color='red'>[reagents[R]]</font>")
 				found_something = TRUE

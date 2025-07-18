@@ -318,7 +318,7 @@
 	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as [owner]`s ghoul?", null, null, null, 50, src)
 	for(var/mob/dead/observer/G in GLOB.player_list)
 		if(G.key)
-			to_chat(G, "<span class='ghostalert'>[owner] is ghoulificating [src].</span>")
+			to_chat(G, span_ghostalert("[owner] is ghoulificating [src]."))
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		key = C.key
@@ -327,7 +327,7 @@
 		if(mind)
 			if(mind.enslaved_to != owner)
 				mind.enslave_mind_to_creator(owner)
-				to_chat(src, "<span class='userdanger'><b>AS PRECIOUS VITAE ENTER YOUR MOUTH, YOU NOW ARE IN THE BLOODBOND OF [owner]. SERVE YOUR REGNANT CORRECTLY, OR YOUR ACTIONS WILL NOT BE TOLERATED.</b></span>")
+				to_chat(src, span_userdanger("<b>AS PRECIOUS VITAE ENTER YOUR MOUTH, YOU NOW ARE IN THE BLOODBOND OF [owner]. SERVE YOUR REGNANT CORRECTLY, OR YOUR ACTIONS WILL NOT BE TOLERATED.</b>"))
 				return TRUE
 	return FALSE
 */

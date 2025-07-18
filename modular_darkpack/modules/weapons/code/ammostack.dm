@@ -100,7 +100,7 @@
 			difficulty = 3 + (!isnull(firer) ? rand(1,2) : 0)
 		) == ROLL_FAILURE)
 			hit_person.Knockdown(20)
-			to_chat(hit_person, "<span class='danger'>The force of a projectile sends you sprawling!</span>")
+			to_chat(hit_person, span_danger("The force of a projectile sends you sprawling!"))
 
 
 /obj/projectile/beam/beam_rifle/vampire/shotpellet

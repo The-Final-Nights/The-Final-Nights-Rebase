@@ -45,7 +45,8 @@ GLOBAL_LIST_EMPTY(starlight)
 /turf/open/space
 	icon = 'icons/turf/space.dmi'
 	icon_state = "space"
-	name = "\proper space"
+	name = CITY_NAME // DARKPACK EDIT CHANGE, ORIGINAL: name = "\proper space"
+
 	overfloor_placed = FALSE
 	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 	rust_resistance = RUST_RESISTANCE_ABSOLUTE

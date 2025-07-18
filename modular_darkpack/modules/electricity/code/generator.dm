@@ -25,7 +25,7 @@
 			G.stored_gasoline = max(0, G.stored_gasoline-gas_to_transfer)
 			fuel_remain = min(1000, fuel_remain+gas_to_transfer)
 			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 25, TRUE)
-			to_chat(user, "<span class='notice'>You transfer [gas_to_transfer] fuel to [src].</span>")
+			to_chat(user, span_notice("You transfer [gas_to_transfer] fuel to [src]."))
 		return
 
 /obj/generator/proc/brek()
@@ -45,7 +45,7 @@
 
 /obj/generator/attack_hand(mob/user)
 	if(fuel_remain == 0)
-		to_chat(user, "<span class='warning'>There is no fuel in [src].</span>")
+		to_chat(user, span_warning("There is no fuel in [src]."))
 		return
 	if(!switching_on)
 		switching_on = TRUE
@@ -59,7 +59,7 @@
 			for(var/obj/machinery/light/L in A)
 				L.update(FALSE)
 			switching_on = FALSE
-			to_chat(user, "<span class='notice'>You switch [src] on.</span>")
+			to_chat(user, span_notice("You switch [src] on."))
 		else
 			switching_on = FALSE
 

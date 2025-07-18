@@ -98,7 +98,7 @@
 
 	var/language = owner.get_selected_language()
 	var/message = owner.compose_message(owner, language, input_message, , list())
-	to_chat(target, "<span class='purple'><i>You hear someone's voice in your head...</i></span>")
+	to_chat(target, span_purple("<i>You hear someone's voice in your head...</i>"))
 	target.Hear(message, target, language, input_message, , , )
 	to_chat(owner, span_notice("You project your voice to [target]'s ears."))
 
