@@ -369,16 +369,13 @@
   - bugfix: smes can be connected to the powernet with a multitool with the panel
       open after construction
   - refactor: SMES now functions consistently with its power cells & the RPED.
-  carpotoxin:
-  - bugfix: fixed the 'note_path' var of the 'airlock_note_placer' mapping helper
   TheCarnalest:
   - code_imp: Initial work for the rebase
+  carpotoxin:
+  - bugfix: fixed the 'note_path' var of the 'airlock_note_placer' mapping helper
 2025-07-14:
   Absolucy:
   - bugfix: You can now actually unlink the remote from a briefcase launchpad.
-  tattle:
-  - rscdel: Removed the shy component, allowing drones to once again use a wide array
-      of items and perform actions near mobs
   FalloutFalcon:
   - bugfix: decals like road lines and curbs are now attached to their tile as elements
       rather then objects that sit on top of them. This should result in them layering
@@ -387,6 +384,9 @@
   - bugfix: turf decals no longer have drop shadows
   - qol: trash on the streets is now cleanable
   - qol: more fluff in the city can be properly damaged
+  tattle:
+  - rscdel: Removed the shy component, allowing drones to once again use a wide array
+      of items and perform actions near mobs
 2025-07-15:
   Ice-Type:
   - qol: Increased the integer scaling range up to 9x
@@ -462,6 +462,13 @@
   - spellcheck: Rewrote item description for Agent IDs
   Exester509:
   - bugfix: Fixed the description of the modular console frame on the crafting menu
+  FalloutFalcon:
+  - rscadd: You can now swim in the ocean and dip in the sewers!
+  - rscadd: Wall "frills" now turn transparent around you rather then from any mob
+      standing under them
+  - bugfix: Low walls no longer tile with wallening walls
+  - rscadd: new "edge" turf for spots where the matrix is not suited
+  - refactor: the matrix is now turf instead of an obj
   Likteer:
   - rscadd: Added NT & British flag mugs to loadout
   SmArtKar:
@@ -470,10 +477,14 @@
   - bugfix: fixed shuttle remote design missing from protolathe
   bigbakedbean:
   - rscadd: chemical analyzer now displays bloodtype if analyzing blood
-  FalloutFalcon:
-  - rscadd: You can now swim in the ocean and dip in the sewers!
-  - rscadd: Wall "frills" now turn transparent around you rather then from any mob
-      standing under them
-  - bugfix: Low walls no longer tile with wallening walls
-  - rscadd: new "edge" turf for spots where the matrix is not suited
-  - refactor: the matrix is now turf instead of an obj
+2025-07-18:
+  Aliceee2ch:
+  - bugfix: Removed unused wooden decals from MetaStation theater
+  Rhials:
+  - bugfix: Evac broadcast messages are no longer scrambled unless the shuttle was
+      hijacked.
+  SmArtKar:
+  - bugfix: Fixed projectiles inheriting gun's pixel offsets when fired
+  TheCarnalest:
+  - refactor: Aggravated damage no longer uses clone damage, and instead has its own
+      unique damage type.
