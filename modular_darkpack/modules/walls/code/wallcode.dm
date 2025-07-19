@@ -1072,8 +1072,5 @@ LOW_WALL_HELPER(vampwall/wood)
 
 #undef LOW_WALL_HELPER
 
-/*
 /turf/closed/wall/vampwall/test_wall
-	icon_state = "0-2"
 	icon = 'icons/obj/smooth_structures/darkpack/brick_wall.dmi'
-*/
