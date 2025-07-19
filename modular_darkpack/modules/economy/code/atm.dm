@@ -1,4 +1,3 @@
-#warn update path /obj/machinery/vamp/atm : /obj/machinery/atm
 /obj/machinery/atm
 	name = "ATM Machine"
 	desc = "Check your balance or make a transaction"
