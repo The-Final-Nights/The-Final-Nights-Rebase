@@ -187,7 +187,8 @@ export class Changelog extends Component {
         <h1>Darkpack: Second City</h1>
         <p>
           <b>Thanks to: </b>
-          The Final Nights, World of Darkness 13, RequiemSS13, TGstation, Baystation 12, /vg/station, NTstation, CDK Station devs,
+          The Final Nights, World of Darkness 13, RequiemSS13, TGstation,
+          Baystation 12, /vg/station, NTstation, CDK Station devs,
           FacepunchStation, GoonStation devs, the original Space Station 13
           developers, Invisty for the title image and the countless others who
           have contributed to the game, issue tracker or wiki over the years.
