@@ -1071,6 +1071,3 @@ LOW_WALL_HELPER(vampwall/wood)
 	new /turf/open/water/bloodwave(next_turf, get_dir(next_turf, src))
 
 #undef LOW_WALL_HELPER
-
-/turf/closed/wall/vampwall/test_wall
-	icon = 'icons/obj/smooth_structures/darkpack/brick_wall.dmi'
