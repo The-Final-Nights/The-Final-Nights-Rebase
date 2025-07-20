@@ -94,9 +94,7 @@
 	return null
 
 /obj/item/storage/wallet/GetCreditCard()
-	for(var/obj/item/card/I in contents)
-		if(is_creditcard(I))
-			return I
+	return locate(/obj/item/card/credit) in contents
 
 
 /mob/proc/get_creditcard(hand_first)

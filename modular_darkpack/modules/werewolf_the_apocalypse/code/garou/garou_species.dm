@@ -54,12 +54,10 @@
 			if(!host.mind.assigned_role)
 				dat += "."
 			dat += "</p>"
-		if(istype(host, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = host
-			if(H.account_id)
-				var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[H.account_id]"]
-				if(account)
-					dat += "<b>My bank pin is: [account.bank_pin]</b><BR>"
+		if(host.account_id)
+			var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[host.account_id]"]
+			if(account)
+				dat += "<b>My bank pin is: [account.bank_pin]</b><BR>"
 		if(host.mind.special_role)
 			for(var/datum/antagonist/A in host.mind.antag_datums)
 				if(A.objectives)
