@@ -5,7 +5,7 @@
 | Website                 | Link                                                                                                 |
 | ----------------------- | ---------------------------------------------------------------------------------------------------- |
 | Code                    | [https://github.com/DarkPack13/SecondCity](https://github.com/DarkPack13/SecondCity)                 |
-| The Second City Discord | [https://tgstation13.org/phpBB/viewforum.php?f=60](https://tgstation13.org/phpBB/viewforum.php?f=60) |
+| The Second City Discord | [https://discord.gg/rmAbJcuChD](https://discord.gg/rmAbJcuChD) |
 | Coderbus Discord        | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                                             |
 
 This is the codebase for the World of Darkness 13, a build of a fork of a downstream of a-- in any case...
