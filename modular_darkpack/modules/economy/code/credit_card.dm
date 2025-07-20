@@ -4,9 +4,6 @@
 	desc = "Used to access bank money."
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	icon_state = "card1"
-	inhand_icon_state = "card1"
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -20,25 +17,21 @@
 
 /obj/item/card/credit/prince
 	icon_state = "card2"
-	inhand_icon_state = "card2"
 	min_starting_wealth = 10000
 	max_starting_wealth = 15000
 
 /obj/item/card/credit/seneschal
 	icon_state = "card2"
-	inhand_icon_state = "card2"
 	min_starting_wealth = 4000
 	max_starting_wealth = 8000
 
 /obj/item/card/credit/elder
 	icon_state = "card3"
-	inhand_icon_state = "card3"
 	min_starting_wealth = 3000
 	max_starting_wealth = 7000
 
 /obj/item/card/credit/giovanniboss
 	icon_state = "card2"
-	inhand_icon_state = "card2"
 	min_starting_wealth = 8000
 	max_starting_wealth = 15000
 
