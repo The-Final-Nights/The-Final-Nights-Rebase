@@ -860,3 +860,12 @@ SUBSYSTEM_DEF(carpool)
 
 /datum/storage/car/limo
 	max_slots = 45
+
+/datum/storage/car/truck
+	max_slots = 100
+	max_total_storage = 200
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+
+/datum/storage/car/van
+	max_slots = 60
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC

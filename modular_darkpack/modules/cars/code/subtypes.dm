@@ -50,22 +50,14 @@
 	icon_state = "limo"
 	max_passengers = 6
 	dir = WEST
-	baggage_limit = 45
+	var_storage_type = /datum/storage/car/limo
 
 /obj/vampire_car/limousine/giovanni
 	icon_state = "giolimo"
-	max_passengers = 6
-	dir = WEST
 	access = "giovanni"
-	baggage_limit = 45
-	baggage_max = WEIGHT_CLASS_BULKY
 
 /obj/vampire_car/limousine/camarilla
 	icon_state = "limo"
-	max_passengers = 6
-	dir = WEST
-	access = "camarilla"
-	baggage_limit = 45
 
 /obj/vampire_car/police
 	icon_state = "police"
@@ -73,8 +65,6 @@
 	dir = WEST
 	beep_sound = 'modular_darkpack/modules/deprecated/sounds/migalka.ogg'
 	access = "police"
-	baggage_limit = 45
-	baggage_max = WEIGHT_CLASS_BULKY
 	var/color_blue = FALSE
 	var/last_color_change = 0
 
@@ -101,17 +91,13 @@
 	max_passengers = 3
 	dir = WEST
 	access = "taxi"
-	baggage_limit = 40
-	baggage_max = WEIGHT_CLASS_BULKY
 
 /obj/vampire_car/track
 	icon_state = "track"
 	max_passengers = 6
 	dir = WEST
 	access = "none"
-	baggage_limit = 100
-	baggage_max = WEIGHT_CLASS_BULKY
-	component_type = /datum/component/storage/concrete/vtm/car/track
+	car_storage_type = /datum/storage/car/truck
 
 /obj/vampire_car/track/Initialize(mapload)
 	if(access == "none")
@@ -120,9 +106,9 @@
 
 /obj/vampire_car/track/volkswagen
 	icon_state = "volkswagen"
-	baggage_limit = 60
+	car_storage_type = /datum/storage/car/van
 
 /obj/vampire_car/track/ambulance
 	icon_state = "ambulance"
 	access = "clinic"
-	baggage_limit = 60
+	car_storage_type = /datum/storage/car/van
