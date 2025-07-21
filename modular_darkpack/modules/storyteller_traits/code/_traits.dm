@@ -7,13 +7,13 @@
 	/// A dictionary of modifiers to this attribute.
 	var/list/modifiers = list()
 
-/datum/st_trait/proc/get(include_bonus = TRUE)
+/datum/st_trait/proc/get_score(include_bonus = TRUE)
 	if(include_bonus)
 		return score + bonus_score
 	else
 		return score
 
-/datum/st_trait/proc/setter(amount)
+/datum/st_trait/proc/set_score(amount)
 	score = amount
 
 /datum/st_trait/proc/update_modifiers()

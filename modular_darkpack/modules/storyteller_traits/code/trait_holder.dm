@@ -18,12 +18,12 @@
 /// Return the total or pure score of the given trait.
 /datum/storyteller_traits/proc/get_stat(trait, include_bonus = TRUE)
 	var/datum/st_trait/A = st_traits[trait]
-	return A.get(include_bonus)
+	return A.get_score(include_bonus)
 
 /// Sets the score of the given trait.
 /datum/storyteller_traits/proc/set_stat(amount, trait)
 	var/datum/st_trait/A = st_traits[trait]
-	A.setter(amount)
+	A.set_score(amount)
 
 /// Return the instance of the given trait.
 /datum/storyteller_traits/proc/get_trait(trait)
@@ -44,8 +44,8 @@
 
 /datum/storyteller_traits/proc/randomize_attributes(min_score, max_score)
 	for(var/datum/st_trait/attribute/A in st_traits)
-		A.setter(rand(min_score, max_score))
+		A.set_score(rand(min_score, max_score))
 
 /datum/storyteller_traits/proc/randomize_abilities(min_score, max_score)
 	for(var/datum/st_trait/ability/A in st_traits)
-		A.setter(rand(min_score, max_score))
+		A.set_score(rand(min_score, max_score))
