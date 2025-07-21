@@ -1,5 +1,5 @@
 /area/vtm
-	name = "San Francisco"
+	name = CITY_NAME
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "sewer"
 	requires_power = FALSE

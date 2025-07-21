@@ -17,10 +17,10 @@
 /obj/item/vampire/drill/proc/plant(mob/user)
 	var/turf/T = get_turf(loc)
 	if(!isfloorturf(T))
-		to_chat(user, "<span class='warning'>You need ground to put this on!</span>")
+		to_chat(user, span_warning("You need ground to put this on!"))
 		return
 
-	user.visible_message("<span class='notice'>[user] places down \the [src.name].</span>")
+	user.visible_message(span_notice("[user] places down \the [src.name]."))
 	var/obj/structure/drill/placed_drill = new origin_type(get_turf(loc))
 	TransferComponents(placed_drill)
 	placed_drill.setDir(user.dir)
@@ -67,7 +67,7 @@
 	var/health_status = health_status()
 	. += "[src] has [gas] gas left."
 	if(obj_integrity < max_integrity)
-		. += "<span class='notice'>[src] is [health_status].</span>"
+		. += span_notice("[src] is [health_status].")
 
 /obj/structure/drill/MouseDrop(over_object, src_location, over_location)
 	. = ..()
@@ -77,7 +77,7 @@
 				return
 			if(!usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 				return
-			usr.visible_message("<span class='notice'>[usr] lifts \the [src.name].</span>", "<span class='notice'>You grab \the [src.name].</span>")
+			usr.visible_message(span_notice("[usr] lifts \the [src.name]."), span_notice("You grab \the [src.name]."))
 			ready = FALSE
 			attached_door = null
 			var/obj/item/picked_drill = new item_drill(loc)
@@ -145,10 +145,10 @@
 /obj/structure/drill/attack_hand(mob/user)
 	. = ..()
 	if(!ready)
-		to_chat(user, "<span class='warning'>You need to place the drill on a vault door first!</span>")
+		to_chat(user, span_warning("You need to place the drill on a vault door first!"))
 		return
 	if(gas <= 0)
-		to_chat(user, "<span class='warning'>The drill is out of gas!</span>")
+		to_chat(user, span_warning("The drill is out of gas!"))
 		return
 	if(!active)
 		if(do_after(user, 5 SECONDS))
@@ -158,7 +158,7 @@
 		if(do_after(user, 2 SECONDS))
 			active = FALSE
 			update_effects()
-			visible_message("<span class='warning'>[src] shuts off!</span>")
+			visible_message(span_warning("[src] shuts off!"))
 
 /obj/structure/drill/proc/handle_layer()
 	if(dir == SOUTH)

@@ -19,7 +19,7 @@
 	second.adjustBruteLoss(round((first.getBruteLoss()/100)*percentage)-second.getBruteLoss())
 	second.adjustFireLoss(round((first.getFireLoss()/100)*percentage)-second.getFireLoss())
 	second.adjustToxLoss(round((first.getToxLoss()/100)*percentage)-second.getToxLoss())
-	second.adjustCloneLoss(round((first.getCloneLoss()/100)*percentage)-second.getCloneLoss())
+	second.adjustAggLoss(round((first.getAggLoss()/100)*percentage)-second.getAggLoss())
 
 /obj/werewolf_holder/transformation/proc/trans_gender(mob/living/carbon/trans, form)
 	if(!given_quirks)
@@ -76,7 +76,7 @@
 					transformating = FALSE
 					return
 				animate(trans, transform = ntransform, color = "#000000", time = 30)
-				playsound(get_turf(trans), 'code/modules/wod13/sounds/transform.ogg', 50, FALSE)
+				playsound(get_turf(trans), 'modular_darkpack/modules/deprecated/sounds/transform.ogg', 50, FALSE)
 				for(var/mob/living/simple_animal/hostile/beastmaster/B in trans.beastmaster)
 					if(B)
 						qdel(B)
@@ -112,7 +112,7 @@
 					transformating = FALSE
 					return
 				animate(trans, transform = ntransform, color = "#000000", time = 30)
-				playsound(get_turf(trans), 'code/modules/wod13/sounds/transform.ogg', 50, FALSE)
+				playsound(get_turf(trans), 'modular_darkpack/modules/deprecated/sounds/transform.ogg', 50, FALSE)
 				for(var/mob/living/simple_animal/hostile/beastmaster/B in trans.beastmaster)
 					if(B)
 						qdel(B)
@@ -149,7 +149,7 @@
 					transformating = FALSE
 					return
 				animate(trans, transform = ntransform, color = "#000000", time = 30)
-				playsound(get_turf(trans), 'code/modules/wod13/sounds/transform.ogg', 50, FALSE)
+				playsound(get_turf(trans), 'modular_darkpack/modules/deprecated/sounds/transform.ogg', 50, FALSE)
 				for(var/mob/living/simple_animal/hostile/beastmaster/B in trans.beastmaster)
 					if(B)
 						qdel(B)

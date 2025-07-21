@@ -37,12 +37,12 @@
 	if(istype(used_item, /obj/item/food/grown))
 		var/obj/item/food/grown/grown_item = used_item
 		if(packed_item)
-			to_chat(user, "<span class='warning'>Already packed!</span>")
+			to_chat(user, span_warning("Already packed!"))
 			return
 		if(!HAS_TRAIT(grown_item, TRAIT_DRIED))
-			to_chat(user, "<span class='warning'>Needs to be dried!</span>")
+			to_chat(user, span_warning("Needs to be dried!"))
 			return
-		to_chat(user, "<span class='notice'>You stuff [grown_item] into [src].</span>")
+		to_chat(user, span_notice("You stuff [grown_item] into [src]."))
 		bong_hits = max_hits
 		packed_item = TRUE
 		if(grown_item.reagents)
@@ -51,9 +51,9 @@
 		qdel(grown_item)
 	else if(istype(used_item, /obj/item/weedpack)) //for hash/dabs
 		if(packed_item)
-			to_chat(user, "<span class='warning'>Already packed!</span>")
+			to_chat(user, span_warning("Already packed!"))
 			return
-		to_chat(user, "<span class='notice'>You stuff [used_item] into [src].</span>")
+		to_chat(user, span_notice("You stuff [used_item] into [src]."))
 		bong_hits = max_hits
 		packed_item = TRUE
 		var/obj/item/food/grown/cannabis/W = new(loc)
@@ -67,7 +67,7 @@
 		if(!lighting_text)
 			return ..()
 		if(bong_hits <= 0)
-			to_chat(user, "<span class='warning'>Nothing to smoke!</span>")
+			to_chat(user, span_warning("Nothing to smoke!"))
 			return ..()
 		light(lighting_text)
 		name = "lit [initial(name)]"
@@ -75,12 +75,12 @@
 /obj/item/bong/attack_self(mob/user)
 	var/turf/location = get_turf(user)
 	if(lit)
-		user.visible_message("<span class='notice'>[user] puts out [src].</span>", "<span class='notice'>You put out [src].</span>")
+		user.visible_message(span_notice("[user] puts out [src]."), span_notice("You put out [src]."))
 		lit = FALSE
 		icon_state = icon_off
 		inhand_icon_state = icon_off
 	else if(!lit && bong_hits > 0)
-		to_chat(user, "<span class='notice'>You empty [src] onto [location].</span>")
+		to_chat(user, span_notice("You empty [src] onto [location]."))
 		new /obj/effect/decal/cleanable/ash(location)
 		packed_item = FALSE
 		bong_hits = 0
@@ -90,11 +90,11 @@
 /obj/item/bong/attack(mob/hit_mob, mob/user, def_zone)
 	if(!packed_item || !lit)
 		return
-	hit_mob.visible_message("<span class='notice'>[user] starts [hit_mob == user ? "taking a hit from [src]." : "forcing [hit_mob] to take a hit from [src]!"]", "[hit_mob == user ? "<span class='notice'>You start taking a hit from [src].</span>" : "<span class='danger'>[user] starts forcing you to take a hit from [src]!</span>"]")
+	hit_mob.visible_message(span_notice("[user] starts [hit_mob == user ? "taking a hit from [src]." : "forcing [hit_mob] to take a hit from [src]!"]", "[hit_mob == user ? "<span class='notice'>You start taking a hit from [src].") : span_danger("[user] starts forcing you to take a hit from [src]!")]")
 	playsound(src, 'modular_darkpack/modules/deprecated/sounds/heatdam.ogg', 50, TRUE)
 	if(!do_after(user, 40, src))
 		return
-	to_chat(hit_mob, "<span class='notice'>You finish taking a hit from [src].</span>")
+	to_chat(hit_mob, span_notice("You finish taking a hit from [src]."))
 	if(reagents.total_volume)
 		reagents.trans_to(hit_mob, reagent_transfer_per_use, methods = VAPOR)
 		bong_hits--
@@ -110,7 +110,7 @@
 			playsound(hit_mob, pick('modular_darkpack/modules/deprecated/sounds/lungbust_cough1.ogg','modular_darkpack/modules/deprecated/sounds/lungbust_cough2.ogg'), 50, TRUE)
 			hit_mob.emote("cough")
 	if(bong_hits <= 0)
-		to_chat(hit_mob, "<span class='warning'>Out of uses!</span>")
+		to_chat(hit_mob, span_warning("Out of uses!"))
 		lit = FALSE
 		packed_item = FALSE
 		icon_state = icon_off

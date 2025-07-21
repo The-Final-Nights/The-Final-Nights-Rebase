@@ -235,10 +235,10 @@
 										if(H.killed_count >= 5)
 											H.warrant = TRUE
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 										else
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, "<span class='userdanger'><b>SUSPICIOUS ACTION (corpse)</b></span>")
+											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for (var/obj/item/I in H.contents)
 				if (!I.masquerade_violating || (I.loc != H))
 					continue
@@ -283,7 +283,7 @@
 			if(!H.antifrenzy)
 				if(P.humanity < 1)
 					H.enter_frenzymod()
-					to_chat(H, "<span class='userdanger'>You have lost control of the Beast within you, and it has taken your body. Be more [H.client.prefs.enlightenment ? "Enlightened" : "humane"] next time.</span>")
+					to_chat(H, span_userdanger("You have lost control of the Beast within you, and it has taken your body. Be more [H.client.prefs.enlightenment ? "Enlightened" : "humane"] next time."))
 					H.ghostize(FALSE)
 					P.reason_of_death = "Lost control to the Beast ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
 
@@ -294,7 +294,7 @@
 				if(H.mind.enslaved_to)
 					if(get_dist(H, H.mind.enslaved_to) > 10)
 						if((H.last_frenzy_check + 40 SECONDS) <= world.time)
-							to_chat(H, "<span class='warning'><b>As you are far from [H.mind.enslaved_to], you feel the desire to drink more vitae!<b></span>")
+							to_chat(H, span_warning("<b>As you are far from [H.mind.enslaved_to], you feel the desire to drink more vitae!<b>"))
 							H.last_frenzy_check = world.time
 							H.rollfrenzy()
 					else if(H.bloodpool > 1 || H.in_frenzy)

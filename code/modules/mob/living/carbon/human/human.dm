@@ -184,7 +184,7 @@
 			if(!HAS_TRAIT(human_user, TRAIT_MEDICAL_HUD))
 				return
 			if(href_list["evaluation"])
-				if(!getBruteLoss() && !getFireLoss() && !getOxyLoss() && getToxLoss() < 20)
+				if(!getBruteLoss() && !getFireLoss() && !getOxyLoss() && getToxLoss() < 20 && !getAggLoss()) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 					to_chat(human_user, "[span_notice("No external injuries detected.")]<br>")
 					return
 				var/span = "notice"
@@ -221,6 +221,24 @@
 							span = "userdanger"
 						if(burndamage)
 							to_chat(human_user, "<span class='[span]'>[BP] appears to have [status]</span>")
+				// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+				if(getAggLoss())
+					to_chat(human_user, "<b>Grievous trauma analysis:</b>")
+					for(var/X in bodyparts)
+						var/obj/item/bodypart/BP = X
+						var/aggravateddamage = BP.aggravated_dam
+						if(aggravateddamage > 0)
+							status = "patches of missing tissue."
+							span = "danger"
+						if(aggravateddamage > 20)
+							status = "serious festering wounds."
+							span = "userdanger"
+						if(aggravateddamage > 40)
+							status = "major blackened wounds!"
+							span = "userdanger"
+						if(aggravateddamage)
+							to_chat(human_user, "<span class='[span]'>[BP] appears to have [status]</span>")
+				// DARKPACK EDIT ADDITION END
 				if(getOxyLoss())
 					to_chat(human_user, span_danger("Patient has signs of suffocation, emergency treatment may be required!"))
 				if(getToxLoss() > 20)

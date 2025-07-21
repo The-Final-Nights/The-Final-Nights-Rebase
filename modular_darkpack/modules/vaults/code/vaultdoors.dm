@@ -73,7 +73,7 @@
 		if(uses_pincode_lock)
 			ui_interact()
 		if(door_user.a_intent != INTENT_HARM)
-			to_chat(user, "<span class='warning'>[src] is locked!</span>")
+			to_chat(user, span_warning("[src] is locked!"))
 		return
 
 	if(closed && !door_moving)
@@ -99,14 +99,14 @@
 		density = FALSE
 		opacity = FALSE
 		layer = OPEN_DOOR_LAYER
-		to_chat(user, "<span class='notice'>You open [src].</span>")
+		to_chat(user, span_notice("You open [src]."))
 		closed = FALSE
 		door_moving = FALSE
 
 /obj/structure/vaultdoor/proc/close_door(mob/user)
 	for(var/atom/movable/door_blocker in src.loc)
 		if(door_blocker.density)
-			to_chat(user, "<span class='warning'>[door_blocker] is preventing you from closing [src].</span>")
+			to_chat(user, span_warning("[door_blocker] is preventing you from closing [src]."))
 			return
 	playsound(src, close_sound, 75, TRUE)
 	door_moving = TRUE
@@ -114,7 +114,7 @@
 		icon_state = "[baseicon]-1"
 		density = TRUE
 		layer = ABOVE_ALL_MOB_LAYER
-		to_chat(user, "<span class='notice'>You close [src].</span>")
+		to_chat(user, span_notice("You close [src]."))
 		closed = TRUE
 		door_moving = FALSE
 
@@ -123,16 +123,16 @@
 
 /obj/structure/vaultdoor/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Pincode lock or combination lock can be re-locked with alt-click!</span>"
-	. += "<span class='notice'>Door health: [door_health]/100.</span>"
+	. += span_notice("Pincode lock or combination lock can be re-locked with alt-click!")
+	. += span_notice("Door health: [door_health]/100.")
 	if(is_locked() || key_locked)
-		. += "<span class='warning'>[src] is locked.</span>"
+		. += span_warning("[src] is locked.")
 	if(uses_pincode_lock)
-		. += "<span class='notice'>[src] requires a pin code to unlock.</span>"
+		. += span_notice("[src] requires a pin code to unlock.")
 	if(uses_combination_lock)
-		. += "<span class='notice'>[src] requires a combination to unlock.</span>"
+		. += span_notice("[src] requires a combination to unlock.")
 	if(uses_key_lock)
-		. += "<span class='notice'>[src] requires a key to unlock.</span>"
+		. += span_notice("[src] requires a key to unlock.")
 
 
 /obj/structure/vaultdoor/AltClick(mob/user)
@@ -145,12 +145,12 @@
 /obj/structure/vaultdoor/proc/lock_door(mob/user)
 	if(uses_combination_lock && !combination_locked)
 		combination_locked = TRUE
-		to_chat(user, "<span class='notice'>You lock [src] with a combination lock.</span>")
+		to_chat(user, span_notice("You lock [src] with a combination lock."))
 	else if (uses_pincode_lock && !pincode_locked)
 		pincode_locked = TRUE
-		to_chat(user, "<span class='notice'>You lock [src] with a pincode lock.</span>")
+		to_chat(user, span_notice("You lock [src] with a pincode lock."))
 	else if (combination_locked || pincode_locked)
-		to_chat(user, "<span class='warning'>[src] is already locked!</span>")
+		to_chat(user, span_warning("[src] is already locked!"))
 
 /obj/structure/vaultdoor/attackby(obj/item/used_item, mob/living/user, params)
 	if(is_broken)
@@ -181,7 +181,7 @@
 								to_chat(user, "[src] is open and cannot be locked or unlocked.")
 								return
 				else
-					to_chat(user, "<span class='warning'>[src] can't be unlocked with these keys!</span>")
+					to_chat(user, span_warning("[src] can't be unlocked with these keys!"))
 
 /obj/structure/vaultdoor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -204,10 +204,10 @@
 		return
 	if(action == "submit_pincode")
 		if(params["pincode"] == pincode)
-			to_chat(usr, "<span class='notice'>Access Granted.</span>")
+			to_chat(usr, span_notice("Access Granted."))
 			pincode_locked = FALSE
 		else
-			to_chat(usr, "<span class='notice'>Access Denied.</span>")
+			to_chat(usr, span_notice("Access Denied."))
 		. = TRUE
 	update_icon()
 

@@ -71,7 +71,7 @@
 		if (HAS_TRAIT(H, TRAIT_REPELLED_BY_HOLINESS))
 			H.emote("scream")
 			H.pointed(user)
-	M.show_message("<span class='warning'><b>GOD SEES YOU!</b></span>", MSG_AUDIBLE)
+	M.show_message(span_warning("<b>GOD SEES YOU!</b>"), MSG_AUDIBLE)
 	var/distance = max(0,get_dist(get_turf(src),T))
 
 	if(M.flash_act(affect_silicon = 1))
@@ -91,7 +91,7 @@
 			lightning_source.Beam(H, icon_state="lightning[rand(1,12)]", time = 5)
 			H.adjustFireLoss(100)
 			H.electrocution_animation(50)
-			to_chat(H, "<span class='userdanger'>The God has punished you for your sins!</span>", confidential = TRUE)
+			to_chat(H, span_userdanger("The God has punished you for your sins!"), confidential = TRUE)
 
 /obj/item/card/id/prince
 	name = "leader badge"

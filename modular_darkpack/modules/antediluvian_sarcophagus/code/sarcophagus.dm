@@ -102,7 +102,7 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 		if(pass)
 			if(password == uppertext(pass))
 				icon_state = "b_sarcophagus-open1"
-				to_chat(world, "<span class='userdanger'><b>UNKNOWN SARCOPHAGUS HAS BEEN OPENED</b></span>")
+				to_chat(world, span_userdanger("<b>UNKNOWN SARCOPHAGUS HAS BEEN OPENED</b>"))
 				SEND_SOUND(world, sound('modular_darkpack/modules/masquerade/sounds/announce.ogg'))
 				playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/mp_hello.ogg', 100, TRUE)
 				spawn(200)
@@ -116,7 +116,7 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 		passkey = rand(5, 15)
 	else
 		passkey = rand(-15, -5)
-	//to_chat(world, "<span class='userdanger'><b>UNKNOWN SARCOPHAGUS POSITION HAS BEEN LEAKED</b></span>")
+	//to_chat(world, span_userdanger("<b>UNKNOWN SARCOPHAGUS POSITION HAS BEEN LEAKED</b>"))
 	SEND_SOUND(world, sound('modular_darkpack/modules/masquerade/sounds/announce.ogg'))
 
 /obj/item/sarcophagus_key

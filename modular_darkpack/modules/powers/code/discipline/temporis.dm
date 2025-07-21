@@ -17,7 +17,7 @@
 	if (!istype(power, /datum/discipline_power/celerity))
 		return
 
-	to_chat(owner, "<span class='userdanger'>You try to use Celerity, but your active Temporis causes your body to wrench itself apart!</span>")
+	to_chat(owner, span_userdanger("You try to use Celerity, but your active Temporis causes your body to wrench itself apart!"))
 	INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "scream")
 	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon/human, gib)), 3 SECONDS)
 
@@ -72,7 +72,7 @@
 
 /datum/discipline_power/temporis/leaden_moment/activate(mob/living/target)
 	. = ..()
-	to_chat(target, "<span class='userdanger'><b>Slow down.</b></span>")
+	to_chat(target, span_userdanger("<b>Slow down.</b>"))
 	target.add_movespeed_modifier(/datum/movespeed_modifier/temporis)
 
 /datum/discipline_power/temporis/leaden_moment/deactivate(mob/living/target)

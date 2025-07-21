@@ -36,12 +36,12 @@
 	var/sharpness = 50
 	var/armour_penetration = 100
 	var/melee_damage_type = BRUTE
-	var/list/damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
+	var/list/damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, AGGRAVATED = 1, STAMINA = 0, OXY = 1)
 	var/attack_verb_continuous = "attacks"
 	var/attack_verb_simple = "attack"
 	var/friendly_verb_continuous = "nuzzles"
 	var/friendly_verb_simple = "nuzzle"
-	var/attack_sound = 'code/modules/wod13/sounds/werewolf_bite.ogg'
+	var/attack_sound = 'modular_darkpack/modules/deprecated/sounds/werewolf_bite.ogg'
 
 	var/sprite_color = "black"
 	var/sprite_scar = 0
@@ -68,11 +68,11 @@
 		step_variable = step_variable+1
 		if(step_variable == 2)
 			step_variable = 0
-			playsound(get_turf(src), 'code/modules/wod13/sounds/werewolf_step.ogg', 50, FALSE)
+			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/werewolf_step.ogg', 50, FALSE)
 	. = ..()
 
 /mob/living/carbon/proc/epic_fall(var/apply_stun_self = TRUE, var/apply_stun_others = TRUE)
-	playsound(get_turf(src), 'code/modules/wod13/sounds/werewolf_fall.ogg', 100, FALSE)
+	playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/werewolf_fall.ogg', 100, FALSE)
 	new /obj/effect/temp_visual/dir_setting/crack_effect(get_turf(src))
 	new /obj/effect/temp_visual/dir_setting/fall_effect(get_turf(src))
 	for(var/mob/living/carbon/C in range(5, src))
@@ -252,8 +252,8 @@
 /mob/living/carbon/werewolf/crinos/Topic(href, href_list)
 	//strip panel
 	if(href_list["pouches"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
-		visible_message("<span class='danger'>[usr] tries to empty [src]'s pouches.</span>", \
-						"<span class='userdanger'>[usr] tries to empty your pouches.</span>")
+		visible_message(span_danger("[usr] tries to empty [src]'s pouches."), \
+						span_userdanger("[usr] tries to empty your pouches."))
 		if(do_mob(usr, src, POCKET_STRIP_DELAY * 0.5))
 			dropItemToGround(r_store)
 			dropItemToGround(l_store)
@@ -262,8 +262,8 @@
 
 /mob/living/carbon/werewolf/crinos/resist_grab(moving_resist)
 	if(pulledby.grab_state)
-		visible_message("<span class='danger'>[src] breaks free of [pulledby]'s grip!</span>", \
-						"<span class='danger'>You break free of [pulledby]'s grip!</span>")
+		visible_message(span_danger("[src] breaks free of [pulledby]'s grip!"), \
+						span_danger("You break free of [pulledby]'s grip!"))
 	pulledby.stop_pulling()
 	. = 0
 

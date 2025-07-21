@@ -78,6 +78,10 @@
 			final_mod *= physiology.stamina_mod
 		if(BRAIN)
 			final_mod *= physiology.brain_mod
+		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		if(AGGRAVATED)
+			final_mod *= physiology.aggravated_mod
+		// DARKPACK EDIT ADDITION END
 
 	return final_mod
 
@@ -203,7 +207,7 @@
 ////////////////////////////////////////////
 
 ///Returns a list of damaged bodyparts
-/mob/living/carbon/proc/get_damaged_bodyparts(brute = FALSE, burn = FALSE, required_bodytype = NONE, target_zone = null)
+/mob/living/carbon/proc/get_damaged_bodyparts(brute = FALSE, burn = FALSE, required_bodytype = NONE, target_zone = null, aggravated = FALSE) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	var/list/obj/item/bodypart/parts = list()
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/BP = X
@@ -211,7 +215,7 @@
 			continue
 		if(!isnull(target_zone) && BP.body_zone != target_zone)
 			continue
-		if((brute && BP.brute_dam) || (burn && BP.burn_dam))
+		if((brute && BP.brute_dam) || (burn && BP.burn_dam) || (aggravated && BP.aggravated_dam)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 			parts += BP
 	return parts
 
@@ -222,7 +226,7 @@
 		var/obj/item/bodypart/BP = X
 		if(required_bodytype && !(BP.bodytype & required_bodytype))
 			continue
-		if(BP.brute_dam + BP.burn_dam < BP.max_damage)
+		if(BP.get_damage() < BP.max_damage) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 			parts += BP
 	return parts
 
@@ -245,7 +249,7 @@
  *
  * It automatically updates health status
  */
-/mob/living/carbon/heal_bodypart_damage(brute = 0, burn = 0, updating_health = TRUE, required_bodytype = NONE, target_zone = null)
+/mob/living/carbon/heal_bodypart_damage(brute = 0, burn = 0, updating_health = TRUE, required_bodytype = NONE, target_zone = null, aggravated = 0) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	. = FALSE
 	var/list/obj/item/bodypart/parts = get_damaged_bodyparts(brute, burn, required_bodytype, target_zone)
 	if(!parts.len)
@@ -253,7 +257,7 @@
 
 	var/obj/item/bodypart/picked = pick(parts)
 	var/damage_calculator = picked.get_damage() //heal_damage returns update status T/F instead of amount healed so we dance gracefully around this
-	if(picked.heal_damage(abs(brute), abs(burn), required_bodytype = required_bodytype))
+	if(picked.heal_damage(abs(brute), abs(burn), required_bodytype = required_bodytype, aggravated = aggravated)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		update_damage_overlays()
 	return (damage_calculator - picked.get_damage())
 
@@ -265,7 +269,7 @@
  *
  * It automatically updates health status
  */
-/mob/living/carbon/take_bodypart_damage(brute = 0, burn = 0, updating_health = TRUE, required_bodytype, check_armor = FALSE, wound_bonus = 0, exposed_wound_bonus = 0, sharpness = NONE)
+/mob/living/carbon/take_bodypart_damage(brute = 0, burn = 0, updating_health = TRUE, required_bodytype, check_armor = FALSE, wound_bonus = 0, exposed_wound_bonus = 0, sharpness = NONE, aggravated = 0) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	. = FALSE
 	if(HAS_TRAIT(src, TRAIT_GODMODE))
 		return
@@ -275,32 +279,35 @@
 
 	var/obj/item/bodypart/picked = pick(parts)
 	var/damage_calculator = picked.get_damage()
-	if(picked.receive_damage(abs(brute), abs(burn), check_armor ? run_armor_check(picked, (brute ? MELEE : burn ? FIRE : null)) : FALSE, wound_bonus = wound_bonus, exposed_wound_bonus = exposed_wound_bonus, sharpness = sharpness))
+	if(picked.receive_damage(abs(brute), abs(burn), check_armor ? run_armor_check(picked, (brute ? MELEE : burn ? FIRE : null)) : FALSE, wound_bonus = wound_bonus, exposed_wound_bonus = exposed_wound_bonus, sharpness = sharpness, aggravated = aggravated)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		update_damage_overlays()
 	return (damage_calculator - picked.get_damage())
 
-/mob/living/carbon/heal_overall_damage(brute = 0, burn = 0, stamina = 0, required_bodytype, updating_health = TRUE, forced = FALSE)
+/mob/living/carbon/heal_overall_damage(brute = 0, burn = 0, stamina = 0, required_bodytype, updating_health = TRUE, forced = FALSE, aggravated = 0) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	. = FALSE
 	// treat negative args as positive
 	brute = abs(brute)
 	burn = abs(burn)
+	aggravated = abs(aggravated) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 
-	var/list/obj/item/bodypart/parts = get_damaged_bodyparts(brute, burn, required_bodytype)
+	var/list/obj/item/bodypart/parts = get_damaged_bodyparts(brute, burn, required_bodytype, aggravated = aggravated) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 
 	var/update = NONE
-	while(parts.len && (brute > 0 || burn > 0))
+	while(parts.len && (brute > 0 || burn > 0 || aggravated > 0)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		var/obj/item/bodypart/picked = pick(parts)
 
 		var/brute_was = picked.brute_dam
 		var/burn_was = picked.burn_dam
+		var/aggravated_was = picked.aggravated_dam // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 		. += picked.get_damage()
 
-		update |= picked.heal_damage(brute, burn, updating_health = FALSE, forced = forced, required_bodytype = required_bodytype)
+		update |= picked.heal_damage(brute, burn, updating_health = FALSE, forced = forced, required_bodytype = required_bodytype, aggravated = aggravated) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 
 		. -= picked.get_damage() // return the net amount of damage healed
 
 		brute = round(brute - (brute_was - picked.brute_dam), DAMAGE_PRECISION)
 		burn = round(burn - (burn_was - picked.burn_dam), DAMAGE_PRECISION)
+		aggravated = round(aggravated - (aggravated_was - picked.aggravated_dam), DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 
 		parts -= picked
 
@@ -312,32 +319,36 @@
 	if(update)
 		update_damage_overlays()
 
-/mob/living/carbon/take_overall_damage(brute = 0, burn = 0, stamina = 0, updating_health = TRUE, forced = FALSE, required_bodytype)
+/mob/living/carbon/take_overall_damage(brute = 0, burn = 0, stamina = 0, updating_health = TRUE, forced = FALSE, required_bodytype, aggravated = 0) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	. = FALSE
 	if(!forced && HAS_TRAIT(src, TRAIT_GODMODE))
 		return
 	// treat negative args as positive
 	brute = abs(brute)
 	burn = abs(burn)
+	aggravated = abs(aggravated) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 
 	var/list/obj/item/bodypart/parts = get_damageable_bodyparts(required_bodytype)
 	var/update = NONE
-	while(parts.len && (brute > 0 || burn > 0))
+	while(parts.len && (brute > 0 || burn > 0 || aggravated > 0)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		var/obj/item/bodypart/picked = pick(parts)
 		var/brute_per_part = round(brute/parts.len, DAMAGE_PRECISION)
 		var/burn_per_part = round(burn/parts.len, DAMAGE_PRECISION)
+		var/aggravated_per_part = round(aggravated/parts.len, DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 
 		var/brute_was = picked.brute_dam
 		var/burn_was = picked.burn_dam
+		var/aggravated_was = picked.aggravated_dam // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 		. += picked.get_damage()
 
 		// disabling wounds from these for now cuz your entire body snapping cause your heart stopped would suck
-		update |= picked.receive_damage(brute_per_part, burn_per_part, blocked = FALSE, updating_health = FALSE, forced = forced, required_bodytype = required_bodytype, wound_bonus = CANT_WOUND)
+		update |= picked.receive_damage(brute_per_part, burn_per_part, blocked = FALSE, updating_health = FALSE, forced = forced, required_bodytype = required_bodytype, wound_bonus = CANT_WOUND, aggravated = aggravated_per_part) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 
 		. -= picked.get_damage() // return the net amount of damage healed
 
 		brute = round(brute - (picked.brute_dam - brute_was), DAMAGE_PRECISION)
 		burn = round(burn - (picked.burn_dam - burn_was), DAMAGE_PRECISION)
+		aggravated = round(aggravated - (picked.aggravated_dam - aggravated_was), DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 
 		parts -= picked
 

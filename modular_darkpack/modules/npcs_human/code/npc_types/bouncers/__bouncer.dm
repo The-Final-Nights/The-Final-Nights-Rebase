@@ -154,10 +154,10 @@
 		var/picked_option = show_radial_menu(user, src, interact_options, radius = 38, require_near = TRUE)
 		switch(picked_option)
 			if("Persuade for Entry")
-				to_chat(user, "<span class='notice'>You try to talk your way through.</span>")
+				to_chat(user, span_notice("You try to talk your way through."))
 				linked_perm.notify_barrier_social_bypass(user, src)
 			if("Show Badge")
-				to_chat(user, "<span class='notice'>You flash your [held_item] as you try to talk your way through.</span>")
+				to_chat(user, span_notice("You flash your [held_item] as you try to talk your way through."))
 				linked_perm.notify_barrier_social_bypass(user, src, TRUE)
 
 

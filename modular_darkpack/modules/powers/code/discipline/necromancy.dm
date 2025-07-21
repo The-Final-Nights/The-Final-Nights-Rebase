@@ -58,7 +58,7 @@
 		qdel(target)
 	else
 		target.apply_damage(5, BRUTE, owner.zone_selected)
-		target.apply_damage(6, CLONE, owner.zone_selected)
+		target.apply_damage(6, AGGRAVATED, owner.zone_selected)
 		target.emote("scream")
 
 //AWAKEN THE HOMUNCULAR SERVANT
@@ -104,7 +104,7 @@
 		qdel(target)
 	else
 		target.apply_damage(10, BRUTE, owner.zone_selected)
-		target.apply_damage(12, CLONE, owner.zone_selected)
+		target.apply_damage(12, AGGRAVATED, owner.zone_selected)
 		target.emote("scream")
 
 /datum/discipline_power/necromancy/awaken_the_homuncular_servant/post_gain()
@@ -206,7 +206,7 @@
 		qdel(target)
 	else
 		target.apply_damage(15, BRUTE, owner.zone_selected)
-		target.apply_damage(18, CLONE, owner.zone_selected)
+		target.apply_damage(18, AGGRAVATED, owner.zone_selected)
 		target.emote("scream")
 
 //BALEFUL EXORCISM
@@ -252,7 +252,7 @@
 		qdel(target)
 	else
 		target.apply_damage(20, BRUTE, owner.zone_selected)
-		target.apply_damage(24, CLONE, owner.zone_selected)
+		target.apply_damage(24, AGGRAVATED, owner.zone_selected)
 		target.emote("scream")
 
 //DAEMONIC POSSESSION
@@ -298,5 +298,5 @@
 		qdel(target)
 	else
 		target.apply_damage(25, BRUTE, owner.zone_selected)
-		target.apply_damage(30, CLONE, owner.zone_selected)
+		target.apply_damage(30, AGGRAVATED, owner.zone_selected)
 		target.emote("scream")
