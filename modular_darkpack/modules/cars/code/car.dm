@@ -89,7 +89,7 @@ SUBSYSTEM_DEF(carpool)
 	. = ..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.a_intent == INTENT_HARM && H.potential >= 4)
+		if(H.combat_mode && H.potential >= 4)
 			var/atom/throw_target = get_edge_target_turf(src, user.dir)
 			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 100, FALSE)
 			get_damage(10)
@@ -101,8 +101,8 @@ SUBSYSTEM_DEF(carpool)
 	icon_state = "2"
 	icon = 'modular_darkpack/modules/deprecated/icons/cars.dmi'
 	anchored = TRUE
-	plane = GAME_PLANE
-	layer = CAR_LAYER
+	//plane = GAME_PLANE
+	//layer = CAR_LAYER
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	throwforce = 150
@@ -128,23 +128,16 @@ SUBSYSTEM_DEF(carpool)
 
 	var/last_beep = 0
 
-	var/component_type = /datum/component/storage/concrete/vtm/car
-	var/baggage_limit = 40
-	var/baggage_max = WEIGHT_CLASS_BULKY
+	var/car_storage_type = /datum/storage/car
 
 	var/exploded = FALSE
 	var/beep_sound = 'modular_darkpack/modules/deprecated/sounds/beep.ogg'
 
 	var/gas = 1000
 
-/obj/vampire_car/ComponentInitialize(mapload)
+/obj/vampire_car/Initialize(mapload)
 	. = ..()
-	AddComponent(component_type)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 100
-	STR.max_w_class = baggage_max
-	STR.max_items = baggage_limit
-	STR.locked = TRUE
+	create_storage(storage_type = car_storage_type)
 
 /obj/vampire_car/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	. = ..()
@@ -173,7 +166,7 @@ SUBSYSTEM_DEF(carpool)
 
 		user.visible_message(span_warning("[user] begins pulling someone out of [src]!"), \
 			span_warning("You begin pulling [L] out of [src]..."))
-		if(do_mob(user, src, 5 SECONDS))
+		if(do_after(user, 5 SECONDS, src))
 			var/datum/action/carr/exit_car/C = locate() in L.actions
 			user.visible_message(span_warning("[user] has managed to get [L] out of [src]."), \
 				span_warning("You've managed to get [L] out of [src]."))
@@ -199,7 +192,7 @@ SUBSYSTEM_DEF(carpool)
 		if(istype(I, /obj/item/vamp/keys/hack))
 			if(!repairing)
 				repairing = TRUE
-				if(do_mob(user, src, 20 SECONDS))
+				if(do_after(user, 20 SECONDS, src))
 					var/roll = rand(1, 20) + (user.get_total_lockpicking()+user.get_total_dexterity()) - 8
 					//(<= 1, break lockpick) (2-9, trigger car alarm), (>= 10, unlock car)
 					if (roll <= 1)
@@ -224,7 +217,7 @@ SUBSYSTEM_DEF(carpool)
 						if(ishuman(user))
 							var/mob/living/carbon/human/H = user
 							H.AdjustHumanity(-1, 6)
-							call_dharma("steal", H)
+							//call_dharma("steal", H)
 						return
 				else
 					to_chat(user, span_warning("You've failed to open [src]'s lock."))
@@ -251,7 +244,7 @@ SUBSYSTEM_DEF(carpool)
 
 			user.visible_message(span_notice("[user] begins repairing [src]..."), \
 				span_notice("You begin repairing [src]. Stop at any time to only partially repair it."))
-			if(do_mob(user, src, time_to_repair SECONDS))
+			if(do_after(user, time_to_repair SECONDS, src))
 				health = maxhealth
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
 				user.visible_message(span_notice("[user] repairs [src]."), \
@@ -291,26 +284,7 @@ SUBSYSTEM_DEF(carpool)
 /obj/vampire_car/Destroy()
 	GLOB.car_list -= src
 	. = ..()
-	for(var/mob/living/L in src)
-		L.forceMove(loc)
-		var/datum/action/carr/exit_car/E = locate() in L.actions
-		if(E)
-			qdel(E)
-		var/datum/action/carr/fari_vrubi/F = locate() in L.actions
-		if(F)
-			qdel(F)
-		var/datum/action/carr/engine/N = locate() in L.actions
-		if(N)
-			qdel(N)
-		var/datum/action/carr/stage/S = locate() in L.actions
-		if(S)
-			qdel(S)
-		var/datum/action/carr/beep/B = locate() in L.actions
-		if(B)
-			qdel(B)
-		var/datum/action/carr/baggage/G = locate() in L.actions
-		if(G)
-			qdel(G)
+	empty_car()
 
 /obj/vampire_car/examine(mob/user)
 	. = ..()
@@ -343,32 +317,20 @@ SUBSYSTEM_DEF(carpool)
 		color = "#919191"
 		if(!exploded && prob(10))
 			exploded = TRUE
-			for(var/mob/living/L in src)
-				L.forceMove(loc)
-				var/datum/action/carr/exit_car/E = locate() in L.actions
-				if(E)
-					qdel(E)
-				var/datum/action/carr/fari_vrubi/F = locate() in L.actions
-				if(F)
-					qdel(F)
-				var/datum/action/carr/engine/N = locate() in L.actions
-				if(N)
-					qdel(N)
-				var/datum/action/carr/stage/S = locate() in L.actions
-				if(S)
-					qdel(S)
-				var/datum/action/carr/beep/B = locate() in L.actions
-				if(B)
-					qdel(B)
-				var/datum/action/carr/baggage/G = locate() in L.actions
-				if(G)
-					qdel(G)
+			empty_car()
 			explosion(loc,0,1,3,4)
 			GLOB.car_list -= src
 	else if(prob(50) && health <= maxhealth/2)
 		on = FALSE
 		set_light(0)
 	return
+
+//Dump out all living from the car
+/obj/vampire_car/proc/empty_car()
+	for(var/mob/living/L in src)
+		L.forceMove(loc)
+		for(var/datum/action/carr/car_action in L.actions)
+			qdel(car_action)
 
 /datum/action/carr/fari_vrubi
 	name = "Toggle Light"
@@ -382,12 +344,12 @@ SUBSYSTEM_DEF(carpool)
 			V.fari_on = TRUE
 			V.add_overlay(V.Fari)
 			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/weapons/magin.ogg', 40, TRUE)
+			playsound(V, 'sound/items/weapons/magin.ogg', 40, TRUE)
 		else
 			V.fari_on = FALSE
 			V.cut_overlay(V.Fari)
 			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/weapons/magout.ogg', 40, TRUE)
+			playsound(V, 'sound/items/weapons/magout.ogg', 40, TRUE)
 
 /datum/action/carr/beep
 	name = "Signal"
@@ -422,14 +384,15 @@ SUBSYSTEM_DEF(carpool)
 
 /datum/action/carr/baggage/Trigger()
 	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
-		var/datum/component/storage/STR = V.GetComponent(/datum/component/storage)
-		STR.locked = !STR.locked
-		playsound(V, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
-		if(STR.locked)
-			to_chat(owner, span_notice("You lock [V]'s baggage."))
-		else
-			to_chat(owner, span_notice("You unlock [V]'s baggage."))
+		var/obj/vampire_car/vamp_car = owner.loc
+		var/datum/storage/trunk = vamp_car.atom_storage
+		trunk.set_locked(trunk.locked ? STORAGE_NOT_LOCKED : STORAGE_FULLY_LOCKED)
+
+		#warn please pick one of these
+		vamp_car.balloon_alert(owner, trunk.locked ? "locked" : "unlocked")
+		to_chat(owner, span_notice("You [trunk.locked ? "locked" : "unlocked"] [vamp_car]'s baggage."))
+
+		playsound(vamp_car, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
 
 /datum/action/carr/engine
 	name = "Toggle Engine"
@@ -514,7 +477,7 @@ SUBSYSTEM_DEF(carpool)
 
 		visible_message(span_notice("[src] begins entering [V]..."), \
 			span_notice("You begin entering [V]..."))
-		if(do_mob(src, over_object, 1 SECONDS))
+		if(do_after(src, 1 SECONDS, over_object))
 			if(!V.driver)
 				forceMove(over_object)
 				V.driver = src
@@ -607,150 +570,10 @@ SUBSYSTEM_DEF(carpool)
 		get_damage(dam)
 	return
 
-/obj/vampire_car/retro
-	icon_state = "1"
-	max_passengers = 1
-	dir = WEST
-
-/obj/vampire_car/retro/rand
-	icon_state = "3"
-
-/obj/vampire_car/retro/rand/Initialize(mapload)
-	icon_state = "[pick(1, 3, 5)]"
-	if(access == "none")
-		access = "npc[rand(1, 20)]"
-	. = ..()
-
-/obj/vampire_car/rand
-	icon_state = "4"
-	dir = WEST
-
-/obj/vampire_car/rand/Initialize(mapload)
-	icon_state = "[pick(2, 4, 6)]"
-	if(access == "none")
-		access = "npc[rand(1, 20)]"
-	. = ..()
-
-/obj/vampire_car/rand/camarilla
-	access = "camarilla"
-	icon_state = "6"
-
-/obj/vampire_car/retro/rand/camarilla
-	access = "camarilla"
-	icon_state = "5"
-
-/obj/vampire_car/rand/anarch
-	access = "anarch"
-	icon_state = "6"
-
-/obj/vampire_car/retro/rand/anarch
-	access = "anarch"
-	icon_state = "5"
-
-/obj/vampire_car/rand/clinic
-	access = "clinic"
-	icon_state = "6"
-
-/obj/vampire_car/retro/rand/clinic
-	access = "clinic"
-	icon_state = "5"
-
-/obj/vampire_car/limousine
-	icon_state = "limo"
-	max_passengers = 6
-	dir = WEST
-	baggage_limit = 45
-
-/obj/vampire_car/limousine/giovanni
-	icon_state = "giolimo"
-	max_passengers = 6
-	dir = WEST
-	access = "giovanni"
-	baggage_limit = 45
-	baggage_max = WEIGHT_CLASS_BULKY
-
-/obj/vampire_car/limousine/camarilla
-	icon_state = "limo"
-	max_passengers = 6
-	dir = WEST
-	access = "camarilla"
-	baggage_limit = 45
-
-/obj/vampire_car/police
-	icon_state = "police"
-	max_passengers = 3
-	dir = WEST
-	beep_sound = 'modular_darkpack/modules/deprecated/sounds/migalka.ogg'
-	access = "police"
-	baggage_limit = 45
-	baggage_max = WEIGHT_CLASS_BULKY
-	var/color_blue = FALSE
-	var/last_color_change = 0
-
-/obj/vampire_car/police/handle_caring()
-	if(fari_on)
-		if(last_color_change+10 <= world.time)
-			last_color_change = world.time
-			if(color_blue)
-				color_blue = FALSE
-				set_light(0)
-				set_light(4, 6, "#ff0000")
-			else
-				color_blue = TRUE
-				set_light(0)
-				set_light(4, 6, "#0000ff")
-	else
-		if(last_color_change+10 <= world.time)
-			last_color_change = world.time
-			set_light(0)
-	. = ..()
-
-/obj/vampire_car/taxi
-	icon_state = "taxi"
-	max_passengers = 3
-	dir = WEST
-	access = "taxi"
-	baggage_limit = 40
-	baggage_max = WEIGHT_CLASS_BULKY
-
-/obj/vampire_car/track
-	icon_state = "track"
-	max_passengers = 6
-	dir = WEST
-	access = "none"
-	baggage_limit = 100
-	baggage_max = WEIGHT_CLASS_BULKY
-	component_type = /datum/component/storage/concrete/vtm/car/track
-
-/obj/vampire_car/track/Initialize(mapload)
-	if(access == "none")
-		access = "npc[rand(1, 20)]"
-	. = ..()
-
-/obj/vampire_car/track/volkswagen
-	icon_state = "volkswagen"
-	baggage_limit = 60
-
-/obj/vampire_car/track/ambulance
-	icon_state = "ambulance"
-	access = "clinic"
-	baggage_limit = 60
-
 /proc/get_dist_in_pixels(pixel_starts_x, pixel_starts_y, pixel_ends_x, pixel_ends_y)
 	var/total_x = abs(pixel_starts_x-pixel_ends_x)
 	var/total_y = abs(pixel_starts_y-pixel_ends_y)
 	return round(sqrt(total_x*total_x + total_y*total_y))
-
-/proc/get_angle_raw(start_x, start_y, start_pixel_x, start_pixel_y, end_x, end_y, end_pixel_x, end_pixel_y)
-	var/dy = (world.icon_size * end_y + end_pixel_y) - (world.icon_size * start_y + start_pixel_y)
-	var/dx = (world.icon_size * end_x + end_pixel_x) - (world.icon_size * start_x + start_pixel_x)
-	if(!dy)
-		return (dx >= 0) ? 90 : 270
-	. = arctan(dx/dy)
-	if(dy < 0)
-		. += 180
-	else if(dx < 0)
-		. += 360
 
 /proc/get_angle_diff(angle_a, angle_b)
 	return ((angle_b - angle_a) + 180) % 360 - 180;
@@ -1029,3 +852,11 @@ SUBSYSTEM_DEF(carpool)
 	var/matrix/M = matrix()
 	M.Turn(movement_vector - minus_angle)
 	transform = M
+
+/datum/storage/car
+	max_slots = 40
+	max_total_storage = 100
+	max_specific_storage = WEIGHT_CLASS_HUGE
+
+/datum/storage/car/limo
+	max_slots = 45
