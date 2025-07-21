@@ -241,7 +241,7 @@
 	fully_replace_character_name(name, real_name)
 
 	trait_holder.randomize_attributes(1, max_stat)
-	trait_holder.randomize_abilities(1, max_stat)
+	trait_holder.randomize_abilities(0, max_stat)
 
 	maxHealth = round(initial(maxHealth)+(initial(maxHealth)/3)*(trait_holder.get_stat(ST_TRAIT_STAMINA)))
 	health = round(initial(health)+(initial(health)/3)*(trait_holder.get_stat(ST_TRAIT_STAMINA)))
