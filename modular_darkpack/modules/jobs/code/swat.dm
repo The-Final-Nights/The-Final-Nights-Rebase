@@ -27,8 +27,7 @@
 	H.trait_holder.set_stat(5, ST_TRAIT_LARCENY)
 	H.trait_holder.set_stat(4, ST_TRAIT_STRENGTH)
 	H.ignores_warrant = TRUE
-	H.maxHealth = round((initial(H.maxHealth)-initial(H.maxHealth)/4)+(initial(H.maxHealth)/4)*(H.strength+13-H.generation))
-	H.health = round((initial(H.health)-initial(H.health)/4)+(initial(H.health)/4)*(H.strength+13-H.generation))
+	H.update_max_health()
 
 	for(var/datum/action/A in H.actions)
 		if(A.vampiric)

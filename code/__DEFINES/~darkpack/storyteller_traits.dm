@@ -48,5 +48,5 @@
 #define ST_TRAIT_TECHNOLOGY /datum/st_trait/ability/technology
 
 // Advantages
-#define ST_TRAIT_BLOOD_POOL /datum/st_trait/blood_pool
-#define ST_TRAIT_WILLPOWER /datum/st_trait/willpower
+#define ST_TRAIT_BLOOD_POOL /datum/st_trait/pooled/blood_pool
+#define ST_TRAIT_WILLPOWER /datum/st_trait/pooled/willpower
