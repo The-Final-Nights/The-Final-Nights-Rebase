@@ -35,16 +35,7 @@
 		growth_stage = 1
 		to_chat(user, span_notice("You pull the grown weed out of [src]."))
 		var/mob/living/carbon/human/H = user
-		var/amount
-		switch(storyteller_roll(H.trait_holder.get_stat(ST_TRAIT_PERCEPTION), 6, TRUE))
-			if(3 to INFINITY)
-				amount = 4
-			if(2)
-				amount = 3
-			if(1)
-				amount = 2
-			else
-				amount = 1
+		var/amount = clamp(storyteller_roll(H.trait_holder.get_stat(ST_TRAIT_INTELLIGENCE), 6, TRUE) - 1, 1, 4)
 		for(var/i = 1 to amount)
 			new /obj/item/food/vampire/weed(get_turf(user))
 	update_weed_icon()
