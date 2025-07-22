@@ -78,7 +78,7 @@
 
 	human_owner.physiology.armor = old_armor
 
-	human_owner.trait_holder.remove_buff(ST_TRAIT_DEXTERITY, "blood_power")
+	human_owner.trait_holder.remove_buff(ST_TRAIT_STRENGTH, "blood_power")
 	human_owner.trait_holder.remove_buff(ST_TRAIT_DEXTERITY, "blood_power")
 	human_owner.trait_holder.remove_buff(ST_TRAIT_STAMINA, "blood_power")
 
