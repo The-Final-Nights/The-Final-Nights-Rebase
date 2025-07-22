@@ -91,3 +91,5 @@
 	var/aggloss = 0
 
 	var/datum/storyteller_traits/trait_holder
+	// TODO, replace with social/leadership
+	var/more_companions = 0
