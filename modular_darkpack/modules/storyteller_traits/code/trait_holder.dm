@@ -1,6 +1,3 @@
-/mob/living
-	var/datum/storyteller_traits/trait_holder
-
 /// This is the object used to store and manage a character's st_traits.
 /datum/storyteller_traits
 	/// A dictionary of st_traits. K: path -> V: instance.
@@ -13,7 +10,7 @@
 
 /datum/storyteller_traits/Destroy()
 	. = ..()
-	st_traits = null
+	QDEL_LIST(st_traits)
 
 /// Return the total or pure score of the given trait.
 /datum/storyteller_traits/proc/get_stat(trait, include_bonus = TRUE)

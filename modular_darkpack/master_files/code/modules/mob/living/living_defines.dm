@@ -89,3 +89,5 @@
 	//Damage related vars, NOTE: THESE SHOULD ONLY BE MODIFIED BY PROCS
 	///Aggravated damage caused by supernatural attacks.
 	var/aggloss = 0
+
+	var/datum/storyteller_traits/trait_holder

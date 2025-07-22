@@ -21,17 +21,13 @@ E.g:
 
 ### Modular Overrides:
 
-- N/A
-<!-- If you added a new modular override (file or code-wise) for your module, you should list it here. Code files should specify what procs they changed, in case of multiple modules using the same file.
-E.g:
-- `modular_nova/master_files/sound/my_cool_sound.ogg`
-- `modular_nova/master_files/code/my_modular_override.dm`: `proc/overriden_proc`, `var/overriden_var`
-  -->
+- [modular_darkpack/master_files/code/modules/mob/living/living_defines.dm](/modular_darkpack/master_files/code/modules/mob/living/living_defines.dm): `var/datum/storyteller_traits/trait_holder`
+- [modular_darkpack/master_files/code/modules/mob/living/living.dm](/modular_darkpack/master_files/code/modules/mob/living/living.dm): `trait_holder = new()`
 
 ### Defines:
 
-- N/A
-<!-- If you needed to add any defines, mention the files you added those defines in, along with the name of the defines. -->
+- [code/\_\_DEFINES/~darkpack/storyteller_traits.dm](/code/__DEFINES/~darkpack/storyteller_traits.dm):
+	- `ST_TRAIT_###` Im not going to list all of them, but one for every trait following this format.
 
 ### Included files that are not contained in this module:
 
