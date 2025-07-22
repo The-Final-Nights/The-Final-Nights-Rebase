@@ -18,9 +18,13 @@ E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
   -->
 
+- `code/game/objects/items/cards_ids.dm`: `proc/obj/item/card/id/Initialize`, `proc/obj/item/card/id/examine`
+- `code/modules/jobs/job_types/_job.dm`: `proc/datum/outfit/job/post_equip`
+- `modular_darkpack/master_files/code/modules/economy/account.dm`: `/datum/bank_account/New`
+
 ### Modular Overrides:
 
-- N/A
+- `modular_darkpack/master_files/code/modules/economy/account.dm`
 <!-- If you added a new modular override (file or code-wise) for your module, you should list it here. Code files should specify what procs they changed, in case of multiple modules using the same file.
 E.g:
 - `modular_nova/master_files/sound/my_cool_sound.ogg`
@@ -29,7 +33,7 @@ E.g:
 
 ### Defines:
 
-- N/A
+- `code/__DEFINES/~darkpack/economy.dm`: `#define is_creditcard()`
 <!-- If you needed to add any defines, mention the files you added those defines in, along with the name of the defines. -->
 
 ### Included files that are not contained in this module:
