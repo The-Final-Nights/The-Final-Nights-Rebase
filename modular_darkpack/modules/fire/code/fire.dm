@@ -1,33 +1,10 @@
-SUBSYSTEM_DEF(die_in_a_fire)
-	name = "Die In A Fire"
-	init_order = INIT_ORDER_DEFAULT
-	wait = 10
-	priority = FIRE_PRIORITY_DEFAULT
+PROCESSING_SUBSYSTEM_DEF(turf_fire)
+	name = "Turf Fire"
+	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
+	wait = 2 SECONDS
 
-	var/list/currentrun = list()
 
-/datum/controller/subsystem/die_in_a_fire/fire(resumed = FALSE)
-	if (!resumed)
-		var/list/activelist = GLOB.fires_list
-		src.currentrun = activelist.Copy()
-
-	//cache for sanic speed (lists are references anyways)
-	var/list/currentrun = src.currentrun
-
-	while(currentrun.len)
-		var/obj/effect/fire/F = currentrun[currentrun.len]
-		--currentrun.len
-
-		if (QDELETED(F)) // Some issue causes nulls to get into this list some times. This keeps it running, but the bug is still there.
-			GLOB.fires_list -= F
-			log_world("Found a null in fires list!")
-			continue
-
-		//NPC.observed_by_player()
-		if(MC_TICK_CHECK)
-			return
-		F.handle_automated_spread()
-
+/*
 /obj/effect/fire
 	name = "fire"
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
@@ -163,6 +140,7 @@ SUBSYSTEM_DEF(die_in_a_fire)
 		var/area/vtm/V = get_area(src)
 		if(!V.upper)
 			spread_chance += 10
+*/
 
 /turf/open
 	var/spread_chance = 3
