@@ -241,7 +241,7 @@ SUBSYSTEM_DEF(cityweather)
 	. = ..()
 	if(istype(get_area(src), /area/vtm))
 		var/area/vtm/V = get_area(src)
-		if(V.upper)
+		if(V.outdoors)
 			new /obj/effect/vamp_weather(src)
 
 

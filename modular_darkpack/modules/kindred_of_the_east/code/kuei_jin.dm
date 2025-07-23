@@ -295,7 +295,7 @@
 	. = ..()
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
-		if(V.zone_type == ZONE_MASQUERADE && V.upper)
+		if(V.zone_type == ZONE_MASQUERADE && V.outdoors)
 			if(H.pulling)
 				if(ishuman(H.pulling))
 					var/mob/living/carbon/human/pull = H.pulling

@@ -65,7 +65,7 @@ SUBSYSTEM_DEF(graveyard)
 	if (check_holidays(CHRISTMAS))
 		if (istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if (V.upper)
+			if (V.outdoors)
 				icon_state = "grave[rand(1, 10)]-snow"
 
 /obj/vampgrave/Destroy()

@@ -161,7 +161,7 @@ SUBSYSTEM_DEF(die_in_a_fire)
 	. = ..()
 	if(istype(get_area(src), /area/vtm))
 		var/area/vtm/V = get_area(src)
-		if(!V.upper)
+		if(!V.outdoors)
 			spread_chance += 10
 
 /turf/open

@@ -29,7 +29,7 @@
 	name = "Millenium Elevator"
 	icon_state = "prince"
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = "elysium"
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING

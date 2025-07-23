@@ -2,7 +2,7 @@
 	name = "NPC Dwelling Master Definition"
 	icon_state = "interior"
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	wall_rating = 1
 	var/area_tag = "default"
 	var/area_heat = 0

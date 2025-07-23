@@ -338,7 +338,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				new /obj/effect/decal/snow_overlay(src)
 				footstep = FOOTSTEP_SNOW
@@ -369,7 +369,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
@@ -392,7 +392,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
@@ -425,7 +425,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
@@ -530,7 +530,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
@@ -597,7 +597,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
@@ -613,7 +613,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow_rails"
 				footstep = FOOTSTEP_SNOW
@@ -814,7 +814,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				//initial_gas_mix = WINTER_DEFAULT_ATMOS
 				icon_state = "snow[rand(1, 14)]"
 				footstep = FOOTSTEP_SNOW
@@ -875,7 +875,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "snow[rand(1, 14)]"
 
 /turf/open/water/beach/vamp
