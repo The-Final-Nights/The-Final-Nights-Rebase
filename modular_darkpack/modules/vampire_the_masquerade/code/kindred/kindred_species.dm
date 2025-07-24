@@ -85,6 +85,7 @@
 
 	// TODO: [Lucia] reimplement choosing disciplines
 	new_kindred.give_discipline(new /datum/discipline/celerity(5))
+	new_kindred.give_discipline(new /datum/discipline/potence(5))
 
 /datum/species/human/kindred/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
 	. = ..()

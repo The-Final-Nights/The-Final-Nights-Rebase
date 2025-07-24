@@ -65,7 +65,7 @@
 		var/datum/action/discipline/action = new(discipline)
 		action.Grant(src)
 	var/datum/species/human/kindred/species = dna.species
-	species.disciplines += discipline
+	LAZYADD(species.disciplines, discipline)
 
 // TODO: [Lucia] reimplement kuei-jin
 /*
