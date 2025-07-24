@@ -26,6 +26,12 @@
 
 	return POWER_CANCEL_ACTIVATION
 
+/datum/discipline_power/celerity/proc/apply_passive_dexterity_bonus(bonus)
+	if (owner.trait_holder.get_buff(ST_TRAIT_DEXTERITY, "celerity") >= bonus)
+		return
+
+	owner.trait_holder.set_buff(bonus, ST_TRAIT_DEXTERITY, "celerity")
+
 //CELERITY 1
 /datum/discipline_power/celerity/one
 	name = "Celerity 1"
@@ -56,6 +62,9 @@
 	UnregisterSignal(owner, COMSIG_POWER_PRE_ACTIVATION)
 
 	owner.remove_status_effect(/datum/status_effect/celerity/one)
+
+/datum/discipline_power/celerity/one/post_gain()
+	apply_passive_dexterity_bonus(1)
 
 //CELERITY 2
 /datum/discipline_power/celerity/two
@@ -88,6 +97,9 @@
 
 	owner.remove_status_effect(/datum/status_effect/celerity/two)
 
+/datum/discipline_power/celerity/two/post_gain()
+	apply_passive_dexterity_bonus(2)
+
 //CELERITY 3
 /datum/discipline_power/celerity/three
 	name = "Celerity 3"
@@ -118,6 +130,9 @@
 	UnregisterSignal(owner, COMSIG_POWER_PRE_ACTIVATION)
 
 	owner.remove_status_effect(/datum/status_effect/celerity/three)
+
+/datum/discipline_power/celerity/three/post_gain()
+	apply_passive_dexterity_bonus(3)
 
 //CELERITY 4
 /datum/discipline_power/celerity/four
@@ -150,6 +165,9 @@
 
 	owner.remove_status_effect(/datum/status_effect/celerity/four)
 
+/datum/discipline_power/celerity/four/post_gain()
+	apply_passive_dexterity_bonus(4)
+
 //CELERITY 5
 /datum/discipline_power/celerity/five
 	name = "Celerity 5"
@@ -180,3 +198,6 @@
 	UnregisterSignal(owner, COMSIG_POWER_PRE_ACTIVATION)
 
 	owner.remove_status_effect(/datum/status_effect/celerity/five)
+
+/datum/discipline_power/celerity/five/post_gain()
+	apply_passive_dexterity_bonus(5)

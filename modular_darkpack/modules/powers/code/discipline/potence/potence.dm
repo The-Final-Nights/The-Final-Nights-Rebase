@@ -11,6 +11,12 @@
 	activate_sound = 'modular_darkpack/modules/deprecated/sounds/potence_activate.ogg'
 	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/potence_deactivate.ogg'
 
+/datum/discipline_power/potence/proc/apply_passive_strength_bonus(bonus)
+	if (owner.trait_holder.get_buff(ST_TRAIT_STRENGTH, "potence") >= bonus)
+		return
+
+	owner.trait_holder.set_buff(bonus, ST_TRAIT_STRENGTH, "potence")
+
 //POTENCE 1
 /datum/discipline_power/potence/one
 	name = "Potence 1"
@@ -41,6 +47,9 @@
 	. = ..()
 
 	owner.remove_status_effect(/datum/status_effect/potence/one)
+
+/datum/discipline_power/potence/one/post_gain()
+	apply_passive_strength_bonus(1)
 
 //POTENCE 2
 /datum/discipline_power/potence/two
@@ -73,6 +82,9 @@
 
 	owner.remove_status_effect(/datum/status_effect/potence/two)
 
+/datum/discipline_power/potence/two/post_gain()
+	apply_passive_strength_bonus(2)
+
 //POTENCE 3
 /datum/discipline_power/potence/three
 	name = "Potence 3"
@@ -103,6 +115,9 @@
 	. = ..()
 
 	owner.remove_status_effect(/datum/status_effect/potence/three)
+
+/datum/discipline_power/potence/three/post_gain()
+	apply_passive_strength_bonus(3)
 
 //POTENCE 4
 /datum/discipline_power/potence/four
@@ -135,6 +150,9 @@
 
 	owner.remove_status_effect(/datum/status_effect/potence/four)
 
+/datum/discipline_power/potence/four/post_gain()
+	apply_passive_strength_bonus(4)
+
 //POTENCE 5
 /datum/discipline_power/potence/five
 	name = "Potence 5"
@@ -165,3 +183,6 @@
 	. = ..()
 
 	owner.remove_status_effect(/datum/status_effect/potence/five)
+
+/datum/discipline_power/potence/five/post_gain()
+	apply_passive_strength_bonus(5)
