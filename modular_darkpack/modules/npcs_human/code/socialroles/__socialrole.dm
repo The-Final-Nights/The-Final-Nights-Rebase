@@ -240,14 +240,11 @@
 
 	fully_replace_character_name(name, real_name)
 
-	physique = rand(1, max_stat)
-	social = rand(1, max_stat)
-	mentality = rand(1, max_stat)
-	lockpicking = rand(1, max_stat)
-	blood = rand(1, 2)
+	trait_holder.randomize_attributes(1, max_stat)
+	trait_holder.randomize_abilities(0, max_stat)
 
-	maxHealth = round(initial(maxHealth)+(initial(maxHealth)/3)*(physique))
-	health = round(initial(health)+(initial(health)/3)*(physique))
+	maxHealth = round(initial(maxHealth)+(initial(maxHealth)/3)*(trait_holder.get_stat(ST_TRAIT_STAMINA)))
+	health = round(initial(health)+(initial(health)/3)*(trait_holder.get_stat(ST_TRAIT_STAMINA)))
 	last_health = health
 
 	is_criminal = socialrole.is_criminal
