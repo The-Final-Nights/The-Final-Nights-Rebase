@@ -12,7 +12,6 @@ Module ID: ECONOMY <!-- Uppercase, UNDERSCORE_CONNECTED name of your module, tha
 
 ### TG Proc/File Changes:
 
-- N/A
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.
 E.g:
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
@@ -38,7 +37,7 @@ E.g:
 
 ### Included files that are not contained in this module:
 
-- N/A
+- `code/__DEFINES/~darkpack/economy.dm`
 <!-- Likewise, be it a non-modular file or a modular one that's not contained within the folder belonging to this specific module, it should be mentioned here. Good examples are icons or sounds that are used between multiple modules, or other such edge-cases. -->
 
 ### Credits:
