@@ -47,7 +47,7 @@
 		if("Enter Pincode")
 			var/input_pincode = input(user, "Please enter the pincode.", "Keypad") as null|text
 			if(input_pincode && "[input_pincode]" == pincode)
-				to_chat(user, "<span class='notice'>Access Granted.</span>")
+				to_chat(user, span_notice("Access Granted."))
 				if(connected_shutter.density)
 					connected_shutter.open()
 			else

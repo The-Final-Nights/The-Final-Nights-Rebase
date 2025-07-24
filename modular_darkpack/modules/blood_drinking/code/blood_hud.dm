@@ -10,9 +10,9 @@
 		var/mob/living/carbon/human/BD = usr
 		BD.update_blood_hud()
 		if(BD.bloodpool > 0)
-			to_chat(BD, "<span class='notice'>You've got [BD.bloodpool]/[BD.maxbloodpool] blood points.</span>")
+			to_chat(BD, span_notice("You've got [BD.bloodpool]/[BD.maxbloodpool] blood points."))
 		else
-			to_chat(BD, "<span class='warning'>You've got [BD.bloodpool]/[BD.maxbloodpool] blood points.</span>")
+			to_chat(BD, span_warning("You've got [BD.bloodpool]/[BD.maxbloodpool] blood points."))
 	. = ..()
 
 /mob/living/proc/update_blood_hud()

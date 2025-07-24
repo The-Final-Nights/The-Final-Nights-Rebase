@@ -39,7 +39,7 @@
 
 /datum/discipline_power/necromancy/seal_of_abamixtra/activate(mob/living/target)
 	. = ..()
-	var/limit = 1 + owner.social + owner.more_companions - 1
+	var/limit = 1 + owner.trait_holder.get_stat(ST_TRAIT_LEADERSHIP)
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -58,7 +58,7 @@
 		qdel(target)
 	else
 		target.apply_damage(5, BRUTE, owner.zone_selected)
-		target.apply_damage(6, CLONE, owner.zone_selected)
+		target.apply_damage(6, AGGRAVATED, owner.zone_selected)
 		target.emote("scream")
 
 //AWAKEN THE HOMUNCULAR SERVANT
@@ -85,7 +85,7 @@
 
 /datum/discipline_power/necromancy/awaken_the_homuncular_servant/activate(mob/living/target)
 	. = ..()
-	var/limit = 2 + owner.social + owner.more_companions - 1
+	var/limit = 2 + owner.trait_holder.get_stat(ST_TRAIT_LEADERSHIP)
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -104,7 +104,7 @@
 		qdel(target)
 	else
 		target.apply_damage(10, BRUTE, owner.zone_selected)
-		target.apply_damage(12, CLONE, owner.zone_selected)
+		target.apply_damage(12, AGGRAVATED, owner.zone_selected)
 		target.emote("scream")
 
 /datum/discipline_power/necromancy/awaken_the_homuncular_servant/post_gain()
@@ -187,7 +187,7 @@
 
 /datum/discipline_power/necromancy/shambling_hordes/activate(mob/living/target)
 	. = ..()
-	var/limit = 3 + owner.social + owner.more_companions - 1
+	var/limit = 3 + owner.trait_holder.get_stat(ST_TRAIT_LEADERSHIP)
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -206,7 +206,7 @@
 		qdel(target)
 	else
 		target.apply_damage(15, BRUTE, owner.zone_selected)
-		target.apply_damage(18, CLONE, owner.zone_selected)
+		target.apply_damage(18, AGGRAVATED, owner.zone_selected)
 		target.emote("scream")
 
 //BALEFUL EXORCISM
@@ -233,7 +233,7 @@
 
 /datum/discipline_power/necromancy/baleful_exorcism/activate(mob/living/target)
 	. = ..()
-	var/limit = 4 + owner.social + owner.more_companions - 1
+	var/limit = 4 + owner.trait_holder.get_stat(ST_TRAIT_LEADERSHIP)
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -252,7 +252,7 @@
 		qdel(target)
 	else
 		target.apply_damage(20, BRUTE, owner.zone_selected)
-		target.apply_damage(24, CLONE, owner.zone_selected)
+		target.apply_damage(24, AGGRAVATED, owner.zone_selected)
 		target.emote("scream")
 
 //DAEMONIC POSSESSION
@@ -279,7 +279,7 @@
 
 /datum/discipline_power/necromancy/daemonic_possession/activate(mob/living/target)
 	. = ..()
-	var/limit = 5 + owner.social + owner.more_companions - 1
+	var/limit = 5 + owner.trait_holder.get_stat(ST_TRAIT_LEADERSHIP)
 	if(length(owner.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/beast = pick(owner.beastmaster)
 		beast.death()
@@ -298,5 +298,5 @@
 		qdel(target)
 	else
 		target.apply_damage(25, BRUTE, owner.zone_selected)
-		target.apply_damage(30, CLONE, owner.zone_selected)
+		target.apply_damage(30, AGGRAVATED, owner.zone_selected)
 		target.emote("scream")

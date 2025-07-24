@@ -68,9 +68,9 @@
 
 /datum/antagonist/sabbatist/on_removal()
 	..()
-	to_chat(owner.current,"<span class='userdanger'>You are no longer the part of Sabbat!</span>")
+	to_chat(owner.current,span_userdanger("You are no longer the part of Sabbat!"))
 	owner.special_role = null
 
 /datum/antagonist/sabbatist/greet()
-	to_chat(owner.current, "<span class='alertsyndie'>You are the part of Sabbat.</span>")
+	to_chat(owner.current, span_alertsyndie("You are the part of Sabbat."))
 	owner.announce_objectives()

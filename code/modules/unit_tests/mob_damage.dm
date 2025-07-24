@@ -109,6 +109,11 @@
 	if(included_types & STAMINALOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getStaminaLoss(), amount, \
 			"[testing_mob] should have [amount] stamina damage, instead they have [testing_mob.getStaminaLoss()]!")
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(included_types & AGGLOSS)
+		TEST_ASSERT_EQUAL(round(testing_mob.getAggLoss(), 1), amount, \
+			"[testing_mob] should have [amount] aggravated damage, instead they have [testing_mob.getAggLoss()]!")
+	// DARKPACK EDIT ADDITION END
 	return TRUE
 
 /**
@@ -146,6 +151,12 @@
 		damage_returned = testing_mob.adjustStaminaLoss(amount, updating_stamina = FALSE, forced = forced, required_biotype = biotypes)
 		TEST_ASSERT_EQUAL(damage_returned, expected, \
 			"adjustStaminaLoss() should have returned [expected], but returned [damage_returned] instead!")
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(included_types & AGGLOSS)
+		damage_returned = round(testing_mob.adjustAggLoss(amount, updating_health = FALSE, forced = forced, required_bodytype = bodytypes), 1)
+		TEST_ASSERT_EQUAL(damage_returned, expected, \
+			"adjustAggLoss() should have returned [expected], but returned [damage_returned] instead!")
+	// DARKPACK EDIT ADDITION END
 	return TRUE
 
 /**
@@ -183,6 +194,12 @@
 		damage_returned = testing_mob.setStaminaLoss(amount, updating_stamina = FALSE, forced = forced, required_biotype = biotypes)
 		TEST_ASSERT_EQUAL(damage_returned, expected, \
 			"setStaminaLoss() should have returned [expected], but returned [damage_returned] instead!")
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(included_types & AGGLOSS)
+		damage_returned = round(testing_mob.setAggLoss(amount, updating_health = FALSE, forced = forced), 1)
+		TEST_ASSERT_EQUAL(damage_returned, expected, \
+			"setAggLoss() should have returned [expected], but returned [damage_returned] instead!")
+	// DARKPACK EDIT ADDITION END
 	return TRUE
 
 ///	Sanity tests damage and healing using adjustToxLoss, adjustBruteLoss, etc
@@ -443,7 +460,7 @@
 	// Basic mobs
 	var/mob/living/basic/mouse/gray/gusgus = allocate(/mob/living/basic/mouse/gray)
 	// give gusgus a damage_coeff of 1 for this test
-	gusgus.damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1)
+	gusgus.damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1, AGGRAVATED = 1) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	// tank mouse
 	gusgus.maxHealth = 200
 
@@ -453,7 +470,7 @@
 	// Simplemobs
 	var/mob/living/simple_animal/abstract_thing = allocate(/mob/living/simple_animal)
 	// give the mob a damage_coeff of 1 for this test
-	abstract_thing.damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1)
+	abstract_thing.damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1, AGGRAVATED = 1) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	abstract_thing.maxHealth = 200
 
 	test_sanity_simple(abstract_thing)
@@ -466,7 +483,7 @@
  * Arguments:
  * * testing_mob - the mob to check the damage of
  * * amount - the amount of damage to verify that the mob has
- * * expected - the expected return value of the damage procs, if it differs from the default of (amount * 4)
+ * * expected - the expected return value of the damage procs, if it differs from the default of (amount * 5)
  * * included_types - Bitflag of damage types to check.
  */
 /datum/unit_test/mob_damage/animal/verify_damage(mob/living/testing_mob, amount, expected, included_types = ALL)
@@ -474,8 +491,8 @@
 		TEST_ASSERT_EQUAL(testing_mob.getToxLoss(), 0, \
 			"[testing_mob] should have [0] toxin damage, instead they have [testing_mob.getToxLoss()]!")
 	if(included_types & BRUTELOSS)
-		TEST_ASSERT_EQUAL(round(testing_mob.getBruteLoss(), 1), expected || amount * 4, \
-			"[testing_mob] should have [expected || amount * 4] brute damage, instead they have [testing_mob.getBruteLoss()]!")
+		TEST_ASSERT_EQUAL(round(testing_mob.getBruteLoss(), 1), expected || amount * 5, \
+			"[testing_mob] should have [expected || amount * 5] brute damage, instead they have [testing_mob.getBruteLoss()]!") // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	if(included_types & FIRELOSS)
 		TEST_ASSERT_EQUAL(round(testing_mob.getFireLoss(), 1), 0, \
 			"[testing_mob] should have [0] burn damage, instead they have [testing_mob.getFireLoss()]!")
@@ -485,6 +502,11 @@
 	if(included_types & STAMINALOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getStaminaLoss(), amount, \
 			"[testing_mob] should have [amount] stamina damage, instead they have [testing_mob.getStaminaLoss()]!")
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(included_types & AGGLOSS)
+		TEST_ASSERT_EQUAL(testing_mob.getAggLoss(), 0, \
+			"[testing_mob] should have [0] aggravated damage, instead they have [testing_mob.getAggLoss()]!")
+	// DARKPACK EDIT ADDITION END
 	return TRUE
 
 /datum/unit_test/mob_damage/animal/test_sanity_simple(mob/living/test_mob)
@@ -498,18 +520,18 @@
 	if(!test_apply_damage(test_mob, amount = -1))
 		TEST_FAIL("ABOVE FAILURE: failed test_sanity_simple! healing was not applied correctly")
 
-	// Give 2 damage of every time (translates to 8 brute, 2 staminaloss)
+	// Give 2 damage of every time (translates to 10 brute, 2 staminaloss)
 	if(!test_apply_damage(test_mob, amount = 2))
 		TEST_FAIL("ABOVE FAILURE: failed test_sanity_simple! damage was not applied correctly")
 
-	// underhealing: heal 1 damage of every type (translates to 4 brute, 1 staminaloss)
+	// underhealing: heal 1 damage of every type (translates to 5 brute, 1 staminaloss)
 	if(!test_apply_damage(test_mob, amount = -1))
 		TEST_FAIL("ABOVE FAILURE: failed test_sanity_simple! healing was not applied correctly")
 
 	// overhealing
 
-	// heal 11 points of toxloss (should take care of all 4 brute damage remaining)
-	if(!apply_damage(test_mob, -11, expected = 4, included_types = TOXLOSS))
+	// heal 11 points of toxloss (should take care of all 5 brute damage remaining)
+	if(!apply_damage(test_mob, -11, expected = 5, included_types = TOXLOSS)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		TEST_FAIL("ABOVE FAILURE: failed test_sanity_simple! toxloss was not applied correctly")
 	// heal the remaining point of staminaloss
 	if(!apply_damage(test_mob, -11, expected = 1, included_types = STAMINALOSS))

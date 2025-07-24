@@ -270,7 +270,7 @@
 							// Verify if the caller has their number blocked by the PHN
 							blocked = TRUE
 							// If he is, Blocked is TRUE.
-							to_chat(usr, "<span class='notice'>You have been blocked by this number.</span>")
+							to_chat(usr, span_notice("You have been blocked by this number."))
 							break
 							// Stop loops once it is found
 					if(!blocked)
@@ -314,25 +314,25 @@
 								NEWH_being_called.call_type = "They called me"
 								PHN.phone_history_list += NEWH_being_called
 						else
-							to_chat(usr, "<span class='notice'>Abonent is busy.</span>")
+							to_chat(usr, span_notice("Abonent is busy."))
 			if(!online && !blocked)
 			// If the phone is not flipped or the phone user has left the city and they are not blocked.
 				if(choosed_number == "#111")
 					call_sound = 'modular_darkpack/modules/deprecated/sounds/call.ogg'
-					to_chat(usr, "<span class='notice'>Settings are now reset to default.</span>")
+					to_chat(usr, span_notice("Settings are now reset to default."))
 				else if(choosed_number == "#228")
 					call_sound = 'modular_darkpack/modules/deprecated/sounds/nokia.ogg'
-					to_chat(usr, "<span class='notice'>Code activated.</span>")
+					to_chat(usr, span_notice("Code activated."))
 				else if(choosed_number == "#666")
 					call_sound = 'sound/voice/human/malescream_6.ogg'
-					to_chat(usr, "<span class='notice'>Code activated.</span>")
+					to_chat(usr, span_notice("Code activated."))
 				else if(choosed_number == "#34")
 					if(ishuman(usr))
 						var/mob/living/carbon/human/H = usr
 						H.emote("moan")
-					to_chat(usr, "<span class='notice'>Code activated.</span>")
+					to_chat(usr, span_notice("Code activated."))
 				else
-					to_chat(usr, "<span class='notice'>Invalid number.</span>")
+					to_chat(usr, span_notice("Invalid number."))
 			.= TRUE
 		if("contacts")
 			var/list/options = list("Add","Remove","Choose","Block", "Unblock", "My Number", "Publish Number", "Published Numbers", "Call History", "Delete Call History")
@@ -353,7 +353,7 @@
 						else
 							GLOB.published_numbers += src.number
 							GLOB.published_number_names += name
-							to_chat(usr, "<span class='notice'>Your number is now published.</span>")
+							to_chat(usr, span_notice("Your number is now published."))
 							for(var/obj/item/vamp/phone/PHN in GLOB.phones_list)
 								//Gather all the Phones in the game to check if they got the toggle for published contacts
 								if(PHN.toggle_published_contacts == TRUE)
@@ -372,10 +372,10 @@
 												break
 										if(!GOT_CONTACT)
 											PHN.contacts += NEWC
-						//to_chat(usr, "<span class='notice'>Published numbers: [GLOB.published_numbers]</span>")
-						//to_chat(usr, "<span class='notice'>Published names: [GLOB.published_number_names]</span>")
+						//to_chat(usr, span_notice("Published numbers: [GLOB.published_numbers]"))
+						//to_chat(usr, span_notice("Published names: [GLOB.published_number_names]"))
 					else
-						to_chat(usr, "<span class='notice'>You must input a name to publish your number.</span>")
+						to_chat(usr, span_notice("You must input a name to publish your number."))
 
 				if ("Published Numbers")
 					var/list_length = min(length(GLOB.published_numbers), length(GLOB.published_number_names))
@@ -425,7 +425,7 @@
 									if(CNTCT.number == "")
 										CNTCT.check_global_contacts()
 										if(CNTCT.number == "")
-											to_chat(usr, "<span class='notice'>Sorry, [CNTCT.name] does not have a number.</span>")
+											to_chat(usr, span_notice("Sorry, [CNTCT.name] does not have a number."))
 									choosed_number = CNTCT.number
 				if("Block")
 					var/block_number = input(usr, "Input phone number", "Block Number")  as text|null
@@ -492,10 +492,10 @@
 					if(!silence)
 						//If it is true, it will check all the other sounds for phone and disable them
 						silence = TRUE
-						to_chat(usr, "<span class='notice'>Notifications and Sounds toggled off.</span>")
+						to_chat(usr, span_notice("Notifications and Sounds toggled off."))
 					else
 						silence = FALSE
-						to_chat(usr, "<span class='notice'>Notifications and Sounds toggled on.</span>")
+						to_chat(usr, span_notice("Notifications and Sounds toggled on."))
 				if ("Published Numbers as Contacts Toggle")
 					if(!toggle_published_contacts)
 						var/contacts_added_lenght = published_numbers_contacts.len
@@ -505,7 +505,7 @@
 						if(contacts_added_lenght < list_length)
 						// checks the size difference between the GLOB published list and the phone published list
 							var/ADDED_CONTACTS = 0
-							to_chat(usr, "<span class='notice'>New contacts are being added to your contact list.</span>")
+							to_chat(usr, span_notice("New contacts are being added to your contact list."))
 							for(var/i = 1 to list_length)
 								var/number_v = GLOB.published_numbers[i]
 								var/name_v = GLOB.published_number_names[i]
@@ -525,14 +525,14 @@
 										published_numbers_contacts += NEWC
 										ADDED_CONTACTS +=1
 							if(ADDED_CONTACTS > 1)
-								to_chat(usr, "<span class='notice'>New contacts are added to your contact list.</span>")
+								to_chat(usr, span_notice("New contacts are added to your contact list."))
 						else if(contacts_added_lenght == list_length)
-							to_chat(usr, "<span class='notice'>You have all the contacts in the published list already.</span>")
+							to_chat(usr, span_notice("You have all the contacts in the published list already."))
 						toggle_published_contacts = TRUE
-						to_chat(usr, "<span class='notice'>The toggle of the published numbers in contacts is active.</span>")
+						to_chat(usr, span_notice("The toggle of the published numbers in contacts is active."))
 					else
 						toggle_published_contacts = FALSE
-						to_chat(usr, "<span class='notice'>The toggle of the published numbers in contacts is disabled.</span>")
+						to_chat(usr, span_notice("The toggle of the published numbers in contacts is disabled."))
 			.= TRUE
 		if("keypad")
 			if(!silence)
@@ -561,7 +561,7 @@
 		if(PHNCNTCT)
 			if(PHNCNTCT.check_global_contacts())
 				if(L)
-					to_chat(L, "<span class='notice'>Some important contacts in your phone work again.</span>")
+					to_chat(L, span_notice("Some important contacts in your phone work again."))
 
 /*obj/item/vamp/phone/proc/publish_number(var/name)
 	var/list/entry = list("number" = src.number, "name" = name)
@@ -628,7 +628,7 @@
 							PHN.online = src
 							Recall(online, usr)
 						else
-							to_chat(usr, "<span class='notice'>Abonent is busy.</span>")
+							to_chat(usr, span_notice("Abonent is busy."))
 				if(online)
 					for(var/mob/living/L in oviewers(online))
 						L << browse(null, "window=phone")
@@ -636,18 +636,18 @@
 				else
 					if(choosed_number == "#111")
 						call_sound = 'modular_darkpack/modules/deprecated/sounds/call.ogg'
-						to_chat(usr, "<span class='notice'>Settings are now reset to default.</span>")
+						to_chat(usr, span_notice("Settings are now reset to default."))
 					else if(choosed_number == "#228")
 						call_sound = 'modular_darkpack/modules/deprecated/sounds/nokia.ogg'
-						to_chat(usr, "<span class='notice'>Code activated.</span>")
+						to_chat(usr, span_notice("Code activated."))
 					else if(choosed_number == "#666")
 						call_sound = 'sound/voice/human/malescream_6.ogg'
-						to_chat(usr, "<span class='notice'>Code activated.</span>")
+						to_chat(usr, span_notice("Code activated."))
 					else if(choosed_number == "#34")
 						usr << link("https://rule34.xxx/index.php?page=post&s=list&tags=werewolf")
-						to_chat(usr, "<span class='notice'>Code activated.</span>")
+						to_chat(usr, span_notice("Code activated."))
 					else
-						to_chat(usr, "<span class='notice'>Invalid number.</span>")
+						to_chat(usr, span_notice("Invalid number."))
 			if("contacts")
 				var/list/shit = list()
 				for(var/datum/phonecontact/CNTCT in contacts)
@@ -661,7 +661,7 @@
 								if(CNTCT.number == "")
 									CNTCT.check_global_contacts()
 									if(CNTCT.number == "")
-										to_chat(usr, "<span class='notice'>Sorry, [CNTCT.name] still got no actual number.</span>")
+										to_chat(usr, span_notice("Sorry, [CNTCT.name] still got no actual number."))
 								choosed_number = CNTCT.number
 			if("add")
 				var/new_contact = input(usr, "Input phone number", "Add Contact")  as text|null

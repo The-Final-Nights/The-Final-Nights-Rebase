@@ -82,7 +82,7 @@ SUBSYSTEM_DEF(carpool)
 		stored_gasoline = max(0, stored_gasoline-50)
 		H.fire_stacks = min(10, H.fire_stacks+10)
 		playsound(get_turf(H), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
-		user.visible_message("<span class='warning'>[user] covers [A] in something flammable!</span>")
+		user.visible_message(span_warning("[user] covers [A] in something flammable!"))
 
 
 /obj/vampire_car/attack_hand(mob/user)
@@ -157,7 +157,7 @@ SUBSYSTEM_DEF(carpool)
 	. = ..()
 	if(!repairing)
 		if(locked)
-			to_chat(user, "<span class='warning'>[src] is locked!</span>")
+			to_chat(user, span_warning("[src] is locked!"))
 			return
 		repairing = TRUE
 		var/mob/living/L
@@ -167,20 +167,20 @@ SUBSYSTEM_DEF(carpool)
 		else if(length(passengers))
 			L = pick(passengers)
 		else
-			to_chat(user, "<span class='notice'>There's no one in [src].</span>")
+			to_chat(user, span_notice("There's no one in [src]."))
 			repairing = FALSE
 			return
 
-		user.visible_message("<span class='warning'>[user] begins pulling someone out of [src]!</span>", \
-			"<span class='warning'>You begin pulling [L] out of [src]...</span>")
+		user.visible_message(span_warning("[user] begins pulling someone out of [src]!"), \
+			span_warning("You begin pulling [L] out of [src]..."))
 		if(do_mob(user, src, 5 SECONDS))
 			var/datum/action/carr/exit_car/C = locate() in L.actions
-			user.visible_message("<span class='warning'>[user] has managed to get [L] out of [src].</span>", \
-				"<span class='warning'>You've managed to get [L] out of [src].</span>")
+			user.visible_message(span_warning("[user] has managed to get [L] out of [src]."), \
+				span_warning("You've managed to get [L] out of [src]."))
 			if(C)
 				C.Trigger()
 		else
-			to_chat(user, "<span class='warning'>You've failed to get [L] out of [src].</span>")
+			to_chat(user, span_warning("You've failed to get [L] out of [src]."))
 		repairing = FALSE
 		return
 
@@ -192,7 +192,7 @@ SUBSYSTEM_DEF(carpool)
 			G.stored_gasoline = max(0, G.stored_gasoline-gas_to_transfer)
 			gas = min(1000, gas+gas_to_transfer)
 			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 25, TRUE)
-			to_chat(user, "<span class='notice'>You transfer [gas_to_transfer] fuel to [src].</span>")
+			to_chat(user, span_notice("You transfer [gas_to_transfer] fuel to [src]."))
 		return
 	if(istype(I, /obj/item/vamp/keys))
 		var/obj/item/vamp/keys/K = I
@@ -200,20 +200,20 @@ SUBSYSTEM_DEF(carpool)
 			if(!repairing)
 				repairing = TRUE
 				if(do_mob(user, src, 20 SECONDS))
-					var/roll = rand(1, 20) + (user.get_total_lockpicking()+user.get_total_dexterity()) - 8
+					var/roll = rand(1, 20) + (user.trait_holder.get_stat(ST_TRAIT_LARCENY)+user.trait_holder.get_stat(ST_TRAIT_DEXTERITY)) - 8
 					//(<= 1, break lockpick) (2-9, trigger car alarm), (>= 10, unlock car)
 					if (roll <= 1)
-						to_chat(user, "<span class='warning'>Your lockpick broke!</span>")
+						to_chat(user, span_warning("Your lockpick broke!"))
 						qdel(K)
 						repairing = FALSE
 						return
 					else if (roll >= 10)
 						locked = FALSE
 						repairing = FALSE
-						to_chat(user, "<span class='notice'>You've managed to open [src]'s lock.</span>")
+						to_chat(user, span_notice("You've managed to open [src]'s lock."))
 						playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
 					else
-						to_chat(user, "<span class='warning'>You've failed to open [src]'s lock.</span>")
+						to_chat(user, span_warning("You've failed to open [src]'s lock."))
 						playsound(src, 'modular_darkpack/modules/deprecated/sounds/signal.ogg', 50, FALSE)
 						for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
 							if(P)
@@ -227,14 +227,14 @@ SUBSYSTEM_DEF(carpool)
 							call_dharma("steal", H)
 						return
 				else
-					to_chat(user, "<span class='warning'>You've failed to open [src]'s lock.</span>")
+					to_chat(user, span_warning("You've failed to open [src]'s lock."))
 					repairing = FALSE
 					return
 			return
 		if(K.accesslocks)
 			for(var/i in K.accesslocks)
 				if(i == access)
-					to_chat(user, "<span class='notice'>You [locked ? "open" : "close"] [src]'s lock.</span>")
+					to_chat(user, span_notice("You [locked ? "open" : "close"] [src]'s lock."))
 					playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
 					locked = !locked
 					return
@@ -242,28 +242,28 @@ SUBSYSTEM_DEF(carpool)
 	if(istype(I, /obj/item/melee/vampirearms/tire))
 		if(!repairing)
 			if(health >= maxhealth)
-				to_chat(user, "<span class='notice'>[src] is already fully repaired.</span>")
+				to_chat(user, span_notice("[src] is already fully repaired."))
 				return
 			repairing = TRUE
 
 			var time_to_repair = (maxhealth - health) / 4 //Repair 4hp for every second spent repairing
 			var start_time = world.time
 
-			user.visible_message("<span class='notice'>[user] begins repairing [src]...</span>", \
-				"<span class='notice'>You begin repairing [src]. Stop at any time to only partially repair it.</span>")
+			user.visible_message(span_notice("[user] begins repairing [src]..."), \
+				span_notice("You begin repairing [src]. Stop at any time to only partially repair it."))
 			if(do_mob(user, src, time_to_repair SECONDS))
 				health = maxhealth
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
-				user.visible_message("<span class='notice'>[user] repairs [src].</span>", \
-					"<span class='notice'>You finish repairing all the dents on [src].</span>")
+				user.visible_message(span_notice("[user] repairs [src]."), \
+					span_notice("You finish repairing all the dents on [src]."))
 				color = "#ffffff"
 				repairing = FALSE
 				return
 			else
 				get_damage((world.time - start_time) * -2 / 5) //partial repair
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
-				user.visible_message("<span class='notice'>[user] repairs [src].</span>", \
-					"<span class='notice'>You repair some of the dents on [src].</span>")
+				user.visible_message(span_notice("[user] repairs [src]."), \
+					span_notice("You repair some of the dents on [src]."))
 				color = "#ffffff"
 				repairing = FALSE
 				return
@@ -323,13 +323,13 @@ SUBSYSTEM_DEF(carpool)
 	if(health < maxhealth/2 && health >= maxhealth/4)
 		. += "It's heavily damaged..."
 	if(health < maxhealth/4)
-		. += "<span class='warning'>It appears to be falling apart...</span>"
+		. += span_warning("It appears to be falling apart...")
 	if(locked)
-		. += "<span class='warning'>It's locked.</span>"
+		. += span_warning("It's locked.")
 	if(driver || length(passengers))
-		. += "<span class='notice'>\nYou see the following people inside:</span>"
+		. += span_notice("\nYou see the following people inside:")
 		for(var/mob/living/rider in src)
-			. += "<span class='notice'>* [rider]</span>"
+			. += span_notice("* [rider]")
 
 /obj/vampire_car/proc/get_damage(cost)
 	if(cost > 0)
@@ -381,12 +381,12 @@ SUBSYSTEM_DEF(carpool)
 		if(!V.fari_on)
 			V.fari_on = TRUE
 			V.add_overlay(V.Fari)
-			to_chat(owner, "<span class='notice'>You toggle [V]'s lights.</span>")
+			to_chat(owner, span_notice("You toggle [V]'s lights."))
 			playsound(V, 'sound/weapons/magin.ogg', 40, TRUE)
 		else
 			V.fari_on = FALSE
 			V.cut_overlay(V.Fari)
-			to_chat(owner, "<span class='notice'>You toggle [V]'s lights.</span>")
+			to_chat(owner, span_notice("You toggle [V]'s lights."))
 			playsound(V, 'sound/weapons/magout.ogg', 40, TRUE)
 
 /datum/action/carr/beep
@@ -413,7 +413,7 @@ SUBSYSTEM_DEF(carpool)
 			V.stage = V.stage+1
 		else
 			V.stage = 1
-		to_chat(owner, "<span class='notice'>You enable [V]'s transmission at [V.stage].</span>")
+		to_chat(owner, span_notice("You enable [V]'s transmission at [V.stage]."))
 
 /datum/action/carr/baggage
 	name = "Lock Baggage"
@@ -427,9 +427,9 @@ SUBSYSTEM_DEF(carpool)
 		STR.locked = !STR.locked
 		playsound(V, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
 		if(STR.locked)
-			to_chat(owner, "<span class='notice'>You lock [V]'s baggage.</span>")
+			to_chat(owner, span_notice("You lock [V]'s baggage."))
 		else
-			to_chat(owner, "<span class='notice'>You unlock [V]'s baggage.</span>")
+			to_chat(owner, span_notice("You unlock [V]'s baggage."))
 
 /datum/action/carr/engine
 	name = "Toggle Engine"
@@ -443,20 +443,20 @@ SUBSYSTEM_DEF(carpool)
 			if(V.health == V.maxhealth)
 				V.on = TRUE
 				playsound(V, 'modular_darkpack/modules/deprecated/sounds/start.ogg', 50, TRUE)
-				to_chat(owner, "<span class='notice'>You managed to start [V]'s engine.</span>")
+				to_chat(owner, span_notice("You managed to start [V]'s engine."))
 				return
 			if(prob(100*(V.health/V.maxhealth)))
 				V.on = TRUE
 				playsound(V, 'modular_darkpack/modules/deprecated/sounds/start.ogg', 50, TRUE)
-				to_chat(owner, "<span class='notice'>You managed to start [V]'s engine.</span>")
+				to_chat(owner, span_notice("You managed to start [V]'s engine."))
 				return
 			else
-				to_chat(owner, "<span class='warning'>You failed to start [V]'s engine.</span>")
+				to_chat(owner, span_warning("You failed to start [V]'s engine."))
 				return
 		else
 			V.on = FALSE
 			playsound(V, 'modular_darkpack/modules/deprecated/sounds/stop.ogg', 50, TRUE)
-			to_chat(owner, "<span class='notice'>You stop [V]'s engine.</span>")
+			to_chat(owner, span_notice("You stop [V]'s engine."))
 			V.set_light(0)
 			return
 
@@ -490,7 +490,7 @@ SUBSYSTEM_DEF(carpool)
 		else if(length(exit_alt))
 			owner.Move(get_step(owner, exit_alt))
 
-		to_chat(owner, "<span class='notice'>You exit [V].</span>")
+		to_chat(owner, span_notice("You exit [V]."))
 		if(owner)
 			if(owner.client)
 				owner.client.pixel_x = 0
@@ -505,15 +505,15 @@ SUBSYSTEM_DEF(carpool)
 		var/obj/vampire_car/V = over_object
 
 		if(V.locked)
-			to_chat(src, "<span class='warning'>[V] is locked.</span>")
+			to_chat(src, span_warning("[V] is locked."))
 			return
 
 		if(V.driver && (length(V.passengers) >= V.max_passengers))
 			to_chat(src, "<span class='warning'>There's no space left for you in [V].")
 			return
 
-		visible_message("<span class='notice'>[src] begins entering [V]...</span>", \
-			"<span class='notice'>You begin entering [V]...</span>")
+		visible_message(span_notice("[src] begins entering [V]..."), \
+			span_notice("You begin entering [V]..."))
 		if(do_mob(src, over_object, 1 SECONDS))
 			if(!V.driver)
 				forceMove(over_object)
@@ -536,8 +536,8 @@ SUBSYSTEM_DEF(carpool)
 				V.passengers += src
 				var/datum/action/carr/exit_car/E = new()
 				E.Grant(src)
-			visible_message("<span class='notice'>[src] enters [V].</span>", \
-				"<span class='notice'>You enter [V].</span>")
+			visible_message(span_notice("[src] enters [V]."), \
+				span_notice("You enter [V]."))
 			playsound(V, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
 			return
 		else
@@ -844,7 +844,7 @@ SUBSYSTEM_DEF(carpool)
 		on = FALSE
 		set_light(0)
 		if(driver)
-			to_chat(driver, "<span class='warning'>No fuel in the tank!</span>")
+			to_chat(driver, span_warning("No fuel in the tank!"))
 	if(on)
 		if(last_vzhzh+10 < world.time)
 			playsound(src, 'modular_darkpack/modules/deprecated/sounds/work.ogg', 25, FALSE)

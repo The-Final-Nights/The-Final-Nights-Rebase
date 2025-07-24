@@ -624,7 +624,7 @@
 	if(istype(I, /obj/item/cargo_box))
 		qdel(I)
 		playsound(src, 'sound/machines/machine_vend.ogg', 50, TRUE, extrarange = -3)
-		to_chat(user, "<span class='notice'>You place the box at [src].</span>")
+		to_chat(user, span_notice("You place the box at [src]."))
 		new /obj/item/stack/dollar/five(get_turf(user))
 		return
 	. = ..()

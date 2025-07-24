@@ -170,30 +170,30 @@
 			wins += 1
 	if(crits > brokes)
 		if(rollviewer)
-			to_chat(rollviewer, "<b>Critical <span class='nicegreen'>hit</span>!</b>")
+			to_chat(rollviewer, "<b>Critical [span_nicegreen("hit")]!</b>")
 			return DICE_CRIT_WIN
 	if(crits < brokes)
 		if(rollviewer)
-			to_chat(rollviewer, "<b>Critical <span class='danger'>failure</span>!</b>")
+			to_chat(rollviewer, "<b>Critical [span_danger("failure")]!</b>")
 			return DICE_CRIT_FAILURE
 	if(crits == brokes && !wins)
 		if(rollviewer)
-			to_chat(rollviewer, "<span class='danger'>Failed</span>")
+			to_chat(rollviewer, span_danger("Failed"))
 			return DICE_FAILURE
 	if(wins)
 		switch(wins)
 			if(1)
-				to_chat(rollviewer, "<span class='tinynotice'>Maybe</span>")
+				to_chat(rollviewer, span_tinynotice("Maybe"))
 				return DICE_WIN
 			if(2)
-				to_chat(rollviewer, "<span class='smallnotice'>Okay</span>")
+				to_chat(rollviewer, span_smallnotice("Okay"))
 				return DICE_WIN
 			if(3)
-				to_chat(rollviewer, "<span class='notice'>Good</span>")
+				to_chat(rollviewer, span_notice("Good"))
 				return DICE_WIN
 			if(4)
-				to_chat(rollviewer, "<span class='notice'>Lucky</span>")
+				to_chat(rollviewer, span_notice("Lucky"))
 				return DICE_WIN
 			else
-				to_chat(rollviewer, "<span class='boldnotice'>Phenomenal</span>")
+				to_chat(rollviewer, span_boldnotice("Phenomenal"))
 				return DICE_WIN

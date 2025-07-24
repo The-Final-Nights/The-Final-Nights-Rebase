@@ -100,11 +100,11 @@
 /obj/effect/vip_barrier/proc/handle_social_bypass(mob/living/carbon/human/user, mob/bouncer, used_badge = FALSE)
 
 	if(user.get_face_name() == "Unknown")
-		to_chat(user, "<span class='notice'>They won't talk to someone they can't look in the eye.</span>")
+		to_chat(user, span_notice("They won't talk to someone they can't look in the eye."))
 		return
 
 	if(check_entry_permission_base(user))
-		to_chat(user, "<span class='notice'>...But you are already allowed entry.</span>")
+		to_chat(user, span_notice("...But you are already allowed entry."))
 		return
 
 	//handle block list babies
@@ -116,7 +116,7 @@
 		return
 
 
-	if(!do_mob(user, bouncer, max(5 SECONDS, social_bypass_time - (user.get_total_social() * 2 SECONDS))))
+	if(!do_mob(user, bouncer, max(5 SECONDS, social_bypass_time - (user.trait_holder.get_stat(ST_TRAIT_CHARISMA) * 2 SECONDS))))
 		return
 
 
@@ -125,12 +125,12 @@
 	if(used_badge)
 		involved_social_roll -= 1
 
-	if(user.storyteller_roll(user.get_total_social(), involved_social_roll) == ROLL_SUCCESS)
-		to_chat(user, "<span class='notice'>You manage to persuade your way past the guards.</span>")
+	if(user.storyteller_roll(user.trait_holder.get_stat(ST_TRAIT_CHARISMA), involved_social_roll) == ROLL_SUCCESS)
+		to_chat(user, span_notice("You manage to persuade your way past the guards."))
 		linked_perm.allow_list += user.get_face_name()
 		return
 
-	to_chat(user, "<span class='notice'>The guards turn you away, taking note of you as they do.</span>")
+	to_chat(user, span_notice("The guards turn you away, taking note of you as they do."))
 	linked_perm.block_list += user.name
 	if(identify_cop(user, used_badge))
 		linked_perm.notify_guard_police_denial(user)

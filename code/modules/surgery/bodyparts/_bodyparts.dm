@@ -135,6 +135,7 @@
 	var/list/damage_examines = list(
 		BRUTE = DEFAULT_BRUTE_EXAMINE_TEXT,
 		BURN = DEFAULT_BURN_EXAMINE_TEXT,
+		AGGRAVATED = DEFAULT_AGGRAVATED_EXAMINE_TEXT, // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 	)
 
 	// Wounds related variables
@@ -171,8 +172,12 @@
 	var/attack_type = BRUTE
 	/// the verbs used for an unarmed attack when using this limb, such as arm.unarmed_attack_verbs = list("punch")
 	var/list/unarmed_attack_verbs = list("bump")
+	/// Continuous tense attack verbs for successful attacks
+	var/list/unarmed_attack_verbs_continuous = list("bumps")
 	/// if we have a special attack verb for hitting someone who is grappled by us, it goes here.
 	var/grappled_attack_verb
+	/// Continuous tense grapple verb for successful attacks
+	var/grappled_attack_verb_continuous
 	/// what visual effect is used when this limb is used to strike someone.
 	var/unarmed_attack_effect = ATTACK_EFFECT_PUNCH
 	/// Sounds when this bodypart is used in an umarmed attack
@@ -296,6 +301,10 @@
 		. += span_warning("This limb has [brute_dam > 30 ? "severe" : "minor"] bruising.")
 	if(burn_dam > DAMAGE_PRECISION)
 		. += span_warning("This limb has [burn_dam > 30 ? "severe" : "minor"] burns.")
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(aggravated_dam > DAMAGE_PRECISION)
+		. += span_warning("This limb has [aggravated_dam > 30 ? "severe" : "minor"] festering wounds.")
+	// DARKPACK EDIT ADDITION END
 
 	for(var/datum/wound/wound as anything in wounds)
 		var/wound_desc = wound.get_limb_examine_description()
@@ -308,21 +317,22 @@
 /obj/item/bodypart/proc/check_for_injuries(mob/living/carbon/human/examiner)
 
 	var/list/check_list = list()
-	var/list/limb_damage = list(BRUTE = brute_dam, BURN = burn_dam)
+	var/list/limb_damage = list(BRUTE = brute_dam, BURN = burn_dam, AGGRAVATED = aggravated_dam) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 
 	SEND_SIGNAL(src, COMSIG_BODYPART_CHECKED_FOR_INJURY, examiner, check_list, limb_damage)
 	SEND_SIGNAL(examiner, COMSIG_CARBON_CHECKING_BODYPART, src, check_list, limb_damage)
 
 	var/shown_brute = limb_damage[BRUTE]
 	var/shown_burn = limb_damage[BURN]
+	var/shown_aggravated = limb_damage[AGGRAVATED] // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 	var/status = ""
 	var/self_aware = HAS_TRAIT(examiner, TRAIT_SELF_AWARE)
 
 	if(self_aware)
-		if(!shown_brute && !shown_burn)
+		if(!shown_brute && !shown_burn && !shown_aggravated) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 			status = "no damage"
 		else
-			status = "[shown_brute] brute damage and [shown_burn] burn damage"
+			status = "[shown_brute] brute damage and [shown_burn] burn damage and [shown_aggravated] aggravated damage" // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 
 	else
 		if(shown_brute > (max_damage * 0.8))
@@ -341,6 +351,18 @@
 			status += medium_burn_msg
 		else if(shown_burn > DAMAGE_PRECISION)
 			status += light_burn_msg
+
+		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		if((shown_brute > DAMAGE_PRECISION || shown_burn > DAMAGE_PRECISION) && shown_aggravated > DAMAGE_PRECISION)
+			status += " and "
+
+		if(shown_aggravated > (max_damage * 0.8))
+			status += heavy_aggravated_msg
+		else if(shown_aggravated > (max_damage * 0.2))
+			status += medium_aggravated_msg
+		else if(shown_aggravated > DAMAGE_PRECISION)
+			status += light_aggravated_msg
+		// DARKPACK EDIT ADDITION END
 
 		if(status == "")
 			status = "OK"
@@ -497,18 +519,19 @@
  * sharpness - Flag on whether the attack is edged or pointy
  * attack_direction - The direction the bodypart is attacked from, used to send blood flying in the opposite direction.
  * damage_source - The source of damage, typically a weapon.
+ * aggravated - The amount of aggravated damage dealt.
  */
-/obj/item/bodypart/proc/receive_damage(brute = 0, burn = 0, blocked = 0, updating_health = TRUE, forced = FALSE, required_bodytype = null, wound_bonus = 0, exposed_wound_bonus = 0, sharpness = NONE, attack_direction = null, damage_source, wound_clothing = TRUE)
+/obj/item/bodypart/proc/receive_damage(brute = 0, burn = 0, blocked = 0, updating_health = TRUE, forced = FALSE, required_bodytype = null, wound_bonus = 0, exposed_wound_bonus = 0, sharpness = NONE, attack_direction = null, damage_source, wound_clothing = TRUE, aggravated = 0) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	SHOULD_CALL_PARENT(TRUE)
 
 	var/hit_percent = forced ? 1 : (100-blocked)/100
-	if((!brute && !burn) || hit_percent <= 0)
+	if((!brute && !burn && !aggravated) || hit_percent <= 0) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		return FALSE
 	if (!forced)
 		if(!isnull(owner))
 			if (HAS_TRAIT(owner, TRAIT_GODMODE))
 				return FALSE
-			if (SEND_SIGNAL(owner, COMSIG_CARBON_LIMB_DAMAGED, src, brute, burn) & COMPONENT_PREVENT_LIMB_DAMAGE)
+			if (SEND_SIGNAL(owner, COMSIG_CARBON_LIMB_DAMAGED, src, brute, burn, aggravated) & COMPONENT_PREVENT_LIMB_DAMAGE)
 				return FALSE
 		if(required_bodytype && !(bodytype & required_bodytype))
 			return FALSE
@@ -516,20 +539,24 @@
 	var/dmg_multi = CONFIG_GET(number/damage_multiplier) * hit_percent
 	brute = round(max(brute * dmg_multi * brute_modifier, 0), DAMAGE_PRECISION)
 	burn = round(max(burn * dmg_multi * burn_modifier, 0), DAMAGE_PRECISION)
+	aggravated = round(max(aggravated * dmg_multi * aggravated_modifier, 0), DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 
-	if(!brute && !burn)
+	if(!brute && !burn && !aggravated) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		return FALSE
 
 	brute *= wound_damage_multiplier
 	burn *= wound_damage_multiplier
+	aggravated *= wound_damage_multiplier // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 
 	/*
 	// START WOUND HANDLING
 	*/
 
 	// what kind of wounds we're gonna roll for, take the greater between brute and burn, then if it's brute, we subdivide based on sharpness
-	var/wounding_type = (brute > burn ? WOUND_BLUNT : WOUND_BURN)
-	var/wounding_dmg = max(brute, burn)
+	// DARKPACK EDIT CHANGE START - AGGRAVATED_DAMAGE - Count aggravated damage as a burn wound
+	var/wounding_type = (brute > burn + aggravated ? WOUND_BLUNT : WOUND_BURN)
+	var/wounding_dmg = max(brute, burn + aggravated)
+	// DARKPACK EDIT CHANGE END
 
 	if(wounding_type == WOUND_BLUNT && sharpness)
 		if(sharpness & SHARP_EDGED)
@@ -580,10 +607,11 @@
 
 	//back to our regularly scheduled program, we now actually apply damage if there's room below limb damage cap
 	var/can_inflict = max_damage - get_damage()
-	var/total_damage = brute + burn
+	var/total_damage = brute + burn + aggravated // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	if(total_damage > can_inflict && total_damage > 0) // TODO: the second part of this check should be removed once disabling is all done
 		brute = round(brute * (can_inflict / total_damage),DAMAGE_PRECISION)
 		burn = round(burn * (can_inflict / total_damage),DAMAGE_PRECISION)
+		aggravated = round(aggravated * (can_inflict / total_damage),DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 
 	if(can_inflict <= 0)
 		return FALSE
@@ -591,6 +619,10 @@
 		set_brute_dam(brute_dam + brute)
 	if(burn)
 		set_burn_dam(burn_dam + burn)
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(aggravated)
+		set_aggravated_dam(aggravated_dam + aggravated)
+	// DARKPACK EDIT ADDITION END
 
 	if(owner)
 		if(can_be_disabled)
@@ -679,7 +711,7 @@
 //Heals brute and burn damage for the organ. Returns 1 if the damage-icon states changed at all.
 //Damage cannot go below zero.
 //Cannot remove negative damage (i.e. apply damage)
-/obj/item/bodypart/proc/heal_damage(brute, burn, updating_health = TRUE, forced = FALSE, required_bodytype)
+/obj/item/bodypart/proc/heal_damage(brute, burn, updating_health = TRUE, forced = FALSE, required_bodytype, aggravated) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(!forced && required_bodytype && !(bodytype & required_bodytype)) //So we can only heal certain kinds of limbs, ie robotic vs organic.
@@ -689,19 +721,24 @@
 		set_brute_dam(round(max(brute_dam - brute, 0), DAMAGE_PRECISION))
 	if(burn)
 		set_burn_dam(round(max(burn_dam - burn, 0), DAMAGE_PRECISION))
+	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	if(aggravated)
+		set_aggravated_dam(round(max(aggravated_dam - aggravated, 0), DAMAGE_PRECISION))
+	// DARKPACK EDIT ADDITION END
 
 	if(owner)
 		if(can_be_disabled)
 			update_disabled()
 		if(updating_health)
 			owner.updatehealth()
-	cremation_progress = min(0, cremation_progress - ((brute_dam + burn_dam)*(100/max_damage)))
+	cremation_progress = min(0, cremation_progress - ((get_damage())*(100/max_damage))) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	return update_bodypart_damage_state()
 
 ///Sets the damage of a bodypart when it is created.
-/obj/item/bodypart/proc/set_initial_damage(brute_damage, burn_damage)
+/obj/item/bodypart/proc/set_initial_damage(brute_damage, burn_damage, aggravated_damage) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	set_brute_dam(brute_damage)
 	set_burn_dam(burn_damage)
+	set_aggravated_dam(aggravated_damage) // DARPACK EDIT ADDITION - AGGRAVATED_DAMAGE
 
 ///Proc to hook behavior associated to the change of the brute_dam variable's value.
 /obj/item/bodypart/proc/set_brute_dam(new_value)
@@ -723,7 +760,7 @@
 
 //Returns total damage.
 /obj/item/bodypart/proc/get_damage()
-	return brute_dam + burn_dam
+	return brute_dam + burn_dam + aggravated_dam // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 
 //Checks disabled status thresholds
 /obj/item/bodypart/proc/update_disabled()
@@ -740,7 +777,7 @@
 		set_disabled(TRUE)
 		return
 
-	var/total_damage = brute_dam + burn_dam
+	var/total_damage = get_damage() // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 
 	// this block of checks is for limbs that can be disabled, but not through pure damage (AKA limbs that suffer wounds, human/monkey parts and such)
 	if(!disabling_threshold_percentage)
@@ -932,7 +969,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	var/tbrute = round( (brute_dam/max_damage)*3, 1 )
-	var/tburn = round( (burn_dam/max_damage)*3, 1 )
+	var/tburn = round( ((burn_dam + aggravated_dam)/max_damage)*3, 1 ) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE - Have aggravated damage appear as burn wounds visually
 	if((tbrute != brutestate) || (tburn != burnstate))
 		brutestate = tbrute
 		burnstate = tburn
@@ -982,7 +1019,7 @@
 		if(owner_species.fixed_mut_color)
 			species_color = owner_species.fixed_mut_color
 		else
-			species_color = human_owner.dna.features["mcolor"]
+			species_color = human_owner.dna.features[FEATURE_MUTANT_COLOR]
 	else
 		skin_tone = ""
 		species_color = ""
