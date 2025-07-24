@@ -56,15 +56,15 @@
 	infor.host = new_kindred
 	infor.Grant(new_kindred)
 
-	//this needs to be adjusted to be more accurate for blood spending rates
-	var/datum/discipline/bloodheal/giving_bloodheal = new(clamp(11 - new_kindred.generation, 1, 10))
-	new_kindred.give_discipline(giving_bloodheal)
-
 	var/datum/action/give_vitae/vitae = new()
 	vitae.Grant(new_kindred)
 
 	add_verb(new_kindred, TYPE_VERB_REF(/mob/living/carbon/human, teach_discipline))
 	*/
+
+	//this needs to be adjusted to be more accurate for blood spending rates
+	var/datum/discipline/bloodheal/giving_bloodheal = new(clamp(11 - new_kindred.generation, 1, 10))
+	new_kindred.give_discipline(giving_bloodheal)
 
 	new_kindred.yang_chi = 0
 	new_kindred.max_yang_chi = 0

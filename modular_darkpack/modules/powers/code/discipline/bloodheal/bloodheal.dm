@@ -1,5 +1,5 @@
-#define HEAL_BASHING_LETHAL 30
-#define HEAL_AGGRAVATED 6
+#define HEAL_BASHING_LETHAL_DAMAGE 30
+#define HEAL_AGGRAVATED_DAMAGE 6
 
 /datum/discipline/bloodheal
 	name = "Bloodheal"
@@ -36,12 +36,10 @@
 	)
 
 /datum/discipline_power/bloodheal/activate()
-	adjust_vitae_cost()
-
 	. = ..()
 
 	//normal bashing/lethal damage
-	owner.heal_ordered_damage(HEAL_BASHING_LETHAL * vitae_cost, list(BRUTE, TOX, OXY, STAMINA))
+	owner.heal_ordered_damage(HEAL_BASHING_LETHAL_DAMAGE * vitae_cost, list(BRUTE, TOX, OXY, STAMINA))
 
 	if(length(owner.all_wounds))
 		for (var/i in 1 to min(vitae_cost, length(owner.all_wounds)))
@@ -49,24 +47,24 @@
 			wound.remove_wound()
 
 	//aggravated damage
-	owner.heal_ordered_damage(HEAL_AGGRAVATED * vitae_cost, list(BURN, AGGRAVATED))
+	owner.heal_ordered_damage(HEAL_AGGRAVATED_DAMAGE * vitae_cost, list(BURN, AGGRAVATED))
 
 	//brain damage and traumas healing
-	var/obj/item/organ/brain/brain = owner.getorganslot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/brain = owner.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if (brain)
-		brain.applyOrganDamage(-HEAL_BASHING_LETHAL * vitae_cost)
+		brain.apply_organ_damage(-HEAL_BASHING_LETHAL_DAMAGE * vitae_cost)
 
 		for (var/i in 1 to min(vitae_cost, length(brain.get_traumas_type())))
 			var/datum/brain_trauma/healing_trauma = pick(brain.get_traumas_type())
 			brain.cure_trauma_type(healing_trauma, resilience = TRAUMA_RESILIENCE_WOUND)
 
 	//miscellaneous organ damage healing
-	var/obj/item/organ/eyes/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/eyes/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes)
-		eyes.applyOrganDamage(-HEAL_BASHING_LETHAL * vitae_cost)
+		eyes.apply_organ_damage(-HEAL_BASHING_LETHAL_DAMAGE * vitae_cost)
 
-		owner.adjust_blindness(-HEAL_AGGRAVATED * vitae_cost)
-		owner.adjust_blurriness(-HEAL_AGGRAVATED * vitae_cost)
+		owner.adjust_temp_blindness(-HEAL_AGGRAVATED_DAMAGE * vitae_cost)
+		owner.adjust_eye_blur(-HEAL_AGGRAVATED_DAMAGE * vitae_cost)
 
 	//healing too quickly attracts attention
 	if (violates_masquerade)
@@ -84,6 +82,12 @@
 
 	. = ..()
 
+/datum/discipline_power/bloodheal/spend_resources()
+	adjust_vitae_cost()
+
+	. = ..()
+
+
 /datum/discipline_power/bloodheal/proc/adjust_vitae_cost()
 	vitae_cost = initial(vitae_cost)
 	//tally up damage
@@ -91,10 +95,10 @@
 	var/total_aggravated_damage = owner.getAggLoss() + owner.getFireLoss()
 
 	//lower blood expenditure to what's necessary
-	var/vitae_to_heal_bashing_lethal = ceil(total_bashing_lethal_damage / HEAL_BASHING_LETHAL)
-	var/vitae_to_heal_aggravated = ceil(total_aggravated_damage / HEAL_AGGRAVATED)
+	var/vitae_to_HEAL_BASHING_LETHAL_DAMAGE = ceil(total_bashing_lethal_damage / HEAL_BASHING_LETHAL_DAMAGE)
+	var/vitae_to_HEAL_AGGRAVATED_DAMAGE = ceil(total_aggravated_damage / HEAL_AGGRAVATED_DAMAGE)
 
-	var/vitae_needed = max(vitae_to_heal_bashing_lethal, vitae_to_heal_aggravated)
+	var/vitae_needed = max(vitae_to_HEAL_BASHING_LETHAL_DAMAGE, vitae_to_HEAL_AGGRAVATED_DAMAGE)
 
 	//vitae used to heal is the smaller of max vitae expenditure and what's needed to heal the damage
 	vitae_cost = max(min(vitae_cost, vitae_needed), 1)
@@ -205,5 +209,5 @@
 
 	violates_masquerade = TRUE
 
-#undef HEAL_BASHING_LETHAL
-#undef HEAL_AGGRAVATED
+#undef HEAL_BASHING_LETHAL_DAMAGE
+#undef HEAL_AGGRAVATED_DAMAGE
