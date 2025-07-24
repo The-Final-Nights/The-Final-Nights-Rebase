@@ -39,6 +39,10 @@
 		A.modifiers -= source
 		A.update_modifiers()
 
+/datum/storyteller_traits/proc/get_buff(trait, source)
+	var/datum/st_trait/checking_trait = get_trait(trait)
+	return LAZYACCESS(checking_trait.modifiers, source)
+
 /datum/storyteller_traits/proc/randomize_attributes(min_score, max_score)
 	for(var/datum/st_trait/attribute/A in st_traits)
 		A.set_score(rand(min_score, max_score))
