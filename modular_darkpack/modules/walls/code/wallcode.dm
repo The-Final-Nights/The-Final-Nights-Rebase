@@ -349,7 +349,6 @@ LOW_WALL_HELPER(vampwall/wood)
 		update_icon()
 	if(prob(25))
 		new /obj/effect/turf_decal/asphalt(src)
-	set_light(1, 0.5, "#a4b7ff")
 
 /turf/open/floor/plating/asphalt/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
@@ -388,7 +387,6 @@ LOW_WALL_HELPER(vampwall/wood)
 /turf/open/floor/plating/sidewalk/Initialize(mapload)
 	. = ..()
 	icon_state = "[base_icon_state][rand(1, number_of_variations)]"
-	set_light(1, 0.5, "#a4b7ff")
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
@@ -525,7 +523,6 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/misc/grass/vamp/Initialize(mapload)
 	. = ..()
-	set_light(1, 0.5, "#a4b7ff")
 	icon_state = "grass[rand(1, 3)]"
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
@@ -593,7 +590,6 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/misc/dirt/vamp/Initialize(mapload)
 	. = ..()
-	set_light(1, 0.5, "#a4b7ff")
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
@@ -810,7 +806,6 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/floor/plating/vampwood/Initialize(mapload)
 	. = ..()
-	set_light(1, 0.5, "#a4b7ff")
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
@@ -871,7 +866,6 @@ LOW_WALL_HELPER(vampwall/wood)
 /turf/open/misc/beach/vamp/Initialize(mapload)
 	. = ..()
 	icon_state = "sand[rand(1, 4)]"
-	set_light(1, 0.5, "#a4b7ff")
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
@@ -891,10 +885,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	baseturfs = /turf/open/water/beach/vamp/deep
 	immerse_overlay_color = "#57707c"
 	is_swimming_tile = TRUE
-
-/turf/open/water/beach/vamp/Initialize(mapload)
-	. = ..()
-	set_light(1, 0.5, "#a4b7ff")
 
 //Make a pr to TG eventually adding acid from shiptest mabye.
 /turf/open/water/acid/vamp
