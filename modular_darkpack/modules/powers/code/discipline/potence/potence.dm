@@ -29,8 +29,6 @@
 	toggled = TRUE
 	duration_length = 2 TURNS
 
-	var/datum/component/tackler
-
 	grouped_powers = list(
 		/datum/discipline_power/potence/two,
 		/datum/discipline_power/potence/three,
@@ -62,8 +60,6 @@
 
 	toggled = TRUE
 	duration_length = 2 TURNS
-
-	var/datum/component/tackler
 
 	grouped_powers = list(
 		/datum/discipline_power/potence/one,
@@ -97,8 +93,6 @@
 	toggled = TRUE
 	duration_length = 2 TURNS
 
-	var/datum/component/tackler
-
 	grouped_powers = list(
 		/datum/discipline_power/potence/one,
 		/datum/discipline_power/potence/two,
@@ -131,8 +125,6 @@
 	toggled = TRUE
 	duration_length = 2 TURNS
 
-	var/datum/component/tackler
-
 	grouped_powers = list(
 		/datum/discipline_power/potence/one,
 		/datum/discipline_power/potence/two,
@@ -164,8 +156,6 @@
 
 	toggled = TRUE
 	duration_length = 2 TURNS
-
-	var/datum/component/tackler
 
 	grouped_powers = list(
 		/datum/discipline_power/potence/one,
