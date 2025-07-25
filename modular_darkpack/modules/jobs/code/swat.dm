@@ -24,11 +24,10 @@
 	H.set_species(/datum/species/human)
 	H.set_clan(null)
 	H.generation = 13
-	H.lockpicking = 5
-	H.physique = 4
+	H.trait_holder.set_stat(5, ST_TRAIT_LARCENY)
+	H.trait_holder.set_stat(4, ST_TRAIT_STRENGTH)
 	H.ignores_warrant = TRUE
-	H.maxHealth = round((initial(H.maxHealth)-initial(H.maxHealth)/4)+(initial(H.maxHealth)/4)*(H.physique+13-H.generation))
-	H.health = round((initial(H.health)-initial(H.health)/4)+(initial(H.health)/4)*(H.physique+13-H.generation))
+	H.update_max_health()
 
 	for(var/datum/action/A in H.actions)
 		if(A.vampiric)
@@ -78,12 +77,12 @@
 
 /datum/antagonist/swat/on_removal()
 	..()
-	to_chat(owner.current,"<span class='userdanger'>You are no longer in the Special Weapons and Tactics squad!</span>")
+	to_chat(owner.current,span_userdanger("You are no longer in the Special Weapons and Tactics squad!"))
 	owner.special_role = null
 
 /datum/antagonist/swat/greet()
-	to_chat(owner.current, "<span class='alertsyndie'>You're in the Special Weapons and Tactics squad.</span>")
-	to_chat(owner, "<span class='notice'>You are a [swat_team ? swat_team.swat_name : "swat"] officer!</span>")
+	to_chat(owner.current, span_alertsyndie("You're in the Special Weapons and Tactics squad."))
+	to_chat(owner, span_notice("You are a [swat_team ? swat_team.swat_name : "swat"] officer!"))
 	spawn(3 SECONDS)
 	owner.announce_objectives()
 
@@ -316,9 +315,9 @@
 
 /datum/team/swat/roundend_report()
 	var/list/parts = list()
-	parts += "<span class='header'>[swat_name] Operatives:</span>"
+	parts += span_header("[swat_name] Operatives:")
 
-	var/text = "<br><span class='header'>The SWAT were:</span>"
+	var/text = "<br>[span_header("The SWAT were:")]"
 	text += printplayerlist(members)
 	parts += text
 

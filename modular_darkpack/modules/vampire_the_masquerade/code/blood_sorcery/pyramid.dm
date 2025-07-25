@@ -209,11 +209,11 @@
 	faction = list("Tremere")
 
 /obj/ritualrune/question/complete()
-	visible_message("<span class='notice'>A call rings out to the dead from the [src.name] rune...</span>")
+	visible_message(span_notice("A call rings out to the dead from the [src.name] rune..."))
 	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you wish to answer a question? (You are allowed to spread meta information)", null, null, null, 10 SECONDS, src)
 	for(var/mob/dead/observer/G in GLOB.player_list)
 		if(G.key)
-			to_chat(G, "<span class='ghostalert'>Question rune has been triggered.</span>")
+			to_chat(G, span_ghostalert("Question rune has been triggered."))
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		var/mob/living/simple_animal/hostile/ghost/tremere/TR = new(loc)
@@ -222,7 +222,7 @@
 		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 		qdel(src)
 	else
-		visible_message("<span class='notice'>No one answers the [src.name] rune's call.</span>")
+		visible_message(span_notice("No one answers the [src.name] rune's call."))
 
 /obj/ritualrune/teleport
 	name = "Teleportation Rune"
@@ -242,7 +242,7 @@
 	. = ..()
 	if(activated)
 		if(last_activator != user)
-			to_chat(user, "<span class='warning'>You are not the one who activated this rune!</span>")
+			to_chat(user, span_warning("You are not the one who activated this rune!"))
 			return
 		var/direction = input(user, "Choose direction:", "Teleportation Rune") in list("North", "East", "South", "West")
 		if(direction)
@@ -255,7 +255,7 @@
 			var/turf/destination = null
 
 			if(get_dist(src, user) > 1)
-				to_chat(user, "<span class='warning'>You moved away from the rune!</span>")
+				to_chat(user, span_warning("You moved away from the rune!"))
 				return
 
 			// Move at least min_distance tiles in the chosen direction
@@ -284,7 +284,7 @@
 						x_dir -= 1
 
 				if(x_dir < 20 || x_dir > 230 || y_dir < 20 || y_dir > 230)
-					to_chat(user, "<span class='warning'>You can't teleport outside the city!</span>")
+					to_chat(user, span_warning("You can't teleport outside the city!"))
 					return
 
 				destination = locate(x_dir, y_dir, user.z)
@@ -298,7 +298,7 @@
 				user.forceMove(destination)
 				qdel(src)
 			else
-				to_chat(user, "<span class='warning'>The spell fails as no destination is found!</span>")
+				to_chat(user, span_warning("The spell fails as no destination is found!"))
 
 /obj/ritualrune/curse
 	name = "Curse Rune"
@@ -324,12 +324,12 @@
 			cursed = namem
 			for(var/mob/living/carbon/human/H in GLOB.player_list)
 				if(H.real_name == cursed)
-					H.adjustCloneLoss(25)
+					H.adjustAggLoss(25)
 					playsound(H.loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
-					to_chat(H, "<span class='warning'>You feel someone repeating your name from the shadows...</span>")
+					to_chat(H, span_warning("You feel someone repeating your name from the shadows..."))
 					H.Stun(10)
 					return
-			to_chat(user, "<span class='warning'>There is no such names in the city!</span>")
+			to_chat(user, span_warning("There is no such names in the city!"))
 
 /obj/ritualrune/blood_to_water
 	name = "Blood To Water"
@@ -367,7 +367,7 @@
 					var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you wish to play as Sentient Gargoyle?", null, null, null, 50, src)
 					for(var/mob/dead/observer/G in GLOB.player_list)
 						if(G.key)
-							to_chat(G, "<span class='ghostalert'>Gargoyle Transformation rune has been triggered.</span>")
+							to_chat(G, span_ghostalert("Gargoyle Transformation rune has been triggered."))
 					if(LAZYLEN(candidates))
 						var/mob/dead/observer/C = pick(candidates)
 						H.key = C.key

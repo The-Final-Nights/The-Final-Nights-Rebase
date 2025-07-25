@@ -18,8 +18,7 @@
 	H.set_species(/datum/species/human)
 	H.set_clan(null)
 	H.generation = 13
-	H.maxHealth = round((initial(H.maxHealth)-initial(H.maxHealth)/4)+(initial(H.maxHealth)/4)*(H.physique+13-H.generation))
-	H.health = round((initial(H.health)-initial(H.health)/4)+(initial(H.health)/4)*(H.physique+13-H.generation))
+	H.update_max_health()
 	var/my_name = "Tyler"
 	if(H.gender == MALE)
 		my_name = pick(GLOB.first_names_male)
@@ -93,9 +92,9 @@
 
 /datum/antagonist/hunter/on_removal()
 	..()
-	to_chat(owner.current,"<span class='userdanger'>You are no longer the Hunter!</span>")
+	to_chat(owner.current,span_userdanger("You are no longer the Hunter!"))
 	owner.special_role = null
 
 /datum/antagonist/hunter/greet()
-	to_chat(owner.current, "<span class='alertsyndie'>You are the Hunter.</span>")
+	to_chat(owner.current, span_alertsyndie("You are the Hunter."))
 	owner.announce_objectives()

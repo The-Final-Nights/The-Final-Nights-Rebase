@@ -79,7 +79,7 @@
 
 	if(do_spin())
 		playsound(usr, "revolver_spin", 30, FALSE)
-		usr.visible_message("<span class='notice'>[usr] spins [src]'s chamber.</span>", "<span class='notice'>You spin [src]'s chamber.</span>")
+		usr.visible_message(span_notice("[usr] spins [src]'s chamber."), span_notice("You spin [src]'s chamber."))
 	else
 		verbs -= /obj/item/gun/ballistic/vampire/revolver/verb/spin
 
@@ -815,7 +815,7 @@
 			oil = min(1000, oil+gas_to_transfer)
 			if(oil)
 				playsound(get_turf(user), 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 50, TRUE)
-				to_chat(user, "<span class='notice'>You fill [src].</span>")
+				to_chat(user, span_notice("You fill [src]."))
 				icon_state = "flamethrower4"
 
 /obj/item/vampire_flamethrower/examine(mob/user)
@@ -830,10 +830,10 @@
 //		if(!can_trigger_gun(user))
 //			return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='warning'>You can't bring yourself to fire \the [src]! You don't want to risk harming anyone...</span>")
+		to_chat(user, span_warning("You can't bring yourself to fire \the [src]! You don't want to risk harming anyone..."))
 		return
 	playsound(get_turf(user), 'modular_darkpack/modules/deprecated/sounds/flamethrower.ogg', 50, TRUE)
-	visible_message("<span class='warning'>[user] fires [src]!</span>", "<span class='warning'>You fire [src]!</span>")
+	visible_message(span_warning("[user] fires [src]!"), span_warning("You fire [src]!"))
 	if(user && user.get_active_held_item() == src) // Make sure our user is still holding us
 		var/turf/target_turf = get_turf(target)
 		if(target_turf)

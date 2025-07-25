@@ -62,9 +62,9 @@
 
 /datum/antagonist/caitiff/on_removal()
 	..()
-	to_chat(owner.current,"<span class='userdanger'>You are no longer the Caitiff!</span>")
+	to_chat(owner.current,span_userdanger("You are no longer the Caitiff!"))
 	owner.special_role = null
 
 /datum/antagonist/caitiff/greet()
-	to_chat(owner.current, "<span class='alertsyndie'>You are the Caitiff.</span>")
+	to_chat(owner.current, span_alertsyndie("You are the Caitiff."))
 	owner.announce_objectives()

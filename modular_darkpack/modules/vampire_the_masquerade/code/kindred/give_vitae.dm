@@ -10,7 +10,7 @@
 	if(istype(owner, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = owner
 		if(H.bloodpool < 2)
-			to_chat(owner, "<span class='warning'>You don't have enough <b>BLOOD</b> to do that!</span>")
+			to_chat(owner, span_warning("You don't have enough <b>BLOOD</b> to do that!"))
 			return
 		if(istype(H.pulling, /mob/living/simple_animal))
 			var/mob/living/L = H.pulling
@@ -21,20 +21,20 @@
 		if(istype(H.pulling, /mob/living/carbon/human))
 			var/mob/living/carbon/human/BLOODBONDED = H.pulling
 			if(iscathayan(BLOODBONDED))
-				to_chat(owner, "<span class='warning'>[BLOODBONDED] vomits the vitae back!</span>")
+				to_chat(owner, span_warning("[BLOODBONDED] vomits the vitae back!"))
 				return
 			if(!BLOODBONDED.client && !istype(H.pulling, /mob/living/carbon/human/npc))
-				to_chat(owner, "<span class='warning'>You need [BLOODBONDED]'s attention to do that!</span>")
+				to_chat(owner, span_warning("You need [BLOODBONDED]'s attention to do that!"))
 				return
 			if(BLOODBONDED.stat == DEAD)
 				if(!BLOODBONDED.key)
-					to_chat(owner, "<span class='warning'>You need [BLOODBONDED]'s mind to Embrace!</span>")
+					to_chat(owner, span_warning("You need [BLOODBONDED]'s mind to Embrace!"))
 					return
 				message_admins("[ADMIN_LOOKUPFLW(H)] is Embracing [ADMIN_LOOKUPFLW(BLOODBONDED)]!")
 			if(giving)
 				return
 			giving = TRUE
-			owner.visible_message("<span class='warning'>[owner] tries to feed [BLOODBONDED] with their own blood!</span>", "<span class='notice'>You started to feed [BLOODBONDED] with your own blood.</span>")
+			owner.visible_message(span_warning("[owner] tries to feed [BLOODBONDED] with their own blood!"), span_notice("You started to feed [BLOODBONDED] with your own blood."))
 			if(do_mob(owner, BLOODBONDED, 10 SECONDS))
 				H.bloodpool = max(0, H.bloodpool-2)
 				giving = FALSE
@@ -44,31 +44,31 @@
 
 				if(BLOODBONDED.stat == DEAD && !iskindred(BLOODBONDED))
 					if (!BLOODBONDED.can_be_embraced)
-						to_chat(H, "<span class='notice'>[BLOODBONDED.name] doesn't respond to your Vitae.</span>")
+						to_chat(H, span_notice("[BLOODBONDED.name] doesn't respond to your Vitae."))
 						return
 
 					if((BLOODBONDED.timeofdeath + 5 MINUTES) > world.time)
 						if (BLOODBONDED.auspice?.level) //here be Abominations
 							if (BLOODBONDED.auspice.force_abomination)
-								to_chat(H, "<span class='danger'>Something terrible is happening.</span>")
-								to_chat(BLOODBONDED, "<span class='userdanger'>Gaia has forsaken you.</span>")
+								to_chat(H, span_danger("Something terrible is happening."))
+								to_chat(BLOODBONDED, span_userdanger("Gaia has forsaken you."))
 								message_admins("[ADMIN_LOOKUPFLW(H)] has turned [ADMIN_LOOKUPFLW(BLOODBONDED)] into an Abomination through an admin setting the force_abomination var.")
 								log_game("[key_name(H)] has turned [key_name(BLOODBONDED)] into an Abomination through an admin setting the force_abomination var.")
 							else
 								switch(SSroll.storyteller_roll(BLOODBONDED.auspice.level))
 									if (ROLL_BOTCH)
-										to_chat(H, "<span class='danger'>Something terrible is happening.</span>")
-										to_chat(BLOODBONDED, "<span class='userdanger'>Gaia has forsaken you.</span>")
+										to_chat(H, span_danger("Something terrible is happening."))
+										to_chat(BLOODBONDED, span_userdanger("Gaia has forsaken you."))
 										message_admins("[ADMIN_LOOKUPFLW(H)] has turned [ADMIN_LOOKUPFLW(BLOODBONDED)] into an Abomination.")
 										log_game("[key_name(H)] has turned [key_name(BLOODBONDED)] into an Abomination.")
 									if (ROLL_FAILURE)
-										BLOODBONDED.visible_message("<span class='warning'>[BLOODBONDED.name] convulses in sheer agony!</span>")
+										BLOODBONDED.visible_message(span_warning("[BLOODBONDED.name] convulses in sheer agony!"))
 										BLOODBONDED.Shake(15, 15, 5 SECONDS)
 										playsound(BLOODBONDED.loc, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 100, TRUE)
 										BLOODBONDED.can_be_embraced = FALSE
 										return
 									if (ROLL_SUCCESS)
-										to_chat(H, "<span class='notice'>[BLOODBONDED.name] does not respond to your Vitae...</span>")
+										to_chat(H, span_notice("[BLOODBONDED.name] does not respond to your Vitae..."))
 										BLOODBONDED.can_be_embraced = FALSE
 										return
 
@@ -78,7 +78,7 @@
 						var/save_data_v = FALSE
 						if(BLOODBONDED.revive(full_heal = TRUE, admin_revive = TRUE))
 							BLOODBONDED.grab_ghost(force = TRUE)
-							to_chat(BLOODBONDED, "<span class='userdanger'>You rise with a start, you're alive! Or not... You feel your soul going somewhere, as you realize you are embraced by a vampire...</span>")
+							to_chat(BLOODBONDED, span_userdanger("You rise with a start, you're alive! Or not... You feel your soul going somewhere, as you realize you are embraced by a vampire..."))
 							var/response_v = input(BLOODBONDED, "Do you wish to keep being a vampire on your save slot?(Yes will be a permanent choice and you can't go back!)") in list("Yes", "No")
 							if(response_v == "Yes")
 								save_data_v = TRUE
@@ -94,12 +94,12 @@
 								if (!SSwhitelists.is_whitelisted(BLOODBONDED.ckey, H.clan.name))
 									if(H.clan.name == "True Brujah")
 										BLOODBONDED.set_clan(/datum/vampire_clan/brujah)
-										to_chat(BLOODBONDED,"<span class='warning'> You don't got that whitelist! Changing to the non WL Brujah</span>")
+										to_chat(BLOODBONDED,span_warning(" You don't got that whitelist! Changing to the non WL Brujah"))
 									else if(H.clan.name == "Tzimisce")
 										BLOODBONDED.set_clan(/datum/vampire_clan/old_clan_tzimisce)
-										to_chat(BLOODBONDED,"<span class='warning'> You don't got that whitelist! Changing to the non WL Old Tzmisce</span>")
+										to_chat(BLOODBONDED,span_warning(" You don't got that whitelist! Changing to the non WL Old Tzmisce"))
 									else
-										to_chat(BLOODBONDED,"<span class='warning'> You don't got that whitelist! Changing to a random non WL clan.</span>")
+										to_chat(BLOODBONDED,span_warning(" You don't got that whitelist! Changing to a random non WL clan."))
 										var/list/non_whitelisted_clans = list(/datum/vampire_clan/brujah, /datum/vampire_clan/malkavian, /datum/vampire_clan/nosferatu, /datum/vampire_clan/gangrel, /datum/vampire_clan/giovanni, /datum/vampire_clan/ministry, /datum/vampire_clan/salubri, /datum/vampire_clan/toreador, /datum/vampire_clan/tremere, /datum/vampire_clan/ventrue)
 										var/random_clan = pick(non_whitelisted_clans)
 										BLOODBONDED.set_clan(random_clan)
@@ -163,15 +163,15 @@
 
 					else
 
-						to_chat(owner, "<span class='notice'>[BLOODBONDED] is totally <b>DEAD</b>!</span>")
+						to_chat(owner, span_notice("[BLOODBONDED] is totally <b>DEAD</b>!"))
 						giving = FALSE
 						return
 				else
 					if(BLOODBONDED.has_status_effect(STATUS_EFFECT_INLOVE))
 						BLOODBONDED.remove_status_effect(STATUS_EFFECT_INLOVE)
 					BLOODBONDED.apply_status_effect(STATUS_EFFECT_INLOVE, owner)
-					to_chat(owner, "<span class='notice'>You successfuly fed [BLOODBONDED] with vitae.</span>")
-					to_chat(BLOODBONDED, "<span class='userlove'>You feel good when you drink this <b>BLOOD</b>...</span>")
+					to_chat(owner, span_notice("You successfuly fed [BLOODBONDED] with vitae."))
+					to_chat(BLOODBONDED, span_userlove("You feel good when you drink this <b>BLOOD</b>..."))
 
 					message_admins("[ADMIN_LOOKUPFLW(H)] has bloodbonded [ADMIN_LOOKUPFLW(BLOODBONDED)].")
 					log_game("[key_name(H)] has bloodbonded [key_name(BLOODBONDED)].")
@@ -199,7 +199,7 @@
 					if(BLOODBONDED.mind)
 						if(BLOODBONDED.mind.enslaved_to != owner)
 							BLOODBONDED.mind.enslave_mind_to_creator(owner)
-							to_chat(BLOODBONDED, "<span class='userdanger'><b>AS PRECIOUS VITAE ENTER YOUR MOUTH, YOU NOW ARE IN THE BLOODBOND OF [H]. SERVE YOUR REGNANT CORRECTLY, OR YOUR ACTIONS WILL NOT BE TOLERATED.</b></span>")
+							to_chat(BLOODBONDED, span_userdanger("<b>AS PRECIOUS VITAE ENTER YOUR MOUTH, YOU NOW ARE IN THE BLOODBOND OF [H]. SERVE YOUR REGNANT CORRECTLY, OR YOUR ACTIONS WILL NOT BE TOLERATED.</b>"))
 							new_master = TRUE
 					if(isghoul(BLOODBONDED))
 						var/datum/species/ghoul/G = BLOODBONDED.dna.species

@@ -408,7 +408,7 @@
 	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as Embraced Gargoyle?", null, null, null, 50, src)
 	for(var/mob/dead/observer/G in GLOB.player_list)
 		if(G.key)
-			to_chat(G, "<span class='ghostalert'>New Gargoyle has been made.</span>")
+			to_chat(G, span_ghostalert("New Gargoyle has been made."))
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		key = C.key
@@ -518,8 +518,8 @@
 		M.change_number_of_hands(limbs+1)
 		used = TRUE
 		icon_state = "extra_arm_none"
-		M.visible_message("<span class='notice'>[M] presses a button on [src], and you hear a disgusting noise.</span>", "<span class='notice'>You feel a sharp sting as [src] plunges into your body.</span>")
-		to_chat(M, "<span class='notice'>You feel more dexterous.</span>")
+		M.visible_message(span_notice("[M] presses a button on [src], and you hear a disgusting noise."), span_notice("You feel a sharp sting as [src] plunges into your body."))
+		to_chat(M, span_notice("You feel more dexterous."))
 		playsound(get_turf(M), 'sound/misc/splort.ogg', 50, 1)
 		desc += "Looks like it's been used up."
 

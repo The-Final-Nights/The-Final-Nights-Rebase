@@ -77,7 +77,14 @@
 		if(body_part.get_damage() < body_part.max_damage) //we don't care if it's stamcritted
 			damage_text = "limp and lifeless"
 		else
-			damage_text = (body_part.brute_dam >= body_part.burn_dam) ? body_part.heavy_brute_msg : body_part.heavy_burn_msg
+			// DARKPACK EDIT CHANGE START - AGGRAVATED_DAMAGE
+			if (body_part.brute_dam >= body_part.burn_dam + body_part.aggravated_dam)
+				damage_text = body_part.heavy_brute_msg
+			else if (body_part.burn_dam >= body_part.brute_dam + body_part.aggravated_dam)
+				damage_text = body_part.heavy_burn_msg
+			else if (body_part.aggravated_dam >= body_part.brute_dam + body_part.burn_dam)
+				damage_text = body_part.heavy_aggravated_msg
+			// DARKPACK EDIT CHANGE END
 		. += span_boldwarning("[capitalize(t_his)] [body_part.plaintext_zone] looks [damage_text]!")
 
 	//stores missing limbs
@@ -124,6 +131,17 @@
 				. += span_danger("[t_He] [t_has] <b>moderate</b> [damage_desc[BURN]]!")
 			else
 				. += span_bolddanger("[t_He] [t_has] severe [damage_desc[BURN]]!")
+
+		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		temp = getAggLoss()
+		if(temp)
+			if(temp < 25)
+				. += span_danger("[t_He] [t_has] minor [damage_desc[AGGRAVATED]].")
+			else if (temp < 50)
+				. += span_danger("[t_He] [t_has] <b>moderate</b> [damage_desc[AGGRAVATED]]!")
+			else
+				. += span_bolddanger("[t_He] [t_has] severe [damage_desc[AGGRAVATED]]!")
+		// DARKPACK EDIT ADDITION END
 
 	if(pulledby?.grab_state)
 		. += span_warning("[t_He] [t_is] restrained by [pulledby]'s grip.")

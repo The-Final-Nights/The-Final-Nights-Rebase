@@ -27,8 +27,8 @@
 	duration_length = 5 SECONDS
 
 /datum/discipline_power/presence/awe/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if((theirpower >= mypower) || ((owner.generation - 3) >= target.generation))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to sway!"))
 		return FALSE
@@ -46,7 +46,7 @@
 	var/datum/cb = CALLBACK(target, /mob/living/carbon/human/proc/walk_to_caster, owner)
 	for(var/i in 1 to 30)
 		addtimer(cb, (i - 1) * target.total_multiplicative_slowdown())
-	to_chat(target, "<span class='userlove'><b>COME HERE</b></span>")
+	to_chat(target, span_userlove("<b>COME HERE</b>"))
 	owner.say("COME HERE!!")
 
 /datum/discipline_power/presence/awe/deactivate(mob/living/carbon/human/target)
@@ -76,8 +76,8 @@
 	duration_length = 5 SECONDS
 
 /datum/discipline_power/presence/dread_gaze/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if((theirpower >= mypower) || ((owner.generation - 3) >= target.generation))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to sway!"))
 		return FALSE
@@ -93,7 +93,7 @@
 	target.apply_overlay(MUTATIONS_LAYER)
 
 	target.Stun(1 SECONDS)
-	to_chat(target, "<span class='userlove'><b>REST</b></span>")
+	to_chat(target, span_userlove("<b>REST</b>"))
 	owner.say("REST!!")
 	if(target.body_position == STANDING_UP)
 		target.toggle_resting()
@@ -118,8 +118,8 @@
 	duration_length = 5 SECONDS
 
 /datum/discipline_power/presence/entrancement/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if((theirpower >= mypower) || ((owner.generation - 3) >= target.generation))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to sway!"))
 		return FALSE
@@ -136,7 +136,7 @@
 
 	var/obj/item/I1 = target.get_active_held_item()
 	var/obj/item/I2 = target.get_inactive_held_item()
-	to_chat(target, "<span class='userlove'><b>PLEASE ME</b></span>")
+	to_chat(target, span_userlove("<b>PLEASE ME</b>"))
 	owner.say("PLEASE ME!!")
 	target.face_atom(owner)
 	target.do_jitter_animation(3 SECONDS)
@@ -167,8 +167,8 @@
 	duration_length = 5 SECONDS
 
 /datum/discipline_power/presence/summon/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if((theirpower >= mypower) || ((owner.generation - 3) >= target.generation))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to sway!"))
 		return FALSE
@@ -183,7 +183,7 @@
 	target.overlays_standing[MUTATIONS_LAYER] = presence_overlay
 	target.apply_overlay(MUTATIONS_LAYER)
 
-	to_chat(target, "<span class='userlove'><b>FEAR ME</b></span>")
+	to_chat(target, span_userlove("<b>FEAR ME</b>"))
 	owner.say("FEAR ME!!")
 	var/datum/cb = CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon/human, step_away_caster), owner)
 	for(var/i in 1 to 30)
@@ -217,8 +217,8 @@
 	duration_length = 5 SECONDS
 
 /datum/discipline_power/presence/majesty/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if((theirpower >= mypower) || ((owner.generation - 3) >= target.generation))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to sway!"))
 		return FALSE
@@ -233,7 +233,7 @@
 	target.overlays_standing[MUTATIONS_LAYER] = presence_overlay
 	target.apply_overlay(MUTATIONS_LAYER)
 
-	to_chat(target, "<span class='userlove'><b>UNDRESS YOURSELF</b></span>")
+	to_chat(target, span_userlove("<b>UNDRESS YOURSELF</b>"))
 	owner.say("UNDRESS YOURSELF!!")
 	target.Immobilize(1 SECONDS)
 	for(var/obj/item/clothing/W in target.contents)

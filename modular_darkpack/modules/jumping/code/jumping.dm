@@ -20,9 +20,9 @@
 		return
 
 	var/mob/living/carbon/H = src
-	var/physique = H.get_total_physique()
-	var/dexterity = H.get_total_dexterity()
-	var/athletics = H.get_total_athletics()
+	var/strength = H.trait_holder.get_stat(ST_TRAIT_STRENGTH)
+	var/dexterity = H.trait_holder.get_stat(ST_TRAIT_DEXTERITY)
+	var/athletics = H.trait_holder.get_stat(ST_TRAIT_ATHLETICS)
 
 	if(HAS_TRAIT(H, TRAIT_IMMOBILIZED) || H.legcuffed)
 		return
@@ -37,10 +37,10 @@
 
 	var/adjusted_jump_range = MAX_JUMP_DISTANCE
 
-	if(physique < 2)
+	if(strength < 2)
 		adjusted_jump_range += 0.75 + athletics
 	else
-		adjusted_jump_range += 0.75 + (physique -1) * 0.5 + athletics
+		adjusted_jump_range += 0.75 + (strength -1) * 0.5 + athletics
 
 	if(adjusted_jump_range > 6)
 		adjusted_jump_range = 6
@@ -72,7 +72,7 @@
 
 		newtonian_move(get_dir(adjusted_target, src))
 		thrown_thing.safe_throw_at(adjusted_target, thrown_thing.throw_range, thrown_thing.throw_speed + power_throw, src, null, null, null, move_force, spin = FALSE)
-		visible_message("<span class='danger'>[src] jumps towards [adjusted_target].</span>")
+		visible_message(span_danger("[src] jumps towards [adjusted_target]."))
 
 
 
@@ -84,6 +84,6 @@
 
 //		newtonian_move(get_dir(target, src))
 //		thrown_thing.safe_throw_at(target, thrown_thing.throw_range, thrown_thing.throw_speed + power_throw, src, null, null, null, move_force)
-//		visible_message("<span class='danger'>[src] jumps towards [target].</span>")
+//		visible_message(span_danger("[src] jumps towards [target]."))
 
 		last_jump_time = current_time

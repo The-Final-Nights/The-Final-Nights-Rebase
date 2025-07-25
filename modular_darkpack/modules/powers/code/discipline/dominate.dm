@@ -50,8 +50,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/command/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 
 	if (HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		return TRUE
@@ -64,7 +64,7 @@
 
 /datum/discipline_power/dominate/command/activate(mob/living/target)
 	. = ..()
-	to_chat(target, "<span class='userdanger'><b>FORGET ABOUT IT</b></span>")
+	to_chat(target, span_userdanger("<b>FORGET ABOUT IT</b>"))
 	owner.say("FORGET ABOUT IT!!")
 	ADD_TRAIT(target, TRAIT_BLIND, "dominate")
 
@@ -87,8 +87,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/mesmerize/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 
 	if (HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		return TRUE
@@ -103,11 +103,11 @@
 	. = ..()
 	target.Immobilize(0.5 SECONDS)
 	if(target.body_position == STANDING_UP)
-		to_chat(target, "<span class='userdanger'><b>GET DOWN</b></span>")
+		to_chat(target, span_userdanger("<b>GET DOWN</b>"))
 		target.toggle_resting()
 		owner.say("GET DOWN!!")
 	else
-		to_chat(target, "<span class='userdanger'><b>STAY DOWN</b></span>")
+		to_chat(target, span_userdanger("<b>STAY DOWN</b>"))
 		owner.say("STAY DOWN!!")
 
 //THE FORGETFUL MIND
@@ -126,8 +126,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/the_forgetful_mind/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 
 	if (HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		return TRUE
@@ -140,7 +140,7 @@
 
 /datum/discipline_power/dominate/the_forgetful_mind/activate(mob/living/target)
 	. = ..()
-	to_chat(target, "<span class='userdanger'><b>THINK TWICE</b></span>")
+	to_chat(target, span_userdanger("<b>THINK TWICE</b>"))
 	owner.say("THINK TWICE!!")
 	target.add_movespeed_modifier(/datum/movespeed_modifier/dominate)
 
@@ -164,8 +164,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/conditioning/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 
 	if (HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		return TRUE
@@ -178,7 +178,7 @@
 
 /datum/discipline_power/dominate/conditioning/activate(mob/living/target)
 	. = ..()
-	to_chat(target, "<span class='userdanger'><b>THINK TWICE</b></span>")
+	to_chat(target, span_userdanger("<b>THINK TWICE</b>"))
 	owner.say("THINK TWICE!!")
 	target.add_movespeed_modifier(/datum/movespeed_modifier/dominate)
 
@@ -201,8 +201,8 @@
 	range = 7
 
 /datum/discipline_power/dominate/possession/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 
 	if (HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		return TRUE
@@ -215,7 +215,7 @@
 
 /datum/discipline_power/dominate/possession/activate(mob/living/carbon/human/target)
 	. = ..()
-	to_chat(target, "<span class='userdanger'><b>YOU SHOULD HARM YOURSELF NOW</b></span>")
+	to_chat(target, span_userdanger("<b>YOU SHOULD HARM YOURSELF NOW</b>"))
 	owner.say("YOU SHOULD HARM YOURSELF NOW!!")
 	var/datum/cb = CALLBACK(target, /mob/living/carbon/human/proc/attack_myself_command)
 	for(var/i in 1 to 20)

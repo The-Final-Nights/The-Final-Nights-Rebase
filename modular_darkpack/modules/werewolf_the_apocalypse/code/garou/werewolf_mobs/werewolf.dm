@@ -36,7 +36,7 @@
 	var/sharpness = 50
 	var/armour_penetration = 100
 	var/melee_damage_type = BRUTE
-	var/list/damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
+	var/list/damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, AGGRAVATED = 1, STAMINA = 0, OXY = 1)
 	var/attack_verb_continuous = "attacks"
 	var/attack_verb_simple = "attack"
 	var/friendly_verb_continuous = "nuzzles"
@@ -252,8 +252,8 @@
 /mob/living/carbon/werewolf/crinos/Topic(href, href_list)
 	//strip panel
 	if(href_list["pouches"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
-		visible_message("<span class='danger'>[usr] tries to empty [src]'s pouches.</span>", \
-						"<span class='userdanger'>[usr] tries to empty your pouches.</span>")
+		visible_message(span_danger("[usr] tries to empty [src]'s pouches."), \
+						span_userdanger("[usr] tries to empty your pouches."))
 		if(do_mob(usr, src, POCKET_STRIP_DELAY * 0.5))
 			dropItemToGround(r_store)
 			dropItemToGround(l_store)
@@ -262,8 +262,8 @@
 
 /mob/living/carbon/werewolf/crinos/resist_grab(moving_resist)
 	if(pulledby.grab_state)
-		visible_message("<span class='danger'>[src] breaks free of [pulledby]'s grip!</span>", \
-						"<span class='danger'>You break free of [pulledby]'s grip!</span>")
+		visible_message(span_danger("[src] breaks free of [pulledby]'s grip!"), \
+						span_danger("You break free of [pulledby]'s grip!"))
 	pulledby.stop_pulling()
 	. = 0
 

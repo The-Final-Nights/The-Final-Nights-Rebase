@@ -97,13 +97,13 @@ SUBSYSTEM_DEF(city_time)
 							P.save_character()
 
 	if(hour == 5 && minutes == 30)
-		to_chat(world, "<span class='ghostalert'>The night is ending...</span>")
+		to_chat(world, span_ghostalert("The night is ending..."))
 
 	if(hour == 5 && minutes == 45)
-		to_chat(world, "<span class='ghostalert'>First rays of the sun illuminate the sky...</span>")
+		to_chat(world, span_ghostalert("First rays of the sun illuminate the sky..."))
 
 	if(hour == 6 && minutes == 0)
-		to_chat(world, "<span class='ghostalert'>THE NIGHT IS OVER.</span>")
+		to_chat(world, span_ghostalert("THE NIGHT IS OVER."))
 		SSticker.force_ending = 1
 		SSticker.current_state = GAME_STATE_FINISHED
 		toggle_ooc(TRUE) // Turn it on

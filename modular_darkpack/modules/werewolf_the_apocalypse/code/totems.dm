@@ -57,7 +57,7 @@
 					if(C.stat != DEAD)
 						if(C.auspice.tribe == tribe)
 							set_light(0)
-							to_chat(C, "<span class='userdanger'><b>YOUR TOTEM IS DESTROYED</b></span>")
+							to_chat(C, span_userdanger("<b>YOUR TOTEM IS DESTROYED</b>"))
 							SEND_SOUND(C, sound('sound/effects/tendril_destroyed.ogg', 0, 0, 75))
 							adjust_gnosis(-5, C, FALSE)
 							var/obj/umbra_portal/prev = locate() in get_step(src, SOUTH)
@@ -71,7 +71,7 @@
 						if(C.auspice.tribe == tribe)
 							if(last_rage+50 < world.time)
 								last_rage = world.time
-								to_chat(C, "<span class='userdanger'><b>YOUR TOTEM IS BREAKING DOWN</b></span>")
+								to_chat(C, span_userdanger("<b>YOUR TOTEM IS BREAKING DOWN</b>"))
 								SEND_SOUND(C, sound('modular_darkpack/modules/deprecated/sounds/bumps.ogg', 0, 0, 75))
 								adjust_rage(1, C, FALSE)
 	if(amount < 0)
@@ -82,7 +82,7 @@
 					if(iswerewolf(C) || isgarou(C))
 						if(C.stat != DEAD)
 							if(C.auspice.tribe == tribe)
-								to_chat(C, "<span class='userhelp'><b>YOUR TOTEM IS RESTORED</b></span>")
+								to_chat(C, span_userhelp("<b>YOUR TOTEM IS RESTORED</b>"))
 								SEND_SOUND(C, sound('modular_darkpack/modules/deprecated/sounds/inspire.ogg', 0, 0, 75))
 								adjust_gnosis(1, C, FALSE)
 				icon_state = "[initial(icon_state)]"
@@ -123,7 +123,7 @@
 		var/mob/living/carbon/C = user
 		if(C.a_intent != INTENT_HARM)
 			if(totem_health <= 0)
-				to_chat(C, "<span class='warning'>[src] is broken!</span>")
+				to_chat(C, span_warning("[src] is broken!"))
 				return
 			var/obj/umbra_portal/prev = locate() in get_step(src, SOUTH)
 			if(!prev)
@@ -142,7 +142,7 @@
 						else
 							opening = FALSE
 				else
-					to_chat(C, "<span class='warning'>You need a Theurge to open the Moon Gates!</span>")
+					to_chat(C, span_warning("You need a Theurge to open the Moon Gates!"))
 			else
 				if(C.auspice.name == "Theurge")
 					playsound(loc, 'modular_darkpack/modules/deprecated/sounds/portal.ogg', 75, FALSE)

@@ -110,19 +110,19 @@
 /obj/machinery/vamp/atm/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/vamp/creditcard))
 		if(logged_in)
-			to_chat(user, "<span class='notice'>Someone is already logged in.</span>")
+			to_chat(user, span_notice("Someone is already logged in."))
 			return
 		current_card = P
-		to_chat(user, "<span class='notice'>Card swiped.</span>")
+		to_chat(user, span_notice("Card swiped."))
 		return
 
 	else if(iscash(P))
 		if(!logged_in)
-			to_chat(user, "<span class='notice'>You need to be logged in.</span>")
+			to_chat(user, span_notice("You need to be logged in."))
 			return
 		else
 			atm_balance += P.get_item_credit_value()
-			to_chat(user, "<span class='notice'>You have deposited [P.get_item_credit_value()] dollars into the ATM. The ATM now holds [atm_balance] dollars.</span>")
+			to_chat(user, span_notice("You have deposited [P.get_item_credit_value()] dollars into the ATM. The ATM now holds [atm_balance] dollars."))
 			qdel(P)
 			return
 
@@ -188,13 +188,13 @@
 			if(amount != round(amount))
 				to_chat(usr, "<span class='notice'>Withdraw amount must be a round number.")
 			else if(current_card.account.balance < amount)
-				to_chat(usr, "<span class='notice'>Insufficient funds.</span>")
+				to_chat(usr, span_notice("Insufficient funds."))
 			else
 				while(amount > 0)
 					var/drop_amount = min(amount, 1000)
 					var/obj/item/stack/dollar/cash = new /obj/item/stack/dollar()
 					cash.amount = drop_amount
-					to_chat(usr, "<span class='notice'>You have withdrawn [drop_amount] dollars.</span>")
+					to_chat(usr, span_notice("You have withdrawn [drop_amount] dollars."))
 					try_put_in_hand(cash, usr)
 					amount -= drop_amount
 					current_card.account.balance -= drop_amount
@@ -202,12 +202,12 @@
 		if("transfer")
 			var/amount = text2num(params["transfer_amount"])
 			if(!amount || amount <= 0)
-				to_chat(usr, "<span class='notice'>Invalid transfer amount.</span>")
+				to_chat(usr, span_notice("Invalid transfer amount."))
 				return FALSE
 
 			var/target_account_id = params["target_account"]
 			if(!target_account_id)
-				to_chat(usr, "<span class='notice'>Invalid target account ID.</span>")
+				to_chat(usr, span_notice("Invalid target account ID."))
 				return FALSE
 
 			var/datum/vtm_bank_account/target_account = null
@@ -217,15 +217,15 @@
 					break
 
 			if(!target_account)
-				to_chat(usr, "<span class='notice'>Invalid target account.</span>")
+				to_chat(usr, span_notice("Invalid target account."))
 				return FALSE
 			if(current_card.account.balance < amount)
-				to_chat(usr, "<span class='notice'>Insufficient funds.</span>")
+				to_chat(usr, span_notice("Insufficient funds."))
 				return FALSE
 
 			current_card.account.balance -= amount
 			target_account.balance += amount
-			to_chat(usr, "<span class='notice'>You have transferred [amount] dollars to account [target_account.account_owner].</span>")
+			to_chat(usr, span_notice("You have transferred [amount] dollars to account [target_account.account_owner]."))
 			return TRUE
 
 		if("change_pin")
@@ -235,12 +235,12 @@
 		if("deposit")
 			if(atm_balance > 0)
 				current_card.account.balance += atm_balance
-				to_chat(usr, "<span class='notice'>You have deposited [atm_balance] dollars into your card. Your new balance is [current_card.account.balance] dollars.</span>")
+				to_chat(usr, span_notice("You have deposited [atm_balance] dollars into your card. Your new balance is [current_card.account.balance] dollars."))
 				atm_balance = 0
 				return TRUE
 
 			else
-				to_chat(usr, "<span class='notice'>The ATM is empty. Nothing to deposit.</span>")
+				to_chat(usr, span_notice("The ATM is empty. Nothing to deposit."))
 				return TRUE
 /*
 /obj/machinery/vamp/atm/attack_hand(mob/user)
@@ -250,7 +250,7 @@
 /obj/machinery/vamp/atm/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/vamp/creditcard))
 		inserted_card = W
-		to_chat(user, "<span class='notice'>Card inserted into ATM.</span>")
+		to_chat(user, span_notice("Card inserted into ATM."))
 		user.ui_interact(src)
 		return
 	else
@@ -278,10 +278,10 @@
 		if("login")
 			var/input_code = input(usr, "Enter your code:", "ATM access")
 			if(input_code == inserted_card.account.code)
-				to_chat(usr, "<span class='notice'>Access granted.</span>")
+				to_chat(usr, span_notice("Access granted."))
 				logged_in = TRUE
 			else
-				to_chat(usr, "<span class='notice'>Invalid PIN Code.</span>")
+				to_chat(usr, span_notice("Invalid PIN Code."))
 				logged_in = FALSE
 
 

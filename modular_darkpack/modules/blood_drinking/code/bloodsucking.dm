@@ -30,10 +30,10 @@
 		mob.Stun(40) //NPCs don't get to resist
 
 	if(mob.bloodpool <= 1 && mob.maxbloodpool > 1)
-		to_chat(src, "<span class='warning'>You feel small amount of <b>BLOOD</b> in your victim.</span>")
+		to_chat(src, span_warning("You feel small amount of <b>BLOOD</b> in your victim."))
 		if(iskindred(mob) && iskindred(src))
 			if(!mob.client)
-				to_chat(src, "<span class='warning'>You need [mob]'s attention to do that...</span>")
+				to_chat(src, span_warning("You need [mob]'s attention to do that..."))
 				return
 			message_admins("[ADMIN_LOOKUPFLW(src)] is attempting to Diablerize [ADMIN_LOOKUPFLW(mob)]")
 			log_attack("[key_name(src)] is attempting to Diablerize [key_name(mob)].")
@@ -44,7 +44,7 @@
 					if(!HAS_TRAIT(src, TRAIT_VITAE_ADDICTION) && clan.name != "Caitiff")
 						if(!HAS_TRAIT(H, TRAIT_IRRESISTIBLE_VITAE))
 							if(!mind.special_role)
-								to_chat(src, "<span class='warning'>You find the idea of drinking your own <b>KIND's</b> blood disgusting!</span>")
+								to_chat(src, span_warning("You find the idea of drinking your own <b>KIND's</b> blood disgusting!"))
 								last_drinkblood_use = 0
 								if(client)
 									client.images -= suckbar
@@ -59,16 +59,16 @@
 						vse_taki = TRUE
 
 				if(!GLOB.canon_event)
-					to_chat(src, "<span class='warning'>It's not a canon event!</span>")
+					to_chat(src, span_warning("It's not a canon event!"))
 					return
 
 				if(vse_taki)
-					to_chat(src, "<span class='userdanger'><b>YOU TRY TO COMMIT DIABLERIE ON [mob].</b></span>")
+					to_chat(src, span_userdanger("<b>YOU TRY TO COMMIT DIABLERIE ON [mob].</b>"))
 				else
-					to_chat(src, "<span class='warning'>You find the idea of drinking your own <b>KIND</b> disgusting!</span>")
+					to_chat(src, span_warning("You find the idea of drinking your own <b>KIND</b> disgusting!"))
 					return
 			else
-				to_chat(src, "<span class='warning'>You need [mob]'s attention to do that...</span>")
+				to_chat(src, span_warning("You need [mob]'s attention to do that..."))
 				return
 
 	if(!HAS_TRAIT(src, TRAIT_BLOODY_LOVER))
@@ -87,15 +87,15 @@
 					if(mob.yang_chi > mob.yin_chi)
 						mob.yang_chi = mob.yang_chi-1
 						yang_chi = min(yang_chi+1, max_yang_chi)
-						to_chat(src, "<span class='engradio'>Some <b>Yang</b> Chi energy enters you...</span>")
+						to_chat(src, span_engradio("Some <b>Yang</b> Chi energy enters you..."))
 					else
 						mob.yin_chi = mob.yin_chi-1
 						yin_chi = min(yin_chi+1, max_yin_chi)
-						to_chat(src, "<span class='medradio'>Some <b>Yin</b> Chi energy enters you...</span>")
+						to_chat(src, span_medradio("Some <b>Yin</b> Chi energy enters you..."))
 					COOLDOWN_START(mob, chi_restore, 30 SECONDS)
 					update_chi_hud()
 				else
-					to_chat(src, "<span class='warning'>The <b>BLOOD</b> feels tasteless...</span>")
+					to_chat(src, span_warning("The <b>BLOOD</b> feels tasteless..."))
 			if(H.reagents)
 				if(length(H.reagents.reagent_list))
 					if(prob(50))
@@ -103,8 +103,8 @@
 		if(HAS_TRAIT(src, TRAIT_PAINFUL_VAMPIRE_KISS))
 			mob.adjustBruteLoss(20, TRUE)
 		if(HAS_TRAIT(src, TRAIT_FEEDING_RESTRICTION) && mob.bloodquality < BLOOD_QUALITY_NORMAL)	//Ventrue can suck on normal people, but not homeless people and animals. BLOOD_QUALITY_LOV - 1, BLOOD_QUALITY_NORMAL - 2, BLOOD_QUALITY_HIGH - 3. Blue blood gives +1 to suction
-			to_chat(src, "<span class='warning'>You are too privileged to drink that awful <b>BLOOD</b>. Go get something better.</span>")
-			visible_message("<span class='danger'>[src] throws up!</span>", "<span class='userdanger'>You throw up!</span>")
+			to_chat(src, span_warning("You are too privileged to drink that awful <b>BLOOD</b>. Go get something better."))
+			visible_message(span_danger("[src] throws up!"), span_userdanger("You throw up!"))
 			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/vomit.ogg', 75, TRUE)
 			if(isturf(loc))
 				add_splatter_floor(loc)
@@ -114,11 +114,11 @@
 			qdel(suckbar)
 			return
 		if(iskindred(mob))
-			to_chat(src, "<span class='userlove'>[mob]'s blood tastes HEAVENLY...</span>")
+			to_chat(src, span_userlove("[mob]'s blood tastes HEAVENLY..."))
 			adjustBruteLoss(-25, TRUE)
 			adjustFireLoss(-25, TRUE)
 		else
-			to_chat(src, "<span class='warning'>You sip some <b>BLOOD</b> from your victim. It feels good.</span>")
+			to_chat(src, span_warning("You sip some <b>BLOOD</b> from your victim. It feels good."))
 		bloodpool = min(maxbloodpool, bloodpool+1*max(1, mob.bloodquality-1))
 		adjustBruteLoss(-10, TRUE)
 		adjustFireLoss(-10, TRUE)
@@ -153,7 +153,7 @@
 						if(HAS_TRAIT(src, TRAIT_DIABLERIE))
 							start_prob = 30
 						if(prob(min(99, start_prob+((generation-K.generation)*10))))
-							to_chat(src, "<span class='userdanger'><b>[K]'s SOUL OVERCOMES YOURS AND GAIN CONTROL OF YOUR BODY.</b></span>")
+							to_chat(src, span_userdanger("<b>[K]'s SOUL OVERCOMES YOURS AND GAIN CONTROL OF YOUR BODY.</b>"))
 							message_admins("[ADMIN_LOOKUPFLW(src)] tried to Diablerize [ADMIN_LOOKUPFLW(mob)] and was overtaken.")
 							log_attack("[key_name(src)] tried to Diablerize [key_name(mob)] and was overtaken.")
 							generation = min(13, P.generation+1)
@@ -193,9 +193,9 @@
 						killed_count = killed_count+1
 						if(killed_count >= 5)
 							SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/humanity_loss.ogg', 0, 0, 75))
-							to_chat(src, "<span class='userdanger'><b>POLICE ASSAULT IN PROGRESS</b></span>")
+							to_chat(src, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 					SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/feed_failed.ogg', 0, 0, 75))
-					to_chat(src, "<span class='warning'>This sad sacrifice for your own pleasure affects something deep in your mind.</span>")
+					to_chat(src, span_warning("This sad sacrifice for your own pleasure affects something deep in your mind."))
 					adjust_masquerade(-1)
 					AdjustHumanity(-1, 0)
 					mob.death()

@@ -63,13 +63,6 @@
 				if(A.objectives)
 					dat += "<p>[printobjectives(A.objectives)]</p>"
 
-		dat += "<p>"
-		dat += "<b>Physique</b>: [host.physique]<BR>"
-		dat += "<b>Dexterity</b>: [host.dexterity]<BR>"
-		dat += "<b>Social</b>: [host.social]<BR>"
-		dat += "<b>Mentality</b>: [host.mentality]<BR>"
-		dat += "<b>Cruelty</b>: [host.blood]<BR>"
-		dat += "</p>"
 		if(host.Myself)
 			if(host.Myself.Friend)
 				if(host.Myself.Friend.owner)
@@ -138,14 +131,14 @@
 		if(C.auspice.rage < 10)
 			if(sound)
 				SEND_SOUND(C, sound('modular_darkpack/modules/deprecated/sounds/rage_increase.ogg', 0, 0, 75))
-			to_chat(C, "<span class='userdanger'><b>RAGE INCREASES</b></span>")
+			to_chat(C, span_userdanger("<b>RAGE INCREASES</b>"))
 			C.auspice.rage = min(10, C.auspice.rage+amount)
 	if(amount < 0)
 		if(C.auspice.rage > 0)
 			C.auspice.rage = max(0, C.auspice.rage+amount)
 			if(sound)
 				SEND_SOUND(C, sound('modular_darkpack/modules/deprecated/sounds/rage_decrease.ogg', 0, 0, 75))
-			to_chat(C, "<span class='userdanger'><b>RAGE DECREASES</b></span>")
+			to_chat(C, span_userdanger("<b>RAGE DECREASES</b>"))
 	C.update_rage_hud()
 
 /proc/adjust_gnosis(amount, mob/living/carbon/C, sound = TRUE)
@@ -153,14 +146,14 @@
 		if(C.auspice.gnosis < C.auspice.start_gnosis)
 			if(sound)
 				SEND_SOUND(C, sound('modular_darkpack/modules/deprecated/sounds/humanity_gain.ogg', 0, 0, 75))
-			to_chat(C, "<span class='boldnotice'><b>GNOSIS INCREASES</b></span>")
+			to_chat(C, span_boldnotice("<b>GNOSIS INCREASES</b>"))
 			C.auspice.gnosis = min(C.auspice.start_gnosis, C.auspice.gnosis+amount)
 	if(amount < 0)
 		if(C.auspice.gnosis > 0)
 			C.auspice.gnosis = max(0, C.auspice.gnosis+amount)
 			if(sound)
 				SEND_SOUND(C, sound('modular_darkpack/modules/deprecated/sounds/rage_decrease.ogg', 0, 0, 75))
-			to_chat(C, "<span class='boldnotice'><b>GNOSIS DECREASES</b></span>")
+			to_chat(C, span_boldnotice("<b>GNOSIS DECREASES</b>"))
 	C.update_rage_hud()
 
 /**
