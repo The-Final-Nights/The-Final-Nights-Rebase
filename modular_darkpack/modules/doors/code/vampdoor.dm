@@ -11,7 +11,7 @@
 	opacity = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
-	var/baseicon = "door"
+	base_icon_state = "door"
 
 	var/closed = TRUE
 	var/locked = FALSE
@@ -54,7 +54,7 @@
 	if(!H.is_holding_item_of_type(/obj/item/vamp/keys/hack))
 		return
 	var/message //So the code isn't flooded with . +=, it's just a visual thing
-	var/difference = (H.trait_holder.get_stat(ST_TRAIT_LARCENY) * 2 + H.trait_holder.get_stat(ST_TRAIT_DEXTERITY)) - lockpick_difficulty //Lower number = higher difficulty
+	var/difference = (H.trait_holder.get_stat(ST_TRAIT_LARCENY) + H.trait_holder.get_stat(ST_TRAIT_DEXTERITY)) - lockpick_difficulty //Lower number = higher difficulty
 	switch(difference) //Because rand(1,20) always adds a minimum of 1 we take that into consideration for our theoretical roll ranges, which really makes it a random range of 19.
 		if(-INFINITY to -11) //Roll can never go above 10 (-11 + 20 = 9), impossible to lockpick.
 			message = span_warning("You don't have any chance of lockpicking this with your current skills!")
@@ -69,7 +69,7 @@
 		if(5 to INFINITY) //Becomes guaranteed to lockpick at 9.
 			message = span_nicegreen("This door is really simple to you. It should be very easy to lockpick it.")
 	. += "[message]"
-	if(H.lockpicking >= 5) //The difference between a 1/19 and a 4/19 is about 4x. An expert in lockpicks is more discerning.
+	if(H.trait_holder.get_stat(ST_TRAIT_LARCENY) >= 5) //The difference between a 1/19 and a 4/19 is about 4x. An expert in lockpicks is more discerning.
 		//Converting the difference into a number that can be divided by the max value of the rand() used in lockpicking calculations.
 		var/max_rand_value = 20
 		var/minimum_lockpickable_difference = -10 //Minimum value, any lower and lockpicking will always fail.
@@ -94,32 +94,65 @@
 /obj/structure/vampdoor/proc/break_door()
 	name = "door frame"
 	desc = "An empty door frame. Someone removed the door by force. A special door repair kit should be able to fix this."
-	door_broken = 1
-	density = 0
+	door_broken = TRUE
+	density = FALSE
 	opacity = 0
 	layer = OPEN_DOOR_LAYER
 	closed = FALSE
 	locked = FALSE
-	icon_state = "[baseicon]-b"
+	icon_state = "[base_icon_state]-b"
 	update_icon()
 
 /obj/structure/vampdoor/proc/fix_door()
 	name = initial(name)
 	desc = initial(desc)
-	door_broken = 0
-	density = 1
-	if(!glass) opacity = 1
+	door_broken = FALSE
+	density = TRUE
+	if(!glass)
+		opacity = 1
 	layer = ABOVE_ALL_MOB_LAYER
 	closed = TRUE
 	locked = FALSE
-	icon_state = "[baseicon]-1"
+	icon_state = "[base_icon_state]-1"
 	update_icon()
+
+/obj/structure/vampdoor/proc/toggle_door(mob/user)
+	if(closed)
+		open_door(user)
+	else
+		close_door(user)
+
+/obj/structure/vampdoor/proc/open_door(mob/user)
+	playsound(src, open_sound, 75, TRUE)
+	icon_state = "[base_icon_state]-0"
+	density = FALSE
+	opacity = FALSE
+	layer = OPEN_DOOR_LAYER
+	to_chat(user, span_notice("You open [src]."))
+	closed = FALSE
+	SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN)
+
+/obj/structure/vampdoor/proc/close_door(mob/user, force)
+	for(var/mob/living/L in src.loc)
+		if(!forced)
+			playsound(src, lock_sound, 75, TRUE)
+			to_chat(user, span_warning("[L] is preventing you from closing [src]."))
+			return
+		//Mabye add an else here that throws people out of the way of the door
+	playsound(src, close_sound, 75, TRUE)
+	icon_state = "[base_icon_state]-1"
+	density = TRUE
+	if(!glass)
+		opacity = TRUE
+	layer = ABOVE_ALL_MOB_LAYER
+	to_chat(user, span_notice("You close [src]."))
+	closed = TRUE
 
 /obj/structure/vampdoor/attack_hand(mob/user)
 	. = ..()
 	var/mob/living/N = user
 	if(door_broken)
-		to_chat(user,span_warning("There is no door to use here."))
+		to_chat(user, span_warning("There is no door to use here."))
 		return
 	if(locked)
 		if(!N.combat_mode)
@@ -132,7 +165,7 @@
 					if((H.potential * 2) >= lockpick_difficulty)
 						playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 100, FALSE)
 						var/obj/item/shield/door/D = new(get_turf(src))
-						D.icon_state = baseicon
+						D.icon_state = base_icon_state
 						var/atom/throw_target = get_edge_target_turf(src, user.dir)
 						D.throw_at(throw_target, rand(2, 4), 4, user)
 						proc_unlock(50)
@@ -155,30 +188,8 @@
 						pixel_z = initial(pixel_z)
 						pixel_w = initial(pixel_w)
 		return
-
-	if(closed)
-		playsound(src, open_sound, 75, TRUE)
-		icon_state = "[baseicon]-0"
-		density = FALSE
-		opacity = FALSE
-		layer = OPEN_DOOR_LAYER
-		to_chat(user, span_notice("You open [src]."))
-		closed = FALSE
-		SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN)
 	else
-		for(var/mob/living/L in src.loc)
-			if(L)
-				playsound(src, lock_sound, 75, TRUE)
-				to_chat(user, span_warning("[L] is preventing you from closing [src]."))
-				return
-		playsound(src, close_sound, 75, TRUE)
-		icon_state = "[baseicon]-1"
-		density = TRUE
-		if(!glass)
-			opacity = TRUE
-		layer = ABOVE_ALL_MOB_LAYER
-		to_chat(user, span_notice("You close [src]."))
-		closed = TRUE
+		toggle_door(user)
 
 /obj/structure/vampdoor/attackby(obj/item/W, mob/living/user, params)
 	if(istype(W, /obj/item/door_repair_kit))
@@ -208,8 +219,9 @@
 				if(P)
 					P.Aggro(user)
 			var/total_lockpicking = user.trait_holder.get_stat(ST_TRAIT_LARCENY)
-			if(do_mob(user, src, (lockpick_timer - total_lockpicking * 2) SECONDS))
-				var/roll = rand(1, 20) + (total_lockpicking * 2 + user.trait_holder.get_stat(ST_TRAIT_DEXTERITY)) - lockpick_difficulty
+			if(do_after(user, (lockpick_timer - total_lockpicking * 2) SECONDS, src))
+				//var/roll_result = SS
+				var/roll = rand(1, 20) + (total_lockpicking + user.trait_holder.get_stat(ST_TRAIT_DEXTERITY)) - lockpick_difficulty
 				if(roll <=1)
 					to_chat(user, span_warning("Your lockpick broke!"))
 					qdel(W)

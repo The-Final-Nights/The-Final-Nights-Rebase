@@ -141,7 +141,7 @@
 
 /obj/structure/vampdoor/dwelling
 
-	baseicon = "wood"
+	base_icon_state = "wood"
 	icon_state = "wood-1"
 	var/area/vtm/dwelling/area_reference
 	locked = 1

@@ -1,6 +1,6 @@
 /obj/structure/vampdoor/wood/old
 	icon_state = "oldwood-1"
-	baseicon = "oldwood"
+	base_icon_state = "oldwood"
 
 /obj/structure/vampdoor/wood/old/chantry
 	lock_id = "chantry"
@@ -10,7 +10,7 @@
 //Change type to of objects below to be a child of wood/old post mapping freeze:
 /obj/structure/vampdoor/baali
 	icon_state = "oldwood-1"
-	baseicon = "oldwood"
+	base_icon_state = "oldwood"
 	locked = TRUE
 	lock_id = "baali"
 	burnable = FALSE
@@ -18,7 +18,7 @@
 
 /obj/structure/vampdoor/salubri
 	icon_state = "oldwood-1"
-	baseicon = "oldwood"
+	base_icon_state = "oldwood"
 	locked = TRUE
 	lock_id = "salubri"
 	burnable = FALSE
@@ -26,7 +26,7 @@
 
 /obj/structure/vampdoor/old_clan_tzimisce
 	icon_state = "oldwood-1"
-	baseicon = "oldwood"
+	base_icon_state = "oldwood"
 	locked = TRUE
 	lock_id = "old_clan_tzimisce"
 	burnable = FALSE

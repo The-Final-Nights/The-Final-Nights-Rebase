@@ -2092,7 +2092,7 @@
 			return ..()
 		playsound(get_turf(target), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 100, FALSE)
 		var/obj/item/shield/door/door_item = new(get_turf(target))
-		door_item.icon_state = door.baseicon
+		door_item.icon_state = door.base_icon_state
 		var/atom/throw_target = get_edge_target_turf(target, user.dir)
 		door_item.throw_at(throw_target, rand(2, 4), 4, src)
 		qdel(target)
