@@ -1,14 +1,3 @@
-//Meet the...
-
-//...
-
-//...
-
-/*
-GRIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIID-
-VENTORY!
-*/
-
 /// Must be in the user's hands to be accessed
 #define STORAGE_NO_WORN_ACCESS (1<<0)
 /// Must be out of the user to be accessed
@@ -18,10 +7,9 @@ VENTORY!
 
 /obj/item/storage/Initialize(mapload)
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.grid = grid
-		STR.storage_flags = storage_flags
+	if(atom_storage)
+		atom_storage.grid = grid
+		atom_storage.storage_flags = storage_flags
 	update_grid_inventory()
 
 /obj/item/storage/proc/update_grid_inventory()
@@ -34,72 +22,25 @@ VENTORY!
 			item_in_source.moveToNullspace()
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, FALSE, FALSE)
 
-
 // storage types //
 
-/datum/component/storage/concrete/vtm
+/datum/storage/vtm
 	grid = TRUE
-	max_w_class = WEIGHT_CLASS_BULKY
-	max_combined_w_class = 1000
-	max_items = 1000
+	var/max_w_class = WEIGHT_CLASS_BULKY
+	var/max_combined_w_class = 1000
+	var/max_items = 1000
+	///Width we occupy on the gridventory hud - Keep null to generate based on w_class
+	var/grid_width = 1 GRID_BOXES
+	///Height we occupy on the gridventory hud - Keep null to generate based on w_class
+	var/grid_height = 1 GRID_BOXES
 
-/datum/component/storage/concrete/vtm/satchel
-	screen_max_columns = 6
-	screen_max_rows = 6
-
-/datum/component/storage/concrete/vtm/backpack
-	screen_max_columns = 6
-	screen_max_rows = 7
-
-/datum/component/storage/concrete/vtm/duffel
-	screen_max_columns = 8
-	screen_max_rows = 6
-
-/datum/component/storage/concrete/vtm/firstaid
-	screen_max_columns = 4
-	screen_max_rows = 4
-
-/datum/component/storage/concrete/vtm/firstaid/ifak
-	screen_max_columns = 3
-	screen_max_rows = 3
-
-/obj/item/storage/backpack
-	component_type = /datum/component/storage/concrete/vtm/backpack
-
-/datum/component/storage/concrete/vtm/holster
-	screen_max_columns = 2
-	screen_max_rows = 2
-
-/datum/component/storage/concrete/vtm/hardcase
-	screen_max_columns = 4
-	screen_max_rows = 4
-
-/datum/component/storage/concrete/vtm/car
-	screen_max_columns = 7
-	screen_max_rows = 9
-
-/datum/component/storage/concrete/vtm/car/track
-	screen_max_columns = 12
-	screen_max_rows = 12
-
-/datum/component/storage/concrete/vtm/sheathe
-	screen_max_columns = 2
-	screen_max_rows = 5
-
-/datum/component/storage
+/datum/storage
 	screen_max_columns = 5
 	screen_max_rows = 5
 	screen_pixel_x = 0
 	screen_pixel_y = 0
 	screen_start_x = 1
 	screen_start_y = 9
-	rustle_sound = list(
-		'sound/effects/rustle1.ogg',
-		'sound/effects/rustle2.ogg',
-		'sound/effects/rustle3.ogg',
-		'sound/effects/rustle4.ogg',
-		'sound/effects/rustle5.ogg',
-	)
 	/// Exactly what it sounds like, this makes it use the new RE4-like inventory system
 	var/grid = FALSE
 	var/static/grid_box_size
@@ -109,14 +50,13 @@ VENTORY!
 	var/maximum_depth = 1
 	var/storage_flags = NONE
 
-/obj/item/storage/ComponentInitialize(mapload) //backpacks are smaller but hold larger things
+/obj/item/storage/Initialize(mapload)
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_HUGE
-	STR.max_items = 40 //max grid
-	STR.max_combined_w_class = 100
+	atom_storage.max_w_class = WEIGHT_CLASS_HUGE
+	atom_storage.max_items = 40 //max grid
+	atom_storage.max_combined_w_class = 100
 
-/datum/component/storage/Initialize(datum/component/storage/concrete/master)
+/datum/component/storage/Initialize(datum/storage/master)
 	if(!grid_box_size)
 		grid_box_size = world.icon_size
 	. = ..()
@@ -334,14 +274,14 @@ VENTORY!
 		if(!stop_messages)
 			to_chat(user, span_warning("\The [storing] is stuck to your hand, you can't put it in \the [host]!"))
 		return FALSE
-	var/datum/component/storage/concrete/master = master()
+	var/datum/storage/master = master()
 	if(!istype(master))
 		return FALSE
 	return master.slave_can_insert_object(src, storing, stop_messages, user, params = params, storage_click = storage_click)
 
 /datum/component/storage/handle_item_insertion(obj/item/storing, prevent_warning = FALSE, mob/user, datum/component/storage/remote, params, storage_click = FALSE)
 	var/atom/parent = src.parent
-	var/datum/component/storage/concrete/master = master()
+	var/datum/storage/master = master()
 	if(!istype(master))
 		return FALSE
 	if(silent)
@@ -358,7 +298,7 @@ VENTORY!
 /datum/component/storage/remove_from_storage(atom/movable/removed, atom/new_location)
 	if(!istype(removed))
 		return FALSE
-	var/datum/component/storage/concrete/master = master()
+	var/datum/storage/master = master()
 	if(!istype(master))
 		return FALSE
 	return master.remove_from_storage(removed, new_location)
@@ -624,7 +564,7 @@ VENTORY!
 		return TRUE
 	return FALSE
 
-/datum/component/storage/concrete/slave_can_insert_object(datum/component/storage/slave, obj/item/storing, stop_messages = FALSE, mob/user, params, storage_click = FALSE)
+/datum/storage/slave_can_insert_object(datum/component/storage/slave, obj/item/storing, stop_messages = FALSE, mob/user, params, storage_click = FALSE)
 	//This is where the pain begins
 	if(grid)
 		var/list/modifiers = params2list(params)
@@ -658,8 +598,8 @@ VENTORY!
 	return TRUE
 
 //Remote is null or the slave datum
-/datum/component/storage/concrete/handle_item_insertion(obj/item/storing, prevent_warning = FALSE, mob/user, datum/component/storage/remote, params, storage_click = FALSE)
-	var/datum/component/storage/concrete/master = master()
+/datum/storage/handle_item_insertion(obj/item/storing, prevent_warning = FALSE, mob/user, datum/component/storage/remote, params, storage_click = FALSE)
+	var/datum/storage/master = master()
 	var/atom/parent = src.parent
 	var/moved = FALSE
 	if(!istype(storing))
@@ -729,12 +669,12 @@ VENTORY!
 	refresh_mob_views()
 	return TRUE
 
-/datum/component/storage/concrete/handle_item_insertion_from_slave(datum/component/storage/slave, obj/item/storing, prevent_warning = FALSE, mob/user, params, storage_click = FALSE)
+/datum/storage/handle_item_insertion_from_slave(datum/component/storage/slave, obj/item/storing, prevent_warning = FALSE, mob/user, params, storage_click = FALSE)
 	. = handle_item_insertion(storing, prevent_warning, user, slave, params = params, storage_click = storage_click)
 	if(. && !prevent_warning)
 		slave.mob_item_insertion_feedback(usr, user, storing)
 
-/datum/component/storage/concrete/remove_from_storage(atom/movable/removed, atom/new_location)
+/datum/storage/remove_from_storage(atom/movable/removed, atom/new_location)
 	//This loops through all cells in the inventory box that we overlap and removes the item from them
 	grid_remove_item(removed)
 	//Cache this as it should be reusable down the bottom, will not apply if anyone adds a sleep to dropped or moving objects, things that should never happen
@@ -856,270 +796,6 @@ VENTORY!
 	layer = 1
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96
-
-/obj/item/storage/firstaid
-	grid_width = 2 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/storage/firstaid/ifak
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/storage/fancy/hardcase
-	grid_width = 3 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/melee/vampirearms/fireaxe
-	grid_width = 7 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/melee/vampirearms/katana
-	grid_width = 5 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/melee/vampirearms/machete
-	grid_width = 3 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/melee/vampirearms/rapier
-	grid_width = 2 GRID_BOXES
-	grid_height = 5 GRID_BOXES
-
-/obj/item/melee/vampirearms/sabre
-	grid_width = 2 GRID_BOXES
-	grid_height = 5 GRID_BOXES
-
-/obj/item/melee/vampirearms/longsword
-	grid_width = 2 GRID_BOXES
-	grid_height = 5 GRID_BOXES
-
-/obj/item/melee/vampirearms/baseball
-	grid_width = 3 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/melee/vampirearms/baseball/hand
-	grid_width = 3 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/melee/vampirearms/tire
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/melee/vampirearms/knife
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/melee/vampirearms/handsickle
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/melee/vampirearms/chainsaw
-	grid_width = 8 GRID_BOXES
-	grid_height = 4 GRID_BOXES
-
-/obj/item/vampire_stake
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/melee/vampirearms/shovel
-	grid_width = 5 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/melee/vampirearms/katana/kosa
-	grid_width = 3 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/melee/vampirearms/eguitar
-	grid_width = 7 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/melee/classic_baton/vampire
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/shield/door
-	grid_width = 7 GRID_BOXES
-	grid_height = 9 GRID_BOXES
-
-/obj/item/ammo_box/vampire
-	grid_width = 2 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_box/magazine/glock9mm
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/glock19
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/ammo_box/magazine/glock45acp
-	grid_width = 1 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/glock21
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/ammo_box/vampire
-	grid_width = 2 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_box/magazine/vamp9mm
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_box/vampire/c9mm/moonclip
-	grid_width = 1 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/gun/ballistic/vampire/revolver/snub
-	grid_width = 1 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/uzi
-	grid_width = 2 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_box/magazine/vamp9mp5
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/mp5
-	grid_width = 2 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_box/magazine/m44
-	grid_width = 1 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/deagle
-	grid_width = 3 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/gun/ballistic/vampire/revolver
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/ammo_box/magazine/vamp45acp
-	grid_width = 1 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/m1911
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/ammo_box/magazine/semi9mm
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/beretta
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/ammo_box/magazine/vamp556
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/ar15
-	grid_width = 8 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/huntrifle
-	grid_width = 8 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_box/magazine/vamp545
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/ak74
-	grid_width = 8 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_box/magazine/vampaug
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/aug
-	grid_width = 8 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_box/magazine/vampthompson
-	grid_width = 2 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/thompson
-	grid_width = 5 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/autoshotgun
-	grid_width = 5 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/automatic/vampire/sniper
-	grid_width = 4 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/shotgun/vampire
-	grid_width = 6 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_box/vampire/c12g
-	grid_width = 2 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/gun/ballistic/shotgun/toy/crossbow/vampire
-	grid_width = 5 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_box/vampire/arrows
-	grid_width = 2 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/ammo_casing/caseless/bolt // not sure this was intended unless individual bolts can be picked up and loaded? added real ammo box above
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/molotov
-	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/vampire_flamethrower
-	grid_width = 7 GRID_BOXES
-	grid_height = 3 GRID_BOXES
-
-/obj/item/food/fish/shark
-	grid_width = 3 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/food/fish/tune
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/food/fish/catfish
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/fishing_rod
-	grid_width = 3 GRID_BOXES
-	grid_height = 1 GRID_BOXES
-
-/obj/item/clothing/under
-	grid_width = 2 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/clothing/suit
-	grid_width = 2 GRID_BOXES
-	grid_height = 3 GRID_BOXES
-
-/obj/item/clothing/head
-	grid_width = 2 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/vampire/drill
-	grid_width = 10 GRID_BOXES
-	grid_height = 10 GRID_BOXES
 
 #undef STORAGE_NO_WORN_ACCESS
 #undef STORAGE_NO_EQUIPPED_ACCESS
