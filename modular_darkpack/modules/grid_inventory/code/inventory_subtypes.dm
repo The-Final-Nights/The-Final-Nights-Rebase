@@ -31,12 +31,12 @@
 	screen_max_rows = 4
 
 /datum/storage/vtm/car
-	max_w_class = WEIGHT_CLASS_HUGE
+	max_total_storage = WEIGHT_CLASS_HUGE
 	screen_max_columns = 7
 	screen_max_rows = 9
 
 /datum/storage/vtm/car/track
-	max_w_class = WEIGHT_CLASS_GIGANTIC
+	max_total_storage = WEIGHT_CLASS_GIGANTIC
 	screen_max_columns = 13
 	screen_max_rows = 9
 
