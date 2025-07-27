@@ -19,15 +19,11 @@
 	screen_max_rows = 3
 
 /obj/item/storage/backpack
-	component_type = /datum/storage/vtm/backpack
+	storage_type = /datum/storage/vtm/backpack
 
 /datum/storage/vtm/holster
 	screen_max_columns = 2
 	screen_max_rows = 2
-
-/datum/storage/vtm/hardcase
-	screen_max_columns = 4
-	screen_max_rows = 4
 
 /datum/storage/vtm/car
 	screen_max_columns = 7

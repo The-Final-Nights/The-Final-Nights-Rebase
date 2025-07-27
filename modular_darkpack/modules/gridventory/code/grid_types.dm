@@ -1,13 +1,9 @@
-/obj/item/storage/firstaid
+/obj/item/storage/medkit
 	grid_width = 2 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/storage/firstaid/ifak
+/obj/item/storage/medkit/ifak
 	grid_width = 1 GRID_BOXES
-	grid_height = 2 GRID_BOXES
-
-/obj/item/storage/fancy/hardcase
-	grid_width = 3 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
 /obj/item/melee/vampirearms/fireaxe
