@@ -2,8 +2,6 @@
 #define STORAGE_NO_WORN_ACCESS (1<<0)
 /// Must be out of the user to be accessed
 #define STORAGE_NO_EQUIPPED_ACCESS (1<<1)
-/// jimmy joger variable
-#define CHECK_BITFIELD(variable, flag) (variable & (flag))
 
 /obj/item
 	var/grid_width = 1
@@ -20,16 +18,15 @@
 		if(drop_location)
 			item_in_source.forceMove(drop_location)
 		else
-			item_in_source.moveToNullspace()
+			qdel(item_in_source)
 		SEND_SIGNAL(src, COMSIG_STORAGE_STORED_ITEM, item_in_source, null, TRUE)
 
-// storage types //
-
+// The actual storage datum.
 /datum/storage/vtm
 	grid = TRUE
-	var/max_w_class = WEIGHT_CLASS_BULKY
-	var/max_combined_w_class = 1000
-	var/max_items = 1000
+	max_total_storage = WEIGHT_CLASS_GIGANTIC
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	max_slots = INFINITY
 	///Width we occupy on the gridventory hud - Keep null to generate based on w_class
 	var/grid_width = 1 GRID_BOXES
 	///Height we occupy on the gridventory hud - Keep null to generate based on w_class
@@ -327,7 +324,7 @@
 
 /datum/storage/proc/worn_check(obj/item/storing, mob/user, no_message = FALSE)
 	. = TRUE
-	if(!istype(storing) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
+	if(!istype(storing) || !istype(user) || !(storage_flags & (STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS)))
 		return TRUE
 
 	if((storage_flags & STORAGE_NO_EQUIPPED_ACCESS) && (storing.item_flags & IN_INVENTORY))
@@ -341,7 +338,7 @@
 
 /datum/storage/proc/worn_check_aggressive(obj/item/storing, mob/user, no_message = FALSE)
 	. = TRUE
-	if(!istype(storing) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
+	if(!istype(storing) || !istype(user) || !(storage_flags & (STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS)))
 		return TRUE
 
 	if(storage_flags & STORAGE_NO_EQUIPPED_ACCESS)
@@ -790,4 +787,3 @@
 
 #undef STORAGE_NO_WORN_ACCESS
 #undef STORAGE_NO_EQUIPPED_ACCESS
-#undef CHECK_BITFIELD
