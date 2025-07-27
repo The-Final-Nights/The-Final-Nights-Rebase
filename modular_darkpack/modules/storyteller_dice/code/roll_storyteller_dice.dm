@@ -1,6 +1,3 @@
-#define DICE_OUTPUT_BALLOON "Balloon"
-#define DICE_OUTPUT_CHAT "Chat"
-
 SUBSYSTEM_DEF(roll)
 	name = "Dice Rolling"
 	flags = SS_NO_INIT | SS_NO_FIRE
@@ -44,7 +41,7 @@ SUBSYSTEM_DEF(roll)
 
 	return output
 
-/* This was written with roll_dice returning a number rather then a list of numbers
+/* This was written with roll_dice returning a number rather then a list of numbers. Therefore it needs a rework before it will work.
 /datum/controller/subsystem/roll/proc/opposed_roll(mob/player_a, mob/player_b, dice_a = 1, dice_b = 1, show_player_a=TRUE, show_player_b=TRUE, atom/alert_atom = null, draw_goes_to_b=TRUE, numerical=FALSE)
 	var/success_count_a = roll_dice(dice_a)
 	var/success_count_b = roll_dice(dice_b)
@@ -133,14 +130,3 @@ SUBSYSTEM_DEF(roll)
 			return "❿"
 		else
 			return "⓿"
-
-/datum/preference/choiced/dice_output
-	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
-	savefile_key = "dice_output"
-	savefile_identifier = PREFERENCE_PLAYER
-
-/datum/preference/choiced/dice_output/init_possible_values()
-	return list(DICE_OUTPUT_BALLOON, DICE_OUTPUT_CHAT)
-
-#undef DICE_OUTPUT_BALLOON
-#undef DICE_OUTPUT_CHAT
