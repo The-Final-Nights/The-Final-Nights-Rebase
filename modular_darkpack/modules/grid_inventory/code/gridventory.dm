@@ -5,11 +5,12 @@
 /// jimmy joger variable
 #define CHECK_BITFIELD(variable, flag) (variable & (flag))
 
+/obj/item
+	var/grid_width = 1
+	var/grid_height = 1
+
 /obj/item/storage/Initialize(mapload)
 	. = ..()
-	if(atom_storage)
-		atom_storage.grid = grid
-		atom_storage.storage_flags = storage_flags
 	update_grid_inventory()
 
 /obj/item/storage/proc/update_grid_inventory()
@@ -20,7 +21,7 @@
 			item_in_source.forceMove(drop_location)
 		else
 			item_in_source.moveToNullspace()
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, FALSE, FALSE)
+		SEND_SIGNAL(src, COMSIG_STORAGE_STORED_ITEM, item_in_source, null, TRUE)
 
 // storage types //
 
@@ -34,56 +35,7 @@
 	///Height we occupy on the gridventory hud - Keep null to generate based on w_class
 	var/grid_height = 1 GRID_BOXES
 
-/datum/storage/vtm/satchel
-	screen_max_columns = 6
-	screen_max_rows = 6
-
-/datum/storage/vtm/backpack
-	screen_max_columns = 6
-	screen_max_rows = 7
-
-/datum/storage/vtm/duffel
-	screen_max_columns = 8
-	screen_max_rows = 6
-
-/datum/storage/vtm/firstaid
-	screen_max_columns = 4
-	screen_max_rows = 4
-
-/datum/storage/vtm/firstaid/ifak
-	screen_max_columns = 3
-	screen_max_rows = 3
-
-/obj/item/storage/backpack
-	component_type = /datum/storage/vtm/backpack
-
-/datum/storage/vtm/holster
-	screen_max_columns = 2
-	screen_max_rows = 2
-
-/datum/storage/vtm/belt
-	screen_max_columns = 2
-	screen_max_rows = 4
-
-/datum/storage/vtm/hardcase
-	screen_max_columns = 4
-	screen_max_rows = 4
-
-/datum/storage/vtm/car
-	max_w_class = WEIGHT_CLASS_HUGE
-	screen_max_columns = 7
-	screen_max_rows = 9
-
-/datum/storage/vtm/car/track
-	max_w_class = WEIGHT_CLASS_GIGANTIC
-	screen_max_columns = 13
-	screen_max_rows = 9
-
-/datum/storage/vtm/sheathe
-	screen_max_columns = 2
-	screen_max_rows = 5
-
-/datum/component/storage
+/datum/storage
 	screen_max_columns = 5
 	screen_max_rows = 5
 	screen_pixel_x = 0
@@ -99,14 +51,14 @@
 	var/maximum_depth = 1
 	var/storage_flags = NONE
 
-/obj/item/storage/Initialize(mapload)
-	. = ..()
-	// ! THESE SHOULD BE ARGS YOU PASS INTO ADDCOMPONENT
-	atom_storage.max_w_class = WEIGHT_CLASS_HUGE
-	atom_storage.max_items = 40 //max grid
-	atom_storage.max_combined_w_class = 100
-
-/datum/component/storage/Initialize(datum/component/storage/concrete/master)
+/datum/storage/New(
+	atom/parent,
+	max_slots = src.max_slots,
+	max_specific_storage = src.max_specific_storage,
+	max_total_storage = src.max_total_storage,
+	rustle_sound = src.rustle_sound,
+	remove_rustle_sound = src.remove_rustle_sound,
+)
 	if(!grid_box_size)
 		grid_box_size = world.icon_size
 	. = ..()
@@ -114,9 +66,8 @@
 		return
 	RegisterSignal(parent, COMSIG_STORAGE_BLOCK_USER_TAKE, PROC_REF(should_block_user_take))
 
-/datum/component/storage/orient2hud()
-	var/atom/real_location = real_location()
-	var/adjusted_contents = LAZYLEN(real_location.contents)
+/datum/storage/orient2hud()
+	var/adjusted_contents = LAZYLEN(loc.contents)
 
 	//Numbered contents display
 	var/list/datum/numbered_display/numbered_contents
@@ -126,8 +77,7 @@
 
 	var/rows = 0
 	var/columns = 0
-	var/datum/component/storage/master = master()
-	if(!master.grid)
+	if(!grid)
 		rows = clamp(max_items, 1, screen_max_rows)
 		columns = clamp(CEILING(adjusted_contents / rows, 1), 1, screen_max_columns)
 	else
@@ -135,10 +85,9 @@
 		columns = screen_max_columns
 	return standard_orient_objs(rows, columns, numbered_contents)
 
-/datum/component/storage/standard_orient_objs(rows = 0, cols = 0, list/obj/item/numerical_display_contents)
-	var/datum/component/storage/master = master()
+/datum/storage/standard_orient_objs(rows = 0, cols = 0, list/obj/item/numerical_display_contents)
 	boxes.screen_loc = "[screen_start_x]:[screen_pixel_x],[screen_start_y]:[screen_pixel_y] to [screen_start_x+cols-1]:[screen_pixel_x],[screen_start_y-rows+1]:[screen_pixel_y]"
-	if(master.grid)
+	if(grid)
 		var/mutable_appearance/bound_underlay
 		var/screen_loc
 		var/screen_x
@@ -170,8 +119,7 @@
 				stored_item.plane = ABOVE_HUD_PLANE
 				stored_item.maptext = MAPTEXT("<font color='white'>[(numbered_display.number > 1)? "[numbered_display.number]" : ""]</font>")
 		else
-			var/atom/real_location = real_location()
-			for(var/obj/item/stored_item in real_location)
+			for(var/obj/item/stored_item in loc)
 				if(QDELETED(stored_item))
 					continue
 				stored_item.mouse_opacity = MOUSE_OPACITY_OPAQUE
@@ -228,10 +176,9 @@
 					break
 	update_closer(rows, cols)
 
-/datum/component/storage/_process_numerical_display()
+/datum/storage/_process_numerical_display()
 	. = list()
-	var/atom/real_location = real_location()
-	for(var/obj/item/stored_item in real_location.contents)
+	for(var/obj/item/stored_item in loc.contents)
 		if(QDELETED(stored_item))
 			continue
 		if(!.["[stored_item.type]-[stored_item.name]"])
@@ -240,7 +187,7 @@
 			var/datum/numbered_display/number_display = .["[stored_item.type]-[stored_item.name]"]
 			number_display.number++
 
-/datum/component/storage/signal_insertion_attempt(datum/source,
+/datum/storage/signal_insertion_attempt(datum/source,
 												obj/item/storing,
 												mob/user,
 												silent = FALSE,
@@ -251,14 +198,13 @@
 		return FALSE
 	return handle_item_insertion(storing, silent, user, params = params, storage_click = FALSE)
 
-/datum/component/storage/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check = FALSE, params, storage_click = FALSE)
+/datum/storage/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check = FALSE, params, storage_click = FALSE)
 	if(!istype(storing) || (storing.item_flags & ABSTRACT))
 		return FALSE //Not an item
 	if(storing == parent)
 		return FALSE //No paradoxes for you
 	var/atom/host = parent
-	var/atom/real_location = real_location()
-	if(real_location == storing.loc)
+	if(loc == storing.loc)
 		return FALSE //Means the item is already in the storage item
 	if(locked)
 		if(user && !stop_messages)
@@ -268,7 +214,7 @@
 	if(worn_check && !worn_check(parent, user))
 		host.add_fingerprint(user)
 		return FALSE
-	if(LAZYLEN(real_location.contents) >= max_items)
+	if(LAZYLEN(loc.contents) >= max_items)
 		if(!stop_messages)
 			to_chat(user, span_warning("[host] is full, make some space!"))
 		return FALSE //Storage item is full
@@ -289,7 +235,7 @@
 	var/depth = 0
 	while(ismovable(recursive_loc))
 		depth++
-		var/datum/component/storage/biggerfish = recursive_loc.GetComponent(/datum/component/storage)
+		var/datum/storage/biggerfish = recursive_loc.GetComponent(/datum/storage)
 		if(biggerfish)
 			//return false if we are inside of another container, and that container has a smaller max_w_class than us (like if we're a bag in a box)
 			if(biggerfish.max_w_class < max_w_class)
@@ -314,7 +260,7 @@
 		return FALSE
 	if(isitem(host))
 		var/obj/item/host_item = host
-		var/datum/component/storage/storage_internal = storing.GetComponent(/datum/component/storage)
+		var/datum/storage/storage_internal = storing.GetComponent(/datum/storage)
 		if((storing.w_class >= host_item.w_class) && storage_internal && !allow_big_nesting)
 			if(!stop_messages)
 				to_chat(user, span_warning("[host_item] cannot hold [storing] as it's a storage item of the same size!"))
@@ -329,10 +275,9 @@
 		return FALSE
 	return master.slave_can_insert_object(src, storing, stop_messages, user, params = params, storage_click = storage_click)
 
-/datum/component/storage/handle_item_insertion(obj/item/storing, prevent_warning = FALSE, mob/user, datum/component/storage/remote, params, storage_click = FALSE)
+/datum/storage/handle_item_insertion(obj/item/storing, prevent_warning = FALSE, mob/user, datum/storage/remote, params, storage_click = FALSE)
 	var/atom/parent = src.parent
-	var/datum/storage/master = master()
-	if(!istype(master))
+	if(!istype(src))
 		return FALSE
 	if(silent)
 		prevent_warning = TRUE
@@ -340,12 +285,12 @@
 		parent.add_fingerprint(user)
 	return master.handle_item_insertion_from_slave(src, storing, prevent_warning, user, params = params, storage_click = storage_click)
 
-/datum/component/storage/signal_take_obj(datum/source, atom/movable/taken, new_loc, force = FALSE)
+/datum/storage/signal_take_obj(datum/source, atom/movable/taken, new_loc, force = FALSE)
 	if(!(taken in real_location()))
 		return FALSE
 	return remove_from_storage(taken, new_loc)
 
-/datum/component/storage/remove_from_storage(atom/movable/removed, atom/new_location)
+/datum/storage/remove_from_storage(atom/movable/removed, atom/new_location)
 	if(!istype(removed))
 		return FALSE
 	var/datum/storage/master = master()
@@ -354,7 +299,7 @@
 	return master.remove_from_storage(removed, new_location)
 
 //This proc is called when you want to place an item into the storage item
-/datum/component/storage/attackby(datum/source, obj/item/attacking_item, mob/user, params, storage_click = FALSE)
+/datum/storage/attackby(datum/source, obj/item/attacking_item, mob/user, params, storage_click = FALSE)
 	if(istype(attacking_item, /obj/item/hand_labeler))
 		var/obj/item/hand_labeler/labeler = attacking_item
 		if(labeler.mode)
@@ -369,7 +314,7 @@
 		return FALSE
 	return handle_item_insertion(attacking_item, FALSE, user, params = params, storage_click = storage_click)
 
-/datum/component/storage/proc/on_equipped(obj/item/source, mob/user, slot)
+/datum/storage/proc/on_equipped(obj/item/source, mob/user, slot)
 	SIGNAL_HANDLER
 
 	var/atom/parent_atom = parent
@@ -380,7 +325,7 @@
 		hide_from(user)
 	update_actions()
 
-/datum/component/storage/proc/worn_check(obj/item/storing, mob/user, no_message = FALSE)
+/datum/storage/proc/worn_check(obj/item/storing, mob/user, no_message = FALSE)
 	. = TRUE
 	if(!istype(storing) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
 		return TRUE
@@ -394,7 +339,7 @@
 			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
 		return FALSE
 
-/datum/component/storage/proc/worn_check_aggressive(obj/item/storing, mob/user, no_message = FALSE)
+/datum/storage/proc/worn_check_aggressive(obj/item/storing, mob/user, no_message = FALSE)
 	. = TRUE
 	if(!istype(storing) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
 		return TRUE
@@ -408,14 +353,14 @@
 			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
 		return FALSE
 
-/datum/component/storage/proc/should_block_user_take(obj/item/stored, mob/user, worn_check = FALSE, no_message = FALSE)
+/datum/storage/proc/should_block_user_take(obj/item/stored, mob/user, worn_check = FALSE, no_message = FALSE)
 	if(worn_check && !worn_check(parent, user, no_message))
 		return TRUE
 	var/atom/real_location = real_location()
 	var/atom/recursive_loc = real_location?.loc
 	var/depth = 0
 	while(isatom(recursive_loc) && !isturf(recursive_loc) && !isarea(recursive_loc))
-		var/datum/component/storage/biggerfish = recursive_loc.GetComponent(/datum/component/storage)
+		var/datum/storage/biggerfish = recursive_loc.GetComponent(/datum/storage)
 		if(biggerfish)
 			depth++
 			if(!biggerfish.worn_check(biggerfish.parent, user, TRUE))
@@ -429,7 +374,7 @@
 		recursive_loc = recursive_loc.loc
 	return FALSE
 
-/datum/component/storage/proc/update_closer(rows = 0, cols = 0)
+/datum/storage/proc/update_closer(rows = 0, cols = 0)
 	closer.cut_overlays()
 	closer.icon_state = "close"
 	var/half = (cols - 1)/2
@@ -459,7 +404,7 @@
 		close_overlay.transform = close_overlay.transform.Translate(world.icon_size * (half - half_floor), 0)
 		closer.add_overlay(close_overlay)
 
-/datum/component/storage/proc/screen_loc_to_grid_coordinates(screen_loc = "")
+/datum/storage/proc/screen_loc_to_grid_coordinates(screen_loc = "")
 	if(!grid)
 		return FALSE
 	var/screen_x = copytext(screen_loc, 1, findtext(screen_loc, ","))
@@ -479,7 +424,7 @@
 
 	return "[screen_x_pixels],[screen_y_pixels]"
 
-/datum/component/storage/proc/grid_coordinates_to_screen_loc(coordinates = "")
+/datum/storage/proc/grid_coordinates_to_screen_loc(coordinates = "")
 	if(!grid)
 		return FALSE
 
@@ -501,7 +446,7 @@
 
 	return "[screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]"
 
-/datum/component/storage/proc/validate_grid_coordinates(coordinates = "", grid_width = 1, grid_height = 1, obj/item/dragged_item)
+/datum/storage/proc/validate_grid_coordinates(coordinates = "", grid_width = 1, grid_height = 1, obj/item/dragged_item)
 	if(!grid)
 		return FALSE
 	var/grid_box_ratio = (world.icon_size/grid_box_size)
@@ -533,7 +478,7 @@
 				return FALSE
 	return TRUE
 
-/datum/component/storage/proc/generate_bound_underlay(grid_width = 32, grid_height = 32)
+/datum/storage/proc/generate_bound_underlay(grid_width = 32, grid_height = 32)
 	var/mutable_appearance/bound_underlay = mutable_appearance(icon = 'modular_darkpack/modules/deprecated/icons/ui/storage.dmi')
 	var/static/list/scale_both = list("block_under")
 	var/static/list/scale_x_states = list("up", "down")
@@ -584,7 +529,7 @@
 
 	return bound_underlay
 
-/datum/component/storage/proc/grid_add_item(obj/item/storing, coordinates)
+/datum/storage/proc/grid_add_item(obj/item/storing, coordinates)
 	var/coordinate_x = text2num(copytext(coordinates, 1, findtext(coordinates, ",")))
 	var/coordinate_y = text2num(copytext(coordinates, findtext(coordinates, ",") + 1))
 	var/calculated_coordinates = ""
@@ -605,7 +550,7 @@
 			LAZYADD(item_to_grid_coordinates[storing], calculated_coordinates)
 	return TRUE
 
-/datum/component/storage/proc/grid_remove_item(obj/item/removed)
+/datum/storage/proc/grid_remove_item(obj/item/removed)
 	if(grid && LAZYACCESS(item_to_grid_coordinates, removed))
 		for(var/location in LAZYACCESS(item_to_grid_coordinates, removed))
 			LAZYREMOVE(grid_coordinates_to_item, location)
@@ -614,7 +559,7 @@
 		return TRUE
 	return FALSE
 
-/datum/storage/slave_can_insert_object(datum/component/storage/slave, obj/item/storing, stop_messages = FALSE, mob/user, params, storage_click = FALSE)
+/datum/storage/slave_can_insert_object(datum/storage/slave, obj/item/storing, stop_messages = FALSE, mob/user, params, storage_click = FALSE)
 	//This is where the pain begins
 	if(grid)
 		var/list/modifiers = params2list(params)
@@ -648,7 +593,7 @@
 	return TRUE
 
 //Remote is null or the slave datum
-/datum/storage/handle_item_insertion(obj/item/storing, prevent_warning = FALSE, mob/user, datum/component/storage/remote, params, storage_click = FALSE)
+/datum/storage/handle_item_insertion(obj/item/storing, prevent_warning = FALSE, mob/user, datum/storage/remote, params, storage_click = FALSE)
 	var/datum/storage/master = master()
 	var/atom/parent = src.parent
 	var/moved = FALSE
@@ -719,7 +664,7 @@
 	refresh_mob_views()
 	return TRUE
 
-/datum/storage/handle_item_insertion_from_slave(datum/component/storage/slave, obj/item/storing, prevent_warning = FALSE, mob/user, params, storage_click = FALSE)
+/datum/storage/handle_item_insertion_from_slave(datum/storage/slave, obj/item/storing, prevent_warning = FALSE, mob/user, params, storage_click = FALSE)
 	. = handle_item_insertion(storing, prevent_warning, user, slave, params = params, storage_click = storage_click)
 	if(. && !prevent_warning)
 		slave.mob_item_insertion_feedback(usr, user, storing)
@@ -744,10 +689,6 @@
 		removed.forceMove(new_location)
 		//We don't want to call this if the item is being destroyed
 		removed.on_exit_storage(src)
-	else
-		//Being destroyed, just move to nullspace now (so it's not in contents for the icon update)
-		removed.moveToNullspace()
-//	removed.update_appearance()
 	update_icon()
 	refresh_mob_views()
 	return TRUE
@@ -759,7 +700,7 @@
 
 /atom/movable/screen/close/Click(location, control, params)
 	. = ..()
-	var/datum/component/storage/storage_master = master
+	var/datum/storage/storage_master = master
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, "shift"))
 		if(!istype(storage_master))
@@ -778,7 +719,7 @@
 		storage_master.hide_from(usr)
 
 /atom/movable/screen/storage
-	icon = 'modular_darkpack/modules/deprecated/icons/ui/storage.dmi'
+	icon = 'modular_darkpack/modules/gridventory/icons/storage.dmi'
 	icon_state = "background"
 	plane = HUD_PLANE
 	layer = 1
@@ -810,7 +751,7 @@
 	if(!usr.client)
 		return
 	usr.client.screen -= hovering
-	var/datum/component/storage/storage_master = master
+	var/datum/storage/storage_master = master
 	if(!istype(storage_master) || !(usr in storage_master.is_using) || !isliving(usr) || usr.incapacitated())
 		return
 	var/obj/item/held_item = usr.get_active_held_item()
@@ -840,7 +781,7 @@
 	usr.client.screen |= hovering
 
 /atom/movable/screen/storage_hover
-	icon = 'modular_darkpack/modules/deprecated/icons/ui/storage.dmi'
+	icon = 'modular_darkpack/modules/gridventory/icons/storage.dmi'
 	icon_state = "white"
 	plane = ABOVE_HUD_PLANE
 	layer = 1

@@ -22,7 +22,7 @@
 	slot_flags = ITEM_SLOT_BACK //ERROOOOO
 	resistance_flags = NONE
 	max_integrity = 300
-	storage_type = /datum/storage/backpack
+	storage_type = /datum/storage/vtm/backpack //DARKPACK EDIT, ORIGINAL: storage_type = /datum/storage/backpack
 	pickup_sound = 'sound/items/handling/backpack/backpack_pickup1.ogg'
 	drop_sound = 'sound/items/handling/backpack/backpack_drop1.ogg'
 	equip_sound = 'sound/items/equip/backpack_equip.ogg'
