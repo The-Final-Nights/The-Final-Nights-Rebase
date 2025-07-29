@@ -20,9 +20,9 @@
 		return
 
 	var/mob/living/carbon/H = src
-	var/physique = H.get_total_physique()
-	var/dexterity = H.get_total_dexterity()
-	var/athletics = H.get_total_athletics()
+	var/strength = H.trait_holder.get_stat(ST_TRAIT_STRENGTH)
+	var/dexterity = H.trait_holder.get_stat(ST_TRAIT_DEXTERITY)
+	var/athletics = H.trait_holder.get_stat(ST_TRAIT_ATHLETICS)
 
 	if(HAS_TRAIT(H, TRAIT_IMMOBILIZED) || H.legcuffed)
 		return
@@ -37,10 +37,10 @@
 
 	var/adjusted_jump_range = MAX_JUMP_DISTANCE
 
-	if(physique < 2)
+	if(strength < 2)
 		adjusted_jump_range += 0.75 + athletics
 	else
-		adjusted_jump_range += 0.75 + (physique -1) * 0.5 + athletics
+		adjusted_jump_range += 0.75 + (strength -1) * 0.5 + athletics
 
 	if(adjusted_jump_range > 6)
 		adjusted_jump_range = 6
