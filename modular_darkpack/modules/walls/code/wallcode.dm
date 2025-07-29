@@ -814,6 +814,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/floor/plating/vampwood/Initialize(mapload)
 	. = ..()
+	add_moonlight()
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
@@ -886,6 +887,10 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "ocean"
 	baseturfs = /turf/open/water/beach/vamp
+
+/turf/open/water/beach/vamp/Initialize(mapload)
+	. = ..()
+	add_moonlight()
 
 /turf/open/water/beach/vamp/deep
 	name = "deep water"
