@@ -1,7 +1,8 @@
 /area/vtm/outside
 	outdoors = TRUE
-	base_lighting_alpha = 80
-	base_lighting_color = COLOR_MOONLIGHT
+	//Looks bad rn.
+	//base_lighting_alpha = 80
+	//base_lighting_color = COLOR_MOONLIGHT
 
 /area/vtm/outside/financialdistrict
 	name = "Financial District"
