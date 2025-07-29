@@ -27,8 +27,8 @@
 	duration_length = 5 SECONDS
 
 /datum/discipline_power/presence/awe/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if((theirpower >= mypower) || ((owner.generation - 3) >= target.generation))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to sway!"))
 		return FALSE
@@ -76,8 +76,8 @@
 	duration_length = 5 SECONDS
 
 /datum/discipline_power/presence/dread_gaze/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if((theirpower >= mypower) || ((owner.generation - 3) >= target.generation))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to sway!"))
 		return FALSE
@@ -118,8 +118,8 @@
 	duration_length = 5 SECONDS
 
 /datum/discipline_power/presence/entrancement/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if((theirpower >= mypower) || ((owner.generation - 3) >= target.generation))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to sway!"))
 		return FALSE
@@ -167,8 +167,8 @@
 	duration_length = 5 SECONDS
 
 /datum/discipline_power/presence/summon/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if((theirpower >= mypower) || ((owner.generation - 3) >= target.generation))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to sway!"))
 		return FALSE
@@ -217,8 +217,8 @@
 	duration_length = 5 SECONDS
 
 /datum/discipline_power/presence/majesty/pre_activation_checks(mob/living/target)
-	var/mypower = owner.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = owner.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if((theirpower >= mypower) || ((owner.generation - 3) >= target.generation))
 		to_chat(owner, span_warning("[target]'s mind is too powerful to sway!"))
 		return FALSE

@@ -71,8 +71,8 @@ SUBSYSTEM_DEF(die_in_a_fire)
 				breakable = FALSE
 			if(breakable)
 				S.fire_act(1000)
-			if(istype(S, /obj/structure/vamptree))
-				var/obj/structure/vamptree/T = S
+			if(istype(S, /obj/structure/flora/tree/vamp))
+				var/obj/structure/flora/tree/vamp/T = S
 				T.burnshit()
 //				if(!isitem(S))
 //					S.take_damage(10*stage, BURN, MELEE, 1)

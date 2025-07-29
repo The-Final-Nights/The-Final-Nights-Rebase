@@ -608,7 +608,7 @@
 
 /datum/chi_discipline/ghost_flame_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
 	. = ..()
-	var/limit = min(2, level) + caster.social + caster.more_companions - 1
+	var/limit = min(2, level) + caster.trait_holder.get_stat(ST_TRAIT_LEADERSHIP)
 	if(length(caster.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/random_beast = pick(caster.beastmaster)
 		random_beast.death()
@@ -1123,8 +1123,8 @@
 
 /datum/chi_discipline/hellweaving/activate(mob/living/target, mob/living/carbon/human/caster)
 	. = ..()
-	var/mypower = caster.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = caster.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if(theirpower >= mypower)
 		to_chat(caster, span_warning("[target]'s mind is too powerful to cause flashbacks for!"))
 		return
@@ -1220,8 +1220,8 @@
 			sound_gender = 'modular_darkpack/modules/deprecated/sounds/kiai_female.ogg'
 	caster.emote("scream")
 	playsound(caster.loc, sound_gender, 100, FALSE)
-	var/mypower = caster.get_total_social()
-	var/theirpower = target.get_total_mentality()
+	var/mypower = caster.trait_holder.get_stat(ST_TRAIT_CHARISMA)
+	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
 	if(theirpower >= mypower)
 		to_chat(caster, span_warning("[target]'s mind is too powerful to affect!"))
 		return
@@ -1304,7 +1304,7 @@
 	. = ..()
 	if(!wolflike_shapeshift)
 		wolflike_shapeshift = new(caster)
-	var/limit = min(2, level) + caster.social + caster.more_companions - 1
+	var/limit = min(2, level) + caster.trait_holder.get_stat(ST_TRAIT_LEADERSHIP)
 	if(length(caster.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/random_beast = pick(caster.beastmaster)
 		random_beast.death()
@@ -1672,9 +1672,8 @@
 			caster.dna.species.punchdamagehigh += 5
 			caster.physiology.armor.melee += 15
 			caster.physiology.armor.bullet += 15
-			caster.dexterity += 2
-			caster.athletics += 2
-			caster.lockpicking += 2
+			caster.trait_holder.set_buff(2, ST_TRAIT_INTELLIGENCE, "equilibrium")
+			//caster.trait_holder.set_buff(2, ST_TRAIT_MEDITATION, "equilibrium")
 			ADD_TRAIT(caster, TRAIT_IGNORESLOWDOWN, SPECIES_TRAIT)
 			caster.do_jitter_animation(1 SECONDS)
 			spawn(delay+caster.discipline_time_plus)
@@ -1682,9 +1681,8 @@
 					caster.dna.species.punchdamagehigh -= 5
 					caster.physiology.armor.melee -= 15
 					caster.physiology.armor.bullet -= 15
-					caster.dexterity -= 2
-					caster.athletics -= 2
-					caster.lockpicking -= 2
+					caster.trait_holder.remove_buff(ST_TRAIT_INTELLIGENCE, "equilibrium")
+					//caster.trait_holder.remove_buff(ST_TRAIT_MEDITATION, "equilibrium")
 					REMOVE_TRAIT(caster, TRAIT_IGNORESLOWDOWN, SPECIES_TRAIT)
 		if(2)
 			caster.yin_chi += 1
@@ -1735,9 +1733,8 @@
 				affected_mob.dna.species.punchdamagehigh += 5
 				affected_mob.physiology.armor.melee += 15
 				affected_mob.physiology.armor.bullet += 15
-				affected_mob.dexterity += 2
-				affected_mob.athletics += 2
-				affected_mob.lockpicking += 2
+				affected_mob.trait_holder.set_buff(2, ST_TRAIT_INTELLIGENCE, "equilibrium")
+				//affected_mob.trait_holder.set_buff(2, ST_TRAIT_MEDITATION, "equilibrium")
 				ADD_TRAIT(affected_mob, TRAIT_IGNORESLOWDOWN, SPECIES_TRAIT)
 				var/obj/effect/celerity/celerity_effect = new(get_turf(affected_mob))
 				celerity_effect.appearance = affected_mob.appearance
@@ -1751,9 +1748,8 @@
 						affected_mob.dna.species.punchdamagehigh -= 5
 						affected_mob.physiology.armor.melee -= 15
 						affected_mob.physiology.armor.bullet -= 15
-						affected_mob.dexterity -= 2
-						affected_mob.athletics -= 2
-						affected_mob.lockpicking -= 2
+						affected_mob.trait_holder.remove_buff(ST_TRAIT_INTELLIGENCE, "equilibrium")
+						//affected_mob.trait_holder.remove_buff(ST_TRAIT_MEDITATION, "equilibrium")
 						REMOVE_TRAIT(affected_mob, TRAIT_IGNORESLOWDOWN, SPECIES_TRAIT)
 		if(4)
 			for(var/mob/living/affected_mob in oviewers(5, caster))
