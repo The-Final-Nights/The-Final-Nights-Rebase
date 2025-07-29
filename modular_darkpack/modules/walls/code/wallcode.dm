@@ -349,6 +349,7 @@ LOW_WALL_HELPER(vampwall/wood)
 		update_icon()
 	if(prob(25))
 		new /obj/effect/turf_decal/asphalt(src)
+	add_moonlight()
 
 /turf/open/floor/plating/asphalt/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
@@ -365,6 +366,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/floor/plating/sidewalkalt/Initialize(mapload)
 	. = ..()
+	add_moonlight()
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
@@ -387,6 +389,7 @@ LOW_WALL_HELPER(vampwall/wood)
 /turf/open/floor/plating/sidewalk/Initialize(mapload)
 	. = ..()
 	icon_state = "[base_icon_state][rand(1, number_of_variations)]"
+	add_moonlight()
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
@@ -523,6 +526,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/misc/grass/vamp/Initialize(mapload)
 	. = ..()
+	add_moonlight()
 	icon_state = "grass[rand(1, 3)]"
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
@@ -590,6 +594,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/misc/dirt/vamp/Initialize(mapload)
 	. = ..()
+	add_moonlight()
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
@@ -797,6 +802,9 @@ LOW_WALL_HELPER(vampwall/wood)
 /obj/effect/decal/wallpaper/gold/low
 	icon_state = "wallpaper-gold_low"
 
+/turf/open/proc/add_moonlight()
+	set_light(1, 0.5, COLOR_MOONLIGHT)
+
 /turf/open/floor/plating/vampwood
 	name = "wood"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
@@ -866,6 +874,7 @@ LOW_WALL_HELPER(vampwall/wood)
 /turf/open/misc/beach/vamp/Initialize(mapload)
 	. = ..()
 	icon_state = "sand[rand(1, 4)]"
+	add_moonlight()
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
