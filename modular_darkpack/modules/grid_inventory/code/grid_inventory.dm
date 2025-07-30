@@ -78,26 +78,32 @@
 	var/screen_loc
 	var/screen_x
 	var/screen_y
-	var/new_screen_pixel_x
-	var/new_screen_pixel_y
+	var/screen_pixel_x
+	var/screen_pixel_y
 
-	for(var/obj/item/item as anything in real_location)
-		bound_underlay = LAZYACCESS(underlay_appearances_by_size, "[item.grid_width]x[item.grid_height]")
+	for(var/obj/item/stored_item in real_location)
+		if(QDELETED(stored_item))
+			continue
+		stored_item.mouse_opacity = MOUSE_OPACITY_OPAQUE
+		bound_underlay = LAZYACCESS(underlay_appearances_by_size, "[stored_item.grid_width]x[stored_item.grid_height]")
 		if(!bound_underlay)
-			bound_underlay = generate_bound_underlay(item.grid_width, item.grid_height)
-			underlay_appearances_by_size["[item.grid_width]x[item.grid_height]"] = bound_underlay
-		item.underlays = null
-		item.underlays += bound_underlay
-		screen_loc = LAZYACCESSASSOC(item_to_grid_coordinates, item, 1)
+			bound_underlay = generate_bound_underlay(stored_item.grid_width, stored_item.grid_height)
+			underlay_appearances_by_size["[stored_item.grid_width]x[stored_item.grid_height]"] = bound_underlay
+		stored_item.underlays = null
+		stored_item.underlays += bound_underlay
+		screen_loc = LAZYACCESSASSOC(item_to_grid_coordinates, stored_item, 1)
 		screen_loc = grid_coordinates_to_screen_loc(screen_loc)
 		screen_x = copytext(screen_loc, 1, findtext(screen_loc, ","))
-		new_screen_pixel_x = text2num(copytext(screen_x, findtext(screen_x, ":") + 1))
-		new_screen_pixel_x += (world.icon_size/2)*((item.grid_width/world.icon_size)-1)
+		screen_pixel_x = text2num(copytext(screen_x, findtext(screen_x, ":") + 1))
+		screen_pixel_x += (world.icon_size/2)*((stored_item.grid_width/world.icon_size)-1)
 		screen_x = text2num(copytext(screen_x, 1, findtext(screen_x, ":")))
 		screen_y = copytext(screen_loc, findtext(screen_loc, ",") + 1)
-		new_screen_pixel_y = text2num(copytext(screen_y, findtext(screen_y, ":") + 1))
-		new_screen_pixel_y += (world.icon_size/2)*((item.grid_height/world.icon_size)-1)
+		screen_pixel_y = text2num(copytext(screen_y, findtext(screen_y, ":") + 1))
+		screen_pixel_y += (world.icon_size/2)*((stored_item.grid_height/world.icon_size)-1)
 		screen_y = text2num(copytext(screen_y, 1, findtext(screen_y, ":")))
+		stored_item.screen_loc = "[screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]"
+		stored_item.plane = ABOVE_HUD_PLANE
+		stored_item.maptext = ""
 
 /datum/storage/darkpack/proc/grid_add_item(obj/item/storing, coordinates)
 	var/coordinate_x = text2num(copytext(coordinates, 1, findtext(coordinates, ",")))
