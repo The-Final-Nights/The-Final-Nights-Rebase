@@ -40,3 +40,4 @@
 		current_y++
 		if(current_y - screen_start_y >= rows)
 			break
+

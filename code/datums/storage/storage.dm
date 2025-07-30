@@ -24,7 +24,7 @@
 	VAR_PRIVATE/list/mob/is_using = list()
 
 	///The type of storage interface this datum uses.
-	var/datum/storage_interface/storage_type = /datum/storage_interface
+	var/datum/storage_interface/storage_type = /datum/storage_interface/darkpack //DARKPACK EDIT, ORIGINAL: var/datum/storage_interface/storage_type = /datum/storage_interface
 	/// Associated list that keeps track of all storage UI datums per person.
 	VAR_PRIVATE/list/datum/storage_interface/storage_interfaces = null
 
@@ -1111,7 +1111,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	// DARKPACK EDIT START
 	var/columns
 	var/rows
-	if(istype(src, /datum/storage/vtm))
+	if(istype(src, /datum/storage/darkpack))
 		columns = screen_max_columns
 		rows = screen_max_rows
 	else
