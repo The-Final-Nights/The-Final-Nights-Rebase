@@ -6,10 +6,6 @@
 /datum/storage
 	screen_max_columns = 5
 	screen_max_rows = 5
-	screen_pixel_x = 0
-	screen_pixel_y = 0
-	screen_start_x = 1
-	screen_start_y = 9
 	/// Exactly what it sounds like, this makes it use the new RE4-like inventory system
 	var/grid = TRUE
 	var/static/grid_box_size

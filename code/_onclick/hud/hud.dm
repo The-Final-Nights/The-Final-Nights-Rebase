@@ -6,7 +6,7 @@
 
 // The default UI style is the first one in the list
 GLOBAL_LIST_INIT(available_ui_styles, list(
-	"Darkpack" = 'modular_darkpack/modules/grid_inventory/icons/storage.dmi'
+	"Darkpack" = 'modular_darkpack/master_files/icons/hud/screen_darkpack.dmi'
 ))
 // TFN EDIT, ORIGINAL:
 /*
