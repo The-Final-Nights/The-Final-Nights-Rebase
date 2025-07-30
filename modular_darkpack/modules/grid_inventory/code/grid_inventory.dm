@@ -2,6 +2,21 @@
 	var/grid_width = 1 GRID_BOXES
 	var/grid_height = 1 GRID_BOXES
 
+/obj/item/storage/Initialize()
+	. = ..()
+	update_grid_inventory()
+
+/obj/item/storage/proc/update_grid_inventory()
+	//this is stupid shitcode but grid inventory sadly requires it
+	var/drop_location = drop_location()
+	for(var/obj/item/item_in_source in contents)
+		if(drop_location)
+			item_in_source.forceMove(drop_location)
+		else
+			item_in_source.moveToNullspace()
+		SEND_SIGNAL(src, COMSIG_ATOM_STORED_ITEM, item_in_source, null, TRUE)
+		SEND_SIGNAL(storage_type, COMSIG_STORAGE_STORED_ITEM, item_in_source, null, TRUE)
+
 /// Storage datum, uses the new RE4-like inventory system in this module.
 /datum/storage/darkpack
 	max_slots = INFINITY
@@ -19,9 +34,10 @@
 	if(!can_insert(to_insert, user, messages = messages, force = force))
 		return FALSE
 
+	var/coordinates
 	if(params)
 		var/list/modifiers = params2list(params)
-		var/coordinates = LAZYACCESS(modifiers, "screen-loc")
+		coordinates = LAZYACCESS(modifiers, "screen-loc")
 	var/grid_box_ratio = (world.icon_size / world.icon_size)
 
 	//if you are clicking the item on the storage container, find the first cell that happens to be valid
