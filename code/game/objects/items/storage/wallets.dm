@@ -5,10 +5,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_ID
-	storage_type = /datum/storage/wallet
-
-	storage_max_columns = 4
-	storage_max_rows = 1
+	storage_type = /datum/storage/wallet/vampire
 
 	var/obj/item/card/id/front_id = null
 	var/list/combined_access

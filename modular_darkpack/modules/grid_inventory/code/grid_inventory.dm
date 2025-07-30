@@ -2,20 +2,6 @@
 	var/grid_width = 1
 	var/grid_height = 1
 
-/obj/item/storage/Initialize(mapload)
-	. = ..()
-	update_grid_inventory()
-
-/obj/item/storage/proc/update_grid_inventory()
-	//this is stupid shitcode but grid inventory sadly requires it
-	var/drop_location = drop_location()
-	for(var/obj/item/item_in_source in contents)
-		if(drop_location)
-			item_in_source.forceMove(drop_location)
-		else
-			qdel(item_in_source)
-		SEND_SIGNAL(src, COMSIG_STORAGE_STORED_ITEM, item_in_source, null, TRUE)
-
 // The actual storage datum.
 /datum/storage
 	screen_max_columns = 5

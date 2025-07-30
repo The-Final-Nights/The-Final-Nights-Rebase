@@ -43,3 +43,7 @@
 /datum/storage/vtm/sheathe
 	screen_max_columns = 2
 	screen_max_rows = 5
+
+/datum/storage/wallet/vampire
+	screen_max_columns = 2
+	screen_max_rows = 2
