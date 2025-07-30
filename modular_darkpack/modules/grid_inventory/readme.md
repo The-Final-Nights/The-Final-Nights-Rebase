@@ -11,6 +11,7 @@ This module allows us to have a resident evil type inventory system that is grid
 ### TG Proc/File Changes:
 
 - [code/game/objects/items/storage/backpack.dm](/code/game/objects/items/storage/backpack.dm): - `var/storage_type`
+- [code/game/objects/items/storage/wallets.dm](/code/game/objects/items/storage/wallets.dm): - `var/storage_type`
 
 ### Modular Overrides:
 
