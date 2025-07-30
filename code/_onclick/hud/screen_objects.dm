@@ -526,7 +526,7 @@
 
 	var/obj/item/inserted = usr.get_active_held_item()
 	if(inserted)
-		storage_master.attempt_insert(to_insert = inserted, user = usr, params = params, shoving_item_inside = FALSE) //DARKPACK EDIT, ORIGINAL: storage_master.attempt_insert(inserted, usr)
+		storage_master.attempt_insert(to_insert = inserted, user = usr, params = params) //DARKPACK EDIT, ORIGINAL: storage_master.attempt_insert(inserted, usr)
 
 	return TRUE
 

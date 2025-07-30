@@ -5,20 +5,27 @@
 /// Storage datum, uses the new RE4-like inventory system in this module.
 /datum/storage/darkpack
 	max_slots = INFINITY
+	var/static/grid_box_size
 	var/list/grid_coordinates_to_item
 	var/list/item_to_grid_coordinates
 	var/static/list/mutable_appearance/underlay_appearances_by_size = list()
 
-/datum/storage/darkpack/attempt_insert(obj/item/to_insert, mob/user, override = FALSE, force = STORAGE_NOT_LOCKED, messages = TRUE, params, shoving_item_inside = TRUE)
+/datum/storage/darkpack/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	if(!grid_box_size)
+		grid_box_size = world.icon_size
+
+/datum/storage/darkpack/attempt_insert(obj/item/to_insert, mob/user, override = FALSE, force = STORAGE_NOT_LOCKED, messages = TRUE, params)
 	if(!can_insert(to_insert, user, messages = messages, force = force))
 		return FALSE
 
-	var/list/modifiers = params2list(params)
-	var/coordinates = LAZYACCESS(modifiers, "screen-loc")
+	if(params)
+		var/list/modifiers = params2list(params)
+		var/coordinates = LAZYACCESS(modifiers, "screen-loc")
 	var/grid_box_ratio = (world.icon_size / world.icon_size)
 
 	//if you are clicking the item on the storage container, find the first cell that happens to be valid
-	if(shoving_item_inside)
+	if(coordinates)
 		var/final_x = 0
 		var/final_y = 0
 		var/final_coordinates = ""
@@ -82,8 +89,8 @@
 	var/calculated_coordinates = ""
 	var/final_x
 	var/final_y
-	var/validate_x = (storing.grid_width / world.icon_size) - 1
-	var/validate_y = (storing.grid_height / world.icon_size) - 1
+	var/validate_x = (storing.grid_width / grid_box_size) - 1
+	var/validate_y = (storing.grid_height / grid_box_size) - 1
 	//this loops through all cells we overlap given these coordinates
 	for(var/current_x in 0 to validate_x)
 		for(var/current_y in 0 to validate_y)
@@ -117,9 +124,9 @@
 	var/screen_y_pixels = coordinate_y * world.icon_size
 	screen_y_pixels += ((screen_start_y - screen_max_rows + 1) * world.icon_size) + screen_pixel_y
 
-	var/new_screen_x = FLOOR(screen_x_pixels/world.icon_size, 1)
+	var/new_screen_x = FLOOR(screen_x_pixels/grid_box_size, 1)
 	var/new_screen_pixel_x = FLOOR(screen_x_pixels - FLOOR(screen_x_pixels, world.icon_size), 1)
-	var/new_screen_y = FLOOR(screen_y_pixels/world.icon_size, 1)
+	var/new_screen_y = FLOOR(screen_y_pixels/grid_box_size, 1)
 	var/new_screen_pixel_y = FLOOR(screen_y_pixels - FLOOR(screen_y_pixels, world.icon_size), 1)
 
 	return "[new_screen_x]:[new_screen_pixel_x],[new_screen_y]:[new_screen_pixel_y]"
@@ -135,21 +142,21 @@
 
 	var/screen_x_pixels = (screen_x * world.icon_size) + screen_pixel_x
 	screen_x_pixels -= (screen_start_x * world.icon_size) + screen_pixel_x
-	screen_x_pixels = FLOOR(screen_x_pixels/world.icon_size, 1)
+	screen_x_pixels = FLOOR(screen_x_pixels/grid_box_size, 1)
 	var/screen_y_pixels = (screen_y * world.icon_size) + screen_pixel_y
 	screen_y_pixels -= ((screen_start_y - screen_max_rows + 1) * world.icon_size) + screen_pixel_y
-	screen_y_pixels = FLOOR(screen_y_pixels/world.icon_size, 1)
+	screen_y_pixels = FLOOR(screen_y_pixels/grid_box_size, 1)
 
 	return "[screen_x_pixels],[screen_y_pixels]"
 
 /datum/storage/darkpack/proc/validate_grid_coordinates(coordinates = "", grid_width = 1, grid_height = 1, obj/item/dragged_item)
-	var/grid_box_ratio = (world.icon_size / world.icon_size)
+	var/grid_box_ratio = (world.icon_size / grid_box_size)
 	var/screen_x = copytext(coordinates, 1, findtext(coordinates, ","))
 	screen_x = text2num(copytext(screen_x, 1, findtext(screen_x, ":")))
 	var/screen_y = copytext(coordinates, findtext(coordinates, ",") + 1)
 	screen_y = text2num(copytext(screen_y, 1, findtext(screen_y, ":")))
-	var/validate_x = FLOOR((grid_width / world.icon_size)-1, 1)
-	var/validate_y = FLOOR((grid_height / world.icon_size)-1, 1)
+	var/validate_x = FLOOR((grid_width / grid_box_size)-1, 1)
+	var/validate_y = FLOOR((grid_height / grid_box_size)-1, 1)
 	var/final_x = 0
 	var/final_y = 0
 	var/final_coordinates = ""
