@@ -1,22 +1,10 @@
 /obj/item
-	var/grid_width = 1
-	var/grid_height = 1
+	var/grid_width = 1 GRID_BOXES
+	var/grid_height = 1 GRID_BOXES
 
 /// Storage datum, uses the new RE4-like inventory system in this module.
 /datum/storage/darkpack
 	max_slots = INFINITY
-	/**
-	 * Width in tiles, which we occupy on the gridventory hud
-	 * Keep null to generate based on w_class
-	 */
-	var/grid_width = 1
-
-	/**
-	 * Height in tiles, which we occupy on the gridventory hud
-	 * Keep null to generate based on w_class
-	 */
-	var/grid_height = 1
-
 	var/list/grid_coordinates_to_item
 	var/list/item_to_grid_coordinates
 	var/static/list/mutable_appearance/underlay_appearances_by_size = list()

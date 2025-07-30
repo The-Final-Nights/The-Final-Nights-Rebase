@@ -1,6 +1,3 @@
-///Length of one inventory grid box in pixels.
-#define GRID_BOXES *32
-
 /obj/item/storage/medkit
 	grid_width = 2 GRID_BOXES
 	grid_height = 2 GRID_BOXES
@@ -260,5 +257,3 @@
 /obj/item/vampire/drill
 	grid_width = 10 GRID_BOXES
 	grid_height = 10 GRID_BOXES
-
-#undef GRID_BOXES
