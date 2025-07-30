@@ -1,5 +1,5 @@
 /atom/movable/screen/storage
-	icon = 'modular_darkpack/modules/grid_inventory/icons/storage.dmi'
+	icon = 'modular_darkpack/master_files/icons/hud/darkpack.dmi'
 	icon_state = "background"
 	alpha = 180
 
