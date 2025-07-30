@@ -29,7 +29,6 @@
  * * messages - if TRUE, we will create balloon alerts for the user.
  */
 /datum/storage/darkpack/attempt_insert(obj/item/to_insert, mob/user, override = FALSE, force = STORAGE_NOT_LOCKED, messages = TRUE)
-	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!can_insert(to_insert, user, messages = messages, force = force))
 		return FALSE
