@@ -44,6 +44,6 @@
 	screen_max_columns = 2
 	screen_max_rows = 5
 
-/datum/storage/wallet/vampire
+/datum/storage/vtm/wallet
 	screen_max_columns = 2
 	screen_max_rows = 2

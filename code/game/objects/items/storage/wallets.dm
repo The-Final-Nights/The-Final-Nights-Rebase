@@ -5,7 +5,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_ID
-	storage_type = /datum/storage/wallet/vampire //DARKPACK EDIT, ORIGINAL: storage_type = /datum/storage/wallet
+	storage_type = /datum/storage/vtm/wallet //DARKPACK EDIT, ORIGINAL: storage_type = /datum/storage/wallet
 
 	var/obj/item/card/id/front_id = null
 	var/list/combined_access
