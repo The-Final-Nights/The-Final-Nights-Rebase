@@ -3,7 +3,7 @@
 	screen_max_rows = 6
 
 /datum/storage/vtm/backpack
-	screen_max_columns = 6
+	screen_max_columns = 7
 	screen_max_rows = 7
 
 /datum/storage/vtm/duffel
