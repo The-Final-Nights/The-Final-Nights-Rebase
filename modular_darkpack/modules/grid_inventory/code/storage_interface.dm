@@ -2,6 +2,17 @@
 ///darkpack subtype of storage interface used by us.
 /datum/storage_interface/darkpack
 
+	/// Storage that owns us
+	var/datum/storage/darkpack/darkpack_parent_storage
+
+/datum/storage_interface/darkpack/New(ui_style, datum/storage/parent_storage, mob/user)
+	..()
+	darkpack_parent_storage = parent_storage
+
+/datum/storage_interface/darkpack/Destroy(force)
+	darkpack_parent_storage = null
+	return ..()
+
 /datum/storage_interface/darkpack/add_items(
 	screen_start_x,
 	screen_pixel_x,
@@ -14,8 +25,6 @@
 	list/datum/numbered_display/numbered_contents,
 )
 
-	var/current_x = screen_start_x
-	var/current_y = screen_start_y
 	var/turf/our_turf = get_turf(real_location)
 
 	var/list/obj/storage_contents = list()
@@ -29,15 +38,6 @@
 
 	for(var/obj/item as anything in storage_contents)
 		item.mouse_opacity = MOUSE_OPACITY_OPAQUE
-		item.screen_loc = "[current_x]:[screen_pixel_x],[current_y]:[screen_pixel_y]"
 		item.maptext = storage_contents[item]
 		SET_PLANE(item, ABOVE_HUD_PLANE, our_turf)
-		current_x++
-		if(current_x - screen_start_x < columns)
-			continue
-		current_x = screen_start_x
-
-		current_y++
-		if(current_y - screen_start_y >= rows)
-			break
 
