@@ -399,6 +399,14 @@
 	min_val = 0
 	max_val = 23
 
+/datum/config_entry/number/time_till_day
+	default = 198000
+	protection = CONFIG_ENTRY_LOCKED
+
+/datum/config_entry/number/time_till_roundend
+	default = 216000
+	protection = CONFIG_ENTRY_LOCKED
+
 /datum/config_entry/number/monkeycap
 	default = 64
 	min_val = 0
