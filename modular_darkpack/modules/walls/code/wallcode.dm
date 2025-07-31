@@ -804,16 +804,14 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/proc/add_moonlight()
 	set_light(l_on = TRUE, l_range = GLOB.starlight_range, l_power = GLOB.starlight_power, l_color = GLOB.starlight_color)
-/*
-	GLOB.starlight += src
 
+	GLOB.starlight += src
 	RegisterSignal(src, COMSIG_QDELETING, PROC_REF(clear_moonlight))
 
 /turf/open/proc/clear_moonlight()
 	SIGNAL_HANDLER
 
 	GLOB.starlight -= src
-*/
 
 /turf/open/floor/plating/vampwood
 	name = "wood"
