@@ -803,7 +803,8 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "wallpaper-gold_low"
 
 /turf/open/proc/add_moonlight()
-	set_light(1, 0.5, COLOR_MOONLIGHT)
+	set_light(l_on = TRUE, l_range = GLOB.starlight_range, l_power = GLOB.starlight_power, l_color = GLOB.starlight_color)
+	GLOB.starlight += src
 
 /turf/open/floor/plating/vampwood
 	name = "wood"
