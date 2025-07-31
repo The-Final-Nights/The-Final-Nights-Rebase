@@ -114,7 +114,7 @@ SUBSYSTEM_DEF(city_time)
 		var/walked_range = LERP(start_range, end_range, i/COLOR_CYCLES)
 		var/walked_power = LERP(start_power, end_power, i/COLOR_CYCLES)
 		set_starlight(walked_color, walked_range, walked_power)
-		sleep(10 SECONDS)
+		sleep(12 SECONDS)
 	set_starlight(end_color, end_range, end_power)
 	shifting_colors = FALSE
 
