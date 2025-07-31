@@ -8,7 +8,7 @@
 	flag = BULLET
 	reflectable = NONE
 	ricochets_max = 0
-	hitsound = 'sound/weapons/pierce.ogg'
+	hitsound = 'sound/items/weapons/pierce.ogg'
 	hitsound_wall = "ricochet"
 	sharpness = SHARP_POINTY
 	impact_effect_type = /obj/effect/temp_visual/impact_effect

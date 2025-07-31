@@ -344,7 +344,7 @@
 		/obj/item/card/id,
 		/obj/item/flashlight,
 		// TODO: [Lucia] reimplement melee weapons
-		///obj/item/melee/classic_baton/vampire,
+		///obj/item/melee/baton/vamp,
 		/obj/item/restraints/handcuffs
 	)
 

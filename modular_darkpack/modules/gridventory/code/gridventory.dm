@@ -929,11 +929,11 @@ VENTORY!
 	grid_width = 3 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/melee/vamp/eguitar
+/obj/item/instrument/eguitar/vamp
 	grid_width = 7 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/melee/classic_baton/vampire
+/obj/item/melee/baton/vamp
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 

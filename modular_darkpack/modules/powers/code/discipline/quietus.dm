@@ -145,8 +145,8 @@
 	pass_flags = PASSTABLE
 	damage = 80
 	damage_type = BURN
-	hitsound = 'sound/weapons/effects/searwall.ogg'
-	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
+	hitsound = 'sound/items/weapons/effects/searwall.ogg'
+	hitsound_wall = 'sound/items/weapons/effects/searwall.ogg'
 	ricochets_max = 0
 	ricochet_chance = 0
 

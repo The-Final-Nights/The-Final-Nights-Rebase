@@ -9,7 +9,7 @@
 		new /datum/data/mining_equipment("lockpick",	/obj/item/vamp/keys/hack, 50),
 		new /datum/data/mining_equipment("LSD pill bottle",		/obj/item/storage/pill_bottle/lsd,	50),
 		new /datum/data/mining_equipment("knife",	/obj/item/knife/vamp,	85),
-		new /datum/data/mining_equipment("switchblade",	/obj/item/knife/vamp/switchblade, 85),
+		new /datum/data/mining_equipment("switchblade",	/obj/item/switchblade/vamp, 85),
 		new /datum/data/mining_equipment("stake",	/obj/item/vampire_stake,	100),
 		new /datum/data/mining_equipment("Surgery dufflebag", /obj/item/storage/backpack/duffelbag/med/surgery, 100),
 		new /datum/data/mining_equipment("snub-nose revolver",	/obj/item/gun/ballistic/vampire/revolver/snub,	100),

@@ -105,8 +105,8 @@
 			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/razor_claws.ogg', 75, FALSE)
 			var/mob/living/carbon/human/H = owner
 			H.dna.species.attack_verb = "slash"
-			H.dna.species.attack_sound = 'sound/weapons/slash.ogg'
-			H.dna.species.miss_sound = 'sound/weapons/slashmiss.ogg'
+			H.dna.species.attack_sound = 'sound/items/weapons/slash.ogg'
+			H.dna.species.miss_sound = 'sound/items/weapons/slashmiss.ogg'
 			H.dna.species.punchdamagelow = 20
 			H.dna.species.punchdamagehigh = 20
 			H.agg_damage_plus = 5

@@ -382,12 +382,12 @@ SUBSYSTEM_DEF(carpool)
 			V.fari_on = TRUE
 			V.add_overlay(V.Fari)
 			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/weapons/magin.ogg', 40, TRUE)
+			playsound(V, 'sound/items/weapons/magin.ogg', 40, TRUE)
 		else
 			V.fari_on = FALSE
 			V.cut_overlay(V.Fari)
 			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/weapons/magout.ogg', 40, TRUE)
+			playsound(V, 'sound/items/weapons/magout.ogg', 40, TRUE)
 
 /datum/action/carr/beep
 	name = "Signal"
