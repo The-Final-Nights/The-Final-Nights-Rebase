@@ -166,7 +166,7 @@
 	name = "Weapon (knife)"
 	desc = "Contains a knife."
 	cost = 100
-	contains = list(/obj/item/melee/vamp/knife)
+	contains = list(/obj/item/knife/vamp)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weapontire

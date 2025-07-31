@@ -1,3 +1,157 @@
+/obj/item/melee/vamp
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	var/quieted = FALSE
+
+// TODO: [Rebase] reimplement selling stuff
+/*
+/obj/item/melee/vamp/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 25, "melee", FALSE)
+*/
+
+/obj/item/fireaxe/vamp
+	name = "fire axe"
+	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe?"
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	pixel_w = -8
+
+/obj/item/katana/vamp
+	name = "katana"
+	desc = "An elegant weapon, its tiny edge is capable of cutting through flesh and bone with ease."
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	pixel_w = -8
+
+/obj/item/katana/vamp/Initialize(mapload)
+	. = ..()
+	// TODO: [Rebase] reimplement selling stuff
+	//AddComponent(/datum/component/selling, 250, "katana", FALSE)
+
+/obj/item/katana/vamp/fire
+	name = "burning katana"
+	icon_state = "firetana"
+	item_flags = DROPDEL
+	obj_flags = NONE
+	//masquerade_violating = TRUE
+
+// TODO: [Rebase] reimplement selling stuff
+/*
+//Do not sell the magically summoned katanas for infinite cash
+/obj/item/katana/vamp/fire/Initialize(mapload)
+	. = ..()
+	var/datum/component/selling/sell_component = GetComponent(/datum/component/selling)
+	if(sell_component)
+		sell_component.RemoveComponent()
+*/
+
+/obj/item/katana/vamp/fire/afterattack(atom/target, mob/living/carbon/user, proximity)
+	. = ..()
+	if (isliving(target) && proximity)
+		var/mob/living/burnt_mob = target
+		burnt_mob.apply_damage(15, BURN)
+
+/obj/item/katana/vamp/blood
+	name = "bloody katana"
+	color = "#bb0000"
+	item_flags = DROPDEL
+	obj_flags = NONE
+	//masquerade_violating = TRUE
+
+/obj/item/katana/vamp/blood/Initialize(mapload)
+	. = ..()
+	// TODO: [Rebase] reimplement selling stuff
+	/*
+	var/datum/component/selling/sell_component = GetComponent(/datum/component/selling)
+	if(sell_component)
+		sell_component.RemoveComponent()
+	*/
+
+/obj/item/katana/vamp/blood/afterattack(atom/target, mob/living/carbon/user, proximity)
+	. = ..()
+	if (isliving(target) && proximity)
+		var/mob/living/burnt_mob = target
+		burnt_mob.apply_damage(15, AGGRAVATED)
+
+/obj/item/melee/sabre/rapier
+	name = "rapier"
+	desc = "A thin, elegant sword, the rapier is a weapon of the duelist, designed for thrusting."
+	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon_state = "rapier"
+
+// TODO: [Rebase] reimplement selling stuff
+/*
+/obj/item/melee/sabre/rapier/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 800, "rapier", FALSE)
+*/
+
+/obj/item/claymore/machete
+	name = "machete"
+	desc = "A certified chopper fit for the jungles...but you don't see any vines around. Well-weighted enough to be thrown."
+	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon_state = "machete"
+	pixel_w = -8
+	//masquerade_violating = FALSE
+
+// TODO: [Rebase] reimplement selling stuff
+/*
+/obj/item/claymore/machete/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 150, "machete", FALSE)
+*/
+
+/obj/item/melee/sabre/vamp
+	name = "sabre"
+	desc = "A curved sword, the sabre is a weapon of the cavalry, designed for slashing and thrusting."
+	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon_state = "sabre"
+
+// TODO: [Rebase] reimplement selling stuff
+/*
+/obj/item/melee/sabre/vamp/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 1000, "sabre", FALSE)
+*/
+
+/obj/item/claymore/longsword
+	name = "longsword"
+	desc = "A classic weapon of the knight, the longsword is a versatile weapon that can be used for both cutting and thrusting."
+	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon_state = "longsword"
+
+// TODO: [Rebase] reimplement selling stuff
+/*
+/obj/item/claymore/longsword/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 1800, "longsword", FALSE)
+*/
+
 /obj/item/melee/baseball_bat/vamp
 	name = "baseball bat"
 	desc = "There ain't a skull in the league that can withstand a swatter."
@@ -7,36 +161,21 @@
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "baseball"
-	force = 30
-	wound_bonus = 5
-	throwforce = 10
-	slot_flags = ITEM_SLOT_BELT
-	attack_verb_continuous = list("beats", "smacks")
-	attack_verb_simple = list("beat", "smack")
-	w_class = WEIGHT_CLASS_NORMAL
-	is_wood = TRUE
 
+// TODO: [Rebase] reimplement selling stuff
+/*
 /obj/item/melee/baseball_bat/vamp/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/selling, 50, "baseball", FALSE)
-
-/obj/item/melee/baseball_bat/vamp/attack(mob/living/target, mob/living/user)
-	. = ..()
-	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		return
-	var/atom/throw_target = get_edge_target_turf(target, user.dir)
-	if(!target.anchored && !HAS_TRAIT(target, TRAIT_TOUGH_FLESH))
-		var/whack_speed = (prob(60) ? 1 : 4)
-		target.throw_at(throw_target, 1, whack_speed, user)
+*/
 
 /obj/item/melee/baseball_bat/vamp/hand
 	name = "ripped arm"
 	desc = "Wow, that was someone's arm."
 	icon_state = "hand"
-	force = 50
 	block_chance = 25
 	//masquerade_violating = TRUE
-	is_wood = FALSE
+	//is_wood = FALSE
 
 /obj/item/melee/vamp/tire
 	name = "tire iron"
@@ -53,25 +192,48 @@
 	resistance_flags = FIRE_PROOF
 	obj_flags = CONDUCTS_ELECTRICITY
 
-/obj/item/melee/vamp/knife
+/obj/item/knife/vamp
 	name = "knife"
 	desc = "Don't cut yourself accidentally."
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	icon_state = "knife"
-	force = 30
-	wound_bonus = -5
-	bare_wound_bonus = 5
-	throwforce = 15
-	attack_verb_continuous = list("slashes", "cuts")
-	attack_verb_simple = list("slash", "cut")
-	hitsound = 'sound/weapons/slash.ogg'
-	armour_penetration = 35
-	block_chance = 5
-	sharpness = SHARP_EDGED
-	w_class = WEIGHT_CLASS_NORMAL
-	slot_flags = ITEM_SLOT_BELT
-	resistance_flags = FIRE_PROOF
-	obj_flags = CONDUCTS_ELECTRICITY
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+
+/obj/item/knife/vamp/gangrel
+	name = "claws"
+	icon_state = "gangrel"
+	w_class = WEIGHT_CLASS_BULKY
+	force = 6
+	armour_penetration = 100	//It's magical damage
+	block_chance = 20
+	item_flags = DROPDEL
+	//masquerade_violating = TRUE
+	obj_flags = NONE
+
+/obj/item/knife/vamp/gangrel/afterattack(atom/target, mob/living/carbon/user, proximity)
+	if(!proximity)
+		return
+	if(isliving(target))
+		var/mob/living/L = target
+		L.apply_damage(30, AGGRAVATED)
+
+/obj/item/knife/vamp/gangrel/lasombra
+	name = "shadow tentacle"
+	force = 7
+	armour_penetration = 100
+	block_chance = 0
+	icon_state = "lasombra"
+	//masquerade_violating = TRUE
+
+/obj/item/knife/vamp/gangrel/lasombra/afterattack(atom/target, mob/living/carbon/user, proximity)
+	if(!proximity)
+		return
+	if(isliving(target))
+		var/mob/living/L = target
+		L.apply_damage(16, AGGRAVATED)
+		L.apply_damage(7, BURN)
 
 /obj/item/melee/vamp/handsickle
 	name = "hand sickle"
@@ -92,40 +254,6 @@
 	slot_flags = ITEM_SLOT_BELT
 	resistance_flags = FIRE_PROOF
 	obj_flags = CONDUCTS_ELECTRICITY
-
-/obj/item/melee/vamp/knife/gangrel
-	name = "claws"
-	icon_state = "gangrel"
-	w_class = WEIGHT_CLASS_BULKY
-	force = 6
-	armour_penetration = 100	//It's magical damage
-	block_chance = 20
-	item_flags = DROPDEL
-	//masquerade_violating = TRUE
-	obj_flags = NONE
-
-/obj/item/melee/vamp/knife/gangrel/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
-	if(isliving(target))
-		var/mob/living/L = target
-		L.apply_damage(30, AGGRAVATED)
-
-/obj/item/melee/vamp/knife/gangrel/lasombra
-	name = "shadow tentacle"
-	force = 7
-	armour_penetration = 100
-	block_chance = 0
-	icon_state = "lasombra"
-	//masquerade_violating = TRUE
-
-/obj/item/melee/vamp/knife/gangrel/lasombra/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
-	if(isliving(target))
-		var/mob/living/L = target
-		L.apply_damage(16, AGGRAVATED)
-		L.apply_damage(7, BURN)
 
 /obj/item/melee/touch_attack/werewolf
 	name = "\improper falling touch"
@@ -148,7 +276,7 @@
 			L.toggle_resting()
 	return ..()
 
-/obj/item/melee/vamp/knife/gangrel/Initialize(mapload)
+/obj/item/knife/vamp/gangrel/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
@@ -396,7 +524,7 @@
 	is_wood = TRUE
 
 
-/obj/item/melee/vamp/knife/switchblade
+/obj/item/knife/vamp/switchblade
 	name = "switchblade"
 	desc = "A spring-loaded knife. Perfect for stabbing sharks and jets."
 	flags_1 = CONDUCT_1
@@ -413,7 +541,7 @@
 	resistance_flags = FIRE_PROOF
 	var/extended = TRUE
 
-/obj/item/melee/vamp/knife/switchblade/attack_self(mob/user)
+/obj/item/knife/vamp/switchblade/attack_self(mob/user)
 	extended = !extended
 	playsound(src.loc, 'sound/weapons/batonextend.ogg', 50, TRUE)
 	if(extended)

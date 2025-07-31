@@ -905,7 +905,7 @@ VENTORY!
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/melee/vamp/knife
+/obj/item/knife/vamp
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 

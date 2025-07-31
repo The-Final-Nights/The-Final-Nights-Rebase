@@ -473,7 +473,7 @@
 		inhaling_mob.emote("cough")
 		return TRUE
 
-/obj/item/melee/vamp/knife/bone_shintai
+/obj/item/knife/vamp/bone_shintai
 	name = "claws"
 	icon_state = "claws"
 	w_class = WEIGHT_CLASS_BULKY
@@ -521,8 +521,8 @@
 					caster.set_hairstyle(initial_hair)
 					caster.set_facial_hairstyle(initial_facial)
 		if(3)
-			var/obj/item/melee/vamp/knife/bone_shintai/righthand_boneknife = new (caster)
-			var/obj/item/melee/vamp/knife/bone_shintai/lefthand_boneknife = new (caster)
+			var/obj/item/knife/vamp/bone_shintai/righthand_boneknife = new (caster)
+			var/obj/item/knife/vamp/bone_shintai/lefthand_boneknife = new (caster)
 			caster.put_in_r_hand(righthand_boneknife)
 			caster.put_in_l_hand(lefthand_boneknife)
 			spawn(delay+caster.discipline_time_plus)

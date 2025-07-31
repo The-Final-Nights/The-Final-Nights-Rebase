@@ -76,7 +76,7 @@
 						/obj/item/storage/pill_bottle/potassiodide,
 						/obj/item/vampire_stake,
 						/obj/item/stack/dollar/rand,
-						/obj/item/melee/vamp/knife,
+						/obj/item/knife/vamp,
 						/obj/item/melee/vamp/tire,
 						/datum/supply_pack/vampire/bloodpack,
 						/obj/item/gun/ballistic/vampire/revolver,
