@@ -827,8 +827,7 @@
 
 /obj/structure/coclock/examine(mob/user)
 	. = ..()
-	// TODO: [Rebase] - Port https://github.com/ApocryphaXIII/ApocryphaXIII/pull/51
-	//to_chat(user, "<b>[SScity_time.timeofnight]</b>")
+	. += "The clock reads: <b>[station_time_timestamp()]</b>"
 
 /obj/structure/coclock/grandpa
 	icon = 'modular_darkpack/modules/deprecated/icons/grandpa_cock.dmi'
