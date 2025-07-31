@@ -108,6 +108,7 @@
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "machete"
+	inhand_icon_state = "machete"
 	pixel_w = -8
 	//masquerade_violating = FALSE
 
@@ -161,6 +162,7 @@
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "baseball"
+	inhand_icon_state = "baseball"
 
 // TODO: [Rebase] reimplement selling stuff
 /*
@@ -366,6 +368,7 @@
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "kosa"
+	inhand_icon_state = "kosa"
 
 /obj/item/instrument/eguitar/vamp
 	name = "electric guitar"
@@ -376,6 +379,7 @@
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "rock0"
+	inhand_icon_state = "rock0"
 
 /obj/item/shield/door
 	name = "\improper door"
@@ -440,7 +444,8 @@
 	var/broken = FALSE
 
 /obj/item/melee/vamp/brick/after_throw(datum/callback/callback)
-	broken = !broken
+	if(prob(75))
+		broken = FALSE
 	if(broken)
 		force = 14
 		w_class = WEIGHT_CLASS_SMALL
@@ -452,15 +457,3 @@
 		hitsound = 'sound/items/weapons/genhit1.ogg'
 		//grid_width = 1 GRID_BOXES
 		//grid_height = 1 GRID_BOXES
-	else
-		force = 18
-		w_class = WEIGHT_CLASS_NORMAL
-		throwforce = 30
-		armour_penetration = 0
-		attack_verb_continuous = list("bludgeons", "bashes", "beats")
-		attack_verb_simple = list("bludgeon", "bash", "beat", "smacks")
-		hitsound = 'sound/items/weapons/genhit3.ogg'
-		//grid_width = 2 GRID_BOXES
-		//grid_height = 1 GRID_BOXES
-
-
