@@ -432,7 +432,6 @@
 	attack_verb_continuous = list("bludgeons", "bashes", "beats")
 	attack_verb_simple = list("bludgeon", "bash", "beat", "smacks")
 	hitsound = 'sound/items/weapons/genhit3.ogg'
-	sharpness = SHARP_NONE
 	force = 18
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -451,7 +450,6 @@
 		attack_verb_continuous = list("bludgeons", "bashes", "beats")
 		attack_verb_simple = list("bludgeon", "bash", "beat", "smacks", "whacks")
 		hitsound = 'sound/items/weapons/genhit1.ogg'
-		sharpness = SHARP_NONE
 		//grid_width = 1 GRID_BOXES
 		//grid_height = 1 GRID_BOXES
 	else
@@ -462,7 +460,6 @@
 		attack_verb_continuous = list("bludgeons", "bashes", "beats")
 		attack_verb_simple = list("bludgeon", "bash", "beat", "smacks")
 		hitsound = 'sound/items/weapons/genhit3.ogg'
-		sharpness = SHARP_NONE
 		//grid_width = 2 GRID_BOXES
 		//grid_height = 1 GRID_BOXES
 

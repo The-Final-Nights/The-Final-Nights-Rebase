@@ -40,7 +40,7 @@
 
 /datum/storage/sabre_belt_vamp/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-	set_holdable(/obj/item/melee/sabre/vamp)
+	set_holdable(/obj/item/melee/sabre)
 
 
 /datum/storage/rapier_belt_vamp
@@ -51,7 +51,7 @@
 
 /datum/storage/rapier_belt_vamp/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-	set_holdable(/obj/item/melee/sabre/rapier)
+	set_holdable(/obj/item/melee/sabre)
 
 
 /datum/storage/sword_belt_vamp
@@ -62,4 +62,4 @@
 
 /datum/storage/sword_belt_vamp/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-	set_holdable(/obj/item/claymore/longsword)
+	set_holdable(/obj/item/claymore)
