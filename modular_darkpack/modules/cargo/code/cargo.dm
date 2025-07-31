@@ -187,7 +187,7 @@
 	name = "Weapon (shovel)"
 	desc = "Contains a shovel."
 	cost = 300
-	contains = list(/obj/item/melee/vamp/shovel)
+	contains = list(/obj/item/shovel/vamp)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponbaseball
@@ -261,7 +261,7 @@
 	name = "Weapon (chainsaw)"
 	desc = "Contains a chainsaw."
 	cost = 2000
-	contains = list(/obj/item/melee/vamp/chainsaw)
+	contains = list(/obj/item/chainsaw/vamp)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponrevolver

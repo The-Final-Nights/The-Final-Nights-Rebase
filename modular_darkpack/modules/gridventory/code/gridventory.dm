@@ -913,7 +913,7 @@ VENTORY!
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/melee/vamp/chainsaw
+/obj/item/chainsaw/vamp
 	grid_width = 8 GRID_BOXES
 	grid_height = 4 GRID_BOXES
 
@@ -921,11 +921,11 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/melee/vamp/shovel
+/obj/item/shovel/vamp
 	grid_width = 5 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/katana/vamp/kosa
+/obj/item/scythe/vamp
 	grid_width = 3 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 

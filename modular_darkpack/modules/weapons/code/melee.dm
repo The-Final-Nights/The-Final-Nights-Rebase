@@ -280,10 +280,14 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
-/obj/item/melee/vamp/chainsaw
+/obj/item/chainsaw/vamp
 	name = "chainsaw"
 	desc = "A versatile power tool. Useful for limbing trees and delimbing humans."
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "chainsaw"
 	flags_1 = CONDUCT_1
 	force = 15
@@ -304,27 +308,27 @@
 	var/on = FALSE
 	var/wielded = FALSE
 
-/obj/item/melee/vamp/chainsaw/Initialize(mapload)
+/obj/item/chainsaw/vamp/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
 
-/obj/item/melee/vamp/chainsaw/ComponentInitialize(mapload)
+/obj/item/chainsaw/vamp/ComponentInitialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, 30, 100, 0, 'sound/weapons/chainsawhit.ogg', TRUE)
 	AddComponent(/datum/component/two_handed, require_twohands=TRUE)
 
-/obj/item/melee/vamp/chainsaw/proc/on_wield(obj/item/source, mob/user)
+/obj/item/chainsaw/vamp/proc/on_wield(obj/item/source, mob/user)
 	SIGNAL_HANDLER
 
 	wielded = TRUE
 
-/obj/item/melee/vamp/chainsaw/proc/on_unwield(obj/item/source, mob/user)
+/obj/item/chainsaw/vamp/proc/on_unwield(obj/item/source, mob/user)
 	SIGNAL_HANDLER
 
 	wielded = FALSE
 
-/obj/item/melee/vamp/chainsaw/attack_self(mob/user)
+/obj/item/chainsaw/vamp/attack_self(mob/user)
 	on = !on
 	to_chat(user, "As you pull the starting cord dangling from [src], [on ? "it begins to whirr." : "the chain stops moving."]")
 	force = on ? force_on : initial(force)
@@ -357,14 +361,17 @@
 	armour_penetration = 50
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_SMALL
-	is_wood = TRUE
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/vampire_stake/attack(mob/living/target, mob/living/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
+	// TODO: [Rebase] reimplement werewolfs
+	/*
 	if(isgarou(target) || iswerewolf(target) || isanimal(target))
 		return
+	*/
 	if(target.IsParalyzed() || target.IsKnockdown() || target.IsStun())
 		return
 	if(!target.IsParalyzed() && iskindred(target) && !target.stakeimmune)
@@ -381,8 +388,12 @@
 				target.Sleeping(1200)
 				qdel(src)
 
-/obj/item/melee/vamp/shovel
+/obj/item/shovel/vamp
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "shovel"
 	name = "shovel"
 	desc = "Great weapon against mortal or immortal."
@@ -392,12 +403,11 @@
 	w_class = WEIGHT_CLASS_BULKY
 	attack_verb_continuous = list("attacks", "chops", "tears", "beats")
 	attack_verb_simple = list("attack", "chop", "tear", "beat")
-	armor = list(MELEE = 25, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0)
 	resistance_flags = FIRE_PROOF
 	masquerade_violating = FALSE
 	obj_flags = CONDUCTS_ELECTRICITY
 
-/obj/item/melee/vamp/shovel/attack(mob/living/target, mob/living/user)
+/obj/item/shovel/vamp/attack(mob/living/target, mob/living/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
@@ -406,10 +416,14 @@
 		target.Stun(5)
 		target.drop_all_held_items()
 
-/obj/item/katana/vamp/kosa
+/obj/item/scythe/vamp
 	name = "scythe"
 	desc = "More instrument, than a weapon. Instrumentally cuts heads..."
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "kosa"
 	force = 50
 	w_class = WEIGHT_CLASS_NORMAL
@@ -446,7 +460,7 @@
 	armour_penetration = 30
 	pixel_w = -8
 	actions_types = list(/datum/action/item_action/eguitar)
-	is_wood = TRUE
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 2)
 	var/wielded = FALSE
 	var/on = FALSE
 	var/last_solo = 0
@@ -556,8 +570,8 @@
 		attack_verb_simple = list("slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 		hitsound = 'sound/weapons/bladeslice.ogg'
 		sharpness = SHARP_EDGED
-		grid_width = 1 GRID_BOXES
-		grid_height = 2 GRID_BOXES
+		//grid_width = 1 GRID_BOXES
+		//grid_height = 2 GRID_BOXES
 	else
 		force = 5
 		w_class = WEIGHT_CLASS_TINY
@@ -568,8 +582,8 @@
 		attack_verb_simple = list("stub", "poke")
 		hitsound = 'sound/weapons/genhit.ogg'
 		sharpness = SHARP_NONE
-		grid_width = 1 GRID_BOXES
-		grid_height = 1 GRID_BOXES
+		//grid_width = 1 GRID_BOXES
+		//grid_height = 1 GRID_BOXES
 
 
 /obj/item/melee/vamp/brick
@@ -589,8 +603,8 @@
 	force = 18
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
 	w_class = WEIGHT_CLASS_NORMAL
-	grid_width = 2 GRID_BOXES
-	grid_height = 1 GRID_BOXES
+	//grid_width = 2 GRID_BOXES
+	//grid_height = 1 GRID_BOXES
 	var/broken = FALSE
 
 /obj/item/melee/vamp/brick/after_throw(datum/callback/callback)
@@ -605,8 +619,8 @@
 		attack_verb_simple = list("bludgeon", "bash", "beat", "smacks", "whacks")
 		hitsound = 'sound/weapons/genhit1.ogg'
 		sharpness = SHARP_NONE
-		grid_width = 1 GRID_BOXES
-		grid_height = 1 GRID_BOXES
+		//grid_width = 1 GRID_BOXES
+		//grid_height = 1 GRID_BOXES
 	else
 		force = 18
 		w_class = WEIGHT_CLASS_NORMAL
@@ -616,7 +630,7 @@
 		attack_verb_simple = list("bludgeon", "bash", "beat", "smacks")
 		hitsound = 'sound/weapons/genhit3.ogg'
 		sharpness = SHARP_NONE
-		grid_width = 2 GRID_BOXES
-		grid_height = 1 GRID_BOXES
+		//grid_width = 2 GRID_BOXES
+		//grid_height = 1 GRID_BOXES
 
 

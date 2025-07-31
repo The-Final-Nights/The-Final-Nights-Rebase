@@ -485,7 +485,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /*
 /turf/open/misc/grass/vamp/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/melee/vamp/shovel))
+	if(istype(I, /obj/item/shovel/vamp))
 		var/obj/structure/bury_pit/P = locate() in src
 		if(P)
 			if(!P.burying)
@@ -553,7 +553,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /*
 /turf/open/misc/dirt/vamp/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/melee/vamp/shovel))
+	if(istype(I, /obj/item/shovel/vamp))
 		var/obj/structure/bury_pit/P = locate() in src
 		if(P)
 			if(!P.burying)
@@ -830,7 +830,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /*
 /turf/open/misc/beach/vamp/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/melee/vamp/shovel))
+	if(istype(I, /obj/item/shovel/vamp))
 		var/obj/structure/bury_pit/P = locate() in src
 		if(P)
 			if(!P.burying)
