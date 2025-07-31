@@ -3,7 +3,7 @@
 
 SUBSYSTEM_DEF(city_time)
 	name = "City Time"
-	wait = 30 SECONDS
+	wait = 15 SECONDS
 	priority = FIRE_PRIORITY_DEFAULT
 
 	var/first_warning = FALSE
@@ -67,18 +67,21 @@ SUBSYSTEM_DEF(city_time)
 					char_sheet.save_character()
 	*/
 
-	if(station_time_passed() > time_till_daytime - 30 MINUTES && !first_warning)
+	if(station_time_passed() > time_till_daytime - 30 MINUTES && !first_warning && !shifting_colors)
 		first_warning = TRUE
-		transition_light("#584d88")
+		shifting_colors = TRUE
+		transition_light("#584d88", 1)
 		to_chat(world, span_ghostalert("The night is ending..."))
 
-	if(station_time_passed() > time_till_daytime - 15 MINUTES && !second_warning)
+	if(station_time_passed() > time_till_daytime - 15 MINUTES && !second_warning && !shifting_colors)
 		second_warning = TRUE
-		transition_light("#dd80b0")
+		shifting_colors = TRUE
+		transition_light("#dd80b0", 2)
 		to_chat(world, span_ghostalert("First rays of the sun illuminate the sky..."))
 
-	if(station_time_passed() > time_till_daytime && !daytime_started)
+	if(station_time_passed() > time_till_daytime && !daytime_started && !shifting_colors)
 		daytime_started = TRUE
+		shifting_colors = TRUE
 		transition_light("#faeacb", 3, 1)
 		to_chat(world, span_ghostalert("THE NIGHT IS OVER."))
 
@@ -106,16 +109,12 @@ SUBSYSTEM_DEF(city_time)
 	var/start_range = GLOB.starlight_range
 	var/start_power = GLOB.starlight_power
 
-	if(shifting_colors)
-		return
-	shifting_colors = TRUE
-
 	for(var/i in 1 to COLOR_CYCLES)
 		var/walked_color = hsl_gradient(i/COLOR_CYCLES, 0, start_color, 1, end_color)
 		var/walked_range = LERP(start_range, end_range, i/COLOR_CYCLES)
 		var/walked_power = LERP(start_power, end_power, i/COLOR_CYCLES)
 		set_starlight(walked_color, walked_range, walked_power)
-		sleep(15 SECONDS)
+		sleep(10 SECONDS)
 	set_starlight(end_color, end_range, end_power)
 	shifting_colors = FALSE
 
