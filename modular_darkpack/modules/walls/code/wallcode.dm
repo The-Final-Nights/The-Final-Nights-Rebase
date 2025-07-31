@@ -802,6 +802,7 @@ LOW_WALL_HELPER(vampwall/wood)
 /obj/effect/decal/wallpaper/gold/low
 	icon_state = "wallpaper-gold_low"
 
+/*
 /turf/open/proc/add_moonlight()
 	set_light(l_on = TRUE, l_range = GLOB.starlight_range, l_power = GLOB.starlight_power, l_color = GLOB.starlight_color)
 	GLOB.starlight += src
@@ -812,6 +813,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	SIGNAL_HANDLER
 
 	GLOB.starlight -= src
+*/
 
 /turf/open/floor/plating/vampwood
 	name = "wood"
