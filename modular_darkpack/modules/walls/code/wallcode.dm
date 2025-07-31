@@ -809,6 +809,8 @@ LOW_WALL_HELPER(vampwall/wood)
 	RegisterSignal(src, COMSIG_QDELETING, PROC_REF(clear_moonlight))
 
 /turf/open/proc/clear_moonlight()
+	SIGNAL_HANDLER
+
 	GLOB.starlight -= src
 
 /turf/open/floor/plating/vampwood
