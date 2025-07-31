@@ -51,7 +51,7 @@
 	ears = /obj/item/p25radio
 	id = /obj/item/card/id/sheriff
 	uniform = /obj/item/clothing/under/vampire/sheriff
-	belt = /obj/item/storage/belt/vampire/sheathe/rapier
+	belt = /obj/item/storage/belt/sheath/vamp/rapier
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	suit = /obj/item/clothing/suit/vampire/vest
 	gloves = /obj/item/clothing/gloves/vampire/leather

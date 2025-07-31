@@ -226,7 +226,7 @@
 	name = "Weapon (rapier)"
 	desc = "Contains a rapier and sheathe."
 	cost = 800
-	contains = list(/obj/item/storage/belt/vampire/sheathe/rapier)
+	contains = list(/obj/item/storage/belt/sheath/vamp/rapier)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponmachete
@@ -247,14 +247,14 @@
 	name = "Weapon (sabre)"
 	desc = "Contains a sabre and sheathe."
 	cost = 1200
-	contains = list(/obj/item/storage/belt/vampire/sheathe/sabre)
+	contains = list(/obj/item/storage/belt/sheath/vamp/sabre)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponlongsword
 	name = "Weapon (longsword)"
 	desc = "Contains a longsword and sheathe."
 	cost = 1500
-	contains = list(/obj/item/storage/belt/vampire/sheathe/longsword )
+	contains = list(/obj/item/storage/belt/sheath/vamp/sword )
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponchainsaw

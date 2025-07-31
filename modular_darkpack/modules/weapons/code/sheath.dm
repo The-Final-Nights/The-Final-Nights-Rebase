@@ -1,0 +1,65 @@
+/obj/item/storage/belt/sheath/vamp
+	icon_state = "longsword_sheathe-full"
+	worn_icon_state = "longsword_sheathe"
+	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+
+/obj/item/storage/belt/sheath/vamp/sabre
+	desc = "An ornate sheath designed to hold an officer's blade."
+	icon_state = "sabre_sheathe-full"
+	base_icon_state = "sabre_sheathe"
+	worn_icon_state = "sabre_sheathe"
+	storage_type = /datum/storage/sabre_belt_vamp
+	stored_blade = /obj/item/melee/vampirearms/sabre
+
+/obj/item/storage/belt/sheath/vamp/rapier
+	desc = "An ornate sheath designed to hold a duelist's blade."
+	icon_state = "rapier_sheathe-full"
+	base_icon_state = "rapier_sheathe"
+	worn_icon_state = "rapier_sheathe"
+	storage_type = /datum/storage/rapier_belt_vamp
+	stored_blade = /obj/item/melee/vampirearms/rapier
+
+/obj/item/storage/belt/sheath/vamp/sword
+	desc = "An ornate sheath designed to hold a knight's blade."
+	icon_state = "longsword_sheathe-full"
+	base_icon_state = "longsword_sheathe"
+	worn_icon_state = "longsword_sheathe"
+	storage_type = /datum/storage/sword_belt_vamp
+	stored_blade = /obj/item/melee/vampirearms/longsword
+
+
+/datum/storage/sabre_belt_vamp
+	max_slots = 1
+	do_rustle = FALSE
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/sabre_belt_vamp/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/melee/vampirearms/sabre)
+
+
+/datum/storage/rapier_belt_vamp
+	max_slots = 1
+	do_rustle = FALSE
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/rapier_belt_vamp/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/melee/vampirearms/rapier)
+
+
+/datum/storage/sword_belt_vamp
+	max_slots = 1
+	do_rustle = FALSE
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/sword_belt_vamp/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_holdable(/obj/item/melee/vampirearms/longsword)
