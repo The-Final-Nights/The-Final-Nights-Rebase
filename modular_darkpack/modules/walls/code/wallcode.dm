@@ -806,6 +806,11 @@ LOW_WALL_HELPER(vampwall/wood)
 	set_light(l_on = TRUE, l_range = GLOB.starlight_range, l_power = GLOB.starlight_power, l_color = GLOB.starlight_color)
 	GLOB.starlight += src
 
+	RegisterSignal(src, COMSIG_QDELETING, PROC_REF(clear_moonlight))
+
+/turf/open/proc/clear_moonlight()
+	GLOB.starlight -= src
+
 /turf/open/floor/plating/vampwood
 	name = "wood"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
