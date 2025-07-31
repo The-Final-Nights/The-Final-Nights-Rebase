@@ -809,9 +809,10 @@ LOW_WALL_HELPER(vampwall/wood)
 		GLOB.starlight += src
 		RegisterSignal(src, COMSIG_TURF_CHANGE, PROC_REF(clear_moonlight))
 
-/turf/proc/clear_moonlight()
+/turf/open/proc/clear_moonlight()
 	SIGNAL_HANDLER
 	GLOB.starlight -= src
+	UnregisterSignal(src, COMSIG_TURF_CHANGE)
 
 /turf/open/floor/plating/vampwood
 	name = "wood"
