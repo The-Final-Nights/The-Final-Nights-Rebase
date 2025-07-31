@@ -42,7 +42,7 @@
 	icon_state = "firetana"
 	item_flags = DROPDEL
 	obj_flags = NONE
-	//masquerade_violating = TRUE
+	masquerade_violating = TRUE
 
 // TODO: [Rebase] reimplement selling stuff
 /*
@@ -65,7 +65,7 @@
 	color = "#bb0000"
 	item_flags = DROPDEL
 	obj_flags = NONE
-	//masquerade_violating = TRUE
+	masquerade_violating = TRUE
 
 /obj/item/katana/vamp/blood/Initialize(mapload)
 	. = ..()
@@ -110,7 +110,7 @@
 	icon_state = "machete"
 	inhand_icon_state = "machete"
 	pixel_w = -8
-	//masquerade_violating = FALSE
+	masquerade_violating = FALSE
 
 // TODO: [Rebase] reimplement selling stuff
 /*
@@ -176,7 +176,7 @@
 	desc = "Wow, that was someone's arm."
 	icon_state = "hand"
 	block_chance = 25
-	//masquerade_violating = TRUE
+	masquerade_violating = TRUE
 	//is_wood = FALSE
 
 /obj/item/melee/vamp/tire
@@ -211,7 +211,7 @@
 	armour_penetration = 100	//It's magical damage
 	block_chance = 20
 	item_flags = DROPDEL
-	//masquerade_violating = TRUE
+	masquerade_violating = TRUE
 	obj_flags = NONE
 
 /obj/item/knife/vamp/gangrel/afterattack(atom/target, mob/living/carbon/user, proximity)
@@ -227,7 +227,7 @@
 	armour_penetration = 100
 	block_chance = 0
 	icon_state = "lasombra"
-	//masquerade_violating = TRUE
+	masquerade_violating = TRUE
 
 /obj/item/knife/vamp/gangrel/lasombra/afterattack(atom/target, mob/living/carbon/user, proximity)
 	if(!proximity)
@@ -395,6 +395,7 @@
 	throw_range = 3
 	masquerade_violating = FALSE
 	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = NONE
 	attack_verb_continuous = list("shoves", "bashes")
 	attack_verb_simple = list("shove", "bash")
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
