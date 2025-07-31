@@ -802,15 +802,15 @@ LOW_WALL_HELPER(vampwall/wood)
 /obj/effect/decal/wallpaper/gold/low
 	icon_state = "wallpaper-gold_low"
 
-/turf/open/proc/add_moonlight()
+/turf/open/proc/add_moonlight(add_to_starlight = TRUE)
 	set_light(l_on = TRUE, l_range = GLOB.starlight_range, l_power = GLOB.starlight_power, l_color = GLOB.starlight_color)
 
-	GLOB.starlight += src
-	RegisterSignal(src, COMSIG_QDELETING, PROC_REF(clear_moonlight))
+	if(add_to_starlight)
+		GLOB.starlight += src
+		RegisterSignal(src, COMSIG_QDELETING, PROC_REF(clear_moonlight))
 
 /turf/open/proc/clear_moonlight()
 	SIGNAL_HANDLER
-
 	GLOB.starlight -= src
 
 /turf/open/floor/plating/vampwood
@@ -883,7 +883,7 @@ LOW_WALL_HELPER(vampwall/wood)
 /turf/open/misc/beach/vamp/Initialize(mapload)
 	. = ..()
 	icon_state = "sand[rand(1, 4)]"
-	add_moonlight()
+	add_moonlight(FALSE)
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
@@ -898,7 +898,7 @@ LOW_WALL_HELPER(vampwall/wood)
 
 /turf/open/water/beach/vamp/Initialize(mapload)
 	. = ..()
-	add_moonlight()
+	add_moonlight(FALSE)
 
 /turf/open/water/beach/vamp/deep
 	name = "deep water"
