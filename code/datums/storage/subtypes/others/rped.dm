@@ -48,7 +48,7 @@
 
 	return ..()
 
-/datum/storage/rped/attempt_insert(obj/item/to_insert, mob/user, override, force, messages)
+/datum/storage/rped/attempt_insert(obj/item/to_insert, mob/user, override, force, messages, params) //DARKPACK EDIT, ORIGINAL: /datum/storage/rped/attempt_insert(obj/item/to_insert, mob/user, override, force, messages)
 	if(isstack(to_insert))
 		//user tried to insert invalid stacktype
 		if(!is_type_in_list(to_insert, allowed_material_types) && !is_type_in_list(to_insert, allowed_bluespace_types))
