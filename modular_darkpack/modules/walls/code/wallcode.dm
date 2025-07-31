@@ -807,9 +807,9 @@ LOW_WALL_HELPER(vampwall/wood)
 
 	if(add_to_starlight)
 		GLOB.starlight += src
-		RegisterSignal(src, COMSIG_QDELETING, PROC_REF(clear_moonlight))
+		RegisterSignal(src, COMSIG_TURF_CHANGE, PROC_REF(clear_moonlight))
 
-/turf/open/proc/clear_moonlight()
+/turf/proc/clear_moonlight()
 	SIGNAL_HANDLER
 	GLOB.starlight -= src
 
