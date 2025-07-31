@@ -568,7 +568,7 @@
 	mag_display = TRUE
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/rifle.ogg'
 	masquerade_violating = TRUE
-	is_iron = FALSE
+	obj_flags = NONE
 
 /obj/item/gun/ballistic/automatic/vampire/aug/Initialize(mapload)
 	. = ..()
@@ -735,7 +735,7 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	masquerade_violating = TRUE
-	is_iron = FALSE
+	obj_flags = NONE
 
 /obj/item/ammo_box/magazine/internal/vampcrossbow
 	ammo_type = /obj/item/ammo_casing/caseless/bolt

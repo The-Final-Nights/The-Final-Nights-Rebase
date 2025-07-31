@@ -869,51 +869,51 @@ VENTORY!
 	grid_width = 3 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/melee/vampirearms/fireaxe
+/obj/item/fireaxe/vamp
 	grid_width = 7 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/melee/vampirearms/katana
+/obj/item/katana/vamp
 	grid_width = 5 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/melee/vampirearms/machete
+/obj/item/claymore/machete
 	grid_width = 3 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/melee/vampirearms/rapier
+/obj/item/melee/sabre/rapier
 	grid_width = 2 GRID_BOXES
 	grid_height = 5 GRID_BOXES
 
-/obj/item/melee/vampirearms/sabre
+/obj/item/melee/sabre/vamp
 	grid_width = 2 GRID_BOXES
 	grid_height = 5 GRID_BOXES
 
-/obj/item/melee/vampirearms/longsword
+/obj/item/claymore/longsword
 	grid_width = 2 GRID_BOXES
 	grid_height = 5 GRID_BOXES
 
-/obj/item/melee/vampirearms/baseball
+/obj/item/melee/baseball_bat/vamp
 	grid_width = 3 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/melee/vampirearms/baseball/hand
+/obj/item/melee/baseball_bat/vamp/hand
 	grid_width = 3 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/melee/vampirearms/tire
+/obj/item/melee/vamp/tire
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/melee/vampirearms/knife
+/obj/item/melee/vamp/knife
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/melee/vampirearms/handsickle
+/obj/item/melee/vamp/handsickle
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/melee/vampirearms/chainsaw
+/obj/item/melee/vamp/chainsaw
 	grid_width = 8 GRID_BOXES
 	grid_height = 4 GRID_BOXES
 
@@ -921,15 +921,15 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/melee/vampirearms/shovel
+/obj/item/melee/vamp/shovel
 	grid_width = 5 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/melee/vampirearms/katana/kosa
+/obj/item/katana/vamp/kosa
 	grid_width = 3 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/melee/vampirearms/eguitar
+/obj/item/melee/vamp/eguitar
 	grid_width = 7 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 

@@ -166,14 +166,14 @@
 	name = "Weapon (knife)"
 	desc = "Contains a knife."
 	cost = 100
-	contains = list(/obj/item/melee/vampirearms/knife)
+	contains = list(/obj/item/melee/vamp/knife)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weapontire
 	name = "Weapon (tire iron)"
 	desc = "Contains a tire iron."
 	cost = 100
-	contains = list(/obj/item/melee/vampirearms/tire)
+	contains = list(/obj/item/melee/vamp/tire)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/cuffs
@@ -187,14 +187,14 @@
 	name = "Weapon (shovel)"
 	desc = "Contains a shovel."
 	cost = 300
-	contains = list(/obj/item/melee/vampirearms/shovel)
+	contains = list(/obj/item/melee/vamp/shovel)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponbaseball
 	name = "Weapon (baseball bat)"
 	desc = "Contains a baseball bat."
 	cost = 400
-	contains = list(/obj/item/melee/vampirearms/baseball)
+	contains = list(/obj/item/melee/baseball_bat/vamp)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/potassiodide
@@ -219,7 +219,7 @@
 	name = "Weapon (fire axe)"
 	desc = "Contains a fire axe."
 	cost = 600
-	contains = list(/obj/item/melee/vampirearms/fireaxe)
+	contains = list(/obj/item/fireaxe/vamp)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponrapier
@@ -233,14 +233,14 @@
 	name = "Weapon (machete)"
 	desc = "Contains machete."
 	cost = 500
-	contains = list(/obj/item/melee/vampirearms/machete)
+	contains = list(/obj/item/claymore/machete)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponkatana
 	name = "Weapon (katana)"
 	desc = "Contains a katana."
 	cost = 1000
-	contains = list(/obj/item/melee/vampirearms/katana)
+	contains = list(/obj/item/katana/vamp)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponsabre
@@ -261,7 +261,7 @@
 	name = "Weapon (chainsaw)"
 	desc = "Contains a chainsaw."
 	cost = 2000
-	contains = list(/obj/item/melee/vampirearms/chainsaw)
+	contains = list(/obj/item/melee/vamp/chainsaw)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponrevolver

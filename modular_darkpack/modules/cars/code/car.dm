@@ -239,7 +239,7 @@ SUBSYSTEM_DEF(carpool)
 					locked = !locked
 					return
 		return
-	if(istype(I, /obj/item/melee/vampirearms/tire))
+	if(istype(I, /obj/item/melee/vamp/tire))
 		if(!repairing)
 			if(health >= maxhealth)
 				to_chat(user, span_notice("[src] is already fully repaired."))

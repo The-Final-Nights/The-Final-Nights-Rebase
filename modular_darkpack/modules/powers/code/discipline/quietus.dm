@@ -116,11 +116,11 @@
 /datum/discipline_power/quietus/baals_caress/can_activate(atom/target, alert = FALSE)
 	. = ..()
 
-	if (!istype(target, /obj/item/melee/vampirearms))
+	if (!istype(target, /obj/item/melee/vamp))
 		if (alert)
 			to_chat(owner, span_warning("[src] can only be used on weapons!"))
 		return FALSE
-	var/obj/item/melee/vampirearms/weapon = target
+	var/obj/item/melee/vamp/weapon = target
 
 	//ensure the target is a weapon with an edge to use the toxin with
 	if (!weapon.sharpness)

@@ -13,7 +13,7 @@
 	base_icon_state = "sabre_sheathe"
 	worn_icon_state = "sabre_sheathe"
 	storage_type = /datum/storage/sabre_belt_vamp
-	stored_blade = /obj/item/melee/vampirearms/sabre
+	stored_blade = /obj/item/melee/sabre/vamp
 
 /obj/item/storage/belt/sheath/vamp/rapier
 	desc = "An ornate sheath designed to hold a duelist's blade."
@@ -21,7 +21,7 @@
 	base_icon_state = "rapier_sheathe"
 	worn_icon_state = "rapier_sheathe"
 	storage_type = /datum/storage/rapier_belt_vamp
-	stored_blade = /obj/item/melee/vampirearms/rapier
+	stored_blade = /obj/item/melee/sabre/rapier
 
 /obj/item/storage/belt/sheath/vamp/sword
 	desc = "An ornate sheath designed to hold a knight's blade."
@@ -29,7 +29,7 @@
 	base_icon_state = "longsword_sheathe"
 	worn_icon_state = "longsword_sheathe"
 	storage_type = /datum/storage/sword_belt_vamp
-	stored_blade = /obj/item/melee/vampirearms/longsword
+	stored_blade = /obj/item/claymore/longsword
 
 
 /datum/storage/sabre_belt_vamp
@@ -40,7 +40,7 @@
 
 /datum/storage/sabre_belt_vamp/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-	set_holdable(/obj/item/melee/vampirearms/sabre)
+	set_holdable(/obj/item/melee/sabre/vamp)
 
 
 /datum/storage/rapier_belt_vamp
@@ -51,7 +51,7 @@
 
 /datum/storage/rapier_belt_vamp/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-	set_holdable(/obj/item/melee/vampirearms/rapier)
+	set_holdable(/obj/item/melee/sabre/rapier)
 
 
 /datum/storage/sword_belt_vamp
@@ -62,4 +62,4 @@
 
 /datum/storage/sword_belt_vamp/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-	set_holdable(/obj/item/melee/vampirearms/longsword)
+	set_holdable(/obj/item/claymore/longsword)

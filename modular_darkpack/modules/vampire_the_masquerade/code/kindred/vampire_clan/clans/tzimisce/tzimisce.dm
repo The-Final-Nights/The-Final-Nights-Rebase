@@ -107,7 +107,7 @@
 /datum/crafting_recipe/tzi_implant
 	name = "Implanting Flesh Device"
 	time = 50
-	reqs = list(/obj/item/stack/human_flesh = 10, /obj/item/melee/vampirearms/knife = 1, /obj/item/drinkable_bloodpack = 1)
+	reqs = list(/obj/item/stack/human_flesh = 10, /obj/item/melee/vamp/knife = 1, /obj/item/drinkable_bloodpack = 1)
 	result = /obj/item/autosurgeon/organ
 	always_available = FALSE
 	category = CAT_TZIMISCE
