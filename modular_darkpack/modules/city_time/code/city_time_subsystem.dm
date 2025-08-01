@@ -88,18 +88,18 @@ SUBSYSTEM_DEF(city_time)
 	if(station_time_passed() > time_till_roundend && !roundend_started)
 		roundend_started = TRUE
 
-	/*
 	if(daytime_started)
 		for(var/mob/living/carbon/human/H in GLOB.human_list)
 			var/area/vtm/V = get_area(H)
-			if(!istype(V) || !V?.upper)
+			if(!istype(V) || !V?.outdoors)
 				continue
 			if(iskindred(H) || iscathayan(H))
+				/*
 				if(((H.morality_path.score >= 10) && (H.morality_path.alignment == MORALITY_HUMANITY)))
 					continue
+				*/
 				to_chat(H, span_danger("THE SUN SEARS YOUR FLESH"))
 				H.apply_damage(25, BURN)
-	*/
 
 #define COLOR_CYCLES 10
 
