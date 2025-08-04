@@ -138,9 +138,8 @@
 		if(host.hud_used)
 			dat += "<p><b>Known disciplines:</b><BR>"
 			for(var/datum/action/discipline/D in host.actions)
-				if(D)
-					if(D.discipline)
-						dat += "[D.discipline.name] [D.discipline.level] - [D.discipline.desc]<BR>"
+				if(D.discipline)
+					dat += "[D.discipline.name] [D.discipline.level] - [D.discipline.desc]<BR>"
 			dat += "</p>"
 		if(host.Myself)
 			if(host.Myself.Friend)

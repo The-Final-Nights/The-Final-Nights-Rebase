@@ -117,11 +117,9 @@
 	UnregisterSignal(C.transformator.lupus_form, COMSIG_MOB_VAMPIRE_SUCKED)
 	UnregisterSignal(C.transformator.crinos_form, COMSIG_MOB_VAMPIRE_SUCKED)
 	for(var/datum/action/garouinfo/VI in C.actions)
-		if(VI)
-			VI.Remove(C)
+		VI.Remove(C)
 	for(var/datum/action/gift/G in C.actions)
-		if(G)
-			G.Remove(C)
+		G.Remove(C)
 
 /datum/species/garou/check_roundstart_eligible()
 	return FALSE

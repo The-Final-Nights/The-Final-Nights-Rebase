@@ -404,8 +404,7 @@
 				if("Remove")
 					var/list/removing = list()
 					for(var/datum/phonecontact/CNT_REMOVE in contacts)
-						if(CNT_REMOVE)
-							removing += CNT_REMOVE.name
+						removing += CNT_REMOVE.name
 					if(length(removing) >= 1)
 						result = input(usr, "Select a contact", "Contact Selection") as null|anything in removing
 						if(result)
@@ -415,8 +414,7 @@
 				if("Choose")
 					var/list/shit = list()
 					for(var/datum/phonecontact/CNTCT in contacts)
-						if(CNTCT)
-							shit += CNTCT.name
+						shit += CNTCT.name
 					if(length(shit) >= 1)
 						result = input(usr, "Select a contact", "Contact Selection") as null|anything in shit
 						if(result)
@@ -443,8 +441,7 @@
 				if("Unblock")
 					var/list/unblocking = list()
 					for(var/datum/phonecontact/CNT_UNBLOCK in blocked_contacts)
-						if(CNT_UNBLOCK)
-							unblocking += CNT_UNBLOCK.name
+						unblocking += CNT_UNBLOCK.name
 					if(length(unblocking) >= 1)
 						result = input(usr, "Select a blocked number", "Blocked Selection") as null|anything in unblocking
 						if(result)
@@ -558,10 +555,9 @@
 	if(isliving(loc))
 		L = loc
 	for(var/datum/phonecontact/PHNCNTCT in contacts)
-		if(PHNCNTCT)
-			if(PHNCNTCT.check_global_contacts())
-				if(L)
-					to_chat(L, span_notice("Some important contacts in your phone work again."))
+		if(PHNCNTCT.check_global_contacts())
+			if(L)
+				to_chat(L, span_notice("Some important contacts in your phone work again."))
 
 /*obj/item/vamp/phone/proc/publish_number(var/name)
 	var/list/entry = list("number" = src.number, "name" = name)
@@ -651,8 +647,7 @@
 			if("contacts")
 				var/list/shit = list()
 				for(var/datum/phonecontact/CNTCT in contacts)
-					if(CNTCT)
-						shit += CNTCT.name
+					shit += CNTCT.name
 				if(length(shit) >= 1)
 					var/result = input(usr, "Select a contact", "Contact Selection") as null|anything in shit
 					if(result)

@@ -147,12 +147,10 @@
 /datum/species/ghoul/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
 	for(var/datum/action/A in C.actions)
-		if(A)
-			if(A.vampiric)
-				A.Remove(C)
+		if(A.vampiric)
+			A.Remove(C)
 	for(var/datum/action/ghoulinfo/infor in C.actions)
-		if(infor)
-			infor.Remove(C)
+		infor.Remove(C)
 
 /datum/action/take_vitae
 	name = "Take Vitae"
@@ -293,22 +291,21 @@
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
-				if(I)
-					if(I.masquerade_violating)
-						if(I.loc == H)
-							if(H.CheckEyewitness(H, H, 7, FALSE))
-								if(H.last_loot_check+50 <= world.time)
-									H.last_loot_check = world.time
-									H.last_nonraid = world.time
-									H.killed_count = H.killed_count+1
-									if(!H.warrant && !H.ignores_warrant)
-										if(H.killed_count >= 5)
-											H.warrant = TRUE
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
-										else
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
+				if(I.masquerade_violating)
+					if(I.loc == H)
+						if(H.CheckEyewitness(H, H, 7, FALSE))
+							if(H.last_loot_check+50 <= world.time)
+								H.last_loot_check = world.time
+								H.last_nonraid = world.time
+								H.killed_count = H.killed_count+1
+								if(!H.warrant && !H.ignores_warrant)
+									if(H.killed_count >= 5)
+										H.warrant = TRUE
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
+									else
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 	if(H.key && H.stat != DEAD)
 		var/datum/preferences/P = GLOB.preferences_datums[ckey(H.key)]
 		if(P)
@@ -356,22 +353,21 @@
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
-				if(I)
-					if(I.masquerade_violating)
-						if(I.loc == H)
-							if(H.CheckEyewitness(H, H, 7, FALSE))
-								if((H.last_loot_check + 5 SECONDS) <= world.time)
-									H.last_loot_check = world.time
-									H.last_nonraid = world.time
-									H.killed_count = H.killed_count+1
-									if(!H.warrant && !H.ignores_warrant)
-										if(H.killed_count >= 5)
-											H.warrant = TRUE
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
-										else
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
+				if(I.masquerade_violating)
+					if(I.loc == H)
+						if(H.CheckEyewitness(H, H, 7, FALSE))
+							if((H.last_loot_check + 5 SECONDS) <= world.time)
+								H.last_loot_check = world.time
+								H.last_nonraid = world.time
+								H.killed_count = H.killed_count+1
+								if(!H.warrant && !H.ignores_warrant)
+									if(H.killed_count >= 5)
+										H.warrant = TRUE
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
+									else
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
 		H.last_bloodpool_restore = world.time
 		H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)
@@ -404,22 +400,21 @@
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
-				if(I)
-					if(I.masquerade_violating)
-						if(I.loc == H)
-							if(H.CheckEyewitness(H, H, 7, FALSE))
-								if(H.last_loot_check+50 <= world.time)
-									H.last_loot_check = world.time
-									H.last_nonraid = world.time
-									H.killed_count = H.killed_count+1
-									if(!H.warrant && !H.ignores_warrant)
-										if(H.killed_count >= 5)
-											H.warrant = TRUE
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
-										else
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
+				if(I.masquerade_violating)
+					if(I.loc == H)
+						if(H.CheckEyewitness(H, H, 7, FALSE))
+							if(H.last_loot_check+50 <= world.time)
+								H.last_loot_check = world.time
+								H.last_nonraid = world.time
+								H.killed_count = H.killed_count+1
+								if(!H.warrant && !H.ignores_warrant)
+									if(H.killed_count >= 5)
+										H.warrant = TRUE
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
+									else
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
 		H.last_bloodpool_restore = world.time
 		H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)

@@ -167,10 +167,9 @@
 		SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN)
 	else
 		for(var/mob/living/L in src.loc)
-			if(L)
-				playsound(src, lock_sound, 75, TRUE)
-				to_chat(user, span_warning("[L] is preventing you from closing [src]."))
-				return
+			playsound(src, lock_sound, 75, TRUE)
+			to_chat(user, span_warning("[L] is preventing you from closing [src]."))
+			return
 		playsound(src, close_sound, 75, TRUE)
 		icon_state = "[baseicon]-1"
 		density = TRUE
@@ -205,8 +204,7 @@
 			proc_unlock(5)
 			playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
 			for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
-				if(P)
-					P.Aggro(user)
+				P.Aggro(user)
 			var/total_lockpicking = user.trait_holder.get_stat(ST_TRAIT_LARCENY)
 			if(do_mob(user, src, (lockpick_timer - total_lockpicking * 2) SECONDS))
 				var/roll = rand(1, 20) + (total_lockpicking * 2 + user.trait_holder.get_stat(ST_TRAIT_DEXTERITY)) - lockpick_difficulty
