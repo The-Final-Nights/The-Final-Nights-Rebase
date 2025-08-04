@@ -254,7 +254,7 @@
 	name = "Weapon (longsword)"
 	desc = "Contains a longsword and sheathe."
 	cost = 1500
-	contains = list(/obj/item/storage/belt/sheath/vamp/sword )
+	contains = list(/obj/item/storage/belt/sheath/vamp/sword)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponchainsaw

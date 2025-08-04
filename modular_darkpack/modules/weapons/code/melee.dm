@@ -209,7 +209,7 @@
 	icon_state = "gangrel"
 	w_class = WEIGHT_CLASS_BULKY
 	force = 6
-	armour_penetration = 100	//It's magical damage
+	armour_penetration = 100 //It's magical damage
 	block_chance = 20
 	item_flags = DROPDEL
 	masquerade_violating = TRUE
@@ -333,32 +333,14 @@
 				qdel(src)
 
 /obj/item/shovel/vamp
+	name = "shovel"
+	desc = "Great weapon against mortal or immortal."
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "shovel"
-	name = "shovel"
-	desc = "Great weapon against mortal or immortal."
-	force = 40
-	throwforce = 10
-	block_chance = 30
-	w_class = WEIGHT_CLASS_BULKY
-	attack_verb_continuous = list("attacks", "chops", "tears", "beats")
-	attack_verb_simple = list("attack", "chop", "tear", "beat")
-	resistance_flags = FIRE_PROOF
-	masquerade_violating = FALSE
-	obj_flags = CONDUCTS_ELECTRICITY
-
-/obj/item/shovel/vamp/attack(mob/living/target, mob/living/user)
-	. = ..()
-	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		return
-	if(!target.IsStun() && prob(25))
-		visible_message(span_warning("[user] bonks [src]'s head!"), span_warning("You bonk[target]'s head!"))
-		target.Stun(5)
-		target.drop_all_held_items()
 
 /obj/item/scythe/vamp
 	name = "scythe"
@@ -389,12 +371,11 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	force = 20
+	force = 15
 	block_chance = 25
-	throwforce = 40
+	throwforce = 10
 	throw_speed = 2
 	throw_range = 3
-	masquerade_violating = FALSE
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = NONE
 	attack_verb_continuous = list("shoves", "bashes")
@@ -406,14 +387,6 @@
 	desc = "Blunt instrument of justice."
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
 	icon_state = "baton"
-	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("bludgeons", "bashes", "beats")
-	attack_verb_simple = list("bludgeon", "bash", "beat")
-	force = 30
-	wound_bonus = 15
-	block_chance = 10
-	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
-	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/switchblade/vamp
@@ -434,11 +407,11 @@
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	armour_penetration = 0
-	throwforce = 30
+	throwforce = 15
 	attack_verb_continuous = list("bludgeons", "bashes", "beats")
 	attack_verb_simple = list("bludgeon", "bash", "beat", "smacks")
 	hitsound = 'sound/items/weapons/genhit3.ogg'
-	force = 18
+	force = 10
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
 	w_class = WEIGHT_CLASS_NORMAL
 	//grid_width = 2 GRID_BOXES
@@ -449,9 +422,9 @@
 	if(prob(75))
 		broken = FALSE
 	if(broken)
-		force = 14
+		force = 6
 		w_class = WEIGHT_CLASS_SMALL
-		throwforce = 14
+		throwforce = 10
 		armour_penetration = 0
 		icon_state = "red_brick2"
 		attack_verb_continuous = list("bludgeons", "bashes", "beats")
