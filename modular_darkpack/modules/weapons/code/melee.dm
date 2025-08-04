@@ -145,6 +145,7 @@
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "longsword"
+	inhand_icon_state = "longsword"
 
 // TODO: [Rebase] reimplement selling stuff
 /*
