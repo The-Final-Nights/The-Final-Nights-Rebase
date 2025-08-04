@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/cup/baggie
 	name = "small plastic bag"
 	icon_state = "package_empty"
-	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
+	icon = 'modular_darkpack/modules/drugs/icons/items.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
 	spillable = FALSE
