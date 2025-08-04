@@ -38,10 +38,10 @@
 	if(params)
 		var/list/modifiers = params2list(params)
 		coordinates = LAZYACCESS(modifiers, "screen-loc")
-	var/grid_box_ratio = (world.icon_size / world.icon_size)
+	var/grid_box_ratio = (world.icon_size / grid_box_size)
 
 	//if you are clicking the item on the storage container, find the first cell that happens to be valid
-	if(coordinates)
+	if(!coordinates)
 		var/final_x = 0
 		var/final_y = 0
 		var/final_coordinates = ""
@@ -64,11 +64,13 @@
 
 	. = ..()
 	grid_add_item(to_insert, coordinates)
+	refresh_views()
 
 /datum/storage/darkpack/attempt_remove(obj/item/thing, atom/remove_to_loc, silent = FALSE, visual_updates = TRUE)
 	. = ..()
 	//This loops through all cells in the inventory box that we overlap and removes the item from them
 	grid_remove_item(thing)
+	refresh_views()
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -103,7 +105,6 @@
 		screen_y = text2num(copytext(screen_y, 1, findtext(screen_y, ":")))
 		stored_item.screen_loc = "[screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]"
 		stored_item.plane = ABOVE_HUD_PLANE
-		stored_item.maptext = ""
 
 /datum/storage/darkpack/proc/grid_add_item(obj/item/storing, coordinates)
 	var/coordinate_x = text2num(copytext(coordinates, 1, findtext(coordinates, ",")))
