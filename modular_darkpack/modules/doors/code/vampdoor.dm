@@ -134,7 +134,7 @@
 
 /obj/structure/vampdoor/proc/close_door(mob/user, force)
 	for(var/mob/living/L in src.loc)
-		if(!forced)
+		if(!force)
 			playsound(src, lock_sound, 75, TRUE)
 			to_chat(user, span_warning("[L] is preventing you from closing [src]."))
 			return
