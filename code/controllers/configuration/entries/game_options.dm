@@ -399,10 +399,12 @@
 	min_val = 0
 	max_val = 23
 
+// In deciseconds and using station_time_rate_multiplier
 /datum/config_entry/number/time_till_day
 	default = 198000
 	protection = CONFIG_ENTRY_LOCKED
 
+// In deciseconds and using station_time_rate_multiplier
 /datum/config_entry/number/time_till_roundend
 	default = 216000
 	protection = CONFIG_ENTRY_LOCKED
