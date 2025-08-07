@@ -59,7 +59,7 @@
 			else
 				complete()
 
-/obj/abyssrune/AltClick(mob/user)
+/obj/abyssrune/click_alt(mob/user)
 	. = ..()
 	qdel(src)
 

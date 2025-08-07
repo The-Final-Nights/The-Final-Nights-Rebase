@@ -38,7 +38,7 @@
 		new /datum/data/mining_equipment("strong coffee", /obj/item/reagent_containers/food/drinks/coffee/vampire/robust, 5)
 	)
 
-/obj/machinery/mineral/equipment_vendor/fastfood/AltClick(mob/user)
+/obj/machinery/mineral/equipment_vendor/fastfood/click_alt(mob/user)
 	. = ..()
 	if(points && dispenses_dollars)
 		for(var/i in 1 to points)

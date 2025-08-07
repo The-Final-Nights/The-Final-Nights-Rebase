@@ -69,7 +69,7 @@
 	if(obj_integrity < max_integrity)
 		. += span_notice("[src] is [health_status].")
 
-/obj/structure/drill/MouseDrop(over_object, src_location, over_location)
+/obj/structure/drill/mouse_drop_receive(over_object, src_location, over_location)
 	. = ..()
 	if(over_object == usr && Adjacent(usr) && !active)
 		if(do_after(usr, 5 SECONDS))

@@ -584,7 +584,7 @@
 
 // TODO: [Rebase] - Refactor into signal handler
 /*
-/obj/structure/fuelstation/AltClick(mob/user)
+/obj/structure/fuelstation/click_alt(mob/user)
 	if(stored_money)
 		say("Money refunded.")
 		for(var/i in 1 to stored_money)
@@ -634,7 +634,7 @@
 	icon_state = "water"
 
 /*
-/mob/living/carbon/human/MouseDrop(atom/over_object)
+/mob/living/carbon/human/mouse_drop_receive(atom/over_object)
 	. = ..()
 	if(istype(over_object, /obj/structure/bloodextractor))
 		if(get_dist(src, over_object) < 2)

@@ -84,7 +84,7 @@
 			else
 				complete()
 
-/obj/ritualrune/AltClick(mob/user)
+/obj/ritualrune/click_alt(mob/user)
 	. = ..()
 	qdel(src)
 

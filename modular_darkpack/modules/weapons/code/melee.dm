@@ -287,7 +287,7 @@
 	if(length(contents))
 		. += span_notice("Alt-click it to quickly draw the blade.")
 
-/obj/item/storage/belt/vampire/sheathe/AltClick(mob/user)
+/obj/item/storage/belt/vampire/sheathe/click_alt(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return
 	if(length(contents))
@@ -653,7 +653,7 @@
 	var/on = FALSE
 	var/last_solo = 0
 
-/obj/item/melee/vampirearms/eguitar/AltClick(mob/user)
+/obj/item/melee/vampirearms/eguitar/click_alt(mob/user)
 	if(last_solo+600 > world.time)
 		return
 	var/result = input(user, "Select a riff") as null|anything in list("1", "2", "3", "4")

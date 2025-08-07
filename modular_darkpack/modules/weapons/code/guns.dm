@@ -59,7 +59,7 @@
 	. = ..()
 	chamber_round()
 
-/obj/item/gun/ballistic/vampire/revolver/AltClick(mob/user)
+/obj/item/gun/ballistic/vampire/revolver/click_alt(mob/user)
 	. = ..()
 	spin()
 

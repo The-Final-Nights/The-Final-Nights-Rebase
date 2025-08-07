@@ -20,7 +20,7 @@
 		user.visible_message(span_notice("[user] pushes the rubberpig."), span_notice("You push the rubberpig."))
 		cooldown = world.time
 
-/obj/item/toy/rubberpig/MouseDrop(atom/over_object)
+/obj/item/toy/rubberpig/mouse_drop_receive(atom/over_object)
 	. = ..()
 	var/mob/living/M = usr
 	if(!istype(M) || !(M.mobility_flags & MOBILITY_PICKUP))

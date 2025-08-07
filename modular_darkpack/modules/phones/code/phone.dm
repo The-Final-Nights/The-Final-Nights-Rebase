@@ -98,7 +98,7 @@
 		ui = new(user, src, interface, interface)
 		ui.open()
 
-/obj/item/vamp/phone/AltClick(mob/user)
+/obj/item/vamp/phone/click_alt(mob/user)
 	if(can_fold && !closed)
 		closed = TRUE
 		icon_state = folded_state

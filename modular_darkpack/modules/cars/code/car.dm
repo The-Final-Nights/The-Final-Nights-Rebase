@@ -1,99 +1,4 @@
 GLOBAL_LIST_EMPTY(car_list)
-SUBSYSTEM_DEF(carpool)
-	name = "Car Pool"
-	flags = SS_POST_FIRE_TIMING|SS_NO_INIT|SS_BACKGROUND
-	priority = FIRE_PRIORITY_OBJ
-	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
-	wait = 5
-
-	var/list/currentrun = list()
-
-/datum/controller/subsystem/carpool/stat_entry(msg)
-	var/list/activelist = GLOB.car_list
-	msg = "CARS:[length(activelist)]"
-	return ..()
-
-/datum/controller/subsystem/carpool/fire(resumed = FALSE)
-
-	if (!resumed)
-		var/list/activelist = GLOB.car_list
-		src.currentrun = activelist.Copy()
-
-	//cache for sanic speed (lists are references anyways)
-	var/list/currentrun = src.currentrun
-
-	while(currentrun.len)
-		var/obj/vampire_car/CAR = currentrun[currentrun.len]
-		--currentrun.len
-
-		if (QDELETED(CAR))
-			GLOB.car_list -= CAR
-			if(QDELETED(CAR))
-				log_world("Found a null in car list!")
-			continue
-
-		if(MC_TICK_CHECK)
-			return
-		CAR.handle_caring()
-
-/obj/item/gas_can
-	name = "gas can"
-	desc = "Stores gasoline or pure fire death."
-	icon_state = "gasoline"
-	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	w_class = WEIGHT_CLASS_SMALL
-	var/stored_gasoline = 0
-
-/obj/item/gas_can/examine(mob/user)
-	. = ..()
-	. += "<b>Gas</b>: [stored_gasoline]/1000"
-
-/obj/item/gas_can/full
-	stored_gasoline = 1000
-
-/obj/item/gas_can/rand
-
-/obj/item/gas_can/rand/Initialize(mapload)
-	. = ..()
-	stored_gasoline = rand(0, 500)
-
-/obj/item/gas_can/afterattack(atom/A, mob/user, proximity)
-	. = ..()
-	if(istype(get_turf(A), /turf/open/floor) && !istype(A, /obj/vampire_car) && !istype(A, /obj/structure/fuelstation) && !istype(A, /mob/living/carbon/human) && !istype(A, /obj/structure/drill))
-		var/obj/effect/decal/cleanable/gasoline/G = locate() in get_turf(A)
-		if(G)
-			return
-		if(!proximity)
-			return
-		if(stored_gasoline < 50)
-			return
-		stored_gasoline = max(0, stored_gasoline-50)
-		new /obj/effect/decal/cleanable/gasoline(get_turf(A))
-		playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
-	if(istype(A, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = A
-		if(!proximity)
-			return
-		if(stored_gasoline < 50)
-			return
-		stored_gasoline = max(0, stored_gasoline-50)
-		H.fire_stacks = min(10, H.fire_stacks+10)
-		playsound(get_turf(H), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
-		user.visible_message(span_warning("[user] covers [A] in something flammable!"))
-
-
-/obj/vampire_car/attack_hand(mob/user)
-	. = ..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.combat_mode && H.potential >= 4)
-			var/atom/throw_target = get_edge_target_turf(src, user.dir)
-			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 100, FALSE)
-			get_damage(10)
-			throw_at(throw_target, rand(4, 6), 4, user)
 
 /obj/vampire_car
 	name = "car"
@@ -101,15 +6,19 @@ SUBSYSTEM_DEF(carpool)
 	icon_state = "2"
 	icon = 'modular_darkpack/modules/deprecated/icons/cars.dmi'
 	anchored = TRUE
-	//plane = GAME_PLANE
 	//layer = CAR_LAYER
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	throwforce = 150
 
+	glide_size = 96
+
+	atom_integrity = 100
+	max_integrity = 100
+
 	var/last_vzhzh = 0
 
-	var/image/Fari
+	var/image/headlight_image
 	var/fari_on = FALSE
 
 	var/mob/living/driver
@@ -122,8 +31,6 @@ SUBSYSTEM_DEF(carpool)
 	var/locked = TRUE
 	var/access = "none"
 
-	var/health = 100
-	var/maxhealth = 100
 	var/repairing = FALSE
 
 	var/last_beep = 0
@@ -135,19 +42,50 @@ SUBSYSTEM_DEF(carpool)
 
 	var/gas = 1000
 
+	var/movement_vector = 0 //0-359 degrees
+	var/speed_in_pixels = 0 // 16 pixels (turf is 2x2m) = 1 meter per 1 SECOND (process fire). Minus equals to reverse, max should be 444
+	var/last_pos = list("x" = 0, "y" = 0, "x_pix" = 0, "y_pix" = 0, "x_frwd" = 0, "y_frwd" = 0)
+	var/impact_delay = 0
+
 /obj/vampire_car/Initialize(mapload)
 	. = ..()
+	START_PROCESSING(SScarpool, src)
+	GLOB.car_list += src
+
 	create_storage(storage_type = car_storage_type)
 
-/obj/vampire_car/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
-	. = ..()
-	get_damage(5)
-	for(var/mob/living/L in src)
-		if(prob(50))
-			L.apply_damage(P.damage, P.damage_type, pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST))
+	headlight_image = new(src)
+	headlight_image.icon = 'icons/effects/light_overlays/light_cone_car.dmi'
+	headlight_image.icon_state = "light"
+	headlight_image.pixel_x = -64
+	headlight_image.pixel_y = -64
+	headlight_image.layer = O_LIGHTING_VISUAL_LAYER
+	headlight_image.plane = O_LIGHTING_VISUAL_PLANE
+	headlight_image.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
+	headlight_image.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+//	headlight_image.vis_flags = NONE
+	headlight_image.alpha = 110
+	gas = rand(100, 1000)
+	last_pos["x"] = x
+	last_pos["y"] = y
+//	last_pos["x_pix"] = 32
+//	last_pos["y_pix"] = 32
+	switch(dir)
+		if(SOUTH)
+			movement_vector = 180
+		if(EAST)
+			movement_vector = 90
+		if(WEST)
+			movement_vector = 270
+	add_overlay(image(icon = src.icon, icon_state = src.icon_state, pixel_x = -32, pixel_y = -32))
+	icon_state = "empty"
 
-/obj/vampire_car/AltClick(mob/user)
+/obj/vampire_car/Destroy()
+	STOP_PROCESSING(SScarpool, src)
+	empty_car()
 	. = ..()
+
+/obj/vampire_car/click_alt(mob/user)
 	if(!repairing)
 		if(locked)
 			to_chat(user, span_warning("[src] is locked!"))
@@ -234,18 +172,18 @@ SUBSYSTEM_DEF(carpool)
 		return
 	if(istype(I, /obj/item/melee/vampirearms/tire))
 		if(!repairing)
-			if(health >= maxhealth)
+			if(atom_integrity >= max_integrity)
 				to_chat(user, span_notice("[src] is already fully repaired."))
 				return
 			repairing = TRUE
 
-			var time_to_repair = (maxhealth - health) / 4 //Repair 4hp for every second spent repairing
+			var time_to_repair = (max_integrity - atom_integrity) / 4 //Repair 4hp for every second spent repairing
 			var start_time = world.time
 
 			user.visible_message(span_notice("[user] begins repairing [src]..."), \
 				span_notice("You begin repairing [src]. Stop at any time to only partially repair it."))
 			if(do_after(user, time_to_repair SECONDS, src))
-				health = maxhealth
+				atom_integrity = max_integrity
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
 				user.visible_message(span_notice("[user] repairs [src]."), \
 					span_notice("You finish repairing all the dents on [src]."))
@@ -253,7 +191,7 @@ SUBSYSTEM_DEF(carpool)
 				repairing = FALSE
 				return
 			else
-				get_damage((world.time - start_time) * -2 / 5) //partial repair
+				take_damage((world.time - start_time) * -2 / 5) //partial repair
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
 				user.visible_message(span_notice("[user] repairs [src]."), \
 					span_notice("You repair some of the dents on [src]."))
@@ -264,7 +202,7 @@ SUBSYSTEM_DEF(carpool)
 
 	else
 		if(I.force)
-			get_damage(round(I.force/2))
+			take_damage(round(I.force/2))
 			for(var/mob/living/L in src)
 				if(prob(50))
 					L.apply_damage(round(I.force/2), I.damtype, pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST))
@@ -281,22 +219,34 @@ SUBSYSTEM_DEF(carpool)
 
 	. = ..()
 
-/obj/vampire_car/Destroy()
-	GLOB.car_list -= src
+/obj/vampire_car/attack_hand(mob/user)
 	. = ..()
-	empty_car()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.combat_mode && H.potential >= 4)
+			var/atom/throw_target = get_edge_target_turf(src, user.dir)
+			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 100, FALSE)
+			take_damage(10)
+			throw_at(throw_target, rand(4, 6), 4, user)
+
+/obj/vampire_car/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
+	. = ..()
+	take_damage(5)
+	for(var/mob/living/L in src)
+		if(prob(50))
+			L.apply_damage(P.damage, P.damage_type, pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST))
 
 /obj/vampire_car/examine(mob/user)
 	. = ..()
 	if(user.loc == src)
 		. += "<b>Gas</b>: [gas]/1000"
-	if(health < maxhealth && health >= maxhealth-(maxhealth/4))
+	if(atom_integrity < max_integrity && atom_integrity >= max_integrity-(max_integrity/4))
 		. += "It's slightly dented..."
-	if(health < maxhealth-(maxhealth/4) && health >= maxhealth/2)
+	if(atom_integrity < max_integrity-(max_integrity/4) && atom_integrity >= max_integrity/2)
 		. += "It has some major dents..."
-	if(health < maxhealth/2 && health >= maxhealth/4)
+	if(atom_integrity < max_integrity/2 && atom_integrity >= max_integrity/4)
 		. += "It's heavily damaged..."
-	if(health < maxhealth/4)
+	if(atom_integrity < max_integrity/4)
 		. += span_warning("It appears to be falling apart...")
 	if(locked)
 		. += span_warning("It's locked.")
@@ -305,13 +255,14 @@ SUBSYSTEM_DEF(carpool)
 		for(var/mob/living/rider in src)
 			. += span_notice("* [rider]")
 
-/obj/vampire_car/proc/get_damage(cost)
+/*
+/obj/vampire_car/proc/take_damage(cost)
 	if(cost > 0)
-		health = max(0, health-cost)
+		atom_integrity = max(0, atom_integrity-cost)
 	if(cost < 0)
-		health = min(maxhealth, health-cost)
+		atom_integrity = min(max_integrity, atom_integrity-cost)
 
-	if(health == 0)
+	if(atom_integrity == 0)
 		on = FALSE
 		set_light(0)
 		color = "#919191"
@@ -319,11 +270,12 @@ SUBSYSTEM_DEF(carpool)
 			exploded = TRUE
 			empty_car()
 			explosion(loc,0,1,3,4)
-			GLOB.car_list -= src
-	else if(prob(50) && health <= maxhealth/2)
+			STOP_PROCESSING(SScarpool, src)
+	else if(prob(50) && atom_integrity <= max_integrity/2)
 		on = FALSE
 		set_light(0)
 	return
+*/
 
 //Dump out all living from the car
 /obj/vampire_car/proc/empty_car()
@@ -332,137 +284,7 @@ SUBSYSTEM_DEF(carpool)
 		for(var/datum/action/carr/car_action in L.actions)
 			qdel(car_action)
 
-/datum/action/carr/fari_vrubi
-	name = "Toggle Light"
-	desc = "Toggle light on/off."
-	button_icon_state = "lights"
-
-/datum/action/carr/fari_vrubi/Trigger()
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
-		if(!V.fari_on)
-			V.fari_on = TRUE
-			V.add_overlay(V.Fari)
-			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/items/weapons/magin.ogg', 40, TRUE)
-		else
-			V.fari_on = FALSE
-			V.cut_overlay(V.Fari)
-			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/items/weapons/magout.ogg', 40, TRUE)
-
-/datum/action/carr/beep
-	name = "Signal"
-	desc = "Beep-beep."
-	button_icon_state = "beep"
-
-/datum/action/carr/beep/Trigger()
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
-		if(V.last_beep+10 < world.time)
-			V.last_beep = world.time
-			playsound(V.loc, V.beep_sound, 60, FALSE)
-
-/datum/action/carr/stage
-	name = "Toggle Transmission"
-	desc = "Toggle transmission to 1, 2 or 3."
-	button_icon_state = "stage"
-
-/datum/action/carr/stage/Trigger()
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
-		if(V.stage < 3)
-			V.stage = V.stage+1
-		else
-			V.stage = 1
-		to_chat(owner, span_notice("You enable [V]'s transmission at [V.stage]."))
-
-/datum/action/carr/baggage
-	name = "Lock Baggage"
-	desc = "Lock/Unlock Baggage."
-	button_icon_state = "baggage"
-
-/datum/action/carr/baggage/Trigger()
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/vamp_car = owner.loc
-		var/datum/storage/trunk = vamp_car.atom_storage
-		trunk.set_locked(trunk.locked ? STORAGE_NOT_LOCKED : STORAGE_FULLY_LOCKED)
-
-		#warn please pick one of these
-		vamp_car.balloon_alert(owner, trunk.locked ? "locked" : "unlocked")
-		to_chat(owner, span_notice("You [trunk.locked ? "locked" : "unlocked"] [vamp_car]'s baggage."))
-
-		playsound(vamp_car, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
-
-/datum/action/carr/engine
-	name = "Toggle Engine"
-	desc = "Toggle engine on/off."
-	button_icon_state = "keys"
-
-/datum/action/carr/engine/Trigger()
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
-		if(!V.on)
-			if(V.health == V.maxhealth)
-				V.on = TRUE
-				playsound(V, 'modular_darkpack/modules/deprecated/sounds/start.ogg', 50, TRUE)
-				to_chat(owner, span_notice("You managed to start [V]'s engine."))
-				return
-			if(prob(100*(V.health/V.maxhealth)))
-				V.on = TRUE
-				playsound(V, 'modular_darkpack/modules/deprecated/sounds/start.ogg', 50, TRUE)
-				to_chat(owner, span_notice("You managed to start [V]'s engine."))
-				return
-			else
-				to_chat(owner, span_warning("You failed to start [V]'s engine."))
-				return
-		else
-			V.on = FALSE
-			playsound(V, 'modular_darkpack/modules/deprecated/sounds/stop.ogg', 50, TRUE)
-			to_chat(owner, span_notice("You stop [V]'s engine."))
-			V.set_light(0)
-			return
-
-/datum/action/carr/exit_car
-	name = "Exit"
-	desc = "Exit the vehicle."
-	button_icon_state = "exit"
-
-/datum/action/carr/exit_car/Trigger()
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
-		if(V.driver == owner)
-			V.driver = null
-		if(owner in V.passengers)
-			V.passengers -= owner
-		owner.forceMove(V.loc)
-
-		var/list/exit_side = list(
-			SIMPLIFY_DEGREES(V.movement_vector + 90),
-			SIMPLIFY_DEGREES(V.movement_vector - 90)
-		)
-		for(var/angle in exit_side)
-			if(get_step(owner, angle2dir(angle)).density)
-				exit_side.Remove(angle)
-		var/list/exit_alt = GLOB.alldirs.Copy()
-		for(var/dir in exit_alt)
-			if(get_step(owner, dir).density)
-				exit_alt.Remove(dir)
-		if(length(exit_side))
-			owner.Move(get_step(owner, angle2dir(pick(exit_side))))
-		else if(length(exit_alt))
-			owner.Move(get_step(owner, exit_alt))
-
-		to_chat(owner, span_notice("You exit [V]."))
-		if(owner)
-			if(owner.client)
-				owner.client.pixel_x = 0
-				owner.client.pixel_y = 0
-		playsound(V, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
-		for(var/datum/action/carr/C in owner.actions)
-			qdel(C)
-
-/mob/living/carbon/human/MouseDrop(atom/over_object)
+/mob/living/carbon/human/mouse_drop_receive(atom/over_object)
 	. = ..()
 	if(istype(over_object, /obj/vampire_car) && get_dist(src, over_object) < 2)
 		var/obj/vampire_car/V = over_object
@@ -560,59 +382,15 @@ SUBSYSTEM_DEF(carpool)
 		if(driver)
 			if(HAS_TRAIT(driver, TRAIT_EXP_DRIVER))
 				dam = round(dam/2)
-		get_damage(dam)
+		take_damage(dam)
 	else
 		var/dam = prev_speed
 		if(driver)
 			if(HAS_TRAIT(driver, TRAIT_EXP_DRIVER))
 				dam = round(dam/2)
 			driver.apply_damage(prev_speed, BRUTE, BODY_ZONE_CHEST)
-		get_damage(dam)
+		take_damage(dam)
 	return
-
-/proc/get_dist_in_pixels(pixel_starts_x, pixel_starts_y, pixel_ends_x, pixel_ends_y)
-	var/total_x = abs(pixel_starts_x-pixel_ends_x)
-	var/total_y = abs(pixel_starts_y-pixel_ends_y)
-	return round(sqrt(total_x*total_x + total_y*total_y))
-
-/proc/get_angle_diff(angle_a, angle_b)
-	return ((angle_b - angle_a) + 180) % 360 - 180;
-
-/obj/vampire_car
-	var/movement_vector = 0		//0-359 degrees
-	var/speed_in_pixels = 0		// 16 pixels (turf is 2x2m) = 1 meter per 1 SECOND (process fire). Minus equals to reverse, max should be 444
-	var/last_pos = list("x" = 0, "y" = 0, "x_pix" = 0, "y_pix" = 0, "x_frwd" = 0, "y_frwd" = 0)
-	var/impact_delay = 0
-	glide_size = 96
-
-/obj/vampire_car/Initialize(mapload)
-	. = ..()
-	Fari = new (src)
-	Fari.icon = 'icons/effects/light_overlays/light_cone_car.dmi'
-	Fari.icon_state = "light"
-	Fari.pixel_x = -64
-	Fari.pixel_y = -64
-	Fari.layer = O_LIGHTING_VISUAL_LAYER
-	Fari.plane = O_LIGHTING_VISUAL_PLANE
-	Fari.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
-	Fari.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-//	Fari.vis_flags = NONE
-	Fari.alpha = 110
-	gas = rand(100, 1000)
-	GLOB.car_list += src
-	last_pos["x"] = x
-	last_pos["y"] = y
-//	last_pos["x_pix"] = 32
-//	last_pos["y_pix"] = 32
-	switch(dir)
-		if(SOUTH)
-			movement_vector = 180
-		if(EAST)
-			movement_vector = 90
-		if(WEST)
-			movement_vector = 270
-	add_overlay(image(icon = src.icon, icon_state = src.icon_state, pixel_x = -32, pixel_y = -32))
-	icon_state = "empty"
 
 /turf
 	var/list/unpassable = list()

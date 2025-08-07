@@ -45,5 +45,5 @@
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	worn_icon_state = "id2"
 
-/obj/item/card/id/chunk/AltClick(mob/user)
+/obj/item/card/id/chunk/click_alt(mob/user)
 	return
