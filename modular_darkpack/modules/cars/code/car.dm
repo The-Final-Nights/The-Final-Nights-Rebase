@@ -193,7 +193,7 @@ SUBSYSTEM_DEF(carpool)
 			if(!repairing)
 				repairing = TRUE
 				if(do_after(user, 20 SECONDS, src))
-					var/roll = rand(1, 20) + (user.get_total_lockpicking()+user.get_total_dexterity()) - 8
+					var/roll = rand(1, 20) + (user.trait_holder.get_stat(ST_TRAIT_LARCENY)+user.trait_holder.get_stat(ST_TRAIT_DEXTERITY)) - 8
 					//(<= 1, break lockpick) (2-9, trigger car alarm), (>= 10, unlock car)
 					if (roll <= 1)
 						to_chat(user, span_warning("Your lockpick broke!"))
