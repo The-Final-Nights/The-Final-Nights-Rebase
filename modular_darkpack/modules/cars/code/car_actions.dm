@@ -4,7 +4,7 @@
 	desc = "Toggle light on/off."
 	button_icon_state = "lights"
 
-/datum/action/carr/headlight/Trigger()
+/datum/action/carr/headlight/Trigger(trigger_flags)
 	var/obj/vampire_car/car = owner.loc
 	if(!istype(car))
 		return
@@ -17,7 +17,7 @@
 	desc = "Beep-beep."
 	button_icon_state = "beep"
 
-/datum/action/carr/beep/Trigger()
+/datum/action/carr/beep/Trigger(trigger_flags)
 	if(istype(owner.loc, /obj/vampire_car))
 		var/obj/vampire_car/V = owner.loc
 		if(V.last_beep+10 < world.time)
@@ -29,7 +29,7 @@
 	desc = "Toggle transmission to 1, 2 or 3."
 	button_icon_state = "stage"
 
-/datum/action/carr/stage/Trigger()
+/datum/action/carr/stage/Trigger(trigger_flags)
 	if(istype(owner.loc, /obj/vampire_car))
 		var/obj/vampire_car/V = owner.loc
 		if(V.stage < 3)
@@ -43,7 +43,7 @@
 	desc = "Lock/Unlock Baggage."
 	button_icon_state = "baggage"
 
-/datum/action/carr/baggage/Trigger()
+/datum/action/carr/baggage/Trigger(trigger_flags)
 	if(istype(owner.loc, /obj/vampire_car))
 		var/obj/vampire_car/vamp_car = owner.loc
 		var/datum/storage/trunk = vamp_car.atom_storage
@@ -60,7 +60,7 @@
 	desc = "Toggle engine on/off."
 	button_icon_state = "keys"
 
-/datum/action/carr/engine/Trigger()
+/datum/action/carr/engine/Trigger(trigger_flags)
 	if(istype(owner.loc, /obj/vampire_car))
 		var/obj/vampire_car/V = owner.loc
 		if(!V.on)
@@ -89,7 +89,7 @@
 	desc = "Exit the vehicle."
 	button_icon_state = "exit"
 
-/datum/action/carr/exit_car/Trigger()
+/datum/action/carr/exit_car/Trigger(trigger_flags)
 	if(istype(owner.loc, /obj/vampire_car))
 		var/obj/vampire_car/V = owner.loc
 		if(V.driver == owner)
