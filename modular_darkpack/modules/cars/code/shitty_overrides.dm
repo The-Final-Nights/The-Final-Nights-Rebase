@@ -57,7 +57,7 @@
 				V.driver = src
 				var/datum/action/carr/exit_car/E = new()
 				E.Grant(src)
-				var/datum/action/carr/fari_vrubi/F = new()
+				var/datum/action/carr/headlight/F = new()
 				F.Grant(src)
 				var/datum/action/carr/engine/N = new()
 				N.Grant(src)

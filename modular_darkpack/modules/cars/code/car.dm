@@ -19,7 +19,7 @@ GLOBAL_LIST_EMPTY(car_list)
 	var/last_vzhzh = 0
 
 	var/image/headlight_image
-	var/fari_on = FALSE
+	var/headlight_on = FALSE
 
 	var/mob/living/driver
 	var/list/passengers = list()
@@ -45,7 +45,8 @@ GLOBAL_LIST_EMPTY(car_list)
 	var/movement_vector = 0 //0-359 degrees
 	var/speed_in_pixels = 0 // 16 pixels (turf is 2x2m) = 1 meter per 1 SECOND (process fire). Minus equals to reverse, max should be 444
 	var/last_pos = list("x" = 0, "y" = 0, "x_pix" = 0, "y_pix" = 0, "x_frwd" = 0, "y_frwd" = 0)
-	var/impact_delay = 0
+
+	COOLDOWN_DECLARE(impact_delay)
 
 /obj/vampire_car/Initialize(mapload)
 	. = ..()
@@ -277,6 +278,16 @@ GLOBAL_LIST_EMPTY(car_list)
 	return
 */
 
+/obj/vampire_car/proc/set_headlight_on(new_value)
+	if(headlight_on == new_value)
+		return
+	. = headlight_on
+	headlight_on = new_value
+	if(headlight_on)
+		add_overlay(headlight_image)
+	elsef
+		cut_overlay(headlight_image)
+
 //Dump out all living from the car
 /obj/vampire_car/proc/empty_car()
 	for(var/mob/living/L in src)
@@ -297,7 +308,7 @@ GLOBAL_LIST_EMPTY(car_list)
 			if(MOB_SIZE_HUGE) 	//gangrel warforms, werewolves, bears, ppl with fortitude
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 75, TRUE)
 				speed_in_pixels = 0
-				impact_delay = world.time
+				COOLDOWN_START(src, impact_delay, 2 SECONDS)
 				hit_mob.Paralyze(1 SECONDS)
 			if(MOB_SIZE_LARGE)	//ppl with fat bodytype
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 60, TRUE)
@@ -314,7 +325,7 @@ GLOBAL_LIST_EMPTY(car_list)
 	else
 		playsound(src, 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 75, TRUE)
 		speed_in_pixels = 0
-		impact_delay = world.time
+		COOLDOWN_START(src, impact_delay, 2 SECONDS)
 
 	if(driver && istype(A, /mob/living/carbon/human/npc))
 		var/mob/living/carbon/human/npc/NPC = A
@@ -356,14 +367,13 @@ GLOBAL_LIST_EMPTY(car_list)
 	last_pos["x"] = x
 	last_pos["y"] = y
 
-/obj/vampire_car/proc/handle_caring()
+/obj/vampire_car/process(seconds_per_tick)
 	speed_in_pixels = max(speed_in_pixels, -64)
 	var/used_vector = movement_vector
 	var/used_speed = speed_in_pixels
 
 	if(gas <= 0)
 		on = FALSE
-		set_light(0)
 		if(driver)
 			to_chat(driver, span_warning("No fuel in the tank!"))
 	if(on)
@@ -373,6 +383,9 @@ GLOBAL_LIST_EMPTY(car_list)
 	if(!on || !driver)
 		speed_in_pixels = (speed_in_pixels < 0 ? -1 : 1) * max(abs(speed_in_pixels) - 15, 0)
 
+	car_move()
+
+/obj/vampire_car/proc/car_move()
 	forceMove(locate(last_pos["x"], last_pos["y"], z))
 	pixel_x = last_pos["x_pix"]
 	pixel_y = last_pos["y_pix"]
@@ -487,7 +500,7 @@ GLOBAL_LIST_EMPTY(car_list)
 	last_pos["y"] = clamp(last_pos["y"] + y_add, 1, world.maxy)
 
 /obj/vampire_car/relaymove(mob/living/carbon/human/driver, direct)
-	if(world.time-impact_delay < 20)
+	if(!COOLDOWN_FINISHED(src, impact_delay))
 		return
 	if(driver.IsUnconscious() || HAS_TRAIT(driver, TRAIT_INCAPACITATED) || HAS_TRAIT(driver, TRAIT_RESTRAINED))
 		return

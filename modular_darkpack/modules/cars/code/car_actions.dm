@@ -1,22 +1,16 @@
 
-/datum/action/carr/fari_vrubi
+/datum/action/carr/headlight
 	name = "Toggle Light"
 	desc = "Toggle light on/off."
 	button_icon_state = "lights"
 
-/datum/action/carr/fari_vrubi/Trigger()
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
-		if(!V.fari_on)
-			V.fari_on = TRUE
-			V.add_overlay(V.headlight_image)
-			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/items/weapons/magin.ogg', 40, TRUE)
-		else
-			V.fari_on = FALSE
-			V.cut_overlay(V.headlight_image)
-			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/items/weapons/magout.ogg', 40, TRUE)
+/datum/action/carr/headlight/Trigger()
+	var/obj/vampire_car/car = owner.loc
+	if(!istype(car))
+		return
+	car.set_headlight_on(!car.headlight_on)
+	to_chat(owner, span_notice("You toggle [V]'s lights."))
+	playsound(car, 'sound/items/weapons/magout.ogg', 40, TRUE)
 
 /datum/action/carr/beep
 	name = "Signal"
