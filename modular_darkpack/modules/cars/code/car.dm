@@ -14,7 +14,8 @@ GLOBAL_LIST_EMPTY(car_list)
 	glide_size = 96
 
 	//atom_integrity = 100
-	max_integrity = 100
+	max_integrity = 500
+	integrity_failure = 0.25
 
 	var/last_vzhzh = 0
 
@@ -41,6 +42,9 @@ GLOBAL_LIST_EMPTY(car_list)
 	var/beep_sound = 'modular_darkpack/modules/deprecated/sounds/beep.ogg'
 
 	var/gas = 1000
+
+	/// The sound of fermentation
+	var/datum/looping_sound/boiling/soundloop
 
 	var/movement_vector = 0 //0-359 degrees
 	var/speed_in_pixels = 0 // 16 pixels (turf is 2x2m) = 1 meter per 1 SECOND (process fire). Minus equals to reverse, max should be 444
@@ -255,6 +259,17 @@ GLOBAL_LIST_EMPTY(car_list)
 		. += span_notice("\nYou see the following people inside:")
 		for(var/mob/living/rider in src)
 			. += span_notice("* [rider]")
+
+/obj/vampire_car/atom_break(damage_flag)
+	. = ..()
+	on = FALSE
+	set_light(0)
+	color = "#919191"
+	if(!exploded && prob(50))
+		exploded = TRUE
+		empty_car()
+		explosion(loc,0,1,3,4)
+		STOP_PROCESSING(SScarpool, src)
 
 /*
 /obj/vampire_car/proc/take_damage(cost)
