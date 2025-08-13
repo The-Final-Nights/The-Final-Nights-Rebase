@@ -1,114 +1,23 @@
-/proc/create_bank_code()
-	var/bank_code = ""
-	for(var/i = 1 to 4)
-		bank_code += "[rand(0, 9)]"
-	return bank_code
-
-/obj/machinery/vamp/atm
+/obj/machinery/atm
 	name = "ATM Machine"
 	desc = "Check your balance or make a transaction"
-	icon = 'icons/obj/vtm_atm.dmi'
+	icon = 'modular_darkpack/modules/economy/icons/atm.dmi'
 	icon_state = "atm"
-	plane = GAME_PLANE
-	layer = BELOW_MOB_LAYER
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	var/logged_in = FALSE
 	var/entered_code
 
 	var/atm_balance = 0
-	var/obj/item/vamp/creditcard/current_card = null
-	light_system = STATIC_LIGHT
+	var/obj/item/card/credit/current_card = null
+	//light_system = STATIC_LIGHT
 	light_color = COLOR_GREEN
 	light_range = 2
 	light_power = 1
 	light_on = TRUE
 
-/obj/machinery/vamp/atm/New()
-	..()
-	logged_in = FALSE
-	current_card = null
-
-
-
-/datum/vtm_bank_account
-	var/account_owner = ""
-	var/bank_id = 0
-	var/balance = 0
-	var/code = ""
-	var/list/credit_cards = list()
-
-/datum/vtm_bank_account/New()
-	..()
-	if(!code || code == "")
-		code = create_bank_code()
-		var/random_id = rand(1, 999999)
-		bank_id = random_id
-		GLOB.bank_account_list += src
-
-/obj/item/vamp/creditcard
-	name = "debit card"
-	desc = "Used to access bank money."
-	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	icon_state = "card1"
-	inhand_icon_state = "card1"
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	item_flags = NOBLUDGEON
-	flags_1 = HEAR_1
-	w_class = WEIGHT_CLASS_SMALL
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
-	resistance_flags = FIRE_PROOF | ACID_PROOF
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
-
-	var/owner = ""
-	var/datum/vtm_bank_account/account
-	var/code
-	var/balance = 0
-	var/has_checked = FALSE
-
-/obj/item/vamp/creditcard/prince
-	icon_state = "card2"
-	inhand_icon_state = "card2"
-
-/obj/item/vamp/creditcard/seneschal
-	icon_state = "card2"
-	inhand_icon_state = "card2"
-
-/obj/item/vamp/creditcard/elder
-	icon_state = "card3"
-	inhand_icon_state = "card3"
-
-/obj/item/vamp/creditcard/giovanniboss
-	icon_state = "card2"
-	inhand_icon_state = "card2"
-
-/obj/item/vamp/creditcard/rich
-
-/obj/item/vamp/creditcard/New(mob/user)
-	..()
-	if(!account || code == "")
-		account = new /datum/vtm_bank_account()
-	if(user)
-		owner = user.ckey
-	if(istype(src, /obj/item/vamp/creditcard/prince))
-		account.balance = rand(10000, 15000)
-	else if(istype(src, /obj/item/vamp/creditcard/elder))
-		account.balance = rand(3000, 7000)
-	else if(istype(src, /obj/item/vamp/creditcard/rich))
-		account.balance = rand(1000, 4000)
-	else if(istype(src, /obj/item/vamp/creditcard/giovanniboss))
-		account.balance = rand(8000, 15000)
-	else if(istype(src, /obj/item/vamp/creditcard/seneschal))
-		account.balance = rand(4000, 8000)
-	else
-		account.balance = rand(600, 1000)
-
-/obj/machinery/vamp/atm/Initialize(mapload)
-	. = ..()
-
-/obj/machinery/vamp/atm/attackby(obj/item/P, mob/user, params)
-	if(istype(P, /obj/item/vamp/creditcard))
+/obj/machinery/atm/attackby(obj/item/P, mob/user, params)
+	if(is_creditcard(P))
 		if(logged_in)
 			to_chat(user, span_notice("Someone is already logged in."))
 			return
@@ -126,26 +35,30 @@
 			qdel(P)
 			return
 
-/obj/machinery/vamp/atm/ui_interact(mob/user, datum/tgui/ui)
+/obj/machinery/atm/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Atm", name)
 		ui.open()
 
-/obj/machinery/vamp/atm/ui_data(mob/user)
+/obj/machinery/atm/ui_data(mob/user)
 	var/list/data = list()
 	var/list/accounts = list()
 
-	for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
-		if(account && account.account_owner)
+	for(var/account_id in SSeconomy.bank_accounts_by_id)
+		var/datum/bank_account/account = SSeconomy.bank_accounts_by_id[account_id]
+		if(!account)
+			continue
+		if(account && account.account_holder)
 			accounts += list(
-				list("account_owner" = account.account_owner
+				list("account_holder" = account.account_holder
 				)
 			)
 		else
 			accounts += list(
 				list(
-					"account_owner" = "Unnamed Account"
+					"account_holder" = "Unnamed Account"
 				)
 			)
 
@@ -155,25 +68,25 @@
 	data["atm_balance"] = atm_balance
 	data["bank_account_list"] = json_encode(accounts)
 	if(current_card)
-		data["balance"] = current_card.account.balance
-		data["account_owner"] = current_card.account.account_owner
-		data["bank_id"] = current_card.account.bank_id
-		data["code"] = current_card.account.code
+		data["account_balance"] = current_card.registered_account.account_balance
+		data["account_holder"] = current_card.registered_account.account_holder
+		data["account_id"] = current_card.registered_account.account_id
+		data["bank_pin"] = current_card.registered_account.bank_pin
 	else
-		data["balance"] = 0
-		data["account_owner"] = ""
-		data["bank_id"] = ""
-		data["code"] = ""
+		data["account_balance"] = 0
+		data["account_holder"] = ""
+		data["account_id"] = ""
+		data["bank_pin"] = ""
 
 	return data
 
-/obj/machinery/vamp/atm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	.=..()
+/obj/machinery/atm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
 	if(.)
 		return
 	switch(action)
 		if("login")
-			if(params["code"] == current_card.account.code)
+			if(params["bank_pin"] == current_card.registered_account.bank_pin)
 				logged_in = TRUE
 				return TRUE
 			else
@@ -187,17 +100,16 @@
 			var/amount = text2num(params["withdraw_amount"])
 			if(amount != round(amount))
 				to_chat(usr, "<span class='notice'>Withdraw amount must be a round number.")
-			else if(current_card.account.balance < amount)
+			else if(current_card.registered_account.account_balance < amount)
 				to_chat(usr, span_notice("Insufficient funds."))
 			else
 				while(amount > 0)
 					var/drop_amount = min(amount, 1000)
-					var/obj/item/stack/dollar/cash = new /obj/item/stack/dollar()
-					cash.amount = drop_amount
+					var/obj/item/stack/dollar/cash = new /obj/item/stack/dollar(loc, drop_amount)
 					to_chat(usr, span_notice("You have withdrawn [drop_amount] dollars."))
 					try_put_in_hand(cash, usr)
 					amount -= drop_amount
-					current_card.account.balance -= drop_amount
+					current_card.registered_account.account_balance -= drop_amount
 			return TRUE
 		if("transfer")
 			var/amount = text2num(params["transfer_amount"])
@@ -210,82 +122,31 @@
 				to_chat(usr, span_notice("Invalid target account ID."))
 				return FALSE
 
-			var/datum/vtm_bank_account/target_account = null
-			for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
-				if(account.account_owner == target_account_id)
-					target_account = account
-					break
+			var/datum/bank_account/target_account = SSeconomy.bank_accounts_by_id[target_account_id]
 
 			if(!target_account)
 				to_chat(usr, span_notice("Invalid target account."))
 				return FALSE
-			if(current_card.account.balance < amount)
+			if(current_card.registered_account.account_balance < amount)
 				to_chat(usr, span_notice("Insufficient funds."))
 				return FALSE
 
-			current_card.account.balance -= amount
-			target_account.balance += amount
-			to_chat(usr, span_notice("You have transferred [amount] dollars to account [target_account.account_owner]."))
+			current_card.registered_account.account_balance -= amount
+			target_account.account_balance += amount
+			to_chat(usr, span_notice("You have transferred [amount] dollars to account [target_account.account_holder]."))
 			return TRUE
 
 		if("change_pin")
 			var/new_pin = params["new_pin"]
-			current_card.account.code = new_pin
+			current_card.registered_account.bank_pin = new_pin
 			return TRUE
 		if("deposit")
 			if(atm_balance > 0)
-				current_card.account.balance += atm_balance
-				to_chat(usr, span_notice("You have deposited [atm_balance] dollars into your card. Your new balance is [current_card.account.balance] dollars."))
+				current_card.registered_account.account_balance += atm_balance
+				to_chat(usr, span_notice("You have deposited [atm_balance] dollars into your card. Your new balance is [current_card.registered_account.account_balance] dollars."))
 				atm_balance = 0
 				return TRUE
 
 			else
 				to_chat(usr, span_notice("The ATM is empty. Nothing to deposit."))
 				return TRUE
-/*
-/obj/machinery/vamp/atm/attack_hand(mob/user)
-	.=..()
-	ui_interact(user)
-
-/obj/machinery/vamp/atm/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/vamp/creditcard))
-		inserted_card = W
-		to_chat(user, span_notice("Card inserted into ATM."))
-		user.ui_interact(src)
-		return
-	else
-		return
-
-/obj/machinery/vamp/atm/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "Atm")
-		ui.open()
-
-/obj/machinery/vamp/atm/ui_data(mob/user)
-	var/list/data = list()
-//	data["balance"] = balance
-	data["atm_balance"] = atm_balance
-
-	return data
-
-/obj/machinery/vamp/atm/ui_act(action, params)
-	.=..()
-	if(.)
-		return
-
-	switch(action)
-		if("login")
-			var/input_code = input(usr, "Enter your code:", "ATM access")
-			if(input_code == inserted_card.account.code)
-				to_chat(usr, span_notice("Access granted."))
-				logged_in = TRUE
-			else
-				to_chat(usr, span_notice("Invalid PIN Code."))
-				logged_in = FALSE
-
-
-/obj/machinery/vamp/atm/attack_hand(mob/user)
-	.=..()
-	ui_interact(user)
-*/
