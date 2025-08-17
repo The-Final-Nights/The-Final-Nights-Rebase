@@ -405,7 +405,7 @@
 
 		card.update_label()
 		card.update_icon()
-		/* DARKPACK REMOVAL - ECONOMY
+		/* DARKPACK EDIT REMOVAL - ECONOMY
 		var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[equipped.account_id]"]
 
 		if(account && account.account_id == equipped.account_id)
