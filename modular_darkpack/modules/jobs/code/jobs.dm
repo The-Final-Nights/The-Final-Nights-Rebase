@@ -64,10 +64,9 @@
 		H = M
 	if(H)
 		for(var/obj/item/card/id/hunter/HUNT in H.contents)
-			if(HUNT)
-				if(H.mind)
-					if(H.mind.holy_role == HOLY_ROLE_PRIEST)
-						return
+			if(H.mind)
+				if(H.mind.holy_role == HOLY_ROLE_PRIEST)
+					return
 		if (HAS_TRAIT(H, TRAIT_REPELLED_BY_HOLINESS))
 			H.emote("scream")
 			H.pointed(user)

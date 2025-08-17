@@ -95,9 +95,10 @@
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/hit_person = target
-		if(hit_person.storyteller_roll(
-			dice = hit_person.trait_holder.get_stat(ST_TRAIT_STRENGTH) + min(hit_person.trait_holder.get_stat(ST_TRAIT_DEXTERITY), hit_person.trait_holder.get_stat(ST_TRAIT_ATHLETICS)),
-			difficulty = 3 + (!isnull(firer) ? rand(1,2) : 0)
+		if(SSroll.storyteller_roll(
+			dice = hit_person.st_get_stat(STAT_STRENGTH) + min(hit_person.st_get_stat(STAT_DEXTERITY) + hit_person.st_get_stat(STAT_ATHLETICS)),
+			difficulty = 3 + (!isnull(firer) ? rand(1,2) : 0),
+			mobs_to_show_output = target
 		) == ROLL_FAILURE)
 			hit_person.Knockdown(20)
 			to_chat(hit_person, span_danger("The force of a projectile sends you sprawling!"))
@@ -219,8 +220,7 @@
 	. = ..()
 	var/patroni = 0
 	for(var/obj/item/ammo_casing/vampire/V in src)
-		if(V)
-			patroni = max(0, patroni+1)
+		patroni = max(0, patroni+1)
 	if(patroni)
 		if(patroni > 1)
 			icon_state = "[base_caliber]-[patroni]"
@@ -231,8 +231,7 @@
 	. = ..()
 	var/patroni = 0
 	for(var/obj/item/ammo_casing/vampire/V in src)
-		if(V)
-			patroni = max(0, patroni+1)
+		patroni = max(0, patroni+1)
 	if(istype(I, /obj/item/ammo_casing/vampire))
 		var/obj/item/ammo_casing/vampire/V = I
 		if(patroni < max_patroni && V.base_iconstate = base_caliber)

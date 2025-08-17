@@ -205,12 +205,11 @@ Dancer
 
 	if(last_added_humanity+6000 < world.time)
 		for(var/obj/machinery/jukebox/J in range(7, owner))
-			if(J)
-				if(J.active)
-					if(ishuman(owner))
-						var/mob/living/carbon/human/human = owner
-						human.AdjustHumanity(1, 8)
-						last_added_humanity = world.time
+			if(J.active)
+				if(ishuman(owner))
+					var/mob/living/carbon/human/human = owner
+					human.AdjustHumanity(1, 8)
+					last_added_humanity = world.time
 
 /datum/quirk/dwarf
 	name = "Dwarf"

@@ -10,20 +10,18 @@
 /obj/item/mystic_tome/Initialize(mapload)
 	. = ..()
 	for(var/i in subtypesof(/obj/abyssrune))
-		if(i)
-			var/obj/abyssrune/R = new i(src)
-			rituals |= R
+		var/obj/abyssrune/R = new i(src)
+		rituals |= R
 
 /obj/item/mystic_tome/attack_self(mob/user)
 	. = ..()
 	for(var/obj/abyssrune/R in rituals)
-		if(R)
-			if(R.sacrifice)
-				var/obj/item/I = new R.sacrifice(src)
-				to_chat(user, "[R.mystlevel] [R.name] - [R.desc] Requirements: [I].")
-				qdel(I)
-			else
-				to_chat(user, "[R.mystlevel] [R.name] - [R.desc]")
+		if(R.sacrifice)
+			var/obj/item/I = new R.sacrifice(src)
+			to_chat(user, "[R.mystlevel] [R.name] - [R.desc] Requirements: [I].")
+			qdel(I)
+		else
+			to_chat(user, "[R.mystlevel] [R.name] - [R.desc]")
 
 /obj/abyssrune
 	name = "Lasombra Rune"
@@ -52,10 +50,9 @@
 			activator_bonus = L.thaum_damage_plus
 			if(sacrifice)
 				for(var/obj/item/I in get_turf(src))
-					if(I)
-						if(istype(I, sacrifice))
-							qdel(I)
-							complete()
+					if(istype(I, sacrifice))
+						qdel(I)
+						complete()
 			else
 				complete()
 
@@ -106,8 +103,7 @@
 
 /obj/abyssrune/identification/complete()
 	for(var/obj/item/vtm_artifact/VA in loc)
-		if(VA)
-			VA.identificate()
-			playsound(loc, 'sound/magic/voidblink.ogg', 50, FALSE)
-			qdel(src)
-			return
+		VA.identificate()
+		playsound(loc, 'sound/magic/voidblink.ogg', 50, FALSE)
+		qdel(src)
+		return

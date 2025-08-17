@@ -81,11 +81,10 @@
 	if(allowed_to_proceed)
 		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/necromancy.ogg', 75, FALSE)
 		for(var/mob/living/carbon/C in orange(5, owner))
-			if(C)
-				if(prob(25))
-					C.vomit()
-				C.dizziness += 10
-				C.add_confusion(10)
+			if(prob(25))
+				C.vomit()
+			C.dizziness += 10
+			C.add_confusion(10)
 
 /datum/action/gift/venom_claws
 	name = "Venom Claws"
@@ -134,8 +133,7 @@
 		owner.visible_message(span_danger("[owner.name] crackles with heat!"), span_danger("You crackle with heat, charging up your Gift!"))
 		if(do_after(owner, 3 SECONDS))
 			for(var/mob/living/L in orange(5, owner))
-				if(L)
-					L.adjustFireLoss(40)
+				L.adjustFireLoss(40)
 			for(var/turf/T in orange(4, get_turf(owner)))
 				var/obj/effect/fire/F = new(T)
 				spawn(5)
@@ -175,8 +173,7 @@
 			playsound(owner, 'sound/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
 			tesla_zap(owner, 3, 30, ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_ALLOW_DUPLICATES)
 			for(var/mob/living/L in orange(6, owner))
-				if(L)
-					L.electrocute_act(30, owner, siemens_coeff = 1, flags = NONE)
+				L.electrocute_act(30, owner, siemens_coeff = 1, flags = NONE)
 
 /datum/action/gift/elemental_improvement
 	name = "Elemental Improvement"

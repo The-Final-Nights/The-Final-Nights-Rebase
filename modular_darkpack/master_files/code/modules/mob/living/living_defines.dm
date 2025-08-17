@@ -90,6 +90,6 @@
 	///Aggravated damage caused by supernatural attacks.
 	var/aggloss = 0
 
-	var/datum/storyteller_traits/trait_holder
+	var/datum/storyteller_stats/storyteller_stat_holder
 	// TODO, replace with social/leadership
 	var/more_companions = 0
