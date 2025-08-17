@@ -44,27 +44,25 @@ SUBSYSTEM_DEF(masquerade)
 	if(last_level != shit_happens)
 		last_level = shit_happens
 		for(var/mob/living/carbon/human/H in GLOB.player_list)
-			if(H)
-				if(iskindred(H) || isghoul(H))
-					switch(last_level)
-						if("stable")
-							to_chat(H, "The night becomes clear. Nothing can threaten the Masquerade.")
-						if("slightly")
-							to_chat(H, "Something is going wrong here...")
-						if("moderate")
-							to_chat(H, "People start noticing...")
-						if("breach")
-							to_chat(H, "The Masquerade is about to fall...")
+			if(iskindred(H) || isghoul(H))
+				switch(last_level)
+					if("stable")
+						to_chat(H, "The night becomes clear. Nothing can threaten the Masquerade.")
+					if("slightly")
+						to_chat(H, "Something is going wrong here...")
+					if("moderate")
+						to_chat(H, "People start noticing...")
+					if("breach")
+						to_chat(H, "The Masquerade is about to fall...")
 
 	if(total_level <= 250)
 		for(var/mob/living/carbon/human/H in GLOB.player_list)
-			if(H)
-				if(iskindred(H))
-					if(!H.warrant && !H.ignores_warrant)
-						H.last_nonraid = world.time
-						H.warrant = TRUE
-						SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/humanity_loss.ogg', 0, 0, 75))
-						to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
+			if(iskindred(H))
+				if(!H.warrant && !H.ignores_warrant)
+					H.last_nonraid = world.time
+					H.warrant = TRUE
+					SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/humanity_loss.ogg', 0, 0, 75))
+					to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
 //Spotted body -25
 //Blood -5 for each
 //Masquerade violation -50

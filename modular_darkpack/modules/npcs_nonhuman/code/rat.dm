@@ -41,8 +41,7 @@
 		return
 	var/delete_me = TRUE
 	for(var/mob/living/carbon/human/H in viewers(5, src))
-		if(H)
-			delete_me = FALSE
+		delete_me = FALSE
 	if(delete_me)
 		death()
 

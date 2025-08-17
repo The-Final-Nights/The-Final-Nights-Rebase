@@ -54,7 +54,7 @@
 	if(!H.is_holding_item_of_type(/obj/item/vamp/keys/hack))
 		return
 	var/message //So the code isn't flooded with . +=, it's just a visual thing
-	var/difference = (H.trait_holder.get_stat(ST_TRAIT_LARCENY) * 2 + H.trait_holder.get_stat(ST_TRAIT_DEXTERITY)) - lockpick_difficulty //Lower number = higher difficulty
+	var/difference = (H.st_get_stat(STAT_LARCENY) * 2 + H.st_get_stat(STAT_DEXTERITY)) - lockpick_difficulty //Lower number = higher difficulty
 	switch(difference) //Because rand(1,20) always adds a minimum of 1 we take that into consideration for our theoretical roll ranges, which really makes it a random range of 19.
 		if(-INFINITY to -11) //Roll can never go above 10 (-11 + 20 = 9), impossible to lockpick.
 			message = span_warning("You don't have any chance of lockpicking this with your current skills!")
@@ -167,10 +167,9 @@
 		SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN)
 	else
 		for(var/mob/living/L in src.loc)
-			if(L)
-				playsound(src, lock_sound, 75, TRUE)
-				to_chat(user, span_warning("[L] is preventing you from closing [src]."))
-				return
+			playsound(src, lock_sound, 75, TRUE)
+			to_chat(user, span_warning("[L] is preventing you from closing [src]."))
+			return
 		playsound(src, close_sound, 75, TRUE)
 		icon_state = "[baseicon]-1"
 		density = TRUE
@@ -205,11 +204,10 @@
 			proc_unlock(5)
 			playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
 			for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
-				if(P)
-					P.Aggro(user)
-			var/total_lockpicking = user.trait_holder.get_stat(ST_TRAIT_LARCENY)
+				P.Aggro(user)
+			var/total_lockpicking = user.st_get_stat(STAT_LARCENY)
 			if(do_mob(user, src, (lockpick_timer - total_lockpicking * 2) SECONDS))
-				var/roll = rand(1, 20) + (total_lockpicking * 2 + user.trait_holder.get_stat(ST_TRAIT_DEXTERITY)) - lockpick_difficulty
+				var/roll = rand(1, 20) + (total_lockpicking * 2 + user.st_get_stat(STAT_DEXTERITY)) - lockpick_difficulty
 				if(roll <=1)
 					to_chat(user, span_warning("Your lockpick broke!"))
 					qdel(W)
