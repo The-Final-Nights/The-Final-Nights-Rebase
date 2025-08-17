@@ -11,29 +11,27 @@
 /obj/item/arcane_tome/Initialize(mapload)
 	. = ..()
 	for(var/i in subtypesof(/obj/ritualrune))
-		if(i)
-			var/obj/ritualrune/R = new i(src)
-			rituals |= R
+		var/obj/ritualrune/R = new i(src)
+		rituals |= R
 
 /obj/item/arcane_tome/attack_self(mob/user)
 	. = ..()
 	for(var/obj/ritualrune/R in rituals)
-		if(R)
-			if(R.sacrifices.len > 0)
-				var/list/required_items = list()
-				for(var/item_type in R.sacrifices)
-					var/obj/item/I = new item_type(src)
-					required_items += I.name
-					qdel(I)
-				var/required_list
-				if(required_items.len == 1)
-					required_list = required_items[1]
-				else
-					for(var/item_name in required_items)
-						required_list += (required_list == "" ? item_name : ", [item_name]")
-				to_chat(user, "[R.thaumlevel] [R.name] - [R.desc] Requirements: [required_list].")
+		if(R.sacrifices.len > 0)
+			var/list/required_items = list()
+			for(var/item_type in R.sacrifices)
+				var/obj/item/I = new item_type(src)
+				required_items += I.name
+				qdel(I)
+			var/required_list
+			if(required_items.len == 1)
+				required_list = required_items[1]
 			else
-				to_chat(user, "[R.thaumlevel] [R.name] - [R.desc]")
+				for(var/item_name in required_items)
+					required_list += (required_list == "" ? item_name : ", [item_name]")
+			to_chat(user, "[R.thaumlevel] [R.name] - [R.desc] Requirements: [required_list].")
+		else
+			to_chat(user, "[R.thaumlevel] [R.name] - [R.desc]")
 
 /obj/ritualrune
 	name = "Tremere Rune"
@@ -76,8 +74,7 @@
 
 				if(found_items.len == sacrifices.len)
 					for(var/obj/item/I in found_items)
-						if(I)
-							qdel(I)
+						qdel(I)
 					complete()
 				else
 					to_chat(user, "You lack the necessary sacrifices to complete the ritual. Found [found_items.len], required [sacrifices.len].")
@@ -187,11 +184,10 @@
 
 /obj/ritualrune/identification/complete()
 	for(var/obj/item/vtm_artifact/VA in loc)
-		if(VA)
-			VA.identificate()
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
-			qdel(src)
-			return
+		VA.identificate()
+		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
+		qdel(src)
+		return
 
 /obj/ritualrune/question
 	name = "Question to Ancestors Rune"
@@ -339,8 +335,7 @@
 
 /obj/ritualrune/blood_to_water/complete()
 	for(var/atom/A in range(7, src))
-		if(A)
-			A.wash(CLEAN_WASH)
+		A.wash(CLEAN_WASH)
 	qdel(src)
 
 /obj/ritualrune/gargoyle
@@ -352,35 +347,33 @@
 
 /obj/ritualrune/gargoyle/complete()
 	for(var/mob/living/carbon/human/H in loc)
-		if(H)
-			if(H.stat > SOFT_CRIT)
-				for(var/datum/action/A in H.actions)
-					if(A)
-						if(A.vampiric)
-							A.Remove(H)
-				H.revive(TRUE)
-				H.set_species(/datum/species/human/kindred)
-				H.set_clan(/datum/vampire_clan/gargoyle)
-				H.forceMove(get_turf(src))
-				H.create_disciplines(FALSE, H.clan.clan_disciplines)
-				if(!H.key)
-					var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you wish to play as Sentient Gargoyle?", null, null, null, 50, src)
-					for(var/mob/dead/observer/G in GLOB.player_list)
-						if(G.key)
-							to_chat(G, span_ghostalert("Gargoyle Transformation rune has been triggered."))
-					if(LAZYLEN(candidates))
-						var/mob/dead/observer/C = pick(candidates)
-						H.key = C.key
-//					Y.key = C.key
-//					Y.my_creator = last_activator
-				playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
-				qdel(src)
-				return
-			else
-				playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
-				H.adjustBruteLoss(25)
-				H.emote("scream")
-				return
+		if(H.stat > SOFT_CRIT)
+			for(var/datum/action/A in H.actions)
+				if(A.vampiric)
+					A.Remove(H)
+			H.revive(TRUE)
+			H.set_species(/datum/species/human/kindred)
+			H.set_clan(/datum/vampire_clan/gargoyle)
+			H.forceMove(get_turf(src))
+			H.create_disciplines(FALSE, H.clan.clan_disciplines)
+			if(!H.key)
+				var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you wish to play as Sentient Gargoyle?", null, null, null, 50, src)
+				for(var/mob/dead/observer/G in GLOB.player_list)
+					if(G.key)
+						to_chat(G, span_ghostalert("Gargoyle Transformation rune has been triggered."))
+				if(LAZYLEN(candidates))
+					var/mob/dead/observer/C = pick(candidates)
+					H.key = C.key
+//				Y.key = C.key
+//				Y.my_creator = last_activator
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
+			qdel(src)
+			return
+		else
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
+			H.adjustBruteLoss(25)
+			H.emote("scream")
+			return
 
 //Deflection of the Wooden Doom ritual
 //Protects you from being staked for a single hit. Is it useful? Marginally. But it is a level 1 rite.
@@ -394,10 +387,9 @@
 
 /obj/ritualrune/deflection_stake/complete()
 	for(var/mob/living/carbon/human/H in loc)
-		if(H)
-			if(!HAS_TRAIT(H, TRAIT_STAKE_RESISTANT))
-				ADD_TRAIT(H, TRAIT_STAKE_RESISTANT, MAGIC_TRAIT)
-				qdel(src)
+		if(!HAS_TRAIT(H, TRAIT_STAKE_RESISTANT))
+			ADD_TRAIT(H, TRAIT_STAKE_RESISTANT, MAGIC_TRAIT)
+			qdel(src)
 		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 		color = rgb(255,0,0)
 		activated = TRUE
@@ -411,21 +403,19 @@
 
 /obj/ritualrune/bloodwalk/attack_hand(mob/user)
 	for(var/obj/item/reagent_containers/syringe/S in loc)
-		if(S)
-			for(var/datum/reagent/blood/B in S.reagents.reagent_list)
-				if(B)
-					if(B.type == /datum/reagent/blood)
-						var/blood_data = B.data
-						if(blood_data)
-							var/generation = blood_data["generation"]
-							var/clan = blood_data["clan"]
+		for(var/datum/reagent/blood/B in S.reagents.reagent_list)
+			if(B.type == /datum/reagent/blood)
+				var/blood_data = B.data
+				if(blood_data)
+					var/generation = blood_data["generation"]
+					var/clan = blood_data["clan"]
 
-							var/message = generate_message(generation, clan)
-							to_chat(user, "[message]")
-						else
-							to_chat(user, "The blood speaks not-it is empty of power!")
-					else
-						to_chat(user, "This reagent is lifeless, unworthy of the ritual!")
+					var/message = generate_message(generation, clan)
+					to_chat(user, "[message]")
+				else
+					to_chat(user, "The blood speaks not-it is empty of power!")
+			else
+				to_chat(user, "This reagent is lifeless, unworthy of the ritual!")
 		playsound(loc, 'modular_darkpack/modules/deprecated/sounds/thaum.ogg', 50, FALSE)
 		color = rgb(255,0,0)
 		activated = TRUE

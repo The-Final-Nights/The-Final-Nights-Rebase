@@ -1,8 +1,9 @@
 https://github.com/DarkPack13/SecondCity/pull/38
+https://github.com/DarkPack13/SecondCity/pull/58
 
-## Storyteller traits
+## Storyteller stats
 
-Module ID: STORYTELLER_TRAITS <!-- Uppercase, UNDERSCORE_CONNECTED name of your module, that you use to mark files. This is so people can case-sensitive search for your edits, if any. -->
+Module ID: STORYTELLER_STATS <!-- Uppercase, UNDERSCORE_CONNECTED name of your module, that you use to mark files. This is so people can case-sensitive search for your edits, if any. -->
 
 ### Description:
 
@@ -21,17 +22,17 @@ E.g:
 
 ### Modular Overrides:
 
-- [modular_darkpack/master_files/code/modules/mob/living/living_defines.dm](/modular_darkpack/master_files/code/modules/mob/living/living_defines.dm): `var/datum/storyteller_traits/trait_holder`
-- [modular_darkpack/master_files/code/modules/mob/living/living.dm](/modular_darkpack/master_files/code/modules/mob/living/living.dm): `trait_holder = new()`
+- [modular_darkpack/master_files/code/modules/mob/living/living_defines.dm](/modular_darkpack/master_files/code/modules/mob/living/living_defines.dm): `var/datum/storyteller_stats/storyteller_stat_holder`
+- [modular_darkpack/master_files/code/modules/mob/living/living.dm](/modular_darkpack/master_files/code/modules/mob/living/living.dm): `storyteller_stat_holder = new()`
 
 ### Defines:
 
-- [code/\_\_DEFINES/~darkpack/storyteller_traits.dm](/code/__DEFINES/~darkpack/storyteller_traits.dm):
-	- `ST_TRAIT_###` Im not going to list all of them, but one for every trait following this format.
+- [code/\_\_DEFINES/~darkpack/storyteller_stats.dm](/code/__DEFINES/~darkpack/storyteller_stats.dm):
+	- `STAT_###` Im not going to list all of them, but one for every trait following this format.
 
 ### Included files that are not contained in this module:
 
-- [code/__DEFINES/~darkpack/storyteller_traits.dm](code/__DEFINES/~darkpack/storyteller_traits.dm)
+- [code/__DEFINES/~darkpack/storyteller_stats.dm](code/__DEFINES/~darkpack/storyteller_stats.dm)
 <!-- Likewise, be it a non-modular file or a modular one that's not contained within the folder belonging to this specific module, it should be mentioned here. Good examples are icons or sounds that are used between multiple modules, or other such edge-cases. -->
 
 ### Credits:

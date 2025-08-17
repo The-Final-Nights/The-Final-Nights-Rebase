@@ -51,9 +51,9 @@
 	old_armor = human_owner.physiology.armor
 	human_owner.physiology.armor = old_armor.generate_new_with_modifiers(list(MELEE = 15, BULLET = 15))
 
-	human_owner.trait_holder.set_buff(2, ST_TRAIT_STRENGTH, "blood_power")
-	human_owner.trait_holder.set_buff(2, ST_TRAIT_DEXTERITY, "blood_power")
-	human_owner.trait_holder.set_buff(2, ST_TRAIT_STAMINA, "blood_power")
+	human_owner.st_add_stat_mod(STAT_STRENGTH, 2, "blood_power")
+	human_owner.st_add_stat_mod(STAT_DEXTERITY, 2, "blood_power")
+	human_owner.st_add_stat_mod(STAT_STAMINA, 2, "blood_power")
 
 	var/cost = HAS_TRAIT(owner, TRAIT_HUNGRY) ? 3 : 2
 	human_owner.bloodpool = max(0, human_owner.bloodpool - cost)
@@ -78,8 +78,8 @@
 
 	human_owner.physiology.armor = old_armor
 
-	human_owner.trait_holder.remove_buff(ST_TRAIT_STRENGTH, "blood_power")
-	human_owner.trait_holder.remove_buff(ST_TRAIT_DEXTERITY, "blood_power")
-	human_owner.trait_holder.remove_buff(ST_TRAIT_STAMINA, "blood_power")
+	human_owner.st_remove_stat_mod(STAT_STRENGTH, "blood_power")
+	human_owner.st_remove_stat_mod(STAT_DEXTERITY, "blood_power")
+	human_owner.st_remove_stat_mod(STAT_STAMINA, "blood_power")
 
 	REMOVE_TRAIT(human_owner, TRAIT_IGNORESLOWDOWN, MAGIC_TRAIT)

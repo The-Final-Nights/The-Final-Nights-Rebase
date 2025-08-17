@@ -32,13 +32,12 @@
 		total_list |= item
 	to_chat(owner, span_purple("Your fae senses reach out to detect what they're carrying..."))
 	for(var/obj/item/item in total_list)
-		if(item)
-			if(item.is_magic)
-				to_chat(owner, "- [span_nicegreen("[item.name]")]")
-			else if(item.is_iron)
-				to_chat(owner, "- [span_danger("[item.name]")]")
-			else
-				to_chat(owner, "- [item.name]")
+		if(item.is_magic)
+			to_chat(owner, "- [span_nicegreen("[item.name]")]")
+		else if(item.is_iron)
+			to_chat(owner, "- [span_danger("[item.name]")]")
+		else
+			to_chat(owner, "- [item.name]")
 
 //DARKLING TRICKERY
 /datum/discipline_power/mytherceria/darkling_trickery
@@ -230,8 +229,7 @@
 		if(AM != owner)
 			var/mob/living/carbon/L = AM
 			for(var/obj/item/I in L.get_equipped_items(include_pockets = TRUE))
-				if(I)
-					L.dropItemToGround(I, TRUE)
+				L.dropItemToGround(I, TRUE)
 			qdel(src)
 
 //CHANJELIN WARD
@@ -306,9 +304,8 @@
 				return
 			var/datum/riddle/actual_riddle
 			for(var/datum/riddle/RIDDLE in stored_riddles)
-				if(RIDDLE)
-					if(RIDDLE.riddle_text == try_riddle)
-						actual_riddle = RIDDLE
+				if(RIDDLE.riddle_text == try_riddle)
+					actual_riddle = RIDDLE
 			target.add_movespeed_modifier(/datum/movespeed_modifier/riddle)
 			actual_riddle.ask(target)
 			owner.say(actual_riddle.riddle_text)

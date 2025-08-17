@@ -18,7 +18,6 @@
 	H.set_species(/datum/species/human)
 	H.set_clan(null)
 	H.generation = 13
-	H.update_max_health()
 	var/my_name = "Tyler"
 	if(H.gender == MALE)
 		my_name = pick(GLOB.first_names_male)
