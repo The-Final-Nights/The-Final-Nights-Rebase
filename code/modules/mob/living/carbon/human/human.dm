@@ -221,7 +221,7 @@
 							span = "userdanger"
 						if(burndamage)
 							to_chat(human_user, "<span class='[span]'>[BP] appears to have [status]</span>")
-				// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+				// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 				if(getAggLoss())
 					to_chat(human_user, "<b>Grievous trauma analysis:</b>")
 					for(var/X in bodyparts)
@@ -238,7 +238,7 @@
 							span = "userdanger"
 						if(aggravateddamage)
 							to_chat(human_user, "<span class='[span]'>[BP] appears to have [status]</span>")
-				// DARKPACK EDIT ADDITION END
+				// DARKPACK EDIT ADD END
 				if(getOxyLoss())
 					to_chat(human_user, span_danger("Patient has signs of suffocation, emergency treatment may be required!"))
 				if(getToxLoss() > 20)

@@ -107,11 +107,11 @@
 	message_animal_or_basic = initial(message_animal_or_basic)
 	if(!user.can_speak() || user.getOxyLoss() >= 50)
 		return //stop the sound if oxyloss too high/cant speak
-	// DARKPACK EDIT ADDITION START - Torpor
+	// DARKPACK EDIT ADD START - Torpor
 	// Prevent mobs in a deathcoma from revealing they actually died
 	if (HAS_TRAIT(user, TRAIT_DEATHCOMA))
 		return
-	// DARKPACK EDIT ADDITION END - Torpor
+	// DARKPACK EDIT ADD END - Torpor
 	var/mob/living/carbon/carbon_user = user
 	// For masks that give unique death sounds
 	if(istype(carbon_user) && isclothing(carbon_user.wear_mask) && carbon_user.wear_mask.unique_death)

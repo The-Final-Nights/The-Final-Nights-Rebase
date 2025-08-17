@@ -262,7 +262,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 // We need parallax to always pass its args down into initialize, so we immediate init it
 INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer
-	icon = 'modular_darkpack/master_files/icons/effects/parallax.dmi' // DARKPACK EDIT CHANGE, ORIGINAL: icon = 'icons/effects/parallax.dmi'
+	icon = 'modular_darkpack/master_files/icons/effects/parallax.dmi' // DARKPACK EDIT CHANGE - ORIGINAL: icon = 'icons/effects/parallax.dmi'
 	var/speed = 1
 	var/offset_x = 0
 	var/offset_y = 0
