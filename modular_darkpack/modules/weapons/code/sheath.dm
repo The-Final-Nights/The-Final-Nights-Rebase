@@ -1,10 +1,10 @@
 /obj/item/storage/belt/sheath/vamp
 	icon_state = "longsword_sheathe-full"
 	worn_icon_state = "longsword_sheathe"
-	inhand_icon_state = "longsword_sheathe"
+	//inhand_icon_state = "longsword_sheathe"
 	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	//lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	//righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
@@ -13,7 +13,7 @@
 	icon_state = "sabre_sheathe-full"
 	base_icon_state = "sabre_sheathe"
 	worn_icon_state = "sabre_sheathe"
-	inhand_icon_state = "sabre_sheathe"
+	//inhand_icon_state = "sabre_sheathe"
 	storage_type = /datum/storage/sabre_belt_vamp
 	stored_blade = /obj/item/melee/sabre/vamp
 
@@ -22,7 +22,7 @@
 	icon_state = "rapier_sheathe-full"
 	base_icon_state = "rapier_sheathe"
 	worn_icon_state = "rapier_sheathe"
-	inhand_icon_state = "rapier_sheathe"
+	//inhand_icon_state = "rapier_sheathe"
 	storage_type = /datum/storage/rapier_belt_vamp
 	stored_blade = /obj/item/melee/sabre/rapier
 
@@ -31,7 +31,7 @@
 	icon_state = "longsword_sheathe-full"
 	base_icon_state = "longsword_sheathe"
 	worn_icon_state = "longsword_sheathe"
-	inhand_icon_state = "longsword_sheathe"
+	//inhand_icon_state = "longsword_sheathe"
 	storage_type = /datum/storage/sword_belt_vamp
 	stored_blade = /obj/item/claymore/longsword
 
