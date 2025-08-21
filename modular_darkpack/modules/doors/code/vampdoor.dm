@@ -1,3 +1,4 @@
+#define DOAFTER_SOURCE_LOCKPICKING "doafter_lockpicking"
 /obj/structure/vampdoor
 	name = "\improper door"
 	desc = "It opens and closes."
@@ -126,7 +127,7 @@
 	playsound(src, open_sound, 75, TRUE)
 	icon_state = "[base_icon_state]-0"
 	set_density(FALSE)
-	opacity = FALSE
+	set_opacity(FALSE)
 	layer = OPEN_DOOR_LAYER
 	to_chat(user, span_notice("You open [src]."))
 	closed = FALSE
@@ -143,7 +144,7 @@
 	icon_state = "[base_icon_state]-1"
 	set_density(TRUE)
 	if(!glass)
-		opacity = TRUE
+		set_opacity(TRUE)
 	layer = ABOVE_ALL_MOB_LAYER
 	to_chat(user, span_notice("You close [src]."))
 	closed = TRUE
@@ -202,12 +203,12 @@
 			to_chat(user,span_warning("Someone else seems to be using this door already."))
 			return
 		playsound(src, 'sound/items/tools/ratchet.ogg', 50)
-		hacking = 1
+		hacking = TRUE
 		if(do_after(user, 10 SECONDS,src))
 			playsound(src, 'sound/items/deconstruct.ogg', 50)
 			fix_door()
 			qdel(repair_kit)
-		hacking = 0
+		hacking = FALSE
 	if(istype(W, /obj/item/vamp/keys/hack))
 		if(door_broken)
 			to_chat(user,span_warning("There is no door to pick here."))
@@ -219,28 +220,25 @@
 			for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
 				P.Aggro(user)
 			var/total_lockpicking = user.st_get_stat(STAT_LARCENY)
-			if(do_after(user, (lockpick_timer - total_lockpicking * 2) SECONDS, src))
-				var/roll = rand(1, 20) + (total_lockpicking + user.st_get_stat(STAT_DEXTERITY)) - lockpick_difficulty
-				if(roll <=1)
-					to_chat(user, span_warning("Your lockpick broke!"))
-					qdel(W)
-					hacking = FALSE
-				if(roll >=10)
-					to_chat(user, span_notice("You pick the lock."))
-					locked = FALSE
-					hacking = FALSE
-					return
-
-				else
-					to_chat(user, span_warning("You failed to pick the lock."))
-					hacking = FALSE
-					return
+			if(do_after(user, (lockpick_timer - total_lockpicking * 2) SECONDS, src, interaction_key = DOAFTER_SOURCE_LOCKPICKING))
+				var/roll_result = SSroll.storyteller_roll(total_lockpicking + user.st_get_stat(STAT_DEXTERITY), lockpick_difficulty, list(user), user)
+				switch(roll_result)
+					if(ROLL_SUCCESS)
+						to_chat(user, span_notice("You pick the lock."))
+						locked = FALSE
+					if(ROLL_FAILURE)
+						to_chat(user, span_warning("You failed to pick the lock."))
+					if(ROLL_BOTCH)
+						to_chat(user, span_warning("Your lockpick broke!"))
+						qdel(W)
+				hacking = FALSE
+				return
 			else
 				to_chat(user, span_warning("You failed to pick the lock."))
 				hacking = FALSE
 				return
 		else
-			if (closed && lock_id) //yes, this is a thing you can extremely easily do in real life... FOR DOORS WITH LOCKS!
+			if(closed && lock_id) //yes, this is a thing you can extremely easily do in real life... FOR DOORS WITH LOCKS!
 				to_chat(user, span_notice("You re-lock the door with your lockpick."))
 				locked = TRUE
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
@@ -265,3 +263,5 @@
 						to_chat(user, "[src] is now unlocked.")
 						proc_unlock("key")
 						locked = FALSE
+
+#undef DOAFTER_SOURCE_LOCKPICKING
