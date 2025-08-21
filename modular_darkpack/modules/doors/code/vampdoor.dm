@@ -4,15 +4,21 @@
 	desc = "It opens and closes."
 	icon = 'modular_darkpack/modules/deprecated/icons/doors.dmi'
 	icon_state = "door-1"
+	base_icon_state = "door"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	pixel_w = -16
+
 	anchored = TRUE
 	density = TRUE
 	opacity = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	pass_flags_self = PASSDOORS
 
-	base_icon_state = "door"
+	max_integrity = 350
+	integrity_failure = 0.5
+	armor_type = /datum/armor/machinery_door
+	receive_ricochet_chance_mod = 0.8
+	damage_deflection = 10
 
 	var/closed = TRUE
 	var/locked = FALSE
@@ -91,6 +97,11 @@
 
 /obj/structure/vampdoor/proc/proc_unlock(method) //I am here so that dwelling doors can call me to properly process their alarms.
 	return
+
+/obj/structure/vampdoor/atom_break(damage_flag)
+	. = ..()
+	if(!door_broken)
+		break_door()
 
 /obj/structure/vampdoor/proc/break_door()
 	name = "door frame"
@@ -263,5 +274,7 @@
 						to_chat(user, "[src] is now unlocked.")
 						proc_unlock("key")
 						locked = FALSE
+	else
+		return ..()
 
 #undef DOAFTER_SOURCE_LOCKPICKING
