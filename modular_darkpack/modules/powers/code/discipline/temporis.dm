@@ -130,7 +130,7 @@
 /obj/effect/temporis
 	name = "Za Warudo"
 	desc = "..."
-	anchored = 1
+	anchored = TRUE
 
 /obj/effect/temporis/Initialize(mapload)
 	. = ..()

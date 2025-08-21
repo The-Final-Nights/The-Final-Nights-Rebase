@@ -86,7 +86,7 @@
 		return
 	is_broken = TRUE
 	icon_state = "[brokenicon]-1"
-	density = FALSE
+	set_density(FALSE)
 	opacity = FALSE
 	layer = OPEN_DOOR_LAYER
 	visible_message("<span class='warning' style='color:red; font-size:20px;'><b>[src] breaks!</b></span>")
@@ -96,7 +96,7 @@
 	door_moving = TRUE
 	if(do_after(user, 4 SECONDS))
 		icon_state = "[base_icon_state]-0"
-		density = FALSE
+		set_density(FALSE)
 		opacity = FALSE
 		layer = OPEN_DOOR_LAYER
 		to_chat(user, span_notice("You open [src]."))
@@ -112,7 +112,7 @@
 	door_moving = TRUE
 	if(do_after(user, 4 SECONDS))
 		icon_state = "[base_icon_state]-1"
-		density = TRUE
+		set_density(TRUE)
 		layer = ABOVE_ALL_MOB_LAYER
 		to_chat(user, span_notice("You close [src]."))
 		closed = TRUE

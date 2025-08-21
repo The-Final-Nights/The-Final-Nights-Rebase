@@ -95,7 +95,7 @@
 	name = "door frame"
 	desc = "An empty door frame. Someone removed the door by force. A special door repair kit should be able to fix this."
 	door_broken = TRUE
-	density = FALSE
+	set_density(FALSE)
 	opacity = 0
 	layer = OPEN_DOOR_LAYER
 	closed = FALSE
@@ -107,7 +107,7 @@
 	name = initial(name)
 	desc = initial(desc)
 	door_broken = FALSE
-	density = TRUE
+	set_density(TRUE)
 	if(!glass)
 		opacity = 1
 	layer = ABOVE_ALL_MOB_LAYER
@@ -125,7 +125,7 @@
 /obj/structure/vampdoor/proc/open_door(mob/user)
 	playsound(src, open_sound, 75, TRUE)
 	icon_state = "[base_icon_state]-0"
-	density = FALSE
+	set_density(FALSE)
 	opacity = FALSE
 	layer = OPEN_DOOR_LAYER
 	to_chat(user, span_notice("You open [src]."))
@@ -141,12 +141,13 @@
 		//Mabye add an else here that throws people out of the way of the door
 	playsound(src, close_sound, 75, TRUE)
 	icon_state = "[base_icon_state]-1"
-	density = TRUE
+	set_density(TRUE)
 	if(!glass)
 		opacity = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 	to_chat(user, span_notice("You close [src]."))
 	closed = TRUE
+	SEND_SIGNAL(src, COMSIG_AIRLOCK_CLOSE, force)
 
 /obj/structure/vampdoor/attack_hand(mob/user)
 	. = ..()

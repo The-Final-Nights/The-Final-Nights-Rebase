@@ -1431,7 +1431,7 @@
 			if(length(available_turfs))
 				var/turf/to_move = pick(available_turfs)
 				var/atom/movable/visual1 = new (get_turf(caster))
-				visual1.density = FALSE
+				visual1.set_density(FALSE)
 				visual1.anchored = TRUE
 				visual1.layer = ABOVE_ALL_MOB_LAYER
 				visual1.icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
@@ -1439,7 +1439,7 @@
 				playsound(get_turf(caster), 'sound/effects/smoke.ogg', 50, TRUE)
 				caster.forceMove(to_move)
 				var/atom/movable/visual2 = new (to_move)
-				visual2.density = FALSE
+				visual2.set_density(FALSE)
 				visual1.anchored = TRUE
 				visual2.layer = ABOVE_ALL_MOB_LAYER
 				visual2.icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
@@ -1449,19 +1449,19 @@
 					qdel(visual2)
 		if(3)
 			var/atom/movable/visual1 = new (get_step(caster, caster.dir))
-			visual1.density = TRUE
+			visual1.set_density(TRUE)
 			visual1.anchored = TRUE
 			visual1.layer = ABOVE_ALL_MOB_LAYER
 			visual1.icon = 'icons/effects/effects.dmi'
 			visual1.icon_state = "smoke"
 			var/atom/movable/visual2 = new (get_step(get_step(caster, caster.dir), turn(caster.dir, 90)))
-			visual2.density = TRUE
+			visual2.set_density(TRUE)
 			visual2.anchored = TRUE
 			visual2.layer = ABOVE_ALL_MOB_LAYER
 			visual2.icon = 'icons/effects/effects.dmi'
 			visual2.icon_state = "smoke"
 			var/atom/movable/visual3 = new (get_step(get_step(caster, caster.dir), turn(caster.dir, -90)))
-			visual3.density = TRUE
+			visual3.set_density(TRUE)
 			visual3.anchored = TRUE
 			visual3.layer = ABOVE_ALL_MOB_LAYER
 			visual3.icon = 'icons/effects/effects.dmi'
@@ -1852,28 +1852,28 @@
 						affected_mob.remove_movespeed_modifier(/datum/movespeed_modifier/pacifisting)
 		if(5)
 			var/atom/movable/visual1 = new (get_step(caster, caster.dir))
-			visual1.density = TRUE
+			visual1.set_density(TRUE)
 			visual1.anchored = TRUE
 			visual1.layer = ABOVE_ALL_MOB_LAYER
 			visual1.icon = 'icons/effects/effects.dmi'
 			visual1.icon_state = "static_base"
 			visual1.alpha = 128
 			var/atom/movable/visual2 = new (get_step(caster, turn(caster.dir, 90)))
-			visual2.density = TRUE
+			visual2.set_density(TRUE)
 			visual2.anchored = TRUE
 			visual2.layer = ABOVE_ALL_MOB_LAYER
 			visual2.icon = 'icons/effects/effects.dmi'
 			visual2.icon_state = "static_base"
 			visual2.alpha = 128
 			var/atom/movable/visual3 = new (get_step(caster, turn(caster.dir, -90)))
-			visual3.density = TRUE
+			visual3.set_density(TRUE)
 			visual3.anchored = TRUE
 			visual3.layer = ABOVE_ALL_MOB_LAYER
 			visual3.icon = 'icons/effects/effects.dmi'
 			visual3.icon_state = "static_base"
 			visual3.alpha = 128
 			var/atom/movable/visual4 = new (get_step(caster, turn(caster.dir, 180)))
-			visual4.density = TRUE
+			visual4.set_density(TRUE)
 			visual4.anchored = TRUE
 			visual4.layer = ABOVE_ALL_MOB_LAYER
 			visual4.icon = 'icons/effects/effects.dmi'
