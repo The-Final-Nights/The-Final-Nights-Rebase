@@ -84,6 +84,7 @@ h1.alert, h2.alert		{color: #000000;}
 .green					{color: #03ff39;}
 .grey					{color: #838383;}
 .nicegreen				{color: #14a833;}
+.userlove				{color: #FF1493;	font-style: italic; font-weight: bold;	text-shadow: 0 0 6px #ff6dbc;}
 .boldnicegreen			{color: #14a833;	font-weight: bold;}
 .tinynicegreen			{color: #14a833; font-size: 85%;}
 .cult					{color: #973e3b;}
