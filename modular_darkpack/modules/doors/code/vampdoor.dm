@@ -52,7 +52,7 @@
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.is_holding_item_of_type(/obj/item/vamp/keys/hack))
+	if(!H.is_holding_item_of_type(/obj/item/vamp/lockpick))
 		return
 	var/message //So the code isn't flooded with . +=, it's just a visual thing
 	var/difference = (H.st_get_stat(STAT_LARCENY) + H.st_get_stat(STAT_DEXTERITY)) - lockpick_difficulty //Lower number = higher difficulty
@@ -209,7 +209,7 @@
 			fix_door()
 			qdel(repair_kit)
 		hacking = FALSE
-	if(istype(W, /obj/item/vamp/keys/hack))
+	else if(istype(W, /obj/item/vamp/lockpick))
 		if(door_broken)
 			to_chat(user,span_warning("There is no door to pick here."))
 			return

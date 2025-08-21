@@ -196,7 +196,7 @@ SUBSYSTEM_DEF(carpool)
 		return
 	if(istype(I, /obj/item/vamp/keys))
 		var/obj/item/vamp/keys/K = I
-		if(istype(I, /obj/item/vamp/keys/hack))
+		if(istype(I, /obj/item/vamp/lockpick))
 			if(!repairing)
 				repairing = TRUE
 				if(do_mob(user, src, 20 SECONDS))

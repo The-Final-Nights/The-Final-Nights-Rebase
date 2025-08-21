@@ -356,7 +356,7 @@
 			restart_alarm()
 
 /obj/structure/vtm/dwelling_alarm/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/vamp/keys/hack))
+	if(istype(I, /obj/item/vamp/lockpick))
 		if(area_reference.alarm_disabled == 1)
 			to_chat(user, span_warning("The alarm is disabled and nothing seems to be able to change that."))
 			return
