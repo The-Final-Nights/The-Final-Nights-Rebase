@@ -146,13 +146,12 @@
 		if(V.lockpick_difficulty <= 10)
 			forceMove(get_turf(V))
 	for(var/obj/effect/decal/cleanable/blood/B in range(1, NewLoc))
-		if(B)
-			if(B.bloodiness)
-				collected_blood = collected_blood+1
-				to_chat(src, "You sense blood entering your mass...")
-				var/turf/T = get_turf(B)
-				if(T)
-					T.wash(CLEAN_WASH)
+		if(B.bloodiness)
+			collected_blood = collected_blood+1
+			to_chat(src, "You sense blood entering your mass...")
+			var/turf/T = get_turf(B)
+			if(T)
+				T.wash(CLEAN_WASH)
 
 /obj/effect/decal/gut_floor/Initialize(mapload)
 	. = ..()

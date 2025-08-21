@@ -5,7 +5,6 @@
 	requires_power = FALSE
 	default_gravity = STANDARD_GRAVITY
 	wall_rating = VERY_HIGH_WALL_RATING
-	var/upper = TRUE
 	var/zone_type = ZONE_MASQUERADE
 
 /area/vtm/powered(chan)

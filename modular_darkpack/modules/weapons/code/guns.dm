@@ -841,11 +841,10 @@
 			log_combat(user, target, "flamethrowered", src)
 			call_dharma("grief", user)
 			for(var/turf/open/floor/F in turflist)
-				if(F)
-					if(F != user.loc)
-						if(oil)
-							new /obj/effect/decal/cleanable/gasoline(F)
-							oil = max(0, oil-10)
-							if(oil == 0)
-								icon_state = "flamethrower1"
-						new /obj/effect/fire(F)
+				if(F != user.loc)
+					if(oil)
+						new /obj/effect/decal/cleanable/gasoline(F)
+						oil = max(0, oil-10)
+						if(oil == 0)
+							icon_state = "flamethrower1"
+					new /obj/effect/fire(F)

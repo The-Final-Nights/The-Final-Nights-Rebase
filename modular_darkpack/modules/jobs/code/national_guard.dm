@@ -24,7 +24,6 @@
 	H.set_clan(null)
 	H.generation = 13
 	H.ignores_warrant = TRUE
-	H.update_max_health()
 
 	for(var/datum/action/A in H.actions)
 		if(A.vampiric)
