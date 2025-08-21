@@ -133,8 +133,8 @@
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN)
 
 /obj/structure/vampdoor/proc/close_door(mob/user, force)
-	for(var/mob/living/L in src.loc)
-		if(!force)
+	if(!force)
+		for(var/mob/living/L in src.loc)
 			playsound(src, lock_sound, 75, TRUE)
 			to_chat(user, span_warning("[L] is preventing you from closing [src]."))
 			return
