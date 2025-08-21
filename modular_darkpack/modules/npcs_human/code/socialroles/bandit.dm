@@ -86,7 +86,7 @@
 	pockets = list(
 		/obj/item/stack/dollar/rand,
 		// TODO: [Lucia] reimplement doors
-		// /obj/item/vamp/lockpick
+		// /obj/item/vamp/keys/hack
 	)
 
 	//[Lucia] - this has been edited to have better English because it included slurs, but none of the others have yet

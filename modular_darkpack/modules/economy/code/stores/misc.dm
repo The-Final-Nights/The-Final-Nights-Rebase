@@ -6,7 +6,7 @@
 		new /datum/data/mining_equipment("Weed Seed", /obj/item/weedseed, 20),
 		new /datum/data/mining_equipment("cannabis puff",		/obj/item/clothing/mask/cigarette/rollie/cannabis,	40),
 		new /datum/data/mining_equipment("bong",	/obj/item/bong,		50),
-		new /datum/data/mining_equipment("lockpick",	/obj/item/vamp/lockpick, 50),
+		new /datum/data/mining_equipment("lockpick",	/obj/item/vamp/keys/hack, 50),
 		new /datum/data/mining_equipment("LSD pill bottle",		/obj/item/storage/pill_bottle/lsd,	50),
 		new /datum/data/mining_equipment("knife",	/obj/item/melee/vampirearms/knife,	85),
 		new /datum/data/mining_equipment("switchblade",	/obj/item/melee/vampirearms/knife/switchblade, 85),

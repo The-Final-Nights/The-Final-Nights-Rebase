@@ -80,7 +80,7 @@
 						/obj/item/melee/vampirearms/tire,
 						/datum/supply_pack/vampire/bloodpack,
 						/obj/item/gun/ballistic/vampire/revolver,
-						/obj/item/vamp/lockpick)
+						/obj/item/vamp/keys/hack)
 		new IT(user.loc)
 		new /obj/item/mark(user.loc)
 		qdel(src)

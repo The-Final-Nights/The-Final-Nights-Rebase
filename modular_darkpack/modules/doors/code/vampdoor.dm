@@ -20,7 +20,7 @@
 	var/door_layer = ABOVE_ALL_MOB_LAYER
 	var/lock_id = null
 	var/glass = FALSE
-	var/hacking = FALSE
+	var/door_in_use = FALSE
 	var/lockpick_timer = 17 //[Lucifernix] - Never have the lockpick timer lower than 7. At 7 it will unlock instantly!!
 	var/lockpick_difficulty = 2
 
@@ -52,7 +52,7 @@
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.is_holding_item_of_type(/obj/item/vamp/lockpick))
+	if(!H.is_holding_item_of_type(/obj/item/vamp/keys/hack))
 		return
 	var/message //So the code isn't flooded with . +=, it's just a visual thing
 	var/difference = (H.st_get_stat(STAT_LARCENY) + H.st_get_stat(STAT_DEXTERITY)) - lockpick_difficulty //Lower number = higher difficulty
@@ -199,22 +199,22 @@
 			to_chat(user,span_warning("This door does not seem to be broken."))
 			return
 		var/obj/item/door_repair_kit/repair_kit = W
-		if(hacking == TRUE) //This is basically an in-use indicator already
+		if(door_in_use == TRUE) //This is basically an in-use indicator already
 			to_chat(user,span_warning("Someone else seems to be using this door already."))
 			return
 		playsound(src, 'sound/items/tools/ratchet.ogg', 50)
-		hacking = TRUE
+		door_in_use = TRUE
 		if(do_after(user, 10 SECONDS,src))
 			playsound(src, 'sound/items/deconstruct.ogg', 50)
 			fix_door()
 			qdel(repair_kit)
-		hacking = FALSE
-	else if(istype(W, /obj/item/vamp/lockpick))
+		door_in_use = FALSE
+	else if(istype(W, /obj/item/vamp/keys/hack))
 		if(door_broken)
 			to_chat(user,span_warning("There is no door to pick here."))
 			return
 		if(locked)
-			hacking = TRUE
+			door_in_use = TRUE
 			proc_unlock(5)
 			playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
 			for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
@@ -231,11 +231,11 @@
 					if(ROLL_BOTCH)
 						to_chat(user, span_warning("Your lockpick broke!"))
 						qdel(W)
-				hacking = FALSE
+				door_in_use = FALSE
 				return
 			else
 				to_chat(user, span_warning("You failed to pick the lock."))
-				hacking = FALSE
+				door_in_use = FALSE
 				return
 		else
 			if(closed && lock_id) //yes, this is a thing you can extremely easily do in real life... FOR DOORS WITH LOCKS!

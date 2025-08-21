@@ -10,7 +10,7 @@
 		/obj/item/vampire_stake = 3,
 		/obj/item/molotov = 1,
 		/obj/item/gas_can/full = 1,
-		/obj/item/vamp/lockpick=1
+		/obj/item/vamp/keys/hack=1
 		)
 
 /datum/outfit/job/hunter/post_equip(mob/living/carbon/human/H)

@@ -13,7 +13,7 @@
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/vamp556 = 3,
 		/obj/item/radio/cop = 1,
-		/obj/item/vamp/lockpick=2
+		/obj/item/vamp/keys/hack=2
 		)
 
 /datum/antagonist/swat/proc/equip_swat()
