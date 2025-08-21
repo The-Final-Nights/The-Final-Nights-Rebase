@@ -69,7 +69,7 @@
 		if(5 to INFINITY) //Becomes guaranteed to lockpick at 9.
 			message = span_nicegreen("This door is really simple to you. It should be very easy to lockpick it.")
 	. += "[message]"
-	if(H.trait_holder.get_stat(ST_TRAIT_LARCENY) >= 5) //The difference between a 1/19 and a 4/19 is about 4x. An expert in lockpicks is more discerning.
+	if(H.st_get_stat(STAT_LARCENY) >= 5) //The difference between a 1/19 and a 4/19 is about 4x. An expert in lockpicks is more discerning.
 		//Converting the difference into a number that can be divided by the max value of the rand() used in lockpicking calculations.
 		var/max_rand_value = 20
 		var/minimum_lockpickable_difference = -10 //Minimum value, any lower and lockpicking will always fail.
@@ -161,8 +161,8 @@
 		else
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
-				if(H.potential > 0)
-					if((H.potential * 2) >= lockpick_difficulty)
+				if(H.st_get_stat(STAT_STRENGTH) > 0)
+					if((H.st_get_stat(STAT_STRENGTH) * 2) >= lockpick_difficulty)
 						playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 100, FALSE)
 						var/obj/item/shield/door/D = new(get_turf(src))
 						D.icon_state = base_icon_state
@@ -200,7 +200,7 @@
 		if(hacking == TRUE) //This is basically an in-use indicator already
 			to_chat(user,span_warning("Someone else seems to be using this door already."))
 			return
-		playsound(src, 'sound/items/ratchet.ogg', 50)
+		playsound(src, 'sound/items/tools/ratchet.ogg', 50)
 		hacking = 1
 		if(do_after(user, 10 SECONDS,src))
 			playsound(src, 'sound/items/deconstruct.ogg', 50)
