@@ -65,7 +65,7 @@
 	color = "#bd3327"
 
 /obj/item/vamp/keys/camarilla
-	name = "\improperMillenium Tower keys"
+	name = "\improper Millenium Tower keys"
 	accesslocks = list(
 		"milleniumCommon",
 		"clerk",

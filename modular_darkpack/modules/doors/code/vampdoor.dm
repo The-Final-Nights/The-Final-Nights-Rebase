@@ -37,6 +37,8 @@
 /obj/structure/vampdoor/Initialize(mapload)
 	. = ..()
 
+	register_context()
+
 	AddElement(/datum/element/contextual_screentip_bare_hands, rmb_text = "Try lock")
 	switch(lockpick_difficulty) //This is fine because any overlap gets intercepted before
 		if(LOCKDIFFICULTY_7 to INFINITY)
@@ -91,6 +93,22 @@
 		var/odds = value ? clamp((value/max_rand_value), 0, 1) : 0
 		. += span_notice("As an expert in lockpicking, you estimate that you have a [round(odds*100, 1)]% chance to lockpick this door successfully.")
 */
+
+/obj/structure/vampdoor/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	var/screentip_change = FALSE
+
+	if(isnull(held_item) && isliving(user))
+		var/mob/living/living_user = user
+		context[SCREENTIP_CONTEXT_RMB] = locked ? "Unlock" : "Lock"
+		if(living_user?.combat_mode)
+			context[SCREENTIP_CONTEXT_LMB] = "Knock"
+		else
+			context[SCREENTIP_CONTEXT_LMB] = closed ? "Open" : "Close"
+
+		screentip_change = TRUE
+
+	return screentip_change ? CONTEXTUAL_SCREENTIP_SET : NONE
 
 /obj/structure/vampdoor/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
@@ -170,46 +188,46 @@
 
 /obj/structure/vampdoor/attack_hand(mob/user, list/modifiers)
 	. = ..()
-	var/mob/living/N = user
+	if(.)
+		return
+	var/mob/living/living_user = user
 	if(door_broken)
 		to_chat(user, span_warning("There is no door to use here."))
 		return
-	if(locked)
-		if(!N.combat_mode)
-			playsound(src, lock_sound, 75, TRUE)
-			to_chat(user, span_warning("[src] is locked!"))
-		else
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
-				if(H.st_get_stat(STAT_STRENGTH) > 5)
-					if((H.st_get_stat(STAT_STRENGTH) * 2) >= lockpick_difficulty)
-						playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 100, FALSE)
-						var/obj/item/shield/door/D = new(get_turf(src))
-						D.icon_state = base_icon_state
-						var/atom/throw_target = get_edge_target_turf(src, user.dir)
-						D.throw_at(throw_target, rand(2, 4), 4, user)
-						proc_unlock(50)
-						break_door()
-					else
-						pixel_z = pixel_z+rand(-1, 1)
-						pixel_w = pixel_w+rand(-1, 1)
-						playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 50, TRUE)
-						proc_unlock(5)
-						to_chat(user, span_warning("[src] is locked, and you aren't strong enough to break it down!"))
-						spawn(2)
-							pixel_z = initial(pixel_z)
-							pixel_w = initial(pixel_w)
+	if(living_user.combat_mode)
+		if(ishuman(user))
+			var/mob/living/carbon/human/human_user = user
+			if(human_user.st_get_stat(STAT_STRENGTH) > 5)
+				if((human_user.st_get_stat(STAT_STRENGTH) * 2) >= lockpick_difficulty)
+					playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 100, FALSE)
+					var/obj/item/shield/door/D = new(get_turf(src))
+					D.icon_state = base_icon_state
+					var/atom/throw_target = get_edge_target_turf(src, user.dir)
+					D.throw_at(throw_target, rand(2, 4), 4, user)
+					proc_unlock(50)
+					break_door()
 				else
 					pixel_z = pixel_z+rand(-1, 1)
 					pixel_w = pixel_w+rand(-1, 1)
-					playsound(src, 'modular_darkpack/modules/deprecated/sounds/knock.ogg', 75, TRUE)
-					to_chat(user, span_warning("[src] is locked!"))
+					playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 50, TRUE)
+					proc_unlock(5)
+					to_chat(user, span_warning("You aren't strong enough to break it down!"))
 					spawn(2)
 						pixel_z = initial(pixel_z)
 						pixel_w = initial(pixel_w)
-		return
+			else
+				pixel_z = pixel_z+rand(-1, 1)
+				pixel_w = pixel_w+rand(-1, 1)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/knock.ogg', 75, TRUE)
+				spawn(2)
+					pixel_z = initial(pixel_z)
+					pixel_w = initial(pixel_w)
 	else
-		toggle_door(user)
+		if(locked)
+			playsound(src, lock_sound, 75, TRUE)
+			to_chat(user, span_warning("[src] is locked!"))
+		else
+			toggle_door(user)
 
 /obj/structure/vampdoor/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
