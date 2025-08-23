@@ -93,7 +93,7 @@
 	exposed_wound_bonus = 10
 	wound_bonus = 5
 
-/obj/projectile/bullet/vampire/vamp12g/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/vampire/vamp12g/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/hit_person = target
@@ -114,7 +114,7 @@
 	exposed_wound_bonus = 5
 	wound_bonus = 0
 
-/obj/projectile/bullet/vampire/shotpellet/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/vampire/shotpellet/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
@@ -125,7 +125,7 @@
 	damage = 30
 	var/fire_stacks = 4
 
-/obj/projectile/bullet/vampire/vamp556mm/incendiary/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/vampire/vamp556mm/incendiary/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
@@ -340,7 +340,7 @@
 //	desc = "A silver filled 12g shell casing."
 //	icon_state = "s12"
 
-//obj/item/ammo_casing/vampire/c12g/buck/silver/on_hit(atom/target, blocked = FALSE)
+//obj/item/ammo_casing/vampire/c12g/buck/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 //	. = ..()
 //	if(iswerewolf(target) || isgarou(target))
 //		var/mob/living/carbon/M = target
@@ -357,7 +357,7 @@
 	armour_penetration = 20
 
 /*
-/obj/projectile/bullet/vampire/vamp556mm/silver/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/vampire/vamp556mm/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
@@ -373,7 +373,7 @@
 	name = "9mm silver bullet"
 
 /*
-/obj/projectile/bullet/vampire/vamp9mm/silver/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/vampire/vamp9mm/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
@@ -389,7 +389,7 @@
 	name = ".45 ACP silver bullet"
 
 /*
-/obj/projectile/bullet/vampire/vamp45acp/silver/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/vampire/vamp45acp/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
@@ -406,7 +406,7 @@
 	icon_state = "s44"
 
 /*
-/obj/projectile/bullet/vampire/vamp44/silver/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/vampire/vamp44/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
