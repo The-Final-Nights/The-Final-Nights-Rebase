@@ -28,7 +28,7 @@
 	icon_state = "revolver"
 	inhand_icon_state = "revolver"
 	worn_icon_state = "revolver"
-	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
 	initial_caliber = CALIBER_44
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/revolver.ogg'
 	load_sound = 'sound/items/weapons/gun/revolver/load_bullet.ogg'
@@ -43,10 +43,6 @@
 	var/spin_delay = 10
 	var/recent_spin = 0
 
-/obj/item/gun/ballistic/vampire/revolver/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 25, "revolver", FALSE)
-
 /obj/item/gun/ballistic/vampire/revolver/chamber_round(keep_bullet, spin_cylinder = TRUE, replace_new_round)
 	if(!magazine) //if it mag was qdel'd somehow.
 		CRASH("revolver tried to chamber a round without a magazine!")
@@ -59,7 +55,7 @@
 	. = ..()
 	chamber_round()
 
-/obj/item/gun/ballistic/vampire/revolver/AltClick(mob/user)
+/obj/item/gun/ballistic/vampire/revolver/click_alt(mob/user)
 	. = ..()
 	spin()
 
@@ -112,15 +108,11 @@
 	icon_state = "revolver_snub"
 	inhand_icon_state = "revolver_snub"
 	worn_icon_state = "revolver_snub"
-	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev9mm
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev9mm
 	w_class = WEIGHT_CLASS_SMALL
 	initial_caliber = CALIBER_9MM
 	fire_sound_volume = 65
 	projectile_damage_multiplier = 1.2 //21.6 damage, slightly higher than the m1911, just so it is possible to kill NPCs within 6 bullets
-
-/obj/item/gun/ballistic/vampire/revolver/snub/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 20, "revolver_snub", FALSE)
 
 /obj/item/ammo_box/magazine/internal/cylinder/rev9mm
 	name = "revolver cylinder"
@@ -148,7 +140,7 @@
 	inhand_icon_state = "deagle"
 	worn_icon_state = "deagle"
 	w_class = WEIGHT_CLASS_NORMAL
-	mag_type = /obj/item/ammo_box/magazine/m44
+	accepted_magazine_type = /obj/item/ammo_box/magazine/m44
 	recoil = 3
 	burst_size = 1
 	fire_delay = 0
@@ -165,10 +157,6 @@
 	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 75
-
-/obj/item/gun/ballistic/automatic/vampire/deagle/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 75, "deagle", FALSE)
 
 /obj/item/ammo_box/magazine/m50
 	name = "handgun magazine (.50)"
@@ -189,7 +177,7 @@
 	icon_state = "deagle50"
 	inhand_icon_state = "deagle"
 	worn_icon_state = "deagle"
-	mag_type = /obj/item/ammo_box/magazine/m50
+	accepted_magazine_type = /obj/item/ammo_box/magazine/m50
 	fire_sound_volume = 125 //MY EARS
 
 /obj/item/ammo_box/magazine/vamp45acp
@@ -212,7 +200,7 @@
 	inhand_icon_state = "m1911"
 	worn_icon_state = "m1911"
 	w_class = WEIGHT_CLASS_SMALL
-	mag_type = /obj/item/ammo_box/magazine/vamp45acp
+	accepted_magazine_type = /obj/item/ammo_box/magazine/vamp45acp
 	burst_size = 1
 	fire_delay = 0
 	actions_types = list()
@@ -228,10 +216,6 @@
 	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 100
-
-/obj/item/gun/ballistic/automatic/vampire/m1911/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 55, "colt1911", FALSE)
 
 /obj/item/ammo_box/magazine/glock9mm
 	name = "automatic pistol magazine (9mm)"
@@ -253,7 +237,7 @@
 	inhand_icon_state = "glock19"
 	worn_icon_state = "glock19"
 	w_class = WEIGHT_CLASS_SMALL
-	mag_type = /obj/item/ammo_box/magazine/glock9mm
+	accepted_magazine_type = /obj/item/ammo_box/magazine/glock9mm
 	burst_size = 3
 	fire_delay = 1
 	actions_types = list()
@@ -269,10 +253,6 @@
 	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 100
-
-/obj/item/gun/ballistic/automatic/vampire/glock19/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 70, "glock19", FALSE)
 
 /obj/item/ammo_box/magazine/glock45acp
 	name = "automatic pistol magazine (.45 ACP)"
@@ -294,7 +274,7 @@
 	inhand_icon_state = "glock19"
 	worn_icon_state = "glock19"
 	w_class = WEIGHT_CLASS_SMALL
-	mag_type = /obj/item/ammo_box/magazine/glock45acp
+	accepted_magazine_type = /obj/item/ammo_box/magazine/glock45acp
 	burst_size = 3
 	fire_delay = 1
 	actions_types = list()
@@ -311,10 +291,6 @@
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 100
 
-/obj/item/gun/ballistic/automatic/vampire/glock21/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 150, "glock21", FALSE)
-
 /obj/item/gun/ballistic/automatic/vampire/beretta
 	name = "\improper Elite 92G"
 	desc = "A 9mm pistol favored among law enforcement and criminal alike due to it's use in action movies. Often, it is wielded in pairs."
@@ -322,7 +298,7 @@
 	inhand_icon_state = "beretta"
 	worn_icon_state = "beretta"
 	w_class = WEIGHT_CLASS_SMALL
-	mag_type = /obj/item/ammo_box/magazine/semi9mm
+	accepted_magazine_type = /obj/item/ammo_box/magazine/semi9mm
 	burst_size = 1
 	fire_delay = 0 //spam it
 	dual_wield_spread = 10 //DUAL ELITES!
@@ -340,10 +316,6 @@
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 75
 
-/obj/item/gun/ballistic/automatic/vampire/beretta/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 70, "beretta", FALSE)
-
 /obj/item/gun/ballistic/automatic/vampire/beretta/toreador
 	name = "\improper Sword Series S 9mm"
 	desc = "A handgun that has been heavily decorated and customized. The improvements seem almost supernaturally good, you feel like the engravings have given you a tactical advantage."
@@ -352,10 +324,6 @@
 	worn_icon_state = "beretta"
 	projectile_damage_multiplier = 2.5
 	fire_sound_volume = 110
-
-/obj/item/gun/ballistic/automatic/vampire/beretta/toreador/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 666, "toreador_beretta", FALSE)
 
 /obj/item/ammo_box/magazine/semi9mm
 	name = "pistol magazine (9mm)"
@@ -393,7 +361,7 @@
 	icon_state = "uzi"
 	inhand_icon_state = "uzi"
 	worn_icon_state = "uzi"
-	mag_type = /obj/item/ammo_box/magazine/vamp9mm
+	accepted_magazine_type = /obj/item/ammo_box/magazine/vamp9mm
 	burst_size = 5
 	spread = 11
 	recoil = 5
@@ -402,10 +370,6 @@
 	mag_display = TRUE
 	rack_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/uzi.ogg'
-
-/obj/item/gun/ballistic/automatic/vampire/uzi/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 175, "uzi", FALSE)
 
 /obj/item/ammo_box/magazine/vamp9mp5
 	name = "mp5 magazine (9mm)"
@@ -427,7 +391,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
 	inhand_icon_state = "mp5"
 	worn_icon_state = "mp5"
-	mag_type = /obj/item/ammo_box/magazine/vamp9mp5
+	accepted_magazine_type = /obj/item/ammo_box/magazine/vamp9mp5
 	burst_size = 4
 	spread = 4
 	bolt_type = BOLT_TYPE_LOCKING
@@ -435,10 +399,6 @@
 	mag_display = TRUE
 	rack_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/mp5.ogg'
-
-/obj/item/gun/ballistic/automatic/vampire/mp5/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 200, "mp5", FALSE)
 
 /obj/item/ammo_box/magazine/vamp556
 	name = "carbine magazine (5.56mm)"
@@ -466,7 +426,7 @@
 	inhand_icon_state = "rifle"
 	worn_icon_state = "rifle"
 	w_class = WEIGHT_CLASS_BULKY
-	mag_type = /obj/item/ammo_box/magazine/vamp556
+	accepted_magazine_type = /obj/item/ammo_box/magazine/vamp556
 	burst_size = 2
 	fire_delay = 2
 	spread = 4
@@ -476,10 +436,6 @@
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/rifle.ogg'
 	masquerade_violating = TRUE
 
-/obj/item/gun/ballistic/automatic/vampire/ar15/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 75, "ar15", FALSE)
-
 /obj/item/gun/ballistic/automatic/vampire/huntrifle
 	name = "hunting rifle"
 	desc = "A semi-automatic hunting rifle, just like what your dad used to shoot. If your dad didn't go out to get milk, anyways."
@@ -488,7 +444,7 @@
 	inhand_icon_state = "huntrifle"
 	worn_icon_state = "huntrifle"
 	w_class = WEIGHT_CLASS_BULKY
-	mag_type = /obj/item/ammo_box/magazine/vamp556/hunt
+	accepted_magazine_type = /obj/item/ammo_box/magazine/vamp556/hunt
 	burst_size = 1
 	fire_delay = 1
 	spread = 2
@@ -497,10 +453,6 @@
 	mag_display = TRUE
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/rifle.ogg'
 	masquerade_violating = FALSE
-
-/obj/item/gun/ballistic/automatic/vampire/huntrifle/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 70, "hunting_rifle", FALSE)
 
 /obj/item/ammo_box/magazine/vamp545
 	name = "rifle magazine (5.45mm)"
@@ -523,7 +475,7 @@
 	inhand_icon_state = "ak74"
 	worn_icon_state = "ak74"
 	w_class = WEIGHT_CLASS_BULKY
-	mag_type = /obj/item/ammo_box/magazine/vamp545
+	accepted_magazine_type = /obj/item/ammo_box/magazine/vamp545
 	recoil = 5
 	burst_size = 3
 	fire_delay = 3
@@ -533,10 +485,6 @@
 	mag_display = TRUE
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/ak.ogg'
 	masquerade_violating = TRUE
-
-/obj/item/gun/ballistic/automatic/vampire/ak74/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 225, "ak74", FALSE)
 
 /obj/item/ammo_box/magazine/vampaug
 	name = "AUG magazine (5.56mm)"
@@ -559,7 +507,7 @@
 	inhand_icon_state = "aug"
 	worn_icon_state = "aug"
 	w_class = WEIGHT_CLASS_BULKY
-	mag_type = /obj/item/ammo_box/magazine/vampaug
+	accepted_magazine_type = /obj/item/ammo_box/magazine/vampaug
 	burst_size = 3
 	fire_delay = 2
 	spread = 3
@@ -569,10 +517,6 @@
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/rifle.ogg'
 	masquerade_violating = TRUE
 	obj_flags = NONE
-
-/obj/item/gun/ballistic/automatic/vampire/aug/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 350, "aug", FALSE)
 
 /obj/item/ammo_box/magazine/vampthompson
 	name = "tommy gun magazine (.45 ACP)"
@@ -595,7 +539,7 @@
 	inhand_icon_state = "thompson"
 	worn_icon_state = "thompson"
 	w_class = WEIGHT_CLASS_NORMAL
-	mag_type = /obj/item/ammo_box/magazine/vampthompson
+	accepted_magazine_type = /obj/item/ammo_box/magazine/vampthompson
 	recoil = 7
 	burst_size = 5
 	fire_delay = 3
@@ -605,10 +549,6 @@
 	mag_display = TRUE
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/thompson.ogg'
 	masquerade_violating = TRUE
-
-/obj/item/gun/ballistic/automatic/vampire/thompson/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 250, "thompson", FALSE)
 
 /obj/item/ammo_box/magazine/internal/vampire/sniper
 	name = "sniper rifle internal magazine"
@@ -626,7 +566,7 @@
 	inhand_icon_state = "sniper"
 	worn_icon_state = "sniper"
 	w_class = WEIGHT_CLASS_BULKY
-	mag_type = /obj/item/ammo_box/magazine/internal/vampire/sniper
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/vampire/sniper
 	bolt_wording = "bolt"
 	bolt_type = BOLT_TYPE_STANDARD
 	semi_auto = FALSE
@@ -640,22 +580,18 @@
 	fire_delay = 40
 	burst_size = 1
 	w_class = WEIGHT_CLASS_NORMAL
-	zoomable = TRUE
-	zoom_amt = 10 //Long range, enough to see in front of you, but no tiles behind you.
-	zoom_out_amt = 5
+	//zoomable = TRUE
+	//zoom_amt = 10 //Long range, enough to see in front of you, but no tiles behind you.
+	//zoom_out_amt = 5
 	slot_flags = ITEM_SLOT_BACK
 	projectile_damage_multiplier = 2 //140 damage. Nice.
 	actions_types = list()
 	masquerade_violating = TRUE
 
-/obj/item/gun/ballistic/automatic/vampire/sniper/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 75, "sniper", FALSE)
-
 /obj/item/ammo_box/magazine/internal/vampshotgun
 	name = "shotgun internal magazine"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g
-	caliber = CALIBER_12G
+	caliber = CALIBER_SHOTGUN
 	multiload = FALSE
 	max_ammo = 6
 	masquerade_violating = FALSE
@@ -674,7 +610,7 @@
 	worn_icon_state = "pomp"
 	recoil = 6
 	fire_delay = 6
-	mag_type = /obj/item/ammo_box/magazine/internal/vampshotgun
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/vampshotgun
 	can_be_sawn_off	= FALSE
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/pomp.ogg'
 	recoil = 4
@@ -690,7 +626,7 @@
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "spas15"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g/buck
-	caliber = CALIBER_12G
+	caliber = CALIBER_SHOTGUN
 	max_ammo = 6
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
@@ -702,7 +638,7 @@
 	inhand_icon_state = "spas15"
 	worn_icon_state = "rifle"
 	w_class = WEIGHT_CLASS_BULKY
-	mag_type = /obj/item/ammo_box/magazine/vampautoshot
+	accepted_magazine_type = /obj/item/ammo_box/magazine/vampautoshot
 	burst_size = 1
 	fire_delay = 2
 	spread = 4
@@ -715,10 +651,6 @@
 	masquerade_violating = TRUE
 	recoil = 6
 
-/obj/item/gun/ballistic/automatic/vampire/autoshotgun/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 75, "autoshotgun", FALSE)
-
 /obj/item/gun/ballistic/shotgun/toy/crossbow/vampire
 	name = "crossbow"
 	desc = "Welcome to the Middle Ages!"
@@ -729,7 +661,7 @@
 	icon_state = "crossbow0"
 	inhand_icon_state = "crossbow0"
 	fire_delay = 16
-	mag_type = /obj/item/ammo_box/magazine/internal/vampcrossbow
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/vampcrossbow
 	fire_sound = 'sound/items/syringeproj.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	inhand_x_dimension = 32

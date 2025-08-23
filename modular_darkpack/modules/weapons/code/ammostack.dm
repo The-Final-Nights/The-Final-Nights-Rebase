@@ -350,11 +350,13 @@
 //		else
 //			M.Stun(10)
 //			M.adjustBruteLoss(50, TRUE)
+*/
 
 /obj/projectile/bullet/vampire/vamp556mm/silver
 	name = "5.56mm silver bullet"
 	armour_penetration = 20
 
+/*
 /obj/projectile/bullet/vampire/vamp556mm/silver/on_hit(atom/target, blocked = FALSE)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
@@ -365,10 +367,12 @@
 
 		M.apply_damage(20, AGGRAVATED)
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
+*/
 
 /obj/projectile/bullet/vampire/vamp9mm/silver
 	name = "9mm silver bullet"
 
+/*
 /obj/projectile/bullet/vampire/vamp9mm/silver/on_hit(atom/target, blocked = FALSE)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
@@ -379,10 +383,12 @@
 
 		M.apply_damage(10, AGGRAVATED)
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
+*/
 
 /obj/projectile/bullet/vampire/vamp45acp/silver
 	name = ".45 ACP silver bullet"
 
+/*
 /obj/projectile/bullet/vampire/vamp45acp/silver/on_hit(atom/target, blocked = FALSE)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
@@ -393,11 +399,13 @@
 
 		M.apply_damage(15, AGGRAVATED)
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
+*/
 
 /obj/projectile/bullet/vampire/vamp44/silver
 	name = ".44 silver bullet"
 	icon_state = "s44"
 
+/*
 /obj/projectile/bullet/vampire/vamp44/silver/on_hit(atom/target, blocked = FALSE)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
@@ -408,6 +416,7 @@
 
 		M.apply_damage(20, AGGRAVATED)
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
+*/
 
 /obj/item/ammo_casing/vampire/c9mm/silver
 	name = "9mm silver bullet casing"
@@ -463,4 +472,3 @@
 //	name = "ammo box (12g, 00 buck silver)"
 //	icon_state = "s12box_buck"
 //	ammo_type = /obj/item/ammo_casing/vampire/c12g/buck/silver
-*/
