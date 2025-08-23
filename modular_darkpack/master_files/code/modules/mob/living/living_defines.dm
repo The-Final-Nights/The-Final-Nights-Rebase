@@ -7,24 +7,6 @@
 
 	var/total_cleaned = 0
 
-	var/strength = 1
-	var/dexterity = 1
-	var/social = 1
-	var/mentality = 1
-	var/lockpicking = 0
-	var/athletics = 0
-	var/blood = 1
-
-	var/additional_strength = 0
-	var/additional_dexterity = 0
-	var/additional_mentality = 0
-	var/additional_social = 0
-	var/additional_blood = 0
-	var/additional_lockpicking = 0
-	var/additional_athletics = 0
-	var/more_companions = 0
-	var/melee_professional = FALSE
-
 	var/info_known
 
 	var/last_message
@@ -65,9 +47,11 @@
 	var/parry_cd = 0
 	var/blocking = FALSE
 	var/last_move_intent = MOVE_INTENT_RUN
-	var/last_drinkblood_use = 0
+	COOLDOWN_DECLARE(drinkblood_use_cd)
+	COOLDOWN_DECLARE(drinkblood_click_cd)
+
 	var/last_bloodpower_click = 0
-	var/last_drinkblood_click = 0
+
 	var/harm_focus = SOUTH
 	var/masquerade_votes = 0
 	var/list/voted_for = list()
@@ -107,3 +91,7 @@
 	//Damage related vars, NOTE: THESE SHOULD ONLY BE MODIFIED BY PROCS
 	///Aggravated damage caused by supernatural attacks.
 	var/aggloss = 0
+
+	var/datum/storyteller_stats/storyteller_stat_holder
+	// TODO, replace with social/leadership
+	var/more_companions = 0

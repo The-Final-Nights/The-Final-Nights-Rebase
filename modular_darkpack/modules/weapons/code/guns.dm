@@ -31,11 +31,11 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
 	initial_caliber = CALIBER_44
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/revolver.ogg'
-	load_sound = 'sound/weapons/gun/revolver/load_bullet.ogg'
-	eject_sound = 'sound/weapons/gun/revolver/empty.ogg'
+	load_sound = 'sound/items/weapons/gun/revolver/load_bullet.ogg'
+	eject_sound = 'sound/items/weapons/gun/revolver/empty.ogg'
 	vary_fire_sound = FALSE
 	fire_sound_volume = 85
-	dry_fire_sound = 'sound/weapons/gun/revolver/dry_fire.ogg'
+	dry_fire_sound = 'sound/items/weapons/gun/revolver/dry_fire.ogg'
 	casing_ejector = FALSE
 	internal_magazine = TRUE
 	bolt_type = BOLT_TYPE_NO_BOLT
@@ -155,15 +155,15 @@
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/deagle.ogg'
-	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
-	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
-	load_empty_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
-	eject_sound = 'sound/weapons/gun/pistol/mag_release.ogg'
-	eject_empty_sound = 'sound/weapons/gun/pistol/mag_release.ogg'
+	dry_fire_sound = 'sound/items/weapons/gun/pistol/dry_fire.ogg'
+	load_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
+	load_empty_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
+	eject_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
+	eject_empty_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
 	vary_fire_sound = FALSE
-	rack_sound = 'sound/weapons/gun/pistol/rack_small.ogg'
-	lock_back_sound = 'sound/weapons/gun/pistol/lock_small.ogg'
-	bolt_drop_sound = 'sound/weapons/gun/pistol/drop_small.ogg'
+	rack_sound = 'sound/items/weapons/gun/pistol/rack_small.ogg'
+	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
+	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 75
 
 /obj/item/gun/ballistic/automatic/vampire/deagle/Initialize(mapload)
@@ -218,15 +218,15 @@
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/m1911.ogg'
-	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
-	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
-	load_empty_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
-	eject_sound = 'sound/weapons/gun/pistol/mag_release.ogg'
-	eject_empty_sound = 'sound/weapons/gun/pistol/mag_release.ogg'
+	dry_fire_sound = 'sound/items/weapons/gun/pistol/dry_fire.ogg'
+	load_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
+	load_empty_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
+	eject_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
+	eject_empty_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
 	vary_fire_sound = FALSE
-	rack_sound = 'sound/weapons/gun/pistol/rack_small.ogg'
-	lock_back_sound = 'sound/weapons/gun/pistol/lock_small.ogg'
-	bolt_drop_sound = 'sound/weapons/gun/pistol/drop_small.ogg'
+	rack_sound = 'sound/items/weapons/gun/pistol/rack_small.ogg'
+	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
+	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 100
 
 /obj/item/gun/ballistic/automatic/vampire/m1911/Initialize(mapload)
@@ -259,15 +259,15 @@
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/glock.ogg'
-	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
-	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
-	load_empty_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
-	eject_sound = 'sound/weapons/gun/pistol/mag_release.ogg'
-	eject_empty_sound = 'sound/weapons/gun/pistol/mag_release.ogg'
+	dry_fire_sound = 'sound/items/weapons/gun/pistol/dry_fire.ogg'
+	load_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
+	load_empty_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
+	eject_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
+	eject_empty_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
 	vary_fire_sound = FALSE
-	rack_sound = 'sound/weapons/gun/pistol/rack_small.ogg'
-	lock_back_sound = 'sound/weapons/gun/pistol/lock_small.ogg'
-	bolt_drop_sound = 'sound/weapons/gun/pistol/drop_small.ogg'
+	rack_sound = 'sound/items/weapons/gun/pistol/rack_small.ogg'
+	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
+	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 100
 
 /obj/item/gun/ballistic/automatic/vampire/glock19/Initialize(mapload)
@@ -300,15 +300,15 @@
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/glock.ogg'
-	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
-	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
-	load_empty_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
-	eject_sound = 'sound/weapons/gun/pistol/mag_release.ogg'
-	eject_empty_sound = 'sound/weapons/gun/pistol/mag_release.ogg'
+	dry_fire_sound = 'sound/items/weapons/gun/pistol/dry_fire.ogg'
+	load_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
+	load_empty_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
+	eject_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
+	eject_empty_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
 	vary_fire_sound = FALSE
-	rack_sound = 'sound/weapons/gun/pistol/rack_small.ogg'
-	lock_back_sound = 'sound/weapons/gun/pistol/lock_small.ogg'
-	bolt_drop_sound = 'sound/weapons/gun/pistol/drop_small.ogg'
+	rack_sound = 'sound/items/weapons/gun/pistol/rack_small.ogg'
+	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
+	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 100
 
 /obj/item/gun/ballistic/automatic/vampire/glock21/Initialize(mapload)
@@ -329,15 +329,15 @@
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/glock.ogg'
-	dry_fire_sound = 'sound/weapons/gun/pistol/dry_fire.ogg'
-	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
-	load_empty_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
-	eject_sound = 'sound/weapons/gun/pistol/mag_release.ogg'
-	eject_empty_sound = 'sound/weapons/gun/pistol/mag_release.ogg'
+	dry_fire_sound = 'sound/items/weapons/gun/pistol/dry_fire.ogg'
+	load_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
+	load_empty_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
+	eject_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
+	eject_empty_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
 	vary_fire_sound = FALSE
-	rack_sound = 'sound/weapons/gun/pistol/rack_small.ogg'
-	lock_back_sound = 'sound/weapons/gun/pistol/lock_small.ogg'
-	bolt_drop_sound = 'sound/weapons/gun/pistol/drop_small.ogg'
+	rack_sound = 'sound/items/weapons/gun/pistol/rack_small.ogg'
+	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
+	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 75
 
 /obj/item/gun/ballistic/automatic/vampire/beretta/Initialize(mapload)
@@ -400,7 +400,7 @@
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 	mag_display = TRUE
-	rack_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
+	rack_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/uzi.ogg'
 
 /obj/item/gun/ballistic/automatic/vampire/uzi/Initialize(mapload)
@@ -433,7 +433,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	show_bolt_icon = FALSE
 	mag_display = TRUE
-	rack_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
+	rack_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/mp5.ogg'
 
 /obj/item/gun/ballistic/automatic/vampire/mp5/Initialize(mapload)
@@ -568,7 +568,7 @@
 	mag_display = TRUE
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/rifle.ogg'
 	masquerade_violating = TRUE
-	is_iron = FALSE
+	obj_flags = NONE
 
 /obj/item/gun/ballistic/automatic/vampire/aug/Initialize(mapload)
 	. = ..()
@@ -634,8 +634,8 @@
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/sniper.ogg'
 	fire_sound_volume = 90
 	vary_fire_sound = FALSE
-	rack_sound = 'sound/weapons/gun/rifle/bolt_out.ogg'
-	bolt_drop_sound = 'sound/weapons/gun/rifle/bolt_in.ogg'
+	rack_sound = 'sound/items/weapons/gun/rifle/bolt_out.ogg'
+	bolt_drop_sound = 'sound/items/weapons/gun/rifle/bolt_in.ogg'
 	tac_reloads = FALSE
 	fire_delay = 40
 	burst_size = 1
@@ -735,7 +735,7 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	masquerade_violating = TRUE
-	is_iron = FALSE
+	obj_flags = NONE
 
 /obj/item/ammo_box/magazine/internal/vampcrossbow
 	ammo_type = /obj/item/ammo_casing/caseless/bolt
@@ -841,11 +841,10 @@
 			log_combat(user, target, "flamethrowered", src)
 			call_dharma("grief", user)
 			for(var/turf/open/floor/F in turflist)
-				if(F)
-					if(F != user.loc)
-						if(oil)
-							new /obj/effect/decal/cleanable/gasoline(F)
-							oil = max(0, oil-10)
-							if(oil == 0)
-								icon_state = "flamethrower1"
-						new /obj/effect/fire(F)
+				if(F != user.loc)
+					if(oil)
+						new /obj/effect/decal/cleanable/gasoline(F)
+						oil = max(0, oil-10)
+						if(oil == 0)
+							icon_state = "flamethrower1"
+					new /obj/effect/fire(F)

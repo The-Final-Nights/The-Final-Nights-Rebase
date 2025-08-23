@@ -66,7 +66,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 	switch(number_of_lamps)
 		if(1)
@@ -156,7 +156,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/clothingrack
@@ -223,7 +223,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/closet/crate/dumpster/PopulateContents()
@@ -269,7 +269,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/arc
@@ -285,7 +285,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/arc/add
@@ -325,7 +325,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/hydrant/mouse_drop_receive(atom/dropped, mob/user, params)
@@ -827,8 +827,7 @@
 
 /obj/structure/coclock/examine(mob/user)
 	. = ..()
-	// TODO: [Rebase] - Port https://github.com/ApocryphaXIII/ApocryphaXIII/pull/51
-	//to_chat(user, "<b>[SScity_time.timeofnight]</b>")
+	. += "The clock reads: <b>[station_time_timestamp()]</b>"
 
 /obj/structure/coclock/grandpa
 	icon = 'modular_darkpack/modules/deprecated/icons/grandpa_cock.dmi'
@@ -871,7 +870,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/roofstuff/alt1
@@ -916,60 +915,6 @@
 //			if(P)
 //				P.exper = min(calculate_mob_max_exper(user), P.exper+15)
 */
-
-/obj/structure/vamptree
-	name = "tree"
-	desc = "Cute and tall flora."
-	icon = 'modular_darkpack/modules/deprecated/icons/trees.dmi'
-	icon_state = "tree1"
-	layer = SPACEVINE_LAYER
-	anchored = TRUE
-	density = TRUE
-	pixel_w = -32
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	var/burned = FALSE
-
-/obj/structure/vamptree/Initialize(mapload)
-	. = ..()
-	icon_state = "tree[rand(1, 11)]"
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.upper)
-				icon_state = "[initial(icon_state)][rand(1, 11)]-snow"
-
-/obj/structure/vamptree/proc/burnshit()
-	if(!burned)
-		burned = TRUE
-		icon_state = "dead[rand(1, 3)]"
-
-/obj/structure/vamptree/pine
-	name = "pine"
-	desc = "Cute and tall flora."
-	icon = 'modular_darkpack/modules/deprecated/icons/pines.dmi'
-	icon_state = "pine1"
-	layer = SPACEVINE_LAYER
-	anchored = TRUE
-	density = TRUE
-	pixel_w = -24
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-
-/obj/structure/vamptree/pine/Initialize(mapload)
-	. = ..()
-	icon_state = "pine[rand(1, 4)]"
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.upper)
-				icon_state = "pine[rand(1, 4)]-snow"
-	if(prob(2))
-		burned = TRUE
-		icon_state = "dead[rand(1, 5)]"
-
-/obj/structure/vamptree/pine/burnshit()
-	if(!burned)
-		burned = TRUE
-		icon_state = "dead[rand(1, 5)]"
 
 /obj/structure/vampstatue
 	name = "statue"
@@ -1110,7 +1055,7 @@
 // TODO: [Rebase]
 /*
 /obj/structure/bury_pit/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/melee/vampirearms/shovel))
+	if(istype(I, /obj/item/shovel/vamp))
 		if(!burying)
 			burying = TRUE
 			user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))

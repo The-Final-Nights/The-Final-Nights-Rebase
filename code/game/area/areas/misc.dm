@@ -5,7 +5,7 @@
 	requires_power = TRUE
 	always_unpowered = TRUE
 	static_lighting = FALSE
-	base_lighting_alpha = 255
+	base_lighting_alpha = 80 // DARKPACK EDIT: 255 to 80
 	base_lighting_color = COLOR_STARLIGHT
 	power_light = FALSE
 	power_equip = FALSE

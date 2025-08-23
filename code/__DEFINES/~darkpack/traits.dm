@@ -64,8 +64,12 @@
 #define TRAIT_VTM_MORALITY "vtm_morality"
 /// Uses Vampire: The Masquerade Clans/Bloodlines
 #define TRAIT_VTM_CLANS "vtm_clans"
+/// This species drinks blood
+#define TRAIT_BLOOD_DRINKER "blood_drinker"
 /// Does not biologically age, and so has a disconnected biological and chronological age
 #define TRAIT_UNAGING "unaging"
+/// Gunfighter but for melee
+#define TRAIT_MELEE_PRO "melee_pro"
 
 /// Trait given by a vampire's Clan
 #define CLAN_TRAIT "clan"

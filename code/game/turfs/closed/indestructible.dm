@@ -61,7 +61,7 @@
 	icon_state = "corner"
 
 /turf/closed/indestructible/splashscreen
-	name = CITY_NAME // DARKPACK EDIT CHANGE, ORIGINAL: name = "Space Station 13"
+	name = CITY_NAME // DARKPACK EDIT CHANGE - ORIGINAL: name = "Space Station 13"
 	desc = null
 	baseturfs = /turf/cordon
 	icon = 'icons/blanks/blank_title.png'
@@ -156,7 +156,7 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 	icon_state = "plastinum_wall-0"
 	base_icon_state = "plastinum_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
-	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_PLASTINUM_WALLS + SMOOTH_GROUP_CLOSED_TURFS
+	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_PLASTINUM_WALLS
 	canSmoothWith = SMOOTH_GROUP_PLASTINUM_WALLS
 
 /turf/closed/indestructible/riveted/plastinum/nodiagonal

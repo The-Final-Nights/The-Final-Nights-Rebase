@@ -107,7 +107,7 @@
 /datum/crafting_recipe/tzi_implant
 	name = "Implanting Flesh Device"
 	time = 50
-	reqs = list(/obj/item/stack/human_flesh = 10, /obj/item/melee/vampirearms/knife = 1, /obj/item/drinkable_bloodpack = 1)
+	reqs = list(/obj/item/stack/human_flesh = 10, /obj/item/knife/vamp = 1, /obj/item/drinkable_bloodpack = 1)
 	result = /obj/item/autosurgeon/organ
 	always_available = FALSE
 	category = CAT_TZIMISCE
@@ -146,13 +146,12 @@
 		if(V.lockpick_difficulty <= 10)
 			forceMove(get_turf(V))
 	for(var/obj/effect/decal/cleanable/blood/B in range(1, NewLoc))
-		if(B)
-			if(B.bloodiness)
-				collected_blood = collected_blood+1
-				to_chat(src, "You sense blood entering your mass...")
-				var/turf/T = get_turf(B)
-				if(T)
-					T.wash(CLEAN_WASH)
+		if(B.bloodiness)
+			collected_blood = collected_blood+1
+			to_chat(src, "You sense blood entering your mass...")
+			var/turf/T = get_turf(B)
+			if(T)
+				T.wash(CLEAN_WASH)
 
 /obj/effect/decal/gut_floor/Initialize(mapload)
 	. = ..()
@@ -245,7 +244,7 @@
 	melee_damage_upper = 20
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'sound/items/weapons/bite.ogg'
 	speak_emote = list("gnashes")
 
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
@@ -294,7 +293,7 @@
 	melee_damage_upper = 30
 	attack_verb_continuous = "punches"
 	attack_verb_simple = "punch"
-	attack_sound = 'sound/weapons/punch1.ogg'
+	attack_sound = 'sound/items/weapons/punch1.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
@@ -321,7 +320,7 @@
 	melee_damage_upper = 25
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
-	attack_sound = 'sound/weapons/slash.ogg'
+	attack_sound = 'sound/items/weapons/slash.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
@@ -348,7 +347,7 @@
 	melee_damage_upper = 40
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
-	attack_sound = 'sound/weapons/slash.ogg'
+	attack_sound = 'sound/items/weapons/slash.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
@@ -392,7 +391,7 @@
 	melee_damage_upper = 45
 	attack_verb_continuous = "punches"
 	attack_verb_simple = "punch"
-	attack_sound = 'sound/weapons/punch1.ogg'
+	attack_sound = 'sound/items/weapons/punch1.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
@@ -456,7 +455,7 @@
 	melee_damage_upper = 70
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
-	attack_sound = 'sound/weapons/slash.ogg'
+	attack_sound = 'sound/items/weapons/slash.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
@@ -481,7 +480,7 @@
 	melee_damage_upper = 10
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
-	attack_sound = 'sound/weapons/slash.ogg'
+	attack_sound = 'sound/items/weapons/slash.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0

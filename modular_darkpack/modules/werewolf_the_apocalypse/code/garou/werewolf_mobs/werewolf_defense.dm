@@ -94,7 +94,7 @@
 					apply_damage(damage, BRUTE, affecting)
 					log_combat(M, src, "attacked")
 				else
-					playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
+					playsound(loc, 'sound/items/weapons/punchmiss.ogg', 25, TRUE, -1)
 					visible_message(span_danger("[M]'s punch misses [src]!"), \
 									span_danger("You avoid [M]'s punch!"), span_hear("You hear a swoosh!"), COMBAT_MESSAGE_RANGE, M)
 					to_chat(M, span_warning("Your punch misses [src]!"))
@@ -103,7 +103,7 @@
 				if (body_position == STANDING_UP)
 					if (prob(5))
 						Unconscious(3 SECONDS)
-						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+						playsound(loc, 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1)
 						log_combat(M, src, "pushed")
 						visible_message(span_danger("[M] pushes [src] down!"), \
 										span_userdanger("[M] pushes you down!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), null, M)
@@ -111,12 +111,12 @@
 					else
 						if (prob(50))
 							dropItemToGround(get_active_held_item())
-							playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+							playsound(loc, 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1)
 							visible_message(span_danger("[M] disarms [src]!"), \
 											span_userdanger("[M] disarms you!"), span_hear("You hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE, M)
 							to_chat(M, span_danger("You disarm [src]!"))
 						else
-							playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
+							playsound(loc, 'sound/items/weapons/punchmiss.ogg', 25, TRUE, -1)
 							visible_message(span_danger("[M] fails to disarm [src]!"),\
 											span_danger("[M] fails to disarm you!"), span_hear("You hear a swoosh!"), COMBAT_MESSAGE_RANGE, M)
 							to_chat(M, span_warning("You fail to disarm [src]!"))

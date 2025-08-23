@@ -53,7 +53,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 		/obj/item/food/salami,
 		/obj/item/holochip,
 		/obj/item/stack/spacecash,
-		/obj/item/stack/dollar, // DARKPACK EDIT ADDITION - Dollar Compat
+		/obj/item/stack/dollar, // DARKPACK EDIT ADD - Dollar Compat
 		/obj/item/throwing_star,
 	)
 	/// List with a fake-networks(not a fax actually), for request manager.
@@ -100,7 +100,8 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 		fax_name = "Unregistered fax " + fax_id
 	set_wires(new /datum/wires/fax(src))
 	register_context()
-	special_networks["nanotrasen"]["fax_name"] = GLOB.nt_fax_department
+	// DARKPACK EDIT REMOVAL
+	//["nanotrasen"]["fax_name"] = GLOB.nt_fax_department
 
 /obj/machinery/fax/Destroy()
 	QDEL_NULL(loaded_item_ref)

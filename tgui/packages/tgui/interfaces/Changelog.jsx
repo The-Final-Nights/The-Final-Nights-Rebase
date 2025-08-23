@@ -184,9 +184,10 @@ export class Changelog extends Component {
 
     const header = (
       <Section>
-        <h1>Traditional Games Space Station 13</h1>
+        <h1>Darkpack: Second City</h1>
         <p>
           <b>Thanks to: </b>
+          The Final Nights, World of Darkness 13, RequiemSS13, TGstation,
           Baystation 12, /vg/station, NTstation, CDK Station devs,
           FacepunchStation, GoonStation devs, the original Space Station 13
           developers, Invisty for the title image and the countless others who
@@ -194,16 +195,16 @@ export class Changelog extends Component {
         </p>
         <p>
           {'Current organization members can be found '}
-          <a href="https://github.com/orgs/tgstation/people">here</a>
+          <a href="https://github.com/orgs/DarkPack13/people">here</a>
           {', recent GitHub contributors can be found '}
-          <a href="https://github.com/tgstation/tgstation/pulse/monthly">
+          <a href="https://github.com/DarkPack13/SecondCity/pulse/monthly">
             here
           </a>
           .
         </p>
         <p>
           {'You can also join our discord '}
-          <a href="https://tgstation13.org/phpBB/viewforum.php?f=60">here</a>.
+          <a href="https://discord.gg/rmAbJcuChD">here</a>.
         </p>
         {dateDropdown}
       </Section>

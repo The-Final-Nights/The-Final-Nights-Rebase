@@ -55,7 +55,7 @@
 								message_admins("[ADMIN_LOOKUPFLW(H)] has turned [ADMIN_LOOKUPFLW(BLOODBONDED)] into an Abomination through an admin setting the force_abomination var.")
 								log_game("[key_name(H)] has turned [key_name(BLOODBONDED)] into an Abomination through an admin setting the force_abomination var.")
 							else
-								switch(storyteller_roll(BLOODBONDED.auspice.level))
+								switch(SSroll.storyteller_roll(BLOODBONDED.auspice.level))
 									if (ROLL_BOTCH)
 										to_chat(H, span_danger("Something terrible is happening."))
 										to_chat(BLOODBONDED, span_userdanger("Gaia has forsaken you."))
@@ -199,7 +199,7 @@
 					if(BLOODBONDED.mind)
 						if(BLOODBONDED.mind.enslaved_to != owner)
 							BLOODBONDED.mind.enslave_mind_to_creator(owner)
-							to_chat(BLOODBONDED, span_userdanger("<b>AS PRECIOUS VITAE ENTER YOUR MOUTH, YOU NOW ARE IN THE BLOODBOND OF [H]. SERVE YOUR REGNANT CORRECTLY, OR YOUR ACTIONS WILL NOT BE TOLERATED.</b>"))
+							to_chat(BLOODBONDED, span_userlove("<b>AS PRECIOUS VITAE ENTER YOUR MOUTH, YOU NOW ARE IN THE BLOODBOND OF [H]. SERVE YOUR REGNANT CORRECTLY, OR YOUR ACTIONS WILL NOT BE TOLERATED.</b>"))
 							new_master = TRUE
 					if(isghoul(BLOODBONDED))
 						var/datum/species/ghoul/G = BLOODBONDED.dna.species

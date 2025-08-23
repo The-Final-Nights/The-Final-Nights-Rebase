@@ -54,22 +54,15 @@
 			if(!host.mind.assigned_role)
 				dat += "."
 			dat += "</p>"
-		for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
-			if(host.bank_id == account.bank_id)
-				dat += "<p>My bank account code is: [account.code]</b></p>"
-				break
+		if(host.account_id)
+			var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[host.account_id]"]
+			if(account)
+				dat += "<b>My bank pin is: [account.bank_pin]</b><BR>"
 		if(host.mind.special_role)
 			for(var/datum/antagonist/A in host.mind.antag_datums)
 				if(A.objectives)
 					dat += "<p>[printobjectives(A.objectives)]</p>"
 
-		dat += "<p>"
-		dat += "<b>Physique</b>: [host.physique]<BR>"
-		dat += "<b>Dexterity</b>: [host.dexterity]<BR>"
-		dat += "<b>Social</b>: [host.social]<BR>"
-		dat += "<b>Mentality</b>: [host.mentality]<BR>"
-		dat += "<b>Cruelty</b>: [host.blood]<BR>"
-		dat += "</p>"
 		if(host.Myself)
 			if(host.Myself.Friend)
 				if(host.Myself.Friend.owner)
@@ -124,11 +117,9 @@
 	UnregisterSignal(C.transformator.lupus_form, COMSIG_MOB_VAMPIRE_SUCKED)
 	UnregisterSignal(C.transformator.crinos_form, COMSIG_MOB_VAMPIRE_SUCKED)
 	for(var/datum/action/garouinfo/VI in C.actions)
-		if(VI)
-			VI.Remove(C)
+		VI.Remove(C)
 	for(var/datum/action/gift/G in C.actions)
-		if(G)
-			G.Remove(C)
+		G.Remove(C)
 
 /datum/species/garou/check_roundstart_eligible()
 	return FALSE

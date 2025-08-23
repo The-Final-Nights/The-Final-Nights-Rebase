@@ -24,7 +24,7 @@
 		if(OFFSET_HEAD)
 			update_worn_head()
 		if(OFFSET_FACE)
-			dna?.species?.handle_body(src) // updates eye icon
+			dna?.species?.update_face_offset(src) // updates eye and lipstick icon
 			update_worn_mask()
 		if(OFFSET_BELT)
 			update_worn_belt()
@@ -551,10 +551,10 @@
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		. += "-[human_owner.mob_height]"
-	// DARKPACK EDIT ADDITION START - Body weight sprites
+	// DARKPACK EDIT ADD START - Body weight sprites
 	if (body_weight)
 		. += "-[body_weight]"
-	// DARKPACK EDIT ADDITION END - Body weight sprites
+	// DARKPACK EDIT ADD END - Body weight sprites
 	return .
 
 ///Generates a cache key specifically for husks

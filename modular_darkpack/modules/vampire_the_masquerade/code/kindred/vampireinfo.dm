@@ -40,10 +40,9 @@
 			dat += "</p>"
 			if(host.mind.enslaved_to)
 				dat += "<p>My Regnant is [host.mind.enslaved_to], I should obey their wants.</p>"
-		for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
-			if(host.bank_id == account.bank_id)
-				dat += "<p>My bank account code is: [account.code]</b></p>"
-				break
+		var/datum/bank_account/account = host.account_id ? SSeconomy.bank_accounts_by_id["[host.account_id]"] : null
+		if(account)
+			dat += "<b>My bank pin is: [account.bank_pin]</b><BR>"
 		var/obj/keypad/armory/armory = find_keypad(/obj/keypad/armory)
 		if(armory && (host.mind.assigned_role == "Prince" || host.mind.assigned_role == "Sheriff" || host.mind.assigned_role == "Seneschal"))
 			dat += "<p>The pincode for the armory keypad is<b>: [armory.pincode]</b></p>"
@@ -135,21 +134,11 @@
 				if(host.real_name != GLOB.ventruename)
 					dat += "<p> My primogen is:  [GLOB.ventruename].</p>"
 
-		dat += "<p>"
-		dat += "<b>Physique</b>: [host.physique] + [host.additional_physique]<BR>"
-		dat += "<b>Dexterity</b>: [host.dexterity] + [host.additional_dexterity]<BR>"
-		dat += "<b>Social</b>: [host.social] + [host.additional_social]<BR>"
-		dat += "<b>Mentality</b>: [host.mentality] + [host.additional_mentality]<BR>"
-		dat += "<b>Cruelty</b>: [host.blood] + [host.additional_blood]<BR>"
-		dat += "<b>Lockpicking</b>: [host.lockpicking] + [host.additional_lockpicking]<BR>"
-		dat += "<b>Athletics</b>: [host.athletics] + [host.additional_athletics]<BR>"
-		dat += "</p>"
 		if(host.hud_used)
 			dat += "<p><b>Known disciplines:</b><BR>"
 			for(var/datum/action/discipline/D in host.actions)
-				if(D)
-					if(D.discipline)
-						dat += "[D.discipline.name] [D.discipline.level] - [D.discipline.desc]<BR>"
+				if(D.discipline)
+					dat += "[D.discipline.name] [D.discipline.level] - [D.discipline.desc]<BR>"
 			dat += "</p>"
 		if(host.Myself)
 			if(host.Myself.Friend)

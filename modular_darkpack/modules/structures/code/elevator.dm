@@ -13,10 +13,9 @@
 /obj/elevator_button_up/Initialize(mapload)
 	. = ..()
 	for(var/obj/elevator_button_down/W in world)
-		if(W)
-			if(W.id == id)
-				D = W
-				W.U = src
+		if(W.id == id)
+			D = W
+			W.U = src
 	for(var/obj/elevator_door/E in range(3, src))
 		doors += E
 		if(!E.density)
@@ -61,10 +60,9 @@
 /obj/elevator_button_down/Initialize(mapload)
 	. = ..()
 	for(var/obj/elevator_button_up/W in world)
-		if(W)
-			if(W.id == id)
-				U = W
-				W.D = src
+		if(W.id == id)
+			U = W
+			W.D = src
 	for(var/obj/elevator_door/E in range(src, 3))
 		doors += E
 		if(!E.density)
@@ -106,13 +104,11 @@
 /obj/elevator_button/Initialize(mapload)
 	. = ..()
 	for(var/obj/elevator_button_up/W in range(3, src))
-		if(W)
-			if(W.id == id)
-				O = W
+		if(W.id == id)
+			O = W
 	for(var/obj/elevator_button_down/D in range(3, src))
-		if(D)
-			if(D.id == id)
-				I = D
+		if(D.id == id)
+			I = D
 
 /obj/elevator_button/attack_hand(mob/user)
 	if(I)
