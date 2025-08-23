@@ -25,6 +25,7 @@
 	hitscan = TRUE
 	tracer_type = /obj/effect/projectile/tracer/tracer/beam_rifle/vampire
 
+/* evil ass
 /obj/projectile/beam/beam_rifle/vampire/generate_hitscan_tracers(cleanup = TRUE, duration = 5, impacting = TRUE, highlander)
 	set waitfor = FALSE
 	if(isnull(highlander))
@@ -40,11 +41,12 @@
 		QDEL_LIST(beam_segments)
 		beam_segments = null
 		QDEL_NULL(beam_index)
+*/
 
 /obj/projectile/beam/beam_rifle/vampire/vamp9mm
 	name = "9mm bullet"
 	damage = 18
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 
 /obj/projectile/beam/beam_rifle/vampire/vamp9mm/plus
 	name = "9mm HV bullet"
@@ -60,35 +62,35 @@
 	name = ".44 bullet"
 	damage = 35
 	armour_penetration = 15
-	bare_wound_bonus = -5
+	exposed_wound_bonus = -5
 	wound_bonus = 10
 
 /obj/projectile/beam/beam_rifle/vampire/vamp50
 	name = ".50 bullet"
 	damage = 70
 	armour_penetration = 20
-	bare_wound_bonus = 5
+	exposed_wound_bonus = 5
 	wound_bonus = 5
 
 /obj/projectile/beam/beam_rifle/vampire/vamp556mm
 	name = "5.56mm bullet"
 	damage = 45
 	armour_penetration = 25
-	bare_wound_bonus = -5
+	exposed_wound_bonus = -5
 	wound_bonus = 5
 
 /obj/projectile/beam/beam_rifle/vampire/vamp545mm
 	name = "5.45mm bullet"
 	damage = 40
 	armour_penetration = 30
-	bare_wound_bonus = 5
+	exposed_wound_bonus = 5
 	wound_bonus = -5
 
 /obj/projectile/beam/beam_rifle/vampire/vamp12g
 	name = "12g shotgun slug"
 	damage = 70
 	armour_penetration = 15
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 	wound_bonus = 5
 
 /obj/projectile/beam/beam_rifle/vampire/vamp12g/on_hit(atom/target, blocked = FALSE)
@@ -109,7 +111,7 @@
 	damage = 9
 	range = 22 //range of where you can see + one screen after
 	armour_penetration = 15
-	bare_wound_bonus = 5
+	exposed_wound_bonus = 5
 	wound_bonus = 0
 
 /obj/projectile/beam/beam_rifle/vampire/shotpellet/on_hit(atom/target, blocked = FALSE)
@@ -124,6 +126,7 @@
 	var/fire_stacks = 4
 
 /obj/projectile/beam/beam_rifle/vampire/vamp556mm/incendiary/on_hit(atom/target, blocked = FALSE)
+	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
 		M.adjust_fire_stacks(fire_stacks)
@@ -209,6 +212,16 @@
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/shotpellet
 	pellets = 8
 	variance = 25
+
+/obj/item/ammo_casing/caseless/bolt
+	name = "bolt"
+	desc = "Welcome to the Middle Ages!"
+	projectile_type = /obj/projectile/bullet/crossbow_bolt
+	caliber = CALIBER_FOAM
+	icon_state = "arrow"
+	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	harmful = TRUE
 
 /*
 /obj/item/storage/ammostack
@@ -321,6 +334,8 @@
 	ammo_type = /obj/item/ammo_casing/caseless/bolt
 	max_ammo = 30
 
+// TODO: [Rebase] - Werewolf
+/*
 //obj/item/ammo_casing/vampire/c12g/buck/silver
 //	name = "silver 12g shell casing"
 //	desc = "A silver filled 12g shell casing."
@@ -449,3 +464,4 @@
 //	name = "ammo box (12g, 00 buck silver)"
 //	icon_state = "s12box_buck"
 //	ammo_type = /obj/item/ammo_casing/vampire/c12g/buck/silver
+*/
