@@ -505,13 +505,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
 		if (preference.savefile_identifier != PREFERENCE_CHARACTER)
 			continue
-		// DARKPACK EDIT ADDITION START - TTRPG preferences
+		// DARKPACK EDIT ADD START - TTRPG preferences
 		// Preferences with must_have_relevant_trait are skipped for characters who
 		// don't have the relevant trait.
 		if (preference.must_have_relevant_trait && preference.relevant_inherent_trait)
 			if (!HAS_TRAIT(character, preference.relevant_inherent_trait))
 				continue
-		// DARKPACK EDIT ADDITION END - TTRPG preferences
+		// DARKPACK EDIT ADD END - TTRPG preferences
 
 		preference.apply_to_human(character, read_preference(preference.type))
 

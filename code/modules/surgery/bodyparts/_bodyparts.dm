@@ -135,7 +135,7 @@
 	var/list/damage_examines = list(
 		BRUTE = DEFAULT_BRUTE_EXAMINE_TEXT,
 		BURN = DEFAULT_BURN_EXAMINE_TEXT,
-		AGGRAVATED = DEFAULT_AGGRAVATED_EXAMINE_TEXT, // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		AGGRAVATED = DEFAULT_AGGRAVATED_EXAMINE_TEXT, // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 	)
 
 	// Wounds related variables
@@ -301,10 +301,10 @@
 		. += span_warning("This limb has [brute_dam > 30 ? "severe" : "minor"] bruising.")
 	if(burn_dam > DAMAGE_PRECISION)
 		. += span_warning("This limb has [burn_dam > 30 ? "severe" : "minor"] burns.")
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(aggravated_dam > DAMAGE_PRECISION)
 		. += span_warning("This limb has [aggravated_dam > 30 ? "severe" : "minor"] festering wounds.")
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 
 	for(var/datum/wound/wound as anything in wounds)
 		var/wound_desc = wound.get_limb_examine_description()
@@ -324,7 +324,7 @@
 
 	var/shown_brute = limb_damage[BRUTE]
 	var/shown_burn = limb_damage[BURN]
-	var/shown_aggravated = limb_damage[AGGRAVATED] // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	var/shown_aggravated = limb_damage[AGGRAVATED] // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 	var/status = ""
 	var/self_aware = HAS_TRAIT(examiner, TRAIT_SELF_AWARE)
 
@@ -352,7 +352,7 @@
 		else if(shown_burn > DAMAGE_PRECISION)
 			status += light_burn_msg
 
-		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 		if((shown_brute > DAMAGE_PRECISION || shown_burn > DAMAGE_PRECISION) && shown_aggravated > DAMAGE_PRECISION)
 			status += " and "
 
@@ -362,7 +362,7 @@
 			status += medium_aggravated_msg
 		else if(shown_aggravated > DAMAGE_PRECISION)
 			status += light_aggravated_msg
-		// DARKPACK EDIT ADDITION END
+		// DARKPACK EDIT ADD END
 
 		if(status == "")
 			status = "OK"
@@ -539,14 +539,14 @@
 	var/dmg_multi = CONFIG_GET(number/damage_multiplier) * hit_percent
 	brute = round(max(brute * dmg_multi * brute_modifier, 0), DAMAGE_PRECISION)
 	burn = round(max(burn * dmg_multi * burn_modifier, 0), DAMAGE_PRECISION)
-	aggravated = round(max(aggravated * dmg_multi * aggravated_modifier, 0), DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	aggravated = round(max(aggravated * dmg_multi * aggravated_modifier, 0), DAMAGE_PRECISION) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 	if(!brute && !burn && !aggravated) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		return FALSE
 
 	brute *= wound_damage_multiplier
 	burn *= wound_damage_multiplier
-	aggravated *= wound_damage_multiplier // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	aggravated *= wound_damage_multiplier // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 	/*
 	// START WOUND HANDLING
@@ -611,7 +611,7 @@
 	if(total_damage > can_inflict && total_damage > 0) // TODO: the second part of this check should be removed once disabling is all done
 		brute = round(brute * (can_inflict / total_damage),DAMAGE_PRECISION)
 		burn = round(burn * (can_inflict / total_damage),DAMAGE_PRECISION)
-		aggravated = round(aggravated * (can_inflict / total_damage),DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		aggravated = round(aggravated * (can_inflict / total_damage),DAMAGE_PRECISION) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 	if(can_inflict <= 0)
 		return FALSE
@@ -619,10 +619,10 @@
 		set_brute_dam(brute_dam + brute)
 	if(burn)
 		set_burn_dam(burn_dam + burn)
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(aggravated)
 		set_aggravated_dam(aggravated_dam + aggravated)
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 
 	if(owner)
 		if(can_be_disabled)
@@ -721,10 +721,10 @@
 		set_brute_dam(round(max(brute_dam - brute, 0), DAMAGE_PRECISION))
 	if(burn)
 		set_burn_dam(round(max(burn_dam - burn, 0), DAMAGE_PRECISION))
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(aggravated)
 		set_aggravated_dam(round(max(aggravated_dam - aggravated, 0), DAMAGE_PRECISION))
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 
 	if(owner)
 		if(can_be_disabled)
@@ -1460,7 +1460,7 @@
 	limb_id = initial(limb_id)
 	is_dimorphic = initial(is_dimorphic)
 	should_draw_greyscale = initial(should_draw_greyscale)
-	body_weight = initial(body_weight) // DARKPACK EDIT ADDITION - Body weight sprites
+	body_weight = initial(body_weight) // DARKPACK EDIT ADD - Body weight sprites
 
 	if(!owner)
 		update_icon_dropped()

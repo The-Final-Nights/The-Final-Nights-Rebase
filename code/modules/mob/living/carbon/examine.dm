@@ -132,7 +132,7 @@
 			else
 				. += span_bolddanger("[t_He] [t_has] severe [damage_desc[BURN]]!")
 
-		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 		temp = getAggLoss()
 		if(temp)
 			if(temp < 25)
@@ -141,7 +141,7 @@
 				. += span_danger("[t_He] [t_has] <b>moderate</b> [damage_desc[AGGRAVATED]]!")
 			else
 				. += span_bolddanger("[t_He] [t_has] severe [damage_desc[AGGRAVATED]]!")
-		// DARKPACK EDIT ADDITION END
+		// DARKPACK EDIT ADD END
 
 	if(pulledby?.grab_state)
 		. += span_warning("[t_He] [t_is] restrained by [pulledby]'s grip.")

@@ -708,7 +708,7 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Also consider updating layers_to_offset
 #define TOTAL_LAYERS 38 // DARKPACK EDIT CHANGE - Shadows
 /// Layer for shadow overlays under mobs
-#define UNDERSHADOW_LAYER 38 // DARKPACK EDIT ADDITION - Shadows
+#define UNDERSHADOW_LAYER 38 // DARKPACK EDIT ADD - Shadows
 /// Mutations layer - Tk headglows, cold resistance glow, etc
 #define MUTATIONS_LAYER 37
 /// Mutantrace features (tail when looking south) that must appear behind the body parts

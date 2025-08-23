@@ -8,7 +8,7 @@
 
 /datum/preference/numeric/age/apply_to_human(mob/living/carbon/human/target, value)
 	target.age = value
-	target.chronological_age = value // DARKPACK EDIT ADDITION - Immortal age
+	target.chronological_age = value // DARKPACK EDIT ADD - Immortal age
 
 /datum/preference/numeric/age/create_informed_default_value(datum/preferences/preferences)
 	return rand(max(minimum, 21), min(maximum, 50))

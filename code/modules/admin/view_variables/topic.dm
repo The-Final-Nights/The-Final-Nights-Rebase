@@ -91,11 +91,11 @@
 			if("stamina")
 				L.adjustStaminaLoss(amount, forced = TRUE)
 				newamt = L.getStaminaLoss()
-			// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+			// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 			if("aggravated")
 				L.adjustAggLoss(amount, forced = TRUE)
 				newamt = L.getAggLoss()
-			// DARKPACK EDIT ADDITION END
+			// DARKPACK EDIT ADD END
 			else
 				to_chat(usr, "You caused an error. DEBUG: Text:[Text] Mob:[L]", confidential = TRUE)
 				return
