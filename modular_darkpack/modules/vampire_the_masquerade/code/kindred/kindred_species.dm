@@ -84,9 +84,10 @@
 	// Apply bashing damage resistance
 	RegisterSignal(new_kindred, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_resistance))
 
-	// TODO: [Lucia] reimplement choosing disciplines
+	// TODO: [Rebase] reimplement choosing disciplines
 	new_kindred.give_discipline(new /datum/discipline/celerity(5))
 	new_kindred.give_discipline(new /datum/discipline/potence(5))
+	new_kindred.give_discipline(new /datum/discipline/fortitude(5))
 
 /datum/species/human/kindred/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
 	. = ..()
@@ -98,7 +99,7 @@
 	UnregisterSignal(human, COMSIG_MOB_VAMPIRE_SUCKED)
 	UnregisterSignal(human, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
 
-	// TODO: [Lucia] reimplement vampire actions
+	// TODO: [Rebase] reimplement vampire actions
 	/*
 	for (var/datum/action/vampireinfo/VI in human.actions)
 		VI.Remove(human)
@@ -174,7 +175,7 @@
 
 	return COMPONENT_RESIST_VAMPIRE_KISS
 
-// TODO: [Lucia] reimplement the godforsaken stuff in here
+// TODO: [Rebase] reimplement the godforsaken stuff in here
 /*
 /datum/species/human/kindred/spec_life(mob/living/carbon/human/H)
 	. = ..()
