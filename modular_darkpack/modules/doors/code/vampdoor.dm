@@ -103,6 +103,10 @@
 	if(!door_broken)
 		break_door()
 
+/obj/structure/vampdoor/atom_fix()
+	. = ..()
+	fix_door()
+
 /obj/structure/vampdoor/proc/break_door()
 	name = "door frame"
 	desc = "An empty door frame. Someone removed the door by force. A special door repair kit should be able to fix this."
@@ -174,7 +178,7 @@
 		else
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
-				if(H.st_get_stat(STAT_STRENGTH) > 0)
+				if(H.st_get_stat(STAT_STRENGTH) > 5)
 					if((H.st_get_stat(STAT_STRENGTH) * 2) >= lockpick_difficulty)
 						playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/get_bent.ogg', 100, FALSE)
 						var/obj/item/shield/door/D = new(get_turf(src))
@@ -204,23 +208,29 @@
 	else
 		toggle_door(user)
 
+/obj/structure/vampdoor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/door_repair_kit))
+		try_repair(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+	return NONE
+
+/obj/structure/vampdoor/proc/try_repair(mob/living/user, obj/item/tool)
+	if(!door_broken)
+		to_chat(user,span_warning("This door does not seem to be broken."))
+		return FALSE
+	if(door_in_use == TRUE) //This is basically an in-use indicator already
+		to_chat(user,span_warning("Someone else seems to be using this door already."))
+		return FALSE
+	playsound(src, 'sound/items/tools/ratchet.ogg', 50)
+	door_in_use = TRUE
+	if(do_after(user, 10 SECONDS, src))
+		playsound(src, 'sound/items/deconstruct.ogg', 50)
+		repair_damage(max_integrity)
+		qdel(tool)
+	door_in_use = FALSE
+	return TRUE
+
 /obj/structure/vampdoor/attackby(obj/item/W, mob/living/user, params)
-	if(istype(W, /obj/item/door_repair_kit))
-		if(!door_broken)
-			to_chat(user,span_warning("This door does not seem to be broken."))
-			return
-		var/obj/item/door_repair_kit/repair_kit = W
-		if(door_in_use == TRUE) //This is basically an in-use indicator already
-			to_chat(user,span_warning("Someone else seems to be using this door already."))
-			return
-		playsound(src, 'sound/items/tools/ratchet.ogg', 50)
-		door_in_use = TRUE
-		if(do_after(user, 10 SECONDS,src))
-			playsound(src, 'sound/items/deconstruct.ogg', 50)
-			fix_door()
-			qdel(repair_kit)
-		door_in_use = FALSE
-	else if(istype(W, /obj/item/vamp/keys/hack))
+	if(istype(W, /obj/item/vamp/keys/hack))
 		if(door_broken)
 			to_chat(user,span_warning("There is no door to pick here."))
 			return
