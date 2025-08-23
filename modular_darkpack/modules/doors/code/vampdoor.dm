@@ -1,4 +1,4 @@
-#define DOAFTER_SOURCE_LOCKPICKING "doafter_lockpicking"
+#define DOAFTER_SOURCE_DOOR "doafter_door"
 /obj/structure/vampdoor
 	name = "\improper door"
 	desc = "It opens and closes."
@@ -26,7 +26,6 @@
 	var/door_layer = ABOVE_ALL_MOB_LAYER
 	var/lock_id = null
 	var/glass = FALSE
-	var/door_in_use = FALSE
 	var/lockpick_timer = 17 //[Lucifernix] - Never have the lockpick timer lower than 7. At 7 it will unlock instantly!!
 	var/lockpick_difficulty = 2
 
@@ -210,81 +209,78 @@
 
 /obj/structure/vampdoor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/door_repair_kit))
-		try_repair(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+		return try_repair(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+	if(istype(tool, /obj/item/vamp/keys/hack))
+		return try_lockpick(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+	if(istype(tool, /obj/item/vamp/keys))
+		return try_keys(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
 	return NONE
 
 /obj/structure/vampdoor/proc/try_repair(mob/living/user, obj/item/tool)
 	if(!door_broken)
 		to_chat(user,span_warning("This door does not seem to be broken."))
 		return FALSE
-	if(door_in_use == TRUE) //This is basically an in-use indicator already
-		to_chat(user,span_warning("Someone else seems to be using this door already."))
-		return FALSE
 	playsound(src, 'sound/items/tools/ratchet.ogg', 50)
-	door_in_use = TRUE
-	if(do_after(user, 10 SECONDS, src))
+	if(do_after(user, 10 SECONDS, src, interaction_key = DOAFTER_SOURCE_DOOR))
+		if(atom_integrity >= max_integrity)
+			return FALSE
 		playsound(src, 'sound/items/deconstruct.ogg', 50)
 		repair_damage(max_integrity)
 		qdel(tool)
-	door_in_use = FALSE
 	return TRUE
 
-/obj/structure/vampdoor/attackby(obj/item/W, mob/living/user, params)
-	if(istype(W, /obj/item/vamp/keys/hack))
-		if(door_broken)
-			to_chat(user,span_warning("There is no door to pick here."))
-			return
-		if(locked)
-			door_in_use = TRUE
-			proc_unlock(5)
-			playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
-			for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
-				P.Aggro(user)
-			var/total_lockpicking = user.st_get_stat(STAT_LARCENY)
-			if(do_after(user, (lockpick_timer - total_lockpicking * 2) SECONDS, src, interaction_key = DOAFTER_SOURCE_LOCKPICKING))
-				var/roll_result = SSroll.storyteller_roll(total_lockpicking + user.st_get_stat(STAT_DEXTERITY), lockpick_difficulty, list(user), user)
-				switch(roll_result)
-					if(ROLL_SUCCESS)
-						to_chat(user, span_notice("You pick the lock."))
-						locked = FALSE
-					if(ROLL_FAILURE)
-						to_chat(user, span_warning("You failed to pick the lock."))
-					if(ROLL_BOTCH)
-						to_chat(user, span_warning("Your lockpick broke!"))
-						qdel(W)
-				door_in_use = FALSE
+/obj/structure/vampdoor/proc/try_lockpick(mob/living/user, obj/item/tool)
+	if(door_broken)
+		to_chat(user,span_warning("There is no door to pick here."))
+		return
+	if(locked)
+		proc_unlock(5)
+		playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
+		for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
+			P.Aggro(user)
+		var/total_lockpicking = user.st_get_stat(STAT_LARCENY)
+		if(do_after(user, (lockpick_timer - total_lockpicking * 2) SECONDS, src, interaction_key = DOAFTER_SOURCE_DOOR))
+			if(!locked)
 				return
-			else
-				to_chat(user, span_warning("You failed to pick the lock."))
-				door_in_use = FALSE
-				return
+			var/roll_result = SSroll.storyteller_roll(total_lockpicking + user.st_get_stat(STAT_DEXTERITY), lockpick_difficulty, list(user), user)
+			switch(roll_result)
+				if(ROLL_SUCCESS)
+					to_chat(user, span_notice("You pick the lock."))
+					locked = FALSE
+					return TRUE
+				if(ROLL_FAILURE)
+					to_chat(user, span_warning("You failed to pick the lock."))
+				if(ROLL_BOTCH)
+					to_chat(user, span_warning("Your lockpick broke!"))
+					qdel(tool)
 		else
-			if(closed && lock_id) //yes, this is a thing you can extremely easily do in real life... FOR DOORS WITH LOCKS!
-				to_chat(user, span_notice("You re-lock the door with your lockpick."))
-				locked = TRUE
-				playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
-				return
-	else if(istype(W, /obj/item/vamp/keys))
-		var/obj/item/vamp/keys/KEY = W
-		if(door_broken)
-			to_chat(user,span_warning("There is no door to open/close here."))
+			to_chat(user, span_warning("You failed to pick the lock."))
 			return
-		if(KEY.roundstart_fix)
-			lock_id = pick(KEY.accesslocks)
-			KEY.roundstart_fix = FALSE
-		if(KEY.accesslocks)
-			for(var/i in KEY.accesslocks)
-				if(i == lock_id)
-					if(!locked)
-						playsound(src, lock_sound, 75, TRUE)
-						to_chat(user, "[src] is now locked.")
-						locked = TRUE
-					else
-						playsound(src, lock_sound, 75, TRUE)
-						to_chat(user, "[src] is now unlocked.")
-						proc_unlock("key")
-						locked = FALSE
 	else
-		return ..()
+		if(closed && lock_id) //yes, this is a thing you can extremely easily do in real life... FOR DOORS WITH LOCKS!
+			to_chat(user, span_notice("You re-lock the door with your lockpick."))
+			locked = TRUE
+			playsound(src, 'modular_darkpack/modules/deprecated/sounds/hack.ogg', 100, TRUE)
+			return TRUE
 
-#undef DOAFTER_SOURCE_LOCKPICKING
+/obj/structure/vampdoor/proc/try_keys(mob/living/user, obj/item/vamp/keys/key_used)
+	if(door_broken)
+		to_chat(user,span_warning("There is no door to open/close here."))
+		return
+	if(key_used.roundstart_fix)
+		lock_id = pick(key_used.accesslocks)
+		key_used.roundstart_fix = FALSE
+	if(key_used.accesslocks)
+		for(var/i in key_used.accesslocks)
+			if(i == lock_id)
+				playsound(src, lock_sound, 75, TRUE)
+				if(!locked)
+					to_chat(user, "[src] is now locked.")
+					locked = TRUE
+				else
+					to_chat(user, "[src] is now unlocked.")
+					proc_unlock("key")
+					locked = FALSE
+				return TRUE
+
+#undef DOAFTER_SOURCE_DOOR
