@@ -3,4 +3,4 @@
 #define CALIBER_545 ".545"
 #define CALIBER_556 ".556"
 
-#define CALIBER_12G "12 gauge"
+#define CALIBER_BOLT "bolt"
