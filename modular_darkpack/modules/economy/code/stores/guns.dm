@@ -1,6 +1,6 @@
 /obj/machinery/mineral/equipment_vendor/fastfood/america	//PSEUDO_M make this restricted or remove it completely
 	desc = "Boom! Booom!! BOOOOOOM!!!!"
-	prize_list = list(new /datum/data/mining_equipment("magnum revolver",	/obj/item/gun/ballistic/vampire/revolver,	200),
+	prize_list = list(new /datum/data/mining_equipment("magnum revolver",	/obj/item/gun/ballistic/revolver/vampire,	200),
 		new /datum/data/mining_equipment("Colt M1911",	/obj/item/gun/ballistic/automatic/vampire/m1911,	250),
 		new /datum/data/mining_equipment("Elite 92G",	/obj/item/gun/ballistic/automatic/vampire/beretta,	500),
 		new /datum/data/mining_equipment("desert eagle",	/obj/item/gun/ballistic/automatic/vampire/deagle,	600),

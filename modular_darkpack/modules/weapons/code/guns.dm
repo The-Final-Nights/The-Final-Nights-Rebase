@@ -16,18 +16,24 @@
 	can_suppress = FALSE
 	recoil = 2
 
+//REVOLVERS
 /obj/item/ammo_box/magazine/internal/cylinder/rev44
 	name = "revolver cylinder"
 	ammo_type = /obj/item/ammo_casing/vampire/c44
 	caliber = CALIBER_44
 	max_ammo = 6
 
-/obj/item/gun/ballistic/vampire/revolver
+/obj/item/gun/ballistic/revolver/vampire
 	name = "\improper magnum revolver"
 	desc = "Feelin' lucky, punk?"
 	icon_state = "revolver"
 	inhand_icon_state = "revolver"
 	worn_icon_state = "revolver"
+	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
 	initial_caliber = CALIBER_44
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/revolver.ogg'
@@ -36,73 +42,8 @@
 	vary_fire_sound = FALSE
 	fire_sound_volume = 85
 	dry_fire_sound = 'sound/items/weapons/gun/revolver/dry_fire.ogg'
-	casing_ejector = FALSE
-	internal_magazine = TRUE
-	bolt_type = BOLT_TYPE_NO_BOLT
-	tac_reloads = FALSE
-	var/spin_delay = 10
-	var/recent_spin = 0
 
-/obj/item/gun/ballistic/vampire/revolver/chamber_round(keep_bullet, spin_cylinder = TRUE, replace_new_round)
-	if(!magazine) //if it mag was qdel'd somehow.
-		CRASH("revolver tried to chamber a round without a magazine!")
-	if(spin_cylinder)
-		chambered = magazine.get_round(TRUE)
-	else
-		chambered = magazine.stored_ammo[1]
-
-/obj/item/gun/ballistic/vampire/revolver/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	. = ..()
-	chamber_round()
-
-/obj/item/gun/ballistic/vampire/revolver/click_alt(mob/user)
-	. = ..()
-	spin()
-
-/obj/item/gun/ballistic/vampire/revolver/verb/spin()
-	set name = "Spin Chamber"
-	set category = "Object"
-	set desc = "Click to spin your revolver's chamber."
-
-	var/mob/M = usr
-
-	if(M.stat || !in_range(M,src))
-		return
-
-	if (recent_spin > world.time)
-		return
-	recent_spin = world.time + spin_delay
-
-	if(do_spin())
-		playsound(usr, "revolver_spin", 30, FALSE)
-		usr.visible_message(span_notice("[usr] spins [src]'s chamber."), span_notice("You spin [src]'s chamber."))
-	else
-		verbs -= /obj/item/gun/ballistic/vampire/revolver/verb/spin
-
-/obj/item/gun/ballistic/vampire/revolver/proc/do_spin()
-	var/obj/item/ammo_box/magazine/internal/cylinder/C = magazine
-	. = istype(C)
-	if(.)
-		C.spin()
-		chamber_round(spin_cylinder = FALSE)
-
-/obj/item/gun/ballistic/revolver/get_ammo(countchambered = FALSE, countempties = TRUE)
-	var/boolets = 0 //mature var names for mature people
-	if (chambered && countchambered)
-		boolets++
-	if (magazine)
-		boolets += magazine.ammo_count(countempties)
-	return boolets
-
-/obj/item/gun/ballistic/vampire/revolver/examine(mob/user)
-	. = ..()
-	var/live_ammo = get_ammo(FALSE, FALSE)
-	. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
-	if (current_skin)
-		. += "It can be spun with <b>alt+click</b>"
-
-
-/obj/item/gun/ballistic/vampire/revolver/snub
+/obj/item/gun/ballistic/revolver/vampire/snub
 	name = "\improper snub-nosed revolver"
 	desc = "a cheap Saturday night special revolver. Sometimes called a 'purse gun'. It takes 9mm rounds."
 	icon_state = "revolver_snub"
@@ -133,6 +74,7 @@
 	max_ammo = 7
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
+//PISTOLS
 /obj/item/gun/ballistic/automatic/vampire/deagle
 	name = "\improper Desert Eagle"
 	desc = "A powerful .44 handgun."
@@ -342,6 +284,7 @@
 	name = "custom pistol magazine (9mm)"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm/silver
 
+//AUTOMATICS
 /obj/item/ammo_box/magazine/vamp9mm
 	name = "uzi magazine (9mm)"
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
