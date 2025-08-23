@@ -1,21 +1,21 @@
 /area/vtm/interior/shop
 	name = "Shop"
 	icon_state = "shop"
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/interior/laundromat
 	name = "Laundromat"
 	icon_state = "shop"
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	wall_rating = LOW_WALL_RATING
 
 /area/vtm/interior/giovanni
 	name = "Giovanni Mansion"
 	icon_state = "giovanni"
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = "elysium"
 	fire_controled = TRUE
 	yang_chi = 0
@@ -25,14 +25,14 @@
 /area/vtm/interior/techshop
 	name = "Nightwolf Techshop"
 	icon_state = "shop"
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/interior/bianchiBank
 	name = "Bianchi Bank"
 	icon_state = "giovanni"
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = "elysium"
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
@@ -40,28 +40,28 @@
 /area/vtm/interior/police
 	name = "Police Station"
 	icon_state = "police"
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/interior/vjanitor
 	name = "Cleaners"
 	icon_state = "janitor"
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/interior/strip
 	name = "Strip Club"
 	icon_state = "strip"
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/interior/mansion
 	name = "Abandoned Mansion"
 	icon_state = "mansion"
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = ZONE_NO_MASQUERADE
 	yang_chi = 0
 	yin_chi = 2
@@ -70,7 +70,7 @@
 /area/vtm/interior/glasswalker
 	name = "Glasswalker's Lab"
 	icon_state = "supply"
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = ZONE_NO_MASQUERADE
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/night_ambience.ogg'
 	fire_controled = TRUE
@@ -80,7 +80,7 @@
 	name = "Penumbra"
 	icon_state = "church"
 	ambience_index = AMBIENCE_NATURE
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = ZONE_NO_MASQUERADE
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/penumbra.ogg'
 	fire_controled = FALSE
@@ -90,7 +90,7 @@
 	name = "Backrooms"
 	icon_state = "church"
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = ZONE_NO_MASQUERADE
 	fire_controled = FALSE
 	wall_rating = LOW_WALL_RATING
@@ -115,6 +115,6 @@
 /area/vtm/interior/strip_elysium
 	name = "Strip Club Elysium"
 	icon_state = "prince"
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	zone_type = "elysium"
