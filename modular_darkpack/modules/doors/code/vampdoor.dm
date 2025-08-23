@@ -26,8 +26,8 @@
 	var/door_layer = ABOVE_ALL_MOB_LAYER
 	var/lock_id = null
 	var/glass = FALSE
-	var/lockpick_timer = 17 //[Lucifernix] - Never have the lockpick timer lower than 7. At 7 it will unlock instantly!!
-	var/lockpick_difficulty = 2
+	var/lockpick_timer = LOCKTIMER_1 //[Lucifernix] - Never have the lockpick timer lower than 7. At 7 it will unlock instantly!!
+	var/lockpick_difficulty = LOCKDIFFICULTY_1
 
 	var/open_sound = 'modular_darkpack/modules/deprecated/sounds/door_open.ogg'
 	var/close_sound = 'modular_darkpack/modules/deprecated/sounds/door_close.ogg'
@@ -52,6 +52,7 @@
 		if(-INFINITY to LOCKDIFFICULTY_2) //LOCKDIFFICULTY_1 is basically the minimum so we can just do LOCKTIMER_1 from -INFINITY
 			lockpick_timer = LOCKTIMER_1
 
+/* Examine text will need to be reworked but im not sure on the probailites for rolls considering botches as well.
 /obj/structure/vampdoor/examine(mob/user)
 	. = ..()
 	if(!ishuman(user))
@@ -87,6 +88,7 @@
 		//Putting a condition here to avoid dividing 0.
 		var/odds = value ? clamp((value/max_rand_value), 0, 1) : 0
 		. += span_notice("As an expert in lockpicking, you estimate that you have a [round(odds*100, 1)]% chance to lockpick this door successfully.")
+*/
 
 /obj/structure/vampdoor/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
@@ -164,7 +166,7 @@
 	closed = TRUE
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_CLOSE, force)
 
-/obj/structure/vampdoor/attack_hand(mob/user)
+/obj/structure/vampdoor/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	var/mob/living/N = user
 	if(door_broken)
@@ -206,6 +208,33 @@
 		return
 	else
 		toggle_door(user)
+
+/obj/structure/vampdoor/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
+
+	var/has_keys = FALSE
+	for(var/obj/item/vamp/keys/found_key in user)
+		if(!do_after(user, 1 SECONDS, src, interaction_key = DOAFTER_SOURCE_DOOR))
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		has_keys = TRUE
+		if(try_keys(user, found_key))
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.back)
+			for(var/obj/item/vamp/keys/found_key in human_user.back)
+				if(!do_after(human_user, 1 SECONDS, src, interaction_key = DOAFTER_SOURCE_DOOR))
+					return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+				has_keys = TRUE
+				if(try_keys(user, found_key))
+					return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+	if(!has_keys)
+		to_chat(user, span_warning("You need a key to lock/unlock this door!"))
+	else
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/vampdoor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/door_repair_kit))
@@ -264,6 +293,12 @@
 			return TRUE
 
 /obj/structure/vampdoor/proc/try_keys(mob/living/user, obj/item/vamp/keys/key_used)
+	/*
+	if(key_used != user.get_active_hand())
+		if(!do_after(human_user, 0.5 SECONDS, src, interaction_key = DOAFTER_SOURCE_DOOR))
+			return
+	*/
+	to_chat(user, span_notice("You try [key_used] against [src]"))
 	if(door_broken)
 		to_chat(user,span_warning("There is no door to open/close here."))
 		return
