@@ -63,10 +63,9 @@
 				if(G.master.clan.name != "Caitiff")
 					dat += "Regnant's clan is [G.master.clan], maybe I can try some of it's disciplines..."
 			dat += "</p>"
-		for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
-			if(host.bank_id == account.bank_id)
-				dat += "<p><b>My bank account code is: [account.code]</b></p>"
-				break
+		var/datum/bank_account/account = host.account_id ? SSeconomy.bank_accounts_by_id["[host.account_id]"] : null
+		if(account)
+			dat += "<b>My bank pin is: [account.bank_pin]</b><BR>"
 		if(host.mind.special_role)
 			for(var/datum/antagonist/A in host.mind.antag_datums)
 				if(A.objectives)
@@ -147,12 +146,10 @@
 /datum/species/ghoul/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
 	for(var/datum/action/A in C.actions)
-		if(A)
-			if(A.vampiric)
-				A.Remove(C)
+		if(A.vampiric)
+			A.Remove(C)
 	for(var/datum/action/ghoulinfo/infor in C.actions)
-		if(infor)
-			infor.Remove(C)
+		infor.Remove(C)
 
 /datum/action/take_vitae
 	name = "Take Vitae"
@@ -272,7 +269,7 @@
 			H.adjust_masquerade(-1)
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
-		if(V.zone_type == ZONE_MASQUERADE && V.upper)
+		if(V.zone_type == ZONE_MASQUERADE && V.outdoors)
 			if(H.pulling)
 				if(ishuman(H.pulling))
 					var/mob/living/carbon/human/pull = H.pulling
@@ -293,22 +290,21 @@
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
-				if(I)
-					if(I.masquerade_violating)
-						if(I.loc == H)
-							if(H.CheckEyewitness(H, H, 7, FALSE))
-								if(H.last_loot_check+50 <= world.time)
-									H.last_loot_check = world.time
-									H.last_nonraid = world.time
-									H.killed_count = H.killed_count+1
-									if(!H.warrant && !H.ignores_warrant)
-										if(H.killed_count >= 5)
-											H.warrant = TRUE
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
-										else
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
+				if(I.masquerade_violating)
+					if(I.loc == H)
+						if(H.CheckEyewitness(H, H, 7, FALSE))
+							if(H.last_loot_check+50 <= world.time)
+								H.last_loot_check = world.time
+								H.last_nonraid = world.time
+								H.killed_count = H.killed_count+1
+								if(!H.warrant && !H.ignores_warrant)
+									if(H.killed_count >= 5)
+										H.warrant = TRUE
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
+									else
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 	if(H.key && H.stat != DEAD)
 		var/datum/preferences/P = GLOB.preferences_datums[ckey(H.key)]
 		if(P)
@@ -335,7 +331,7 @@
 			H.adjust_masquerade(-1)
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
-		if(V.zone_type == ZONE_MASQUERADE && V.upper)
+		if(V.zone_type == ZONE_MASQUERADE && V.outdoors)
 			if(H.pulling)
 				if(ishuman(H.pulling))
 					var/mob/living/carbon/human/pull = H.pulling
@@ -356,22 +352,21 @@
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
-				if(I)
-					if(I.masquerade_violating)
-						if(I.loc == H)
-							if(H.CheckEyewitness(H, H, 7, FALSE))
-								if((H.last_loot_check + 5 SECONDS) <= world.time)
-									H.last_loot_check = world.time
-									H.last_nonraid = world.time
-									H.killed_count = H.killed_count+1
-									if(!H.warrant && !H.ignores_warrant)
-										if(H.killed_count >= 5)
-											H.warrant = TRUE
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
-										else
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
+				if(I.masquerade_violating)
+					if(I.loc == H)
+						if(H.CheckEyewitness(H, H, 7, FALSE))
+							if((H.last_loot_check + 5 SECONDS) <= world.time)
+								H.last_loot_check = world.time
+								H.last_nonraid = world.time
+								H.killed_count = H.killed_count+1
+								if(!H.warrant && !H.ignores_warrant)
+									if(H.killed_count >= 5)
+										H.warrant = TRUE
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
+									else
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
 		H.last_bloodpool_restore = world.time
 		H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)
@@ -383,7 +378,7 @@
 			H.adjust_veil(-1)
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
-		if(V.zone_type == ZONE_MASQUERADE && V.upper)
+		if(V.zone_type == ZONE_MASQUERADE && V.outdoors)
 			if(H.pulling)
 				if(ishuman(H.pulling))
 					var/mob/living/carbon/human/pull = H.pulling
@@ -404,22 +399,21 @@
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
-				if(I)
-					if(I.masquerade_violating)
-						if(I.loc == H)
-							if(H.CheckEyewitness(H, H, 7, FALSE))
-								if(H.last_loot_check+50 <= world.time)
-									H.last_loot_check = world.time
-									H.last_nonraid = world.time
-									H.killed_count = H.killed_count+1
-									if(!H.warrant && !H.ignores_warrant)
-										if(H.killed_count >= 5)
-											H.warrant = TRUE
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
-										else
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
+				if(I.masquerade_violating)
+					if(I.loc == H)
+						if(H.CheckEyewitness(H, H, 7, FALSE))
+							if(H.last_loot_check+50 <= world.time)
+								H.last_loot_check = world.time
+								H.last_nonraid = world.time
+								H.killed_count = H.killed_count+1
+								if(!H.warrant && !H.ignores_warrant)
+									if(H.killed_count >= 5)
+										H.warrant = TRUE
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
+									else
+										SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
+										to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 	if((H.last_bloodpool_restore + 60 SECONDS) <= world.time)
 		H.last_bloodpool_restore = world.time
 		H.bloodpool = min(H.maxbloodpool, H.bloodpool+1)

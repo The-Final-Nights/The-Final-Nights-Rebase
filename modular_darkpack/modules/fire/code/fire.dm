@@ -53,44 +53,38 @@ SUBSYSTEM_DEF(die_in_a_fire)
 	if(AR.fire_controled)
 		AR.fire_extinguishment()
 	for(var/obj/effect/decal/cleanable/gasoline/G in loc)
-		if(G)
-			qdel(G)
+		qdel(G)
 	for(var/mob/living/L in loc)
-		if(L)
-			L.fire_stacks += 5
-			L.IgniteMob()
-			L.apply_damage(10*stage, BURN, BODY_ZONE_CHEST)
+		L.fire_stacks += 5
+		L.IgniteMob()
+		L.apply_damage(10*stage, BURN, BODY_ZONE_CHEST)
 	for(var/obj/machinery/light/M in loc)
-		if(M)
-			if(M.status != LIGHT_BROKEN && M.status != LIGHT_EMPTY)
-				M.break_light_tube()
+		if(M.status != LIGHT_BROKEN && M.status != LIGHT_EMPTY)
+			M.break_light_tube()
 	for(var/obj/S in loc)
-		if(S)
-			var/breakable = TRUE
-			if(S.resistance_flags & INDESTRUCTIBLE)
-				breakable = FALSE
-			if(breakable)
-				S.fire_act(1000)
-			if(istype(S, /obj/structure/flora/tree/vamp))
-				var/obj/structure/flora/tree/vamp/T = S
-				T.burnshit()
-//				if(!isitem(S))
-//					S.take_damage(10*stage, BURN, MELEE, 1)
+		var/breakable = TRUE
+		if(S.resistance_flags & INDESTRUCTIBLE)
+			breakable = FALSE
+		if(breakable)
+			S.fire_act(1000)
+		if(istype(S, /obj/structure/flora/tree/vamp))
+			var/obj/structure/flora/tree/vamp/T = S
+			T.burnshit()
+//			if(!isitem(S))
+//				S.take_damage(10*stage, BURN, MELEE, 1)
 	for(var/obj/effect/decal/cleanable/blood/B in loc)
-		if(B)
-			B.dry()
+		B.dry()
 	for(var/obj/structure/vampdoor/V in loc)
-		if(V)
-			if(V.burnable)
-				V.color = "#808080"
-				if(V.closed)
-					V.closed = FALSE
-					V.locked = FALSE
-					playsound(V, V.open_sound, 75, TRUE)
-					V.icon_state = "[V.baseicon]-0"
-					V.density = FALSE
-					V.opacity = FALSE
-					V.layer = OPEN_DOOR_LAYER
+		if(V.burnable)
+			V.color = "#808080"
+			if(V.closed)
+				V.closed = FALSE
+				V.locked = FALSE
+				playsound(V, V.open_sound, 75, TRUE)
+				V.icon_state = "[V.baseicon]-0"
+				V.density = FALSE
+				V.opacity = FALSE
+				V.layer = OPEN_DOOR_LAYER
 	var/total_burn = 0
 	if(istype(get_turf(src), /turf/open/floor))
 		var/turf/open/floor/A = get_turf(src)
@@ -161,7 +155,7 @@ SUBSYSTEM_DEF(die_in_a_fire)
 	. = ..()
 	if(istype(get_area(src), /area/vtm))
 		var/area/vtm/V = get_area(src)
-		if(!V.upper)
+		if(!V.outdoors)
 			spread_chance += 10
 
 /turf/open

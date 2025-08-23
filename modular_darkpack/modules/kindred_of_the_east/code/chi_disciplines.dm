@@ -365,7 +365,7 @@
 			caster.drop_all_held_items()
 			caster.put_in_active_hand(new /obj/item/gun/magic/blood_shintai(caster))
 		if(5)
-			var/obj/item/melee/vampirearms/katana/blood/blood_katana = new (caster)
+			var/obj/item/katana/vamp/blood/blood_katana = new (caster)
 			caster.drop_all_held_items()
 			caster.put_in_active_hand(blood_katana)
 			spawn(delay+caster.discipline_time_plus)
@@ -473,7 +473,7 @@
 		inhaling_mob.emote("cough")
 		return TRUE
 
-/obj/item/melee/vampirearms/knife/bone_shintai
+/obj/item/knife/vamp/bone_shintai
 	name = "claws"
 	icon_state = "claws"
 	w_class = WEIGHT_CLASS_BULKY
@@ -482,7 +482,7 @@
 	block_chance = 20
 	item_flags = DROPDEL
 	masquerade_violating = TRUE
-	is_iron = FALSE
+	obj_flags = NONE
 
 /datum/chi_discipline/bone_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
 	. = ..()
@@ -521,8 +521,8 @@
 					caster.set_hairstyle(initial_hair)
 					caster.set_facial_hairstyle(initial_facial)
 		if(3)
-			var/obj/item/melee/vampirearms/knife/bone_shintai/righthand_boneknife = new (caster)
-			var/obj/item/melee/vampirearms/knife/bone_shintai/lefthand_boneknife = new (caster)
+			var/obj/item/knife/vamp/bone_shintai/righthand_boneknife = new (caster)
+			var/obj/item/knife/vamp/bone_shintai/lefthand_boneknife = new (caster)
 			caster.put_in_r_hand(righthand_boneknife)
 			caster.put_in_l_hand(lefthand_boneknife)
 			spawn(delay+caster.discipline_time_plus)
@@ -608,7 +608,7 @@
 
 /datum/chi_discipline/ghost_flame_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
 	. = ..()
-	var/limit = min(2, level) + caster.trait_holder.get_stat(ST_TRAIT_LEADERSHIP)
+	var/limit = min(2, level) + caster.st_get_stat(STAT_LEADERSHIP)
 	if(length(caster.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/random_beast = pick(caster.beastmaster)
 		random_beast.death()
@@ -637,7 +637,7 @@
 			caster.put_in_active_hand(new /obj/item/gun/magic/ghostflame_shintai(caster))
 		if(4)
 			caster.drop_all_held_items()
-			var/obj/item/melee/vampirearms/katana/fire/firekatana = new (caster)
+			var/obj/item/katana/vamp/fire/firekatana = new (caster)
 			caster.put_in_active_hand(firekatana)
 			spawn(delay+caster.discipline_time_plus)
 				if(firekatana)
@@ -930,10 +930,9 @@
 		if(new_form)
 			to_chat(user, "Your new form is [new_form].")
 			for(var/datum/action/chi_discipline/chi_action in user.actions)
-				if(chi_action)
-					if(istype(chi_action.discipline, /datum/chi_discipline/demon_shintai))
-						var/datum/chi_discipline/demon_shintai/demon_shintai = chi_action.discipline
-						demon_shintai.current_form = new_form
+				if(istype(chi_action.discipline, /datum/chi_discipline/demon_shintai))
+					var/datum/chi_discipline/demon_shintai/demon_shintai = chi_action.discipline
+					demon_shintai.current_form = new_form
 		button.color = "#970000"
 		animate(button, color = "#ffffff", time = 2 SECONDS, loop = 1)
 
@@ -1123,8 +1122,8 @@
 
 /datum/chi_discipline/hellweaving/activate(mob/living/target, mob/living/carbon/human/caster)
 	. = ..()
-	var/mypower = caster.trait_holder.get_stat(ST_TRAIT_PERCEPTION)
-	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
+	var/mypower = caster.st_get_stat(STAT_PERCEPTION)
+	var/theirpower = target.st_get_stat(STAT_WILLPOWER)
 	if(theirpower >= mypower)
 		to_chat(caster, span_warning("[target]'s mind is too powerful to cause flashbacks for!"))
 		return
@@ -1220,8 +1219,8 @@
 			sound_gender = 'modular_darkpack/modules/deprecated/sounds/kiai_female.ogg'
 	caster.emote("scream")
 	playsound(caster.loc, sound_gender, 100, FALSE)
-	var/mypower = caster.trait_holder.get_stat(ST_TRAIT_CHARISMA)
-	var/theirpower = target.trait_holder.get_stat(ST_TRAIT_WILLPOWER)
+	var/mypower = caster.st_get_stat(STAT_CHARISMA)
+	var/theirpower = target.st_get_stat(STAT_WILLPOWER)
 	if(theirpower >= mypower)
 		to_chat(caster, span_warning("[target]'s mind is too powerful to affect!"))
 		return
@@ -1292,7 +1291,7 @@
 	melee_damage_upper = 70
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
-	attack_sound = 'sound/weapons/slash.ogg'
+	attack_sound = 'sound/items/weapons/slash.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
@@ -1304,7 +1303,7 @@
 	. = ..()
 	if(!wolflike_shapeshift)
 		wolflike_shapeshift = new(caster)
-	var/limit = min(2, level) + caster.trait_holder.get_stat(ST_TRAIT_LEADERSHIP)
+	var/limit = min(2, level) + caster.st_get_stat(STAT_LEADERSHIP)
 	if(length(caster.beastmaster) >= limit)
 		var/mob/living/simple_animal/hostile/beastmaster/random_beast = pick(caster.beastmaster)
 		random_beast.death()
@@ -1402,7 +1401,7 @@
 	melee_damage_upper = 1
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
-	attack_sound = 'sound/weapons/slash.ogg'
+	attack_sound = 'sound/items/weapons/slash.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
@@ -1428,8 +1427,7 @@
 		if(2)
 			var/list/available_turfs = list()
 			for(var/turf/open/O in view(7, caster))
-				if(O)
-					available_turfs += O
+				available_turfs += O
 			if(length(available_turfs))
 				var/turf/to_move = pick(available_turfs)
 				var/atom/movable/visual1 = new (get_turf(caster))
@@ -1672,8 +1670,8 @@
 			caster.dna.species.punchdamagehigh += 5
 			caster.physiology.armor.melee += 15
 			caster.physiology.armor.bullet += 15
-			caster.trait_holder.set_buff(2, ST_TRAIT_INTELLIGENCE, "equilibrium")
-			//caster.trait_holder.set_buff(2, ST_TRAIT_MEDITATION, "equilibrium")
+			caster.st_add_stat_mod(STAT_INTELLIGENCE, 2, "equilibrium")
+			//caster.st_add_stat_mod(STAT_MEDITATION, 2, "equilibrium")
 			ADD_TRAIT(caster, TRAIT_IGNORESLOWDOWN, SPECIES_TRAIT)
 			caster.do_jitter_animation(1 SECONDS)
 			spawn(delay+caster.discipline_time_plus)
@@ -1681,8 +1679,8 @@
 					caster.dna.species.punchdamagehigh -= 5
 					caster.physiology.armor.melee -= 15
 					caster.physiology.armor.bullet -= 15
-					caster.trait_holder.remove_buff(ST_TRAIT_INTELLIGENCE, "equilibrium")
-					//caster.trait_holder.remove_buff(ST_TRAIT_MEDITATION, "equilibrium")
+					caster.st_remove_stat_mod(STAT_INTELLIGENCE, "equilibrium")
+					//caster.st_remove_stat_mod(STAT_MEDITATION, "equilibrium")
 					REMOVE_TRAIT(caster, TRAIT_IGNORESLOWDOWN, SPECIES_TRAIT)
 		if(2)
 			caster.yin_chi += 1
@@ -1733,8 +1731,8 @@
 				affected_mob.dna.species.punchdamagehigh += 5
 				affected_mob.physiology.armor.melee += 15
 				affected_mob.physiology.armor.bullet += 15
-				affected_mob.trait_holder.set_buff(2, ST_TRAIT_INTELLIGENCE, "equilibrium")
-				//affected_mob.trait_holder.set_buff(2, ST_TRAIT_MEDITATION, "equilibrium")
+				affected_mob.st_add_stat_mod(STAT_INTELLIGENCE, 2, "equilibrium")
+				//affected_mob.st_add_stat_mod(STAT_MEDITATION, 2, "equilibrium")
 				ADD_TRAIT(affected_mob, TRAIT_IGNORESLOWDOWN, SPECIES_TRAIT)
 				var/obj/effect/celerity/celerity_effect = new(get_turf(affected_mob))
 				celerity_effect.appearance = affected_mob.appearance
@@ -1748,8 +1746,8 @@
 						affected_mob.dna.species.punchdamagehigh -= 5
 						affected_mob.physiology.armor.melee -= 15
 						affected_mob.physiology.armor.bullet -= 15
-						affected_mob.trait_holder.remove_buff(ST_TRAIT_INTELLIGENCE, "equilibrium")
-						//affected_mob.trait_holder.remove_buff(ST_TRAIT_MEDITATION, "equilibrium")
+						affected_mob.st_remove_stat_mod(STAT_INTELLIGENCE, "equilibrium")
+						//affected_mob.st_remove_stat_mod(STAT_MEDITATION, "equilibrium")
 						REMOVE_TRAIT(affected_mob, TRAIT_IGNORESLOWDOWN, SPECIES_TRAIT)
 		if(4)
 			for(var/mob/living/affected_mob in oviewers(5, caster))
@@ -1993,9 +1991,8 @@
 				ghost = caster.loc
 
 			for(var/area/vtm/interior/penumbra/penumbra in world)
-				if(penumbra)
-					chosen_z = penumbra.z
-					umbra_z = penumbra.z
+				chosen_z = penumbra.z
+				umbra_z = penumbra.z
 
 			if(caster.z != chosen_z)
 				prev_z = caster.z

@@ -87,10 +87,9 @@
 		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/inspiration.ogg', 75, FALSE)
 		H.emote("scream")
 		for(var/mob/living/carbon/C in range(5, owner))
-			if(C)
-				if(iswerewolf(C) || isgarou(C))
-					if(C.auspice.tribe == H.auspice.tribe)
-						C.inspired()
+			if(iswerewolf(C) || isgarou(C))
+				if(C.auspice.tribe == H.auspice.tribe)
+					C.inspired()
 
 /datum/action/gift/razor_claws
 	name = "Razor Claws"
@@ -105,8 +104,8 @@
 			playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/razor_claws.ogg', 75, FALSE)
 			var/mob/living/carbon/human/H = owner
 			H.dna.species.attack_verb = "slash"
-			H.dna.species.attack_sound = 'sound/weapons/slash.ogg'
-			H.dna.species.miss_sound = 'sound/weapons/slashmiss.ogg'
+			H.dna.species.attack_sound = 'sound/items/weapons/slash.ogg'
+			H.dna.species.miss_sound = 'sound/items/weapons/slashmiss.ogg'
 			H.dna.species.punchdamagelow = 20
 			H.dna.species.punchdamagehigh = 20
 			H.agg_damage_plus = 5
@@ -170,12 +169,11 @@
 		C.emote("howl")
 		playsound(get_turf(C), pick('modular_darkpack/modules/deprecated/sounds/awo1.ogg', 'modular_darkpack/modules/deprecated/sounds/awo2.ogg'), 100, FALSE)
 		for(var/mob/living/carbon/A in orange(6, owner))
-			if(A)
-				if(isgarou(A) || iswerewolf(A))
-					A.emote("howl")
-					playsound(get_turf(A), pick('modular_darkpack/modules/deprecated/sounds/awo1.ogg', 'modular_darkpack/modules/deprecated/sounds/awo2.ogg'), 100, FALSE)
-					spawn(10)
-						adjust_gnosis(1, A, TRUE)
+			if(isgarou(A) || iswerewolf(A))
+				A.emote("howl")
+				playsound(get_turf(A), pick('modular_darkpack/modules/deprecated/sounds/awo1.ogg', 'modular_darkpack/modules/deprecated/sounds/awo2.ogg'), 100, FALSE)
+				spawn(10)
+					adjust_gnosis(1, A, TRUE)
 //	awo1
 
 /datum/action/gift/mindspeak
@@ -192,10 +190,9 @@
 			var/mob/living/carbon/C = owner
 			to_chat(C, "You transfer this message to your tribe members nearby: <b>[sanitize_text(new_thought)]</b>")
 			for(var/mob/living/carbon/A in orange(9, owner))
-				if(A)
-					if(isgarou(A) || iswerewolf(A))
-						if(A.auspice.tribe == C.auspice.tribe)
-							to_chat(A, "You hear a message in your head... <b>[sanitize_text(new_thought)]</b>")
+				if(isgarou(A) || iswerewolf(A))
+					if(A.auspice.tribe == C.auspice.tribe)
+						to_chat(A, "You hear a message in your head... <b>[sanitize_text(new_thought)]</b>")
 
 /datum/action/gift/resist_pain
 	name = "Resist Pain"
@@ -316,17 +313,16 @@
 	. = ..()
 	if(allowed_to_proceed)
 		for(var/obj/structure/vampdoor/V in range(5, owner))
-			if(V)
-				if(V.closed)
-					if(V.lockpick_difficulty < 10)
-						V.locked = FALSE
-						playsound(V, V.open_sound, 75, TRUE)
-						V.icon_state = "[V.baseicon]-0"
-						V.density = FALSE
-						V.opacity = FALSE
-						V.layer = OPEN_DOOR_LAYER
-						to_chat(owner, span_notice("You open [V]."))
-						V.closed = FALSE
+			if(V.closed)
+				if(V.lockpick_difficulty < 10)
+					V.locked = FALSE
+					playsound(V, V.open_sound, 75, TRUE)
+					V.icon_state = "[V.baseicon]-0"
+					V.density = FALSE
+					V.opacity = FALSE
+					V.layer = OPEN_DOOR_LAYER
+					to_chat(owner, span_notice("You open [V]."))
+					V.closed = FALSE
 
 /datum/action/gift/infectious_laughter
 	name = "Infectious Laughter"
@@ -342,9 +338,8 @@
 		C.Stun(10)
 		playsound(get_turf(owner), 'modular_darkpack/modules/deprecated/sounds/infectious_laughter.ogg', 100, FALSE)
 		for(var/mob/living/L in oviewers(4, owner))
-			if(L)
-				L.emote("laugh")
-				L.Stun(20)
+			L.emote("laugh")
+			L.Stun(20)
 
 /datum/action/gift/rage_heal
 	name = "Rage Heal"
@@ -446,7 +441,7 @@
 			H.remove_overlay(PROTEAN_LAYER)
 			G.punchdamagelow -= 15
 			G.punchdamagehigh -= 15
-			H.trait_holder.remove_buff(ST_TRAIT_STRENGTH, "glabro_form")
+			H.st_remove_stat_mod(STAT_STRENGTH, "glabro_form")
 			H.physiology.armor.melee -= 15
 			H.physiology.armor.bullet -= 15
 			var/matrix/M = matrix()
@@ -461,7 +456,7 @@
 			H.apply_overlay(PROTEAN_LAYER)
 			G.punchdamagelow += 15
 			G.punchdamagehigh += 15
-			H.trait_holder.set_buff(3, ST_TRAIT_STRENGTH, "glabro_form")
+			H.st_add_stat_mod(STAT_STRENGTH, 3, "glabro_form")
 			H.physiology.armor.melee += 15
 			H.physiology.armor.bullet += 15
 			var/matrix/M = matrix()

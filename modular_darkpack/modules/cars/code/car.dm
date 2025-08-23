@@ -200,7 +200,7 @@ SUBSYSTEM_DEF(carpool)
 			if(!repairing)
 				repairing = TRUE
 				if(do_mob(user, src, 20 SECONDS))
-					var/roll = rand(1, 20) + (user.trait_holder.get_stat(ST_TRAIT_LARCENY)+user.trait_holder.get_stat(ST_TRAIT_DEXTERITY)) - 8
+					var/roll = rand(1, 20) + (user.st_get_stat(STAT_LARCENY)+user.st_get_stat(STAT_DEXTERITY)) - 8
 					//(<= 1, break lockpick) (2-9, trigger car alarm), (>= 10, unlock car)
 					if (roll <= 1)
 						to_chat(user, span_warning("Your lockpick broke!"))
@@ -216,8 +216,7 @@ SUBSYSTEM_DEF(carpool)
 						to_chat(user, span_warning("You've failed to open [src]'s lock."))
 						playsound(src, 'modular_darkpack/modules/deprecated/sounds/signal.ogg', 50, FALSE)
 						for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
-							if(P)
-								P.Aggro(user)
+							P.Aggro(user)
 						repairing = FALSE
 						return //Don't penalize vampire humanity if they failed.
 					if(initial(access) == "none") //Stealing a car with no keys assigned to it is basically robbing a random person and not an organization
@@ -239,7 +238,7 @@ SUBSYSTEM_DEF(carpool)
 					locked = !locked
 					return
 		return
-	if(istype(I, /obj/item/melee/vampirearms/tire))
+	if(istype(I, /obj/item/melee/vamp/tire))
 		if(!repairing)
 			if(health >= maxhealth)
 				to_chat(user, span_notice("[src] is already fully repaired."))
@@ -382,12 +381,12 @@ SUBSYSTEM_DEF(carpool)
 			V.fari_on = TRUE
 			V.add_overlay(V.Fari)
 			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/weapons/magin.ogg', 40, TRUE)
+			playsound(V, 'sound/items/weapons/magin.ogg', 40, TRUE)
 		else
 			V.fari_on = FALSE
 			V.cut_overlay(V.Fari)
 			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/weapons/magout.ogg', 40, TRUE)
+			playsound(V, 'sound/items/weapons/magout.ogg', 40, TRUE)
 
 /datum/action/carr/beep
 	name = "Signal"
@@ -583,10 +582,9 @@ SUBSYSTEM_DEF(carpool)
 	last_pos["x_pix"] = 0
 	last_pos["y_pix"] = 0
 	for(var/mob/living/L in src)
-		if(L)
-			if(L.client)
-				L.client.pixel_x = 0
-				L.client.pixel_y = 0
+		if(L.client)
+			L.client.pixel_x = 0
+			L.client.pixel_y = 0
 	if(istype(A, /mob/living))
 		var/mob/living/L = A
 		var/dam2 = prev_speed
@@ -896,19 +894,18 @@ SUBSYSTEM_DEF(carpool)
 		var/turf/hit_turf
 		var/list/in_line = get_line(src, check_turf)
 		for(var/turf/T in in_line)
-			if(T)
-				var/dist_to_hit = get_dist_in_pixels(last_pos["x"]*32+last_pos["x_pix"], last_pos["y"]*32+last_pos["y_pix"], T.x*32, T.y*32)
-				if(dist_to_hit <= used_speed)
-					var/list/stuff = T.unpassable.Copy()
-					stuff -= src
-					for(var/contact in stuff)
-						if(istype(contact, /mob/living/carbon/human/npc))
-							var/mob/living/carbon/human/npc/NPC = contact
-							if(NPC.IsKnockdown())
-								stuff -= contact
-					if(length(stuff))
-						if(!hit_turf || dist_to_hit < get_dist_in_pixels(last_pos["x"]*32+last_pos["x_pix"], last_pos["y"]*32+last_pos["y_pix"], hit_turf.x*32, hit_turf.y*32))
-							hit_turf = T
+			var/dist_to_hit = get_dist_in_pixels(last_pos["x"]*32+last_pos["x_pix"], last_pos["y"]*32+last_pos["y_pix"], T.x*32, T.y*32)
+			if(dist_to_hit <= used_speed)
+				var/list/stuff = T.unpassable.Copy()
+				stuff -= src
+				for(var/contact in stuff)
+					if(istype(contact, /mob/living/carbon/human/npc))
+						var/mob/living/carbon/human/npc/NPC = contact
+						if(NPC.IsKnockdown())
+							stuff -= contact
+				if(length(stuff))
+					if(!hit_turf || dist_to_hit < get_dist_in_pixels(last_pos["x"]*32+last_pos["x_pix"], last_pos["y"]*32+last_pos["y_pix"], hit_turf.x*32, hit_turf.y*32))
+						hit_turf = T
 		if(hit_turf)
 			Bump(pick(hit_turf.unpassable))
 			// to_chat(world, "I can't pass that [hit_turf] at [hit_turf.x] x [hit_turf.y] cause of [pick(hit_turf.unpassable)] FUCK")
@@ -938,14 +935,13 @@ SUBSYSTEM_DEF(carpool)
 		moved_y = max(-8-last_pos["y_pix"], moved_y)
 
 	for(var/mob/living/rider in src)
-		if(rider)
-			if(rider.client)
-				rider.client.pixel_x = last_pos["x_frwd"]
-				rider.client.pixel_y = last_pos["y_frwd"]
-				animate(rider.client, \
-					pixel_x = last_pos["x_pix"] + moved_x * 2, \
-					pixel_y = last_pos["y_pix"] + moved_y * 2, \
-					SScarpool.wait, 1)
+		if(rider.client)
+			rider.client.pixel_x = last_pos["x_frwd"]
+			rider.client.pixel_y = last_pos["y_frwd"]
+			animate(rider.client, \
+				pixel_x = last_pos["x_pix"] + moved_x * 2, \
+				pixel_y = last_pos["y_pix"] + moved_y * 2, \
+				SScarpool.wait, 1)
 
 	animate(src, pixel_x = last_pos["x_pix"]+moved_x, pixel_y = last_pos["y_pix"]+moved_y, SScarpool.wait, 1)
 

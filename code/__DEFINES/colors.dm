@@ -241,7 +241,7 @@
 #define COLOR_PERIWINKLEE "#9999FF"
 
 /// Starlight!
-#define COLOR_STARLIGHT "#8589fa"
+#define COLOR_STARLIGHT COLOR_MOONLIGHT // DARKPACK EDIT - Changes starlight to moonlight colors since we dont have space
 /**
  * Some defines to generalise colours used in lighting.
  *

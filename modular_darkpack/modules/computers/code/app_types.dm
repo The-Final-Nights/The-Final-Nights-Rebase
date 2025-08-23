@@ -108,7 +108,7 @@
 	sender = param_sender
 	subject = param_subject
 	message = param_message
-	date = SScity_time.timeofnight
+	date = station_time_timestamp("hh:mm")
 
 /datum/email/proc/to_data()
 	var/list/data = list("subject"=subject, "sender" = sender, "message" = message, "date" = date, "checked" = checked, "stared" = stared)

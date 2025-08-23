@@ -29,7 +29,8 @@
 		TRAIT_CAN_ENTER_TORPOR,
 		TRAIT_VTM_MORALITY,
 		TRAIT_VTM_CLANS,
-		TRAIT_UNAGING
+		TRAIT_UNAGING,
+		TRAIT_BLOOD_DRINKER
 	)
 	inherent_biotypes = MOB_UNDEAD | MOB_HUMANOID
 	changesource_flags = MIRROR_BADMIN
@@ -219,7 +220,7 @@
 
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
-		if(V.zone_type == ZONE_MASQUERADE && V.upper)
+		if(V.zone_type == ZONE_MASQUERADE && V.outdoors)
 			if(H.pulling)
 				if(ishuman(H.pulling))
 					var/mob/living/carbon/human/pull = H.pulling

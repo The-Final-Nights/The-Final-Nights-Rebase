@@ -166,10 +166,9 @@
 			if(!host.mind.assigned_role)
 				dat += "."
 			dat += "</p>"
-		for(var/datum/vtm_bank_account/account in GLOB.bank_account_list)
-			if(host.bank_id == account.bank_id)
-				dat += "<p>My bank account code is: [account.code]</b></p>"
-				break
+		var/datum/bank_account/account = host.account_id ? SSeconomy.bank_accounts_by_id["[host.account_id]"] : null
+		if(account)
+			dat += "<b>My bank pin is: [account.bank_pin]</b><BR>"
 		if(host.mind.special_role)
 			for(var/datum/antagonist/A in host.mind.antag_datums)
 				if(A.objectives)
@@ -261,32 +260,25 @@
 	. = ..()
 	UnregisterSignal(C, COMSIG_MOB_VAMPIRE_SUCKED)
 	for(var/datum/action/kueijininfo/VI in C.actions)
-		if(VI)
-			VI.Remove(C)
+		VI.Remove(C)
 	for(var/datum/action/breathe_chi/QI in C.actions)
-		if(QI)
-			QI.Remove(C)
+		QI.Remove(C)
 	for(var/datum/action/area_chi/AI in C.actions)
-		if(AI)
-			AI.Remove(C)
+		AI.Remove(C)
 	for(var/datum/action/reanimate_yang/YG in C.actions)
-		if(YG)
-			YG.Remove(C)
+		YG.Remove(C)
 	for(var/datum/action/reanimate_yin/YN in C.actions)
-		if(YN)
-			YN.Remove(C)
+		YN.Remove(C)
 	for(var/datum/action/rebalance/R in C.actions)
-		if(R)
-			R.Remove(C)
+		R.Remove(C)
 	for(var/datum/action/chi_discipline/A in C.actions)
-		if(A)
-			A.Remove(C)
+		A.Remove(C)
 
 /datum/species/kuei_jin/spec_life(mob/living/carbon/human/H)
 	. = ..()
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
-		if(V.zone_type == ZONE_MASQUERADE && V.upper)
+		if(V.zone_type == ZONE_MASQUERADE && V.outdoors)
 			if(H.pulling)
 				if(ishuman(H.pulling))
 					var/mob/living/carbon/human/pull = H.pulling
@@ -307,24 +299,23 @@
 											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
 											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
 			for(var/obj/item/I in H.contents)
-				if(I)
-					if(I.masquerade_violating)
-						if(I.loc == H)
-							var/obj/item/card/id/id_card = H.get_idcard(FALSE)
-							if(!istype(id_card, /obj/item/card/id/clinic) && !istype(id_card, /obj/item/card/id/police) && !istype(id_card, /obj/item/card/id/sheriff) && !istype(id_card, /obj/item/card/id/prince) && !istype(id_card, /obj/item/card/id/camarilla))
-								if(H.CheckEyewitness(H, H, 7, FALSE))
-									if(H.last_loot_check+50 <= world.time)
-										H.last_loot_check = world.time
-										H.last_nonraid = world.time
-										H.killed_count = H.killed_count+1
-										if(!H.warrant && !H.ignores_warrant)
-											if(H.killed_count >= 5)
-												H.warrant = TRUE
-												SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-												to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
-											else
-												SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-												to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
+				if(I.masquerade_violating)
+					if(I.loc == H)
+						var/obj/item/card/id/id_card = H.get_idcard(FALSE)
+						if(!istype(id_card, /obj/item/card/id/clinic) && !istype(id_card, /obj/item/card/id/police) && !istype(id_card, /obj/item/card/id/sheriff) && !istype(id_card, /obj/item/card/id/prince) && !istype(id_card, /obj/item/card/id/camarilla))
+							if(H.CheckEyewitness(H, H, 7, FALSE))
+								if(H.last_loot_check+50 <= world.time)
+									H.last_loot_check = world.time
+									H.last_nonraid = world.time
+									H.killed_count = H.killed_count+1
+									if(!H.warrant && !H.ignores_warrant)
+										if(H.killed_count >= 5)
+											H.warrant = TRUE
+											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
+											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
+										else
+											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
+											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
 
 	if(H.key && (H.stat <= HARD_CRIT) && H.mind.dharma)
 		var/datum/preferences/P = GLOB.preferences_datums[ckey(H.key)]
@@ -368,15 +359,13 @@
 				var/atom/trigger2
 				var/atom/trigger3
 				for(var/obj/structure/pole/pole in view(5, H))
-					if(pole)
-						trigger1 = pole
+					trigger1 = pole
 				if(trigger1)
 					H.mind.dharma.roll_po(trigger1, H)
 					COOLDOWN_START(H.mind.dharma, po_call, 5 SECONDS)
 
 				for(var/obj/item/toy/toy in view(5, H))
-					if(toy)
-						trigger2 = toy
+					trigger2 = toy
 				var/obj/item/toy/toy = locate() in H
 				if (toy)
 					trigger2 = toy

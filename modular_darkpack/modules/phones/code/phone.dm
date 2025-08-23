@@ -201,7 +201,7 @@
 						NEWH_being_called.name = Contact.name
 						break
 				NEWH_being_called.number = online.number
-				NEWH_being_called.time = "[SScity_time.timeofnight]"
+				NEWH_being_called.time = "[station_time_timestamp("hh:mm")]"
 				NEWH_being_called.call_type = "I accepted the call"
 				phone_history_list += NEWH_being_called
 
@@ -213,7 +213,7 @@
 						NEWH_caller.name = Contact.name
 						break
 				NEWH_caller.number = number
-				NEWH_caller.time = "[SScity_time.timeofnight]"
+				NEWH_caller.time = "[station_time_timestamp("hh:mm")]"
 				NEWH_caller.call_type = "They accepted the call"
 				online.phone_history_list += NEWH_caller
 			.= TRUE
@@ -237,7 +237,7 @@
 						NEWH_being_called.name = Contact.name
 						break
 				NEWH_being_called.number = online.number
-				NEWH_being_called.time = "[SScity_time.timeofnight]"
+				NEWH_being_called.time = "[station_time_timestamp("hh:mm")]"
 				NEWH_being_called.call_type = "I declined the call"
 				phone_history_list += NEWH_being_called
 
@@ -249,7 +249,7 @@
 						NEWH_caller.name = Contact.name
 						break
 				NEWH_caller.number = number
-				NEWH_caller.time = "[SScity_time.timeofnight]"
+				NEWH_caller.time = "[station_time_timestamp("hh:mm")]"
 				NEWH_caller.call_type = "They declined the call"
 				online.phone_history_list += NEWH_caller
 
@@ -286,7 +286,7 @@
 								//Verify if you are calling yourself
 								NEWH_caller.name = owner
 								NEWH_caller.call_type = "I called myself"
-								NEWH_caller.time = "[SScity_time.timeofnight]"
+								NEWH_caller.time = "[station_time_timestamp("hh:mm")]"
 								NEWH_caller.number = number
 								phone_history_list += NEWH_caller
 							else
@@ -298,7 +298,7 @@
 										NEWH_caller.name = Contact.name
 										break
 								NEWH_caller.number = PHN.number
-								NEWH_caller.time = "[SScity_time.timeofnight]"
+								NEWH_caller.time = "[station_time_timestamp("hh:mm")]"
 								NEWH_caller.call_type = "I called"
 								phone_history_list += NEWH_caller
 
@@ -310,7 +310,7 @@
 										NEWH_being_called.name = Contact.name
 										break
 								NEWH_being_called.number = number
-								NEWH_being_called.time = "[SScity_time.timeofnight]"
+								NEWH_being_called.time = "[station_time_timestamp("hh:mm")]"
 								NEWH_being_called.call_type = "They called me"
 								PHN.phone_history_list += NEWH_being_called
 						else
@@ -404,8 +404,7 @@
 				if("Remove")
 					var/list/removing = list()
 					for(var/datum/phonecontact/CNT_REMOVE in contacts)
-						if(CNT_REMOVE)
-							removing += CNT_REMOVE.name
+						removing += CNT_REMOVE.name
 					if(length(removing) >= 1)
 						result = input(usr, "Select a contact", "Contact Selection") as null|anything in removing
 						if(result)
@@ -415,8 +414,7 @@
 				if("Choose")
 					var/list/shit = list()
 					for(var/datum/phonecontact/CNTCT in contacts)
-						if(CNTCT)
-							shit += CNTCT.name
+						shit += CNTCT.name
 					if(length(shit) >= 1)
 						result = input(usr, "Select a contact", "Contact Selection") as null|anything in shit
 						if(result)
@@ -443,8 +441,7 @@
 				if("Unblock")
 					var/list/unblocking = list()
 					for(var/datum/phonecontact/CNT_UNBLOCK in blocked_contacts)
-						if(CNT_UNBLOCK)
-							unblocking += CNT_UNBLOCK.name
+						unblocking += CNT_UNBLOCK.name
 					if(length(unblocking) >= 1)
 						result = input(usr, "Select a blocked number", "Blocked Selection") as null|anything in unblocking
 						if(result)
@@ -558,10 +555,9 @@
 	if(isliving(loc))
 		L = loc
 	for(var/datum/phonecontact/PHNCNTCT in contacts)
-		if(PHNCNTCT)
-			if(PHNCNTCT.check_global_contacts())
-				if(L)
-					to_chat(L, span_notice("Some important contacts in your phone work again."))
+		if(PHNCNTCT.check_global_contacts())
+			if(L)
+				to_chat(L, span_notice("Some important contacts in your phone work again."))
 
 /*obj/item/vamp/phone/proc/publish_number(var/name)
 	var/list/entry = list("number" = src.number, "name" = name)
@@ -651,8 +647,7 @@
 			if("contacts")
 				var/list/shit = list()
 				for(var/datum/phonecontact/CNTCT in contacts)
-					if(CNTCT)
-						shit += CNTCT.name
+					shit += CNTCT.name
 				if(length(shit) >= 1)
 					var/result = input(usr, "Select a contact", "Contact Selection") as null|anything in shit
 					if(result)
