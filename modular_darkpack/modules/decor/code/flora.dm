@@ -12,7 +12,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)][rand(1, 11)]-snow"
 
 /obj/structure/flora/tree/vamp/get_seethrough_map()
@@ -35,7 +35,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "pine[rand(1, 4)]-snow"
 	if(prob(2))
 		burned = TRUE

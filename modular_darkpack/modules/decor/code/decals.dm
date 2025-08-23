@@ -11,7 +11,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				alpha = 25
 
 /obj/effect/decal/snow_overlay
@@ -38,7 +38,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)][rand(1, 3)]-snow"
 
 /obj/effect/turf_decal/crosswalk
@@ -54,7 +54,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "crosswalk[rand(1, 3)]-snow"
 
 /obj/effect/turf_decal/stock
@@ -74,7 +74,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 //				footstep = FOOTSTEP_SNOW
 //				barefootstep = FOOTSTEP_SNOW

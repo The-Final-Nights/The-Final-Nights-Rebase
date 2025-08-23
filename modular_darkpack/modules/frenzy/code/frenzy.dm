@@ -127,7 +127,7 @@
 						playsound(src, 'modular_darkpack/modules/deprecated/sounds/drinkblood1.ogg', 50, TRUE)
 						L.visible_message(span_warning("<b>[src] bites [L]'s neck!</b>"), span_warning("<b>[src] bites your neck!</b>"))
 						face_atom(L)
-						H.drinksomeblood(L)
+						H.vamp_bite()
 			else
 				step_to(src,frenzy_target,0)
 				face_atom(frenzy_target)

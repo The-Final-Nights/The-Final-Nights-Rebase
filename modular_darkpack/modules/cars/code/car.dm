@@ -238,7 +238,7 @@ SUBSYSTEM_DEF(carpool)
 					locked = !locked
 					return
 		return
-	if(istype(I, /obj/item/melee/vampirearms/tire))
+	if(istype(I, /obj/item/melee/vamp/tire))
 		if(!repairing)
 			if(health >= maxhealth)
 				to_chat(user, span_notice("[src] is already fully repaired."))
@@ -381,12 +381,12 @@ SUBSYSTEM_DEF(carpool)
 			V.fari_on = TRUE
 			V.add_overlay(V.Fari)
 			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/weapons/magin.ogg', 40, TRUE)
+			playsound(V, 'sound/items/weapons/magin.ogg', 40, TRUE)
 		else
 			V.fari_on = FALSE
 			V.cut_overlay(V.Fari)
 			to_chat(owner, span_notice("You toggle [V]'s lights."))
-			playsound(V, 'sound/weapons/magout.ogg', 40, TRUE)
+			playsound(V, 'sound/items/weapons/magout.ogg', 40, TRUE)
 
 /datum/action/carr/beep
 	name = "Signal"
