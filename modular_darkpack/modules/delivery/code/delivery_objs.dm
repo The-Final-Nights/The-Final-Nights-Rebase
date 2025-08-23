@@ -370,9 +370,8 @@
 			return
 		var/turf/user_turf = get_turf(user)
 		for(var/obj/structure/delivery_crate/potential_crate in user_turf.contents)
-			if(potential_crate)
-				to_chat(user, span_warning("There is already a crate on the ground here!"))
-				return
+			to_chat(user, span_warning("There is already a crate on the ground here!"))
+			return
 		dispenser_in_use = 1
 		playsound(src,'sound/effects/cargocrate_move.ogg',50,10)
 		if(do_after(user, 2 SECONDS, src))
@@ -440,9 +439,8 @@
 			return
 		var/turf/user_turf = get_turf(user)
 		for(var/obj/structure/delivery_crate/potential_crate in user_turf.contents)
-			if(potential_crate)
-				to_chat(user, span_warning("There is already a crate on the ground here!"))
-				return
+			to_chat(user, span_warning("There is already a crate on the ground here!"))
+			return
 		delivery_trunk.retrieval_menu(user)
 	else
 		var/obj/structure/delivery_crate/pulled_crate = user.pulling

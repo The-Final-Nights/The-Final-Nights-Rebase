@@ -12,10 +12,10 @@
 	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/potence_deactivate.ogg'
 
 /datum/discipline_power/potence/proc/apply_passive_strength_bonus(bonus)
-	if (owner.trait_holder.get_buff(ST_TRAIT_STRENGTH, "potence") >= bonus)
+	if (owner.st_get_stat_mod(STAT_STRENGTH, "potence") >= bonus)
 		return
 
-	owner.trait_holder.set_buff(bonus, ST_TRAIT_STRENGTH, "potence")
+	owner.st_add_stat_mod(bonus, STAT_STRENGTH, "potence")
 
 //POTENCE 1
 /datum/discipline_power/potence/one

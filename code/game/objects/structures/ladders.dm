@@ -18,10 +18,10 @@
 
 /obj/structure/ladder/Initialize(mapload, obj/structure/ladder/up, obj/structure/ladder/down)
 	..()
-	// DARKPACK EDIT ADDITION START - Manholes
+	// DARKPACK EDIT ADD START - Manholes
 	if(!mapload)
 		requires_friend = FALSE
-	// DARKPACK EDIT ADDITION END - Manholes
+	// DARKPACK EDIT ADD END - Manholes
 	GLOB.ladders += src
 	if(up)
 		link_up(up)
@@ -216,10 +216,10 @@
 	// Linking updates our icon, so if we failed both links we need a manual update
 	if(isnull(down) && isnull(up))
 		update_appearance(UPDATE_ICON_STATE)
-		// DARKPACK EDIT ADDITION START - Manholes
+		// DARKPACK EDIT ADD START - Manholes
 		if(requires_friend)
 			CRASH("[src] failed to find another ladder to link up with at: [x],[y],[z]")
-		// DARKPACK EDIT ADDITION END - Manholes
+		// DARKPACK EDIT ADD END - Manholes
 
 /obj/structure/ladder/update_icon_state()
 	// DARKPACK EDIT CHANGE START - Manholes
@@ -292,10 +292,10 @@
 
 	if(!is_ghost)
 		show_final_fluff_message(user, ladder, going_up)
-		// DARKPACK EDIT ADDITION START - Manholes
+		// DARKPACK EDIT ADD START - Manholes
 		if(travel_sound)
 			playsound(src, travel_sound, 50, TRUE)
-		// DARKPACK EDIT ADDITION END - Manholes
+		// DARKPACK EDIT ADD END - Manholes
 	// to avoid having players hunt for the pixels of a ladder that goes through several stories and is
 	// partially covered by the sprites of their mobs, a radial menu will be displayed over them.
 	// this way players can keep climbing up or down with ease until they reach an end.

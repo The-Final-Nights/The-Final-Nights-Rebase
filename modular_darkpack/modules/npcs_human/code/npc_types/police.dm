@@ -3,7 +3,7 @@
 	max_stat = DEAD
 	// TODO: [Lucia] reimplement weapons
 	/*
-	my_backup_weapon_type = /obj/item/melee/classic_baton/vampire
+	my_backup_weapon_type = /obj/item/melee/baton/vamp
 	*/
 
 /mob/living/carbon/human/npc/police/Initialize(mapload)

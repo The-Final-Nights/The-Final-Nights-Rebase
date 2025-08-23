@@ -53,11 +53,9 @@
 		beastmaster.beastmaster -= src
 		if(!length(beastmaster.beastmaster))
 			for(var/datum/action/beastmaster_stay/E in beastmaster.actions)
-				if(E)
-					qdel(E)
+				qdel(E)
 			for(var/datum/action/beastmaster_deaggro/E in beastmaster.actions)
-				if(E)
-					qdel(E)
+				qdel(E)
 	GLOB.beast_list -= src
 
 /mob/living/simple_animal/hostile/beastmaster/death(gibbed)
@@ -66,11 +64,9 @@
 		beastmaster.beastmaster -= src
 		if(!length(beastmaster.beastmaster))
 			for(var/datum/action/beastmaster_stay/E in beastmaster.actions)
-				if(E)
-					qdel(E)
+				qdel(E)
 			for(var/datum/action/beastmaster_deaggro/E in beastmaster.actions)
-				if(E)
-					qdel(E)
+				qdel(E)
 	GLOB.beast_list -= src
 
 /mob/living/simple_animal/hostile/beastmaster/proc/handle_automated_beasting()
@@ -82,16 +78,14 @@
 	if(!targa)
 		if(length(enemies))
 			for(var/mob/living/L in enemies)
-				if(L)
-					if(L.stat < 1 && L.z == z && get_dist(src, L) < 12)
-						targa = L
+				if(L.stat < 1 && L.z == z && get_dist(src, L) < 12)
+					targa = L
 	else if(targa.z != z || get_dist(src, targa) > 11 || targa.stat > 0)
 		targa = null
 		if(length(enemies))
 			for(var/mob/living/L in enemies)
-				if(L)
-					if(L.stat < 1 && L.z == z && get_dist(src, L) < 12)
-						targa = L
+				if(L.stat < 1 && L.z == z && get_dist(src, L) < 12)
+					targa = L
 
 	var/totalshit = 1
 	if(total_multiplicative_slowdown() > 0)

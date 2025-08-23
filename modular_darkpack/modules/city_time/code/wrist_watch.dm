@@ -18,4 +18,5 @@
 
 /obj/item/cockclock/examine(mob/user)
 	. = ..()
-	to_chat(user, "<b>[SScity_time.timeofnight]</b>")
+	. += "The watch reads: <b>[station_time_timestamp("hh:mm:ss, MMM DD")]</b>"
+	. += "That should make it <b>[station_time_timestamp("Day")]</b>"

@@ -4,6 +4,12 @@ on:
     workflows: [CI Suite]
     types:
       - completed
+# DARKPACK ADDITION START
+permissions:
+  actions: write
+  contents: write
+  issues: write
+# DARKPACK ADDITION END
 jobs:
   rerun_flaky_tests:
     runs-on: ubuntu-latest

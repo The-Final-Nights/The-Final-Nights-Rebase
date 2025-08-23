@@ -650,7 +650,7 @@
 /**
  * Returns the access list for this mob
  */
-/mob/living/proc/get_access()
+/mob/living/proc/get_access() as /list
 	var/list/access_list = list()
 	SEND_SIGNAL(src, COMSIG_MOB_RETRIEVE_SIMPLE_ACCESS, access_list)
 	var/obj/item/card/id/id = get_idcard()
@@ -667,7 +667,7 @@
 /mob/living/proc/get_bank_account()
 	RETURN_TYPE(/datum/bank_account)
 	var/datum/bank_account/account
-	var/obj/item/card/id/I = get_idcard()
+	var/obj/item/card/credit/I = get_creditcard() // DARKPACK EDIT - ORIGINAL: var/obj/item/card/id/I = get_idcard()
 
 	if(I?.registered_account)
 		account = I.registered_account
@@ -941,7 +941,7 @@
 	var/burn_to_heal = heal_to - getFireLoss()
 	var/oxy_to_heal = heal_to - getOxyLoss()
 	var/tox_to_heal = heal_to - getToxLoss()
-	var/agg_to_heal = heal_to - getAggLoss() // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	var/agg_to_heal = heal_to - getAggLoss() // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 	if(brute_to_heal < 0)
 		adjustBruteLoss(brute_to_heal, updating_health = FALSE)
 	if(burn_to_heal < 0)
@@ -950,10 +950,10 @@
 		adjustOxyLoss(oxy_to_heal, updating_health = FALSE)
 	if(tox_to_heal < 0)
 		adjustToxLoss(tox_to_heal, updating_health = FALSE, forced = TRUE)
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(agg_to_heal < 0)
 		adjustAggLoss(agg_to_heal, updating_health = FALSE)
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 
 	// Run updatehealth once to set health for the revival check
 	updatehealth()
@@ -993,10 +993,10 @@
 		setFireLoss(0, updating_health = FALSE, forced = TRUE)
 	if(heal_flags & HEAL_STAM)
 		setStaminaLoss(0, updating_stamina = FALSE, forced = TRUE)
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(heal_flags & HEAL_AGGRAVATED)
 		setAggLoss(0, updating_health = FALSE, forced = TRUE)
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 
 	// I don't really care to keep this under a flag
 	set_nutrition(NUTRITION_LEVEL_FED + 50)
@@ -2091,7 +2091,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 			STAMINA:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=stamina' id='stamina'>[getStaminaLoss()]</a>
 			AGGRAVATED:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=aggravated' id='aggravated'>[getAggLoss()]</a>
 		</font>
-	"} // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	"} // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 /mob/living/vv_get_dropdown()
 	. = ..()
@@ -2788,6 +2788,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /// Proc for giving a mob a new 'friend', generally used for AI control and targeting. Returns false if already friends or null if qdeleted.
 /mob/living/proc/befriend(mob/living/new_friend)
 	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(new_friend, COMSIG_LIVING_MADE_NEW_FRIEND, src)
 	if(QDELETED(new_friend))
 		return
 	var/friend_ref = REF(new_friend)
@@ -2976,7 +2977,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	var/our_fitness_level = calculate_fitness()
 	var/their_fitness_level = scouter.calculate_fitness()
 
-	var/comparative_fitness = our_fitness_level / their_fitness_level
+	var/comparative_fitness = their_fitness_level ? our_fitness_level / their_fitness_level : 1
 
 	if (comparative_fitness > 2)
 		scouter.set_jitter_if_lower(comparative_fitness SECONDS)

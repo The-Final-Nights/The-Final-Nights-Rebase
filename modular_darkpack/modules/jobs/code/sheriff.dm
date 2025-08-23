@@ -51,7 +51,7 @@
 	ears = /obj/item/p25radio
 	id = /obj/item/card/id/sheriff
 	uniform = /obj/item/clothing/under/vampire/sheriff
-	belt = /obj/item/storage/belt/vampire/sheathe/rapier
+	belt = /obj/item/storage/belt/sheath/vamp/rapier
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	suit = /obj/item/clothing/suit/vampire/vest
 	gloves = /obj/item/clothing/gloves/vampire/leather
@@ -59,7 +59,7 @@
 	glasses = /obj/item/clothing/glasses/vampire/sun
 	r_pocket = /obj/item/vamp/keys/sheriff
 	l_pocket = /obj/item/vamp/phone/sheriff
-	backpack_contents = list(/obj/item/gun/ballistic/automatic/vampire/deagle=1, /obj/item/vampire_stake=3, /obj/item/passport=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/masquerade_contract=1, /obj/item/vamp/creditcard/elder=1)
+	backpack_contents = list(/obj/item/gun/ballistic/automatic/vampire/deagle=1, /obj/item/vampire_stake=3, /obj/item/passport=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/masquerade_contract=1, /obj/item/card/credit/elder=1)
 
 	backpack = /obj/item/storage/backpack
 	satchel = /obj/item/storage/backpack/satchel

@@ -450,12 +450,12 @@
 		return
 	var/total_burn = 0
 	var/total_brute = 0
-	var/total_aggravated = 0 // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	var/total_aggravated = 0 // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 	for(var/X in bodyparts) //hardcoded to streamline things a bit
 		var/obj/item/bodypart/BP = X
 		total_brute += (BP.brute_dam * BP.body_damage_coeff)
 		total_burn += (BP.burn_dam * BP.body_damage_coeff)
-		total_aggravated += (BP.aggravated_dam * BP.body_damage_coeff) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		total_aggravated += (BP.aggravated_dam * BP.body_damage_coeff) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 	set_health(round(maxHealth - getOxyLoss() - getToxLoss() - total_burn - total_brute - total_aggravated, DAMAGE_PRECISION)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	update_stat()
 	update_stamina()
@@ -1329,6 +1329,11 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(isnull(dna))
+		return
+
+	if(istext(new_blood_type))
+		new_blood_type = get_blood_type(new_blood_type)
+	if(!istype(new_blood_type))
 		return
 
 	if(get_bloodtype() == new_blood_type) // already has this blood type, we don't need to do anything.

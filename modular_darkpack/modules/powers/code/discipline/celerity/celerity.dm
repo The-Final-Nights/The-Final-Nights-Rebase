@@ -27,10 +27,10 @@
 	return POWER_CANCEL_ACTIVATION
 
 /datum/discipline_power/celerity/proc/apply_passive_dexterity_bonus(bonus)
-	if (owner.trait_holder.get_buff(ST_TRAIT_DEXTERITY, "celerity") >= bonus)
+	if (owner.st_get_stat_mod(STAT_DEXTERITY, "celerity") >= bonus)
 		return
 
-	owner.trait_holder.set_buff(bonus, ST_TRAIT_DEXTERITY, "celerity")
+	owner.st_add_stat_mod(bonus, STAT_DEXTERITY, "celerity")
 
 //CELERITY 1
 /datum/discipline_power/celerity/one
