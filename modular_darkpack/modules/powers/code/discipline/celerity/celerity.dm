@@ -30,7 +30,7 @@
 	if (owner.st_get_stat_mod(STAT_DEXTERITY, "celerity") >= bonus)
 		return
 
-	owner.st_add_stat_mod(bonus, STAT_DEXTERITY, "celerity")
+	owner.st_add_stat_mod(STAT_DEXTERITY, bonus, "celerity")
 
 //CELERITY 1
 /datum/discipline_power/celerity/one

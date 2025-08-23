@@ -15,7 +15,7 @@
 	if (owner.st_get_stat_mod(STAT_STRENGTH, "potence") >= bonus)
 		return
 
-	owner.st_add_stat_mod(bonus, STAT_STRENGTH, "potence")
+	owner.st_add_stat_mod(STAT_STRENGTH, bonus, "potence")
 
 //POTENCE 1
 /datum/discipline_power/potence/one
