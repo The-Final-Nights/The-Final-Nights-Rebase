@@ -227,7 +227,7 @@
 		playsound(src, 'sound/items/deconstruct.ogg', 50)
 		repair_damage(max_integrity)
 		qdel(tool)
-	return TRUE
+		return TRUE
 
 /obj/structure/vampdoor/proc/try_lockpick(mob/living/user, obj/item/tool)
 	if(door_broken)
