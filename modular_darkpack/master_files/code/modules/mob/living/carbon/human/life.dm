@@ -14,7 +14,7 @@
 			if(stat != DEAD)
 				if(istype(get_area(src), /area/vtm))
 					var/area/vtm/V = get_area(src)
-					if(V.upper)
+					if(V.outdoors)
 						last_showed = world.time
 						if(last_raid+600 < world.time)
 							last_raid = world.time

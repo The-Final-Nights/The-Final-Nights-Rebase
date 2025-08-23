@@ -34,7 +34,7 @@
 
 /datum/discipline_power/temporis/hourglass_of_the_mind/activate()
 	. = ..()
-	to_chat(owner, "<b>[SScity_time.timeofnight]</b>")
+	to_chat(owner, "<b>[station_time_timestamp("hh:mm")]</b>")
 
 //RECURRING CONTEMPLATION
 /datum/discipline_power/temporis/recurring_contemplation

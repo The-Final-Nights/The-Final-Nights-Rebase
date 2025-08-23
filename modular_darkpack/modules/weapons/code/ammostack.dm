@@ -4,16 +4,16 @@
 	damage = 20
 	pass_flags = PASSTABLE
 	damage_type = BRUTE
-	nodamage = FALSE
-	flag = BULLET
+	//nodamage = FALSE
+	//flag = BULLET
 	reflectable = NONE
 	ricochets_max = 0
-	hitsound = 'sound/weapons/pierce.ogg'
+	hitsound = 'sound/items/weapons/pierce.ogg'
 	hitsound_wall = "ricochet"
 	sharpness = SHARP_POINTY
 	impact_effect_type = /obj/effect/temp_visual/impact_effect
 	shrapnel_type = /obj/item/shrapnel/bullet
-	embedding = list(embed_chance=15, fall_chance=2, jostle_chance=0, ignore_throwspeed_threshold=TRUE, pain_stam_pct=0.5, pain_mult=3, rip_time=10)
+	//embedding = list(embed_chance=15, fall_chance=2, jostle_chance=0, ignore_throwspeed_threshold=TRUE, pain_stam_pct=0.5, pain_mult=3, rip_time=10)
 	wound_falloff_tile = -5
 	embed_falloff_tile = -5
 	range = 50
@@ -199,7 +199,7 @@
 /obj/item/ammo_casing/vampire/c12g
 	name = "12g shell casing"
 	desc = "A 12g shell casing."
-	caliber = CALIBER_12G
+	caliber = CALIBER_SHOTGUN
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp12g
 	icon_state = "12"
 	base_iconstate = "12"

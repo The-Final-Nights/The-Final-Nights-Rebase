@@ -34,8 +34,8 @@ SUBSYSTEM_DEF(ticker)
 	var/timeLeft //pregame timer
 	var/start_at
 
-	var/gametime_offset = 432000 //Deciseconds to add to world.time for station time.
-	var/station_time_rate_multiplier = 12 //factor of station time progressal vs real time.
+	var/gametime_offset = 21 HOURS //Deciseconds to add to world.time for station time. // DARKPACK EDIT CHANGE, ORIGINAL: var/gametime_offset = 432000
+	var/station_time_rate_multiplier = 2 //factor of station time progressal vs real time. // DARKPACK EDIT CHANGE, ORIGINAL: var/station_time_rate_multiplier = 12
 
 	/// Num of players, used for pregame stats on statpanel
 	var/totalPlayers = 0
@@ -54,6 +54,7 @@ SUBSYSTEM_DEF(ticker)
 	var/roundend_check_paused = FALSE
 
 	var/round_start_time = 0
+	var/round_start_timeofday = 0 // DARKPACK ADDITION
 	var/list/round_start_events
 	var/list/round_end_events
 	var/mode_result = "undefined"
@@ -226,6 +227,10 @@ SUBSYSTEM_DEF(ticker)
 		return TRUE
 	if(GLOB.revolution_handler?.result == REVOLUTION_VICTORY)
 		return TRUE
+	// DARKPACK ADDITION START
+	if(SScity_time.roundend_started)
+		return TRUE
+	// DARKPACK ADDITION END
 	return FALSE
 
 /datum/controller/subsystem/ticker/proc/setup()
@@ -278,6 +283,7 @@ SUBSYSTEM_DEF(ticker)
 	LAZYCLEARLIST(round_start_events)
 
 	round_start_time = world.time //otherwise round_start_time would be 0 for the signals
+	round_start_timeofday = world.timeofday // DARKPACK ADDITION
 	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING, world.time)
 
 	log_world("Game start took [(world.timeofday - init_start)/10]s")

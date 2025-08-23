@@ -365,7 +365,7 @@
 			caster.drop_all_held_items()
 			caster.put_in_active_hand(new /obj/item/gun/magic/blood_shintai(caster))
 		if(5)
-			var/obj/item/melee/vampirearms/katana/blood/blood_katana = new (caster)
+			var/obj/item/katana/vamp/blood/blood_katana = new (caster)
 			caster.drop_all_held_items()
 			caster.put_in_active_hand(blood_katana)
 			spawn(delay+caster.discipline_time_plus)
@@ -473,7 +473,7 @@
 		inhaling_mob.emote("cough")
 		return TRUE
 
-/obj/item/melee/vampirearms/knife/bone_shintai
+/obj/item/knife/vamp/bone_shintai
 	name = "claws"
 	icon_state = "claws"
 	w_class = WEIGHT_CLASS_BULKY
@@ -482,7 +482,7 @@
 	block_chance = 20
 	item_flags = DROPDEL
 	masquerade_violating = TRUE
-	is_iron = FALSE
+	obj_flags = NONE
 
 /datum/chi_discipline/bone_shintai/activate(mob/living/target, mob/living/carbon/human/caster)
 	. = ..()
@@ -521,8 +521,8 @@
 					caster.set_hairstyle(initial_hair)
 					caster.set_facial_hairstyle(initial_facial)
 		if(3)
-			var/obj/item/melee/vampirearms/knife/bone_shintai/righthand_boneknife = new (caster)
-			var/obj/item/melee/vampirearms/knife/bone_shintai/lefthand_boneknife = new (caster)
+			var/obj/item/knife/vamp/bone_shintai/righthand_boneknife = new (caster)
+			var/obj/item/knife/vamp/bone_shintai/lefthand_boneknife = new (caster)
 			caster.put_in_r_hand(righthand_boneknife)
 			caster.put_in_l_hand(lefthand_boneknife)
 			spawn(delay+caster.discipline_time_plus)
@@ -637,7 +637,7 @@
 			caster.put_in_active_hand(new /obj/item/gun/magic/ghostflame_shintai(caster))
 		if(4)
 			caster.drop_all_held_items()
-			var/obj/item/melee/vampirearms/katana/fire/firekatana = new (caster)
+			var/obj/item/katana/vamp/fire/firekatana = new (caster)
 			caster.put_in_active_hand(firekatana)
 			spawn(delay+caster.discipline_time_plus)
 				if(firekatana)
@@ -1291,7 +1291,7 @@
 	melee_damage_upper = 70
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
-	attack_sound = 'sound/weapons/slash.ogg'
+	attack_sound = 'sound/items/weapons/slash.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
@@ -1401,7 +1401,7 @@
 	melee_damage_upper = 1
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
-	attack_sound = 'sound/weapons/slash.ogg'
+	attack_sound = 'sound/items/weapons/slash.ogg'
 	a_intent = INTENT_HARM
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0

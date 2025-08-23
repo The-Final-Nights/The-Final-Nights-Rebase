@@ -80,7 +80,7 @@ SUBSYSTEM_DEF(zombiepool)
 	GLOB.vampgate = src
 
 /obj/structure/vampgate/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/melee/vampirearms/tire))
+	if(istype(I, /obj/item/melee/vamp/tire))
 		if(!repairing)
 			repairing = TRUE
 			if(do_mob(user, src, 5 SECONDS))

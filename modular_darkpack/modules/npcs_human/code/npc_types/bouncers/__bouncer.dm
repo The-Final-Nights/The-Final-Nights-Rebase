@@ -30,7 +30,7 @@
 	var/is_guarding = TRUE
 
 	my_weapon_type = /obj/item/gun/ballistic/shotgun/vampire
-	my_backup_weapon_type = /obj/item/melee/classic_baton/vampire
+	my_backup_weapon_type = /obj/item/melee/baton/vamp
 
 	//Behavior settings
 	aggressive=TRUE
