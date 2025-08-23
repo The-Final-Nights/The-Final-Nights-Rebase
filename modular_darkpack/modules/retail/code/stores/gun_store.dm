@@ -1,6 +1,6 @@
-/obj/machinery/mineral/equipment_vendor/fastfood/america	//PSEUDO_M make this restricted or remove it completely
+/obj/structure/retail/gun_store
 	desc = "Boom! Booom!! BOOOOOOM!!!!"
-	prize_list = list(new /datum/data/vending_product("magnum revolver",	/obj/item/gun/ballistic/vampire/revolver,	200),
+	products_list = list(new /datum/data/vending_product("magnum revolver",	/obj/item/gun/ballistic/vampire/revolver,	200),
 		new /datum/data/vending_product("Colt M1911",	/obj/item/gun/ballistic/automatic/vampire/m1911,	250),
 		new /datum/data/vending_product("Elite 92G",	/obj/item/gun/ballistic/automatic/vampire/beretta,	500),
 		new /datum/data/vending_product("desert eagle",	/obj/item/gun/ballistic/automatic/vampire/deagle,	600),
@@ -17,9 +17,10 @@
 		new /datum/data/vending_product("hunting rifle magazine, 5.56",	/obj/item/ammo_box/magazine/vamp556/hunt,	200),
 		new /datum/data/vending_product("9mm pistol magazine, 18 rounds",		/obj/item/ammo_box/magazine/semi9mm,	100),
 		new /datum/data/vending_product("Colt M1911 magazine",		/obj/item/ammo_box/magazine/vamp45acp,	50),
-		new /datum/data/vending_product("knife",	/obj/item/knife/vamp,	100),
-		new /datum/data/vending_product("baseball bat",	/obj/item/melee/baseball_bat/vamp,	200),
-		new /datum/data/vending_product("real katana",	/obj/item/katana/vamp,	1500),
-		new /datum/data/vending_product("machete", /obj/item/claymore/machete, 500),
-		new /datum/data/vending_product("donut",	/obj/item/food/vampire/donut,	10)
+		new /datum/data/vending_product("knife",	/obj/item/melee/vampirearms/knife,	100),
+		new /datum/data/vending_product("baseball bat",	/obj/item/melee/vampirearms/baseball,	200),
+		new /datum/data/vending_product("real katana",	/obj/item/melee/vampirearms/katana,	1500),
+		new /datum/data/vending_product("machete", /obj/item/melee/vampirearms/machete, 500),
+		new /datum/data/vending_product("taser", /obj/item/melee/baton/handtaser, 250),
+		new /datum/data/vending_product("pepperspray", /obj/item/reagent_containers/spray/pepper, 200),
 	)

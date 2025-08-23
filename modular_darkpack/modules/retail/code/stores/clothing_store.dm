@@ -1,34 +1,7 @@
-/obj/machinery/mineral/equipment_vendor/fastfood/costumes
-	desc = "Purchase a mask for that ugly mug."
-	prize_list = list(
-		new /datum/data/vending_product("balaclava",	 /obj/item/clothing/mask/vampire/balaclava,	10),
-		new /datum/data/vending_product("bear mask",	 /obj/item/clothing/mask/animal/rat/bear,	13),
-		new /datum/data/vending_product("rat mask",	/obj/item/clothing/mask/animal/rat,	10),
-		new /datum/data/vending_product("bee mask",	/obj/item/clothing/mask/animal/rat/bee,	12),
-		new /datum/data/vending_product("fox mask",	/obj/item/clothing/mask/animal/rat/fox,	10),
-		new /datum/data/vending_product("bat mask",	/obj/item/clothing/mask/animal/rat/bat,	15),
-		new /datum/data/vending_product("raven mask",	/obj/item/clothing/mask/animal/rat/raven,	20),
-		new /datum/data/vending_product("jackal mask",	 /obj/item/clothing/mask/animal/rat/jackal,	20),
-		new /datum/data/vending_product("medical mask",	/obj/item/clothing/mask/surgical,	10),
-		new /datum/data/vending_product("mummy mask",	/obj/item/clothing/mask/mummy,	15),
-		new /datum/data/vending_product("scarecrow mask",	/obj/item/clothing/mask/scarecrow,	10),
-		new /datum/data/vending_product("respirator",	/obj/item/clothing/mask/vampire,	35),
-		new /datum/data/vending_product("black and gold luchador mask",	/obj/item/clothing/mask/luchador,	10),
-		new /datum/data/vending_product("green luchador mask",	/obj/item/clothing/mask/luchador/tecnicos,	10),
-		new /datum/data/vending_product("red and blue luchador mask",	/obj/item/clothing/mask/luchador/rudos,	10),
-		new /datum/data/vending_product("Venetian mask",	/obj/item/clothing/mask/vampire/venetian_mask,	30),
-		new /datum/data/vending_product("fancy Venetian mask",	/obj/item/clothing/mask/vampire/venetian_mask/fancy,	200),
-		new /datum/data/vending_product("jester mask",	/obj/item/clothing/mask/vampire/venetian_mask/jester,	50),
-		new /datum/data/vending_product("bloody mask",	/obj/item/clothing/mask/vampire/venetian_mask/scary,	30),
-		new /datum/data/vending_product("comedy mask", /obj/item/clothing/mask/vampire/comedy,	25),
-		new /datum/data/vending_product("tragedy mask", /obj/item/clothing/mask/vampire/tragedy,	25),
-		new /datum/data/vending_product("shemagh",	 /obj/item/clothing/mask/vampire/shemagh,	20),
-	)
-
-
-/obj/machinery/mineral/equipment_vendor/fastfood/clothing
+/obj/structure/retail/clothing_store
 	desc = "Purchase all the finest outfits.. Or don't wagie.."
-	prize_list = list(new /datum/data/vending_product("crimson red dress",	/obj/item/clothing/under/vampire/primogen_toreador/female	,	350),
+	products_list = list(
+		new /datum/data/vending_product("crimson red dress",	/obj/item/clothing/under/vampire/primogen_toreador/female	,	350),
 		new /datum/data/vending_product("black dress",	/obj/item/clothing/under/vampire/business,	250),
 		new /datum/data/vending_product("leather pants", /obj/item/clothing/under/vampire/leatherpants,	200),
 		new /datum/data/vending_product("fancy gray suit",	/obj/item/clothing/under/vampire/fancy_gray,	150),
