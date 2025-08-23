@@ -8,8 +8,8 @@
 	name = "Potence power name"
 	desc = "Potence power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sounds/potence_activate.ogg'
-	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/potence_deactivate.ogg'
+	activate_sound = 'modular_darkpack/modules/powers/sounds/potence_activate.ogg'
+	deactivate_sound = 'modular_darkpack/modules/powers/sounds/potence_deactivate.ogg'
 
 /datum/discipline_power/potence/proc/apply_passive_strength_bonus(bonus)
 	if (owner.st_get_stat_mod(STAT_STRENGTH, "potence") >= bonus)
