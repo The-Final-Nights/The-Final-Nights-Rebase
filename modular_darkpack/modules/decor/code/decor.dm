@@ -1055,7 +1055,7 @@
 // TODO: [Rebase]
 /*
 /obj/structure/bury_pit/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/melee/vampirearms/shovel))
+	if(istype(I, /obj/item/shovel/vamp))
 		if(!burying)
 			burying = TRUE
 			user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))

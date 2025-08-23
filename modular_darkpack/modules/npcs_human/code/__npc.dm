@@ -20,7 +20,7 @@
 		BANDIT_TYPE_NPC = list(
 			/obj/item/gun/ballistic/automatic/vampire/deagle = 33,
 			/obj/item/gun/ballistic/vampire/revolver/snub = 33,
-			/obj/item/melee/vampirearms/baseball = 100,
+			/obj/item/melee/baseball_bat/vamp = 100,
 		),
 		POLICE_TYPE_NPC = list(
 			/obj/item/gun/ballistic/vampire/revolver = 66,

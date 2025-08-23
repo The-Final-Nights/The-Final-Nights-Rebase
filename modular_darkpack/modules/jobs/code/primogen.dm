@@ -229,4 +229,4 @@
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	l_pocket = /obj/item/vamp/phone/brujah
 	r_pocket = /obj/item/cockclock
-	backpack_contents = list(/obj/item/vamp/keys/brujah/primogen=1, /obj/item/melee/vampirearms/eguitar=1, /obj/item/passport=1, /obj/item/flashlight=1, /obj/item/card/credit/elder=1, /obj/item/card/id/whip, /obj/item/card/id/steward, /obj/item/card/id/myrmidon)
+	backpack_contents = list(/obj/item/vamp/keys/brujah/primogen=1, /obj/item/instrument/eguitar/vamp=1, /obj/item/passport=1, /obj/item/flashlight=1, /obj/item/card/credit/elder=1, /obj/item/card/id/whip, /obj/item/card/id/steward, /obj/item/card/id/myrmidon)

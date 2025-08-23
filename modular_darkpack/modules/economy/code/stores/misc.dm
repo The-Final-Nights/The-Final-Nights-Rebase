@@ -8,8 +8,8 @@
 		new /datum/data/mining_equipment("bong",	/obj/item/bong,		50),
 		new /datum/data/mining_equipment("lockpick",	/obj/item/vamp/keys/hack, 50),
 		new /datum/data/mining_equipment("LSD pill bottle",		/obj/item/storage/pill_bottle/lsd,	50),
-		new /datum/data/mining_equipment("knife",	/obj/item/melee/vampirearms/knife,	85),
-		new /datum/data/mining_equipment("switchblade",	/obj/item/melee/vampirearms/knife/switchblade, 85),
+		new /datum/data/mining_equipment("knife",	/obj/item/knife/vamp,	85),
+		new /datum/data/mining_equipment("switchblade",	/obj/item/switchblade/vamp, 85),
 		new /datum/data/mining_equipment("stake",	/obj/item/vampire_stake,	100),
 		new /datum/data/mining_equipment("Surgery dufflebag", /obj/item/storage/backpack/duffelbag/med/surgery, 100),
 		new /datum/data/mining_equipment("snub-nose revolver",	/obj/item/gun/ballistic/vampire/revolver/snub,	100),
@@ -46,7 +46,7 @@
 
 /obj/machinery/mineral/equipment_vendor/fastfood/gas
 	prize_list = list(new /datum/data/mining_equipment("full gas can",	/obj/item/gas_can/full,	250),
-		new /datum/data/mining_equipment("tire iron",		/obj/item/melee/vampirearms/tire,	50),
+		new /datum/data/mining_equipment("tire iron",		/obj/item/melee/vamp/tire,	50),
 		new /datum/data/mining_equipment("Spray Paint",		/obj/item/toy/crayon/spraycan,		25),
 		new /datum/data/mining_equipment("Hair Spray",		/obj/item/dyespray,		10),
 	)
