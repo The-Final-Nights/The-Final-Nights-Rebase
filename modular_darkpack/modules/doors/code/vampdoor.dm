@@ -96,8 +96,6 @@
 
 /obj/structure/vampdoor/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
-	var/screentip_change = FALSE
-
 	if(isnull(held_item) && isliving(user))
 		var/mob/living/living_user = user
 		context[SCREENTIP_CONTEXT_RMB] = locked ? "Unlock" : "Lock"
@@ -106,9 +104,7 @@
 		else
 			context[SCREENTIP_CONTEXT_LMB] = closed ? "Open" : "Close"
 
-		screentip_change = TRUE
-
-	return screentip_change ? CONTEXTUAL_SCREENTIP_SET : NONE
+		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/vampdoor/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
