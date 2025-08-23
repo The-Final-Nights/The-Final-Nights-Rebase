@@ -34,8 +34,10 @@
 	var/lock_sound = 'modular_darkpack/modules/deprecated/sounds/door_locked.ogg'
 	var/burnable = FALSE
 
-/obj/structure/vampdoor/New()
-	..()
+/obj/structure/vampdoor/Initialize(mapload)
+	. = ..()
+
+	AddElement(/datum/element/contextual_screentip_bare_hands, rmb_text = "Try lock")
 	switch(lockpick_difficulty) //This is fine because any overlap gets intercepted before
 		if(LOCKDIFFICULTY_7 to INFINITY)
 			lockpick_timer = LOCKTIMER_7
@@ -233,8 +235,7 @@
 
 	if(!has_keys)
 		to_chat(user, span_warning("You need a key to lock/unlock this door!"))
-	else
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/vampdoor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/door_repair_kit))
