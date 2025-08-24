@@ -15,6 +15,9 @@
 		new /datum/data/vending_product("Cultivator",	/obj/item/cultivator,	100),
 		new /datum/data/vending_product("Poppy seeds", /obj/item/seeds/poppy, 50),
 		new /datum/data/vending_product("Sunflower seeds", /obj/item/seeds/sunflower, 50),
+		new /datum/data/vending_product("Geranium seeds", /obj/item/seeds/geranium, 50),
+		new /datum/data/vending_product("Lily seeds", /obj/item/seeds/lily, 50),
+		new /datum/data/vending_product("Forget me not seeds", /obj/item/seeds/forgetmenot, 50),
 		new /datum/data/vending_product("Aloe seeds", /obj/item/seeds/aloe, 50),
 		new /datum/data/vending_product("Apple seeds", /obj/item/seeds/apple, 50),
 		new /datum/data/vending_product("Cabbage seeds", /obj/item/seeds/cabbage, 50),
@@ -29,5 +32,5 @@
 		new /datum/data/vending_product("Rice seeds", /obj/item/seeds/wheat/rice, 50),
 		new /datum/data/vending_product("Soy seeds", /obj/item/seeds/soya, 50),
 		new /datum/data/vending_product("Tomato seeds", /obj/item/seeds/tomato, 50),
-		new /datum/data/vending_product("Fermentation Barrel", /obj/structure/fermenting_barrel,	230)
+		new /datum/data/vending_product("Fermentation Barrel", /obj/structure/fermenting_barrel, 230),
 		)
