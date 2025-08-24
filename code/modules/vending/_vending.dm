@@ -431,9 +431,9 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 			amount = 0
 
 		var/obj/item/temp = typepath
-		var/datum/data/vending_product/new_record = new /datum/data/vending_product()
-		new_record.name = initial(temp.name)
-		new_record.product_path = typepath
+		// DARKPACK EDIT START - RETAIL
+		var/datum/data/vending_product/new_record = new /datum/data/vending_product(initial(temp.name), typepath)
+		// DARKPACK EDIT END - RETIAL
 		if(!start_empty)
 			new_record.amount = amount
 		new_record.max_amount = amount

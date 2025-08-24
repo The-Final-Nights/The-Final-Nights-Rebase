@@ -1,7 +1,7 @@
 /obj/structure/retail
 	name = "retail outlet"
 	desc = "A counter for partaking in wretched capitalism. Takes cash or card."
-	icon = 'modular_tfn/icons/vendors_shops.dmi'
+	icon = 'modular_darkpack/modules/retail/icons/vendors_shops.dmi'
 	icon_state = "menu"
 	density = FALSE
 	anchored = TRUE
@@ -84,7 +84,7 @@
 		var/list/product_data = list(
 			path = replacetext(replacetext("[product.product_path]", "/obj/item/", ""), "/", "-"),
 			name = product.name,
-			price = product.custom_price,
+			price = product.price,
 			stock = product.amount,
 			dimensions = product.icon_dimension,
 			ref = REF(product)
@@ -151,14 +151,14 @@
 				if(!used_account)
 					to_chat(user, span_alert("The [creditcard] has no linked account."))
 					return
-				if(!used_account.check_pin(user, product.custom_price, creditcard))
+				if(!used_account.check_pin(user, product.price, creditcard))
 					return
-				if(!used_account.adjust_money(-1 * product.custom_price))
+				if(!used_account.adjust_money(-1 * product.price))
 					to_chat(user, span_alert("The transaction is declined - Insufficient funds."))
 					return
 				//used_account.process_credit_fraud(user, product.price)
 
-			else if(istype(held_item, /obj/item/stack/dollar) && !held_item.use(product.custom_price))
+			else if(istype(held_item, /obj/item/stack/dollar) && !held_item.use(product.price))
 				to_chat(user, span_alert("You don't have enough money in your hand."))
 				return
 			playsound(get_turf(src), 'sound/effects/cashregister.ogg', 50, TRUE)
