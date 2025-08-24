@@ -360,10 +360,10 @@ GLOBAL_LIST_EMPTY(nebula_vomits)
 	icon_state = "donk_pinata_shreds"
 
 /obj/effect/decal/cleanable/garbage
-	name = "trash bag" // DARKPACK EDIT CHANGE, ORIGINAL: name = "decomposing garbage"
-	desc = "Holds garbage inside." // DARKPACK EDIT CHANGE, ORIGINAL: desc = "A split open garbage bag, its stinking content seems to be partially liquified. Yuck!"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi' // DARKPACK EDIT CHANGE, ORIGINAL: icon = 'icons/obj/debris.dmi'
-	icon_state = "garbage1" // DARKPACK EDIT CHANGE, ORIGINAL: icon_state = "garbage"
+	name = "trash bag" // DARKPACK EDIT CHANGE - ORIGINAL: name = "decomposing garbage"
+	desc = "Holds garbage inside." // DARKPACK EDIT CHANGE - ORIGINAL: desc = "A split open garbage bag, its stinking content seems to be partially liquified. Yuck!"
+	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi' // DARKPACK EDIT CHANGE - ORIGINAL: icon = 'icons/obj/debris.dmi'
+	icon_state = "garbage1" // DARKPACK EDIT CHANGE - ORIGINAL: icon_state = "garbage"
 	plane = GAME_PLANE
 	layer = CLEANABLE_OBJECT_LAYER
 	beauty = -150
@@ -371,7 +371,7 @@ GLOBAL_LIST_EMPTY(nebula_vomits)
 
 /obj/effect/decal/cleanable/garbage/Initialize(mapload)
 	. = ..()
-	icon_state = "garbage[rand(1, 6)]" // DARKPACK EDIT ADDITION
+	icon_state = "garbage[rand(1, 6)]" // DARKPACK EDIT ADD
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 15)
 
 /obj/effect/decal/cleanable/ants

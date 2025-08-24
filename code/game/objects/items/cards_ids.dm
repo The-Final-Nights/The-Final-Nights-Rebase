@@ -137,7 +137,7 @@
 /obj/item/card/id/Initialize(mapload)
 	. = ..()
 
-	/* DARKPACK REMOVAL - ECONOMY
+	/* DARKPACK EDIT REMOVAL - ECONOMY
 	var/datum/bank_account/blank_bank_account = new("Unassigned", SSjob.get_job_type(/datum/job/unassigned), player_account = FALSE)
 	registered_account = blank_bank_account
 	registered_account.replaceable = TRUE
@@ -536,7 +536,7 @@
 	else if(istype(held_item, /obj/item/rupee))
 		context[SCREENTIP_CONTEXT_LMB] = "Insert?"
 
-	/* DARKPACK REMOVAL - ECONOMY
+	/* DARKPACK EDIT REMOVAL - ECONOMY
 	if(isnull(registered_account) || registered_account.replaceable) //Same check we use when we check if we can assign an account
 		context[SCREENTIP_CONTEXT_ALT_RMB] = "Assign account"
 	else if(registered_account.account_balance > 0)
@@ -829,7 +829,7 @@
 	if(!user.can_read(src))
 		return
 
-	/* DARKPACK REMOVAL - ECONOMY
+	/* DARKPACK EDIT REMOVAL - ECONOMY
 	if(registered_account && !isnull(registered_account.account_id))
 		. += "The account linked to the ID belongs to '[registered_account.account_holder]' and reports a balance of [registered_account.account_balance] cr."
 		if(ACCESS_COMMAND in access)
@@ -872,7 +872,7 @@
 
 	if(registered_age)
 		. += "The card indicates that the holder is [registered_age] years old. [(registered_age < AGE_MINOR) ? "There's a holographic stripe that reads <b>[span_danger("'MINOR: DO NOT SERVE ALCOHOL OR TOBACCO'")]</b> along the bottom of the card." : ""]"
-	/* DARKPACK REMOVAL - ECONOMY
+	/* DARKPACK EDIT REMOVAL - ECONOMY
 	if(registered_account)
 		if(registered_account.mining_points)
 			. += "There's [registered_account.mining_points] mining point\s loaded onto the card's bank account."

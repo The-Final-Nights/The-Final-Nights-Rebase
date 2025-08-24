@@ -33,7 +33,7 @@ in the core code, that we decide to change from 1 to 2 on our end,
 
 ```diff
 - var/something = 1
-+ var/something = 2 // NOVA EDIT CHANGE - ORIGINAL: var/something = 1
++ var/something = 2 // DARKPACK EDIT CHANGE - ORIGINAL: var/something = 1
 ```
 
 but then our upstream introduces a change in their codebase, changing it from 1 to 4
@@ -46,7 +46,7 @@ but then our upstream introduces a change in their codebase, changing it from 1 
 As easy of an example as it is, it results in a relatively simple conflict, in the form of
 
 ```byond
-var/something = 2 // NOVA EDIT CHANGE - ORIGINAL: var/something = 4
+var/something = 2 // DARKPACK EDIT CHANGE - ORIGINAL: var/something = 4
 ```
 
 where we pick the preferable option manually.
@@ -59,7 +59,7 @@ tl;dr it tries its best but ultimately is just a dumb program, therefore, we mus
 
 Our answer to this is modularization of the code.
 
-**Modularization** means, that most of the changes and additions we do, will be kept in a separate **`modular_nova/`** folder, as independent from the core code as possible, and those which absolutely cannot be modularized, will need to be properly marked by comments, specifying where the changes start, where they end, and which feature they are a part of, but more on that in the next section.
+**Modularization** means, that most of the changes and additions we do, will be kept in a separate **`modular_darkpack/`** folder, as independent from the core code as possible, and those which absolutely cannot be modularized, will need to be properly marked by comments, specifying where the changes start, where they end, and which feature they are a part of, but more on that in the next section.
 
 ## The modularization protocol
 
@@ -69,7 +69,7 @@ Always start by thinking of the theme/purpose of your work. It's oftentimes a go
 
 Otherwise, pick a new ID for your module. E.g. `DNA-FEATURE-WINGS` or `XENOARCHEAOLOGY` or `SHUTTLE_TOGGLE` - We will use this in future documentation. It is essentially your module ID. It must be uniform throughout the entire module. All references MUST be exactly the same. This is to allow for easy searching.
 
-And then you'll want to establish your core folder that you'll be working out of which is normally your module ID. E.g. `modular_nova/modules/shuttle_toggle`
+And then you'll want to establish your core folder that you'll be working out of which is normally your module ID. E.g. `modular_darkpack/modules/shuttle_toggle`
 
 ### Maps
 
@@ -78,7 +78,7 @@ IMPORTANT: MAP CONTRIBUTION GUIDELINES HAVE BEEN UPDATED
 When you are adding a new item to the map you MUST follow this procedure:
 Start by deciding how big of a change it is going to be, if it is a small 1 item change, you should use the simple area automapper. If it is an entire room, you should use the template automapper.
 
-We will no longer have \_nova map versions.
+We will no longer have \_darkpack map versions.
 
 DO NOT CHANGE TG MAPS, THEY ARE HELD TO THE SAME STANDARD AS ICONS. USE THE ABOVE TO MAKE MAP EDITS.
 
@@ -94,7 +94,7 @@ All assets added by us should be placed into the same modular folder as your cod
 
 - **_Example:_** You're adding a new lavaland mob.
 
-  First of all you create your modular folder. E.g. `modular_nova/modules/lavalandmob`
+  First of all you create your modular folder. E.g. `modular_darkpack/modules/lavalandmob`
 
   And then you'd want to create sub-folders for each component. E.g. `/code` for code and `/sounds` for sound files and `/icons` for any icon files.
 
@@ -102,9 +102,9 @@ All assets added by us should be placed into the same modular folder as your cod
 
   ```byond
     /mob/lavaland/newmob
-      icon = 'modular_nova/modules/lavalandmob/icons/mob.dmi'
+      icon = 'modular_darkpack/modules/lavalandmob/icons/mob.dmi'
       icon_state = "dead_1"
-      sound = 'modular_nova/modules/lavalandmob/sounds/boom.ogg'
+      sound = 'modular_darkpack/modules/lavalandmob/sounds/boom.ogg'
   ```
 
   This ensures your code is fully modular and will make it easier for future edits.
@@ -117,7 +117,7 @@ All assets added by us should be placed into the same modular folder as your cod
 
 You should always put any modular overrides of icons, sound, code, etc. inside this folder, and it **must** follow the core code folder layout.
 
-Example: `code/modules/mob/living/living.dm` -> `modular_nova/master_files/code/modules/mob/living/living.dm`
+Example: `code/modules/mob/living/living.dm` -> `modular_darkpack/master_files/code/modules/mob/living/living.dm`
 
 This is to make it easier to figure out what changed about a base file without having to search through proc definitions.
 
@@ -129,9 +129,9 @@ This section will be fairly straightforward, however, I will try to go over the 
 
 The rule of thumb is that if you don't absolutely have to, you shouldn't make any changes to core codebase files. With some exceptions that will be mentioned shortly.
 
-In short, most of the modular code will be placed in the subfolders of your main module folder **`modular_nova/modules/yourmodule/code/`**, with similar rules as with the assets. Do not mirror core code folder structures inside your modular folder.
+In short, most of the modular code will be placed in the subfolders of your main module folder **`modular_darkpack/modules/yourmodule/code/`**, with similar rules as with the assets. Do not mirror core code folder structures inside your modular folder.
 
-For example, `modular_nova/modules/xenoarcheaology/code` containing all the code, tools, items and machinery related to it.
+For example, `modular_darkpack/modules/xenoarcheaology/code` containing all the code, tools, items and machinery related to it.
 
 Such modules, unless _very_ simple, **need** to have a `readme.md` in their folder, containing the following:
 
@@ -199,22 +199,22 @@ In those cases, we've decided to apply the following convention, with examples:
 - **Addition:**
 
   ```byond
-  // NOVA EDIT ADDITION START - SHUTTLE_TOGGLE - (Optional Reason/comment)
+  // DARKPACK EDIT ADD START - SHUTTLE_TOGGLE - (Optional Reason/comment)
   var/adminEmergencyNoRecall = FALSE
   var/lastMode = SHUTTLE_IDLE
   var/lastCallTime = 6000
-  // NOVA EDIT ADDITION END
+  // DARKPACK EDIT ADD END
   ```
 
 - **Removal:**
 
   ```byond
 
-  /* // NOVA EDIT REMOVAL START - SHUTTLE_TOGGLE - (Optional Reason/comment)
+  /* // DARKPACK EDIT REMOVAL START - SHUTTLE_TOGGLE - (Optional Reason/comment)
   for(var/obj/docking_port/stationary/S in stationary)
     if(S.id = id)
       return S
-  */ // NOVA EDIT REMOVAL END
+  */ // DARKPACK EDIT REMOVAL END
   WARNING("couldn't find dock with id: [id]")
   ```
 
@@ -222,7 +222,7 @@ In those cases, we've decided to apply the following convention, with examples:
   *Please avoid this however, only to be done if there is no other option.
 
   ```byond
-  /* // NOVA EDIT REMOVAL START - SHUTTLE_TOGGLE - (Moved to modular_nova/shuttle_toggle/randomverbs.dm)
+  /* // DARKPACK EDIT REMOVAL START - SHUTTLE_TOGGLE - (Moved to modular_darkpack/shuttle_toggle/randomverbs.dm)
   /client/proc/admin_call_shuttle()
   set category = "Admin - Events"
   set name = "Call Shuttle"
@@ -242,31 +242,28 @@ In those cases, we've decided to apply the following convention, with examples:
   log_admin("[key_name(usr)] admin-called the emergency shuttle.")
   message_admins(span_adminnotice("[key_name_admin(usr)] admin-called the emergency shuttle."))
   return
-  */ //NOVA EDIT REMOVAL END
+  */ //DARKPACK EDIT REMOVAL END
   ```
 
 - **Change:**
 
   ```byond
-  if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE, SHUTTLE_DISABLED) // NOVA EDIT CHANGE - ORIGINAL: if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE)
+  if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE, SHUTTLE_DISABLED) // DARKPACK EDIT CHANGE - ORIGINAL: if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE)
   ```
-
-  Always put the original code (the full line!) and use the same formatting as above.
-
-  Multiline changes should be AVOIDED. Either put multiple single-line changes, or do this instead:
+	Adding `- ORIGINAL:` is optional but prefered.
 
   Example: Removal/addition combo.
   This is the preferred way of dealing with changes that span more than one line and have varying
   indentation levels.
 
   ```byond
-  /* // NOVA EDIT REMOVAL START - Adds conditional
+  /* // DARKPACK EDIT REMOVAL START - Adds conditional
   	return 1
-  */ // NOVA EDIT REMOVAL
-  // NOVA EDIT ADDITION START - Adds conditional
+  */ // DARKPACK EDIT REMOVAL
+  // DARKPACK EDIT ADD START - Adds conditional
   	if(!isnull(src))
   		return 1
-  // NOVA EDIT ADDITION END
+  // DARKPACK EDIT ADD END
 
   It makes resolving diffs during merge conflicts far easier this way for us because it makes the
   diffs very clear and straightforward.
@@ -279,7 +276,7 @@ From every rule, there's exceptions, due to many circumstances. Don't think abou
 ### Defines
 
 Due to the way byond loads files, it has become necessary to make a different folder for handling our modular defines.
-That folder is **`code/__DEFINES/~nova_defines`**, in which you can add them to the existing files, or create those files as necessary.
+That folder is **`code/__DEFINES/~darkpack_defines`**, in which you can add them to the existing files, or create those files as necessary.
 
 If you have a define that's used in more than one file, it **must** be declared here.
 
@@ -297,13 +294,13 @@ Top most folder: module_id
 
 **Code**: Any .DM files must go in here.
 
-- Good: /modular_nova/modules/example_module/code/disease_mob.dm
-- Bad: /modular_nova/modules/example_module/code/modules/antagonists/disease/disease_mob.dm
+- Good: /modular_darkpack/modules/example_module/code/disease_mob.dm
+- Bad: /modular_darkpack/modules/example_module/code/modules/antagonists/disease/disease_mob.dm
 
 **Icons**: Any .DMI files must go in here.
 
-- Good: /modular_nova/modules/example_module/icons/mining_righthand.dmi
-- Bad: /modular_nova/modules/example_module/icons/mob/inhands/equipment/mining_righthand.dmi
+- Good: /modular_darkpack/modules/example_module/icons/mining_righthand.dmi
+- Bad: /modular_darkpack/modules/example_module/icons/mob/inhands/equipment/mining_righthand.dmi
 
 **Sound**: Any SOUND files must go in here.
 
@@ -333,24 +330,24 @@ ALL of the tgui files are located in `/tgui/packages/tgui/interfaces` and its su
 
 When modifying upstream TGUI files the same rules apply as modifying upstream DM code, however the grammar for comments may be slightly different.
 
-You can do both `// NOVA EDIT` and `/* NOVA EDIT */`, though in some cases you may have to use one over the other.
+You can do both `// DARKPACK EDIT` and `/* DARKPACK EDIT */`, though in some cases you may have to use one over the other.
 
 In general try to keep your edit comments on the same line as the change. Preferably inside the JSX tag. e.g:
 
 ```js
 <Button
 	onClick={() => act('spin', { high_quality: true })}
-	icon="rat" // NOVA EDIT ADDITION
+	icon="rat" // DARKPACK EDIT ADD
 </Button>
 ```
 
 ```js
 <Button
 	onClick={() => act('spin', { high_quality: true })}
-	// NOVA EDIT ADDITION START - another example, multiline changes
+	// DARKPACK EDIT ADD START - another example, multiline changes
 	icon="rat"
 	tooltip="spin the rat."
-	// NOVA EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 </Button>
 ```
 
@@ -362,11 +359,11 @@ If that is not possible, you can wrap your edit in curly brackets e.g.
 
 ```js
 {
-	/* NOVA EDIT ADDITION START */
+	/* DARKPACK EDIT ADD START */
 }
 <SomeThing>someProp="whatever"</SomeThing>;
 {
-	/* NOVA EDIT ADDITION END */
+	/* DARKPACK EDIT ADD END */
 }
 ```
 
@@ -375,7 +372,7 @@ If that is not possible, you can wrap your edit in curly brackets e.g.
 **IMPORTANT! When creating a new TGUI file from scratch, please add the following at the very top of the file (line 1):**
 
 ```js
-// THIS IS A NOVA SECTOR UI FILE
+// THIS IS A DARKPACK UI FILE
 ```
 
 This way they are easily identifiable as modular TGUI .tsx/.jsx files. You do not have to do anything further, and there will never be any need for a Nova edit comment in a modular TGUI file.
