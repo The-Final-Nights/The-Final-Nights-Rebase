@@ -12,7 +12,7 @@
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/darkpackaug = 3,
 		/obj/item/radio/military = 1,
-		/obj/item/gun/ballistic/automatic/darkpack/beretta=1
+		/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta=1
 		)
 
 /datum/antagonist/national_guard/proc/equip_national_guard()

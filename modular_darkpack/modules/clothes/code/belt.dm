@@ -14,14 +14,14 @@
 /obj/item/storage/belt/holster/detective/vampire/officer
 
 /obj/item/storage/belt/holster/detective/vampire/officer/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/darkpack/glock19(src)
+	new /obj/item/gun/ballistic/automatic/pistol/darkpack/glock19(src)
 	new /obj/item/ammo_box/magazine/glock9mm(src)
 	new /obj/item/ammo_box/magazine/glock9mm(src)
 
 /obj/item/storage/belt/holster/detective/vampire/fbi
 
 /obj/item/storage/belt/holster/detective/vampire/fbi/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/darkpack/glock21(src)
+	new /obj/item/gun/ballistic/automatic/pistol/darkpack/glock21(src)
 	new /obj/item/ammo_box/magazine/glock45acp(src)
 	new /obj/item/ammo_box/magazine/glock45acp(src)
 

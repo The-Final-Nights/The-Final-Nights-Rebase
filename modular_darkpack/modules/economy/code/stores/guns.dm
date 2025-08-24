@@ -2,7 +2,7 @@
 	desc = "Boom! Booom!! BOOOOOOM!!!!"
 	prize_list = list(new /datum/data/mining_equipment("magnum revolver",	/obj/item/gun/ballistic/revolver/darkpack,	200),
 		new /datum/data/mining_equipment("Colt M1911",	/obj/item/gun/ballistic/automatic/pistol/darkpack/m1911,	250),
-		new /datum/data/mining_equipment("Elite 92G",	/obj/item/gun/ballistic/automatic/darkpack/beretta,	500),
+		new /datum/data/mining_equipment("Elite 92G",	/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta,	500),
 		new /datum/data/mining_equipment("desert eagle",	/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle,	600),
 		new /datum/data/mining_equipment("hunting rifle",	/obj/item/gun/ballistic/automatic/darkpack/huntrifle, 2000),
 		new /datum/data/mining_equipment("fishing rod",		/obj/item/fishing_rod,	200),

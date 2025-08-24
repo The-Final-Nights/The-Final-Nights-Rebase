@@ -151,7 +151,7 @@
 	max_ammo = 15
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
-/obj/item/gun/ballistic/automatic/darkpack/glock19
+/obj/item/gun/ballistic/automatic/pistol/darkpack/glock19
 	name = "\improper Brokk 19"
 	desc = "Very fast 9mm handgun."
 	icon_state = "glock19"
@@ -163,16 +163,7 @@
 	fire_delay = 1
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
-	fire_sound = 'modular_darkpack/modules/deprecated/sounds/glock.ogg'
-	dry_fire_sound = 'sound/items/weapons/gun/pistol/dry_fire.ogg'
-	load_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
-	load_empty_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
-	eject_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
-	eject_empty_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
-	vary_fire_sound = FALSE
-	rack_sound = 'sound/items/weapons/gun/pistol/rack_small.ogg'
-	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
-	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
+	fire_sound = 'modular_darkpack/modules/weapons/sounds/glock.ogg'
 	fire_sound_volume = 100
 
 /obj/item/ammo_box/magazine/glock45acp
@@ -185,7 +176,7 @@
 	max_ammo = 12
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
-/obj/item/gun/ballistic/automatic/darkpack/glock21
+/obj/item/gun/ballistic/automatic/pistol/darkpack/glock21
 	name = "\improper Brokk 21"
 	desc = "Very fast 45 ACP handgun."
 	icon_state = "glock19"
@@ -197,19 +188,10 @@
 	fire_delay = 1
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
-	fire_sound = 'modular_darkpack/modules/deprecated/sounds/glock.ogg'
-	dry_fire_sound = 'sound/items/weapons/gun/pistol/dry_fire.ogg'
-	load_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
-	load_empty_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
-	eject_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
-	eject_empty_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
-	vary_fire_sound = FALSE
-	rack_sound = 'sound/items/weapons/gun/pistol/rack_small.ogg'
-	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
-	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
+	fire_sound = 'modular_darkpack/modules/weapons/sounds/glock.ogg'
 	fire_sound_volume = 100
 
-/obj/item/gun/ballistic/automatic/darkpack/beretta
+/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta
 	name = "\improper Elite 92G"
 	desc = "A 9mm pistol favored among law enforcement and criminal alike due to it's use in action movies. Often, it is wielded in pairs."
 	icon_state = "beretta"
@@ -222,19 +204,10 @@
 	dual_wield_spread = 10 //DUAL ELITES!
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
-	fire_sound = 'modular_darkpack/modules/deprecated/sounds/glock.ogg'
-	dry_fire_sound = 'sound/items/weapons/gun/pistol/dry_fire.ogg'
-	load_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
-	load_empty_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
-	eject_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
-	eject_empty_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
-	vary_fire_sound = FALSE
-	rack_sound = 'sound/items/weapons/gun/pistol/rack_small.ogg'
-	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
-	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
+	fire_sound = 'modular_darkpack/modules/weapons/sounds/glock.ogg'
 	fire_sound_volume = 75
 
-/obj/item/gun/ballistic/automatic/darkpack/beretta/toreador
+/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta/toreador
 	name = "\improper Sword Series S 9mm"
 	desc = "A handgun that has been heavily decorated and customized. The improvements seem almost supernaturally good, you feel like the engravings have given you a tactical advantage."
 	icon_state = "beretta_toreador"

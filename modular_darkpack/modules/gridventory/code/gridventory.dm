@@ -949,7 +949,7 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/darkpack/glock19
+/obj/item/gun/ballistic/automatic/pistol/darkpack/glock19
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
@@ -957,7 +957,7 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/darkpack/glock21
+/obj/item/gun/ballistic/automatic/pistol/darkpack/glock21
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
@@ -1013,7 +1013,7 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/darkpack/beretta
+/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 

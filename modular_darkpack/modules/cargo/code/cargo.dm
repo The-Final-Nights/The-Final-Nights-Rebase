@@ -288,14 +288,14 @@
 	name = "Weapon (Brokk19)"
 	desc = "Contains a Brokk19 handgun."
 	cost = 600
-	contains = list(/obj/item/gun/ballistic/automatic/darkpack/glock19)
+	contains = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/glock19)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/beretta
 	name = "Weapon (Dual Elite 92G)"
 	desc = "Contains a pair of Elite 92G handguns."
 	cost = 900
-	contains = list(/obj/item/gun/ballistic/automatic/darkpack/beretta, /obj/item/gun/ballistic/automatic/darkpack/beretta)
+	contains = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta, /obj/item/gun/ballistic/automatic/pistol/darkpack/beretta)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weaponuzi
