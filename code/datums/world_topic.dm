@@ -304,8 +304,14 @@
 	var/author_key = input["author_ckey"]
 	var/channel_name = input["message"]
 
-	var/datum/feed_channel/chosen_channel = GLOB.news_network.network_channels_by_name[channel_name]
-	if(isnull(chosen_channel)) // No channel with a matching name, abort
+	var/found_channel = FALSE
+	for(var/datum/feed_channel/channel as anything in GLOB.news_network.network_channels)
+		if(channel.channel_name == channel_name)
+			found_channel = TRUE
+			break
+
+	// No channel with a matching name, abort
+	if (!found_channel)
 		return
 
 	message_admins(span_adminnotice("Incoming cross-sector newscaster article by [author_key] in channel [channel_name]."))

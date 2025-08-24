@@ -12,7 +12,10 @@ import { useBackend } from '../backend';
 import { Window } from './Window';
 
 export type NTOSData = {
+  authenticatedUser: string | null;
+  authIDName: string;
   comp_light_color: string;
+  has_id: BooleanLike;
   has_light: BooleanLike;
   id_name: string;
   light_on: BooleanLike;

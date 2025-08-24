@@ -12,7 +12,6 @@ FROM base AS byond
 WORKDIR /byond
 
 RUN apt-get install -y --no-install-recommends \
-        libcurl4 \
         curl \
         unzip \
         make \

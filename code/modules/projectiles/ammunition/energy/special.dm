@@ -63,11 +63,11 @@
 	harmful = FALSE
 
 /obj/item/ammo_casing/energy/tesla_cannon
-	fire_sound = null
+	fire_sound = 'sound/effects/magic/lightningshock.ogg'
 	e_cost = LASER_SHOTS(33, STANDARD_CELL_CHARGE)
 	select_name = "shock"
 	projectile_type = /obj/projectile/energy/tesla_cannon
-	firing_effect_type = null
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/blue
 
 /obj/item/ammo_casing/energy/shrink
 	projectile_type = /obj/projectile/magic/shrink/alien

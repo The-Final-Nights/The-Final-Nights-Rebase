@@ -95,10 +95,5 @@ it will be sent to all connected chats.
 /// Sends a message to everyone within the list, as well as all observers.
 /proc/relay_to_list_and_observers(message, list/mob_list, source, message_type = null)
 	for(var/mob/creature as anything in mob_list)
-		to_chat(
-			creature,
-			message,
-			type = message_type,
-			avoid_highlighting = (creature == source),
-		)
+		to_chat(creature, message, type = message_type)
 	send_to_observers(message, source)

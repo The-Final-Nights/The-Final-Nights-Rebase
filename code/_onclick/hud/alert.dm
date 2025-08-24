@@ -833,7 +833,7 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 	name = "Revival"
 	desc = "Someone is trying to revive you. Re-enter your corpse if you want to be revived!"
 	icon_state = "template"
-	timeout = 30 SECONDS
+	timeout = 300
 	clickable_glow = TRUE
 
 /atom/movable/screen/alert/revival/Click()

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 (function () {
   // Utility functions
   var hasOwn = Object.prototype.hasOwnProperty;

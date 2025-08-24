@@ -72,7 +72,7 @@
 
 /datum/crafting_recipe/food/beans
 	name = "Beans"
-	time = 4 SECONDS
+	time = 40
 	reqs = list(/datum/reagent/consumable/ketchup = 5,
 		/obj/item/food/grown/soybeans = 2
 	)
@@ -111,7 +111,7 @@
 
 /datum/crafting_recipe/food/powercrepe
 	name = "Powercrepe"
-	time = 4 SECONDS
+	time = 40
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/datum/reagent/consumable/milk = 1,

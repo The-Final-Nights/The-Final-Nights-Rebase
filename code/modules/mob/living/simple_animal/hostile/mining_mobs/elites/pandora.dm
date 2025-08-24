@@ -47,7 +47,7 @@
 								/datum/action/innate/elite_attack/aoe_squares)
 
 	var/sing_shot_length = 8
-	var/cooldown_time = 2 SECONDS
+	var/cooldown_time = 20
 
 /datum/action/innate/elite_attack/singular_shot
 	name = "Singular Shot"

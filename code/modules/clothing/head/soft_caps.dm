@@ -125,7 +125,7 @@
 	icon_state = "secsoft"
 	soft_type = "sec"
 	armor_type = /datum/armor/cosmetic_sec
-	strip_delay = 6 SECONDS
+	strip_delay = 60
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/veteran
@@ -134,7 +134,7 @@
 	icon_state = "veteransoft"
 	soft_type = "veteran"
 	armor_type = /datum/armor/cosmetic_sec
-	strip_delay = 6 SECONDS
+	strip_delay = 60
 	dog_fashion = null
 
 /obj/item/clothing/head/soft/paramedic

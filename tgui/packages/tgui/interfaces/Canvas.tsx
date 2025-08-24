@@ -89,7 +89,9 @@ class PaintCanvas extends Component<PaintCanvasProps> {
     if (this.zoom !== this.props.zoom) {
       this.prepareCanvas();
       this.syncCanvas();
-    } else if (
+    }
+    // eslint-disable-next-line max-len
+    else if (
       (this.props.value !== undefined &&
         JSON.stringify(this.baseImageData) !==
           JSON.stringify(fromDM(this.props.value))) ||

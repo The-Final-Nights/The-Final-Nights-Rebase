@@ -1,8 +1,8 @@
-/mob/living/proc/robot_talk(message, list/spans = list(), list/message_mods = list())
-	log_sayverb_talk(message, message_mods, tag="binary")
+/mob/living/proc/robot_talk(message)
+	log_talk(message, LOG_SAY, tag="binary")
 
 	var/designation = "Default Cyborg"
-	spans |= SPAN_ROBOT
+	var/spans = list(SPAN_ROBOT)
 
 	if(issilicon(src))
 		var/mob/living/silicon/player = src
@@ -15,10 +15,9 @@
 		// AIs are loud and ugly
 		spans |= SPAN_COMMAND
 
-	var/messagepart = generate_messagepart(
+	var/quoted_message = say_quote(
 		message,
-		spans,
-		message_mods,
+		spans
 	)
 
 	var/namepart = name
@@ -32,31 +31,31 @@
 		namepart = brain.mainframe.name
 		designation = brain.mainframe.job
 
-	for(var/mob/hearing_mob in GLOB.player_list)
-		if(hearing_mob.binarycheck())
-			if(isAI(hearing_mob))
+	for(var/mob/M in GLOB.player_list)
+		if(M.binarycheck())
+			if(isAI(M))
 				to_chat(
-					hearing_mob,
+					M,
 					span_binarysay("\
 						Robotic Talk, \
-						<a href='byond://?src=[REF(hearing_mob)];track=[html_encode(namepart)]'>[span_name("[namepart] ([designation])")]</a> \
-						<span class='message'>[messagepart]</span>\
+						<a href='byond://?src=[REF(M)];track=[html_encode(namepart)]'>[span_name("[namepart] ([designation])")]</a> \
+						<span class='message'>[quoted_message]</span>\
 					"),
 					type = MESSAGE_TYPE_RADIO,
-					avoid_highlighting = (src == hearing_mob)
+					avoid_highlighting = src == M
 				)
 			else
 				to_chat(
-					hearing_mob,
+					M,
 					span_binarysay("\
 						Robotic Talk, \
-						[span_name("[namepart]")] <span class='message'>[messagepart]</span>\
+						[span_name("[namepart]")] <span class='message'>[quoted_message]</span>\
 					"),
 					type = MESSAGE_TYPE_RADIO,
-					avoid_highlighting = (src == hearing_mob)
+					avoid_highlighting = src == M
 				)
 
-		if(isobserver(hearing_mob))
+		if(isobserver(M))
 			var/following = src
 
 			// If the AI talks on binary chat, we still want to follow
@@ -66,17 +65,17 @@
 				var/mob/living/silicon/ai/ai = src
 				following = ai.eyeobj
 
-			var/follow_link = FOLLOW_LINK(hearing_mob, following)
+			var/follow_link = FOLLOW_LINK(M, following)
 
 			to_chat(
-				hearing_mob,
+				M,
 				span_binarysay("\
 					[follow_link] \
 					Robotic Talk, \
-					[span_name("[namepart]")] <span class='message'>[messagepart]</span>\
+					[span_name("[namepart]")] <span class='message'>[quoted_message]</span>\
 				"),
 				type = MESSAGE_TYPE_RADIO,
-				avoid_highlighting = (src == hearing_mob)
+				avoid_highlighting = src == M
 			)
 
 /mob/living/silicon/binarycheck()

@@ -4,7 +4,7 @@
 
 /datum/crafting_recipe/lizardwine
 	name = "Lizard Wine"
-	time = 4 SECONDS
+	time = 40
 	reqs = list(
 		/obj/item/organ/tail/lizard = 1,
 		/datum/reagent/consumable/ethanol = 100
@@ -15,7 +15,7 @@
 
 /datum/crafting_recipe/moonshinejug
 	name = "Moonshine Jug"
-	time = 3 SECONDS
+	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
 		/datum/reagent/consumable/ethanol/moonshine = 100
@@ -25,7 +25,7 @@
 
 /datum/crafting_recipe/hoochbottle
 	name = "Hooch Bottle"
-	time = 3 SECONDS
+	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
 		/obj/item/storage/box/papersack = 1,
@@ -36,7 +36,7 @@
 
 /datum/crafting_recipe/blazaambottle
 	name = "Blazaam Bottle"
-	time = 2 SECONDS
+	time = 20
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
 		/datum/reagent/consumable/ethanol/blazaam = 100
@@ -46,7 +46,7 @@
 
 /datum/crafting_recipe/champagnebottle
 	name = "Champagne Bottle"
-	time = 3 SECONDS
+	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
 		/datum/reagent/consumable/ethanol/champagne = 100
@@ -56,7 +56,7 @@
 
 /datum/crafting_recipe/trappistbottle
 	name = "Trappist Bottle"
-	time = 1.5 SECONDS
+	time = 15
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle/small = 1,
 		/datum/reagent/consumable/ethanol/trappist = 50
@@ -66,7 +66,7 @@
 
 /datum/crafting_recipe/goldschlagerbottle
 	name = "Goldschlager Bottle"
-	time = 3 SECONDS
+	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
 		/datum/reagent/consumable/ethanol/goldschlager = 100
@@ -76,7 +76,7 @@
 
 /datum/crafting_recipe/patronbottle
 	name = "Patron Bottle"
-	time = 3 SECONDS
+	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
 		/datum/reagent/consumable/ethanol/patron = 100
@@ -88,7 +88,7 @@
 
 /datum/crafting_recipe/holybottle
 	name = "Holy Water Flask"
-	time = 3 SECONDS
+	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
 		/datum/reagent/water/holywater = 100
@@ -100,7 +100,7 @@
 
 /datum/crafting_recipe/nothingbottle
 	name = "Nothing Bottle"
-	time = 3 SECONDS
+	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
 		/datum/reagent/consumable/nothing = 100
@@ -111,14 +111,14 @@
 /datum/crafting_recipe/smallcarton
 	name = "Small Carton"
 	result = /obj/item/reagent_containers/cup/glass/bottle/juice/smallcarton
-	time = 1 SECONDS
+	time = 10
 	reqs = list(/obj/item/stack/sheet/cardboard = 1)
 	category = CAT_CONTAINERS
 
 /datum/crafting_recipe/candycornliquor
 	name = "candy corn liquor"
 	result = /obj/item/reagent_containers/cup/glass/bottle/candycornliquor
-	time = 3 SECONDS
+	time = 30
 	reqs = list(/datum/reagent/consumable/ethanol/whiskey = 100,
 				/obj/item/food/candy_corn = 1,
 				/obj/item/reagent_containers/cup/glass/bottle = 1)
@@ -127,7 +127,7 @@
 /datum/crafting_recipe/kong
 	name = "Kong"
 	result = /obj/item/reagent_containers/cup/glass/bottle/kong
-	time = 3 SECONDS
+	time = 30
 	reqs = list(/datum/reagent/consumable/ethanol/whiskey = 100,
 				/obj/item/food/monkeycube = 1,
 				/obj/item/reagent_containers/cup/glass/bottle = 1)
@@ -136,7 +136,7 @@
 /datum/crafting_recipe/pruno
 	name = "pruno mix"
 	result = /obj/item/reagent_containers/cup/glass/bottle/pruno
-	time = 3 SECONDS
+	time = 30
 	reqs = list(/obj/item/storage/bag/trash = 1,
 		/obj/item/food/breadslice/moldy = 1,
 		/obj/item/food/grown = 4,

@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(heavy_cavity_implants, typecacheof(list(/obj/item/transfer_valv
 	accept_hand = 1
 	implements = list(/obj/item = 100)
 	repeatable = TRUE
-	time = 3.2 SECONDS
+	time = 32
 	preop_sound = 'sound/items/handling/surgery/organ1.ogg'
 	success_sound = 'sound/items/handling/surgery/organ2.ogg'
 	var/obj/item/item_for_cavity

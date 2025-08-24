@@ -1,4 +1,4 @@
-#define PLATFORM_BASE_MATERIAL_AMOUNT (2 * SHEET_MATERIAL_AMOUNT)
+#define PLATFORM_BASE_MATERIAL_AMOUNT 2000
 
 /// A raised platform you can stand on top of
 /obj/structure/platform
@@ -21,7 +21,7 @@
 	/// Icon used for the frame
 	var/frame_icon = 'icons/obj/smooth_structures/platform/frame_faces/window_frame_normal.dmi'
 	/// Material used in our construction
-	var/sheet_type = null
+	var/sheet_type = /obj/item/stack/sheet/iron
 	/// Count of sheets used in our construction
 	var/sheet_amount = 2
 	/// What footstep do we use?

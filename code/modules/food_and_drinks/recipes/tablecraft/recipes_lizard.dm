@@ -196,7 +196,6 @@
 	result = /obj/item/food/rootdough
 	added_foodtypes = NUTS
 	category = CAT_LIZARD
-	crafting_flags = CRAFT_CLEARS_REAGENTS
 
 /datum/crafting_recipe/food/rootdough/with_eggs
 	name = "Rootdough (With Eggs)"
@@ -208,7 +207,6 @@
 	)
 	result = /obj/item/food/rootdough/egg
 	removed_foodtypes = RAW
-	crafting_flags = CRAFT_CLEARS_REAGENTS
 
 /datum/crafting_recipe/food/snail_nizaya
 	name = "Desert snail nizaya"

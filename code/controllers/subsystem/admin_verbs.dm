@@ -22,8 +22,7 @@ SUBSYSTEM_DEF(admin_verbs)
 	admin_verbs_by_type = SSadmin_verbs.admin_verbs_by_type
 
 /datum/controller/subsystem/admin_verbs/stat_entry(msg)
-	msg = "V:[length(admin_verbs_by_type)]"
-	return ..()
+	return "[..()] | V: [length(admin_verbs_by_type)]"
 
 /datum/controller/subsystem/admin_verbs/proc/process_pending_admins()
 	var/list/pending_admins = admins_pending_subsytem_init

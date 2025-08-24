@@ -205,7 +205,7 @@
 	desc = "An intimidating tribal helmet, it doesn't look very comfortable."
 	icon_state = "skull"
 	inhand_icon_state = null
-	strip_delay = 10 SECONDS
+	strip_delay = 100
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDESNOUT
 	flags_cover = HEADCOVERSEYES
 	cold_protection = HEAD

@@ -41,7 +41,7 @@
 		TOOL_WIRECUTTER = 60,
 		/obj/item/pen = 55)
 	repeatable = TRUE
-	time = 2.5 SECONDS
+	time = 25
 	success_sound = 'sound/items/handling/surgery/retractor2.ogg'
 	failure_sound = 'sound/items/handling/surgery/organ2.ogg'
 	var/brutehealing = 0
@@ -330,7 +330,7 @@
 	burnhealing = 3
 	brute_multiplier = 0.07
 	burn_multiplier = 0.07
-	time = 1 SECONDS
+	time = 10
 
 /datum/surgery_step/heal/combo/upgraded
 	brutehealing = 3

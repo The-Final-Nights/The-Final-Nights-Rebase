@@ -23,22 +23,19 @@
 	QDEL_NULL(song)
 	return ..()
 
-/obj/item/instrument/proc/can_play(atom/music_player)
+/obj/item/instrument/proc/should_stop_playing(atom/music_player)
 	if(!ismob(music_player))
-		return FALSE
+		return STOP_PLAYING
 	var/mob/user = music_player
-	if(user.incapacitated)
-		return FALSE
-	if(!Adjacent(user))
-		return FALSE
-	return TRUE
+	if(user.incapacitated || !((loc == user) || (isturf(loc) && Adjacent(user)))) // sorry, no more TK playing.
+		return STOP_PLAYING
 
 /obj/item/instrument/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] begins to play 'Gloomy Sunday'! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 
 /obj/item/instrument/ui_interact(mob/user, datum/tgui/ui)
-	return song.ui_interact(user)
+	song.ui_interact(user)
 
 /obj/item/instrument/violin
 	name = "space violin"

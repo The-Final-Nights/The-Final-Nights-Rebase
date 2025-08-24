@@ -74,5 +74,5 @@
 	result = /obj/item/picket_sign
 	reqs = list(/obj/item/stack/rods = 1,
 				/obj/item/stack/sheet/cardboard = 2)
-	time = 8 SECONDS
+	time = 80
 	category = CAT_ENTERTAINMENT

@@ -63,19 +63,19 @@ SUBSYSTEM_DEF(garbage)
 	var/list/counts = list()
 	for (var/list/L in queues)
 		counts += length(L)
-	msg += "\n  Queue:[counts.Join(",")]|Dels:[delslasttick]|GCs:[gcedlasttick]|"
+	msg += "Q:[counts.Join(",")]|D:[delslasttick]|G:[gcedlasttick]|"
 	msg += "GR:"
 	if (!(delslasttick+gcedlasttick))
 		msg += "n/a|"
 	else
 		msg += "[round((gcedlasttick/(delslasttick+gcedlasttick))*100, 0.01)]%|"
 
-	msg += "\n  TD:[totaldels]|TG:[totalgcs]|"
+	msg += "TD:[totaldels]|TG:[totalgcs]|"
 	if (!(totaldels+totalgcs))
 		msg += "n/a|"
 	else
 		msg += "TGR:[round((totalgcs/(totaldels+totalgcs))*100, 0.01)]%"
-	msg += "\n  P:[pass_counts.Join(",")]"
+	msg += " P:[pass_counts.Join(",")]"
 	msg += "|F:[fail_counts.Join(",")]"
 	return ..()
 

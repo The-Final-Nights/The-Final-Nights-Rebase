@@ -5,7 +5,7 @@
 	icon = 'icons/obj/canisters.dmi'
 	icon_state = "holder"
 
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT)
 
 	density = FALSE
 	anchored = FALSE
@@ -35,14 +35,11 @@
 
 /obj/structure/tank_holder/examine(mob/user)
 	. = ..()
-	if(anchored)
-		. += span_notice("It is <b>bolted</b> to the floor.")
-	else
-		. += span_notice("The <i>bolts</i> on the bottom are unsecured.")
+	. += "It is [anchored ? "wrenched to the floor." : "The <i>bolts</i> on the bottom are unsecured."]<br/>"
 	if(tank)
-		. += span_notice("It is holding \a [tank].")
+		. += "It is holding one [tank]."
 	else
-		. += span_notice("It is empty.")
+		. += "It is empty."
 	. += span_notice("It is held together by some <b>screws</b>.")
 
 /obj/structure/tank_holder/attackby(obj/item/W, mob/living/user, list/modifiers, list/attack_modifiers)

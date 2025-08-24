@@ -41,8 +41,7 @@ SUBSYSTEM_DEF(ipintel)
 		))
 
 /datum/controller/subsystem/ipintel/stat_entry(msg)
-	msg = "M:[CONFIG_GET(number/ipintel_rate_minute) - rate_limit_minute]"
-	return ..()
+	return "[..()] | M: [CONFIG_GET(number/ipintel_rate_minute) - rate_limit_minute]"
 
 
 /datum/controller/subsystem/ipintel/proc/is_enabled()

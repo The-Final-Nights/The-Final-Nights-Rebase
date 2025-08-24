@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 import { useContext } from 'react';
 import {
   Button,

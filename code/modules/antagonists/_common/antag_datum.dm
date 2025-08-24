@@ -123,8 +123,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 /datum/antagonist/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
-	if(. || ui.user != owner.current)
-		return TRUE
+	if(. || isobserver(ui.user))
+		return
 	switch(action)
 		if("change_objectives")
 			submit_player_objective()
@@ -155,12 +155,12 @@ GLOBAL_LIST_EMPTY(antagonists)
 	. = ..()
 	name = "Open [target] Information:"
 
-/datum/action/antag_info/Trigger(mob/clicker, trigger_flags)
+/datum/action/antag_info/Trigger(trigger_flags)
 	. = ..()
 	if(!.)
 		return
 
-	target.ui_interact(clicker || owner)
+	target.ui_interact(usr || owner)
 
 /datum/action/antag_info/IsAvailable(feedback = FALSE)
 	if(!target)

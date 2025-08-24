@@ -7,34 +7,31 @@
 // the label will not be removed
 export const file_labels = {
   GitHub: {
-    filepaths: [".github/"],
+    filepaths: [".github"],
   },
   SQL: {
-    filepaths: ["SQL/"],
+    filepaths: ["SQL"],
   },
   "Map Edit": {
-    filepaths: ["_maps/"],
-    file_extensions: [".dmm"],
+    filepaths: ["_maps"],
   },
   Tools: {
-    filepaths: ["tools/"],
+    filepaths: ["tools"],
   },
   "Config Update": {
-    filepaths: ["config/", "code/controllers/configuration/entries/"],
+    filepaths: ["config", "code/controllers/configuration/entries"],
     add_only: true,
   },
   Sprites: {
-    filepaths: ["icons/"],
-    file_extensions: [".dmi"],
+    filepaths: ["icons"],
     add_only: true,
   },
   Sound: {
-    filepaths: ["sound/"],
-    file_extensions: [".ogg"],
+    filepaths: ["sound"],
     add_only: true,
   },
   UI: {
-    filepaths: ["tgui/"],
+    filepaths: ["tgui"],
     add_only: true,
   },
 };

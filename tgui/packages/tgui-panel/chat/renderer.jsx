@@ -218,20 +218,17 @@ class ChatRenderer {
       const lines = String(text)
         .split(',')
         .map((str) => str.trim())
-        .filter((str) => {
-          // Must be longer than one character
-          if (!str || str.length <= 1) return false;
-
-          // Must be alphanumeric (with some punctuation)
-          const isValidFormat =
-            allowedRegex.test(str) ||
-            (str.charAt(0) === '/' && str.charAt(str.length - 1) === '/');
-
-          // Reset lastIndex so it does not mess up the next word
-          allowedRegex.lastIndex = 0;
-
-          return isValidFormat;
-        });
+        .filter(
+          (str) =>
+            // Must be longer than one character
+            str &&
+            str.length > 1 &&
+            // Must be alphanumeric (with some punctuation)
+            (allowedRegex.test(str) ||
+              (str.charAt(0) === '/' && str.charAt(str.length - 1) === '/')) &&
+            // Reset lastIndex so it does not mess up the next word
+            ((allowedRegex.lastIndex = 0) || true),
+        );
       let highlightWords;
       let highlightRegex;
       // Nothing to match, reset highlighting
@@ -432,14 +429,13 @@ class ChatRenderer {
 
           const reactRoot = createRoot(childNode);
 
-          // biome-ignore-start lint/security/noDangerouslySetInnerHtml: ignore
+          /* eslint-disable react/no-danger */
           reactRoot.render(
             <Element {...outputProps}>
               <span dangerouslySetInnerHTML={oldHtml} />
             </Element>,
             childNode,
           );
-          // biome-ignore-end lint/security/noDangerouslySetInnerHtml: ignore
         }
 
         // Highlight text

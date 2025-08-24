@@ -20,8 +20,7 @@
 		/datum/reagent/medicine/cordiolis_hepatico,
 		/datum/reagent/medicine/synaphydramine,
 		/datum/reagent/medicine/diphenhydramine,
-		/datum/reagent/medicine/sansufentanyl,
-		/datum/reagent/medicine/salglu_solution,
+		/datum/reagent/medicine/sansufentanyl
 		)
 	var/allergy_string
 

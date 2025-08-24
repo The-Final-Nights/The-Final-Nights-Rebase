@@ -40,7 +40,7 @@ export const Newspaper = (props) => {
 
   return (
     <Window width={300} height={400}>
-      <Window.Content backgroundColor="#858387" scrollable>
+      <Window.Content backgroundColor="#858387">
         {current_page === channels.length + 1 ? (
           <NewspaperEnding />
         ) : current_page ? (

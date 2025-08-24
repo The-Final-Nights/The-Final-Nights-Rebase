@@ -48,13 +48,20 @@
 
 /// When we use the analyzer in hand - try to show the results of the last scan
 /obj/item/plant_analyzer/interact(mob/user)
+	. = ..()
 	if(user.stat != CONSCIOUS || !user.can_read(src) || user.is_blind())
-		return
-	if(last_scan_data)
-		return ..()
+		return ITEM_INTERACT_BLOCKING
+	if(!last_scan_data)
+		return ITEM_INTERACT_BLOCKING
+	ui_interact(user)
+	return ITEM_INTERACT_SUCCESS
 
 /// When we attack something, try to scan something we hit with left click. Left-clicking uses scans for stats
 /obj/item/plant_analyzer/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	. = ..()
+	if(!user.can_read(src))
+		return ITEM_INTERACT_BLOCKING
+
 	if(isliving(interacting_with))
 		playsound(src, SFX_INDUSTRIAL_SCAN, 20, TRUE, -2, TRUE, FALSE)
 		var/mob/living/living_target = interacting_with
@@ -63,11 +70,20 @@
 			return ITEM_INTERACT_SUCCESS
 		return ITEM_INTERACT_BLOCKING
 
-	return analyze(user, interacting_with)
+	if(analyze(user, interacting_with))
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /// Same as above, but with right click. Right-clicking scans for chemicals.
 /obj/item/plant_analyzer/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	return do_plant_chem_scan(interacting_with, user)
+	. = ..()
+	if(!user.can_read(src))
+		return ITEM_INTERACT_BLOCKING
+
+	if(do_plant_chem_scan(interacting_with, user))
+		return ITEM_INTERACT_SUCCESS
+
+	return NONE
 
 /*
  * Scan the target on chemical scan mode. This prints chemical genes and reagents to the user.
@@ -83,8 +99,7 @@
 		var/mob/living/living_target = scan_target
 		if(living_target.mob_biotypes & MOB_PLANT)
 			plant_biotype_chem_scan(scan_target, user)
-			return ITEM_INTERACT_SUCCESS
-		return ITEM_INTERACT_BLOCKING
+		return TRUE
 
 	return analyze(user, scan_target)
 
@@ -164,10 +179,7 @@
 			seed = scanned_object.get_plant_seed()
 
 	if (!seed && !tray && !graft)
-		return NONE
-
-	if(!user.can_read(src))
-		return ITEM_INTERACT_BLOCKING
+		return FALSE
 
 	last_scan_data = list(
 		"tray_data" = null,
@@ -222,7 +234,8 @@
 		)
 
 	ui_interact(user)
-	return ITEM_INTERACT_SUCCESS
+
+	return TRUE
 
 
 /obj/item/plant_analyzer/proc/make_seed_data(obj/item/seeds/seed)

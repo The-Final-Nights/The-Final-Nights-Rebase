@@ -7,8 +7,6 @@ import {
   NumberInput,
   Section,
   Stack,
-  Input,
-  Tooltip,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 
@@ -16,7 +14,6 @@ import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type Data = {
-  id: string;
   using_instrument: string;
   note_shift_min: number;
   note_shift_max: number;
@@ -76,7 +73,6 @@ export const InstrumentEditor = (props) => {
 const InstrumentSettings = (props) => {
   const { act, data } = useBackend<Data>();
   const {
-    id,
     playing,
     repeat,
     max_repeats,
@@ -110,37 +106,15 @@ const InstrumentSettings = (props) => {
   return (
     <Section title="Settings">
       {lines.length > 0 && (
-        <Box fontSize="16px" mb={1}>
+        <Box fontSize="16px">
           <Button onClick={() => act('play_music')}>
             {playing ? 'Stop Music' : 'Start Playing'}
           </Button>
         </Box>
       )}
       <Box>
-        <Box
-          inline
-          style={{
-            borderBottom: '2px dotted rgba(255, 255, 255, 0.8)',
-          }}
-          mr={1}
-        >
-          <Tooltip
-            content="All nearby instruments with the same ID will
-               start playing the same song when any one starts playing."
-          >
-            ID:
-          </Tooltip>
-        </Box>
-        <Input
-          value={id}
-          maxLength={20}
-          onChange={(value) => act('set_instrument_id', { id: value })}
-        />
-      </Box>
-      <Box>
         Repeats Left:
         <NumberInput
-          ml={1}
           step={1}
           minValue={0}
           disabled={!!playing}
@@ -210,7 +184,6 @@ const InstrumentSettings = (props) => {
           <Box>
             {sustain_mode_button}:
             <NumberInput
-              ml={1}
               step={1}
               minValue={sustain_mode_min}
               maxValue={sustain_mode_max}
