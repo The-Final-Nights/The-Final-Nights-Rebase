@@ -96,6 +96,8 @@
 	sharpness = SHARP_POINTY
 
 /obj/item/ammo_casing/vampire
+	icon_state = "9"
+	base_icon_state = "9"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
@@ -360,7 +362,7 @@
 
 /obj/projectile/bullet/vampire/vamp44/silver
 	name = ".44 silver bullet"
-	icon_state = "s44"
+	//icon_state = "s44"
 
 /*
 /obj/projectile/bullet/vampire/vamp44/silver/on_hit(atom/target, blocked = 0, pierce_hit)

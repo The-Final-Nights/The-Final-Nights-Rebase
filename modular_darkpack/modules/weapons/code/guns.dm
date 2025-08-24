@@ -1,4 +1,5 @@
 /obj/item/gun/ballistic/vampire
+	icon_state = "revolver"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
@@ -21,7 +22,7 @@
 	caliber = CALIBER_44
 	max_ammo = 6
 
-/obj/item/gun/ballistic/revolver/vampire
+/obj/item/gun/ballistic/revolver/darkpack
 	name = "\improper magnum revolver"
 	desc = "Feelin' lucky, punk?"
 	icon_state = "revolver"
@@ -42,7 +43,7 @@
 	fire_sound_volume = 85
 	dry_fire_sound = 'sound/items/weapons/gun/revolver/dry_fire.ogg'
 
-/obj/item/gun/ballistic/revolver/vampire/snub
+/obj/item/gun/ballistic/revolver/darkpack/snub
 	name = "\improper snub-nosed revolver"
 	desc = "a cheap Saturday night special revolver. Sometimes called a 'purse gun'. It takes 9mm rounds."
 	icon_state = "revolver_snub"

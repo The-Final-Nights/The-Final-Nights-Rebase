@@ -268,7 +268,7 @@
 	name = "Weapon (revolver)"
 	desc = "Contains a revolver."
 	cost = 200
-	contains = list(/obj/item/gun/ballistic/revolver/vampire)
+	contains = list(/obj/item/gun/ballistic/revolver/darkpack)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/vampire/weapondeagle

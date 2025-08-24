@@ -19,11 +19,11 @@
 	var/static/list/role_weapons_chances = list(
 		BANDIT_TYPE_NPC = list(
 			/obj/item/gun/ballistic/automatic/vampire/deagle = 33,
-			/obj/item/gun/ballistic/revolver/vampire/snub = 33,
+			/obj/item/gun/ballistic/revolver/darkpack/snub = 33,
 			/obj/item/melee/baseball_bat/vamp = 100,
 		),
 		POLICE_TYPE_NPC = list(
-			/obj/item/gun/ballistic/revolver/vampire = 66,
+			/obj/item/gun/ballistic/revolver/darkpack = 66,
 			/obj/item/gun/ballistic/automatic/vampire/ar15 = 100,
 		)
 	)

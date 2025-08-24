@@ -9,7 +9,7 @@
 /obj/item/storage/belt/holster/detective/vampire/police/PopulateContents()
 	new /obj/item/ammo_box/vampire/c9mm/moonclip(src)
 	new /obj/item/ammo_box/vampire/c9mm/moonclip(src)
-	new /obj/item/gun/ballistic/revolver/vampire/snub(src)
+	new /obj/item/gun/ballistic/revolver/darkpack/snub(src)
 
 /obj/item/storage/belt/holster/detective/vampire/officer
 

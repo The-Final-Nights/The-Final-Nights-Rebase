@@ -973,7 +973,7 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/revolver/vampire/snub
+/obj/item/gun/ballistic/revolver/darkpack/snub
 	grid_width = 1 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
@@ -997,7 +997,7 @@ VENTORY!
 	grid_width = 3 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/revolver/vampire
+/obj/item/gun/ballistic/revolver/darkpack
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
