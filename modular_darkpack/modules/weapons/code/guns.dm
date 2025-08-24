@@ -36,12 +36,9 @@
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
 	initial_caliber = CALIBER_44
-	fire_sound = 'modular_darkpack/modules/deprecated/sounds/revolver.ogg'
-	load_sound = 'sound/items/weapons/gun/revolver/load_bullet.ogg'
-	eject_sound = 'sound/items/weapons/gun/revolver/empty.ogg'
+	fire_sound = 'modular_darkpack/modules/weapons/sounds/revolver.ogg'
 	vary_fire_sound = FALSE
 	fire_sound_volume = 85
-	dry_fire_sound = 'sound/items/weapons/gun/revolver/dry_fire.ogg'
 
 /obj/item/gun/ballistic/revolver/darkpack/snub
 	name = "\improper snub-nosed revolver"
@@ -60,6 +57,8 @@
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_9MM
 	max_ammo = 6
+
+/obj/item/gun/ballistic/automatic/pistol
 
 /obj/item/ammo_box/magazine/m44
 	name = "handgun magazine (.44)"
