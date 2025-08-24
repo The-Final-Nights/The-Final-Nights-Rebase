@@ -23,12 +23,10 @@
 	name = "evil coder revolver"
 	icon_state = "revolver"
 	inhand_icon_state = "revolver"
-	worn_icon_state = "revolver"
+	worn_icon_state = "gun"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	// Missing any worn icons
-	//worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
 	initial_caliber = CALIBER_44
@@ -61,10 +59,10 @@
 //PISTOLS
 /obj/item/gun/ballistic/automatic/pistol/darkpack
 	icon_state = "revolver"
+	worn_icon_state = "gun"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
 /obj/item/ammo_box/magazine/m44
@@ -88,10 +86,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m44
 	recoil = 3
-	burst_size = 1
-	fire_delay = 0
-	actions_types = list()
-	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = 'modular_darkpack/modules/weapons/sounds/deagle.ogg'
 
 /obj/item/ammo_box/magazine/m50
@@ -131,12 +125,7 @@
 	icon_state = "m1911"
 	inhand_icon_state = "m1911"
 	worn_icon_state = "m1911"
-	w_class = WEIGHT_CLASS_SMALL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack45acp
-	burst_size = 1
-	fire_delay = 0
-	actions_types = list()
-	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = 'modular_darkpack/modules/weapons/sounds/m1911.ogg'
 	vary_fire_sound = FALSE
 	fire_sound_volume = 100
