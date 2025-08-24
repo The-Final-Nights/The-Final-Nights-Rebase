@@ -87,7 +87,6 @@
 
 	. = ..()
 
-
 /datum/discipline_power/bloodheal/proc/adjust_vitae_cost()
 	vitae_cost = initial(vitae_cost)
 	//tally up damage
@@ -95,10 +94,10 @@
 	var/total_aggravated_damage = owner.getAggLoss() + owner.getFireLoss()
 
 	//lower blood expenditure to what's necessary
-	var/vitae_to_HEAL_BASHING_LETHAL_DAMAGE = ceil(total_bashing_lethal_damage / HEAL_BASHING_LETHAL_DAMAGE)
-	var/vitae_to_HEAL_AGGRAVATED_DAMAGE = ceil(total_aggravated_damage / HEAL_AGGRAVATED_DAMAGE)
+	var/vitae_to_heal_bashing_lethal = ceil(total_bashing_lethal_damage / HEAL_BASHING_LETHAL_DAMAGE)
+	var/vitae_to_heal_aggravated = ceil(total_aggravated_damage / HEAL_AGGRAVATED_DAMAGE)
 
-	var/vitae_needed = max(vitae_to_HEAL_BASHING_LETHAL_DAMAGE, vitae_to_HEAL_AGGRAVATED_DAMAGE)
+	var/vitae_needed = max(vitae_to_heal_bashing_lethal, vitae_to_heal_aggravated)
 
 	//vitae used to heal is the smaller of max vitae expenditure and what's needed to heal the damage
 	vitae_cost = max(min(vitae_cost, vitae_needed), 1)
