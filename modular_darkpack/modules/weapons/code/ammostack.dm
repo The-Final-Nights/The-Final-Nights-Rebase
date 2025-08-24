@@ -1,7 +1,3 @@
-/obj/effect/projectile/tracer/tracer/ballistic
-	icon_state = "bullet"
-	icon = 'modular_darkpack/modules/weapons/icons/tracer.dmi'
-
 /obj/projectile/bullet/darkpack
 
 /obj/projectile/bullet/darkpack/vamp9mm

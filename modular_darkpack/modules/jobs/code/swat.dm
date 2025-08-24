@@ -4,14 +4,14 @@
 	uniform = /obj/item/clothing/under/vampire/police
 	mask = /obj/item/clothing/mask/vampire/balaclava
 	r_pocket = /obj/item/flashlight
-	l_pocket = /obj/item/ammo_box/magazine/vamp556
+	l_pocket = /obj/item/ammo_box/magazine/darkpack556
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
-	belt = /obj/item/gun/ballistic/automatic/vampire/ar15
+	belt = /obj/item/gun/ballistic/automatic/darkpack/ar15
 	suit = /obj/item/clothing/suit/vampire/vest/police
 	head = /obj/item/clothing/head/vampire/helmet
 	id = /obj/item/card/id/police
 	backpack_contents = list(
-		/obj/item/ammo_box/magazine/vamp556 = 3,
+		/obj/item/ammo_box/magazine/darkpack556 = 3,
 		/obj/item/radio/cop = 1,
 		/obj/item/vamp/keys/hack=2
 		)

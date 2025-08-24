@@ -24,7 +24,7 @@
 		),
 		POLICE_TYPE_NPC = list(
 			/obj/item/gun/ballistic/revolver/darkpack/magnum = 66,
-			/obj/item/gun/ballistic/automatic/vampire/ar15 = 100,
+			/obj/item/gun/ballistic/automatic/darkpack/ar15 = 100,
 		)
 	)
 	*/
