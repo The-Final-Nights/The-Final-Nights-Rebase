@@ -1,6 +1,6 @@
 /obj/item/food/fish
 	desc = "Marine life."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	eatsound = 'modular_darkpack/modules/deprecated/sounds/eat.ogg'

@@ -322,7 +322,7 @@
 	name = "\improper HK MP5"
 	desc = "A lightweight, burst-fire submachine gun, for when you really want to do some dirty cool job. Uses 9mm rounds."
 	icon_state = "mp5"
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	inhand_icon_state = "mp5"
 	worn_icon_state = "mp5"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/vamp9mp5
@@ -354,7 +354,7 @@
 /obj/item/gun/ballistic/automatic/vampire/ar15
 	name = "\improper AR-15 Carbine"
 	desc = "A two-round burst 5.56 toploading carbine, designated 'AR-15'."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "rifle"
 	inhand_icon_state = "rifle"
 	worn_icon_state = "rifle"
@@ -372,7 +372,7 @@
 /obj/item/gun/ballistic/automatic/vampire/huntrifle
 	name = "hunting rifle"
 	desc = "A semi-automatic hunting rifle, just like what your dad used to shoot. If your dad didn't go out to get milk, anyways."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "huntrifle"
 	inhand_icon_state = "huntrifle"
 	worn_icon_state = "huntrifle"
@@ -402,7 +402,7 @@
 /obj/item/gun/ballistic/automatic/vampire/ak74
 	name = "\improper Kalashnikov's Automatic Rifle 74"
 	desc = "Pretty old, but also easy fireable and cleanable by vodka.Uses 5.45 rounds."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "ak74"
 	inhand_icon_state = "ak74"
 	worn_icon_state = "ak74"
@@ -433,7 +433,7 @@
 /obj/item/gun/ballistic/automatic/vampire/aug
 	name = "\improper Steyr AUG-77"
 	desc = "A three-round burst 5.56 bullpup design, designated 'Steyr AUG-77'."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "aug"
 	inhand_icon_state = "aug"
 	worn_icon_state = "aug"
@@ -464,7 +464,7 @@
 /obj/item/gun/ballistic/automatic/vampire/thompson
 	name = "\improper Thompson Submachine Gun"
 	desc = "\"Mamma-mia, Mercurio! Yu shot 'im in da head, he can't speek now! Yu guappo, Mercurio, yu naturale guappo!\""
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "thompson"
 	inhand_icon_state = "thompson"
 	worn_icon_state = "thompson"
@@ -491,7 +491,7 @@
 /obj/item/gun/ballistic/automatic/vampire/sniper
 	name = "sniper rifle"
 	desc = "A long ranged weapon that does significant damage. No, you can't quickscope."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "sniper"
 	inhand_icon_state = "sniper"
 	worn_icon_state = "sniper"
@@ -529,7 +529,7 @@
 /obj/item/gun/ballistic/shotgun/vampire
 	name = "shotgun"
 	desc = "A traditional shotgun with wood furniture and a six-round tube magazine."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
@@ -562,7 +562,7 @@
 /obj/item/gun/ballistic/automatic/vampire/autoshotgun
 	name = "\improper Jaegerspas-XV"
 	desc = "A semi-automatic shotgun. It looks more like an assault rifle than a shotgun and fires at a deadly pace."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "spas15"
 	inhand_icon_state = "spas15"
 	worn_icon_state = "rifle"
@@ -583,7 +583,7 @@
 /obj/item/gun/ballistic/shotgun/toy/crossbow/vampire
 	name = "crossbow"
 	desc = "Welcome to the Middle Ages!"
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
