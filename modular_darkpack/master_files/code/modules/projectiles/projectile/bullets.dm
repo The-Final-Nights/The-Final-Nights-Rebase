@@ -1,5 +1,5 @@
 /obj/projectile/bullet
-	speed = 5 // Faster, trying to simulate the balance of hitscan more
+	speed = 10 // Faster, trying to simulate the balance of hitscan more
 
 /obj/projectile/bullet/incendiary/fire
 	speed = 3

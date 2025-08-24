@@ -993,11 +993,11 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/deagle
+/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle
 	grid_width = 3 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/revolver/darkpack
+/obj/item/gun/ballistic/revolver/darkpack/magnum
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 

@@ -3,7 +3,7 @@
 	prize_list = list(new /datum/data/mining_equipment("magnum revolver",	/obj/item/gun/ballistic/revolver/darkpack,	200),
 		new /datum/data/mining_equipment("Colt M1911",	/obj/item/gun/ballistic/automatic/vampire/m1911,	250),
 		new /datum/data/mining_equipment("Elite 92G",	/obj/item/gun/ballistic/automatic/vampire/beretta,	500),
-		new /datum/data/mining_equipment("desert eagle",	/obj/item/gun/ballistic/automatic/vampire/deagle,	600),
+		new /datum/data/mining_equipment("desert eagle",	/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle,	600),
 		new /datum/data/mining_equipment("hunting rifle",	/obj/item/gun/ballistic/automatic/vampire/huntrifle, 2000),
 		new /datum/data/mining_equipment("fishing rod",		/obj/item/fishing_rod,	200),
 		new	/datum/data/mining_equipment("5.45 ammo",	/obj/item/ammo_box/vampire/c545,	1000),

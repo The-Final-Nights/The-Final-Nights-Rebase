@@ -5,7 +5,6 @@
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
-	can_suppress = FALSE
 
 /obj/item/gun/ballistic/automatic/vampire
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
@@ -13,7 +12,6 @@
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
-	can_suppress = FALSE
 
 //REVOLVERS
 /obj/item/ammo_box/magazine/internal/cylinder/rev44
@@ -23,8 +21,7 @@
 	max_ammo = 6
 
 /obj/item/gun/ballistic/revolver/darkpack
-	name = "\improper magnum revolver"
-	desc = "Feelin' lucky, punk?"
+	name = "evil coder revolver"
 	icon_state = "revolver"
 	inhand_icon_state = "revolver"
 	worn_icon_state = "revolver"
@@ -40,8 +37,12 @@
 	vary_fire_sound = FALSE
 	fire_sound_volume = 85
 
+/obj/item/gun/ballistic/revolver/darkpack/magnum
+	name = "magnum revolver"
+	desc = "Feelin' lucky, punk?"
+
 /obj/item/gun/ballistic/revolver/darkpack/snub
-	name = "\improper snub-nosed revolver"
+	name = "snub-nosed revolver"
 	desc = "a cheap Saturday night special revolver. Sometimes called a 'purse gun'. It takes 9mm rounds."
 	icon_state = "revolver_snub"
 	inhand_icon_state = "revolver_snub"
@@ -58,7 +59,14 @@
 	caliber = CALIBER_9MM
 	max_ammo = 6
 
-/obj/item/gun/ballistic/automatic/pistol
+//PISTOLS
+/obj/item/gun/ballistic/automatic/pistol/darkpack
+	icon_state = "revolver"
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
 /obj/item/ammo_box/magazine/m44
 	name = "handgun magazine (.44)"
@@ -72,8 +80,7 @@
 	max_ammo = 7
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
-//PISTOLS
-/obj/item/gun/ballistic/automatic/vampire/deagle
+/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle
 	name = "\improper Desert Eagle"
 	desc = "A powerful .44 handgun."
 	icon_state = "deagle"
@@ -86,17 +93,7 @@
 	fire_delay = 0
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
-	fire_sound = 'modular_darkpack/modules/deprecated/sounds/deagle.ogg'
-	dry_fire_sound = 'sound/items/weapons/gun/pistol/dry_fire.ogg'
-	load_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
-	load_empty_sound = 'sound/items/weapons/gun/pistol/mag_insert.ogg'
-	eject_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
-	eject_empty_sound = 'sound/items/weapons/gun/pistol/mag_release.ogg'
-	vary_fire_sound = FALSE
-	rack_sound = 'sound/items/weapons/gun/pistol/rack_small.ogg'
-	lock_back_sound = 'sound/items/weapons/gun/pistol/lock_small.ogg'
-	bolt_drop_sound = 'sound/items/weapons/gun/pistol/drop_small.ogg'
-	fire_sound_volume = 75
+	fire_sound = 'modular_darkpack/modules/weapons/sounds/deagle.ogg'
 
 /obj/item/ammo_box/magazine/m50
 	name = "handgun magazine (.50)"
@@ -110,7 +107,7 @@
 	max_ammo = 7
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
-/obj/item/gun/ballistic/automatic/vampire/deagle/c50
+/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle/c50
 	name = "\improper McLusky .50 caliber "
 	desc = "An extremely powerful, and rare, handcannon."
 	icon_state = "deagle50"
