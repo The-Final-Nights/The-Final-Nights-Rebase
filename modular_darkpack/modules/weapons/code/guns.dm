@@ -1,12 +1,5 @@
-/obj/item/gun/ballistic/vampire
-	icon_state = "revolver"
-	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
-
 /obj/item/gun/ballistic/automatic/vampire
+	icon_state = "revolver"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'

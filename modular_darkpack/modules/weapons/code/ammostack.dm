@@ -1,42 +1,46 @@
-/obj/projectile/bullet/vampire
+/obj/effect/projectile/tracer/tracer/ballistic
+	icon_state = "bullet"
+	icon = 'modular_darkpack/modules/weapons/icons/tracer.dmi'
 
-/obj/projectile/bullet/vampire/vamp9mm
+/obj/projectile/bullet/darkpack
+
+/obj/projectile/bullet/darkpack/vamp9mm
 	name = "9mm bullet"
 	damage = 18
 	exposed_wound_bonus = 10
 
-/obj/projectile/bullet/vampire/vamp9mm/plus
+/obj/projectile/bullet/darkpack/vamp9mm/plus
 	name = "9mm HV bullet"
 	damage = 22
 	armour_penetration = 10
 
-/obj/projectile/bullet/vampire/vamp45acp
+/obj/projectile/bullet/darkpack/vamp45acp
 	name = ".45 ACP bullet"
 	damage = 20
 	armour_penetration = 2
 
-/obj/projectile/bullet/vampire/vamp44
+/obj/projectile/bullet/darkpack/vamp44
 	name = ".44 bullet"
 	damage = 35
 	armour_penetration = 15
 	exposed_wound_bonus = -5
 	wound_bonus = 10
 
-/obj/projectile/bullet/vampire/vamp50
+/obj/projectile/bullet/darkpack/vamp50
 	name = ".50 bullet"
 	damage = 70
 	armour_penetration = 20
 	exposed_wound_bonus = 5
 	wound_bonus = 5
 
-/obj/projectile/bullet/vampire/vamp556mm
+/obj/projectile/bullet/darkpack/vamp556mm
 	name = "5.56mm bullet"
 	damage = 45
 	armour_penetration = 25
 	exposed_wound_bonus = -5
 	wound_bonus = 5
 
-/obj/projectile/bullet/vampire/vamp545mm
+/obj/projectile/bullet/darkpack/vamp545mm
 	name = "5.45mm bullet"
 	damage = 40
 	armour_penetration = 30
@@ -63,7 +67,7 @@
 			to_chat(hit_person, span_danger("The force of a projectile sends you sprawling!"))
 
 
-/obj/projectile/bullet/vampire/shotpellet
+/obj/projectile/bullet/darkpack/shotpellet
 	name = "12g shotgun pellet"
 	damage = 9
 	range = 22 //range of where you can see + one screen after
@@ -71,18 +75,18 @@
 	exposed_wound_bonus = 5
 	wound_bonus = 0
 
-/obj/projectile/bullet/vampire/shotpellet/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/bullet/darkpack/shotpellet/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
 		M.Stun(4)
 
-/obj/projectile/bullet/vampire/vamp556mm/incendiary
+/obj/projectile/bullet/darkpack/vamp556mm/incendiary
 	armour_penetration = 0
 	damage = 30
 	var/fire_stacks = 4
 
-/obj/projectile/bullet/vampire/vamp556mm/incendiary/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/bullet/darkpack/vamp556mm/incendiary/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
@@ -105,20 +109,20 @@
 	name = "9mm bullet casing"
 	desc = "A 9mm bullet casing."
 	caliber = CALIBER_9MM
-	projectile_type = /obj/projectile/bullet/vampire/vamp9mm
+	projectile_type = /obj/projectile/bullet/darkpack/vamp9mm
 	icon_state = "9"
 	base_icon_state = "9"
 
 /obj/item/ammo_casing/vampire/c9mm/plus
 	name = "9mm HV bullet casing"
-	projectile_type = /obj/projectile/bullet/vampire/vamp9mm/plus
+	projectile_type = /obj/projectile/bullet/darkpack/vamp9mm/plus
 	caliber = CALIBER_9MM
 
 /obj/item/ammo_casing/vampire/c45acp
 	name = ".45 ACP bullet casing"
 	desc = "A .45 ACP bullet casing."
 	caliber = CALIBER_45
-	projectile_type = /obj/projectile/bullet/vampire/vamp45acp
+	projectile_type = /obj/projectile/bullet/darkpack/vamp45acp
 	icon_state = "45"
 	base_icon_state = "45"
 
@@ -126,7 +130,7 @@
 	name = ".44 bullet casing"
 	desc = "A .44 bullet casing."
 	caliber = CALIBER_44
-	projectile_type = /obj/projectile/bullet/vampire/vamp44
+	projectile_type = /obj/projectile/bullet/darkpack/vamp44
 	icon_state = "44"
 	base_icon_state = "44"
 
@@ -134,7 +138,7 @@
 	name = ".50 bullet casing"
 	desc = "A .50 bullet casing."
 	caliber = CALIBER_50
-	projectile_type = /obj/projectile/bullet/vampire/vamp50
+	projectile_type = /obj/projectile/bullet/darkpack/vamp50
 	icon_state = "50"
 	base_icon_state = "50"
 
@@ -142,7 +146,7 @@
 	name = "5.56mm bullet casing"
 	desc = "A 5.56mm bullet casing."
 	caliber = CALIBER_556
-	projectile_type = /obj/projectile/bullet/vampire/vamp556mm
+	projectile_type = /obj/projectile/bullet/darkpack/vamp556mm
 	icon_state = "556"
 	base_icon_state = "556"
 
@@ -150,12 +154,12 @@
 	name = "5.45mm bullet casing"
 	desc = "A 5.45mm bullet casing."
 	caliber = CALIBER_545
-	projectile_type = /obj/projectile/bullet/vampire/vamp545mm
+	projectile_type = /obj/projectile/bullet/darkpack/vamp545mm
 	icon_state = "545"
 	base_icon_state = "545"
 
 /obj/item/ammo_casing/vampire/c556mm/incendiary
-	projectile_type = /obj/projectile/bullet/vampire/vamp556mm/incendiary
+	projectile_type = /obj/projectile/bullet/darkpack/vamp556mm/incendiary
 
 /obj/item/ammo_casing/vampire/c12g
 	name = "12g shell casing"
@@ -167,7 +171,7 @@
 
 /obj/item/ammo_casing/vampire/c12g/buck
 	desc = "A 12g shell casing (00 buck)."
-	projectile_type = /obj/projectile/bullet/vampire/shotpellet
+	projectile_type = /obj/projectile/bullet/darkpack/shotpellet
 	pellets = 8
 	variance = 25
 
@@ -311,12 +315,12 @@
 //			M.adjustBruteLoss(50, TRUE)
 */
 
-/obj/projectile/bullet/vampire/vamp556mm/silver
+/obj/projectile/bullet/darkpack/vamp556mm/silver
 	name = "5.56mm silver bullet"
 	armour_penetration = 20
 
 /*
-/obj/projectile/bullet/vampire/vamp556mm/silver/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/bullet/darkpack/vamp556mm/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
@@ -328,11 +332,11 @@
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
 */
 
-/obj/projectile/bullet/vampire/vamp9mm/silver
+/obj/projectile/bullet/darkpack/vamp9mm/silver
 	name = "9mm silver bullet"
 
 /*
-/obj/projectile/bullet/vampire/vamp9mm/silver/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/bullet/darkpack/vamp9mm/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
@@ -344,11 +348,11 @@
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
 */
 
-/obj/projectile/bullet/vampire/vamp45acp/silver
+/obj/projectile/bullet/darkpack/vamp45acp/silver
 	name = ".45 ACP silver bullet"
 
 /*
-/obj/projectile/bullet/vampire/vamp45acp/silver/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/bullet/darkpack/vamp45acp/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
@@ -360,12 +364,12 @@
 		M.apply_status_effect(STATUS_EFFECT_SILVER_SLOWDOWN)
 */
 
-/obj/projectile/bullet/vampire/vamp44/silver
+/obj/projectile/bullet/darkpack/vamp44/silver
 	name = ".44 silver bullet"
 	//icon_state = "s44"
 
 /*
-/obj/projectile/bullet/vampire/vamp44/silver/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/bullet/darkpack/vamp44/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iswerewolf(target) || isgarou(target))
 		var/mob/living/carbon/M = target
@@ -380,26 +384,26 @@
 /obj/item/ammo_casing/vampire/c9mm/silver
 	name = "9mm silver bullet casing"
 	desc = "A 9mm silver bullet casing."
-	projectile_type = /obj/projectile/bullet/vampire/vamp9mm/silver
+	projectile_type = /obj/projectile/bullet/darkpack/vamp9mm/silver
 	icon_state = "s9"
 	base_icon_state = "s9"
 
 /obj/item/ammo_casing/vampire/c45acp/silver
 	name = ".45 ACP silver bullet casing"
 	desc = "A .45 ACP silver bullet casing."
-	projectile_type = /obj/projectile/bullet/vampire/vamp45acp/silver
+	projectile_type = /obj/projectile/bullet/darkpack/vamp45acp/silver
 
 /obj/item/ammo_casing/vampire/c44/silver
 	name = ".44 silver bullet casing"
 	desc = "A .44 silver bullet casing."
-	projectile_type = /obj/projectile/bullet/vampire/vamp44/silver
+	projectile_type = /obj/projectile/bullet/darkpack/vamp44/silver
 	icon_state = "s44"
 	base_icon_state = "s44"
 
 /obj/item/ammo_casing/vampire/c556mm/silver
 	name = "5.56mm silver bullet casing"
 	desc = "A 5.56mm silver bullet casing."
-	projectile_type = /obj/projectile/bullet/vampire/vamp556mm/silver
+	projectile_type = /obj/projectile/bullet/darkpack/vamp556mm/silver
 	icon_state = "s556"
 	base_icon_state = "s556"
 
