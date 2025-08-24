@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/vampire
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -8,7 +8,7 @@
 	recoil = 2
 
 /obj/item/gun/ballistic/automatic/vampire
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -29,7 +29,7 @@
 	icon_state = "revolver"
 	inhand_icon_state = "revolver"
 	worn_icon_state = "revolver"
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -63,7 +63,7 @@
 
 /obj/item/ammo_box/magazine/m44
 	name = "handgun magazine (.44)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -102,7 +102,7 @@
 
 /obj/item/ammo_box/magazine/m50
 	name = "handgun magazine (.50)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -124,7 +124,7 @@
 
 /obj/item/ammo_box/magazine/vamp45acp
 	name = "pistol magazine (.45 ACP)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -161,7 +161,7 @@
 
 /obj/item/ammo_box/magazine/glock9mm
 	name = "automatic pistol magazine (9mm)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -198,7 +198,7 @@
 
 /obj/item/ammo_box/magazine/glock45acp
 	name = "automatic pistol magazine (.45 ACP)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -269,7 +269,7 @@
 
 /obj/item/ammo_box/magazine/semi9mm
 	name = "pistol magazine (9mm)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -287,7 +287,7 @@
 //AUTOMATICS
 /obj/item/ammo_box/magazine/vamp9mm
 	name = "uzi magazine (9mm)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -316,7 +316,7 @@
 
 /obj/item/ammo_box/magazine/vamp9mp5
 	name = "mp5 magazine (9mm)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -345,7 +345,7 @@
 
 /obj/item/ammo_box/magazine/vamp556
 	name = "carbine magazine (5.56mm)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -399,7 +399,7 @@
 
 /obj/item/ammo_box/magazine/vamp545
 	name = "rifle magazine (5.45mm)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -431,7 +431,7 @@
 
 /obj/item/ammo_box/magazine/vampaug
 	name = "AUG magazine (5.56mm)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
@@ -463,7 +463,7 @@
 
 /obj/item/ammo_box/magazine/vampthompson
 	name = "tommy gun magazine (.45 ACP)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	icon_state = "thompson"
 //	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 //	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
@@ -562,7 +562,7 @@
 
 /obj/item/ammo_box/magazine/vampautoshot
 	name = "shotgun magazine (12ga)"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'

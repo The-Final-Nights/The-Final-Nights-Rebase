@@ -139,7 +139,7 @@
 	sharpness = SHARP_POINTY
 
 /obj/item/ammo_casing/vampire
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
 /obj/item/ammo_casing/vampire/c9mm
@@ -218,13 +218,13 @@
 	projectile_type = /obj/projectile/bullet/crossbow_bolt
 	caliber = CALIBER_FOAM
 	icon_state = "arrow"
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	harmful = TRUE
 
 /*
 /obj/item/storage/ammostack
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	var/base_caliber = "tut base_icon_state"
 	var/max_patroni = 5
 
@@ -255,7 +255,7 @@
 */
 
 /obj/item/ammo_box/vampire
-	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 

@@ -2,7 +2,7 @@
 	name = "molotov cocktail"
 	desc = "Well fire weapon."
 	icon_state = "molotov"
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	masquerade_violating = TRUE
