@@ -86,14 +86,14 @@
 	exposed_wound_bonus = 5
 	wound_bonus = -5
 
-/obj/projectile/bullet/vampire/vamp12g
+/obj/projectile/bullet/shotgun_slug/vamp
 	name = "12g shotgun slug"
 	damage = 70
 	armour_penetration = 15
 	exposed_wound_bonus = 10
 	wound_bonus = 5
 
-/obj/projectile/bullet/vampire/vamp12g/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/bullet/shotgun_slug/vamp/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/hit_person = target
@@ -202,7 +202,7 @@
 	name = "12g shell casing"
 	desc = "A 12g shell casing."
 	caliber = CALIBER_SHOTGUN
-	projectile_type = /obj/projectile/bullet/vampire/vamp12g
+	projectile_type = /obj/projectile/bullet/shotgun_slug/vamp
 	icon_state = "12"
 	base_icon_state = "12"
 
