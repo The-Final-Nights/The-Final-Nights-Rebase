@@ -1,5 +1,6 @@
 /obj/item/gun/ballistic/automatic/darkpack
 	icon_state = "revolver"
+	worn_icon_state = null
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
@@ -43,7 +44,6 @@
 	desc = "a cheap Saturday night special revolver. Sometimes called a 'purse gun'. It takes 9mm rounds."
 	icon_state = "revolver_snub"
 	inhand_icon_state = "revolver_snub"
-	worn_icon_state = "revolver_snub"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev9mm
 	w_class = WEIGHT_CLASS_SMALL
 	initial_caliber = CALIBER_9MM
@@ -82,7 +82,6 @@
 	desc = "A powerful .44 handgun."
 	icon_state = "deagle"
 	inhand_icon_state = "deagle"
-	worn_icon_state = "deagle"
 	w_class = WEIGHT_CLASS_NORMAL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m44
 	recoil = 3
@@ -105,7 +104,6 @@
 	desc = "An extremely powerful, and rare, handcannon."
 	icon_state = "deagle50"
 	inhand_icon_state = "deagle"
-	worn_icon_state = "deagle"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m50
 	fire_sound_volume = 125 //MY EARS
 
@@ -124,7 +122,6 @@
 	desc = "A reliable .45 ACP handgun."
 	icon_state = "m1911"
 	inhand_icon_state = "m1911"
-	worn_icon_state = "m1911"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack45acp
 	fire_sound = 'modular_darkpack/modules/weapons/sounds/m1911.ogg'
 	vary_fire_sound = FALSE
@@ -145,7 +142,6 @@
 	desc = "Very fast 9mm handgun."
 	icon_state = "glock19"
 	inhand_icon_state = "glock19"
-	worn_icon_state = "glock19"
 	w_class = WEIGHT_CLASS_SMALL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/glock9mm
 	burst_size = 3
@@ -170,7 +166,6 @@
 	desc = "Very fast 45 ACP handgun."
 	icon_state = "glock19"
 	inhand_icon_state = "glock19"
-	worn_icon_state = "glock19"
 	w_class = WEIGHT_CLASS_SMALL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/glock45acp
 	burst_size = 3
@@ -185,7 +180,6 @@
 	desc = "A 9mm pistol favored among law enforcement and criminal alike due to it's use in action movies. Often, it is wielded in pairs."
 	icon_state = "beretta"
 	inhand_icon_state = "beretta"
-	worn_icon_state = "beretta"
 	w_class = WEIGHT_CLASS_SMALL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/semi9mm
 	burst_size = 1
@@ -201,7 +195,6 @@
 	desc = "A handgun that has been heavily decorated and customized. The improvements seem almost supernaturally good, you feel like the engravings have given you a tactical advantage."
 	icon_state = "beretta_toreador"
 	inhand_icon_state = "beretta_toreador"
-	worn_icon_state = "beretta"
 	projectile_damage_multiplier = 2.5
 	fire_sound_volume = 110
 
@@ -237,7 +230,6 @@
 	desc = "A lightweight, burst-fire submachine gun, for when you really want someone dead. Uses 9mm rounds."
 	icon_state = "uzi"
 	inhand_icon_state = "uzi"
-	worn_icon_state = "uzi"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack9mm
 	burst_size = 5
 	spread = 11
@@ -264,7 +256,6 @@
 	icon_state = "mp5"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	inhand_icon_state = "mp5"
-	worn_icon_state = "mp5"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack9mp5
 	burst_size = 4
 	spread = 4
@@ -315,7 +306,8 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "huntrifle"
 	inhand_icon_state = "huntrifle"
-	worn_icon_state = "huntrifle"
+	worn_icon_state = "mosin_nagant"
+	worn_icon = null
 	w_class = WEIGHT_CLASS_BULKY
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack556/hunt
 	burst_size = 1
