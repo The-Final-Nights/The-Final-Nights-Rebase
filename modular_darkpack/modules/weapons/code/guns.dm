@@ -194,7 +194,6 @@
 	name = "\improper Sword Series S 9mm"
 	desc = "A handgun that has been heavily decorated and customized. The improvements seem almost supernaturally good, you feel like the engravings have given you a tactical advantage."
 	icon_state = "beretta_toreador"
-	inhand_icon_state = "beretta_toreador"
 	projectile_damage_multiplier = 2.5
 	fire_sound_volume = 110
 
@@ -304,10 +303,10 @@
 	name = "hunting rifle"
 	desc = "A semi-automatic hunting rifle, just like what your dad used to shoot. If your dad didn't go out to get milk, anyways."
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
+	worn_icon = null
 	icon_state = "huntrifle"
 	inhand_icon_state = "huntrifle"
 	worn_icon_state = "mosin_nagant"
-	worn_icon = null
 	w_class = WEIGHT_CLASS_BULKY
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack556/hunt
 	burst_size = 1
@@ -333,9 +332,10 @@
 	name = "\improper Kalashnikov's Automatic Rifle 74"
 	desc = "Pretty old, but also easy fireable and cleanable by vodka.Uses 5.45 rounds."
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
+	worn_icon = null
 	icon_state = "ak74"
 	inhand_icon_state = "ak74"
-	worn_icon_state = "ak74"
+	worn_icon_state = "sks"
 	w_class = WEIGHT_CLASS_BULKY
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack545
 	recoil = 5
@@ -395,7 +395,6 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "thompson"
 	inhand_icon_state = "thompson"
-	worn_icon_state = "thompson"
 	w_class = WEIGHT_CLASS_NORMAL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpackthompson
 	recoil = 7
