@@ -413,7 +413,7 @@
 	ammo_type = /obj/item/ammo_casing/vampire/c50
 	caliber = CALIBER_50
 	max_ammo = 5
-	multiload = TRUE
+	//multiload = TRUE
 
 /obj/item/gun/ballistic/automatic/darkpack/sniper
 	name = "sniper rifle"
@@ -449,7 +449,7 @@
 	name = "shotgun internal magazine"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g
 	caliber = CALIBER_SHOTGUN
-	multiload = FALSE
+	//multiload = FALSE
 	max_ammo = 6
 	masquerade_violating = FALSE
 
