@@ -59,6 +59,7 @@
 //PISTOLS
 /obj/item/gun/ballistic/automatic/pistol/darkpack
 	icon_state = "revolver"
+	inhand_icon_state = "revolver"
 	worn_icon_state = "gun"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -68,8 +69,6 @@
 /obj/item/ammo_box/magazine/m44
 	name = "handgun magazine (.44)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "deagle"
 	ammo_type = /obj/item/ammo_casing/vampire/c44
@@ -90,8 +89,6 @@
 /obj/item/ammo_box/magazine/m50
 	name = "handgun magazine (.50)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "deagle"
 	ammo_type = /obj/item/ammo_casing/vampire/c50
@@ -215,8 +212,6 @@
 /obj/item/ammo_box/magazine/darkpack9mm
 	name = "uzi magazine (9mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "uzi"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
@@ -267,8 +262,6 @@
 /obj/item/ammo_box/magazine/darkpack556
 	name = "carbine magazine (5.56mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "rifle"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm
@@ -303,7 +296,7 @@
 	name = "hunting rifle"
 	desc = "A semi-automatic hunting rifle, just like what your dad used to shoot. If your dad didn't go out to get milk, anyways."
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
-	worn_icon = null
+	worn_icon = 'icons/mob/clothing/back.dmi'
 	icon_state = "huntrifle"
 	inhand_icon_state = "huntrifle"
 	worn_icon_state = "mosin_nagant"
@@ -332,7 +325,7 @@
 	name = "\improper Kalashnikov's Automatic Rifle 74"
 	desc = "Pretty old, but also easy fireable and cleanable by vodka.Uses 5.45 rounds."
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
-	worn_icon = null
+	worn_icon = 'icons/mob/clothing/back.dmi'
 	icon_state = "ak74"
 	inhand_icon_state = "ak74"
 	worn_icon_state = "sks"
@@ -351,8 +344,6 @@
 /obj/item/ammo_box/magazine/darkpackaug
 	name = "AUG magazine (5.56mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "aug"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm
@@ -477,8 +468,6 @@
 /obj/item/ammo_box/magazine/darkpackautoshot
 	name = "shotgun magazine (12ga)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "spas15"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g/buck
