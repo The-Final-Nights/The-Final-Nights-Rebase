@@ -26,7 +26,7 @@
 	var/door_layer = ABOVE_ALL_MOB_LAYER
 	var/lock_id = null
 	var/glass = FALSE
-	var/lockpick_timer = LOCKTIMER_1 //[Lucifernix] - Never have the lockpick timer lower than 7. At 7 it will unlock instantly!!
+	var/lockpick_timer = LOCKTIMER_1
 	var/lockpick_difficulty = LOCKDIFFICULTY_1
 
 	var/open_sound = 'modular_darkpack/modules/deprecated/sounds/door_open.ogg'
