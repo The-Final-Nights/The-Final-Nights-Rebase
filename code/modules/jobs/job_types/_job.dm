@@ -413,7 +413,7 @@
 			account.bank_cards += card
 		*/
 
-		equipped.sec_hud_set_ID()
+		equipped.update_ID_card()
 
 	var/obj/item/modular_computer/pda/pda = equipped.get_item_by_slot(pda_slot)
 
