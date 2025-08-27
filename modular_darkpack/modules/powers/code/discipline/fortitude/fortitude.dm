@@ -8,8 +8,14 @@
 	name = "Fortitude power name"
 	desc = "Fortitude power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sounds/fortitude_activate.ogg'
-	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/fortitude_deactivate.ogg'
+	activate_sound = 'modular_darkpack/modules/powers/sounds/fortitude_activate.ogg'
+	deactivate_sound = 'modular_darkpack/modules/powers/sounds/fortitude_deactivate.ogg'
+
+/datum/discipline_power/fortitude/proc/apply_passive_stamina_bonus(bonus)
+	if (owner.st_get_stat_mod(STAT_STAMINA, "fortitude") >= bonus)
+		return
+
+	owner.st_add_stat_mod(STAT_STAMINA, bonus, "fortitude")
 
 //FORTITUDE 1
 /datum/discipline_power/fortitude/one
@@ -32,15 +38,16 @@
 
 /datum/discipline_power/fortitude/one/activate()
 	. = ..()
-	owner.physiology.armor.melee += 15
-	owner.physiology.armor.bullet += 15
-	owner.physiology.armor.fire += 10
+
+	owner.apply_status_effect(/datum/status_effect/fortitude/one)
 
 /datum/discipline_power/fortitude/one/deactivate()
 	. = ..()
-	owner.physiology.armor.melee -= 15
-	owner.physiology.armor.bullet -= 15
-	owner.physiology.armor.fire -= 10
+
+	owner.remove_status_effect(/datum/status_effect/fortitude/one)
+
+/datum/discipline_power/fortitude/one/post_gain()
+	apply_passive_stamina_bonus(1)
 
 //FORTITUDE 2
 /datum/discipline_power/fortitude/two
@@ -63,15 +70,16 @@
 
 /datum/discipline_power/fortitude/two/activate()
 	. = ..()
-	owner.physiology.armor.melee += 30
-	owner.physiology.armor.bullet += 30
-	owner.physiology.armor.fire += 20
+
+	owner.apply_status_effect(/datum/status_effect/fortitude/two)
 
 /datum/discipline_power/fortitude/two/deactivate()
 	. = ..()
-	owner.physiology.armor.melee -= 30
-	owner.physiology.armor.bullet -= 30
-	owner.physiology.armor.fire -= 20
+
+	owner.remove_status_effect(/datum/status_effect/fortitude/two)
+
+/datum/discipline_power/fortitude/two/post_gain()
+	apply_passive_stamina_bonus(2)
 
 //FORTITUDE 3
 /datum/discipline_power/fortitude/three
@@ -94,15 +102,16 @@
 
 /datum/discipline_power/fortitude/three/activate()
 	. = ..()
-	owner.physiology.armor.melee += 45
-	owner.physiology.armor.bullet += 45
-	owner.physiology.armor.fire += 30
+
+	owner.apply_status_effect(/datum/status_effect/fortitude/three)
 
 /datum/discipline_power/fortitude/three/deactivate()
 	. = ..()
-	owner.physiology.armor.melee -= 45
-	owner.physiology.armor.bullet -= 45
-	owner.physiology.armor.fire -= 30
+
+	owner.remove_status_effect(/datum/status_effect/fortitude/three)
+
+/datum/discipline_power/fortitude/three/post_gain()
+	apply_passive_stamina_bonus(3)
 
 //FORTITUDE 4
 /datum/discipline_power/fortitude/four
@@ -125,15 +134,16 @@
 
 /datum/discipline_power/fortitude/four/activate()
 	. = ..()
-	owner.physiology.armor.melee += 60
-	owner.physiology.armor.bullet += 60
-	owner.physiology.armor.fire += 40
+
+	owner.apply_status_effect(/datum/status_effect/fortitude/four)
 
 /datum/discipline_power/fortitude/four/deactivate()
 	. = ..()
-	owner.physiology.armor.melee -= 60
-	owner.physiology.armor.bullet -= 60
-	owner.physiology.armor.fire -= 40
+
+	owner.remove_status_effect(/datum/status_effect/fortitude/four)
+
+/datum/discipline_power/fortitude/four/post_gain()
+	apply_passive_stamina_bonus(4)
 
 //FORTITUDE 5
 /datum/discipline_power/fortitude/five
@@ -156,12 +166,13 @@
 
 /datum/discipline_power/fortitude/five/activate()
 	. = ..()
-	owner.physiology.armor.melee += 75
-	owner.physiology.armor.bullet += 75
-	owner.physiology.armor.fire += 50
+
+	owner.apply_status_effect(/datum/status_effect/fortitude/five)
 
 /datum/discipline_power/fortitude/five/deactivate()
 	. = ..()
-	owner.physiology.armor.melee -= 75
-	owner.physiology.armor.bullet -= 75
-	owner.physiology.armor.fire -= 50
+
+	owner.remove_status_effect(/datum/status_effect/fortitude/five)
+
+/datum/discipline_power/fortitude/five/post_gain()
+	apply_passive_stamina_bonus(5)
