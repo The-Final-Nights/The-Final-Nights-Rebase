@@ -17,13 +17,13 @@
 //misc footstep sounds
 #define FOOTSTEP_GENERIC_HEAVY "heavy"
 
-// DARKPACK ADDITION START
+// DARKPACK EDIT ADD START
 #define FOOTSTEP_PARKET "parket"
 #define FOOTSTEP_ASPHALT "asphalt"
 #define FOOTSTEP_TRAVA "trava"
 #define FOOTSTEP_SIDEWALK "sidewalk"
 #define FOOTSTEP_SNOW "snow"
-// DARKPACK ADDITION END
+// DARKPACK EDIT ADD END
 
 //footstep mob defines
 #define FOOTSTEP_MOB_CLAW "footstep_claw"

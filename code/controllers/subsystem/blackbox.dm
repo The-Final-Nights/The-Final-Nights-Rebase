@@ -349,7 +349,7 @@ Versioning
 		"brain" = L.get_organ_loss(ORGAN_SLOT_BRAIN) || BRAIN_DAMAGE_DEATH, //get_organ_loss returns null without a brain but a value is required for this column
 		"oxy" = L.getOxyLoss(),
 		"tox" = L.getToxLoss(),
-		"aggravated" = L.getAggLoss(), // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		"aggravated" = L.getAggLoss(), // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 		"stamina" = L.getStaminaLoss(),
 		"x_coord" = L.x,
 		"y_coord" = L.y,

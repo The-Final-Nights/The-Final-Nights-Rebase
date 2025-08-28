@@ -32,13 +32,13 @@
 /// Preferences that aren't names, but change the name changes set by PREFERENCE_PRIORITY_NAMES.
 #define PREFERENCE_PRIORITY_NAME_MODIFICATIONS 9
 
-// DARKPACK EDIT ADDITION START - TTRPG preferences
+// DARKPACK EDIT ADD START - TTRPG preferences
 /// Preferences that work with TTRPG mechanics but aren't magical
 #define PREFERENCE_PRIORITY_TABLETOP 10
 
 /// Preferences relating to World of Darkness TTRPG elements
 #define PREFERENCE_PRIORITY_WORLD_OF_DARKNESS 11
-// DARKPACK EDIT ADDITION END - TTRPG preferences
+// DARKPACK EDIT ADD END - TTRPG preferences
 
 /// The maximum preference priority, keep this updated, but don't use it for `priority`.
 #define MAX_PREFERENCE_PRIORITY PREFERENCE_PRIORITY_WORLD_OF_DARKNESS // DARKPACK EDIT CHANGE - TTRPG Preferences

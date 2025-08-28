@@ -137,7 +137,7 @@
 /obj/item/card/id/Initialize(mapload)
 	. = ..()
 
-	/* DARKPACK REMOVAL - ECONOMY
+	/* DARKPACK EDIT REMOVAL - ECONOMY
 	var/datum/bank_account/blank_bank_account = new("Unassigned", SSjob.get_job_type(/datum/job/unassigned), player_account = FALSE)
 	registered_account = blank_bank_account
 	registered_account.replaceable = TRUE
@@ -536,7 +536,7 @@
 	else if(istype(held_item, /obj/item/rupee))
 		context[SCREENTIP_CONTEXT_LMB] = "Insert?"
 
-	/* DARKPACK REMOVAL - ECONOMY
+	/* DARKPACK EDIT REMOVAL - ECONOMY
 	if(isnull(registered_account) || registered_account.replaceable) //Same check we use when we check if we can assign an account
 		context[SCREENTIP_CONTEXT_ALT_RMB] = "Assign account"
 	else if(registered_account.account_balance > 0)
@@ -829,7 +829,7 @@
 	if(!user.can_read(src))
 		return
 
-	/* DARKPACK REMOVAL - ECONOMY
+	/* DARKPACK EDIT REMOVAL - ECONOMY
 	if(registered_account && !isnull(registered_account.account_id))
 		. += "The account linked to the ID belongs to '[registered_account.account_holder]' and reports a balance of [registered_account.account_balance] cr."
 		if(ACCESS_COMMAND in access)
@@ -872,7 +872,7 @@
 
 	if(registered_age)
 		. += "The card indicates that the holder is [registered_age] years old. [(registered_age < AGE_MINOR) ? "There's a holographic stripe that reads <b>[span_danger("'MINOR: DO NOT SERVE ALCOHOL OR TOBACCO'")]</b> along the bottom of the card." : ""]"
-	/* DARKPACK REMOVAL - ECONOMY
+	/* DARKPACK EDIT REMOVAL - ECONOMY
 	if(registered_account)
 		if(registered_account.mining_points)
 			. += "There's [registered_account.mining_points] mining point\s loaded onto the card's bank account."
@@ -906,7 +906,7 @@
 /obj/item/card/id/GetID()
 	return src
 
-/obj/item/card/id/RemoveID()
+/obj/item/card/id/remove_id()
 	return src
 
 /// Called on COMSIG_ATOM_UPDATED_ICON. Updates the visuals of the wallet this card is in.
@@ -1946,7 +1946,7 @@
 
 	var/mob/living/carbon/human/owner = user
 	if (!selected_trim_path) // Ensure that even without a trim update, we update user's sechud
-		owner.sec_hud_set_ID()
+		owner.update_ID_card()
 
 	if (registered_account)
 		return
@@ -2056,13 +2056,20 @@
 
 /obj/item/card/cardboard/equipped(mob/user, slot, initial = FALSE)
 	. = ..()
-	if(slot == ITEM_SLOT_ID)
-		RegisterSignal(user, COMSIG_HUMAN_GET_VISIBLE_NAME, PROC_REF(return_visible_name))
-		RegisterSignal(user, COMSIG_MOVABLE_MESSAGE_GET_NAME_PART, PROC_REF(return_message_name_part))
+	if(slot != ITEM_SLOT_ID)
+		return
+	RegisterSignal(user, COMSIG_HUMAN_GET_VISIBLE_NAME, PROC_REF(return_visible_name))
+	RegisterSignal(user, COMSIG_MOVABLE_MESSAGE_GET_NAME_PART, PROC_REF(return_message_name_part))
+	if(ishuman(user))
+		var/mob/living/carbon/human/as_human = user
+		as_human.update_visible_name()
 
 /obj/item/card/cardboard/dropped(mob/user, silent = FALSE)
 	. = ..()
 	UnregisterSignal(user, list(COMSIG_HUMAN_GET_VISIBLE_NAME, COMSIG_MOVABLE_MESSAGE_GET_NAME_PART))
+	if(ishuman(user))
+		var/mob/living/carbon/human/as_human = user
+		as_human.update_visible_name()
 
 /obj/item/card/cardboard/proc/return_visible_name(mob/living/carbon/human/source, list/identity)
 	SIGNAL_HANDLER

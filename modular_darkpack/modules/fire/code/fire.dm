@@ -76,15 +76,8 @@ SUBSYSTEM_DEF(die_in_a_fire)
 		B.dry()
 	for(var/obj/structure/vampdoor/V in loc)
 		if(V.burnable)
+			V.break_door()
 			V.color = "#808080"
-			if(V.closed)
-				V.closed = FALSE
-				V.locked = FALSE
-				playsound(V, V.open_sound, 75, TRUE)
-				V.icon_state = "[V.baseicon]-0"
-				V.density = FALSE
-				V.opacity = FALSE
-				V.layer = OPEN_DOOR_LAYER
 	var/total_burn = 0
 	if(istype(get_turf(src), /turf/open/floor))
 		var/turf/open/floor/A = get_turf(src)
