@@ -1,5 +1,5 @@
 /mob/living/carbon/human/Life()
-	if(!iskindred(src) && !iscathayan(src))
+	if(!iskindred(src))
 		if(prob(5))
 			adjustAggLoss(-5, TRUE)
 	update_blood_hud()

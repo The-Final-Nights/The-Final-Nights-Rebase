@@ -9,7 +9,6 @@
 #define isghoul(A) (is_species(A, /datum/species/human/ghoul))
 
 // TODO: [Lucia] implement other splats
-#define iscathayan(A) (FALSE)
 #define isgarou(A) (FALSE)
 
 #define isnpc(A) (istype(A, /mob/living/carbon/human/npc))

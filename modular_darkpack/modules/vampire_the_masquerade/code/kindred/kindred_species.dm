@@ -67,11 +67,6 @@
 	var/datum/discipline/bloodheal/giving_bloodheal = new(clamp(11 - new_kindred.generation, 1, 10))
 	new_kindred.give_discipline(giving_bloodheal)
 
-	new_kindred.yang_chi = 0
-	new_kindred.max_yang_chi = 0
-	new_kindred.yin_chi = 6
-	new_kindred.max_yin_chi = 6
-
 	//vampires die instantly upon having their heart removed
 	RegisterSignal(new_kindred, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(handle_lose_organ))
 

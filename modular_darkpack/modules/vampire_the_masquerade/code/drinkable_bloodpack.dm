@@ -20,7 +20,7 @@
 /obj/item/drinkable_bloodpack/attack(mob/living/M, mob/living/user)
 	. = ..()
 	if(!iskindred(M))
-		if(!vitae || iscathayan(M))
+		if(!vitae)
 			return
 	if(empty)
 		return

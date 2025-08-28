@@ -33,14 +33,6 @@
 			if (1)
 				torpor_length = 3 HOURS
 		COOLDOWN_START(vampire_species, torpor_timer, torpor_length)
-	// TODO: [Lucia] implement kuei-jin
-	/*
-	if (iscathayan(src))
-		var/mob/living/carbon/human/cathayan = src
-		var/datum/dharma/dharma = cathayan.mind.dharma
-		var/torpor_length = 1 MINUTES * max_yin_chi
-		COOLDOWN_START(dharma, torpor_timer, torpor_length)
-	*/
 
 /mob/living/proc/cure_torpor(source)
 	if (!HAS_TRAIT(src, TRAIT_TORPOR))
@@ -56,11 +48,6 @@
 	REMOVE_TRAIT(src, TRAIT_TORPOR, source)
 	if (iskindred(src))
 		to_chat(src, span_notice("You have awoken from your Torpor."))
-	// TODO: [Lucia] implement kuei-jin
-	/*
-	if(iscathayan(src))
-		to_chat(src, span_notice("You have awoken from your Little Death."))
-	*/
 
 /mob/living/proc/untorpor()
 	if (!HAS_TRAIT(src, TRAIT_TORPOR))
@@ -73,20 +60,6 @@
 			to_chat(src, span_notice("You have awoken from your Torpor."))
 		else
 			to_chat(src, span_warning("You have no blood to re-awaken with..."))
-	// TODO: [Lucia] implement kuei-jin
-	/*
-	if (iscathayan(src))
-		if (yang_chi > 0)
-			yang_chi -= 1
-			cure_torpor()
-			to_chat(src, span_notice("You have awoken from your Little Death."))
-		else if (yin_chi > 0)
-			yin_chi -= 1
-			cure_torpor()
-			to_chat(src, span_notice("You have awoken from your Little Death."))
-		else
-			to_chat(src, span_warning("You have no Chi to re-awaken with..."))
-	*/
 
 /atom/movable/screen/alert/untorpor
 	name = "Awaken"
@@ -119,20 +92,3 @@
 				to_chat(owner, span_purple("<i>The time to re-awaken depends on your [(vampire.humanity > 5) ? "high" : "low"] [kindred_species.enlightenment ? "Enlightenment" : "Humanity"] rating of [vampire.humanity].</i>"))
 			else
 				to_chat(owner, span_danger("<i>You will not be able to re-awaken, because you have no blood available to do so.</i>"))
-	// TODO: [Lucia] implement kuei-jin
-	/*
-	if(iscathayan(living_owner))
-		var/mob/living/carbon/human/vampire = living_owner
-		var/datum/dharma/dharma = vampire.mind.dharma
-		if (COOLDOWN_FINISHED(dharma, torpor_timer) && (vampire.yang_chi > 0 || vampire.yin_chi > 0))
-			vampire.untorpor()
-			spawn()
-				vampire.clear_alert("succumb")
-		else
-			to_chat(usr, span_purple("<i>You are in the Little Death, the state that Kuei-Jin go into when injured or exhausted.</i>"))
-			if (vampire.yang_chi > 0 || vampire.yin_chi > 0)
-				to_chat(usr, span_purple("<i>You will be able to awaken in <b>[DisplayTimeText(COOLDOWN_TIMELEFT(dharma, torpor_timer))]</b>.</i>"))
-				to_chat(usr, span_purple("<i>The time to re-awaken depends on your [vampire.max_yin_chi <= 4 ? "low" : "high"] permanent Yin Chi rating of [vampire.max_yin_chi].</i>"))
-			else
-				to_chat(usr, span_danger("<i>You will not be able to re-awaken, because you have no Chi available to do so.</i>"))
-	*/
