@@ -32,4 +32,3 @@
 	outdoors = FALSE
 	zone_type = "elysium"
 	fire_controled = TRUE
-	wall_rating = HIGH_WALL_RATING

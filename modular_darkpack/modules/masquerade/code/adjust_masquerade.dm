@@ -1,5 +1,5 @@
 /mob/living/carbon/human/proc/adjust_masquerade(value, forced)
-	if (!iskindred(src) && !isghoul(src) && !iscathayan(src))
+	if (!iskindred(src) && !isghoul(src))
 		return
 	var/datum/species/human/kindred/vampirism = dna.species
 
