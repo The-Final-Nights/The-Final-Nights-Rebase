@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/darkpack
 	icon_state = "revolver"
-	inhand_icon_state = = "revolver"
+	inhand_icon_state = "revolver"
 	worn_icon_state = null
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
