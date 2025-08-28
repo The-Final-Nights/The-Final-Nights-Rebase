@@ -1,20 +1,20 @@
 /obj/item/wirecutters
 	name = "wirecutters"
 	desc = "This cuts wires."
-	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi' //DARKPACK EDIT, ORIGINAL: icon = 'icons/obj/tools.dmi'
-	icon_state = "fixer" //DARKPACK EDIT, ORIGINAL: icon_state = "cutters_map"
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi' //DARKPACK ADDITION
+	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi' // DARKPACK EDIT CHANGE - ORIGINAL: icon = 'icons/obj/tools.dmi'
+	icon_state = "fixer" // DARKPACK EDIT CHANGE - ORIGINAL: icon_state = "cutters_map"
+	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi' //DARKPACK EDIT ADDITION
 	worn_icon_state = "cutters"
 	inhand_icon_state = "cutters"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 
-	/* DARKPACK REMOVAL START
+	/* DARKPACK EDIT REMOVAL START
 	greyscale_config = /datum/greyscale_config/wirecutters
 	greyscale_config_belt = /datum/greyscale_config/wirecutters_belt_overlay
 	greyscale_config_inhand_left = /datum/greyscale_config/wirecutter_inhand_left
 	greyscale_config_inhand_right = /datum/greyscale_config/wirecutter_inhand_right
-	*/ // DARKPACK REMOVAL END
+	*/ // DARKPACK EDIT REMOVAL END
 
 	obj_flags = CONDUCTS_ELECTRICITY
 	slot_flags = ITEM_SLOT_BELT
@@ -34,7 +34,7 @@
 	toolspeed = 1
 	armor_type = /datum/armor/item_wirecutters
 	/// If the item should be assigned a random color
-	var/random_color = FALSE // DARKPACK EDIT, ORIGINAL: var/random_color = TRUE
+	var/random_color = FALSE // DARKPACK EDIT - ORIGINAL: var/random_color = TRUE
 	/// List of possible random colors
 	var/static/list/wirecutter_colors = list(
 		COLOR_TOOL_BLUE,

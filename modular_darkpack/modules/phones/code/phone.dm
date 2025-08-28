@@ -201,7 +201,7 @@
 						NEWH_being_called.name = Contact.name
 						break
 				NEWH_being_called.number = online.number
-				NEWH_being_called.time = "[SScity_time.timeofnight]"
+				NEWH_being_called.time = "[station_time_timestamp("hh:mm")]"
 				NEWH_being_called.call_type = "I accepted the call"
 				phone_history_list += NEWH_being_called
 
@@ -213,7 +213,7 @@
 						NEWH_caller.name = Contact.name
 						break
 				NEWH_caller.number = number
-				NEWH_caller.time = "[SScity_time.timeofnight]"
+				NEWH_caller.time = "[station_time_timestamp("hh:mm")]"
 				NEWH_caller.call_type = "They accepted the call"
 				online.phone_history_list += NEWH_caller
 			.= TRUE
@@ -237,7 +237,7 @@
 						NEWH_being_called.name = Contact.name
 						break
 				NEWH_being_called.number = online.number
-				NEWH_being_called.time = "[SScity_time.timeofnight]"
+				NEWH_being_called.time = "[station_time_timestamp("hh:mm")]"
 				NEWH_being_called.call_type = "I declined the call"
 				phone_history_list += NEWH_being_called
 
@@ -249,7 +249,7 @@
 						NEWH_caller.name = Contact.name
 						break
 				NEWH_caller.number = number
-				NEWH_caller.time = "[SScity_time.timeofnight]"
+				NEWH_caller.time = "[station_time_timestamp("hh:mm")]"
 				NEWH_caller.call_type = "They declined the call"
 				online.phone_history_list += NEWH_caller
 
@@ -286,7 +286,7 @@
 								//Verify if you are calling yourself
 								NEWH_caller.name = owner
 								NEWH_caller.call_type = "I called myself"
-								NEWH_caller.time = "[SScity_time.timeofnight]"
+								NEWH_caller.time = "[station_time_timestamp("hh:mm")]"
 								NEWH_caller.number = number
 								phone_history_list += NEWH_caller
 							else
@@ -298,7 +298,7 @@
 										NEWH_caller.name = Contact.name
 										break
 								NEWH_caller.number = PHN.number
-								NEWH_caller.time = "[SScity_time.timeofnight]"
+								NEWH_caller.time = "[station_time_timestamp("hh:mm")]"
 								NEWH_caller.call_type = "I called"
 								phone_history_list += NEWH_caller
 
@@ -310,7 +310,7 @@
 										NEWH_being_called.name = Contact.name
 										break
 								NEWH_being_called.number = number
-								NEWH_being_called.time = "[SScity_time.timeofnight]"
+								NEWH_being_called.time = "[station_time_timestamp("hh:mm")]"
 								NEWH_being_called.call_type = "They called me"
 								PHN.phone_history_list += NEWH_being_called
 						else

@@ -93,27 +93,31 @@
  * * amount - the amount of damage to verify that the mob has
  * * included_types - Bitflag of damage types to check.
  */
-/datum/unit_test/mob_damage/proc/verify_damage(mob/living/testing_mob, amount, included_types = ALL)
+/datum/unit_test/mob_damage/proc/verify_damage(mob/living/carbon/testing_mob, amount, included_types = ALL)
 	if(included_types & TOXLOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getToxLoss(), amount, \
 			"[testing_mob] should have [amount] toxin damage, instead they have [testing_mob.getToxLoss()]!")
 	if(included_types & BRUTELOSS)
 		TEST_ASSERT_EQUAL(round(testing_mob.getBruteLoss(), 1), amount, \
-			"[testing_mob] should have [amount] brute damage, instead they have [testing_mob.getBruteLoss()]!")
+			"(Testing getBruteLoss()) [testing_mob] should have [amount] brute damage, instead they have [testing_mob.getBruteLoss()]!")
+		TEST_ASSERT_EQUAL(round(testing_mob.getBruteLossForType(BODYTYPE_ORGANIC), 1), amount, \
+			"(Testing getBruteLossForType(BODYTYPE_ORGANIC)) [testing_mob] should have [amount] brute damage, instead they have [testing_mob.getBruteLossForType(BODYTYPE_ORGANIC)]!")
 	if(included_types & FIRELOSS)
 		TEST_ASSERT_EQUAL(round(testing_mob.getFireLoss(), 1), amount, \
-			"[testing_mob] should have [amount] burn damage, instead they have [testing_mob.getFireLoss()]!")
+			"(Testing getFireLoss()) [testing_mob] should have [amount] burn damage, instead they have [testing_mob.getFireLoss()]!")
+		TEST_ASSERT_EQUAL(round(testing_mob.getFireLossForType(BODYTYPE_ORGANIC), 1), amount, \
+			"(Testing getFireLossForType(BODYTYPE_ORGANIC)) [testing_mob] should have [amount] burn damage, instead they have [testing_mob.getFireLossForType(BODYTYPE_ORGANIC)]!")
 	if(included_types & OXYLOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getOxyLoss(), amount, \
 			"[testing_mob] should have [amount] oxy damage, instead they have [testing_mob.getOxyLoss()]!")
 	if(included_types & STAMINALOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getStaminaLoss(), amount, \
 			"[testing_mob] should have [amount] stamina damage, instead they have [testing_mob.getStaminaLoss()]!")
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(included_types & AGGLOSS)
 		TEST_ASSERT_EQUAL(round(testing_mob.getAggLoss(), 1), amount, \
 			"[testing_mob] should have [amount] aggravated damage, instead they have [testing_mob.getAggLoss()]!")
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 	return TRUE
 
 /**
@@ -129,7 +133,7 @@
  * * bodytypes - the bodytypes of damage to apply
  * * forced - whether or not this is forced damage
  */
-/datum/unit_test/mob_damage/proc/apply_damage(mob/living/testing_mob, amount, expected = -amount, included_types = ALL, biotypes = ALL, bodytypes = ALL, forced = FALSE)
+/datum/unit_test/mob_damage/proc/apply_damage(mob/living/carbon/testing_mob, amount, expected = -amount, included_types = ALL, biotypes = ALL, bodytypes = ALL, forced = FALSE)
 	var/damage_returned
 	if(included_types & TOXLOSS)
 		damage_returned = testing_mob.adjustToxLoss(amount, updating_health = FALSE, forced = forced, required_biotype = biotypes)
@@ -151,12 +155,12 @@
 		damage_returned = testing_mob.adjustStaminaLoss(amount, updating_stamina = FALSE, forced = forced, required_biotype = biotypes)
 		TEST_ASSERT_EQUAL(damage_returned, expected, \
 			"adjustStaminaLoss() should have returned [expected], but returned [damage_returned] instead!")
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(included_types & AGGLOSS)
 		damage_returned = round(testing_mob.adjustAggLoss(amount, updating_health = FALSE, forced = forced, required_bodytype = bodytypes), 1)
 		TEST_ASSERT_EQUAL(damage_returned, expected, \
 			"adjustAggLoss() should have returned [expected], but returned [damage_returned] instead!")
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 	return TRUE
 
 /**
@@ -172,7 +176,7 @@
  * * bodytypes - the bodytypes of damage to apply
  * * forced - whether or not this is forced damage
  */
-/datum/unit_test/mob_damage/proc/set_damage(mob/living/testing_mob, amount, expected = -amount, included_types = ALL, biotypes = ALL, bodytypes = ALL, forced = FALSE)
+/datum/unit_test/mob_damage/proc/set_damage(mob/living/carbon/testing_mob, amount, expected = -amount, included_types = ALL, biotypes = ALL, bodytypes = ALL, forced = FALSE)
 	var/damage_returned
 	if(included_types & TOXLOSS)
 		damage_returned = testing_mob.setToxLoss(amount, updating_health = FALSE, forced = forced, required_biotype = biotypes)
@@ -194,12 +198,12 @@
 		damage_returned = testing_mob.setStaminaLoss(amount, updating_stamina = FALSE, forced = forced, required_biotype = biotypes)
 		TEST_ASSERT_EQUAL(damage_returned, expected, \
 			"setStaminaLoss() should have returned [expected], but returned [damage_returned] instead!")
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(included_types & AGGLOSS)
 		damage_returned = round(testing_mob.setAggLoss(amount, updating_health = FALSE, forced = forced), 1)
 		TEST_ASSERT_EQUAL(damage_returned, expected, \
 			"setAggLoss() should have returned [expected], but returned [damage_returned] instead!")
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 	return TRUE
 
 ///	Sanity tests damage and healing using adjustToxLoss, adjustBruteLoss, etc
@@ -486,7 +490,7 @@
  * * expected - the expected return value of the damage procs, if it differs from the default of (amount * 5)
  * * included_types - Bitflag of damage types to check.
  */
-/datum/unit_test/mob_damage/animal/verify_damage(mob/living/testing_mob, amount, expected, included_types = ALL)
+/datum/unit_test/mob_damage/animal/verify_damage(mob/living/carbon/testing_mob, amount, expected, included_types = ALL)
 	if(included_types & TOXLOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getToxLoss(), 0, \
 			"[testing_mob] should have [0] toxin damage, instead they have [testing_mob.getToxLoss()]!")
@@ -502,14 +506,14 @@
 	if(included_types & STAMINALOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getStaminaLoss(), amount, \
 			"[testing_mob] should have [amount] stamina damage, instead they have [testing_mob.getStaminaLoss()]!")
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(included_types & AGGLOSS)
 		TEST_ASSERT_EQUAL(testing_mob.getAggLoss(), 0, \
 			"[testing_mob] should have [0] aggravated damage, instead they have [testing_mob.getAggLoss()]!")
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 	return TRUE
 
-/datum/unit_test/mob_damage/animal/test_sanity_simple(mob/living/test_mob)
+/datum/unit_test/mob_damage/animal/test_sanity_simple(mob/living/carbon/test_mob)
 	// check to see if basic mob damage works
 
 	// Simple damage and healing
@@ -540,7 +544,7 @@
 	if(!test_apply_damage(test_mob, amount = -35, expected = 0))
 		TEST_FAIL("ABOVE FAILURE: failed test_sanity_simple! overhealing was not applied correctly")
 
-/datum/unit_test/mob_damage/animal/test_sanity_complex(mob/living/test_mob)
+/datum/unit_test/mob_damage/animal/test_sanity_complex(mob/living/carbon/test_mob)
 	// Heal up, so that errors from the previous tests we won't cause this one to fail
 	test_mob.fully_heal(HEAL_DAMAGE)
 	var/damage_returned

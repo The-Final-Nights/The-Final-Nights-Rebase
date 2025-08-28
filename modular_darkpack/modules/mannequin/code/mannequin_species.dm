@@ -36,7 +36,7 @@
 	var/turf/T = get_turf(H)
 	var/light_amount = T.get_lumcount()
 	var/area/vtm/V = get_area(H)
-	if(!V.upper)
+	if(!V.outdoors)
 		if(light_amount < 0.2)
 			do_spooky(H)
 		else

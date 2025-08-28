@@ -1,64 +1,63 @@
-/area/vtm/financialdistrict
+/area/vtm/outside
+	outdoors = TRUE
+	//Looks bad rn.
+	//base_lighting_alpha = 80
+	//base_lighting_color = COLOR_MOONLIGHT
+
+/area/vtm/outside/financialdistrict
 	name = "Financial District"
 	icon_state = "financialdistrict"
 	ambience_index = AMBIENCE_CITY
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/downtown.ogg'
-	upper = TRUE
 	wall_rating = HIGH_WALL_RATING
 
-/area/vtm/ghetto
+/area/vtm/outside/ghetto
 	name = "Ghetto"
 	icon_state = "ghetto"
 	ambience_index = AMBIENCE_CITY
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/downtown.ogg'
-	upper = TRUE
 	wall_rating = HIGH_WALL_RATING
 
-/area/vtm/pacificheights
+/area/vtm/outside/pacificheights
 	name = "Pacific Heights"
 	icon_state = "pacificheights"
 	ambience_index = AMBIENCE_NATURE
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/hollywood.ogg'
-	upper = TRUE
 	wall_rating = HIGH_WALL_RATING
 
-/area/vtm/chinatown
+/area/vtm/outside/chinatown
 	name = "Chinatown"
 	icon_state = "chinatown"
 	ambience_index = AMBIENCE_CITY
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/chinatown.ogg'
-	upper = TRUE
 	wall_rating = LOW_WALL_RATING	//Kinda chinatown is part of asia and has some deeper connection?
 
-/area/vtm/fishermanswharf
+/area/vtm/outside/fishermanswharf
 	name = "Fisherman's Wharf"
 	icon_state = "fishermanswharf"
 	ambience_index = AMBIENCE_CITY
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/santamonica.ogg'
-	upper = TRUE
 	wall_rating = HIGH_WALL_RATING
 
-/area/vtm/northbeach
+/area/vtm/outside/northbeach
 	name = "North Beach"
 	icon_state = "northbeach"
 	ambience_index = AMBIENCE_BEACH
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/santamonica.ogg'
-	upper = TRUE
 	wall_rating = HIGH_WALL_RATING
 
-/area/vtm/unionsquare
+/area/vtm/outside/unionsquare
 	name = "Union Square"
 	icon_state = "unionsquare"
 	ambience_index = AMBIENCE_CITY
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/downtown.ogg'
-	upper = TRUE
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/city_elevator
 	name = "City Elevator"
 	icon_state = "prince"
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = "elysium"
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
@@ -67,7 +66,7 @@
 	name = "Jazz Club"
 	icon_state = "camarilla"
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = "elysium"
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
@@ -76,7 +75,7 @@
 	name = "Siren's Cabaret"
 	icon_state = "melpominee"
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
 
@@ -84,7 +83,7 @@
 	name = "Clinic"
 	icon_state = "clinic"
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	yang_chi = 2
 	yin_chi = 0
@@ -94,14 +93,14 @@
 	name = "Supply"
 	icon_state = "supply"
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	wall_rating = HIGH_WALL_RATING
 
 /area/vtm/anarch
 	name = "Bar"
 	icon_state = "anarch"
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/naive.ogg'
 	zone_type = "elysium"
 	fire_controled = TRUE
@@ -111,7 +110,7 @@
 	name = "Hotel"
 	icon_state = "hotel"
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
 
@@ -120,16 +119,15 @@
 	icon_state = "church"
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/hahihaho.ogg'
 	ambience_index = AMBIENCE_INTERIOR
-	upper = FALSE
+	outdoors = FALSE
 	fire_controled = TRUE
 	wall_rating = LOW_WALL_RATING
 
-/area/vtm/park
+/area/vtm/outside/park
 	name = "Park"
 	icon_state = "park"
 	ambience_index = AMBIENCE_NATURE
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/downtown.ogg'
-	upper = TRUE
 	yang_chi = 2
 	yin_chi = 0
 	wall_rating = HIGH_WALL_RATING
@@ -138,15 +136,14 @@
 	name = "Elevator"
 	icon_state = "prince"
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/lift.ogg'
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = "elysium"
 	fire_controled = TRUE
 	wall_rating = HIGH_WALL_RATING
 
-/area/vtm/forest
+/area/vtm/outside/forest
 	name = "Forest"
 	icon_state = "park"
-	upper = TRUE
 	zone_type = ZONE_NO_MASQUERADE
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/night_ambience.ogg'
 	yang_chi = 2

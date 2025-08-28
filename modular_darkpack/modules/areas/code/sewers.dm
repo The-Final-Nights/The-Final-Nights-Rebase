@@ -3,7 +3,7 @@
 	icon_state = "sewer"
 	ambience_index = AMBIENCE_SEWER
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/enterlair.ogg'
-	upper = FALSE
+	outdoors = FALSE
 	zone_type = ZONE_NO_MASQUERADE
 	yang_chi = 0
 	yin_chi = 2
@@ -12,7 +12,7 @@
 /area/vtm/sewer/nosferatu_town
 	name = "Underground Town"
 	icon_state = "hotel"
-	upper = FALSE
+	outdoors = FALSE
 	ambient_buzz = 'modular_darkpack/modules/ambience/sounds/nosferatu.ogg'
 	zone_type = "elysium"
 	yang_chi = 0

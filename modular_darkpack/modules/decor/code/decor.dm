@@ -66,7 +66,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 	switch(number_of_lamps)
 		if(1)
@@ -156,7 +156,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/clothingrack
@@ -223,7 +223,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/closet/crate/dumpster/PopulateContents()
@@ -269,7 +269,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/arc
@@ -285,7 +285,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/arc/add
@@ -325,7 +325,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/hydrant/mouse_drop_receive(atom/dropped, mob/user, params)
@@ -346,7 +346,7 @@
 /obj/structure/vampcar/Initialize(mapload)
 	. = ..()
 	var/atom/movable/M = new(get_step(loc, EAST))
-	M.density = TRUE
+	M.set_density(TRUE)
 	M.anchored = TRUE
 	dir = pick(NORTH, SOUTH, WEST, EAST)
 
@@ -534,19 +534,19 @@
 	icon_state = "[rand(1, 5)]"
 	if(icon_state != "1")
 		opacity = TRUE
-	density = TRUE
+	set_density(TRUE)
 	var/atom/movable/M1 = new(get_step(loc, EAST))
 	var/atom/movable/M2 = new(get_step(M1.loc, EAST))
 	var/atom/movable/M3 = new(get_step(M2.loc, EAST))
-	M1.density = TRUE
+	M1.set_density(TRUE)
 	if(icon_state != "1")
 		M1.opacity = TRUE
 	M1.anchored = TRUE
-	M2.density = TRUE
+	M2.set_density(TRUE)
 	if(icon_state != "1")
 		M2.opacity = TRUE
 	M2.anchored = TRUE
-	M3.density = TRUE
+	M3.set_density(TRUE)
 	if(icon_state != "1")
 		M3.opacity = TRUE
 	M3.anchored = TRUE
@@ -743,7 +743,7 @@
 	anchored = TRUE
 	var/icon_state_inuse
 	layer = 4 //make it the same layer as players.
-	density = 0 //easy to step up on
+	density = FALSE //easy to step up on
 	/// Is the pole in use currently?
 	var/pole_in_use
 
@@ -827,8 +827,7 @@
 
 /obj/structure/coclock/examine(mob/user)
 	. = ..()
-	// TODO: [Rebase] - Port https://github.com/ApocryphaXIII/ApocryphaXIII/pull/51
-	//to_chat(user, "<b>[SScity_time.timeofnight]</b>")
+	. += "The clock reads: <b>[station_time_timestamp()]</b>"
 
 /obj/structure/coclock/grandpa
 	icon = 'modular_darkpack/modules/deprecated/icons/grandpa_cock.dmi'
@@ -871,7 +870,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/roofstuff/alt1
@@ -1056,7 +1055,7 @@
 // TODO: [Rebase]
 /*
 /obj/structure/bury_pit/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/melee/vampirearms/shovel))
+	if(istype(I, /obj/item/shovel/vamp))
 		if(!burying)
 			burying = TRUE
 			user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))

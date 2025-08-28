@@ -135,7 +135,7 @@
 	var/list/damage_examines = list(
 		BRUTE = DEFAULT_BRUTE_EXAMINE_TEXT,
 		BURN = DEFAULT_BURN_EXAMINE_TEXT,
-		AGGRAVATED = DEFAULT_AGGRAVATED_EXAMINE_TEXT, // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		AGGRAVATED = DEFAULT_AGGRAVATED_EXAMINE_TEXT, // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 	)
 
 	// Wounds related variables
@@ -301,10 +301,10 @@
 		. += span_warning("This limb has [brute_dam > 30 ? "severe" : "minor"] bruising.")
 	if(burn_dam > DAMAGE_PRECISION)
 		. += span_warning("This limb has [burn_dam > 30 ? "severe" : "minor"] burns.")
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(aggravated_dam > DAMAGE_PRECISION)
 		. += span_warning("This limb has [aggravated_dam > 30 ? "severe" : "minor"] festering wounds.")
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 
 	for(var/datum/wound/wound as anything in wounds)
 		var/wound_desc = wound.get_limb_examine_description()
@@ -324,7 +324,7 @@
 
 	var/shown_brute = limb_damage[BRUTE]
 	var/shown_burn = limb_damage[BURN]
-	var/shown_aggravated = limb_damage[AGGRAVATED] // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	var/shown_aggravated = limb_damage[AGGRAVATED] // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 	var/status = ""
 	var/self_aware = HAS_TRAIT(examiner, TRAIT_SELF_AWARE)
 
@@ -352,7 +352,7 @@
 		else if(shown_burn > DAMAGE_PRECISION)
 			status += light_burn_msg
 
-		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 		if((shown_brute > DAMAGE_PRECISION || shown_burn > DAMAGE_PRECISION) && shown_aggravated > DAMAGE_PRECISION)
 			status += " and "
 
@@ -362,7 +362,7 @@
 			status += medium_aggravated_msg
 		else if(shown_aggravated > DAMAGE_PRECISION)
 			status += light_aggravated_msg
-		// DARKPACK EDIT ADDITION END
+		// DARKPACK EDIT ADD END
 
 		if(status == "")
 			status = "OK"
@@ -408,7 +408,7 @@
 	if(current_gauze)
 		check_list += span_notice("\tThere is some [current_gauze.name] wrapped around it.")
 	else if(can_bleed())
-		switch(get_modified_bleed_rate())
+		switch(cached_bleed_rate)
 			if(0.2 to 1)
 				check_list += span_warning("\tIt's lightly bleeding.")
 			if(1 to 2)
@@ -539,14 +539,14 @@
 	var/dmg_multi = CONFIG_GET(number/damage_multiplier) * hit_percent
 	brute = round(max(brute * dmg_multi * brute_modifier, 0), DAMAGE_PRECISION)
 	burn = round(max(burn * dmg_multi * burn_modifier, 0), DAMAGE_PRECISION)
-	aggravated = round(max(aggravated * dmg_multi * aggravated_modifier, 0), DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	aggravated = round(max(aggravated * dmg_multi * aggravated_modifier, 0), DAMAGE_PRECISION) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 	if(!brute && !burn && !aggravated) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 		return FALSE
 
 	brute *= wound_damage_multiplier
 	burn *= wound_damage_multiplier
-	aggravated *= wound_damage_multiplier // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	aggravated *= wound_damage_multiplier // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 	/*
 	// START WOUND HANDLING
@@ -611,7 +611,7 @@
 	if(total_damage > can_inflict && total_damage > 0) // TODO: the second part of this check should be removed once disabling is all done
 		brute = round(brute * (can_inflict / total_damage),DAMAGE_PRECISION)
 		burn = round(burn * (can_inflict / total_damage),DAMAGE_PRECISION)
-		aggravated = round(aggravated * (can_inflict / total_damage),DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		aggravated = round(aggravated * (can_inflict / total_damage),DAMAGE_PRECISION) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 	if(can_inflict <= 0)
 		return FALSE
@@ -619,10 +619,10 @@
 		set_brute_dam(brute_dam + brute)
 	if(burn)
 		set_burn_dam(burn_dam + burn)
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(aggravated)
 		set_aggravated_dam(aggravated_dam + aggravated)
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 
 	if(owner)
 		if(can_be_disabled)
@@ -721,10 +721,10 @@
 		set_brute_dam(round(max(brute_dam - brute, 0), DAMAGE_PRECISION))
 	if(burn)
 		set_burn_dam(round(max(burn_dam - burn, 0), DAMAGE_PRECISION))
-	// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+	// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 	if(aggravated)
 		set_aggravated_dam(round(max(aggravated_dam - aggravated, 0), DAMAGE_PRECISION))
-	// DARKPACK EDIT ADDITION END
+	// DARKPACK EDIT ADD END
 
 	if(owner)
 		if(can_be_disabled)
@@ -854,7 +854,7 @@
 		SIGNAL_ADDTRAIT(TRAIT_NOBLOOD),
 		))
 
-	UnregisterSignal(old_owner, list(COMSIG_ATOM_RESTYLE, COMSIG_COMPONENT_CLEAN_ACT))
+	UnregisterSignal(old_owner, list(COMSIG_ATOM_RESTYLE, COMSIG_COMPONENT_CLEAN_ACT, COMSIG_LIVING_SET_BODY_POSITION))
 
 /// Apply ownership of a limb to someone, giving the appropriate traits, updates and signals
 /obj/item/bodypart/proc/apply_ownership(mob/living/carbon/new_owner)
@@ -884,6 +884,7 @@
 
 	RegisterSignal(owner, COMSIG_ATOM_RESTYLE, PROC_REF(on_attempt_feature_restyle_mob))
 	RegisterSignal(owner, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(on_owner_clean))
+	RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(refresh_bleed_rate))
 
 	forceMove(owner)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(on_forced_removal)) //this must be set after we moved, or we insta gib
@@ -1311,6 +1312,7 @@
 /// Refresh the cache of our rate of bleeding sans any modifiers
 /// ANYTHING ADDED TO THIS PROC NEEDS TO CALL IT WHEN ITS EFFECT CHANGES
 /obj/item/bodypart/proc/refresh_bleed_rate()
+	SIGNAL_HANDLER
 	SHOULD_NOT_OVERRIDE(TRUE)
 
 	var/old_bleed_rate = cached_bleed_rate
@@ -1333,20 +1335,17 @@
 	for(var/datum/wound/iter_wound as anything in wounds)
 		cached_bleed_rate += iter_wound.blood_flow
 
+	if(owner.body_position == LYING_DOWN)
+		cached_bleed_rate *= 0.75
+
+	if(grasped_by)
+		cached_bleed_rate *= 0.7
+
 	// Our bleed overlay is based directly off bleed_rate, so go aheead and update that would you?
 	if(cached_bleed_rate != old_bleed_rate)
 		update_part_wound_overlay()
 
 	return cached_bleed_rate
-
-/// Returns our bleed rate, taking into account laying down and grabbing the limb
-/obj/item/bodypart/proc/get_modified_bleed_rate()
-	var/bleed_rate = cached_bleed_rate
-	if(owner.body_position == LYING_DOWN)
-		bleed_rate *= 0.75
-	if(grasped_by)
-		bleed_rate *= 0.7
-	return bleed_rate
 
 /obj/item/bodypart/proc/update_part_wound_overlay()
 	if(!owner)
@@ -1460,7 +1459,7 @@
 	limb_id = initial(limb_id)
 	is_dimorphic = initial(is_dimorphic)
 	should_draw_greyscale = initial(should_draw_greyscale)
-	body_weight = initial(body_weight) // DARKPACK EDIT ADDITION - Body weight sprites
+	body_weight = initial(body_weight) // DARKPACK EDIT ADD - Body weight sprites
 
 	if(!owner)
 		update_icon_dropped()

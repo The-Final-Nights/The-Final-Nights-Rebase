@@ -15,7 +15,7 @@
 /obj/structure/table
 	name = "table"
 	desc = "A square piece of iron standing on four metal legs. It can not move."
-	icon = 'icons/obj/smooth_structures/darkpack/table.dmi' // DARKPACK EDIT CHANGE, ORIGINAL: icon = 'icons/obj/smooth_structures/table.dmi'
+	icon = 'icons/obj/smooth_structures/darkpack/table.dmi' // DARKPACK EDIT CHANGE - ORIGINAL: icon = 'icons/obj/smooth_structures/table.dmi'
 	icon_state = "table-0"
 	base_icon_state = "table"
 	density = TRUE
@@ -283,14 +283,17 @@
 	if(!can_flip)
 		return
 
+	var/interaction_key = "table_flip_[REF(src)]"
 	if(!is_flipped)
-		user.balloon_alert_to_viewers("flipping table...")
-		if(do_after(user, max_integrity * 0.25))
+		if(!LAZYACCESS(user.do_afters, interaction_key)) // To avoid balloon alert spam
+			user.balloon_alert_to_viewers("flipping table...")
+		if(do_after(user, max_integrity * 0.25, src, interaction_key = interaction_key))
 			flip_table(get_dir(user, src))
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-	user.balloon_alert_to_viewers("flipping table upright...")
-	if(do_after(user, max_integrity * 0.25, src))
+	if(!LAZYACCESS(user.do_afters, interaction_key)) // To avoid balloon alert spam
+		user.balloon_alert_to_viewers("flipping table upright...")
+	if(do_after(user, max_integrity * 0.25, src, interaction_key = interaction_key))
 		unflip_table()
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
@@ -611,7 +614,7 @@
 /obj/structure/table/wood
 	name = "wooden table"
 	desc = "Do not apply fire to this. Rumour says it burns easily."
-	icon = 'icons/obj/smooth_structures/darkpack/wood_table.dmi' // DARKPACK EDIT CHANGE, ORIGINAL: icon = 'icons/obj/smooth_structures/wood_table.dmi'
+	icon = 'icons/obj/smooth_structures/darkpack/wood_table.dmi' // DARKPACK EDIT CHANGE - ORIGINAL: icon = 'icons/obj/smooth_structures/wood_table.dmi'
 	icon_state = "wood_table-0"
 	base_icon_state = "wood_table"
 	frame = /obj/structure/table_frame/wood
@@ -736,7 +739,7 @@
 /obj/structure/table/reinforced
 	name = "reinforced table"
 	desc = "A reinforced version of the four legged table."
-	icon = 'icons/obj/smooth_structures/darkpack/reinforced_table.dmi' // DARKPACK EDIT CHANGE, ORIGINAL: icon = 'icons/obj/smooth_structures/reinforced_table.dmi'
+	icon = 'icons/obj/smooth_structures/darkpack/reinforced_table.dmi' // DARKPACK EDIT CHANGE - ORIGINAL: icon = 'icons/obj/smooth_structures/reinforced_table.dmi'
 	icon_state = "reinforced_table-0"
 	base_icon_state = "reinforced_table"
 	deconstruction_ready = FALSE

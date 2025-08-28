@@ -278,7 +278,7 @@
 	. = ..()
 	if(istype(get_area(H), /area/vtm))
 		var/area/vtm/V = get_area(H)
-		if(V.zone_type == ZONE_MASQUERADE && V.upper)
+		if(V.zone_type == ZONE_MASQUERADE && V.outdoors)
 			if(H.pulling)
 				if(ishuman(H.pulling))
 					var/mob/living/carbon/human/pull = H.pulling
@@ -475,7 +475,7 @@
 
 	//it would be nice for this to be invisible at a SEE_INVISIBLE_QUINTESSENCE or SEE_INVISIBLE_SPIRITUAL level, but that can come later...
 	var/atom/movable/chi_particle = new (get_turf(victim))
-	chi_particle.density = FALSE
+	chi_particle.set_density(FALSE)
 	chi_particle.anchored = TRUE
 	chi_particle.icon = 'modular_darkpack/modules/deprecated/icons/ui/kuei_jin.dmi'
 	chi_particle.icon_state = "drain"

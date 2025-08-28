@@ -1,7 +1,7 @@
 /obj/structure/vampdoor/glass
 	icon_state = "glass_blue-1"
 	opacity = FALSE
-	baseicon = "glass_blue"
+	base_icon_state = "glass_blue"
 	glass = TRUE
 	burnable = TRUE
 
@@ -12,7 +12,7 @@
 
 /obj/structure/vampdoor/glass/prince
 	icon_state = "glass-1"
-	baseicon = "glass"
+	base_icon_state = "glass"
 	locked = TRUE
 	lock_id = "prince"
 	lockpick_difficulty = 12

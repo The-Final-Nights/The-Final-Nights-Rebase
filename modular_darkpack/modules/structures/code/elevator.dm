@@ -162,13 +162,13 @@
 
 /obj/elevator_door/proc/close()
 	icon_state = "elevator-1"
-	density = TRUE
+	set_density(TRUE)
 	opacity = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/elevator_door/proc/open()
 	icon_state = "elevator-0"
-	density = FALSE
+	set_density(FALSE)
 	opacity = FALSE
 	layer = OPEN_DOOR_LAYER
 
