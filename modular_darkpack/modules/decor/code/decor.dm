@@ -1062,25 +1062,15 @@
 			if(do_mob(user, src, 10 SECONDS))
 				burying = FALSE
 				if(icon_state == "pit0")
-					var/dead_amongst = FALSE
 					for(var/mob/living/L in get_turf(src))
 						L.forceMove(src)
-						if(L.stat == DEAD)
-							dead_amongst = TRUE
 						icon_state = "pit1"
 						user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
-						if(dead_amongst)
-							call_dharma("respect", user)
 				else
-					var/dead_amongst = FALSE
 					for(var/mob/living/L in src)
 						L.forceMove(get_turf(src))
-						if(L.stat == DEAD)
-							dead_amongst = TRUE
 					icon_state = "pit0"
 					user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
-					if(dead_amongst)
-						call_dharma("disrespect", user)
 			else
 				burying = FALSE
 

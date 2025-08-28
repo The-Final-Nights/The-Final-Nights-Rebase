@@ -12,7 +12,7 @@
 		new /datum/data/mining_equipment("switchblade",	/obj/item/switchblade/vamp, 85),
 		new /datum/data/mining_equipment("stake",	/obj/item/vampire_stake,	100),
 		new /datum/data/mining_equipment("Surgery dufflebag", /obj/item/storage/backpack/duffelbag/med/surgery, 100),
-		new /datum/data/mining_equipment("snub-nose revolver",	/obj/item/gun/ballistic/vampire/revolver/snub,	100),
+		new /datum/data/mining_equipment("snub-nose revolver",	/obj/item/gun/ballistic/revolver/darkpack/snub,	100),
 		new /datum/data/mining_equipment("cannabis package",		/obj/item/weedpack,	700),
 		new /datum/data/mining_equipment("morphine syringe",	/obj/item/reagent_containers/syringe/contraband/morphine,	800),
 		new	/datum/data/mining_equipment("meth package",	/obj/item/reagent_containers/food/drinks/meth,	800),

@@ -40,7 +40,7 @@
 /obj/item/melee/touch_attack/quietus
 	name = "\improper poison touch"
 	desc = "This is kind of like when you rub your feet on a shag rug so you can zap your friends, only a lot less safe."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	catchphrase = null
 	on_use_sound = 'sound/magic/disintegrate.ogg'
 	icon_state = "quietus"

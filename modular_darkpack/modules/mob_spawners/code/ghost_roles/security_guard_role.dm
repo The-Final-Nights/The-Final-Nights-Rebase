@@ -26,7 +26,7 @@
 	name = "Security Guard Chunk"
 	uniform = /obj/item/clothing/under/vampire/guard
 	shoes = /obj/item/clothing/shoes/vampire
-	belt = /obj/item/gun/ballistic/automatic/vampire/m1911
+	belt = /obj/item/gun/ballistic/automatic/pistol/darkpack/m1911
 	l_pocket = /obj/item/vamp/phone
 	r_pocket = /obj/item/vamp/keys/camarilla
 	back = /obj/item/storage/backpack/satchel

@@ -949,7 +949,7 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/glock19
+/obj/item/gun/ballistic/automatic/pistol/darkpack/glock19
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
@@ -957,7 +957,7 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/glock21
+/obj/item/gun/ballistic/automatic/pistol/darkpack/glock21
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
@@ -965,7 +965,7 @@ VENTORY!
 	grid_width = 2 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/ammo_box/magazine/vamp9mm
+/obj/item/ammo_box/magazine/darkpack9mm
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
@@ -973,19 +973,19 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/vampire/revolver/snub
+/obj/item/gun/ballistic/revolver/darkpack/snub
 	grid_width = 1 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/uzi
+/obj/item/gun/ballistic/automatic/darkpack/uzi
 	grid_width = 2 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/ammo_box/magazine/vamp9mp5
+/obj/item/ammo_box/magazine/darkpack9mp5
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/mp5
+/obj/item/gun/ballistic/automatic/darkpack/mp5
 	grid_width = 2 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
@@ -993,19 +993,19 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/deagle
+/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle
 	grid_width = 3 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/vampire/revolver
+/obj/item/gun/ballistic/revolver/darkpack/magnum
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/ammo_box/magazine/vamp45acp
+/obj/item/ammo_box/magazine/darkpack45acp
 	grid_width = 1 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/m1911
+/obj/item/gun/ballistic/automatic/pistol/darkpack/m1911
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
@@ -1013,51 +1013,51 @@ VENTORY!
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/beretta
+/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta
 	grid_width = 2 GRID_BOXES
 	grid_height = 1 GRID_BOXES
 
-/obj/item/ammo_box/magazine/vamp556
+/obj/item/ammo_box/magazine/darkpack556
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/ar15
+/obj/item/gun/ballistic/automatic/darkpack/ar15
 	grid_width = 8 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/huntrifle
+/obj/item/gun/ballistic/automatic/darkpack/huntrifle
 	grid_width = 8 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/ammo_box/magazine/vamp545
+/obj/item/ammo_box/magazine/darkpack545
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/ak74
+/obj/item/gun/ballistic/automatic/darkpack/ak74
 	grid_width = 8 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/ammo_box/magazine/vampaug
+/obj/item/ammo_box/magazine/darkpackaug
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/aug
+/obj/item/gun/ballistic/automatic/darkpack/aug
 	grid_width = 8 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/ammo_box/magazine/vampthompson
+/obj/item/ammo_box/magazine/darkpackthompson
 	grid_width = 2 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/thompson
+/obj/item/gun/ballistic/automatic/darkpack/thompson
 	grid_width = 5 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/autoshotgun
+/obj/item/gun/ballistic/automatic/darkpack/autoshotgun
 	grid_width = 5 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/gun/ballistic/automatic/vampire/sniper
+/obj/item/gun/ballistic/automatic/darkpack/sniper
 	grid_width = 4 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 

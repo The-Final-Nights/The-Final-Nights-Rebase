@@ -10,8 +10,6 @@
 	icon_state = "theatre"
 	zone_type = "elysium"
 	fire_controled = TRUE
-	yang_chi = 0
-	yin_chi = 2
 
 /area/vtm/interior/chantry/basement
 	name = "Chantry Basement"
