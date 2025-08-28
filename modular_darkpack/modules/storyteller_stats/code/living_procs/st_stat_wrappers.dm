@@ -36,3 +36,8 @@
 	storyteller_stat_holder.remove_stat_mod(stat_path, source)
 	if(storyteller_stat_holder.is_health_affecting(stat_path))
 		recalculate_max_health()
+
+/mob/living/proc/st_get_stat_mod(stat_path, source)
+	if(!storyteller_stat_holder)
+		return
+	return storyteller_stat_holder.get_stat_mod(stat_path, source)

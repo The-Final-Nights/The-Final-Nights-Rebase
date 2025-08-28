@@ -815,7 +815,7 @@
 			caster.dna.species.punchdamagelow += 20
 			caster.dna.species.punchdamagehigh += 20
 			caster.dna.species.meleemod += 1
-			caster.dna.species.attack_sound = 'modular_darkpack/modules/deprecated/sounds/heavypunch.ogg'
+			caster.dna.species.attack_sound = 'modular_darkpack/modules/powers/sounds/heavypunch.ogg'
 			tackler = caster.AddComponent(/datum/component/tackler, stamina_cost=0, base_knockdown = 1 SECONDS, range = 2+level_casting, speed = 1, skill_mod = 0, min_distance = 0)
 			caster.potential = 4
 			ADD_TRAIT(caster, TRAIT_UNMASQUERADE, TRAUMA_TRAIT)

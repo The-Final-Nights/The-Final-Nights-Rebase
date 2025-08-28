@@ -33,15 +33,19 @@
 	return A
 
 /datum/storyteller_stats/proc/add_stat_mod(stat_path, amount, source)
-	var/datum/st_stat/A = get_stat(stat_path)
+	var/datum/st_stat/A = get_stat_datum(stat_path)
 	LAZYSET(A.modifiers, source, amount)
 	A.update_modifiers()
 
 /datum/storyteller_stats/proc/remove_stat_mod(stat_path, source)
-	var/datum/st_stat/A = get_stat(stat_path)
+	var/datum/st_stat/A = get_stat_datum(stat_path)
 	if(LAZYACCESS(A.modifiers, source))
 		A.modifiers -= source
 		A.update_modifiers()
+
+/datum/storyteller_stats/proc/get_stat_mod(trait, source)
+	var/datum/st_stat/checking_trait = get_stat_datum(trait)
+	return LAZYACCESS(checking_trait.modifiers, source)
 
 /datum/storyteller_stats/proc/randomize_attributes(min_score, max_score)
 	for(var/datum/st_stat/attribute/A in st_stats)
@@ -52,5 +56,5 @@
 		A.set_score(rand(min_score, max_score))
 
 /datum/storyteller_stats/proc/is_health_affecting(stat_path)
-	var/datum/st_stat/A = get_stat(stat_path)
+	var/datum/st_stat/A = get_stat_datum(stat_path)
 	return A.affects_health_pool

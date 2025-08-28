@@ -57,15 +57,15 @@
 	infor.host = new_kindred
 	infor.Grant(new_kindred)
 
-	//this needs to be adjusted to be more accurate for blood spending rates
-	var/datum/discipline/bloodheal/giving_bloodheal = new(clamp(11 - new_kindred.generation, 1, 10))
-	new_kindred.give_discipline(giving_bloodheal)
-
 	var/datum/action/give_vitae/vitae = new()
 	vitae.Grant(new_kindred)
 
 	add_verb(new_kindred, TYPE_VERB_REF(/mob/living/carbon/human, teach_discipline))
 	*/
+
+	//this needs to be adjusted to be more accurate for blood spending rates
+	var/datum/discipline/bloodheal/giving_bloodheal = new(clamp(11 - new_kindred.generation, 1, 10))
+	new_kindred.give_discipline(giving_bloodheal)
 
 	new_kindred.yang_chi = 0
 	new_kindred.max_yang_chi = 0
@@ -84,8 +84,10 @@
 	// Apply bashing damage resistance
 	RegisterSignal(new_kindred, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_resistance))
 
-	// TODO: [Lucia] reimplement choosing disciplines
+	// TODO: [Rebase] reimplement choosing disciplines
 	new_kindred.give_discipline(new /datum/discipline/celerity(5))
+	new_kindred.give_discipline(new /datum/discipline/potence(5))
+	new_kindred.give_discipline(new /datum/discipline/fortitude(5))
 
 /datum/species/human/kindred/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
 	. = ..()
@@ -97,7 +99,7 @@
 	UnregisterSignal(human, COMSIG_MOB_VAMPIRE_SUCKED)
 	UnregisterSignal(human, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
 
-	// TODO: [Lucia] reimplement vampire actions
+	// TODO: [Rebase] reimplement vampire actions
 	/*
 	for (var/datum/action/vampireinfo/VI in human.actions)
 		VI.Remove(human)
@@ -173,7 +175,7 @@
 
 	return COMPONENT_RESIST_VAMPIRE_KISS
 
-// TODO: [Lucia] reimplement the godforsaken stuff in here
+// TODO: [Rebase] reimplement the godforsaken stuff in here
 /*
 /datum/species/human/kindred/spec_life(mob/living/carbon/human/H)
 	. = ..()
