@@ -315,14 +315,7 @@
 		for(var/obj/structure/vampdoor/V in range(5, owner))
 			if(V.closed)
 				if(V.lockpick_difficulty < 10)
-					V.locked = FALSE
-					playsound(V, V.open_sound, 75, TRUE)
-					V.icon_state = "[V.baseicon]-0"
-					V.density = FALSE
-					V.opacity = FALSE
-					V.layer = OPEN_DOOR_LAYER
-					to_chat(owner, span_notice("You open [V]."))
-					V.closed = FALSE
+					V.open_door(owner, TRUE)
 
 /datum/action/gift/infectious_laughter
 	name = "Infectious Laughter"

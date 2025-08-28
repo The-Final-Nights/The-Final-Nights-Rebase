@@ -346,7 +346,7 @@
 /obj/structure/vampcar/Initialize(mapload)
 	. = ..()
 	var/atom/movable/M = new(get_step(loc, EAST))
-	M.density = TRUE
+	M.set_density(TRUE)
 	M.anchored = TRUE
 	dir = pick(NORTH, SOUTH, WEST, EAST)
 
@@ -534,19 +534,19 @@
 	icon_state = "[rand(1, 5)]"
 	if(icon_state != "1")
 		opacity = TRUE
-	density = TRUE
+	set_density(TRUE)
 	var/atom/movable/M1 = new(get_step(loc, EAST))
 	var/atom/movable/M2 = new(get_step(M1.loc, EAST))
 	var/atom/movable/M3 = new(get_step(M2.loc, EAST))
-	M1.density = TRUE
+	M1.set_density(TRUE)
 	if(icon_state != "1")
 		M1.opacity = TRUE
 	M1.anchored = TRUE
-	M2.density = TRUE
+	M2.set_density(TRUE)
 	if(icon_state != "1")
 		M2.opacity = TRUE
 	M2.anchored = TRUE
-	M3.density = TRUE
+	M3.set_density(TRUE)
 	if(icon_state != "1")
 		M3.opacity = TRUE
 	M3.anchored = TRUE
@@ -743,7 +743,7 @@
 	anchored = TRUE
 	var/icon_state_inuse
 	layer = 4 //make it the same layer as players.
-	density = 0 //easy to step up on
+	density = FALSE //easy to step up on
 	/// Is the pole in use currently?
 	var/pole_in_use
 
