@@ -4,15 +4,15 @@
 	uniform = /obj/item/clothing/under/vampire/military_fatigues
 	mask = /obj/item/clothing/mask/vampire/balaclava
 	r_pocket = /obj/item/flashlight
-	l_pocket = /obj/item/ammo_box/magazine/vampaug
+	l_pocket = /obj/item/ammo_box/magazine/darkpackaug
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
-	belt = /obj/item/gun/ballistic/automatic/vampire/aug
+	belt = /obj/item/gun/ballistic/automatic/darkpack/aug
 	suit = /obj/item/clothing/suit/vampire/vest/army
 	head = /obj/item/clothing/head/vampire/army
 	backpack_contents = list(
-		/obj/item/ammo_box/magazine/vampaug = 3,
+		/obj/item/ammo_box/magazine/darkpackaug = 3,
 		/obj/item/radio/military = 1,
-		/obj/item/gun/ballistic/automatic/vampire/beretta=1
+		/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta=1
 		)
 
 /datum/antagonist/national_guard/proc/equip_national_guard()
@@ -58,7 +58,7 @@
 		if("Medic")
 			owner.current.put_in_r_hand(new /obj/item/storage/firstaid/tactical(owner.current))
 		if("Sniper")
-			owner.current.put_in_r_hand(new /obj/item/gun/ballistic/automatic/vampire/sniper(owner.current))
+			owner.current.put_in_r_hand(new /obj/item/gun/ballistic/automatic/darkpack/sniper(owner.current))
 			owner.current.put_in_l_hand(new /obj/item/ammo_box/vampire/c556(owner.current))
 		if("Ammo Carrier")
 			owner.current.put_in_r_hand(new /obj/item/ammo_box/vampire/c556/incendiary(owner.current))

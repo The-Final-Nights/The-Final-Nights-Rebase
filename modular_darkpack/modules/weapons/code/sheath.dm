@@ -2,10 +2,10 @@
 	icon_state = "longsword_sheathe-full"
 	worn_icon_state = "longsword_sheathe"
 	//inhand_icon_state = "longsword_sheathe"
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	//lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	//righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
 /obj/item/storage/belt/sheath/vamp/sabre

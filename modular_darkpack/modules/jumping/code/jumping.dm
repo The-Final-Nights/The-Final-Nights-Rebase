@@ -78,7 +78,7 @@
 
 		var/travel_time = distance * 0.5
 		spawn(travel_time)
-			if(get_dist(loc, adjusted_target) <= 1 && H.potential > 0)
+			if(get_dist(loc, adjusted_target) <= 1 && H.st_get_stat(STAT_STRENGTH) > 0)
 				H.epic_fall(FALSE, FALSE)
 
 

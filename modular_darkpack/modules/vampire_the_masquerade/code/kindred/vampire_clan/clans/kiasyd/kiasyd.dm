@@ -54,18 +54,3 @@
 	var/obj/item/clothing/glasses/vampire/sun/new_glasses = new(H.loc)
 	H.equip_to_appropriate_slot(new_glasses, TRUE)
 
-// TODO: [Lucia] this needs to become a component and/or signals
-/obj/item/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
-	if(iscathayan(target) && is_iron)
-		var/mob/living/carbon/human/L = target
-		if(L.max_yang_chi > L.max_yin_chi + 2)
-			to_chat(L, span_danger("<b>COLD METAL!</b>"))
-			L.adjustBruteLoss(15, TRUE)
-	if(iscathayan(target) && is_wood)
-		var/mob/living/carbon/human/L = target
-		if(L.max_yin_chi > L.max_yang_chi + 2)
-			to_chat(L, span_danger("<b>WOOD!</b>"))
-			L.adjustBruteLoss(15, TRUE)
-	. = ..()

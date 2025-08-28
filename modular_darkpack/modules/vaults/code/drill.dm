@@ -1,7 +1,7 @@
 /obj/item/vampire/drill
 	name = "thermal drill"
 	desc = "Guys! The thermal drill, go get it!"
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "vaultdrill"
 	inhand_icon_state = "vaultdrill"
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'

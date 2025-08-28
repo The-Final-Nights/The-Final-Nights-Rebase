@@ -20,12 +20,12 @@
 
 //===========================VAMPIRE KEYS===========================
 /obj/item/vamp/keys/camarilla
-	name = "Camarilla keys"
+	name = "\improper Camarilla keys"
 	accesslocks = list("camarilla")
 	color = "#bd3327"
 
 /obj/item/vamp/keys/prince
-	name = "Prince's keys"
+	name = "prince's keys"
 	accesslocks = list(
 		"camarilla",
 		"prince",
@@ -40,7 +40,7 @@
 
 
 /obj/item/vamp/keys/sheriff
-	name = "Sheriff's keys"
+	name = "sheriff's keys"
 	accesslocks = list(
 		"camarilla",
 		"prince",
@@ -53,7 +53,7 @@
 	color = "#bd3327"
 
 /obj/item/vamp/keys/clerk
-	name = "Clerk's keys"
+	name = "clerk's keys"
 	accesslocks = list(
 		"camarilla",
 		"clerk",
@@ -65,7 +65,7 @@
 	color = "#bd3327"
 
 /obj/item/vamp/keys/camarilla
-	name = "Millenium Tower keys"
+	name = "\improper Millenium Tower keys"
 	accesslocks = list(
 		"milleniumCommon",
 		"clerk",
@@ -74,13 +74,13 @@
 	)
 
 /obj/item/vamp/keys/archive
-	name = "Archive keys"
+	name = "archive keys"
 	accesslocks = list(
 		"chantry"
 	)
 
 /obj/item/vamp/keys/regent
-	name = "Very archival keys"
+	name = "very archival keys"
 	accesslocks = list(
 		"chantry",
 		"milleniumCommon",
@@ -90,7 +90,7 @@
 	)
 
 /obj/item/vamp/keys/anarch
-	name = "Anarch keys"
+	name = "anarch keys"
 	accesslocks = list(
 		"anarch",
 		"bar_delivery",
@@ -98,7 +98,7 @@
 	color = "#434343"
 
 /obj/item/vamp/keys/bar
-	name = "Barkeeper keys"
+	name = "barkeeper keys"
 	accesslocks = list(
 		"bar",
 		"anarch",
@@ -107,14 +107,14 @@
 	color = "#434343"
 
 /obj/item/vamp/keys/giovanni
-	name = "Mafia keys"
+	name = "mafia keys"
 	accesslocks = list(
 		"giovanni",
 		"bianchiBank"
 	)
 
 /obj/item/vamp/keys/capo
-	name = "Capo keys"
+	name = "capo keys"
 	accesslocks = list(
 		"bankboss",
 		"bianchiBank",
@@ -123,38 +123,38 @@
 
 
 /obj/item/vamp/keys/baali
-	name = "Satanic keys"
+	name = "satanic keys"
 	accesslocks = list(
 		"baali"
 	)
 
 /obj/item/vamp/keys/daughters
-	name = "Eclectic keys"
+	name = "eclectic keys"
 	accesslocks = list(
 		"daughters"
 	)
 
 /obj/item/vamp/keys/salubri
-	name = "Conspiracy keys"
+	name = "conspiracy keys"
 	accesslocks = list(
 		"salubri"
 	)
 
 /obj/item/vamp/keys/old_clan_tzimisce
-	name = "Regal keys"
+	name = "regal keys"
 	accesslocks = list(
 		"old_clan_tzimisce"
 	)
 
 /obj/item/vamp/keys/malkav
-	name = "Insane keys"
+	name = "insane keys"
 	accesslocks = list(
 		"malkav"
 	)
 	color = "#8cc4ff"
 
 /obj/item/vamp/keys/malkav/primogen
-	name = "Really insane keys"
+	name = "really insane keys"
 	accesslocks = list(
 		"primMalkav",
 		"malkav",
@@ -166,7 +166,7 @@
 	color = "#2c92ff"
 
 /obj/item/vamp/keys/toreador
-	name = "Sexy keys"
+	name = "sexy keys"
 	accesslocks = list(
 		"toreador",
 		"toreador1",
@@ -177,14 +177,14 @@
 	color = "#ffa7e6"
 
 /obj/item/vamp/keys/banuhaqim
-	name = "Just keys"
+	name = "just keys"
 	accesslocks = list(
 		"banuhaqim"
 	)
 	color = "#06053d"
 
 /obj/item/vamp/keys/toreador/primogen
-	name = "Really sexy keys"
+	name = "really sexy keys"
 	accesslocks = list(
 		"primToreador",
 		"toreador",
@@ -196,14 +196,14 @@
 	color = "#ff2fc4"
 
 /obj/item/vamp/keys/nosferatu
-	name = "Ugly keys"
+	name = "ugly keys"
 	accesslocks = list(
 		"nosferatu"
 	)
 	color = "#93bc8e"
 
 /obj/item/vamp/keys/nosferatu/primogen
-	name = "Really ugly keys"
+	name = "really ugly keys"
 	accesslocks = list(
 		"primNosferatu",
 		"nosferatu",
@@ -215,14 +215,14 @@
 	color = "#367c31"
 
 /obj/item/vamp/keys/brujah
-	name = "Punk keys"
+	name = "punk keys"
 	accesslocks = list(
 		"brujah"
 	)
 	color = "#ecb586"
 
 /obj/item/vamp/keys/brujah/primogen
-	name = "Really punk keys"
+	name = "really punk keys"
 	accesslocks = list(
 		"primBrujah",
 		"brujah",
@@ -233,7 +233,7 @@
 	color = "#ec8f3e"
 
 /obj/item/vamp/keys/ventrue
-	name = "Businessy keys"
+	name = "businessy keys"
 	accesslocks = list(
 		"ventrue",
 		"milleniumCommon"
@@ -241,7 +241,7 @@
 	color = "#f6ffa7"
 
 /obj/item/vamp/keys/ventrue/primogen
-	name = "Really businessy keys"
+	name = "really businessy keys"
 	accesslocks = list(
 		"primVentrue",
 		"ventrue",
@@ -254,13 +254,13 @@
 
 //===========================CLINIC KEYS===========================
 /obj/item/vamp/keys/clinic
-	name = "Clinic keys"
+	name = "clinic keys"
 	accesslocks = list(
 		"clinic"
 	)
 
 /obj/item/vamp/keys/clinics_director
-	name = "Clinic director keys"
+	name = "clinic director keys"
 	accesslocks = list(
 		"clinic",
 		"director"
@@ -268,26 +268,26 @@
 
 //===========================POLICE KEYS===========================
 /obj/item/vamp/keys/police
-	name = "Police keys"
+	name = "police keys"
 	accesslocks = list(
 		"police"
 	)
 
 /obj/item/vamp/keys/dispatch
-	name = "Dispatcher keys"
+	name = "dispatcher keys"
 	accesslocks = list(
 		"dispatch"
 	)
 
 /obj/item/vamp/keys/police/secure
-	name = "Sergeant Police keys"
+	name = "sergeant police keys"
 	accesslocks = list(
 		"police",
 		"police_secure"
 	)
 
 /obj/item/vamp/keys/police/secure/chief
-	name = "Chief of Police keys"
+	name = "\improper Chief of Police keys"
 	accesslocks = list(
 		"dispatch",
 		"police",
@@ -298,59 +298,59 @@
 //===========================MISC KEYS===========================
 
 /obj/item/vamp/keys/triads
-	name = "Rusty keys"
+	name = "rusty keys"
 	accesslocks = list(
 		"triad",
 		"laundromat"
 	)
 
 /obj/item/vamp/keys/techstore
-	name = "Tech Store keys"
+	name = "\improper Tech Store keys"
 	accesslocks = list(
 		"wolftech"
 	)
 	color = "#466a72"
 
 /obj/item/vamp/keys/pentex
-	name = "Facility keys"
+	name = "facility keys"
 	accesslocks = list(
 		"pentex"
 	)
 	color = "#062e03"
 
 /obj/item/vamp/keys/graveyard
-	name = "Graveyard keys"
+	name = "graveyard keys"
 	accesslocks = list(
 		"graveyard"
 	)
 
 /obj/item/vamp/keys/cleaning
-	name = "Cleaning keys"
+	name = "cleaning keys"
 	accesslocks = list(
 		"cleaning"
 	)
 
 /obj/item/vamp/keys/church
-	name = "Church keys"
+	name = "church keys"
 	accesslocks = list(
 		"church"
 	)
 
 /obj/item/vamp/keys/supply
-	name = "Supply keys"
+	name = "supply keys"
 	accesslocks = list(
 		"supply"
 	)
 	color = "#434343"
 
 /obj/item/vamp/keys/strip
-	name = "Strip keys"
+	name = "strip keys"
 	accesslocks = list(
 		"strip"
 	)
 
 /obj/item/vamp/keys/taxi
-	name = "Taxi keys"
+	name = "taxi keys"
 	accesslocks = list(
 		"taxi"
 	)

@@ -40,6 +40,12 @@
 	item.icon = initial(item.icon)
 	item.pixel_w = initial(item.pixel_w)
 
+	// TODO: [Rebase] - Get bolt states for world icons so we can remove this
+	if(istype(item, /obj/item/gun/ballistic))
+		var/obj/item/gun/ballistic/gun_item = item
+		gun_item.show_bolt_icon = gun_item::show_bolt_icon
+		gun_item.mag_display = gun_item::mag_display
+
 	item.update_icon()
 
 /datum/element/dynamic_item_icon/proc/apply_onfloor_icon(obj/item/item)
@@ -49,5 +55,11 @@
 	item.cut_overlays()
 	if (item.onflooricon_state)
 		item.icon_state = item.onflooricon_state
+
+	// TODO: [Rebase] - Get bolt states for world icons so we can remove this
+	if(istype(item, /obj/item/gun/ballistic))
+		var/obj/item/gun/ballistic/gun_item = item
+		gun_item.show_bolt_icon = FALSE
+		gun_item.mag_display = FALSE
 
 	item.update_icon()

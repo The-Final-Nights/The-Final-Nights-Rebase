@@ -1,20 +1,3 @@
-2025-08-01:
-  Bisar:
-  - qol: Power cells and megacells now take much less time to print.
-  - balance: Power cells now take the base-item time-to-print ( 10 seconds -> 3.2
-      seconds ), WITHOUT the stock-item print speed increase.
-  - balance: Megacells now take 5 seconds to print ( 10 seconds -> 5 seconds), WITHOUT
-      the stock-item print speed increase.
-  Rhials:
-  - balance: Nightmares/Shadowpeople are no longer stunned by intense flashes like
-      flashbangs or handheld flashes.
-  - balance: Nightmares/Shadowpeople are now harmed and confused by ALL flash sources,
-      including welding or other sources of flash-like flashing.
-  - sound: Nightmares now have a wretched hiss as their default scream sound. Spooky!
-  TealSeer:
-  - refactor: refactored custom vending machine brand code, a new var on /obj/machinery/vending
-      called allow_custom now determines whether the machine can be chosen when screwdrivering
-      the circuit board
 2025-08-05:
   FalloutFalcon, hex37, XeonMations:
   - refactor: reworks storyteller roles into a subsystem
@@ -29,3 +12,9 @@
   - rscadd: real moonlight to daylight transitions
   - refactor: big rework of city time.
   - qol: reading clocks shows information alot better
+2025-08-24:
+  FalloutFalcon:
+  - rscadd: Readds all melee, retuned to tg balance*
+2025-08-26:
+  Rhials:
+  - bugfix: Solo fugitives now spawn with a mechanical toolbox, as intended.

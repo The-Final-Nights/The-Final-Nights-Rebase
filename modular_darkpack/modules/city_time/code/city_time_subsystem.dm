@@ -58,7 +58,6 @@ SUBSYSTEM_DEF(city_time)
 						if(H.total_cleaned > 25)
 							char_sheet.add_experience(1)
 							H.total_cleaned = 0
-							//call_dharma("cleangrow", H)
 						if(role == "Graveyard Keeper")
 							if(SSgraveyard.total_good > SSgraveyard.total_bad)
 								char_sheet.add_experience(1)
@@ -93,7 +92,7 @@ SUBSYSTEM_DEF(city_time)
 			var/area/vtm/V = get_area(H)
 			if(!istype(V) || !V?.outdoors)
 				continue
-			if(iskindred(H) || iscathayan(H))
+			if(iskindred(H))
 				/*
 				if(((H.morality_path.score >= 10) && (H.morality_path.alignment == MORALITY_HUMANITY)))
 					continue

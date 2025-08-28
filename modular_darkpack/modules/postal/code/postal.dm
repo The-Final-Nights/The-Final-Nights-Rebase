@@ -79,7 +79,7 @@
 						/obj/item/knife/vamp,
 						/obj/item/melee/vamp/tire,
 						/datum/supply_pack/vampire/bloodpack,
-						/obj/item/gun/ballistic/vampire/revolver,
+						/obj/item/gun/ballistic/revolver/darkpack/magnum,
 						/obj/item/vamp/keys/hack)
 		new IT(user.loc)
 		new /obj/item/mark(user.loc)

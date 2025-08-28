@@ -27,11 +27,8 @@
 	GLOB.masquerade_breakers_list -= src
 	GLOB.sabbatites -= src
 
-	//So upon death the corpse is filled with yin chi
-	yin_chi = min(max_yin_chi, yin_chi+yang_chi)
-	yang_chi = 0
 
-	if(iskindred(src) || iscathayan(src))
+	if(iskindred(src))
 		can_be_embraced = FALSE
 		var/obj/item/organ/brain/brain = getorganslot(ORGAN_SLOT_BRAIN) //NO REVIVAL EVER
 		if (brain)
@@ -58,10 +55,7 @@
 				rot_body(4) //mummified skeletonised corpse
 				visible_message(span_warning("[src]'s body rapidly skeletonises!"))
 			if (200 to INFINITY) //turn to ash
-				if (iskindred(src))
-					playsound(src, 'modular_darkpack/modules/deprecated/sounds/burning_death.ogg', 80, TRUE)
-				else if (iscathayan(src))
-					playsound(src, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 80, TRUE)
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/burning_death.ogg', 80, TRUE)
 				lying_fix()
 				dir = SOUTH
 				INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/carbon/human, dust), TRUE, TRUE)
