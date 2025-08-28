@@ -31,7 +31,7 @@
 		var/obj/item/temp = typepath
 		// DARKPACK EDIT START - RETAIL
 		var/datum/data/vending_product/new_record = new /datum/data/vending_product(initial(temp.name), typepath)
-		// DARKPACK EDIT END - RETIAL
+		// DARKPACK EDIT END - RETAIL
 		if(!start_empty)
 			new_record.amount = amount
 		new_record.max_amount = amount
