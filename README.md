@@ -8,7 +8,7 @@
 | The Second City Discord | [https://discord.gg/rmAbJcuChD](https://discord.gg/rmAbJcuChD)                       |
 | Coderbus Discord        | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                             |
 
-This is the codebase for the Darkpack13 Project, a new form off of TGstation for the purposes of being an upstream for The Final Nights, Apocrypha, Requiem and World of Darkness 13.
+This is the codebase for the Darkpack13 Project, a fork of TGstation 2025 for the purposes of being an upstream for The Final Nights, Apocrypha, Requiem and World of Darkness 13.
 
 We are based on the Paradox Interactive World of Darkness(c) gamelines, with administrative oversight determining what we add to our game.
 
