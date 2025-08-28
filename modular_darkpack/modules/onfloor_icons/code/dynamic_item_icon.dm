@@ -44,6 +44,7 @@
 	if(istype(item, /obj/item/gun/ballistic))
 		var/obj/item/gun/ballistic/gun_item = item
 		gun_item.show_bolt_icon = gun_item::show_bolt_icon
+		gun_item.mag_display = gun_item::mag_display
 
 	item.update_icon()
 
@@ -59,5 +60,6 @@
 	if(istype(item, /obj/item/gun/ballistic))
 		var/obj/item/gun/ballistic/gun_item = item
 		gun_item.show_bolt_icon = FALSE
+		gun_item.mag_display = FALSE
 
 	item.update_icon()
