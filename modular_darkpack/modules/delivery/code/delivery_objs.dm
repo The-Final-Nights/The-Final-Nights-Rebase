@@ -89,8 +89,8 @@
 	desc = "A board made out of cork where delivery contracts are pinned. Use it with an emtpy hand to see if any are available."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "nboard02"
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
 	var/delivery_started = 0
 	var/delivery_employer_tag = "default"
 	var/next_delivery_timestamp
@@ -214,8 +214,8 @@
 
 	name = "delivery chute"
 	desc = "A chute used to handle bulk deliveries. A standard shipping crate should slide right in."
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "box_put"
 	var/chute_name = "default"
@@ -287,8 +287,8 @@
 
 	name = "Cargo Dispenser"
 	desc = "A chute used to handle bulk deliveries. There is a visible keyhole and a small button to push."
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "box_take"
 	var/chute_name = "default"
@@ -382,8 +382,8 @@
 
 	name = "delivery crate"
 	desc = "A sealed crate, ready for transport and delivery."
-	anchored = 0
-	density = 1
+	anchored = FALSE
+	density = TRUE
 	icon = 'icons/obj/crates.dmi'
 	icon_state = "crate"
 	var/datum/delivery_datum/delivery
@@ -458,7 +458,7 @@
 	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "x4"
 	invisibility = 101
-	density = 0
+	density = FALSE
 	var/spawn_dir = NORTH
 	var/delivery_employer_tag = "default"
 

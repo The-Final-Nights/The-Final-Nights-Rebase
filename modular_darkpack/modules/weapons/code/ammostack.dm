@@ -138,7 +138,6 @@
 /obj/item/ammo_casing/vampire
 	icon = 'modular_darkpack/modules/deprecated/icons/ammo.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
-	var/base_iconstate
 
 /obj/item/ammo_casing/vampire/c9mm
 	name = "9mm bullet casing"
@@ -146,7 +145,7 @@
 	caliber = CALIBER_9MM
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp9mm
 	icon_state = "9"
-	base_iconstate = "9"
+	base_icon_state = "9"
 
 /obj/item/ammo_casing/vampire/c9mm/plus
 	name = "9mm HV bullet casing"
@@ -159,7 +158,7 @@
 	caliber = CALIBER_45
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp45acp
 	icon_state = "45"
-	base_iconstate = "45"
+	base_icon_state = "45"
 
 /obj/item/ammo_casing/vampire/c44
 	name = ".44 bullet casing"
@@ -167,7 +166,7 @@
 	caliber = CALIBER_44
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp44
 	icon_state = "44"
-	base_iconstate = "44"
+	base_icon_state = "44"
 
 /obj/item/ammo_casing/vampire/c50
 	name = ".50 bullet casing"
@@ -175,7 +174,7 @@
 	caliber = CALIBER_50
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp50
 	icon_state = "50"
-	base_iconstate = "50"
+	base_icon_state = "50"
 
 /obj/item/ammo_casing/vampire/c556mm
 	name = "5.56mm bullet casing"
@@ -183,7 +182,7 @@
 	caliber = CALIBER_556
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp556mm
 	icon_state = "556"
-	base_iconstate = "556"
+	base_icon_state = "556"
 
 /obj/item/ammo_casing/vampire/c545mm
 	name = "5.45mm bullet casing"
@@ -191,7 +190,7 @@
 	caliber = CALIBER_545
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp545mm
 	icon_state = "545"
-	base_iconstate = "545"
+	base_icon_state = "545"
 
 /obj/item/ammo_casing/vampire/c556mm/incendiary
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp556mm/incendiary
@@ -202,7 +201,7 @@
 	caliber = CALIBER_12G
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp12g
 	icon_state = "12"
-	base_iconstate = "12"
+	base_icon_state = "12"
 
 /obj/item/ammo_casing/vampire/c12g/buck
 	desc = "A 12g shell casing (00 buck)."
@@ -234,7 +233,7 @@
 		patroni = max(0, patroni+1)
 	if(istype(I, /obj/item/ammo_casing/vampire))
 		var/obj/item/ammo_casing/vampire/V = I
-		if(patroni < max_patroni && V.base_iconstate = base_caliber)
+		if(patroni < max_patroni && V.base_icon_state = base_caliber)
 			I.forceMove(src)
 			update_icon()
 
@@ -400,7 +399,7 @@
 	desc = "A 9mm silver bullet casing."
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp9mm/silver
 	icon_state = "s9"
-	base_iconstate = "s9"
+	base_icon_state = "s9"
 
 /obj/item/ammo_casing/vampire/c45acp/silver
 	name = ".45 ACP silver bullet casing"
@@ -412,14 +411,14 @@
 	desc = "A .44 silver bullet casing."
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp44/silver
 	icon_state = "s44"
-	base_iconstate = "s44"
+	base_icon_state = "s44"
 
 /obj/item/ammo_casing/vampire/c556mm/silver
 	name = "5.56mm silver bullet casing"
 	desc = "A 5.56mm silver bullet casing."
 	projectile_type = /obj/projectile/beam/beam_rifle/vampire/vamp556mm/silver
 	icon_state = "s556"
-	base_iconstate = "s556"
+	base_icon_state = "s556"
 
 /obj/item/ammo_box/vampire/c9mm/silver
 	name = "ammo box (9mm silver)"

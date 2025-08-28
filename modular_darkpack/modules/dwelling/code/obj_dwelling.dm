@@ -54,8 +54,8 @@
 	icon_state = "crate"
 	layer = BELOW_OBJ_LAYER
 	color = "#A17037"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/area/vtm/dwelling/area_reference
 	var/search_tries = 0
 	var/search_hits_left = 0 // These should be automated by the system, btu tries typically are double the hits.
@@ -141,7 +141,7 @@
 
 /obj/structure/vampdoor/dwelling
 
-	baseicon = "wood"
+	base_icon_state = "wood"
 	icon_state = "wood-1"
 	var/area/vtm/dwelling/area_reference
 	locked = 1
@@ -252,8 +252,8 @@
 	desc = "A small console with a display and small keyboard. A small hole to the side of the panel looks like it would just fit a lockpick."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl"
-	density = 0
-	anchored = 1
+	density = FALSE
+	anchored = TRUE
 	pixel_y = 32
 	var/area/vtm/dwelling/area_reference
 	var/alarm_timer = 0

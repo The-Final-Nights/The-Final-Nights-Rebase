@@ -346,7 +346,7 @@
 /obj/structure/vampcar/Initialize(mapload)
 	. = ..()
 	var/atom/movable/M = new(get_step(loc, EAST))
-	M.density = TRUE
+	M.set_density(TRUE)
 	M.anchored = TRUE
 	dir = pick(NORTH, SOUTH, WEST, EAST)
 
@@ -534,19 +534,19 @@
 	icon_state = "[rand(1, 5)]"
 	if(icon_state != "1")
 		opacity = TRUE
-	density = TRUE
+	set_density(TRUE)
 	var/atom/movable/M1 = new(get_step(loc, EAST))
 	var/atom/movable/M2 = new(get_step(M1.loc, EAST))
 	var/atom/movable/M3 = new(get_step(M2.loc, EAST))
-	M1.density = TRUE
+	M1.set_density(TRUE)
 	if(icon_state != "1")
 		M1.opacity = TRUE
 	M1.anchored = TRUE
-	M2.density = TRUE
+	M2.set_density(TRUE)
 	if(icon_state != "1")
 		M2.opacity = TRUE
 	M2.anchored = TRUE
-	M3.density = TRUE
+	M3.set_density(TRUE)
 	if(icon_state != "1")
 		M3.opacity = TRUE
 	M3.anchored = TRUE
@@ -743,7 +743,7 @@
 	anchored = TRUE
 	var/icon_state_inuse
 	layer = 4 //make it the same layer as players.
-	density = 0 //easy to step up on
+	density = FALSE //easy to step up on
 	/// Is the pole in use currently?
 	var/pole_in_use
 
@@ -1062,25 +1062,15 @@
 			if(do_mob(user, src, 10 SECONDS))
 				burying = FALSE
 				if(icon_state == "pit0")
-					var/dead_amongst = FALSE
 					for(var/mob/living/L in get_turf(src))
 						L.forceMove(src)
-						if(L.stat == DEAD)
-							dead_amongst = TRUE
 						icon_state = "pit1"
 						user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
-						if(dead_amongst)
-							call_dharma("respect", user)
 				else
-					var/dead_amongst = FALSE
 					for(var/mob/living/L in src)
 						L.forceMove(get_turf(src))
-						if(L.stat == DEAD)
-							dead_amongst = TRUE
 					icon_state = "pit0"
 					user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
-					if(dead_amongst)
-						call_dharma("disrespect", user)
 			else
 				burying = FALSE
 

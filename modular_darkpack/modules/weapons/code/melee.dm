@@ -364,24 +364,6 @@
 	icon_state = "rock0"
 	inhand_icon_state = "rock0"
 
-/obj/item/shield/door
-	name = "\improper door"
-	desc = "It opens and closes."
-	icon_state = "door"
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	force = 15
-	block_chance = 25
-	throwforce = 10
-	throw_speed = 2
-	throw_range = 3
-	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = NONE
-	attack_verb_continuous = list("shoves", "bashes")
-	attack_verb_simple = list("shove", "bash")
-	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
-
 /obj/item/melee/baton/vamp
 	name = "police baton"
 	desc = "Blunt instrument of justice."

@@ -37,7 +37,7 @@ GLOBAL_LIST_EMPTY(unallocted_transfer_points)
 	alpha = 0
 
 /obj/transfer_point_vamp/backrooms/map
-	density = 0
+	density = FALSE
 
 /obj/transfer_point_vamp/umbral
 	name = "portal"
