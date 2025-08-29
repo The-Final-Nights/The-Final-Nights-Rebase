@@ -1,3 +1,6 @@
+///Helper to create a typepath to be used in the UI
+#define SANITIZED_PATH(path)(replacetext(replacetext("[path]", "/obj/item/", ""), "/", "-"))
+
 /obj/structure/retail
 	name = "retail outlet"
 	desc = "A counter for partaking in wretched capitalism. Takes cash or card."
@@ -30,10 +33,7 @@
 /obj/structure/retail/Initialize()
 	. = ..()
 	if(owner_needed == TRUE)
-		//Im 99% sure this can be a locate instead.
-		for(var/mob/living/carbon/human/npc/NPC in range(2, src))
-			my_owner = NPC
-			break
+		my_owner = locate(/mob/living/carbon/human/npc) in range(2, src)
 	build_inventory()
 
 //whether or not the user can shop at this store.
@@ -63,7 +63,7 @@
 	return list(
 		get_asset_datum(/datum/asset/spritesheet_batched/vending),
 	)
-//yea
+
 /obj/structure/retail/ui_interact(mob/user, datum/tgui/ui)
 	if(owner_needed == TRUE)
 		if(!my_owner)
@@ -82,7 +82,7 @@
 	.["product_records"] = list()
 	for(var/datum/data/vending_product/product in products_list)
 		var/list/product_data = list(
-			path = replacetext(replacetext("[product.product_path]", "/obj/item/", ""), "/", "-"),
+			path = SANITIZED_PATH(product.product_path),
 			name = product.name,
 			price = product.price,
 			stock = product.amount,
@@ -168,3 +168,5 @@
 				update_static_data(usr)
 			SSblackbox.record_feedback("nested tally", "retail_item_bought", 1, list("[type]", "[product.product_path]"))
 			. = TRUE
+
+#undef SANITIZED_PATH
