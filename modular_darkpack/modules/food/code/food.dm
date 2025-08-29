@@ -2,14 +2,9 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
-	eatsound = 'modular_darkpack/modules/deprecated/sounds/eat.ogg'
-	var/biten = FALSE
+	eatsound = 'modular_darkpack/modules/food/sounds/eat.ogg'
+	food_flags = FOOD_BITE_SPRITE
 
-/obj/item/food/vampire/proc/got_biten()
-	if(biten == FALSE)
-		biten = TRUE
-		icon_state = "[icon_state]-biten"
-//----------FAST FOOD--------///
 /obj/item/food/vampire/burger
 	name = "burger"
 	desc = "The cornerstone of every american trucker's breakfast."
@@ -27,7 +22,7 @@
 	bite_consumption = 5
 	tastes = list("donut" = 1)
 	foodtypes = JUNKFOOD | GRAIN | FRIED | SUGAR | BREAKFAST
-	food_flags = FOOD_FINGER_FOOD
+	food_flags = FOOD_FINGER_FOOD | FOOD_BITE_SPRITE
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3)
 
 /obj/item/food/vampire/donut/Initialize(mapload)
@@ -83,7 +78,7 @@
 	junkiness = 5
 	trash_type = /obj/item/trash/vampirebar
 	tastes = list("chocolate" = 1)
-	food_flags = FOOD_IN_CONTAINER
+	food_flags = FOOD_IN_CONTAINER | FOOD_BITE_SPRITE
 	foodtypes = JUNKFOOD | SUGAR
 
 /obj/item/food/vampire/bar/proc/open_bar(mob/user)
@@ -118,7 +113,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/salt = 1)
 	junkiness = 10
 	tastes = list("salt" = 1, "crisps" = 1)
-	food_flags = FOOD_IN_CONTAINER
+	food_flags = FOOD_IN_CONTAINER | FOOD_BITE_SPRITE
 	foodtypes = JUNKFOOD | FRIED
 	eatsound = 'modular_darkpack/modules/deprecated/sounds/crisp.ogg'
 
