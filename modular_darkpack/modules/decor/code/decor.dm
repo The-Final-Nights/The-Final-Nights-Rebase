@@ -159,49 +159,6 @@
 			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
-/obj/structure/clothingrack
-	name = "clothing rack"
-	desc = "Have some clothes."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "rack"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-
-/obj/structure/clothingrack/rand
-	icon_state = "rack2"
-
-/obj/structure/clothingrack/rand/Initialize(mapload)
-	. = ..()
-	icon_state = "rack[rand(1, 5)]"
-
-/obj/structure/clothinghanger
-	name = "clothing hanger"
-	desc = "Have some clothes."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "hanger1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-
-/obj/structure/clothinghanger/Initialize(mapload)
-	. = ..()
-	icon_state = "hanger[rand(1, 4)]"
-
-/obj/structure/foodrack
-	name = "food rack"
-	desc = "Have some food."
-	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
-	icon_state = "rack2"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	pixel_w = -16
-
-/obj/structure/foodrack/Initialize(mapload)
-	. = ..()
-	icon_state = "rack[rand(1, 5)]"
-
 //I should make these slow to move
 /obj/structure/closet/crate/dumpster
 	name = "dumpster"
