@@ -7,6 +7,7 @@ import {
   Section,
   Stack,
   Table,
+  DmIcon,
 } from 'tgui-core/components';
 import { classes } from 'tgui-core/react';
 
@@ -54,12 +55,14 @@ export const RetailVendor = (props) => {
                 return (
                   <Table.Row key={product.name}>
                     <Table.Cell>
-                      <span
-                        className={classes(['vending32x32', product.path])}
+                      <DmIcon
+                        icon={product.icon}
+                        icon_state={product.icon_state}
                         style={{
                           'vertical-align': 'middle',
-                        }}
-                      />{' '}
+                        }}>
+                      </DmIcon>
+                      {' '}
                       <b>{product.name}</b>
                     </Table.Cell>
                     <Table.Cell>

@@ -91,6 +91,15 @@
 		)
 		.["product_records"] += list(product_data)
 
+		var/atom/printed = product.product_path
+		// If it's not GAGS and has no innate colors we have to care about, we use DMIcon
+		if(ispath(printed, /atom) \
+			&& (!initial(printed.greyscale_config) || !initial(printed.greyscale_colors)) \
+			&& !initial(printed.color) \
+		)
+			product_data["icon"] = initial(printed.icon)
+			product_data["icon_state"] = initial(printed.icon_state)
+
 /obj/structure/retail/ui_data(mob/user)
 	. = list()
 	.["user"] = list()
