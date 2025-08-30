@@ -11,6 +11,7 @@
 	. = ..()
 	icon_state = "rack[rand(1, 5)]"
 
+
 /obj/structure/rack/clothing_hanger
 	name = "clothing hanger"
 	desc = "Have some clothes."
@@ -29,10 +30,11 @@
 	name = "food rack"
 	desc = "Have some food."
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
-	icon_state = "rack2"
+	icon_state = "rack1"
 	pixel_w = -16
 
 /obj/structure/rack/food/rand
+	icon_state = "rack2"
 
 /obj/structure/rack/food/rand/Initialize(mapload)
 	. = ..()
