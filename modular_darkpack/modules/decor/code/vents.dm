@@ -1,7 +1,7 @@
 /obj/structure/roofstuff
 	name = "roof ventilation"
 	desc = "Air to inside."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/vents.dmi'
 	icon_state = "roof1"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -41,7 +41,7 @@
 	smoothing_groups = SMOOTH_GROUP_VENTS
 	canSmoothWith = SMOOTH_GROUP_VENTS
 
-/obj/structure/roofstuff/vent/autotiling/update_appearance(updates=ALL)
+/obj/structure/roofstuff/vent/autotiling/update_icon(updates=ALL)
 	. = ..()
 	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & USES_SMOOTHING))
 		QUEUE_SMOOTH(src)
