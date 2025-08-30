@@ -1,6 +1,6 @@
 /obj/item/melee/vamp
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	var/quieted = FALSE
@@ -16,8 +16,8 @@
 	name = "fire axe"
 	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe?"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	pixel_w = -8
@@ -26,8 +26,8 @@
 	name = "katana"
 	desc = "An elegant weapon, its tiny edge is capable of cutting through flesh and bone with ease."
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	pixel_w = -8
@@ -86,8 +86,8 @@
 	name = "rapier"
 	desc = "A thin, elegant sword, the rapier is a weapon of the duelist, designed for thrusting."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "rapier"
@@ -103,8 +103,8 @@
 	name = "machete"
 	desc = "A certified chopper fit for the jungles...but you don't see any vines around. Well-weighted enough to be thrown."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "machete"
@@ -123,8 +123,8 @@
 	name = "sabre"
 	desc = "A curved sword, the sabre is a weapon of the cavalry, designed for slashing and thrusting."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "sabre"
@@ -140,8 +140,8 @@
 	name = "longsword"
 	desc = "A classic weapon of the knight, the longsword is a versatile weapon that can be used for both cutting and thrusting."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "longsword"
@@ -158,8 +158,8 @@
 	name = "baseball bat"
 	desc = "There ain't a skull in the league that can withstand a swatter."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "baseball"
@@ -199,8 +199,8 @@
 	name = "knife"
 	desc = "Don't cut yourself accidentally."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
@@ -286,8 +286,8 @@
 	name = "chainsaw"
 	desc = "A versatile power tool. Useful for limbing trees and delimbing humans."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
@@ -336,8 +336,8 @@
 	name = "shovel"
 	desc = "Great weapon against mortal or immortal."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "shovel"
@@ -346,8 +346,8 @@
 	name = "scythe"
 	desc = "More instrument, than a weapon. Instrumentally cuts heads..."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "kosa"
@@ -357,8 +357,8 @@
 	name = "electric guitar"
 	desc = "You are pretty fly for a white guy..."
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "rock0"
@@ -375,8 +375,8 @@
 	name = "switchblade"
 	desc = "A spring-loaded knife. Perfect for stabbing sharks and jets."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 

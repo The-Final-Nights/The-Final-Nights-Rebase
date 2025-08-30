@@ -42,8 +42,8 @@ SUBSYSTEM_DEF(carpool)
 	icon_state = "gasoline"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	var/stored_gasoline = 0
 
