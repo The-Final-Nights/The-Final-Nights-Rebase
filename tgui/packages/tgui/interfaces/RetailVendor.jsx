@@ -3,13 +3,12 @@
 import {
   Box,
   Button,
+  DmIcon,
   NoticeBox,
   Section,
   Stack,
   Table,
-  DmIcon,
 } from 'tgui-core/components';
-import { classes } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -22,14 +21,14 @@ export const UserDetails = (props) => {
   return (
     <NoticeBox m={0} color={user && 'blue'}>
       {(data.user &&
-        (data.user.money > 0 || data.user.is_card == 1) &&
-        ((data.user.is_card == 0 && (
+        (data.user.money > 0 || data.user.is_card === 1) &&
+        ((data.user.is_card === 0 && (
           <Box>
             You seem to have $<b>{data.user.money}</b> in hand. Products over
             $1000 require card to purchase.
           </Box>
         )) ||
-          (data.user.is_card == 1 && (
+          (data.user.is_card === 1 && (
             <Box>
               I see you are paying with <b>card</b>. Products over $20 dollars
               require you to input your pin. What would you like to order?
@@ -41,7 +40,7 @@ export const UserDetails = (props) => {
 
 export const RetailVendor = (props) => {
   const { act, data } = useBackend();
-  let inventory = [...data.product_records];
+  const inventory = [...data.product_records];
   return (
     <Window width={431} height={635} resizable>
       <Window.Content scrollable>
@@ -60,9 +59,8 @@ export const RetailVendor = (props) => {
                         icon_state={product.icon_state}
                         style={{
                           'vertical-align': 'middle',
-                        }}>
-                      </DmIcon>
-                      {' '}
+                        }}
+                      />{' '}
                       <b>{product.name}</b>
                     </Table.Cell>
                     <Table.Cell>
@@ -74,10 +72,10 @@ export const RetailVendor = (props) => {
                         disabled={
                           !data.user ||
                           (product.price > data.user.money &&
-                            data.user.is_card == 0) ||
-                          product.stock == 0
+                            data.user.is_card === 0) ||
+                          product.stock === 0
                         }
-                        content={product.price + '$'}
+                        content={`${product.price}$`}
                         onClick={() =>
                           act('purchase', {
                             ref: product.ref,
