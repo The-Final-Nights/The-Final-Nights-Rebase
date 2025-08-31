@@ -131,11 +131,15 @@
 
 /obj/item/vtm_artifact/fae_charm/get_powers()
 	. = ..()
-	H.st_add_stat_mod(STAT_DEXTERITY, 1, src.type)
+	var/mob/living/carbon/human/H = owner
+	if(H.dna)
+		H.st_add_stat_mod(STAT_DEXTERITY, 1, src.type)
 
 /obj/item/vtm_artifact/fae_charm/remove_powers()
 	. = ..()
-	H.st_remove_stat_mod(STAT_DEXTERITY, 1, src.type)
+	var/mob/living/carbon/human/H = owner
+	if(H.dna)
+		H.st_remove_stat_mod(STAT_DEXTERITY, 1, src.type)
 
 /obj/item/vtm_artifact/heart_of_eliza
 	true_name = "Heart of Eliza"
