@@ -131,11 +131,11 @@
 
 /obj/item/vtm_artifact/fae_charm/get_powers()
 	. = ..()
-	owner.add_movespeed_modifier(/datum/movespeed_modifier/fae_charm)
+	H.st_add_stat_mod(STAT_DEXTERITY, 1, src.type)
 
 /obj/item/vtm_artifact/fae_charm/remove_powers()
 	. = ..()
-	owner.remove_movespeed_modifier(/datum/movespeed_modifier/fae_charm)
+	H.st_remove_stat_mod(STAT_DEXTERITY, 1, src.type)
 
 /obj/item/vtm_artifact/heart_of_eliza
 	true_name = "Heart of Eliza"
