@@ -1,14 +1,14 @@
-/obj/item/storage/firstaid : /obj/item/storage/darkpack/firstaid {@OLD}
-/obj/item/storage/firstaid/@SUBTYPES : /obj/item/storage/darkpack/firstaid/@SUBTYPES {@OLD}
+/obj/item/storage/firstaid : /obj/item/storage/medkit/darkpack {@OLD}
+/obj/item/storage/firstaid/@SUBTYPES : /obj/item/storage/medkit/darkpack/@SUBTYPES {@OLD}
 
-/obj/item/storage/darkpack/firstaid/regular : /obj/item/storage/darkpack/firstaid/standard {@OLD}
+/obj/item/storage/medkit/darkpack/regular : /obj/item/storage/medkit/darkpack/standard {@OLD}
 
-/obj/item/storage/darkpack/firstaid/medical : /obj/item/storage/darkpack/firstaid/doctor {@OLD}
+/obj/item/storage/medkit/darkpack/medical : /obj/item/storage/medkit/darkpack/doctor {@OLD}
 
-/obj/item/storage/darkpack/firstaid/fire : /obj/item/storage/darkpack/firstaid/burn {@OLD}
+/obj/item/storage/medkit/darkpack/fire : /obj/item/storage/medkit/darkpack/burn {@OLD}
 
-/obj/item/storage/darkpack/firstaid/toxin : /obj/item/storage/darkpack/firstaid/tox {@OLD}
+/obj/item/storage/medkit/darkpack/toxin : /obj/item/storage/medkit/darkpack/tox {@OLD}
 
-/obj/item/storage/darkpack/firstaid/o2 : /obj/item/storage/darkpack/firstaid/oxy {@OLD}
+/obj/item/storage/medkit/darkpack/o2 : /obj/item/storage/medkit/darkpack/oxy {@OLD}
 
-/obj/item/storage/darkpack/firstaid/tactical : /obj/item/storage/darkpack/firstaid/combat {@OLD}
+/obj/item/storage/medkit/darkpack/tactical : /obj/item/storage/medkit/darkpack/combat {@OLD}
