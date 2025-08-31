@@ -1,4 +1,3 @@
-/* // DARKPACK EDIT REMOVAL START - Loadout categories
 /// Pocket items (Moved to backpack)
 /datum/loadout_category/pocket
 	category_name = "Other"
@@ -44,6 +43,7 @@
 
 	return ..()
 
+/* // DARKPACK EDIT REMOVAL START - Loadout categories
 
 /datum/loadout_item/pocket_items/plush
 	group = "Plushies"
