@@ -8,7 +8,7 @@
 	name = "floodlight frame"
 	desc = "A metal frame that requires wiring and a light tube to become a flood light."
 	max_integrity = 100
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'modular_darkpack/master_files/icons/obj/lighting.dmi' // DARKPACK EDIT CHANGE
 	icon_state = "floodlight_c1"
 	density = TRUE
 
@@ -133,7 +133,7 @@
 /obj/machinery/power/floodlight
 	name = "floodlight"
 	desc = "A pole with powerful mounted lights on it. Due to its high power draw, it must be powered by a direct connection to a wire node."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'modular_darkpack/master_files/icons/obj/lighting.dmi' // DARKPACK EDIT CHANGE
 	icon_state = "floodlight"
 	density = TRUE
 	max_integrity = 100

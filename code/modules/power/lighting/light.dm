@@ -1,7 +1,7 @@
 // the standard tube light fixture
 /obj/machinery/light
 	name = "light fixture"
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'modular_darkpack/master_files/icons/obj/lighting.dmi' // DARKPACK EDIT CHANGE
 	icon_state = "tube"
 	desc = "A lighting fixture."
 	layer = WALL_OBJ_LAYER
@@ -720,7 +720,7 @@
 /obj/machinery/light/floor
 	name = "floor light"
 	desc = "A lightbulb you can walk on without breaking it, amazing."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'modular_darkpack/master_files/icons/obj/lighting.dmi' // DARKPACK EDIT CHANGE
 	base_state = "floor" // base description and icon_state
 	icon_state = "floor"
 	brightness = 4
