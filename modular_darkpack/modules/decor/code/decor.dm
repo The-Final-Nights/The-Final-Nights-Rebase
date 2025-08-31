@@ -817,25 +817,6 @@
 	pixel_w = -16
 	pixel_z = -16
 
-/obj/structure/coclock
-	name = "clock"
-	desc = "See the time."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "clock"
-	anchored = TRUE
-	pixel_z = 32
-
-/obj/structure/coclock/examine(mob/user)
-	. = ..()
-	. += "The clock reads: <b>[station_time_timestamp()]</b>"
-
-/obj/structure/coclock/grandpa
-	icon = 'modular_darkpack/modules/deprecated/icons/grandpa_cock.dmi'
-	icon_state = "cock"
-	anchored = TRUE
-	density = TRUE
-	pixel_z = 0
-
 /obj/effect/decal/graffiti
 	name = "graffiti"
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
