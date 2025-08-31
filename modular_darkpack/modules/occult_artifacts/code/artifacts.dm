@@ -126,7 +126,7 @@
 
 /obj/item/vtm_artifact/fae_charm
 	true_name = "Fae Charm"
-	true_desc = "Faster movement speed."
+	true_desc = "Dexterity boost."
 	icon_state = "fae_charm"
 
 /obj/item/vtm_artifact/fae_charm/get_powers()
