@@ -26,17 +26,16 @@
 	name = "unidentified occult fetish"
 	desc = "Who knows what secrets it could contain..."
 	icon_state = "arcane"
-	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/occult_artifacts/icons/artifacts.dmi'
+	onflooricon = 'modular_darkpack/modules/occult_artifacts/icons/artifacts_onfloor.dmi'
 	w_class = WEIGHT_CLASS_SMALL
-	is_magic = TRUE
 	var/mob/living/owner
 	var/true_name = "artifact"
 	var/true_desc = "Debug"
 	var/identified = FALSE
 	var/gained_boosts = FALSE
 
-/obj/item/vtm_artifact/proc/identificate()
+/obj/item/vtm_artifact/proc/identify()
 	if(!identified)
 		name = true_name
 		desc = true_desc
@@ -50,6 +49,10 @@
 	if(!identified)
 		return
 
+/datum/armor/weekapaug_thistle
+	melee = 10
+	bullet = 10
+
 /obj/item/vtm_artifact/weekapaug_thistle
 	true_name = "Weekapaug Thistle"
 	true_desc = "Increases combat defense."
@@ -58,14 +61,12 @@
 /obj/item/vtm_artifact/weekapaug_thistle/get_powers()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
-	H.physiology.armor.melee = H.physiology.armor.melee+10
-	H.physiology.armor.bullet = H.physiology.armor.bullet+10
+	H.physiology.armor = H.physiology.armor.add_other_armor(/datum/armor/weekapaug_thistle)
 
 /obj/item/vtm_artifact/weekapaug_thistle/remove_powers()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
-	H.physiology.armor.melee = H.physiology.armor.melee-10
-	H.physiology.armor.bullet = H.physiology.armor.bullet-10
+	H.physiology.armor = H.physiology.armor.subtract_other_armor(/datum/armor/weekapaug_thistle)
 
 /obj/item/vtm_artifact/tarulfang
 	true_name = "Tarulfang"
@@ -145,13 +146,13 @@
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna)
-		H.dna.species.meleemod = H.dna.species.meleemod+0.5
+		H.st_add_stat_mod(STAT_STRENGTH, 1, src.type)
 
 /obj/item/vtm_artifact/heart_of_eliza/remove_powers()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna)
-		H.dna.species.meleemod = H.dna.species.meleemod-0.5
+		H.st_remove_stat_mod(STAT_STRENGTH, 1, src.type)
 
 /obj/item/vtm_artifact/bloodstar
 	true_name = "Bloodstar"
@@ -187,20 +188,20 @@
 /obj/item/vtm_artifact/key_of_alamut/get_powers()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
-	if(H.dna.species.brutemod == 0.3)
+	if(H.dna.species.damage_modifier >= 70)
 		return
 	if(H.dna)
-		H.dna.species.brutemod = H.dna.species.brutemod-0.2
-		H.dna.species.burnmod = H.dna.species.burnmod-0.2
+		H.dna.species.damage_modifier = H.dna.species.damage_modifier+20
+		H.dna.species.damage_modifier = H.dna.species.damage_modifier+20
 
 /obj/item/vtm_artifact/key_of_alamut/remove_powers()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
-	if(H.dna.species.brutemod == 0.5)
+	if(H.dna.species.damage_modifier == 50)
 		return
 	if(H.dna)
-		H.dna.species.brutemod = H.dna.species.brutemod+0.2
-		H.dna.species.burnmod = H.dna.species.burnmod+0.2
+		H.dna.species.damage_modifier = H.dna.species.damage_modifier-20
+		H.dna.species.damage_modifier = H.dna.species.damage_modifier-20
 
 /obj/item/vtm_artifact/odious_chalice
 	true_name = "Odious Chalice"
@@ -230,7 +231,7 @@
 
 /obj/effect/spawner/random/occult
 	name = "occult spawner"
-	icon = 'icons/wod13/items.dmi'
+	icon = 'modular_darkpack/modules/occult_artifacts/icons/artifacts.dmi'
 	icon_state = "art_rand"
 
 /obj/effect/spawner/random/occult/artifact
