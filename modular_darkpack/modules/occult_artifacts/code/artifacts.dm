@@ -150,7 +150,6 @@
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna)
-	if(H.dna)
 		H.st_add_stat_mod(STAT_STRENGTH, 1, type)
 
 /obj/item/vtm_artifact/heart_of_eliza/remove_powers()
