@@ -6,12 +6,12 @@
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 /*
 /obj/item/ammo_box/magazine/darkpack
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 */
 
 //REVOLVERS
@@ -29,7 +29,7 @@
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
 	initial_caliber = CALIBER_44
 	fire_sound = 'modular_darkpack/modules/weapons/sounds/revolver.ogg'
@@ -65,12 +65,12 @@
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 /obj/item/ammo_box/magazine/m44
 	name = "handgun magazine (.44)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "deagle"
 	ammo_type = /obj/item/ammo_casing/vampire/c44
 	caliber = CALIBER_44
@@ -90,7 +90,7 @@
 /obj/item/ammo_box/magazine/m50
 	name = "handgun magazine (.50)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "deagle"
 	ammo_type = /obj/item/ammo_casing/vampire/c50
 	caliber = CALIBER_50
@@ -108,7 +108,7 @@
 /obj/item/ammo_box/magazine/darkpack45acp
 	name = "pistol magazine (.45 ACP)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "m1911"
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp
 	caliber = CALIBER_45
@@ -128,7 +128,7 @@
 /obj/item/ammo_box/magazine/glock9mm
 	name = "automatic pistol magazine (9mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "glock19"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_9MM
@@ -152,7 +152,7 @@
 /obj/item/ammo_box/magazine/glock45acp
 	name = "automatic pistol magazine (.45 ACP)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "glock21"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_45
@@ -198,7 +198,7 @@
 /obj/item/ammo_box/magazine/semi9mm
 	name = "pistol magazine (9mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "semi9mm"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_9MM
@@ -213,7 +213,7 @@
 /obj/item/ammo_box/magazine/darkpack9mm
 	name = "uzi magazine (9mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "uzi"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_9MM
@@ -238,7 +238,7 @@
 /obj/item/ammo_box/magazine/darkpack9mp5
 	name = "mp5 magazine (9mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "mp5"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_9MM
@@ -263,7 +263,7 @@
 /obj/item/ammo_box/magazine/darkpack556
 	name = "carbine magazine (5.56mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "rifle"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm
 	caliber = CALIBER_556
@@ -315,7 +315,7 @@
 /obj/item/ammo_box/magazine/darkpack545
 	name = "rifle magazine (5.45mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "ak"
 	ammo_type = /obj/item/ammo_casing/vampire/c545mm
 	caliber = CALIBER_545
@@ -345,7 +345,7 @@
 /obj/item/ammo_box/magazine/darkpackaug
 	name = "AUG magazine (5.56mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "aug"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm
 	caliber = CALIBER_556
@@ -375,7 +375,7 @@
 	name = "tommy gun magazine (.45 ACP)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	icon_state = "thompson"
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp
 	caliber = CALIBER_45
 	max_ammo = 50
@@ -452,7 +452,7 @@
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_BULKY
 	icon_state = "pomp"
 	inhand_icon_state = "pomp"
@@ -469,7 +469,7 @@
 /obj/item/ammo_box/magazine/darkpackautoshot
 	name = "shotgun magazine (12ga)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "spas15"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g/buck
 	caliber = CALIBER_SHOTGUN
@@ -503,7 +503,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "crossbow0"
 	inhand_icon_state = "crossbow0"
 	fire_delay = 16
