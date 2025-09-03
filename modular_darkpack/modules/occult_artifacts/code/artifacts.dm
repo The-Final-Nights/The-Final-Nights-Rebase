@@ -196,7 +196,7 @@
 	if(H.dna.species.damage_modifier >= 70)
 		return
 	if(H.dna)
-		H.dna.species.damage_modifier = H.dna.species.damage_modifier-20
+		H.dna.species.damage_modifier = H.dna.species.damage_modifier+20
 
 /obj/item/vtm_artifact/key_of_alamut/remove_powers()
 	. = ..()
