@@ -133,13 +133,13 @@
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna)
-		H.st_add_stat_mod(STAT_DEXTERITY, 1, src.type)
+		H.st_add_stat_mod(STAT_DEXTERITY, 1, type)
 
 /obj/item/vtm_artifact/fae_charm/remove_powers()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna)
-		H.st_remove_stat_mod(STAT_DEXTERITY, 1, src.type)
+		H.st_remove_stat_mod(STAT_DEXTERITY, 1, type)
 
 /obj/item/vtm_artifact/heart_of_eliza
 	true_name = "Heart of Eliza"
@@ -150,13 +150,14 @@
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna)
-		H.st_add_stat_mod(STAT_STRENGTH, 1, src.type)
+	if(H.dna)
+		H.st_add_stat_mod(STAT_STRENGTH, 1, type)
 
 /obj/item/vtm_artifact/heart_of_eliza/remove_powers()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(H.dna)
-		H.st_remove_stat_mod(STAT_STRENGTH, 1, src.type)
+		H.st_remove_stat_mod(STAT_STRENGTH, 1, type)
 
 /obj/item/vtm_artifact/bloodstar
 	true_name = "Bloodstar"
@@ -195,7 +196,6 @@
 	if(H.dna.species.damage_modifier >= 70)
 		return
 	if(H.dna)
-		H.dna.species.damage_modifier = H.dna.species.damage_modifier+20
 		H.dna.species.damage_modifier = H.dna.species.damage_modifier+20
 
 /obj/item/vtm_artifact/key_of_alamut/remove_powers()
