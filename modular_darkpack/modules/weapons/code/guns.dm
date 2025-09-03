@@ -29,7 +29,7 @@
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
 	initial_caliber = CALIBER_44
 	fire_sound = 'modular_darkpack/modules/weapons/sounds/revolver.ogg'
@@ -65,7 +65,7 @@
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 /obj/item/ammo_box/magazine/m44
 	name = "handgun magazine (.44)"
@@ -511,7 +511,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "crossbow0"
 	inhand_icon_state = "crossbow0"
 	fire_delay = 16
