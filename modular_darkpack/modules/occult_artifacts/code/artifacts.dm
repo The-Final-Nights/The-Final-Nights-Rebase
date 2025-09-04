@@ -200,7 +200,7 @@
 /obj/item/vtm_artifact/key_of_alamut/remove_powers()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
-	if(H.dna.species.damage_modifier == 50)
+	if(H.dna.species.damage_modifier >= 50)
 		return
 	if(H.dna)
 		H.dna.species.damage_modifier = H.dna.species.damage_modifier-20
