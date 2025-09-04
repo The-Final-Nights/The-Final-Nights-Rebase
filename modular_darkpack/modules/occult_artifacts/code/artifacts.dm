@@ -132,14 +132,12 @@
 /obj/item/vtm_artifact/fae_charm/get_powers()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
-	if(H.dna)
-		H.st_add_stat_mod(STAT_DEXTERITY, 1, type)
+	owner.st_add_stat_mod(STAT_DEXTERITY, 1, type)
 
 /obj/item/vtm_artifact/fae_charm/remove_powers()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
-	if(H.dna)
-		H.st_remove_stat_mod(STAT_DEXTERITY, 1, type)
+	owner.st_remove_stat_mod(STAT_DEXTERITY, 1, type)
 
 /obj/item/vtm_artifact/heart_of_eliza
 	true_name = "Heart of Eliza"
@@ -148,15 +146,11 @@
 
 /obj/item/vtm_artifact/heart_of_eliza/get_powers()
 	. = ..()
-	var/mob/living/carbon/human/H = owner
-	if(H.dna)
-		H.st_add_stat_mod(STAT_STRENGTH, 1, type)
+	owner.st_add_stat_mod(STAT_STRENGTH, 1, type)
 
 /obj/item/vtm_artifact/heart_of_eliza/remove_powers()
 	. = ..()
-	var/mob/living/carbon/human/H = owner
-	if(H.dna)
-		H.st_remove_stat_mod(STAT_STRENGTH, 1, type)
+	owner.st_remove_stat_mod(STAT_STRENGTH, 1, type)
 
 /obj/item/vtm_artifact/bloodstar
 	true_name = "Bloodstar"
