@@ -3,8 +3,8 @@
 	worn_icon_state = "longsword_sheathe"
 	//inhand_icon_state = "longsword_sheathe"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	//lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	//righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	//lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	//righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 

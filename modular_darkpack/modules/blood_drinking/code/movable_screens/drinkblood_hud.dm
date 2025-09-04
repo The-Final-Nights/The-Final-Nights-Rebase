@@ -1,8 +1,7 @@
 /atom/movable/screen/drinkblood
 	name = "Drink Blood"
-	icon = 'modular_darkpack/modules/deprecated/icons/disciplines.dmi'
-	layer = HUD_LAYER
-	plane = HUD_PLANE
+	icon = 'modular_darkpack/modules/blood_drinking/icons/drink_blood_hud.dmi'
+	icon_state = "act_bite"
 
 /atom/movable/screen/drinkblood/Click()
 	bite()
