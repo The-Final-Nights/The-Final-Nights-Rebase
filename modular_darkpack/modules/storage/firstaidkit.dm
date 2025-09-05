@@ -4,6 +4,7 @@
 	name = "first-aid kit"
 	desc = "A first aid kit ideal for handling common, non-life threatening injuries."
 	icon_state = "firstaid"
+	inhand_icon_state = "firstaid"
 	icon = 'modular_darkpack/modules/storage/icons/firstaidkit.dmi'
 	onflooricon = 'modular_darkpack/modules/storage/icons/firstaidkit.dmi'
 	lefthand_file = 'modular_darkpack/modules/storage/icons/firstaidkit_lefthand.dmi'
