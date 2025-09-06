@@ -33,6 +33,10 @@
 	matrix_mob(user, src)
 	return TRUE
 
+ADMIN_VERB_AND_CONTEXT_MENU(matrix_mob_verb, R_ADMIN, "Matrix Mob", "Teleport a mob to your location.", ADMIN_CATEGORY_GAME, mob/living/target in world)
+	matrix_mob(target)
+	BLACKBOX_LOG_ADMIN_VERB("Matrix Mob")
+
 /proc/matrix_mob(mob/living/despawning_mob)
 	message_admins("[ADMIN_LOOKUP(despawning_mob)] has exited through the matrix.")
 	log_game("[despawning_mob] has exited through the matrix.")
