@@ -33,7 +33,7 @@
 	matrix_mob(user, src)
 	return TRUE
 
-proc/matrix_mob(mob/living/despawning_mob)
+/proc/matrix_mob(mob/living/despawning_mob)
 	message_admins("[ADMIN_LOOKUP(despawning_mob)] has exited through the matrix.")
 	log_game("[despawning_mob] has exited through the matrix.")
 
