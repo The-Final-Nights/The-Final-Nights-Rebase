@@ -10,6 +10,7 @@
 			if(account && (bank_pin == account.bank_pin))
 				to_chat(user, span_notice("You correctly enter the pin for the [source] by memory."))
 				times_used_without_pin = 0
+				return TRUE
 
 		if(tgui_input_text(user, "Enter the pin number for this card:", "Pin Input", max_length=4, multiline=FALSE) != bank_pin)
 			to_chat(user, span_alert("The pin you entered for the [source] is incorrect."))

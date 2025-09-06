@@ -111,11 +111,13 @@ export const Vending = () => {
     <Window width={431} height={635}>
       <Window.Content>
         <Stack fill vertical>
+           {/* DARKPACK EDIT REMOVAL
           {!!onstation && (
             <Stack.Item>
               <UserDetails />
             </Stack.Item>
           )}
+          */}
           {ad && (
             <Stack.Item>
               <AdSection AdDisplay={ad} />
