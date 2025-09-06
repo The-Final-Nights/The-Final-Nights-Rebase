@@ -33,7 +33,12 @@
 	matrix_mob(user, src)
 	return TRUE
 
-ADMIN_VERB_AND_CONTEXT_MENU(matrix_mob_verb, R_ADMIN, "Matrix Mob", "Teleport a mob to your location.", ADMIN_CATEGORY_GAME, mob/living/target in world)
+ADMIN_VERB_AND_CONTEXT_MENU(matrix_mob_verb, R_ADMIN, "Matrix Mob", "Matrix (despawn) a mob.", ADMIN_CATEGORY_GAME, mob/living/target in world)
+	var/turf/target_turf = get_turf(target)
+	var/message = "[key_name(user)] has matrixed [target] ([target.type]) at [AREACOORD(target_turf)]"
+	message_admins(message)
+	log_admin(message)
+
 	matrix_mob(target)
 	BLACKBOX_LOG_ADMIN_VERB("Matrix Mob")
 
