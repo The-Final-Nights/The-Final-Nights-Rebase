@@ -3,7 +3,7 @@
 /turf/closed/indestructible/the_matrix
 	name = "matrix"
 	desc = "Suicide is no exit..."
-	icon = 'modular_darkpack/modules/matrix/icons/props.dmi'
+	icon = 'modular_darkpack/modules/matrix/icons/matrix.dmi'
 	icon_state = "matrix"
 
 /turf/closed/indestructible/the_matrix/attack_hand(mob/user)
@@ -17,7 +17,7 @@
 /obj/the_matrix
 	name = "matrix (depricated)"
 	desc = "Suicide is no exit... This is an old evil version, please contact a mapper to replace this with a turf one if you are reading this"
-	icon = 'modular_darkpack/modules/matrix/icons/props.dmi'
+	icon = 'modular_darkpack/modules/matrix/icons/matrix.dmi'
 	icon_state = "matrix"
 	layer = ABOVE_NORMAL_TURF_LAYER
 	anchored = TRUE
