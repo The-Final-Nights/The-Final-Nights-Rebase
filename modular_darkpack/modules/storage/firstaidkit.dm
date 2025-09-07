@@ -153,9 +153,9 @@
 	if(empty)
 		return
 	var/static/items_inside = list(
-		/obj/item/stack/medical/gauze,
-		/obj/item/defibrillator/compact/combat/loaded,
-		/obj/item/reagent_containers/hypospray/combat,
+		/obj/item/stack/medical/gauze = 1,
+		/obj/item/defibrillator/compact/combat/loaded = 1,
+		/obj/item/reagent_containers/hypospray/combat = 1,
 		/obj/item/reagent_containers/applicator/patch/libital = 2,
 		/obj/item/reagent_containers/applicator/patch/aiuri = 2,
 		/obj/item/clothing/glasses/hud/health/night)
