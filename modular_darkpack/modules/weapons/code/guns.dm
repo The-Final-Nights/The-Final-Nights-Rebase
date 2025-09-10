@@ -3,8 +3,8 @@
 	inhand_icon_state = "revolver"
 	worn_icon_state = null
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
@@ -27,8 +27,8 @@
 	inhand_icon_state = "revolver"
 	worn_icon_state = "gun"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
 	initial_caliber = CALIBER_44
@@ -63,8 +63,8 @@
 	inhand_icon_state = "revolver"
 	worn_icon_state = "gun"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
 /obj/item/ammo_box/magazine/m44
@@ -449,8 +449,8 @@
 	name = "shotgun"
 	desc = "A traditional shotgun with wood furniture and a six-round tube magazine."
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_guns.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	w_class = WEIGHT_CLASS_BULKY
@@ -501,8 +501,8 @@
 	name = "crossbow"
 	desc = "Welcome to the Middle Ages!"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 	icon_state = "crossbow0"
 	inhand_icon_state = "crossbow0"
