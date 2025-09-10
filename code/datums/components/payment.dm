@@ -154,6 +154,10 @@
 
 		return FALSE
 
+	// I really want to put a pin check here but you cant sleep in signals...
+	if(!credit_card.registered_account.check_pin_async())
+		return FALSE
+
 	/*
 	if(!credit_card.can_be_used_in_payment(user))
 		atom_parent.say("Departmental accounts have been blacklisted from personal expenses due to embezzlement.")

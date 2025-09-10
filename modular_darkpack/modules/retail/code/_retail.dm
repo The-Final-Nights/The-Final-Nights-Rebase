@@ -11,6 +11,7 @@
 	var/owner_needed = TRUE //Does an npc need to be here for this
 	var/mob/living/carbon/human/npc/my_owner //tracks existence of owner
 	var/is_gun_store = FALSE
+	var/payment_department = ACCOUNT_SRV
 
 	var/list/products_list = list(
 		new /datum/data/vending_product("Plain Donut", /obj/item/food/donut/plain),
