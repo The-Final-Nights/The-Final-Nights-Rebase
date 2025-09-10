@@ -201,6 +201,7 @@
 	list_reagents = list(/datum/reagent/consumable/space_cola = 100)
 	foodtype = SUGAR
 	age_restricted = FALSE
+	custom_price = 2
 
 /obj/item/reagent_containers/food/drinks/bottle/vampirecola/blue
 	desc = "Pep Cola. Put some pep in your step"
