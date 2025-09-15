@@ -1,4 +1,9 @@
-GLOBAL_LIST_EMPTY(car_list)
+/obj/effect/temp_visual/car
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "smoke"
+	layer = BELOW_MOB_LAYER
+	light_range = 1
+	duration = 0.5 SECONDS
 
 /obj/vampire_car
 	name = "car"
@@ -13,7 +18,6 @@ GLOBAL_LIST_EMPTY(car_list)
 
 	glide_size = 96
 
-	//atom_integrity = 100
 	max_integrity = 500
 	integrity_failure = 0.25
 
@@ -55,10 +59,10 @@ GLOBAL_LIST_EMPTY(car_list)
 /obj/vampire_car/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SScarpool, src)
-	GLOB.car_list += src
 
 	create_storage(storage_type = car_storage_type)
 
+/*
 	headlight_image = new(src)
 	headlight_image.icon = 'icons/effects/light_overlays/light_cone_car.dmi'
 	headlight_image.icon_state = "light"
@@ -70,6 +74,7 @@ GLOBAL_LIST_EMPTY(car_list)
 	headlight_image.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 //	headlight_image.vis_flags = NONE
 	headlight_image.alpha = 110
+*/
 	gas = rand(100, 1000)
 	last_pos["x"] = x
 	last_pos["y"] = y
@@ -110,11 +115,9 @@ GLOBAL_LIST_EMPTY(car_list)
 		user.visible_message(span_warning("[user] begins pulling someone out of [src]!"), \
 			span_warning("You begin pulling [L] out of [src]..."))
 		if(do_after(user, 5 SECONDS, src))
-			var/datum/action/carr/exit_car/C = locate() in L.actions
 			user.visible_message(span_warning("[user] has managed to get [L] out of [src]."), \
 				span_warning("You've managed to get [L] out of [src]."))
-			if(C)
-				C.Trigger()
+			empty_occupent(L)
 		else
 			to_chat(user, span_warning("You've failed to get [L] out of [src]."))
 		repairing = FALSE
@@ -226,7 +229,7 @@ GLOBAL_LIST_EMPTY(car_list)
 	. = ..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.combat_mode && H.potential >= 4)
+		if(H.combat_mode && H.st_get_stat(STAT_STRENGTH) > 6)
 			var/atom/throw_target = get_edge_target_turf(src, user.dir)
 			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 100, FALSE)
 			take_damage(10)
@@ -298,7 +301,7 @@ GLOBAL_LIST_EMPTY(car_list)
 	headlight_on = new_value
 	if(headlight_on)
 		add_overlay(headlight_image)
-	elsef
+	else
 		cut_overlay(headlight_image)
 
 //Dump out all living from the car

@@ -257,6 +257,7 @@
 #define SPACEVINE_LAYER 4.4
 #define LARGE_MOB_LAYER 4.5
 #define SPACEVINE_MOB_LAYER 4.6
+#define CAR_LAYER 4.65 // DARKPACK EDIT ADD - Idk if we acctually want this layer
 
 // Intermediate layer used by both GAME_PLANE and ABOVE_GAME_PLANE
 #define ABOVE_ALL_MOB_LAYER 4.7
