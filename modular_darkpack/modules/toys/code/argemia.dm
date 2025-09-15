@@ -3,7 +3,7 @@
 	desc = "Voiding..."
 	icon_state = "argemia"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/argemia/microwave_act(obj/machinery/microwave/M)

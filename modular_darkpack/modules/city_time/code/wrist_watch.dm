@@ -9,7 +9,7 @@
 	armor_type = /datum/armor/card_id
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	slot_flags = ITEM_SLOT_GLOVES | ITEM_SLOT_ID
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	custom_price = 20
 
 /obj/item/cockclock/examine(mob/user)
