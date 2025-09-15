@@ -9,7 +9,7 @@
 	name = "car"
 	desc = "Take me home, country roads..."
 	icon_state = "2"
-	icon = 'modular_darkpack/modules/deprecated/cars.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/cars.dmi'
 	anchored = TRUE
 	layer = CAR_LAYER
 	density = TRUE
@@ -284,6 +284,50 @@
 	else
 		cut_overlay(headlight_image)
 
+/obj/vampire_car/mouse_drop_receive(mob/living/dropped, mob/user, params)
+	. = ..()
+	if(!isliving(dropped))
+		return
+
+	if(locked)
+		to_chat(user, span_warning("[src] is locked."))
+		return
+
+	if(driver && (length(passengers) >= max_passengers))
+		to_chat(dropped, span_warning("There's no space left for you in [src]."))
+		return
+
+	visible_message(span_notice("[dropped] begins entering [src]..."), \
+		span_notice("You begin entering [src]..."))
+	if(do_after(user, 1 SECONDS, dropped))
+		if(!driver)
+			dropped.forceMove(src)
+			driver = dropped
+			var/datum/action/carr/exit_car/E = new()
+			E.Grant(dropped)
+			var/datum/action/carr/headlight/F = new()
+			F.Grant(dropped)
+			var/datum/action/carr/engine/N = new()
+			N.Grant(dropped)
+			var/datum/action/carr/stage/S = new()
+			S.Grant(dropped)
+			var/datum/action/carr/beep/B = new()
+			B.Grant(dropped)
+			var/datum/action/carr/baggage/G = new()
+			G.Grant(dropped)
+		else if(length(passengers) < max_passengers)
+			dropped.forceMove(src)
+			passengers += dropped
+			var/datum/action/carr/exit_car/E = new()
+			E.Grant(dropped)
+		visible_message(span_notice("[dropped] enters [src]."), \
+			span_notice("You enter [src]."))
+		playsound(src, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
+		return
+	else
+		to_chat(dropped, span_warning("You fail to enter [src]."))
+		return
+
 //Dump out all living from the car
 /obj/vampire_car/proc/empty_car()
 	for(var/mob/living/L in src)
@@ -485,10 +529,10 @@
 					if(get_step(NPC, angle2dir(dir_angle)).density)
 						dodge_direction.Remove(dir_angle)
 				if(length(dodge_direction))
-					step(NPC, angle2dir(pick(dodge_direction)), NPC.total_multiplicative_slowdown())
+					step(NPC, angle2dir(pick(dodge_direction)), NPC.cached_multiplicative_slowdown)
 					COOLDOWN_START(NPC, car_dodge, 2 SECONDS)
 					if(prob(50))
-						NPC.RealisticSay(pick(NPC.socialrole.car_dodged))
+						NPC.realistic_say(pick(NPC.socialrole.car_dodged))
 
 /// Moves the client cameras of living inside of the car.
 /obj/vampire_car/proc/move_car_riders(moved_x, moved_y)
@@ -595,9 +639,16 @@
 	on = FALSE
 
 /datum/storage/car
+	do_rustle = FALSE
+	silent = TRUE
 	max_slots = 40
 	max_total_storage = 100
 	max_specific_storage = WEIGHT_CLASS_HUGE
+	insert_on_attack = FALSE
+
+/datum/storage/car/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_locked(STORAGE_FULLY_LOCKED)
 
 /datum/storage/car/limo
 	max_slots = 45

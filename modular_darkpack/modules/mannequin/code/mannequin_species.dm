@@ -49,7 +49,7 @@
 		if(L.client)
 			man.face_atom(L)
 			if(prob(50))
-				walk_to(man, L, 0, man.total_multiplicative_slowdown())
+				walk_to(man, L, 0, man.cached_multiplicative_slowdown)
 
 	for(var/mob/living/carbon/human/H in range(1, man))
 		if(H.client)

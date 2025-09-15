@@ -131,7 +131,7 @@
 
 	if(left_home_at + walk_home_timer <= world.time)
 		danger_source = null
-		walk_to(src, start_turf, 1, total_multiplicative_slowdown())
+		walk_to(src, start_turf, 1, cached_multiplicative_slowdown)
 		addtimer(CALLBACK(src, PROC_REF(position_hard_reset)), warp_home_timer)
 
 /mob/living/carbon/human/npc/bouncer/proc/position_hard_reset()

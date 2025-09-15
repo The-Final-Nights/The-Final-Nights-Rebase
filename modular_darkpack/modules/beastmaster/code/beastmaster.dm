@@ -88,12 +88,12 @@
 					targa = L
 
 	var/totalshit = 1
-	if(total_multiplicative_slowdown() > 0)
-		totalshit = total_multiplicative_slowdown()
+	if(cached_multiplicative_slowdown > 0)
+		totalshit = cached_multiplicative_slowdown
 
 	if(targa)
 		var/reqsteps = round((SSbeastmastering.next_fire-world.time)/totalshit)
-		walk_to(src, targa, reqsteps, total_multiplicative_slowdown())
+		walk_to(src, targa, reqsteps, cached_multiplicative_slowdown)
 		if(get_dist(src, targa) <= 1)
 			ClickOn(targa)
 	else
@@ -102,7 +102,7 @@
 				forceMove(get_turf(beastmaster))
 			else
 				var/reqsteps = round((SSbeastmastering.next_fire-world.time)/totalshit)
-				walk_to(src, beastmaster, reqsteps, total_multiplicative_slowdown())
+				walk_to(src, beastmaster, reqsteps, cached_multiplicative_slowdown)
 		else
 			walk(src, 0)
 

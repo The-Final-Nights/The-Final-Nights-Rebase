@@ -50,7 +50,7 @@
 	icon_state = "limo"
 	max_passengers = 6
 	dir = WEST
-	var_storage_type = /datum/storage/car/limo
+	car_storage_type = /datum/storage/car/limo
 
 /obj/vampire_car/limousine/giovanni
 	icon_state = "giolimo"
@@ -65,7 +65,7 @@
 	dir = WEST
 	beep_sound = 'modular_darkpack/modules/deprecated/sounds/migalka.ogg'
 	access = "police"
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	light_color = "#ff0000"
 	light_range = 6
 	light_power = 6

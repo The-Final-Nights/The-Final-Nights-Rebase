@@ -23,6 +23,7 @@
 	. = ..()
 	stored_gasoline = rand(0, 500)
 
+/*
 /obj/item/gas_can/afterattack(atom/A, mob/user, proximity)
 	. = ..()
 	if(istype(get_turf(A), /turf/open/floor) && !istype(A, /obj/vampire_car) && !istype(A, /obj/structure/fuelstation) && !istype(A, /mob/living/carbon/human) && !istype(A, /obj/structure/drill))
@@ -46,7 +47,7 @@
 		H.fire_stacks = min(10, H.fire_stacks+10)
 		playsound(get_turf(H), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
 		user.visible_message(span_warning("[user] covers [A] in something flammable!"))
-
+*/
 /*
 /obj/effect/decal/cleanable/gasoline
 	name = "gasoline"
