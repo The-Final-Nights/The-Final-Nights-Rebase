@@ -66,7 +66,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 	switch(number_of_lamps)
 		if(1)
@@ -156,51 +156,8 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
-
-/obj/structure/clothingrack
-	name = "clothing rack"
-	desc = "Have some clothes."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "rack"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-
-/obj/structure/clothingrack/rand
-	icon_state = "rack2"
-
-/obj/structure/clothingrack/rand/Initialize(mapload)
-	. = ..()
-	icon_state = "rack[rand(1, 5)]"
-
-/obj/structure/clothinghanger
-	name = "clothing hanger"
-	desc = "Have some clothes."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "hanger1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-
-/obj/structure/clothinghanger/Initialize(mapload)
-	. = ..()
-	icon_state = "hanger[rand(1, 4)]"
-
-/obj/structure/foodrack
-	name = "food rack"
-	desc = "Have some food."
-	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
-	icon_state = "rack2"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	pixel_w = -16
-
-/obj/structure/foodrack/Initialize(mapload)
-	. = ..()
-	icon_state = "rack[rand(1, 5)]"
 
 //I should make these slow to move
 /obj/structure/closet/crate/dumpster
@@ -223,7 +180,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/closet/crate/dumpster/PopulateContents()
@@ -269,7 +226,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/arc
@@ -285,7 +242,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/arc/add
@@ -325,7 +282,7 @@
 	if(check_holidays(CHRISTMAS))
 		if(istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if(V.upper)
+			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/hydrant/mouse_drop_receive(atom/dropped, mob/user, params)
@@ -346,7 +303,7 @@
 /obj/structure/vampcar/Initialize(mapload)
 	. = ..()
 	var/atom/movable/M = new(get_step(loc, EAST))
-	M.density = TRUE
+	M.set_density(TRUE)
 	M.anchored = TRUE
 	dir = pick(NORTH, SOUTH, WEST, EAST)
 
@@ -534,19 +491,19 @@
 	icon_state = "[rand(1, 5)]"
 	if(icon_state != "1")
 		opacity = TRUE
-	density = TRUE
+	set_density(TRUE)
 	var/atom/movable/M1 = new(get_step(loc, EAST))
 	var/atom/movable/M2 = new(get_step(M1.loc, EAST))
 	var/atom/movable/M3 = new(get_step(M2.loc, EAST))
-	M1.density = TRUE
+	M1.set_density(TRUE)
 	if(icon_state != "1")
 		M1.opacity = TRUE
 	M1.anchored = TRUE
-	M2.density = TRUE
+	M2.set_density(TRUE)
 	if(icon_state != "1")
 		M2.opacity = TRUE
 	M2.anchored = TRUE
-	M3.density = TRUE
+	M3.set_density(TRUE)
 	if(icon_state != "1")
 		M3.opacity = TRUE
 	M3.anchored = TRUE
@@ -660,58 +617,6 @@
 				bloodpool = max(0, bloodpool-4)
 */
 
-/obj/structure/rack/tacobell
-	name = "table"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "tacobell"
-
-/obj/structure/rack/tacobell/attack_hand(mob/living/user)
-	return
-
-/obj/structure/rack/tacobell/horizontal
-	icon_state = "tacobell1"
-
-/obj/structure/rack/tacobell/vertical
-	icon_state = "tacobell2"
-
-/obj/structure/rack/tacobell/south
-	icon_state = "tacobell3"
-
-/obj/structure/rack/tacobell/north
-	icon_state = "tacobell4"
-
-/obj/structure/rack/tacobell/east
-	icon_state = "tacobell5"
-
-/obj/structure/rack/tacobell/west
-	icon_state = "tacobell6"
-
-/obj/structure/rack/bubway
-	name = "table"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "bubway"
-
-/obj/structure/rack/bubway/attack_hand(mob/living/user)
-	return
-
-/obj/structure/rack/bubway/horizontal
-	icon_state = "bubway1"
-
-/obj/structure/rack/bubway/vertical
-	icon_state = "bubway2"
-
-/obj/structure/rack/bubway/south
-	icon_state = "bubway3"
-
-/obj/structure/rack/bubway/north
-	icon_state = "bubway4"
-
-/obj/structure/rack/bubway/east
-	icon_state = "bubway5"
-
-/obj/structure/rack/bubway/west
-	icon_state = "bubway6"
-
 /obj/underplate
 	name = "underplate"
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
@@ -743,7 +648,7 @@
 	anchored = TRUE
 	var/icon_state_inuse
 	layer = 4 //make it the same layer as players.
-	density = 0 //easy to step up on
+	density = FALSE //easy to step up on
 	/// Is the pole in use currently?
 	var/pole_in_use
 
@@ -817,26 +722,6 @@
 	pixel_w = -16
 	pixel_z = -16
 
-/obj/structure/coclock
-	name = "clock"
-	desc = "See the time."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "clock"
-	anchored = TRUE
-	pixel_z = 32
-
-/obj/structure/coclock/examine(mob/user)
-	. = ..()
-	// TODO: [Rebase] - Port https://github.com/ApocryphaXIII/ApocryphaXIII/pull/51
-	//to_chat(user, "<b>[SScity_time.timeofnight]</b>")
-
-/obj/structure/coclock/grandpa
-	icon = 'modular_darkpack/modules/deprecated/icons/grandpa_cock.dmi'
-	icon_state = "cock"
-	anchored = TRUE
-	density = TRUE
-	pixel_z = 0
-
 /obj/effect/decal/graffiti
 	name = "graffiti"
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
@@ -856,33 +741,6 @@
 		icon_state = "graffiti[rand(1, 15)]"
 	else
 		icon_state = "graffiti[rand(1, 3)]"
-
-/obj/structure/roofstuff
-	name = "roof ventilation"
-	desc = "Air to inside."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "roof1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-
-/obj/structure/roofstuff/Initialize(mapload)
-	. = ..()
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.upper)
-				icon_state = "[initial(icon_state)]-snow"
-
-/obj/structure/roofstuff/alt1
-	icon_state = "roof2"
-	density = FALSE
-
-/obj/structure/roofstuff/alt2
-	icon_state = "roof3"
-
-/obj/structure/roofstuff/alt3
-	icon_state = "roof4"
 
 /obj/effect/decal/kopatich
 	name = "hide carpet"
@@ -1056,32 +914,22 @@
 // TODO: [Rebase]
 /*
 /obj/structure/bury_pit/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/melee/vampirearms/shovel))
+	if(istype(I, /obj/item/shovel/vamp))
 		if(!burying)
 			burying = TRUE
 			user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))
 			if(do_mob(user, src, 10 SECONDS))
 				burying = FALSE
 				if(icon_state == "pit0")
-					var/dead_amongst = FALSE
 					for(var/mob/living/L in get_turf(src))
 						L.forceMove(src)
-						if(L.stat == DEAD)
-							dead_amongst = TRUE
 						icon_state = "pit1"
 						user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
-						if(dead_amongst)
-							call_dharma("respect", user)
 				else
-					var/dead_amongst = FALSE
 					for(var/mob/living/L in src)
 						L.forceMove(get_turf(src))
-						if(L.stat == DEAD)
-							dead_amongst = TRUE
 					icon_state = "pit0"
 					user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
-					if(dead_amongst)
-						call_dharma("disrespect", user)
 			else
 				burying = FALSE
 

@@ -41,7 +41,7 @@
 	name = "letter"
 	icon_state = "letter"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 	var/mob/living/carbon/human/Targ
 
@@ -49,7 +49,7 @@
 	name = "letter mark"
 	icon_state = "mark"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/letter/Initialize(mapload)
@@ -76,10 +76,10 @@
 						/obj/item/storage/pill_bottle/potassiodide,
 						/obj/item/vampire_stake,
 						/obj/item/stack/dollar/rand,
-						/obj/item/melee/vampirearms/knife,
-						/obj/item/melee/vampirearms/tire,
+						/obj/item/knife/vamp,
+						/obj/item/melee/vamp/tire,
 						/datum/supply_pack/vampire/bloodpack,
-						/obj/item/gun/ballistic/vampire/revolver,
+						/obj/item/gun/ballistic/revolver/darkpack/magnum,
 						/obj/item/vamp/keys/hack)
 		new IT(user.loc)
 		new /obj/item/mark(user.loc)

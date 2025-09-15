@@ -8,8 +8,8 @@
 	name = "Celerity power name"
 	desc = "Celerity power description"
 
-	activate_sound = 'modular_darkpack/modules/deprecated/sounds/celerity_activate.ogg'
-	deactivate_sound = 'modular_darkpack/modules/deprecated/sounds/celerity_deactivate.ogg'
+	activate_sound = 'modular_darkpack/modules/powers/sounds/celerity_activate.ogg'
+	deactivate_sound = 'modular_darkpack/modules/powers/sounds/celerity_deactivate.ogg'
 
 /datum/discipline_power/celerity/proc/temporis_explode(datum/source, datum/discipline_power/power, atom/target)
 	SIGNAL_HANDLER
@@ -25,6 +25,12 @@
 	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon/human, gib)), 3 SECONDS)
 
 	return POWER_CANCEL_ACTIVATION
+
+/datum/discipline_power/celerity/proc/apply_passive_dexterity_bonus(bonus)
+	if (owner.st_get_stat_mod(STAT_DEXTERITY, "celerity") >= bonus)
+		return
+
+	owner.st_add_stat_mod(STAT_DEXTERITY, bonus, "celerity")
 
 //CELERITY 1
 /datum/discipline_power/celerity/one
@@ -57,6 +63,9 @@
 
 	owner.remove_status_effect(/datum/status_effect/celerity/one)
 
+/datum/discipline_power/celerity/one/post_gain()
+	apply_passive_dexterity_bonus(1)
+
 //CELERITY 2
 /datum/discipline_power/celerity/two
 	name = "Celerity 2"
@@ -87,6 +96,9 @@
 	UnregisterSignal(owner, COMSIG_POWER_PRE_ACTIVATION)
 
 	owner.remove_status_effect(/datum/status_effect/celerity/two)
+
+/datum/discipline_power/celerity/two/post_gain()
+	apply_passive_dexterity_bonus(2)
 
 //CELERITY 3
 /datum/discipline_power/celerity/three
@@ -119,6 +131,9 @@
 
 	owner.remove_status_effect(/datum/status_effect/celerity/three)
 
+/datum/discipline_power/celerity/three/post_gain()
+	apply_passive_dexterity_bonus(3)
+
 //CELERITY 4
 /datum/discipline_power/celerity/four
 	name = "Celerity 4"
@@ -150,6 +165,9 @@
 
 	owner.remove_status_effect(/datum/status_effect/celerity/four)
 
+/datum/discipline_power/celerity/four/post_gain()
+	apply_passive_dexterity_bonus(4)
+
 //CELERITY 5
 /datum/discipline_power/celerity/five
 	name = "Celerity 5"
@@ -180,3 +198,6 @@
 	UnregisterSignal(owner, COMSIG_POWER_PRE_ACTIVATION)
 
 	owner.remove_status_effect(/datum/status_effect/celerity/five)
+
+/datum/discipline_power/celerity/five/post_gain()
+	apply_passive_dexterity_bonus(5)

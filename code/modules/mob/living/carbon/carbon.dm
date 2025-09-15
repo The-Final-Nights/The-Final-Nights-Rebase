@@ -247,7 +247,6 @@
 				W.layer = initial(W.layer)
 				SET_PLANE_EXPLICIT(W, initial(W.plane), src)
 		changeNext_move(0)
-	update_equipment_speed_mods() // In case cuffs ever change speed
 
 /mob/living/carbon/proc/clear_cuffs(obj/item/I, cuff_break)
 	if(!I.loc || buckled)
@@ -450,12 +449,12 @@
 		return
 	var/total_burn = 0
 	var/total_brute = 0
-	var/total_aggravated = 0 // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	var/total_aggravated = 0 // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 	for(var/X in bodyparts) //hardcoded to streamline things a bit
 		var/obj/item/bodypart/BP = X
 		total_brute += (BP.brute_dam * BP.body_damage_coeff)
 		total_burn += (BP.burn_dam * BP.body_damage_coeff)
-		total_aggravated += (BP.aggravated_dam * BP.body_damage_coeff) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		total_aggravated += (BP.aggravated_dam * BP.body_damage_coeff) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 	set_health(round(maxHealth - getOxyLoss() - getToxLoss() - total_burn - total_brute - total_aggravated, DAMAGE_PRECISION)) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 	update_stat()
 	update_stamina()
@@ -1150,14 +1149,14 @@
 /// if any of our bodyparts are bleeding
 /mob/living/carbon/proc/is_bleeding()
 	for(var/obj/item/bodypart/part as anything in bodyparts)
-		if(part.get_modified_bleed_rate())
+		if(part.cached_bleed_rate)
 			return TRUE
 
 /// get our total bleedrate
 /mob/living/carbon/proc/get_total_bleed_rate()
 	var/total_bleed_rate = 0
 	for(var/obj/item/bodypart/part as anything in bodyparts)
-		total_bleed_rate += part.get_modified_bleed_rate()
+		total_bleed_rate += part.cached_bleed_rate
 
 	return total_bleed_rate
 

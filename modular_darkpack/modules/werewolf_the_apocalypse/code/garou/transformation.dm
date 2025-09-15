@@ -44,7 +44,7 @@
 			H.remove_overlay(PROTEAN_LAYER)
 			G.punchdamagelow = G.punchdamagelow-15
 			G.punchdamagehigh = G.punchdamagehigh-15
-			H.trait_holder.remove_buff(ST_TRAIT_STRENGTH, "glabro_form")
+			H.st_remove_stat_mod(STAT_STRENGTH, "glabro_form")
 			H.physiology.armor.melee = H.physiology.armor.melee-15
 			H.physiology.armor.bullet = H.physiology.armor.bullet-15
 			var/matrix/M = matrix()
@@ -78,18 +78,16 @@
 				animate(trans, transform = ntransform, color = "#000000", time = 30)
 				playsound(get_turf(trans), 'modular_darkpack/modules/deprecated/sounds/transform.ogg', 50, FALSE)
 				for(var/mob/living/simple_animal/hostile/beastmaster/B in trans.beastmaster)
-					if(B)
-						qdel(B)
+					qdel(B)
 				spawn(30)
 					if(trans.stat == DEAD || !trans.client) // [ChillRaccoon] - preventing non-player transform issues
 						animate(trans, transform = null, color = "#FFFFFF")
 						return
 					var/items = trans.get_contents()
 					for(var/obj/item/item_worn in items)
-						if(item_worn)
-							if(!ismob(item_worn.loc))
-								continue
-							trans.dropItemToGround(item_worn, TRUE)
+						if(!ismob(item_worn.loc))
+							continue
+						trans.dropItemToGround(item_worn, TRUE)
 					var/current_loc = get_turf(trans)
 					lupus_form.color = "#000000"
 					lupus_form.forceMove(current_loc)
@@ -114,18 +112,16 @@
 				animate(trans, transform = ntransform, color = "#000000", time = 30)
 				playsound(get_turf(trans), 'modular_darkpack/modules/deprecated/sounds/transform.ogg', 50, FALSE)
 				for(var/mob/living/simple_animal/hostile/beastmaster/B in trans.beastmaster)
-					if(B)
-						qdel(B)
+					qdel(B)
 				spawn(30)
 					if(trans.stat == DEAD || !trans.client) // [ChillRaccoon] - preventing non-player transform issues
 						animate(trans, transform = null, color = "#FFFFFF")
 						return
 					var/items = trans.get_contents()
 					for(var/obj/item/item_worn in items)
-						if(item_worn)
-							if(!ismob(item_worn.loc))
-								continue
-							trans.dropItemToGround(item_worn, TRUE)
+						if(!ismob(item_worn.loc))
+							continue
+						trans.dropItemToGround(item_worn, TRUE)
 					var/current_loc = get_turf(trans)
 					crinos_form.color = "#000000"
 					crinos_form.forceMove(current_loc)
@@ -137,7 +133,7 @@
 					crinos_form.nutrition = trans.nutrition
 					crinos_form.mind = trans.mind
 					crinos_form.update_blood_hud()
-					crinos_form.trait_holder.set_buff(3, ST_TRAIT_STRENGTH, "crinos_form")
+					crinos_form.st_add_stat_mod(STAT_STRENGTH, 3, "crinos_form")
 					transfer_damage(trans, crinos_form)
 					crinos_form.add_movespeed_modifier(/datum/movespeed_modifier/crinosform)
 					trans.forceMove(src)
@@ -151,18 +147,16 @@
 				animate(trans, transform = ntransform, color = "#000000", time = 30)
 				playsound(get_turf(trans), 'modular_darkpack/modules/deprecated/sounds/transform.ogg', 50, FALSE)
 				for(var/mob/living/simple_animal/hostile/beastmaster/B in trans.beastmaster)
-					if(B)
-						qdel(B)
+					qdel(B)
 				spawn(30)
 					if(trans.stat == DEAD || !trans.client) // [ChillRaccoon] - preventing non-player transform issues
 						animate(trans, transform = null, color = "#FFFFFF")
 						return
 					var/items = trans.get_contents()
 					for(var/obj/item/item_worn in items)
-						if(item_worn)
-							if(!ismob(item_worn.loc))
-								continue
-							trans.dropItemToGround(item_worn, TRUE)
+						if(!ismob(item_worn.loc))
+							continue
+						trans.dropItemToGround(item_worn, TRUE)
 					var/current_loc = get_turf(trans)
 					human_form.color = "#000000"
 					human_form.forceMove(current_loc)

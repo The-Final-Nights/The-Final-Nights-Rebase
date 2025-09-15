@@ -1,5 +1,5 @@
 /obj/item/vamp/keys/npc
-	name = "Some keys"
+	name = "some keys"
 	accesslocks = list(
 		"npc"
 	)

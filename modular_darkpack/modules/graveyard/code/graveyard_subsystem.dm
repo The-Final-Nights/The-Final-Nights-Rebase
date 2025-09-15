@@ -15,20 +15,18 @@ SUBSYSTEM_DEF(graveyard)
 /datum/controller/subsystem/graveyard/fire()
 	var/continue_the_shift = FALSE
 	for(var/mob/living/carbon/human/L in GLOB.player_list)
-		if(L)
-			if(L.mind)
-				if(L.mind.assigned_role == "Graveyard Keeper")
-					if(L.client)
-						continue_the_shift = TRUE
+		if(L.mind)
+			if(L.mind.assigned_role == "Graveyard Keeper")
+				if(L.client)
+					continue_the_shift = TRUE
 	if(!continue_the_shift)
 		return
 	if(alive_zombies < 10)
 		for(var/mob/living/carbon/human/L in GLOB.player_list)
-			if(L)
-				if(L.mind)
-					if(L.mind.assigned_role == "Graveyard Keeper")
-						if(L.client)
-							to_chat(L, "WALKING DEAD ARE RISING...")
+			if(L.mind)
+				if(L.mind.assigned_role == "Graveyard Keeper")
+					if(L.client)
+						to_chat(L, "WALKING DEAD ARE RISING...")
 		for(var/i in 1 to 30-alive_zombies)
 			var/atom/grave = pick(graves)
 			new /mob/living/simple_animal/hostile/zombie(grave.loc)
@@ -41,11 +39,10 @@ SUBSYSTEM_DEF(graveyard)
 	if(clear_runs > 2)
 		clear_runs = 0
 		for(var/mob/living/carbon/human/L in GLOB.player_list)
-			if(L)
-				if(L.mind)
-					if(L.mind.assigned_role == "Graveyard Keeper")
-						if(L.client && L.key)
-							total_good += 1
+			if(L.mind)
+				if(L.mind.assigned_role == "Graveyard Keeper")
+					if(L.client && L.key)
+						total_good += 1
 
 /obj/vampgrave
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
@@ -65,7 +62,7 @@ SUBSYSTEM_DEF(graveyard)
 	if (check_holidays(CHRISTMAS))
 		if (istype(get_area(src), /area/vtm))
 			var/area/vtm/V = get_area(src)
-			if (V.upper)
+			if (V.outdoors)
 				icon_state = "grave[rand(1, 10)]-snow"
 
 /obj/vampgrave/Destroy()

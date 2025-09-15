@@ -40,7 +40,7 @@
 /obj/item/melee/touch_attack/quietus
 	name = "\improper poison touch"
 	desc = "This is kind of like when you rub your feet on a shag rug so you can zap your friends, only a lot less safe."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	catchphrase = null
 	on_use_sound = 'sound/magic/disintegrate.ogg'
 	icon_state = "quietus"
@@ -116,11 +116,11 @@
 /datum/discipline_power/quietus/baals_caress/can_activate(atom/target, alert = FALSE)
 	. = ..()
 
-	if (!istype(target, /obj/item/melee/vampirearms))
+	if (!istype(target, /obj/item/melee/vamp))
 		if (alert)
 			to_chat(owner, span_warning("[src] can only be used on weapons!"))
 		return FALSE
-	var/obj/item/melee/vampirearms/weapon = target
+	var/obj/item/melee/vamp/weapon = target
 
 	//ensure the target is a weapon with an edge to use the toxin with
 	if (!weapon.sharpness)
@@ -145,8 +145,8 @@
 	pass_flags = PASSTABLE
 	damage = 80
 	damage_type = BURN
-	hitsound = 'sound/weapons/effects/searwall.ogg'
-	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
+	hitsound = 'sound/items/weapons/effects/searwall.ogg'
+	hitsound_wall = 'sound/items/weapons/effects/searwall.ogg'
 	ricochets_max = 0
 	ricochet_chance = 0
 

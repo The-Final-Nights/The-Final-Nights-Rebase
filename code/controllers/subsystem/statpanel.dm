@@ -39,7 +39,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss", world.timezone)]",
 			"Round Time: [ROUND_TIME()]",
-			"Station Time: [station_time_timestamp()]",
+			"Local City Time: [SSticker.round_start_timeofday ? "[station_time_timestamp("hh:mm MMM")] [CURRENT_STATION_YEAR]" : "The round hasn't started yet!"]",
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 		)
 
@@ -195,7 +195,7 @@ SUBSYSTEM_DEF(statpanels)
 		list("World Time:", "[world.time]"),
 		list("Globals:", GLOB.stat_entry(), text_ref(GLOB)),
 		list("[config]:", config.stat_entry(), text_ref(config)),
-		list("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) (Internal Tick Usage: [round(MAPTICK_LAST_INTERNAL_TICK_USAGE,0.1)]%)"),
+		list("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%))\n  (Internal Tick Usage: [round(MAPTICK_LAST_INTERNAL_TICK_USAGE,0.1)]%)"),
 		list("Master Controller:", Master.stat_entry(), text_ref(Master)),
 		list("Failsafe Controller:", Failsafe.stat_entry(), text_ref(Failsafe)),
 		list("","")

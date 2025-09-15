@@ -35,7 +35,7 @@
 		growth_stage = 1
 		to_chat(user, span_notice("You pull the grown weed out of [src]."))
 		var/mob/living/carbon/human/H = user
-		var/amount = clamp(SSroll.storyteller_roll(H.trait_holder.get_stat(ST_TRAIT_INTELLIGENCE), 6, TRUE) - 1, 1, 4)
+		var/amount = clamp(SSroll.storyteller_roll(H.st_get_stat(STAT_INTELLIGENCE), 6, TRUE) - 1, 1, 4)
 		for(var/i = 1 to amount)
 			new /obj/item/food/vampire/weed(get_turf(user))
 	update_weed_icon()
@@ -62,7 +62,6 @@
 			wet = TRUE
 			to_chat(user, span_notice("You fill [src] with water."))
 			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
-			call_dharma("cleangrow", user)
 		else
 			to_chat(user, span_warning("[W] is empty!"))
 	if(istype(W, /obj/item/weedseed))

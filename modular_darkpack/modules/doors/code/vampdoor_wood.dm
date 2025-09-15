@@ -1,6 +1,6 @@
 /obj/structure/vampdoor/wood
 	icon_state = "wood-1"
-	baseicon = "wood"
+	base_icon_state = "wood"
 	burnable = TRUE
 
 /obj/structure/vampdoor/wood/strip

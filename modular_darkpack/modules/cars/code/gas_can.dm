@@ -3,7 +3,7 @@
 	desc = "Stores gasoline or pure fire death."
 	icon_state = "gasoline"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL

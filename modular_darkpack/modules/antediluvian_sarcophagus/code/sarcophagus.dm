@@ -86,7 +86,7 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 /obj/sarcophagus
 	name = "Unknown Sarcophagus"
 	desc = "Contains elder devil..."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "b_sarcophagus"
 	plane = GAME_PLANE
 	layer = CAR_LAYER
@@ -129,7 +129,7 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 /obj/item/fake_sarcophagus
 	name = "Voivode-in-Waiting's Sarcophagus"
 	desc = "The Voivode-in-Waiting lies here."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "b_sarcophagus"
 	density = TRUE
 	anchored = TRUE

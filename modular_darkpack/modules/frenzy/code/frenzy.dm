@@ -16,17 +16,11 @@
 			to_chat(src, "I'm full of [span_danger("<b>ANGER</b>")], and I'm about to flare up in [span_danger("<b>RAGE</b>")]. Rolling...")
 		else if(iskindred(src))
 			to_chat(src, "I need [span_danger("<b>BLOOD</b>")]. The [span_danger("<b>BEAST</b>")] is calling. Rolling...")
-		else if(iscathayan(src))
-			to_chat(src, "My [span_danger("<b>P'o</b>")] is awakening. Rolling...")
 		else
 			to_chat(src, "I'm too [span_danger("<b>AFRAID</b>")] to continue doing this. Rolling...")
 		SEND_SOUND(src, sound('modular_darkpack/modules/deprecated/sounds/bloodneed.ogg', 0, 0, 50))
 
-		var/check
-		if(iscathayan(src))
-			check = SSroll.storyteller_roll(max(1, mind.dharma.Hun), min(10, (mind.dharma.level*2)-max_demon_chi), src)
-		else
-			check = SSroll.storyteller_roll(max(1, round(humanity/2)), min(frenzy_chance_boost, frenzy_hardness), src)
+		var/check = SSroll.storyteller_roll(max(1, round(humanity/2)), min(frenzy_chance_boost, frenzy_hardness), src)
 
 		// Modifier for frenzy duration
 		var/length_modifier = HAS_TRAIT(src, TRAIT_LONGER_FRENZY) ? 2 : 1
@@ -60,7 +54,6 @@
 		return
 
 	in_frenzy = FALSE
-	mind?.dharma?.Po_combat = FALSE
 	remove_client_colour(/datum/client_colour/glass_colour/red)
 	GLOB.frenzy_list -= src
 
@@ -89,20 +82,19 @@
 
 	var/atom/fear
 	for(var/obj/effect/fire/F in GLOB.fires_list)
-		if(F)
-			if(get_dist(src, F) < 7 && F.z == src.z)
-				if(get_dist(src, F) < 6)
-					fear = F
-				if(get_dist(src, F) < 5)
-					fear = F
-				if(get_dist(src, F) < 4)
-					fear = F
-				if(get_dist(src, F) < 3)
-					fear = F
-				if(get_dist(src, F) < 2)
-					fear = F
-				if(get_dist(src, F) < 1)
-					fear = F
+		if(get_dist(src, F) < 7 && F.z == src.z)
+			if(get_dist(src, F) < 6)
+				fear = F
+			if(get_dist(src, F) < 5)
+				fear = F
+			if(get_dist(src, F) < 4)
+				fear = F
+			if(get_dist(src, F) < 3)
+				fear = F
+			if(get_dist(src, F) < 2)
+				fear = F
+			if(get_dist(src, F) < 1)
+				fear = F
 
 //	if(!fear && !frenzy_target)
 //		return
@@ -128,7 +120,7 @@
 						playsound(src, 'modular_darkpack/modules/deprecated/sounds/drinkblood1.ogg', 50, TRUE)
 						L.visible_message(span_warning("<b>[src] bites [L]'s neck!</b>"), span_warning("<b>[src] bites your neck!</b>"))
 						face_atom(L)
-						H.drinksomeblood(L)
+						H.vamp_bite()
 			else
 				step_to(src,frenzy_target,0)
 				face_atom(frenzy_target)
