@@ -64,24 +64,16 @@
 	if(istype(owner.loc, /obj/vampire_car))
 		var/obj/vampire_car/V = owner.loc
 		if(!V.on)
-			if(V.get_integrity() == V.max_integrity)
-				V.on = TRUE
-				playsound(V, 'modular_darkpack/modules/deprecated/sounds/start.ogg', 50, TRUE)
-				to_chat(owner, span_notice("You managed to start [V]'s engine."))
-				return
-			if(prob(100*(V.get_integrity()/V.max_integrity)))
-				V.on = TRUE
-				playsound(V, 'modular_darkpack/modules/deprecated/sounds/start.ogg', 50, TRUE)
+			if((V.get_integrity() == V.max_integrity) || (prob(100*(V.get_integrity()/V.max_integrity))))
+				V.start_engine()
 				to_chat(owner, span_notice("You managed to start [V]'s engine."))
 				return
 			else
 				to_chat(owner, span_warning("You failed to start [V]'s engine."))
 				return
 		else
-			V.on = FALSE
-			playsound(V, 'modular_darkpack/modules/deprecated/sounds/stop.ogg', 50, TRUE)
+			V.stop_engine()
 			to_chat(owner, span_notice("You stop [V]'s engine."))
-			V.set_light(0)
 			return
 
 /datum/action/carr/exit_car

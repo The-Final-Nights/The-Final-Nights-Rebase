@@ -5,6 +5,37 @@
 	light_range = 1
 	duration = 0.5 SECONDS
 
+/datum/looping_sound/car_engine
+	start_sound = 'modular_darkpack/modules/deprecated/sounds/start.ogg'
+	start_length = 2 SECONDS
+	mid_sounds = list('modular_darkpack/modules/deprecated/sounds/work.ogg')
+	mid_length = 1.1 SECONDS
+	end_sound = 'modular_darkpack/modules/deprecated/sounds/stop.ogg'
+
+/datum/storage/car
+	do_rustle = FALSE
+	silent = TRUE
+	max_slots = 40
+	max_total_storage = 100
+	max_specific_storage = WEIGHT_CLASS_HUGE
+	insert_on_attack = FALSE
+
+/datum/storage/car/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
+	. = ..()
+	set_locked(STORAGE_FULLY_LOCKED)
+
+/datum/storage/car/limo
+	max_slots = 45
+
+/datum/storage/car/truck
+	max_slots = 100
+	max_total_storage = 200
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+
+/datum/storage/car/van
+	max_slots = 60
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+
 /obj/vampire_car
 	name = "car"
 	desc = "Take me home, country roads..."
@@ -25,8 +56,6 @@
 	max_integrity = 400
 	integrity_failure = 0.25
 	var/broken = FALSE
-
-	var/last_vzhzh = 0
 
 	var/image/headlight_image
 	var/headlight_on = FALSE
@@ -54,13 +83,14 @@
 
 	#warn do this
 	/// sound loop for the engine
-	var/datum/looping_sound/soundloop
+	var/datum/looping_sound/car_engine/engine_sound_loop
 
 	COOLDOWN_DECLARE(impact_delay)
 
 /obj/vampire_car/Initialize(mapload)
 	. = ..()
-	START_PROCESSING(SScarpool, src)
+	engine_sound_loop = new(src)
+	//START_PROCESSING(SScarpool, src)
 
 	create_storage(storage_type = car_storage_type)
 
@@ -88,6 +118,7 @@
 
 /obj/vampire_car/Destroy()
 	STOP_PROCESSING(SScarpool, src)
+	QDEL_NULL(engine_sound_loop)
 	empty_car()
 	. = ..()
 
@@ -442,10 +473,6 @@
 		stop_engine()
 		if(driver)
 			to_chat(driver, span_warning("No fuel in the tank!"))
-	if(on)
-		if(last_vzhzh+10 < world.time)
-			playsound(src, 'modular_darkpack/modules/deprecated/sounds/work.ogg', 25, FALSE)
-			last_vzhzh = world.time
 	if(!on || !driver)
 		speed_in_pixels = (speed_in_pixels < 0 ? -1 : 1) * max(abs(speed_in_pixels) - 15, 0)
 		if(speed_in_pixels == 0 && !light_on)
@@ -632,32 +659,14 @@
 	transform = M
 
 /obj/vampire_car/proc/start_engine()
+	if(on)
+		return
 	START_PROCESSING(SScarpool, src)
 	on = TRUE
+	engine_sound_loop.start()
 
 /obj/vampire_car/proc/stop_engine()
+	if(!on)
+		return
 	on = FALSE
-
-/datum/storage/car
-	do_rustle = FALSE
-	silent = TRUE
-	max_slots = 40
-	max_total_storage = 100
-	max_specific_storage = WEIGHT_CLASS_HUGE
-	insert_on_attack = FALSE
-
-/datum/storage/car/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
-	. = ..()
-	set_locked(STORAGE_FULLY_LOCKED)
-
-/datum/storage/car/limo
-	max_slots = 45
-
-/datum/storage/car/truck
-	max_slots = 100
-	max_total_storage = 200
-	max_specific_storage = WEIGHT_CLASS_GIGANTIC
-
-/datum/storage/car/van
-	max_slots = 60
-	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	engine_sound_loop.stop()

@@ -1,3 +1,11 @@
+/datum/reagent/gasoline
+	name = "Gasoline"
+	color = "#b85614"
+
+/obj/item/reagent_containers/cup/jerrycan/gasoline
+	list_reagents = list(/datum/reagent/gasoline = 200)
+
+
 #warn convert to jerry can with reagents
 /obj/item/gas_can
 	name = "gas can"
