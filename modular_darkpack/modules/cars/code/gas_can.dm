@@ -1,3 +1,4 @@
+#warn convert to jerry can with reagents
 /obj/item/gas_can
 	name = "gas can"
 	desc = "Stores gasoline or pure fire death."

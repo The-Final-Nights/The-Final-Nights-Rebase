@@ -1,40 +1,22 @@
 // ! Bad code that needs to be removed
 
-/turf
-	var/list/unpassable = list()
-
-/turf/Initialize(mapload)
-	. = ..()
+/turf/proc/get_blocking_contents(exclude_mobs = FALSE, source_atom = null, list/ignore_atoms)
 	if(density)
-		unpassable += src
+		return list(src)
 
-/atom/movable/Initialize(mapload)
-	. = ..()
-	if(density && !isitem(src))
-		if(isturf(get_turf(src)))
-			var/turf/T = get_turf(src)
-			T.unpassable += src
-
-/atom/movable/Destroy()
-	var/turf/T = get_turf(src)
-	if(T)
-		T.unpassable -= src
-	. = ..()
-
-/turf/Exited(atom/movable/AM, atom/newLoc)
-	. = ..()
-	unpassable -= AM
-	if(AM.density && !isitem(AM))
-		if(isturf(newLoc))
-			var/turf/T = newLoc
-			T.unpassable += AM
-
-/mob/living/death(gibbed)
-	. = ..()
-	var/turf/T = get_turf(src)
-	if(T)
-		T.unpassable -= src
-
+	var/list/blocking_content = list()
+	for(var/content in contents)
+		// We don't want to block ourselves or consider any ignored atoms.
+		if((content == source_atom) || (content in ignore_atoms))
+			continue
+		var/atom/atom_content = content
+		// If the thing is dense AND we're including mobs or the thing isn't a mob AND if there's a source atom and
+		// it cannot pass through the thing on the turf,  we consider the turf blocked.
+		if(atom_content.density && (!exclude_mobs || !ismob(atom_content)))
+			if(source_atom && atom_content.CanPass(source_atom, src))
+				continue
+			blocking_content += content
+	return blocking_content
 
 /mob/living/carbon/human/mouse_drop_receive(atom/over_object)
 	. = ..()
@@ -65,9 +47,8 @@
 				S.Grant(src)
 				var/datum/action/carr/beep/B = new()
 				B.Grant(src)
-				if(V.baggage_limit > 0)
-					var/datum/action/carr/baggage/G = new()
-					G.Grant(src)
+				var/datum/action/carr/baggage/G = new()
+				G.Grant(src)
 			else if(length(V.passengers) < V.max_passengers)
 				forceMove(over_object)
 				V.passengers += src

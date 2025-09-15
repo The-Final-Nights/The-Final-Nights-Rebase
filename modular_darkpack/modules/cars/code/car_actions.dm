@@ -9,7 +9,7 @@
 	if(!istype(car))
 		return
 	car.set_headlight_on(!car.headlight_on)
-	to_chat(owner, span_notice("You toggle [V]'s lights."))
+	to_chat(owner, span_notice("You toggle [car]'s lights."))
 	playsound(car, 'sound/items/weapons/magout.ogg', 40, TRUE)
 
 /datum/action/carr/beep
@@ -64,12 +64,12 @@
 	if(istype(owner.loc, /obj/vampire_car))
 		var/obj/vampire_car/V = owner.loc
 		if(!V.on)
-			if(V.atom_integrity == V.max_integrity)
+			if(V.get_integrity() == V.max_integrity)
 				V.on = TRUE
 				playsound(V, 'modular_darkpack/modules/deprecated/sounds/start.ogg', 50, TRUE)
 				to_chat(owner, span_notice("You managed to start [V]'s engine."))
 				return
-			if(prob(100*(V.atom_integrity/V.max_integrity)))
+			if(prob(100*(V.get_integrity()/V.max_integrity)))
 				V.on = TRUE
 				playsound(V, 'modular_darkpack/modules/deprecated/sounds/start.ogg', 50, TRUE)
 				to_chat(owner, span_notice("You managed to start [V]'s engine."))

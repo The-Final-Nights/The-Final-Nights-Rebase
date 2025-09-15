@@ -78,14 +78,13 @@
 	icon_state = "unmarked"
 */
 
-/obj/vampire_car/police/set_fari_on(new_value)
+/obj/vampire_car/police/set_headlight_on(new_value)
 	. = ..()
 	if(isnull(.))
 		return
-	set_light_on(fari_on)
+	set_light_on(headlight_on)
 
-
-/obj/vampire_car/police/handle_caring()
+/obj/vampire_car/police/car_move()
 	if(!light_on)
 		return ..()
 	if(!COOLDOWN_FINISHED(src, last_color_change))
