@@ -192,6 +192,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 // DARKPACK EDIT START
 #define SMOOTH_GROUP_REINFORCED_TABLES S_OBJ(57) ///obj/structure/table/reinforced
+#define SMOOTH_GROUP_BACO_TABLES S_OBJ(58) ///obj/structure/table/bacotell
+#define SMOOTH_GROUP_BUB_TABLES S_OBJ(59) ///obj/structure/table/bubway
 // DARKPACK EDIT END
 
 #define SMOOTH_GROUP_ALIEN_NEST S_OBJ(60) ///obj/structure/bed/nest
@@ -228,6 +230,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_PLATFORMS_STONE S_OBJ(84) ///obj/structure/platform/sandstone & cult
 #define SMOOTH_GROUP_PLATFORMS_PIZZA S_OBJ(85) ///obj/structure/platform/pizza
 #define SMOOTH_GROUP_PLATFORMS_PAPER S_OBJ(86) ///obj/structure/platform/paper
+
+#define SMOOTH_GROUP_VENTS S_OBJ(87) ///obj/structure/roofstuff/vent/autotiling // DARKPACK EDIT ADD
 
 /// Performs the work to set smoothing_groups and canSmoothWith.
 /// An inlined function used in both turf/Initialize and atom/Initialize.

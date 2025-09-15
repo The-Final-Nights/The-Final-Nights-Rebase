@@ -583,8 +583,8 @@
 	desc = "Special deliever."
 	icon_state = "box"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	w_class = WEIGHT_CLASS_HUGE
 
 /obj/structure/cargo_take
