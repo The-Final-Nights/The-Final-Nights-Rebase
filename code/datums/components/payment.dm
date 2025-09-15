@@ -114,7 +114,7 @@
 
 	// DARKPACK EDIT CHANGE START - ECONOMY
 	if(physical_cash_total > 0)
-		var/obj/item/stack/dollar/dollars_left = new /obj/item/stack/dollar(user.loc, physical_cash_total) //Change is made in holocredits exclusively.
+		var/obj/item/stack/dollar/dollars_left = new /obj/item/stack/dollar(user.loc, physical_cash_total) //Change is made in dollars exclusively.
 		if(ishuman(user))
 			var/mob/living/carbon/human/paying_customer = user
 			var/successfully_put_in_hands
