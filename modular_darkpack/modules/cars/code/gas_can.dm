@@ -2,9 +2,18 @@
 	name = "Gasoline"
 	color = "#b85614"
 
-/obj/item/reagent_containers/cup/jerrycan/gasoline
+/*
+/obj/item/reagent_containers/cup/gas_can
+	name = "gas can"
+	desc = "Stores gasoline or pure fire death."
+	icon_state = "gasoline"
+	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	w_class = WEIGHT_CLASS_SMALL
 	list_reagents = list(/datum/reagent/gasoline = 200)
-
+*/
 
 #warn convert to jerry can with reagents
 /obj/item/gas_can
