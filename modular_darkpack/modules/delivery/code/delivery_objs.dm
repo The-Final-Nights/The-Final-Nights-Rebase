@@ -401,7 +401,7 @@
 		delivery = null
 	. = ..()
 
-/obj/vampire_car/delivery_truck
+/obj/darkpack_car/delivery_truck
 	name = "delivery truck"
 	desc = "A truck with specially prepared racks in the back allowing for easy storage and retrieval of delivery packages."
 	icon_state = "track"
@@ -413,7 +413,7 @@
 	var/datum/delivery_datum/delivery
 	var/datum/delivery_storage/delivery_trunk
 
-/obj/vampire_car/delivery_truck/Destroy()
+/obj/darkpack_car/delivery_truck/Destroy()
 	if(delivery)
 		if(delivery.active_truck == src) delivery.active_truck = null
 		delivery = null
@@ -421,14 +421,14 @@
 	. = ..()
 
 
-/obj/vampire_car/delivery_truck/Initialize(mapload)
+/obj/darkpack_car/delivery_truck/Initialize(mapload)
 	. = ..()
 	delivery_trunk = new(src,delivery_capacity)
 
-/obj/vampire_car/delivery_truck/ComponentInitialize(mapload)
+/obj/darkpack_car/delivery_truck/ComponentInitialize(mapload)
 	return
 
-/obj/vampire_car/delivery_truck/attack_hand(mob/user)
+/obj/darkpack_car/delivery_truck/attack_hand(mob/user)
 	. = ..()
 	if(locked == TRUE)
 		to_chat(user,span_warning("The truck is locked!"))
@@ -465,7 +465,7 @@
 /obj/effect/landmark/delivery_truck_beacon/proc/spawn_truck(datum/linked_datum)
 	if(!linked_datum) return
 	var/turf/local_turf = get_turf(src)
-	var/obj/vampire_car/delivery_truck/spawned_truck = new(local_turf)
+	var/obj/darkpack_car/delivery_truck/spawned_truck = new(local_turf)
 	spawned_truck.dir = spawn_dir
 	switch(spawn_dir)
 		if(NORTH)

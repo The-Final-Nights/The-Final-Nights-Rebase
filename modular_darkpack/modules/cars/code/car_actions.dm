@@ -7,7 +7,7 @@
 	button_icon_state = "lights"
 
 /datum/action/darkpack_car/headlight/Trigger(trigger_flags)
-	var/obj/vampire_car/car = owner.loc
+	var/obj/darkpack_car/car = owner.loc
 	if(!istype(car))
 		return
 	car.set_headlight_on(!car.headlight_on)
@@ -20,8 +20,8 @@
 	button_icon_state = "beep"
 
 /datum/action/darkpack_car/beep/Trigger(trigger_flags)
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
+	if(istype(owner.loc, /obj/darkpack_car))
+		var/obj/darkpack_car/V = owner.loc
 		if(V.last_beep+10 < world.time)
 			V.last_beep = world.time
 			playsound(V.loc, V.beep_sound, 60, FALSE)
@@ -32,8 +32,8 @@
 	button_icon_state = "stage"
 
 /datum/action/darkpack_car/stage/Trigger(trigger_flags)
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
+	if(istype(owner.loc, /obj/darkpack_car))
+		var/obj/darkpack_car/V = owner.loc
 		if(V.stage < 3)
 			V.stage = V.stage+1
 		else
@@ -46,8 +46,8 @@
 	button_icon_state = "baggage"
 
 /datum/action/darkpack_car/baggage/Trigger(trigger_flags)
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/vamp_car = owner.loc
+	if(istype(owner.loc, /obj/darkpack_car))
+		var/obj/darkpack_car/vamp_car = owner.loc
 		var/datum/storage/trunk = vamp_car.atom_storage
 		trunk.set_locked(trunk.locked ? STORAGE_NOT_LOCKED : STORAGE_FULLY_LOCKED)
 
@@ -63,8 +63,8 @@
 	button_icon_state = "keys"
 
 /datum/action/darkpack_car/engine/Trigger(trigger_flags)
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
+	if(istype(owner.loc, /obj/darkpack_car))
+		var/obj/darkpack_car/V = owner.loc
 		if(!V.on)
 			if((V.get_integrity() == V.max_integrity) || (prob(100*(V.get_integrity()/V.max_integrity))))
 				V.start_engine()
@@ -84,8 +84,8 @@
 	button_icon_state = "exit"
 
 /datum/action/darkpack_car/exit_car/Trigger(trigger_flags)
-	if(istype(owner.loc, /obj/vampire_car))
-		var/obj/vampire_car/V = owner.loc
+	if(istype(owner.loc, /obj/darkpack_car))
+		var/obj/darkpack_car/V = owner.loc
 		if(V.driver == owner)
 			V.driver = null
 		if(owner in V.passengers)

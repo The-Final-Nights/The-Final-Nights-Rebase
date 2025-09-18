@@ -36,7 +36,7 @@
 	max_slots = 60
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
 
-/obj/vampire_car
+/obj/darkpack_car
 	name = "car"
 	desc = "Take me home, country roads..."
 	icon_state = "2"
@@ -87,7 +87,7 @@
 
 	COOLDOWN_DECLARE(impact_delay)
 
-/obj/vampire_car/Initialize(mapload)
+/obj/darkpack_car/Initialize(mapload)
 	. = ..()
 	engine_sound_loop = new(src)
 	//START_PROCESSING(SScarpool, src)
@@ -116,13 +116,13 @@
 	add_overlay(image(icon = src.icon, icon_state = src.icon_state, pixel_x = -32, pixel_y = -32))
 	icon_state = "empty"
 
-/obj/vampire_car/Destroy()
+/obj/darkpack_car/Destroy()
 	STOP_PROCESSING(SScarpool, src)
 	QDEL_NULL(engine_sound_loop)
 	empty_car()
 	. = ..()
 
-/obj/vampire_car/click_alt(mob/user)
+/obj/darkpack_car/click_alt(mob/user)
 	if(!repairing)
 		if(locked)
 			to_chat(user, span_warning("[src] is locked!"))
@@ -150,7 +150,7 @@
 		repairing = FALSE
 		return
 
-/obj/vampire_car/attackby(obj/item/I, mob/living/user, params)
+/obj/darkpack_car/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/gas_can))
 		var/obj/item/gas_can/G = I
 		if(G.stored_gasoline && gas < 1000 && isturf(user.loc))
@@ -252,7 +252,7 @@
 
 	. = ..()
 
-/obj/vampire_car/attack_hand(mob/user)
+/obj/darkpack_car/attack_hand(mob/user)
 	. = ..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -262,13 +262,13 @@
 			take_damage(10)
 			throw_at(throw_target, rand(4, 6), 4, user)
 
-/obj/vampire_car/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
+/obj/darkpack_car/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	. = ..()
 	for(var/mob/living/L in src)
 		if(prob(50))
 			L.apply_damage(P.damage, P.damage_type, pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST))
 
-/obj/vampire_car/examine(mob/user)
+/obj/darkpack_car/examine(mob/user)
 	. = ..()
 	if(user.loc == src)
 		. += "<b>Gas</b>: [gas]/1000"
@@ -287,7 +287,7 @@
 		for(var/mob/living/rider in src)
 			. += span_notice("* [rider]")
 
-/obj/vampire_car/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
+/obj/darkpack_car/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	. = ..()
 	if(prob(50) && atom_integrity <= max_integrity/2)
 		stop_engine()
@@ -298,14 +298,14 @@
 			empty_car()
 			explosion(loc,0,1,3,4)
 
-/obj/vampire_car/atom_break(damage_flag)
+/obj/darkpack_car/atom_break(damage_flag)
 	. = ..()
 	stop_engine()
 	set_light(0)
 	color = "#919191"
 	broken = TRUE
 
-/obj/vampire_car/proc/set_headlight_on(new_value)
+/obj/darkpack_car/proc/set_headlight_on(new_value)
 	if(headlight_on == new_value)
 		return
 	. = headlight_on
@@ -315,7 +315,7 @@
 	else
 		cut_overlay(headlight_image)
 
-/obj/vampire_car/mouse_drop_receive(mob/living/dropped, mob/user, params)
+/obj/darkpack_car/mouse_drop_receive(mob/living/dropped, mob/user, params)
 	. = ..()
 	if(!isliving(dropped))
 		return
@@ -360,12 +360,12 @@
 		return
 
 //Dump out all living from the car
-/obj/vampire_car/proc/empty_car()
+/obj/darkpack_car/proc/empty_car()
 	for(var/mob/living/L in src)
 		empty_occupent(L)
 
 //Dump one guy out of the car.
-/obj/vampire_car/proc/empty_occupent(mob/living/dumpe)
+/obj/darkpack_car/proc/empty_occupent(mob/living/dumpe)
 	if(driver == dumpe)
 		driver = null
 	if(dumpe in passengers)
@@ -397,7 +397,7 @@
 	for(var/datum/action/darkpack_car/C in dumpe.actions)
 		qdel(C)
 
-/obj/vampire_car/Bump(atom/A)
+/obj/darkpack_car/Bump(atom/A)
 	. = ..()
 	var/prev_speed = round(abs(speed_in_pixels)/4)
 	if(!prev_speed)
@@ -452,19 +452,19 @@
 	take_damage(dam)
 	return
 
-/obj/vampire_car/setDir(newdir)
+/obj/darkpack_car/setDir(newdir)
 	. = ..()
 	apply_vector_angle()
 
-/obj/vampire_car/Moved(atom/OldLoc, Dir)
+/obj/darkpack_car/Moved(atom/OldLoc, Dir)
 	. = ..()
 	last_pos["x"] = x
 	last_pos["y"] = y
 
-/obj/vampire_car/process(seconds_per_tick)
+/obj/darkpack_car/process(seconds_per_tick)
 	car_move()
 
-/obj/vampire_car/proc/car_move()
+/obj/darkpack_car/proc/car_move()
 	speed_in_pixels = max(speed_in_pixels, -64)
 	var/used_vector = movement_vector
 	var/used_speed = speed_in_pixels
@@ -539,7 +539,7 @@
 	animate(src, pixel_x = last_pos["x_pix"]+moved_x, pixel_y = last_pos["y_pix"]+moved_y, SScarpool.wait, 1)
 	update_last_pos(moved_x, moved_y)
 
-/obj/vampire_car/proc/handle_npc_dodge(turf/target, angle)
+/obj/darkpack_car/proc/handle_npc_dodge(turf/target, angle)
 	for(var/turf/T in get_line(src, target))
 		var/list/unpassable = T.get_blocking_contents(FALSE, src)
 		if(!length(unpassable))
@@ -562,7 +562,7 @@
 						NPC.realistic_say(pick(NPC.socialrole.car_dodged))
 
 /// Moves the client cameras of living inside of the car.
-/obj/vampire_car/proc/move_car_riders(moved_x, moved_y)
+/obj/darkpack_car/proc/move_car_riders(moved_x, moved_y)
 	for(var/mob/living/rider in src)
 		if(rider)
 			if(rider.client)
@@ -573,7 +573,7 @@
 					pixel_y = last_pos["y_pix"] + moved_y * 2, \
 					SScarpool.wait, 1)
 
-/obj/vampire_car/proc/update_last_pos(moved_x, moved_y)
+/obj/darkpack_car/proc/update_last_pos(moved_x, moved_y)
 	// Step 1: Move pixel and forward positions
 	last_pos["x_frwd"] = last_pos["x_pix"] + moved_x * 2
 	last_pos["y_frwd"] = last_pos["y_pix"] + moved_y * 2
@@ -594,7 +594,7 @@
 	last_pos["x"] = clamp(last_pos["x"] + x_add, 1, world.maxx)
 	last_pos["y"] = clamp(last_pos["y"] + y_add, 1, world.maxy)
 
-/obj/vampire_car/relaymove(mob/living/carbon/human/driver, direct)
+/obj/darkpack_car/relaymove(mob/living/carbon/human/driver, direct)
 	if(!COOLDOWN_FINISHED(src, impact_delay))
 		return
 	if(driver.IsUnconscious() || HAS_TRAIT(driver, TRAIT_INCAPACITATED) || HAS_TRAIT(driver, TRAIT_RESTRAINED))
@@ -618,7 +618,7 @@
 		if(WEST)
 			controlling(0, -turn_speed)
 
-/obj/vampire_car/proc/controlling(adjusting_speed, adjusting_turn)
+/obj/darkpack_car/proc/controlling(adjusting_speed, adjusting_turn)
 	var/drift = 1
 	if(driver && HAS_TRAIT(driver, TRAIT_EXP_DRIVER))
 		drift = 2
@@ -649,7 +649,7 @@
 				speed_in_pixels = max(0, speed_in_pixels+adjusting_speed*3)
 				movement_vector = SIMPLIFY_DEGREES(movement_vector+adjust_true*drift)
 
-/obj/vampire_car/proc/apply_vector_angle()
+/obj/darkpack_car/proc/apply_vector_angle()
 	var/turn_state = round(SIMPLIFY_DEGREES(movement_vector + 22.5) / 45)
 	dir = GLOB.modulo_angle_to_dir[turn_state + 1]
 	var/minus_angle = turn_state * 45
@@ -658,14 +658,14 @@
 	M.Turn(movement_vector - minus_angle)
 	transform = M
 
-/obj/vampire_car/proc/start_engine()
+/obj/darkpack_car/proc/start_engine()
 	if(on)
 		return
 	START_PROCESSING(SScarpool, src)
 	on = TRUE
 	engine_sound_loop.start()
 
-/obj/vampire_car/proc/stop_engine()
+/obj/darkpack_car/proc/stop_engine()
 	if(!on)
 		return
 	on = FALSE

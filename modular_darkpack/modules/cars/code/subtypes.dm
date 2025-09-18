@@ -1,65 +1,65 @@
-/obj/vampire_car/retro
+/obj/darkpack_car/retro
 	icon_state = "1"
 	max_passengers = 1
 	dir = WEST
 
-/obj/vampire_car/retro/rand
+/obj/darkpack_car/retro/rand
 	icon_state = "3"
 
-/obj/vampire_car/retro/rand/Initialize(mapload)
+/obj/darkpack_car/retro/rand/Initialize(mapload)
 	icon_state = "[pick(1, 3, 5)]"
 	if(access == "none")
 		access = "npc[rand(1, 20)]"
 	. = ..()
 
-/obj/vampire_car/rand
+/obj/darkpack_car/rand
 	icon_state = "4"
 	dir = WEST
 
-/obj/vampire_car/rand/Initialize(mapload)
+/obj/darkpack_car/rand/Initialize(mapload)
 	icon_state = "[pick(2, 4, 6)]"
 	if(access == "none")
 		access = "npc[rand(1, 20)]"
 	. = ..()
 
-/obj/vampire_car/rand/camarilla
+/obj/darkpack_car/rand/camarilla
 	access = "camarilla"
 	icon_state = "6"
 
-/obj/vampire_car/retro/rand/camarilla
+/obj/darkpack_car/retro/rand/camarilla
 	access = "camarilla"
 	icon_state = "5"
 
-/obj/vampire_car/rand/anarch
+/obj/darkpack_car/rand/anarch
 	access = "anarch"
 	icon_state = "6"
 
-/obj/vampire_car/retro/rand/anarch
+/obj/darkpack_car/retro/rand/anarch
 	access = "anarch"
 	icon_state = "5"
 
-/obj/vampire_car/rand/clinic
+/obj/darkpack_car/rand/clinic
 	access = "clinic"
 	icon_state = "6"
 
-/obj/vampire_car/retro/rand/clinic
+/obj/darkpack_car/retro/rand/clinic
 	access = "clinic"
 	icon_state = "5"
 
-/obj/vampire_car/limousine
+/obj/darkpack_car/limousine
 	icon_state = "limo"
 	max_passengers = 6
 	dir = WEST
 	car_storage_type = /datum/storage/car/limo
 
-/obj/vampire_car/limousine/giovanni
+/obj/darkpack_car/limousine/giovanni
 	icon_state = "giolimo"
 	access = "giovanni"
 
-/obj/vampire_car/limousine/camarilla
+/obj/darkpack_car/limousine/camarilla
 	icon_state = "limo"
 
-/obj/vampire_car/police
+/obj/darkpack_car/police
 	icon_state = "police"
 	max_passengers = 3
 	dir = WEST
@@ -74,17 +74,17 @@
 	COOLDOWN_DECLARE(last_color_change)
 
 /*
-/obj/vampire_car/police/unmarked
+/obj/darkpack_car/police/unmarked
 	icon_state = "unmarked"
 */
 
-/obj/vampire_car/police/set_headlight_on(new_value)
+/obj/darkpack_car/police/set_headlight_on(new_value)
 	. = ..()
 	if(isnull(.))
 		return
 	set_light_on(headlight_on)
 
-/obj/vampire_car/police/car_move()
+/obj/darkpack_car/police/car_move()
 	if(!light_on)
 		return ..()
 	if(!COOLDOWN_FINISHED(src, last_color_change))
@@ -98,29 +98,29 @@
 		set_light_color("#0000ff")
 	return ..()
 
-/obj/vampire_car/taxi
+/obj/darkpack_car/taxi
 	icon_state = "taxi"
 	max_passengers = 3
 	dir = WEST
 	access = "taxi"
 
-/obj/vampire_car/track
+/obj/darkpack_car/track
 	icon_state = "track"
 	max_passengers = 6
 	dir = WEST
 	access = "none"
 	car_storage_type = /datum/storage/car/truck
 
-/obj/vampire_car/track/Initialize(mapload)
+/obj/darkpack_car/track/Initialize(mapload)
 	if(access == "none")
 		access = "npc[rand(1, 20)]"
 	. = ..()
 
-/obj/vampire_car/track/volkswagen
+/obj/darkpack_car/track/volkswagen
 	icon_state = "volkswagen"
 	car_storage_type = /datum/storage/car/van
 
-/obj/vampire_car/track/ambulance
+/obj/darkpack_car/track/ambulance
 	icon_state = "ambulance"
 	access = "clinic"
 	car_storage_type = /datum/storage/car/van
