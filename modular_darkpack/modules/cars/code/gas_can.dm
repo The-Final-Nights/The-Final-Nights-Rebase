@@ -1,8 +1,8 @@
+/* TODO: [Rebase] - Gas should be handled as a reagent
 /datum/reagent/gasoline
 	name = "Gasoline"
 	color = "#b85614"
 
-/*
 /obj/item/reagent_containers/cup/gas_can
 	name = "gas can"
 	desc = "Stores gasoline or pure fire death."
@@ -40,10 +40,9 @@
 	. = ..()
 	stored_gasoline = rand(0, 500)
 
-/*
 /obj/item/gas_can/afterattack(atom/A, mob/user, proximity)
 	. = ..()
-	if(istype(get_turf(A), /turf/open/floor) && !istype(A, /obj/darkpack_car) && !istype(A, /obj/structure/fuelstation) && !istype(A, /mob/living/carbon/human) && !istype(A, /obj/structure/drill))
+	if(istype(get_turf(A), /turf/open/floor) && !istype(A, /obj/darkpack_car) && !istype(A, /obj/structure/fuelstation) && !istype(A, /mob/living/carbon/human))
 		var/obj/effect/decal/cleanable/gasoline/G = locate() in get_turf(A)
 		if(G)
 			return
@@ -64,18 +63,17 @@
 		H.fire_stacks = min(10, H.fire_stacks+10)
 		playsound(get_turf(H), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
 		user.visible_message(span_warning("[user] covers [A] in something flammable!"))
-*/
-/*
+
 /obj/effect/decal/cleanable/gasoline
 	name = "gasoline"
 	desc = "I HOPE YOU DIE IN A FIRE!!!"
-	icon = 'icons/effects/dirt.dmi'
+	icon = 'modular_darkpack/modules/cars/icons/water.dmi'
 	icon_state = "water"
 	base_icon_state = "water"
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_CLEANABLE_DIRT)
-	canSmoothWith = list(SMOOTH_GROUP_CLEANABLE_DIRT, SMOOTH_GROUP_WALLS)
-//	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	smoothing_groups = SMOOTH_GROUP_SPILL
+	canSmoothWith = SMOOTH_GROUP_SPILL | SMOOTH_GROUP_WALLS
+	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	beauty = -50
 	alpha = 64
 	color = "#c6845b"
@@ -85,6 +83,7 @@
 	QUEUE_SMOOTH(src)
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
+/*
 /obj/effect/decal/cleanable/gasoline/Crossed(atom/movable/AM, oldloc)
 	if(isliving(AM))
 		var/mob/living/L = AM
@@ -93,35 +92,76 @@
 			if(!F)
 				new /obj/effect/fire(get_turf(src))
 	..(AM)
+*/
 
 /obj/effect/decal/cleanable/gasoline/Initialize()
 	. = ..()
+	/*
 	var/turf/T = get_turf(src)
 	if(istype(T, /turf/open/floor))
 		var/turf/open/floor/F = T
 		F.spread_chance = 100
 		F.burn_material += 100
-//	smoothing_flags = SMOOTH_BITMASK
-	QUEUE_SMOOTH(src)
-	QUEUE_SMOOTH_NEIGHBORS(src)
+	*/
+	update_appearance()
 
 /obj/effect/decal/cleanable/gasoline/Destroy()
 	QUEUE_SMOOTH_NEIGHBORS(src)
 	return ..()
 
+/*
 /obj/effect/decal/cleanable/gasoline/fire_act(exposed_temperature, exposed_volume)
 	var/obj/effect/fire/F = locate() in loc
 	if(!F)
 		new /obj/effect/fire(loc)
 	..()
+*/
 
 /obj/effect/decal/cleanable/gasoline/attackby(obj/item/I, mob/living/user)
 	var/attacked_by_hot_thing = I.get_temperature()
 	if(attacked_by_hot_thing)
-		call_dharma("grief", user)
 		visible_message("<span class='warning'>[user] tries to ignite [src] with [I]!</span>", "<span class='warning'>You try to ignite [src] with [I].</span>")
 		log_combat(user, src, (attacked_by_hot_thing < 480) ? "tried to ignite" : "ignited", I)
 		fire_act(attacked_by_hot_thing)
 		return
 	return ..()
-*/
+
+/obj/structure/fuelstation
+	name = "fuel station"
+	desc = "Fuel your car here. 50 dollars per 1000 units."
+	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon_state = "fuelstation"
+	anchored = TRUE
+	density = TRUE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	var/stored_money = 0
+
+/obj/structure/fuelstation/click_alt(mob/user)
+	if(stored_money)
+		say("Money refunded.")
+		for(var/i in 1 to stored_money)
+			new /obj/item/stack/dollar(loc)
+		stored_money = 0
+		return CLICK_ACTION_SUCCESS
+
+/obj/structure/fuelstation/examine(mob/user)
+	. = ..()
+	. += "<b>Balance</b>: [stored_money] dollars"
+
+/obj/structure/fuelstation/attackby(obj/item/I, mob/living/user, params)
+	if(istype(I, /obj/item/stack/dollar))
+		var/obj/item/stack/dollar/dolla = I
+		stored_money += dolla.get_item_credit_value()
+		to_chat(user, span_notice("You insert [dolla.get_item_credit_value()] dollars into [src]."))
+		qdel(I)
+		say("Payment received.")
+	if(istype(I, /obj/item/gas_can))
+		var/obj/item/gas_can/G = I
+		if(G.stored_gasoline < 1000 && stored_money)
+			var/gas_to_dispense = min(stored_money*20, 1000-G.stored_gasoline)
+			var/money_to_spend = round(gas_to_dispense/20)
+			G.stored_gasoline = min(1000, G.stored_gasoline+gas_to_dispense)
+			stored_money = max(0, stored_money-money_to_spend)
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 50, TRUE)
+			to_chat(user, span_notice("You fill [I]."))
+			say("Gas filled.")

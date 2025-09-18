@@ -81,7 +81,6 @@
 
 	var/gas = 1000
 
-	#warn do this
 	/// sound loop for the engine
 	var/datum/looping_sound/car_engine/engine_sound_loop
 

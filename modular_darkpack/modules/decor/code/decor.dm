@@ -529,51 +529,6 @@
 	pixel_w = -24
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
-/obj/structure/fuelstation
-	name = "fuel station"
-	desc = "Fuel your car here. 50 dollars per 1000 units."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "fuelstation"
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	var/stored_money = 0
-
-// TODO: [Rebase] - Refactor into signal handler
-/*
-/obj/structure/fuelstation/click_alt(mob/user)
-	if(stored_money)
-		say("Money refunded.")
-		for(var/i in 1 to stored_money)
-			new /obj/item/stack/dollar(loc)
-		stored_money = 0
-*/
-
-/obj/structure/fuelstation/examine(mob/user)
-	. = ..()
-	. += "<b>Balance</b>: [stored_money] dollars"
-
-// TODO: [Rebase] - Requires /obj/item/gas_can
-/*
-/obj/structure/fuelstation/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/stack/dollar))
-		var/obj/item/stack/dollar/dolla = I
-		stored_money += dolla.get_item_credit_value()
-		to_chat(user, span_notice("You insert [dolla.get_item_credit_value()] dollars into [src]."))
-		qdel(I)
-		say("Payment received.")
-	if(istype(I, /obj/item/gas_can))
-		var/obj/item/gas_can/G = I
-		if(G.stored_gasoline < 1000 && stored_money)
-			var/gas_to_dispense = min(stored_money*20, 1000-G.stored_gasoline)
-			var/money_to_spend = round(gas_to_dispense/20)
-			G.stored_gasoline = min(1000, G.stored_gasoline+gas_to_dispense)
-			stored_money = max(0, stored_money-money_to_spend)
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 50, TRUE)
-			to_chat(user, span_notice("You fill [I]."))
-			say("Gas filled.")
-*/
-
 /obj/structure/bloodextractor
 	name = "blood extractor"
 	desc = "Extract blood in packs."
