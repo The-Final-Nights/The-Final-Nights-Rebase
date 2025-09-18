@@ -109,10 +109,9 @@
 			owner.Move(get_step(owner, exit_alt))
 
 		to_chat(owner, span_notice("You exit [V]."))
-		if(owner)
-			if(owner.client)
-				owner.client.pixel_x = 0
-				owner.client.pixel_y = 0
+		if(owner?.client)
+			owner.client.pixel_x = 0
+			owner.client.pixel_y = 0
 		playsound(V, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
 		for(var/datum/action/darkpack_car/C in owner.actions)
 			qdel(C)
