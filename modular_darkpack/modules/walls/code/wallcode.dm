@@ -482,7 +482,10 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "grass1"
 	footstep = FOOTSTEP_TRAVA
 	barefootstep = FOOTSTEP_TRAVA
-	baseturfs = /turf/open/misc/dirt
+	baseturfs = /turf/open/misc/dirt/vamp
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+
 
 /*
 /turf/open/misc/grass/vamp/attackby(obj/item/I, mob/living/user, params)
@@ -541,6 +544,9 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "dirt"
 	footstep = FOOTSTEP_ASPHALT
 	barefootstep = FOOTSTEP_ASPHALT
+	baseturfs = /turf/open/misc/dirt/vamp
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
 
 /*
 /turf/open/misc/dirt/vamp/attackby(obj/item/I, mob/living/user, params)
@@ -820,6 +826,9 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon_state = "sand1"
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
+	baseturfs = /turf/open/misc/beach/vamp
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
 
 /*
 /turf/open/misc/beach/vamp/attackby(obj/item/I, mob/living/user, params)
