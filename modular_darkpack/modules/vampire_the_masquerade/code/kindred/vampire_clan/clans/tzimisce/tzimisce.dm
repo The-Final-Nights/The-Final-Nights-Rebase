@@ -183,7 +183,7 @@
 	desc = "Just blood and guts..."
 	icon_state = "guts"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/spine
@@ -191,7 +191,7 @@
 	desc = "If only I had control..."
 	icon_state = "spine"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 
 /datum/crafting_recipe/tzi_biter
@@ -501,7 +501,7 @@
 	desc = "Boghatyrskaya sila taitsa zdies'..."
 	icon_state = "dirt"
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/extra_arm

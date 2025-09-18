@@ -7,7 +7,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	armor_type = /datum/armor/keys
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 	var/list/accesslocks = list(
 		"nothing"

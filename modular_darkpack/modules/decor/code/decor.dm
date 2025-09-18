@@ -742,33 +742,6 @@
 	else
 		icon_state = "graffiti[rand(1, 3)]"
 
-/obj/structure/roofstuff
-	name = "roof ventilation"
-	desc = "Air to inside."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "roof1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-
-/obj/structure/roofstuff/Initialize(mapload)
-	. = ..()
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.outdoors)
-				icon_state = "[initial(icon_state)]-snow"
-
-/obj/structure/roofstuff/alt1
-	icon_state = "roof2"
-	density = FALSE
-
-/obj/structure/roofstuff/alt2
-	icon_state = "roof3"
-
-/obj/structure/roofstuff/alt3
-	icon_state = "roof4"
-
 /obj/effect/decal/kopatich
 	name = "hide carpet"
 	pixel_w = -16
