@@ -22,7 +22,8 @@
 		/obj/item/stack/medical/gauze = 1,
 		/obj/item/stack/medical/suture = 2,
 		/obj/item/stack/medical/mesh = 2,
-		/obj/item/reagent_containers/hypospray/medipen = 1)
+		/obj/item/reagent_containers/hypospray/medipen = 1,
+	)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/doctor
@@ -44,7 +45,8 @@
 		/obj/item/surgical_drapes = 1,
 		/obj/item/scalpel = 1,
 		/obj/item/hemostat = 1,
-		/obj/item/cautery = 1)
+		/obj/item/cautery = 1,
+	)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/advanced
@@ -60,7 +62,8 @@
 		/obj/item/reagent_containers/applicator/patch/synthflesh = 3,
 		/obj/item/reagent_containers/hypospray/medipen/atropine = 2,
 		/obj/item/stack/medical/gauze = 1,
-		/obj/item/storage/pill_bottle/penacid = 1)
+		/obj/item/storage/pill_bottle/penacid = 1,
+	)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/brute
@@ -76,7 +79,8 @@
 		/obj/item/reagent_containers/applicator/patch/libital = 3,
 		/obj/item/stack/medical/gauze = 1,
 		/obj/item/storage/pill_bottle/probital = 1,
-		/obj/item/reagent_containers/hypospray/medipen/salacid = 1)
+		/obj/item/reagent_containers/hypospray/medipen/salacid = 1,
+	)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/burn
@@ -92,7 +96,8 @@
 		/obj/item/reagent_containers/applicator/patch/aiuri = 3,
 		/obj/item/reagent_containers/spray/hercuri = 1,
 		/obj/item/reagent_containers/hypospray/medipen/oxandrolone = 1,
-		/obj/item/reagent_containers/hypospray/medipen = 1)
+		/obj/item/reagent_containers/hypospray/medipen = 1,
+	)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/oxy
@@ -108,7 +113,8 @@
 		/obj/item/reagent_containers/applicator/patch/aiuri = 3,
 		/obj/item/reagent_containers/spray/hercuri = 1,
 		/obj/item/reagent_containers/hypospray/medipen/oxandrolone = 1,
-		/obj/item/reagent_containers/hypospray/medipen = 1)
+		/obj/item/reagent_containers/hypospray/medipen = 1,
+	)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/tox
@@ -124,7 +130,8 @@
 		/obj/item/storage/pill_bottle/multiver/less = 1,
 		/obj/item/reagent_containers/syringe/syriniver = 3,
 		/obj/item/storage/pill_bottle/potassiodide = 1,
-		/obj/item/reagent_containers/hypospray/medipen/penacid = 1)
+		/obj/item/reagent_containers/hypospray/medipen/penacid = 1,
+	)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/ifak
@@ -139,7 +146,8 @@
 	var/static/items_inside = list(
 		/obj/item/reagent_containers/hypospray/medipen/ifak = 3,
 		/obj/item/stack/medical/gauze = 1,
-		/obj/item/healthanalyzer = 1)
+		/obj/item/healthanalyzer = 1,
+	)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/combat
@@ -158,7 +166,8 @@
 		/obj/item/reagent_containers/hypospray/combat = 1,
 		/obj/item/reagent_containers/applicator/patch/libital = 2,
 		/obj/item/reagent_containers/applicator/patch/aiuri = 2,
-		/obj/item/clothing/glasses/hud/health/night)
+		/obj/item/clothing/glasses/hud/health/night = 1,
+	)
 	generate_items_inside(items_inside,src)
 
 
