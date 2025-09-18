@@ -27,7 +27,7 @@
 	. = ..()
 	. += "<b>Ammo:</b> [(oil/1000)*100]%"
 
-/obj/item/vampire_flamethrower/afterattack(atom/target, mob/user, flag)
+/obj/item/vampire_flamethrower/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 //	if(flag)
 //		return

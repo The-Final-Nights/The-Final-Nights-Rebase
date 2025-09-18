@@ -455,7 +455,7 @@
 	. = ..()
 	apply_vector_angle()
 
-/obj/darkpack_car/Moved(atom/OldLoc, Dir)
+/obj/darkpack_car/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	last_pos["x"] = x
 	last_pos["y"] = y

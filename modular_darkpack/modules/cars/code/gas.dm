@@ -15,7 +15,6 @@
 	list_reagents = list(/datum/reagent/gasoline = 200)
 */
 
-#warn convert to jerry can with reagents
 /obj/item/gas_can
 	name = "gas can"
 	desc = "Stores gasoline or pure fire death."
@@ -40,29 +39,25 @@
 	. = ..()
 	stored_gasoline = rand(0, 500)
 
-/obj/item/gas_can/afterattack(atom/A, mob/user, proximity)
+/obj/item/gas_can/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(istype(get_turf(A), /turf/open/floor) && !istype(A, /obj/darkpack_car) && !istype(A, /obj/structure/fuelstation) && !istype(A, /mob/living/carbon/human))
-		var/obj/effect/decal/cleanable/gasoline/G = locate() in get_turf(A)
+	if(istype(get_turf(target), /turf/open/floor) && !istype(target, /obj/darkpack_car) && !istype(target, /obj/structure/fuelstation) && !istype(target, /mob/living/carbon/human))
+		var/obj/effect/decal/cleanable/gasoline/G = locate() in get_turf(target)
 		if(G)
-			return
-		if(!proximity)
 			return
 		if(stored_gasoline < 50)
 			return
 		stored_gasoline = max(0, stored_gasoline-50)
-		new /obj/effect/decal/cleanable/gasoline(get_turf(A))
+		new /obj/effect/decal/cleanable/gasoline(get_turf(target))
 		playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
-	if(istype(A, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = A
-		if(!proximity)
-			return
+	if(istype(target, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target
 		if(stored_gasoline < 50)
 			return
 		stored_gasoline = max(0, stored_gasoline-50)
 		H.fire_stacks = min(10, H.fire_stacks+10)
 		playsound(get_turf(H), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
-		user.visible_message(span_warning("[user] covers [A] in something flammable!"))
+		user.visible_message(span_warning("[user] covers [target] in something flammable!"))
 
 /obj/effect/decal/cleanable/gasoline
 	name = "gasoline"
@@ -72,16 +67,17 @@
 	base_icon_state = "water"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_SPILL
-	canSmoothWith = SMOOTH_GROUP_SPILL | SMOOTH_GROUP_WALLS
+	canSmoothWith = SMOOTH_GROUP_SPILL + SMOOTH_GROUP_WALLS
 	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	beauty = -50
 	alpha = 64
 	color = "#c6845b"
 
-/obj/effect/decal/cleanable/gasoline/update_appearance()
+/obj/effect/decal/cleanable/gasoline/update_icon(updates=ALL)
 	. = ..()
-	QUEUE_SMOOTH(src)
-	QUEUE_SMOOTH_NEIGHBORS(src)
+	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & USES_SMOOTHING))
+		QUEUE_SMOOTH(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 
 /*
 /obj/effect/decal/cleanable/gasoline/Crossed(atom/movable/AM, oldloc)
@@ -103,7 +99,9 @@
 		F.spread_chance = 100
 		F.burn_material += 100
 	*/
-	update_appearance()
+	if(smoothing_flags & USES_SMOOTHING)
+		QUEUE_SMOOTH(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/effect/decal/cleanable/gasoline/Destroy()
 	QUEUE_SMOOTH_NEIGHBORS(src)
