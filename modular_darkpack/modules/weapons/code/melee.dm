@@ -295,6 +295,7 @@
 	name = "stake"
 	desc = "Paralyzes blank-bodies if aimed straight to the heart."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	icon_state = "stake"
 	force = 10
 //	wound_bonus = -10
