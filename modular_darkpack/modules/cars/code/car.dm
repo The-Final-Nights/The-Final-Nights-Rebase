@@ -334,22 +334,22 @@
 		if(!driver)
 			dropped.forceMove(src)
 			driver = dropped
-			var/datum/action/carr/exit_car/E = new()
+			var/datum/action/darkpack_car/exit_car/E = new()
 			E.Grant(dropped)
-			var/datum/action/carr/headlight/F = new()
+			var/datum/action/darkpack_car/headlight/F = new()
 			F.Grant(dropped)
-			var/datum/action/carr/engine/N = new()
+			var/datum/action/darkpack_car/engine/N = new()
 			N.Grant(dropped)
-			var/datum/action/carr/stage/S = new()
+			var/datum/action/darkpack_car/stage/S = new()
 			S.Grant(dropped)
-			var/datum/action/carr/beep/B = new()
+			var/datum/action/darkpack_car/beep/B = new()
 			B.Grant(dropped)
-			var/datum/action/carr/baggage/G = new()
+			var/datum/action/darkpack_car/baggage/G = new()
 			G.Grant(dropped)
 		else if(length(passengers) < max_passengers)
 			dropped.forceMove(src)
 			passengers += dropped
-			var/datum/action/carr/exit_car/E = new()
+			var/datum/action/darkpack_car/exit_car/E = new()
 			E.Grant(dropped)
 		visible_message(span_notice("[dropped] enters [src]."), \
 			span_notice("You enter [src]."))
@@ -394,7 +394,7 @@
 			dumpe.client.pixel_x = 0
 			dumpe.client.pixel_y = 0
 	playsound(src, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
-	for(var/datum/action/carr/C in dumpe.actions)
+	for(var/datum/action/darkpack_car/C in dumpe.actions)
 		qdel(C)
 
 /obj/vampire_car/Bump(atom/A)
