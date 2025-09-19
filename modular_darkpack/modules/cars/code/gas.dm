@@ -11,7 +11,7 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_NORMAL
 	list_reagents = list(/datum/reagent/gasoline = 200)
 */
 
@@ -23,7 +23,7 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/stored_gasoline = 0
 
 /obj/item/gas_can/examine(mob/user)
@@ -39,17 +39,21 @@
 	. = ..()
 	stored_gasoline = rand(0, 500)
 
+/obj/item/gas_can/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(istype(interacting_with, /obj/darkpack_car) || istype(interacting_with, /obj/structure/fuelstation) || istype(interacting_with, /mob/living/carbon/human))
+		return NONE
+	if(istype(get_turf(interacting_with), /turf/open/floor))
+		if(locate(/obj/effect/decal/cleanable/gasoline) in get_turf(interacting_with))
+			return ITEM_INTERACT_FAILURE
+		if(stored_gasoline < 50)
+			return ITEM_INTERACT_FAILURE
+		stored_gasoline = max(0, stored_gasoline-50)
+		new /obj/effect/decal/cleanable/gasoline(get_turf(interacting_with))
+		playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
+		return ITEM_INTERACT_SUCCESS
+
 /obj/item/gas_can/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(istype(get_turf(target), /turf/open/floor) && !istype(target, /obj/darkpack_car) && !istype(target, /obj/structure/fuelstation) && !istype(target, /mob/living/carbon/human))
-		var/obj/effect/decal/cleanable/gasoline/G = locate() in get_turf(target)
-		if(G)
-			return
-		if(stored_gasoline < 50)
-			return
-		stored_gasoline = max(0, stored_gasoline-50)
-		new /obj/effect/decal/cleanable/gasoline(get_turf(target))
-		playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/gas_splat.ogg', 50, TRUE)
 	if(istype(target, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = target
 		if(stored_gasoline < 50)
