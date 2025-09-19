@@ -51,8 +51,8 @@
 		var/datum/storage/trunk = vamp_car.atom_storage
 		trunk.set_locked(trunk.locked ? STORAGE_NOT_LOCKED : STORAGE_FULLY_LOCKED)
 
-		#warn please pick one of these
-		vamp_car.balloon_alert(owner, trunk.locked ? "locked" : "unlocked")
+		//#warn please pick one of these
+		//vamp_car.balloon_alert(owner, trunk.locked ? "locked" : "unlocked")
 		to_chat(owner, span_notice("You [trunk.locked ? "locked" : "unlocked"] [vamp_car]'s baggage."))
 
 		playsound(vamp_car, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
