@@ -1,3 +1,6 @@
+#define DOAFTER_SOURCE_CAR "doafter_car"
+#define CAR_TANK_MAX 1000
+
 /obj/effect/temp_visual/car
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "smoke"
@@ -68,9 +71,8 @@
 	var/stage = 1
 	var/on = FALSE
 	var/locked = TRUE
+	var/lockpick_difficulty = 6
 	var/access = "none"
-
-	var/repairing = FALSE
 
 	var/last_beep = 0
 
@@ -79,7 +81,7 @@
 	var/exploded = FALSE
 	var/beep_sound = 'modular_darkpack/modules/deprecated/sounds/beep.ogg'
 
-	var/gas = 1000
+	var/gas = CAR_TANK_MAX
 
 	/// sound loop for the engine
 	var/datum/looping_sound/car_engine/engine_sound_loop
@@ -106,7 +108,7 @@
 //	headlight_image.vis_flags = NONE
 	headlight_image.alpha = 110
 */
-	gas = rand(100, 1000)
+	gas = rand(100, CAR_TANK_MAX)
 	last_pos["x"] = x
 	last_pos["y"] = y
 //	last_pos["x_pix"] = 32
@@ -122,134 +124,131 @@
 	. = ..()
 
 /obj/darkpack_car/click_alt(mob/user)
-	if(!repairing)
-		if(locked)
-			to_chat(user, span_warning("[src] is locked!"))
-			return
-		repairing = TRUE
-		var/mob/living/L
-
-		if(driver)
-			L = driver
-		else if(length(passengers))
-			L = pick(passengers)
-		else
-			to_chat(user, span_notice("There's no one in [src]."))
-			repairing = FALSE
-			return
-
-		user.visible_message(span_warning("[user] begins pulling someone out of [src]!"), \
-			span_warning("You begin pulling [L] out of [src]..."))
-		if(do_after(user, 5 SECONDS, src))
-			user.visible_message(span_warning("[user] has managed to get [L] out of [src]."), \
-				span_warning("You've managed to get [L] out of [src]."))
-			empty_occupent(L)
-		else
-			to_chat(user, span_warning("You've failed to get [L] out of [src]."))
-		repairing = FALSE
+	if(locked)
+		to_chat(user, span_warning("[src] is locked!"))
 		return
+	var/mob/living/L
 
-/obj/darkpack_car/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/gas_can))
-		var/obj/item/gas_can/G = I
-		if(G.stored_gasoline && gas < 1000 && isturf(user.loc))
-			var/gas_to_transfer = min(1000-gas, min(100, max(1, G.stored_gasoline)))
-			G.stored_gasoline = max(0, G.stored_gasoline-gas_to_transfer)
-			gas = min(1000, gas+gas_to_transfer)
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 25, TRUE)
-			to_chat(user, span_notice("You transfer [gas_to_transfer] fuel to [src]."))
-		return
-	if(istype(I, /obj/item/vamp/keys))
-		var/obj/item/vamp/keys/K = I
-		if(istype(I, /obj/item/vamp/keys/hack))
-			if(!repairing)
-				repairing = TRUE
-				if(do_after(user, 20 SECONDS, src))
-					var/roll = rand(1, 20) + (user.st_get_stat(STAT_LARCENY)+user.st_get_stat(STAT_DEXTERITY)) - 8
-					//(<= 1, break lockpick) (2-9, trigger car alarm), (>= 10, unlock car)
-					if (roll <= 1)
-						to_chat(user, span_warning("Your lockpick broke!"))
-						qdel(K)
-						repairing = FALSE
-						return
-					else if (roll >= 10)
-						locked = FALSE
-						repairing = FALSE
-						to_chat(user, span_notice("You've managed to open [src]'s lock."))
-						playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
-					else
-						to_chat(user, span_warning("You've failed to open [src]'s lock."))
-						playsound(src, 'modular_darkpack/modules/deprecated/sounds/signal.ogg', 50, FALSE)
-						for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
-							P.Aggro(user)
-						repairing = FALSE
-						return //Don't penalize vampire humanity if they failed.
-					if(initial(access) == "none") //Stealing a car with no keys assigned to it is basically robbing a random person and not an organization
-						if(ishuman(user))
-							var/mob/living/carbon/human/H = user
-							H.AdjustHumanity(-1, 6)
-						return
-				else
-					to_chat(user, span_warning("You've failed to open [src]'s lock."))
-					repairing = FALSE
-					return
-			return
-		if(K.accesslocks)
-			for(var/i in K.accesslocks)
-				if(i == access)
-					to_chat(user, span_notice("You [locked ? "open" : "close"] [src]'s lock."))
-					playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
-					locked = !locked
-					return
-		return
-	if(istype(I, /obj/item/melee/vamp/tire))
-		if(!repairing)
-			if(atom_integrity >= max_integrity)
-				to_chat(user, span_notice("[src] is already fully repaired."))
-				return
-			repairing = TRUE
-
-			var time_to_repair = (max_integrity - atom_integrity) / 4 //Repair 4hp for every second spent repairing
-			var start_time = world.time
-
-			user.visible_message(span_notice("[user] begins repairing [src]..."), \
-				span_notice("You begin repairing [src]. Stop at any time to only partially repair it."))
-			if(do_after(user, time_to_repair SECONDS, src))
-				atom_integrity = max_integrity
-				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
-				user.visible_message(span_notice("[user] repairs [src]."), \
-					span_notice("You finish repairing all the dents on [src]."))
-				color = "#ffffff"
-				repairing = FALSE
-				return
-			else
-				take_damage((world.time - start_time) * -2 / 5) //partial repair
-				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
-				user.visible_message(span_notice("[user] repairs [src]."), \
-					span_notice("You repair some of the dents on [src]."))
-				color = "#ffffff"
-				repairing = FALSE
-				return
-		return
-
+	if(driver)
+		L = driver
+	else if(length(passengers))
+		L = pick(passengers)
 	else
-		if(I.force)
-			take_damage(round(I.force/2))
-			for(var/mob/living/L in src)
-				if(prob(50))
-					L.apply_damage(round(I.force/2), I.damtype, pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST))
+		to_chat(user, span_notice("There's no one in [src]."))
+		return
 
-			if(!driver && !length(passengers) && last_beep+70 < world.time && locked)
-				last_beep = world.time
-				playsound(src, 'modular_darkpack/modules/deprecated/sounds/signal.ogg', 50, FALSE)
-				for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
-					P.Aggro(user)
+	user.visible_message(span_warning("[user] begins pulling someone out of [src]!"), \
+		span_warning("You begin pulling [L] out of [src]..."))
+	if(do_after(user, 5 SECONDS, src, interaction_key = DOAFTER_SOURCE_CAR))
+		user.visible_message(span_warning("[user] has managed to get [L] out of [src]."), \
+			span_warning("You've managed to get [L] out of [src]."))
+		empty_occupent(L)
+	else
+		to_chat(user, span_warning("You've failed to get [L] out of [src]."))
+	return
 
-			if(prob(10) && locked)
+/obj/darkpack_car/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/gas_can))
+		return try_refuel(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+	if(istype(tool, /obj/item/melee/vamp/tire))
+		return try_repair(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+	if(istype(tool, /obj/item/vamp/keys/hack))
+		return try_lockpick(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+	if(istype(tool, /obj/item/vamp/keys))
+		return try_keys(user, tool) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+	return NONE
+
+/obj/darkpack_car/proc/try_refuel(mob/living/user, obj/item/gas_can/can_used)
+	if(can_used.stored_gasoline && gas < CAR_TANK_MAX && isturf(user.loc))
+		var/gas_to_transfer = min(CAR_TANK_MAX-gas, min(CAR_TANK_MAX, max(1, can_used.stored_gasoline)))
+		if(do_after(user, gas_to_transfer/10, src, interaction_key = DOAFTER_SOURCE_CAR))
+			can_used.stored_gasoline = max(0, can_used.stored_gasoline-gas_to_transfer)
+			gas = min(CAR_TANK_MAX, gas+gas_to_transfer)
+			to_chat(user, span_notice("You transfer [gas_to_transfer] fuel to [src]."))
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 25, TRUE)
+
+/obj/darkpack_car/proc/try_repair(mob/living/user, obj/item/tool)
+	if(atom_integrity >= max_integrity)
+		to_chat(user, span_notice("[src] is already fully repaired."))
+		return
+
+	var/time_to_repair = (max_integrity - atom_integrity) / 4 //Repair 4hp for every second spent repairing
+	var/start_time = world.time
+
+	user.visible_message(span_notice("[user] begins repairing [src]..."), \
+		span_notice("You begin repairing [src]. Stop at any time to only partially repair it."))
+	if(do_after(user, time_to_repair SECONDS, src, interaction_key = DOAFTER_SOURCE_CAR))
+		atom_integrity = max_integrity
+		playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
+		user.visible_message(span_notice("[user] repairs [src]."), \
+			span_notice("You finish repairing all the dents on [src]."))
+		color = "#ffffff"
+		return TRUE
+	else
+		take_damage((world.time - start_time) * -2 / 5) //partial repair
+		playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
+		user.visible_message(span_notice("[user] repairs [src]."), \
+			span_notice("You repair some of the dents on [src]."))
+		color = "#ffffff"
+		return TRUE
+
+/obj/darkpack_car/proc/try_lockpick(mob/living/user, obj/item/tool)
+	if(!locked)
+		to_chat(user, span_warning("The [src] is already unlocked."))
+		return
+	for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
+		P.Aggro(user)
+	var/total_lockpicking = user.st_get_stat(STAT_LARCENY)
+	if(do_after(user, 10 SECONDS, src, interaction_key = DOAFTER_SOURCE_CAR))
+		if(!locked)
+			return
+		var/roll_result = SSroll.storyteller_roll(total_lockpicking + user.st_get_stat(STAT_DEXTERITY), lockpick_difficulty, list(user), user)
+		switch(roll_result)
+			if(ROLL_SUCCESS)
+				to_chat(user, span_notice("You've managed to open [src]'s lock."))
 				playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
 				locked = FALSE
+				if(initial(access) == "none") //Stealing a car with no keys assigned to it is basically robbing a random person and not an organization
+					if(ishuman(user))
+						var/mob/living/carbon/human/H = user
+						H.AdjustHumanity(-1, 6)
+				return TRUE
+			if(ROLL_FAILURE)
+				to_chat(user, span_warning("Your lockpick broke!"))
+				qdel(tool)
+			if(ROLL_BOTCH)
+				to_chat(user, span_warning("You've failed to open [src]'s lock."))
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/signal.ogg', 50, FALSE)
+				return
+	else
+		to_chat(user, span_warning("You've failed to open [src]'s lock."))
+		return
 
+/obj/darkpack_car/proc/try_keys(mob/living/user, obj/item/vamp/keys/key_used)
+	if(key_used.accesslocks)
+		for(var/i in key_used.accesslocks)
+			if(i == access)
+				to_chat(user, span_notice("You [locked ? "open" : "close"] [src]'s lock."))
+				playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
+				locked = !locked
+				return TRUE
+
+/obj/darkpack_car/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
+	if(I.force)
+		for(var/mob/living/L in src)
+			if(prob(50))
+				L.apply_damage(round(I.force/2), I.damtype, pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST))
+
+		if(!driver && !length(passengers) && last_beep+70 < world.time && locked)
+			last_beep = world.time
+			playsound(src, 'modular_darkpack/modules/deprecated/sounds/signal.ogg', 50, FALSE)
+			for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
+				P.Aggro(user)
+
+		if(prob(10) && locked)
+			playsound(src, 'modular_darkpack/modules/deprecated/sounds/open.ogg', 50, TRUE)
+			locked = FALSE
 
 /obj/darkpack_car/attack_hand(mob/user)
 	. = ..()
@@ -270,7 +269,7 @@
 /obj/darkpack_car/examine(mob/user)
 	. = ..()
 	if(user.loc == src)
-		. += "<b>Gas</b>: [gas]/1000"
+		. += "<b>Gas</b>: [gas]/[CAR_TANK_MAX]"
 	if(atom_integrity < max_integrity && atom_integrity >= max_integrity-(max_integrity/4))
 		. += "It's slightly dented..."
 	if(atom_integrity < max_integrity-(max_integrity/4) && atom_integrity >= max_integrity/2)
@@ -329,7 +328,7 @@
 
 	visible_message(span_notice("[dropped] begins entering [src]..."), \
 		span_notice("You begin entering [src]..."))
-	if(do_after(user, 1 SECONDS, dropped))
+	if(do_after(user, 1 SECONDS, dropped, interaction_key = DOAFTER_SOURCE_CAR))
 		if(!driver)
 			dropped.forceMove(src)
 			driver = dropped
@@ -669,3 +668,5 @@
 		return
 	on = FALSE
 	engine_sound_loop.stop()
+
+#undef DOAFTER_SOURCE_CAR
