@@ -700,3 +700,4 @@
 	engine_sound_loop.stop()
 
 #undef DOAFTER_SOURCE_CAR
+#undef CAR_TANK_MAX
