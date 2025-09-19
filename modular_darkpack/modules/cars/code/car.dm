@@ -15,13 +15,17 @@
 	mid_length = 1.1 SECONDS
 	end_sound = 'modular_darkpack/modules/deprecated/sounds/stop.ogg'
 
+/obj/car_trunk
+	name = "car trunk"
+	desc = "How did this get out of the car."
+
 /datum/storage/car
-	do_rustle = FALSE
-	silent = TRUE
+	animated = FALSE
 	max_slots = 40
 	max_total_storage = 100
 	max_specific_storage = WEIGHT_CLASS_HUGE
 	insert_on_attack = FALSE
+	click_alt_open = FALSE
 
 /datum/storage/car/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
@@ -77,6 +81,7 @@
 	var/last_beep = 0
 
 	var/car_storage_type = /datum/storage/car
+	var/obj/car_trunk/trunk
 
 	var/exploded = FALSE
 	var/beep_sound = 'modular_darkpack/modules/deprecated/sounds/beep.ogg'
@@ -93,7 +98,9 @@
 	engine_sound_loop = new(src)
 	//START_PROCESSING(SScarpool, src)
 
+	trunk = new(src)
 	create_storage(storage_type = car_storage_type)
+	atom_storage.set_real_location(trunk)
 
 /*
 	headlight_image = new(src)
@@ -120,32 +127,44 @@
 /obj/darkpack_car/Destroy()
 	STOP_PROCESSING(SScarpool, src)
 	QDEL_NULL(engine_sound_loop)
+	QDEL_NULL(trunk)
 	empty_car()
 	. = ..()
 
 /obj/darkpack_car/click_alt(mob/user)
+	var/list/radial_menu_options = list(
+		"Open Trunk" = icon('modular_darkpack/modules/cars/icons/car_actions.dmi', "baggage"),
+	)
+	var/list/passanger_map = list()
+	for(var/mob/living/guy in (passengers + driver))
+		var/guy_name = guy.name
+		radial_menu_options[guy_name] = image(icon = guy, icon_state = guy)
+		passanger_map[guy_name] = guy
+
+	var/pick = show_radial_menu(user, src, radial_menu_options, require_near = TRUE)
+	if(!pick)
+		return
+
+	if(pick == "Open Trunk")
+		atom_storage.open_storage(user)
+		return CLICK_ACTION_SUCCESS
+
 	if(locked)
 		to_chat(user, span_warning("[src] is locked!"))
-		return
-	var/mob/living/L
-
-	if(driver)
-		L = driver
-	else if(length(passengers))
-		L = pick(passengers)
-	else
-		to_chat(user, span_notice("There's no one in [src]."))
-		return
+		return CLICK_ACTION_BLOCKING
+	var/mob/living/occupent = passanger_map[pick]
+	if(!occupent)
+		return CLICK_ACTION_BLOCKING
 
 	user.visible_message(span_warning("[user] begins pulling someone out of [src]!"), \
-		span_warning("You begin pulling [L] out of [src]..."))
+		span_warning("You begin pulling [occupent] out of [src]..."))
 	if(do_after(user, 5 SECONDS, src, interaction_key = DOAFTER_SOURCE_CAR))
-		user.visible_message(span_warning("[user] has managed to get [L] out of [src]."), \
-			span_warning("You've managed to get [L] out of [src]."))
-		empty_occupent(L)
+		user.visible_message(span_warning("[user] has managed to get [occupent] out of [src]."), \
+			span_warning("You've managed to get [occupent] out of [src]."))
+		empty_occupent(occupent)
+		return CLICK_ACTION_SUCCESS
 	else
-		to_chat(user, span_warning("You've failed to get [L] out of [src]."))
-	return
+		to_chat(user, span_warning("You've failed to get [occupent] out of [src]."))
 
 /obj/darkpack_car/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/gas_can))
@@ -162,6 +181,7 @@
 	if(can_used.stored_gasoline && gas < CAR_TANK_MAX && isturf(user.loc))
 		var/gas_to_transfer = min(CAR_TANK_MAX-gas, min(CAR_TANK_MAX, max(1, can_used.stored_gasoline)))
 		if(do_after(user, gas_to_transfer/10, src, interaction_key = DOAFTER_SOURCE_CAR))
+			gas_to_transfer = min(CAR_TANK_MAX-gas, min(CAR_TANK_MAX, max(1, can_used.stored_gasoline))) // Run it a second time in the offchance the contents change
 			can_used.stored_gasoline = max(0, can_used.stored_gasoline-gas_to_transfer)
 			gas = min(CAR_TANK_MAX, gas+gas_to_transfer)
 			to_chat(user, span_notice("You transfer [gas_to_transfer] fuel to [src]."))
@@ -259,6 +279,7 @@
 			playsound(get_turf(src), 'modular_darkpack/modules/deprecated/sounds/bump.ogg', 100, FALSE)
 			take_damage(10)
 			throw_at(throw_target, rand(4, 6), 4, user)
+			return TRUE
 
 /obj/darkpack_car/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	. = ..()
@@ -326,10 +347,19 @@
 		to_chat(dropped, span_warning("There's no space left for you in [src]."))
 		return
 
+	var/list/radial_menu_options = list()
+	if(!driver)
+		radial_menu_options["Driver Seat"] = icon('modular_darkpack/modules/cars/icons/car_actions.dmi', "driver")
+	if(passengers.len < max_passengers)
+		radial_menu_options["Passanger Seat"] = icon('modular_darkpack/modules/cars/icons/car_actions.dmi', "passanger")
+	var/pick = show_radial_menu(user, src, radial_menu_options, require_near = TRUE)
+	if(!pick)
+		return
+
 	visible_message(span_notice("[dropped] begins entering [src]..."), \
 		span_notice("You begin entering [src]..."))
 	if(do_after(user, 1 SECONDS, dropped, interaction_key = DOAFTER_SOURCE_CAR))
-		if(!driver)
+		if(pick == "Driver Seat" && !driver)
 			dropped.forceMove(src)
 			driver = dropped
 			var/datum/action/darkpack_car/exit_car/E = new()
@@ -344,7 +374,7 @@
 			B.Grant(dropped)
 			var/datum/action/darkpack_car/baggage/G = new()
 			G.Grant(dropped)
-		else if(length(passengers) < max_passengers)
+		else if((pick == "Passanger Seat") && (passengers.len < max_passengers))
 			dropped.forceMove(src)
 			passengers += dropped
 			var/datum/action/darkpack_car/exit_car/E = new()

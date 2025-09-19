@@ -48,12 +48,12 @@
 /datum/action/darkpack_car/baggage/Trigger(trigger_flags)
 	if(istype(owner.loc, /obj/darkpack_car))
 		var/obj/darkpack_car/vamp_car = owner.loc
-		var/datum/storage/trunk = vamp_car.atom_storage
-		trunk.set_locked(trunk.locked ? STORAGE_NOT_LOCKED : STORAGE_FULLY_LOCKED)
+		var/datum/storage/trunk_datum = vamp_car.atom_storage
+		trunk_datum.set_locked(trunk_datum.locked ? STORAGE_NOT_LOCKED : STORAGE_FULLY_LOCKED)
 
 		//#warn please pick one of these
-		//vamp_car.balloon_alert(owner, trunk.locked ? "locked" : "unlocked")
-		to_chat(owner, span_notice("You [trunk.locked ? "locked" : "unlocked"] [vamp_car]'s baggage."))
+		//vamp_car.balloon_alert(owner, trunk_datum.locked ? "locked" : "unlocked")
+		to_chat(owner, span_notice("You [trunk_datum.locked ? "locked" : "unlocked"] [vamp_car]'s baggage."))
 
 		playsound(vamp_car, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
 

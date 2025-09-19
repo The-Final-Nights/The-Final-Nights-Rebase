@@ -3,6 +3,9 @@
 	max_passengers = 1
 	dir = WEST
 
+/obj/darkpack_car/retro/unlocked
+	locked = FALSE
+
 /obj/darkpack_car/retro/rand
 	icon_state = "3"
 
