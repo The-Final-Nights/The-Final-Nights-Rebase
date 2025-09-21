@@ -94,6 +94,33 @@
 	fire_brightness = 4.5
 	fire_colour = "#d400ff"
 
+//DARKPACK EDIT START
+#warn add its icon to the overide file.
+/obj/machinery/light/prince
+
+/obj/machinery/light/prince/ghost
+
+/obj/machinery/light/prince/ghost/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_ATOM_ENTERED, PROC_REF(jumpscare))
+
+/obj/machinery/light/prince/ghost/proc/jumpscare(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/L = arrived
+		if(L.client)
+			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
+			s.set_up(5, 1, get_turf(src))
+			s.start()
+			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/explode.ogg', 100, TRUE)
+			qdel(src)
+
+/obj/machinery/light/prince/broken
+	status = LIGHT_BROKEN
+	icon_state = "tube-broken"
+// DARKPACK EDIT END
+
 // -------- Directional presets
 // The directions are backwards on the lights we have now
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light, 0)
@@ -163,3 +190,5 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/red/dim, 0)
 
 // ---- Blacklight bulbs
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/blacklight, 0)
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/prince, 0) // DARKPACK EDIT ADD
