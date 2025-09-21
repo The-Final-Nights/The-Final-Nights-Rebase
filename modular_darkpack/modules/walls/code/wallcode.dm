@@ -820,6 +820,14 @@ LOW_WALL_HELPER(vampwall/wood)
 				barefootstep = FOOTSTEP_SNOW
 				heavyfootstep = FOOTSTEP_SNOW
 
+// See about porting the apoc sprite for this
+/turf/open/floor/plating/woodrough
+	name = "wood"
+	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
+	icon_state = "bwood"
+	footstep = FOOTSTEP_PARKET
+	barefootstep = FOOTSTEP_PARKET
+
 /turf/open/misc/beach/vamp
 	name = "sand"
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'

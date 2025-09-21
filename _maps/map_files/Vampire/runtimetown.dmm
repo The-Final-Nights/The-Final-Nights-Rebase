@@ -207,10 +207,6 @@
 /obj/effect/decal/cleanable/cardboard,
 /turf/open/misc/beach/vamp,
 /area/vtm/outside/pacificheights)
-"fL" = (
-/obj/machinery/vending/boozeomat,
-/turf/open/misc/beach/vamp,
-/area/vtm/outside/pacificheights)
 "fS" = (
 /obj/structure/ladder/manhole/down,
 /obj/machinery/light/small/directional/east,
@@ -602,8 +598,7 @@
 /turf/closed/wall/vampwall/painted/low,
 /area/vtm/interior/shop)
 "rB" = (
-/obj/the_matrix,
-/turf/open/floor/plating/asphalt,
+/turf/closed/indestructible/the_matrix,
 /area/vtm)
 "rF" = (
 /obj/effect/landmark/npcbeacon/directed{
@@ -1196,6 +1191,10 @@
 	dir = 1
 	},
 /turf/open/floor/plating/asphalt,
+/area/vtm/outside/pacificheights)
+"FC" = (
+/obj/machinery/vending/boozeomat,
+/turf/open/misc/beach/vamp,
 /area/vtm/outside/pacificheights)
 "FD" = (
 /obj/machinery/fax/admin/police,
@@ -3731,7 +3730,7 @@ kS
 kS
 kS
 NR
-fL
+FC
 NR
 NR
 NR
@@ -3767,7 +3766,7 @@ NR
 ES
 kM
 NR
-NR
+FC
 NR
 NR
 NR
