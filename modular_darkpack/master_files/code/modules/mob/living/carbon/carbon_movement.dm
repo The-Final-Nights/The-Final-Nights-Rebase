@@ -12,7 +12,10 @@
 
 	. = ..()
 
-	if(a_intent == INTENT_HARM && client)
+	// TODO: [Rebase] - face target
+	/*
+	if(combat_mode && client)
 		setDir(harm_focus)
 	else
 		harm_focus = dir
+	*/
