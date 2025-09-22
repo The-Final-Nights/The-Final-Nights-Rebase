@@ -88,14 +88,14 @@
 			if(prob(20))
 				to_chat(user, "Reagents start to react strangely...")
 			qdel(used_item)
-	if(istype(used_item, /obj/item/reagent_containers/food/drinks/coffee/vampire))
+	if(istype(used_item, /obj/item/reagent_containers/cup/glass/coffee/vampire))
 		if(!added_iod)
 			added_iod = 1
 			to_chat(user, "You [pick("throw", "blow", "spit")] [used_item] in [src].")
 			if(prob(20))
 				to_chat(user, "Reagents start to react strangely...")
 			qdel(used_item)
-	if(istype(used_item, /obj/item/reagent_containers/food/drinks/bottle/vodka))
+	if(istype(used_item, /obj/item/reagent_containers/cup/glass/bottle/vodka))
 		if(added_iod == 1)
 			added_iod = 2
 			to_chat(user, "You [pick("throw", "blow", "spit")] [used_item] in [src].")
@@ -124,7 +124,7 @@
 			else
 				var/amount = 4
 				for(var/i = 1 to amount)
-					new /obj/item/reagent_containers/food/drinks/meth(get_turf(src))
+					new /obj/item/reagent_containers/cup/glass/meth(get_turf(src))
 				added_ephed = 0
 				added_iod = 0
 				added_gas = FALSE

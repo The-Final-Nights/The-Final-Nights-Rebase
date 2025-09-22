@@ -1,7 +1,7 @@
 /datum/crafting_recipe/methpack
 	name = "Make Meth Adulterated Bloodpack"
 	time = 25
-	reqs = list(/obj/item/reagent_containers/food/drinks/meth = 1, /obj/item/drinkable_bloodpack = 1)
+	reqs = list(/obj/item/reagent_containers/cup/glass/meth = 1, /obj/item/drinkable_bloodpack = 1)
 	result = /obj/item/reagent_containers/drug/methpack
 	always_available = TRUE
 	category = CAT_DRUGS
@@ -25,7 +25,7 @@
 /datum/crafting_recipe/cokepack
 	name = "Make Cocaine Adulterated Bloodpack"
 	time = 25
-	reqs = list(/obj/item/reagent_containers/food/drinks/meth/cocaine = 1, /obj/item/drinkable_bloodpack = 1)
+	reqs = list(/obj/item/reagent_containers/cup/glass/meth/cocaine = 1, /obj/item/drinkable_bloodpack = 1)
 	result = /obj/item/reagent_containers/drug/cokepack
 	always_available = TRUE
 	category = CAT_DRUGS

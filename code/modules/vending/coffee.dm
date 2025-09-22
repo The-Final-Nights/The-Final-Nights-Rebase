@@ -6,7 +6,8 @@
 	icon_vend = "coffee-vend"
 	panel_type = "panel9"
 	products = list(
-		/obj/item/reagent_containers/cup/glass/coffee = 6,
+		/obj/item/reagent_containers/cup/glass/coffee/vampire = 10, //DARKPACK EDIT CHANGE
+		/obj/item/reagent_containers/cup/glass/coffee/vampire/robust = 5, //DARKPACK EDIT CHANGE
 		/obj/item/reagent_containers/cup/glass/mug/tea = 6,
 		/obj/item/reagent_containers/cup/glass/mug/coco = 3,
 	)
@@ -24,3 +25,11 @@
 /obj/item/vending_refill/coffee
 	machine_name = "Solar's Best Hot Drinks"
 	icon_state = "refill_joe"
+
+// DARKPACK EDIT ADD START
+/obj/machinery/vending/coffee/private
+	desc = "An employee only vending machine. I love coffee in my coffee hole."
+	req_access = null
+	onstation = FALSE
+	all_products_free = TRUE
+// DARKPACK EDIT ADD END
