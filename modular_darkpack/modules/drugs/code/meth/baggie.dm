@@ -4,8 +4,6 @@
 	icon = 'modular_darkpack/modules/drugs/icons/items.dmi'
 	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
 
-	spillable = FALSE
-
 /obj/item/reagent_containers/cup/glass/baggie/meth
 	name = "blue package"
 	icon_state = "package_meth"
