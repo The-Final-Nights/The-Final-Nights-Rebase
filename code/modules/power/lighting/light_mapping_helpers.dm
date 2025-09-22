@@ -119,76 +119,88 @@
 /obj/machinery/light/prince/broken
 	status = LIGHT_BROKEN
 	icon_state = "tube-broken"
-// DARKPACK EDIT END
+
+#define LIGHTING_DIRECTIONAL_HELPERS(path) \
+MAPPING_DIRECTIONAL_HELPERS(##path, 0) \
+##path/directional/north {\
+	pixel_y = 12; \
+} \
+##path/directional/south {\
+	pixel_y = 16; \
+}
+
 
 // -------- Directional presets
 // The directions are backwards on the lights we have now
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light)
 
 // ---- Broken tube
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/broken, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/broken)
 
 // ---- Tube construct
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/light_construct, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/structure/light_construct)
 
 // ---- Tube frames
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/built, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/built)
 
 // ---- No nightlight tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/no_nightlight, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/no_nightlight)
 
 // ---- Warm light tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/warm, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/warm)
 
 // ---- No nightlight warm light tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/warm/no_nightlight, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/warm/no_nightlight)
 
 // ---- Dim warm light tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/warm/dim, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/warm/dim)
 
 // ---- Cold light tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/cold, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/cold)
 
 // ---- No nightlight cold light tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/cold/no_nightlight, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/cold/no_nightlight)
 
 // ---- Dim cold light tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/cold/dim, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/cold/dim)
 
 // ---- Red tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/red, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/red)
 
 // ---- Red dim tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/red/dim, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/red/dim)
 
 // ---- Blacklight tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/blacklight, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/blacklight)
 
 // ---- Dim tubes
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/dim, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/dim)
 
 
 // -------- Bulb lights
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small)
 
 // ---- Bulb construct
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/light_construct/small, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/structure/light_construct/small)
 
 // ---- Bulb frames
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/built, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/built)
 
 // ---- Broken bulbs
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/broken, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/broken)
 
 // ---- Red bulbs
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/dim, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/dim)
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/red, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/red)
 
 // ---- Red dim bulbs
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/red/dim, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/red/dim)
 
 // ---- Blacklight bulbs
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/blacklight, 0)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/blacklight)
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/prince, 0) // DARKPACK EDIT ADD
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/prince) // DARKPACK EDIT ADD
+
+#undef LIGHTING_DIRECTIONAL_HELPERS
+// DARKPACK EDIT END

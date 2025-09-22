@@ -171,6 +171,7 @@
 			icon_state = "[base_state]-broken"
 	return ..()
 
+/* DARKPACK EDIT REMOVAL - Temp removal because flav is a hack and did not do this properly.
 /obj/machinery/light/update_overlays()
 	. = ..()
 	if(!on || status != LIGHT_OK)
@@ -187,6 +188,7 @@
 		. += mutable_appearance(overlay_icon, "[base_state]_nightshift")
 		return
 	. += mutable_appearance(overlay_icon, base_state)
+*/
 
 // Area sensitivity is traditionally tied directly to power use, as an optimization
 // But since we want it for fire reacting, we disregard that
