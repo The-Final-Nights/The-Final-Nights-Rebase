@@ -95,8 +95,8 @@
 	fire_colour = "#d400ff"
 
 //DARKPACK EDIT START
-#warn add its icon to the overide file.
 /obj/machinery/light/prince
+	base_state = "prince"
 
 /obj/machinery/light/prince/ghost
 
