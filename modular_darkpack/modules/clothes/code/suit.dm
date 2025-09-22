@@ -28,7 +28,7 @@
 
 /obj/item/clothing/suit/vampire/Initialize(mapload)
 	. = ..()
-	// TODO: [Lucia] reimplement selling stuff
+	// TODO: [Rebase] reimplement selling stuff
 	//AddComponent(/datum/component/selling, 15, "suit", FALSE)
 
 /obj/item/clothing/suit/vampire/trench/malkav
