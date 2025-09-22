@@ -84,26 +84,26 @@
 
 	return data
 
-
+// DARKPACK EDIT CHANGE START - ECONOMY
 /**
  * Returns the balance that the vendor will use for proceeding payment. Most vendors would want to use the user's
  * card's account credits balance.
  * arguments:
- * passed_id - the id card that will be billed for the product
+ * passed_creditcard - the credit card that will be billed for the product
  */
-/obj/machinery/vending/proc/fetch_balance_to_use(obj/item/card/id/passed_id)
+/obj/machinery/vending/proc/fetch_balance_to_use(obj/item/card/credit/passed_creditcard)
 	PROTECTED_PROC(TRUE)
 
-	return passed_id.registered_account.account_balance
+	return passed_creditcard.registered_account.account_balance
 
 /obj/machinery/vending/ui_data(mob/user)
 	. = list()
 
-	var/obj/item/card/id/card_used
+	var/obj/item/card/credit/card_used
 	var/held_cash = 0
 	if(isliving(user))
 		var/mob/living/living_user = user
-		card_used = living_user.get_idcard(TRUE)
+		card_used = living_user.get_creditcard(TRUE)
 		held_cash = living_user.tally_physical_credits()
 
 	var/list/user_data = null
@@ -130,6 +130,7 @@
 		.["ad"] = ad_list[rand(1, ad_list.len)]
 
 	.["extended_inventory"] = extended_inventory
+// DARKPACK EDIT CHANGE END - ECONOMY
 
 /obj/machinery/vending/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

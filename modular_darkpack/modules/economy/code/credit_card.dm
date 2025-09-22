@@ -7,7 +7,7 @@
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 	var/registered_name
 	var/datum/bank_account/registered_account

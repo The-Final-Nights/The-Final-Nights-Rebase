@@ -3,7 +3,7 @@
 	desc = "Contains tons of information about broker's marketplace account."
 	icon_state = "card1"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NOBLUDGEON
 	resistance_flags = FIRE_PROOF | ACID_PROOF

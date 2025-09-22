@@ -3,7 +3,7 @@
 	desc = "Well fire weapon."
 	icon_state = "molotov"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 	masquerade_violating = TRUE
 	var/active = FALSE

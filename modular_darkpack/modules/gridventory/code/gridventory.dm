@@ -857,11 +857,11 @@ VENTORY!
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96
 
-/obj/item/storage/firstaid
+/obj/item/storage/medkit
 	grid_width = 2 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 
-/obj/item/storage/firstaid/ifak
+/obj/item/storage/medkit/darkpack/ifak
 	grid_width = 1 GRID_BOXES
 	grid_height = 2 GRID_BOXES
 

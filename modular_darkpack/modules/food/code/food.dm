@@ -1,6 +1,6 @@
 /obj/item/food/vampire
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 	eatsound = 'modular_darkpack/modules/food/sounds/eat.ogg'
 	food_flags = FOOD_BITE_SPRITE
@@ -49,7 +49,7 @@
 	name = "chicken wing bone"
 	icon_state = "nugget0"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 /obj/item/food/vampire/nugget
 	name = "chicken wing"
@@ -68,7 +68,7 @@
 	name = "chocolate bar wrapper"
 	icon_state = "bar0"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 /obj/item/food/vampire/bar
 	name = "chocolate bar"
@@ -102,7 +102,7 @@
 	name = "chips wrapper"
 	icon_state = "crisps0"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 /obj/item/food/vampire/crisps
 	name = "chips"
@@ -159,7 +159,7 @@
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	list_reagents = list(/datum/reagent/consumable/coffee = 30)
 	spillable = TRUE
 	resistance_flags = FREEZE_PROOF
@@ -175,7 +175,7 @@
 	desc = "Beer."
 	icon_state = "beer"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	list_reagents = list(/datum/reagent/consumable/ethanol/beer = 30)
 	foodtype = GRAIN | ALCOHOL
 	custom_price = PAYCHECK_EASY
@@ -191,11 +191,12 @@
 	desc = "Coca cola espuma..."
 	icon_state = "colared"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/consumable/space_cola = 100)
 	foodtype = SUGAR
 	age_restricted = FALSE
+	custom_price = 2
 
 /obj/item/reagent_containers/food/drinks/bottle/vampirecola/blue
 	desc = "Pep Cola. Put some pep in your step"
@@ -220,7 +221,7 @@
 	desc = "H2O."
 	icon_state = "water1"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/water = 100)
 	age_restricted = FALSE
@@ -230,7 +231,7 @@
 	desc = "Coca cola espuma..."
 	icon_state = "colared2"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	list_reagents = list(/datum/reagent/consumable/space_cola = 50)
 	foodtype = SUGAR
 
@@ -244,7 +245,7 @@
 	desc = "More water..."
 	icon_state = "soda"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	list_reagents = list(/datum/reagent/consumable/sodawater = 50)
 	foodtype = SUGAR
 
@@ -253,7 +254,7 @@
 	desc = "More milk..."
 	icon_state = "milk"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	list_reagents = list(/datum/reagent/consumable/milk = 50)
 	fill_icon_thresholds = null
 
