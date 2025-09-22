@@ -2,7 +2,7 @@
 	name = "Masquerade Contract"
 	desc = "See where to search the shitty Masquerade breakers. <b>CLICK ON the Contract to see possible breakers for catching. PUSH the target in torpor, to restore the Masquerade</b>"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "masquerade"
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
@@ -18,6 +18,6 @@
 		for(var/mob/living/carbon/human/H in GLOB.masquerade_breakers_list)
 			var/turf/TT = get_turf(H)
 			if(TT)
-				to_chat(user, "[H.true_real_name], Masquerade: [H.masquerade], Diablerist: [H.diablerist ? "<b>YES</b>" : "NO"], [get_area_name(H)] X:[TT.x] Y:[TT.y]")
+				to_chat(user, "[H.true_real_name], Masquerade: [H.masquerade], Diablerist: [HAS_TRAIT(H, TRAIT_DIABLERIE) ? "<b>YES</b>" : "NO"], [get_area_name(H)] X:[TT.x] Y:[TT.y]")
 	else
 		to_chat(user, "No available Masquerade breakers in city...")

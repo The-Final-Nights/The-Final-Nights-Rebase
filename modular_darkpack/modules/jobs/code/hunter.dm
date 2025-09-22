@@ -18,7 +18,6 @@
 	H.set_species(/datum/species/human)
 	H.set_clan(null)
 	H.generation = 13
-	H.update_max_health()
 	var/my_name = "Tyler"
 	if(H.gender == MALE)
 		my_name = pick(GLOB.first_names_male)
@@ -50,7 +49,7 @@
 				H.equip_to_slot_or_del(new /obj/item/clothing/head/vampire/helmet(H), ITEM_SLOT_HEAD)
 				H.equip_to_slot_or_del(new /obj/item/clothing/suit/vampire/vest(H), ITEM_SLOT_OCLOTHING)
 				H.put_in_r_hand(new /obj/item/vampire_flamethrower(H))
-				H.put_in_l_hand(new /obj/item/melee/vampirearms/fireaxe(H))
+				H.put_in_l_hand(new /obj/item/fireaxe/vamp(H))
 			if("EOD Suit")
 				H.equip_to_slot_or_del(new /obj/item/clothing/suit/vampire/eod(H), ITEM_SLOT_OCLOTHING)
 				H.equip_to_slot_or_del(new /obj/item/clothing/head/vampire/eod(H), ITEM_SLOT_HEAD)
@@ -58,7 +57,7 @@
 				H.put_in_l_hand(new /obj/item/ammo_box/vampire/c12g(H))
 			if("Holy Presence")
 				H.equip_to_slot_or_del(new /obj/item/clothing/suit/vampire/vest/army(H), ITEM_SLOT_OCLOTHING)
-				H.put_in_r_hand(new /obj/item/melee/vampirearms/chainsaw(H))
+				H.put_in_r_hand(new /obj/item/chainsaw/vamp(H))
 				H.resistant_to_disciplines = TRUE
 				to_chat(H, "<b>You are no longer vulnerable to vampire blood powers...</b>")
 

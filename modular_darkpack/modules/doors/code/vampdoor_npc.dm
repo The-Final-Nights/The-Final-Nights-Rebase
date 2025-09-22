@@ -1,6 +1,6 @@
 /obj/structure/vampdoor/npc
 	icon_state = "wood-1"
-	baseicon = "wood"
+	base_icon_state = "wood"
 	locked = TRUE
 	lock_id = "npc"
 	burnable = TRUE

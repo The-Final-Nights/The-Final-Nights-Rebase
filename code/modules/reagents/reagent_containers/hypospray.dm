@@ -55,7 +55,7 @@
 				trans = reagents.trans_to(affected_mob, amount_per_transfer_from_this, transferred_by = user, methods = INJECT)
 			else
 				reagents.expose(affected_mob, INJECT, fraction)
-				trans = reagents.copy_to(affected_mob, amount_per_transfer_from_this, copy_methods = INJECT)
+				trans = reagents.trans_to(affected_mob, amount_per_transfer_from_this, methods = INJECT, copy_only = TRUE)
 			to_chat(user, span_notice("[trans] unit\s injected. [reagents.total_volume] unit\s remaining in [src]."))
 			log_combat(user, affected_mob, "injected", src, "([contained])")
 		return TRUE
@@ -232,6 +232,17 @@
 	inhand_icon_state = "salpen"
 	base_icon_state = "salpen"
 	list_reagents = list(/datum/reagent/medicine/salbutamol = 10)
+
+// DARKPACK EDIT ADD START
+/obj/item/reagent_containers/hypospray/medipen/ifak
+	name = "ifak stabilization medipen"
+	desc = "A single use autoinjector used for general healing and stabilization. DO NOT INJECT TWICE. Contains salicylic acid, salbutamol, oxandrolone, blood-coagulant and epinephrine."
+	icon_state = "salpen"
+	inhand_icon_state = "salpen"
+	volume = 45
+	amount_per_transfer_from_this = 45
+	list_reagents = list(/datum/reagent/medicine/sal_acid = 10, /datum/reagent/medicine/salbutamol = 10, /datum/reagent/medicine/oxandrolone = 10, /datum/reagent/medicine/epinephrine = 10, /datum/reagent/medicine/coagulant = 5)
+// DARKPACK EDIT ADD END
 
 /obj/item/reagent_containers/hypospray/medipen/tuberculosiscure
 	name = "BVAK autoinjector"

@@ -53,7 +53,7 @@
 	damage = 5
 	damage_type = BURN
 	hitsound = 'modular_darkpack/modules/deprecated/sounds/drinkblood1.ogg'
-	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
+	hitsound_wall = 'sound/items/weapons/effects/searwall.ogg'
 	flag = LASER
 	light_system = MOVABLE_LIGHT
 	light_range = 1

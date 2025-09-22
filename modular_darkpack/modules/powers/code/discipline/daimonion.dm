@@ -72,12 +72,12 @@
 /datum/discipline_power/daimonion/conflagration/activate()
 	. = ..()
 	owner.drop_all_held_items()
-	owner.put_in_r_hand(new /obj/item/melee/vampirearms/knife/gangrel(owner))
-	owner.put_in_l_hand(new /obj/item/melee/vampirearms/knife/gangrel(owner))
+	owner.put_in_r_hand(new /obj/item/knife/vamp/gangrel(owner))
+	owner.put_in_l_hand(new /obj/item/knife/vamp/gangrel(owner))
 
 /datum/discipline_power/daimonion/conflagration/deactivate()
 	. = ..()
-	for(var/obj/item/melee/vampirearms/knife/gangrel/claws in owner)
+	for(var/obj/item/knife/vamp/gangrel/claws in owner)
 		qdel(claws)
 
 /datum/discipline_power/daimonion/conflagration/post_gain()

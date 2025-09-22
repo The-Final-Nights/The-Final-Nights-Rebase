@@ -6,7 +6,7 @@
 	color = "#bbb95c"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 	var/datum/delivery_datum/delivery
 	var/datum/delivery_manifest/manifest
@@ -89,8 +89,8 @@
 	desc = "A board made out of cork where delivery contracts are pinned. Use it with an emtpy hand to see if any are available."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "nboard02"
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
 	var/delivery_started = 0
 	var/delivery_employer_tag = "default"
 	var/next_delivery_timestamp
@@ -214,8 +214,8 @@
 
 	name = "delivery chute"
 	desc = "A chute used to handle bulk deliveries. A standard shipping crate should slide right in."
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "box_put"
 	var/chute_name = "default"
@@ -287,8 +287,8 @@
 
 	name = "Cargo Dispenser"
 	desc = "A chute used to handle bulk deliveries. There is a visible keyhole and a small button to push."
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "box_take"
 	var/chute_name = "default"
@@ -370,9 +370,8 @@
 			return
 		var/turf/user_turf = get_turf(user)
 		for(var/obj/structure/delivery_crate/potential_crate in user_turf.contents)
-			if(potential_crate)
-				to_chat(user, span_warning("There is already a crate on the ground here!"))
-				return
+			to_chat(user, span_warning("There is already a crate on the ground here!"))
+			return
 		dispenser_in_use = 1
 		playsound(src,'sound/effects/cargocrate_move.ogg',50,10)
 		if(do_after(user, 2 SECONDS, src))
@@ -383,8 +382,8 @@
 
 	name = "delivery crate"
 	desc = "A sealed crate, ready for transport and delivery."
-	anchored = 0
-	density = 1
+	anchored = FALSE
+	density = TRUE
 	icon = 'icons/obj/crates.dmi'
 	icon_state = "crate"
 	var/datum/delivery_datum/delivery
@@ -440,9 +439,8 @@
 			return
 		var/turf/user_turf = get_turf(user)
 		for(var/obj/structure/delivery_crate/potential_crate in user_turf.contents)
-			if(potential_crate)
-				to_chat(user, span_warning("There is already a crate on the ground here!"))
-				return
+			to_chat(user, span_warning("There is already a crate on the ground here!"))
+			return
 		delivery_trunk.retrieval_menu(user)
 	else
 		var/obj/structure/delivery_crate/pulled_crate = user.pulling
@@ -460,7 +458,7 @@
 	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "x4"
 	invisibility = 101
-	density = 0
+	density = FALSE
 	var/spawn_dir = NORTH
 	var/delivery_employer_tag = "default"
 

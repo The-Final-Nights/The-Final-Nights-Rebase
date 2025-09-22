@@ -78,10 +78,10 @@
 			final_mod *= physiology.stamina_mod
 		if(BRAIN)
 			final_mod *= physiology.brain_mod
-		// DARKPACK EDIT ADDITION START - AGGRAVATED_DAMAGE
+		// DARKPACK EDIT ADD START - AGGRAVATED_DAMAGE
 		if(AGGRAVATED)
 			final_mod *= physiology.aggravated_mod
-		// DARKPACK EDIT ADDITION END
+		// DARKPACK EDIT ADD END
 
 	return final_mod
 
@@ -95,6 +95,37 @@
 /mob/living/carbon/getFireLoss()
 	var/amount = 0
 	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		amount += bodypart.burn_dam
+	return round(amount, DAMAGE_PRECISION)
+
+
+/**
+ * Returns the amount of bruteloss across all bodyparts meeting the matching bodytype.
+ * Useful for if you would like to check the bruteloss for only organic bodyparts, for example.
+ *
+ * Arguments:
+ * *  required_bodytype - The bodytype(s) to match against.
+ */
+/mob/living/carbon/proc/getBruteLossForType(required_bodytype = ALL)
+	var/amount = 0
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(!(bodypart.bodytype & required_bodytype))
+			continue
+		amount += bodypart.brute_dam
+	return round(amount, DAMAGE_PRECISION)
+
+/**
+ * Returns the amount of fireloss across all bodyparts meeting the matching bodytype.
+ * Useful for if you would like to check the fireloss for only organic bodyparts, for example.
+ *
+ * Arguments:
+ * *  required_bodytype - The bodytype(s) to match against.
+ */
+/mob/living/carbon/proc/getFireLossForType(required_bodytype = ALL)
+	var/amount = 0
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(!(bodypart.bodytype & required_bodytype))
+			continue
 		amount += bodypart.burn_dam
 	return round(amount, DAMAGE_PRECISION)
 
@@ -198,10 +229,13 @@
  *
  * Arguments:
  * * slot - organ slot, like [ORGAN_SLOT_HEART]
+ * * required_organ_flag - if you only want to check the damage of organs with the specified organ_flag(s) then you can use this.
  */
-/mob/living/carbon/get_organ_loss(slot)
+/mob/living/carbon/get_organ_loss(slot, required_organ_flag = NONE)
 	var/obj/item/organ/affected_organ = get_organ_slot(slot)
 	if(affected_organ)
+		if(required_organ_flag && !(affected_organ.organ_flags & required_organ_flag))
+			return
 		return affected_organ.damage
 
 ////////////////////////////////////////////
@@ -288,7 +322,7 @@
 	// treat negative args as positive
 	brute = abs(brute)
 	burn = abs(burn)
-	aggravated = abs(aggravated) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	aggravated = abs(aggravated) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 	var/list/obj/item/bodypart/parts = get_damaged_bodyparts(brute, burn, required_bodytype, aggravated = aggravated) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
 
@@ -298,7 +332,7 @@
 
 		var/brute_was = picked.brute_dam
 		var/burn_was = picked.burn_dam
-		var/aggravated_was = picked.aggravated_dam // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		var/aggravated_was = picked.aggravated_dam // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 		. += picked.get_damage()
 
 		update |= picked.heal_damage(brute, burn, updating_health = FALSE, forced = forced, required_bodytype = required_bodytype, aggravated = aggravated) // DARKPACK EDIT CHANGE - AGGRAVATED_DAMAGE
@@ -307,7 +341,7 @@
 
 		brute = round(brute - (brute_was - picked.brute_dam), DAMAGE_PRECISION)
 		burn = round(burn - (burn_was - picked.burn_dam), DAMAGE_PRECISION)
-		aggravated = round(aggravated - (aggravated_was - picked.aggravated_dam), DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		aggravated = round(aggravated - (aggravated_was - picked.aggravated_dam), DAMAGE_PRECISION) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 		parts -= picked
 
@@ -326,7 +360,7 @@
 	// treat negative args as positive
 	brute = abs(brute)
 	burn = abs(burn)
-	aggravated = abs(aggravated) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+	aggravated = abs(aggravated) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 	var/list/obj/item/bodypart/parts = get_damageable_bodyparts(required_bodytype)
 	var/update = NONE
@@ -334,11 +368,11 @@
 		var/obj/item/bodypart/picked = pick(parts)
 		var/brute_per_part = round(brute/parts.len, DAMAGE_PRECISION)
 		var/burn_per_part = round(burn/parts.len, DAMAGE_PRECISION)
-		var/aggravated_per_part = round(aggravated/parts.len, DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		var/aggravated_per_part = round(aggravated/parts.len, DAMAGE_PRECISION) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 		var/brute_was = picked.brute_dam
 		var/burn_was = picked.burn_dam
-		var/aggravated_was = picked.aggravated_dam // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		var/aggravated_was = picked.aggravated_dam // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 		. += picked.get_damage()
 
 		// disabling wounds from these for now cuz your entire body snapping cause your heart stopped would suck
@@ -348,7 +382,7 @@
 
 		brute = round(brute - (picked.brute_dam - brute_was), DAMAGE_PRECISION)
 		burn = round(burn - (picked.burn_dam - burn_was), DAMAGE_PRECISION)
-		aggravated = round(aggravated - (picked.aggravated_dam - aggravated_was), DAMAGE_PRECISION) // DARKPACK EDIT ADDITION - AGGRAVATED_DAMAGE
+		aggravated = round(aggravated - (picked.aggravated_dam - aggravated_was), DAMAGE_PRECISION) // DARKPACK EDIT ADD - AGGRAVATED_DAMAGE
 
 		parts -= picked
 

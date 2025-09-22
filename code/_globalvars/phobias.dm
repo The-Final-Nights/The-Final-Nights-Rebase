@@ -24,7 +24,7 @@ GLOBAL_LIST_INIT(phobia_types, sort_list(list(
 	"spiders",
 	"strangers",
 	"the supernatural",
-	"religion", // DARKPACK EDIT ADDITION - Religious phobia
+	"religion", // DARKPACK EDIT ADD - Religious phobia
 )))
 
 GLOBAL_LIST_INIT(phobia_regexes, list(
@@ -51,7 +51,7 @@ GLOBAL_LIST_INIT(phobia_regexes, list(
 	"spiders" = construct_phobia_regex("spiders"),
 	"strangers" = construct_phobia_regex("strangers"),
 	"the supernatural" = construct_phobia_regex("the supernatural"),
-	"religion" = construct_phobia_regex("religion"), // DARKPACK EDIT ADDITION - Religious phobia
+	"religion" = construct_phobia_regex("religion"), // DARKPACK EDIT ADD - Religious phobia
 ))
 
 GLOBAL_LIST_INIT(phobia_mobs, list(
@@ -128,13 +128,13 @@ GLOBAL_LIST_INIT(phobia_mobs, list(
 		/mob/living/simple_animal/bot/mulebot/paranormal,
 		/mob/living/basic/voidwalker,
 	)),
-	// DARKPACK EDIT ADDITION START - Religious phobia
+	// DARKPACK EDIT ADD START - Religious phobia
 	"religion" = typecacheof(list(
 		/mob/living/basic/construct/artificer/angelic,
 		/mob/living/basic/construct/juggernaut/angelic,
 		/mob/living/basic/construct/wraith/angelic
 	)),
-	// DARKPACK EDIT ADDITION END - Religious phobia
+	// DARKPACK EDIT ADD END - Religious phobia
 ))
 
 GLOBAL_LIST_INIT(phobia_objs, list(
@@ -541,12 +541,12 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 		/obj/structure/destructible/eldritch_crucible,
 		/obj/structure/spirit_board,
 	)),
-	// DARKPACK EDIT ADDITION START - Religious phobia
+	// DARKPACK EDIT ADD START - Religious phobia
 	"religion" = typecacheof(list(
 		/obj/item/book/bible,
 		///obj/item/card/id/hunter
 	)),
-	// DARKPACK EDIT ADDITION END - Religious phobia
+	// DARKPACK EDIT ADD END - Religious phobia
 ))
 
 GLOBAL_LIST_INIT(phobia_turfs, list(

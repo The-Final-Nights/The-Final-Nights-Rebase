@@ -359,6 +359,7 @@
 							to_chat(wielder, span_notice("You reach out and catch \the [casing] as it ejects from [src]. Awesome. Your [affecting.plaintext_zone] hurts, though."))
 							wielder.apply_damage(4, BURN, affecting, wound_bonus = CANT_WOUND)
 				if(hitting_ground)
+					SEND_SIGNAL(casing, COMSIG_ITEM_DROPPED) // DARKPACK EDIT ADD
 					casing.bounce_away(TRUE)
 		else if(empty_chamber)
 			clear_chambered()
@@ -549,7 +550,7 @@
 			magazine.stored_ammo -= chambered
 		chambered = null
 
-	var/num_loaded = magazine?.attackby(ammo, user, silent = TRUE)
+	var/num_loaded = magazine?.try_load(user, ammo, silent = TRUE)
 	if (!num_loaded)
 		return FALSE
 
