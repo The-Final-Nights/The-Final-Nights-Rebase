@@ -6,6 +6,7 @@
 /datum/component/jumper
 	COOLDOWN_DECLARE(jump_cooldown)
 	var/prepared_to_jump = FALSE
+	var/windup_in_progress = FALSE
 
 /datum/component/jumper/Initialize()
 	. = ..()
@@ -29,7 +30,12 @@
 //Ensures that a jump can actually be performed
 /datum/component/jumper/proc/try_jump(mob/living/jumper, atom/target, list/modifiers)
 	SIGNAL_HANDLER
+	//only process if the clicker used left click if prepared, or middle click
 	if(!(prepared_to_jump && LAZYACCESS(modifiers, LEFT_CLICK)) && !LAZYACCESS(modifiers, MIDDLE_CLICK))
+		return
+
+	//only process if shift, ctrl, and alt are NOT being held
+	if(LAZYACCESS(modifiers, CTRL_CLICK) || LAZYACCESS(modifiers, SHIFT_CLICK) || LAZYACCESS(modifiers, ALT_CLICK))
 		return
 
 	if(jumper.stat >= UNCONSCIOUS)
@@ -62,6 +68,9 @@
 	if(istype(target, /atom/movable/screen))
 		return
 
+	if(windup_in_progress)
+		return
+
 	if(!COOLDOWN_FINISHED(src, jump_cooldown))
 		to_chat(jumper, span_notice("You can't jump so soon!"))
 		return
@@ -74,9 +83,11 @@
 	var/strength = jumper.st_get_stat(STAT_STRENGTH)
 	var/dexterity = jumper.st_get_stat(STAT_DEXTERITY)
 	var/athletics = jumper.st_get_stat(STAT_ATHLETICS)
-
+	windup_in_progress = TRUE
 	if(!do_after(jumper, 12 - athletics))
+		windup_in_progress = FALSE
 		return
+	windup_in_progress = FALSE
 
 	var/adjusted_jump_range = clamp((BASE_JUMP_DISTANCE + 0.75 + max(0,(strength -1)) * 0.5 + athletics), 1, 6)
 
