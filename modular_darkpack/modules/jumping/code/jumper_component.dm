@@ -6,7 +6,6 @@
 /datum/component/jumper
 	COOLDOWN_DECLARE(jump_cooldown)
 	var/prepared_to_jump = FALSE
-	var/windup_in_progress = FALSE
 
 /datum/component/jumper/Initialize()
 	. = ..()
@@ -68,9 +67,6 @@
 	if(istype(target, /atom/movable/screen))
 		return
 
-	if(windup_in_progress)
-		return
-
 	if(!COOLDOWN_FINISHED(src, jump_cooldown))
 		to_chat(jumper, span_notice("You can't jump so soon!"))
 		return
@@ -83,11 +79,9 @@
 	var/strength = jumper.st_get_stat(STAT_STRENGTH)
 	var/dexterity = jumper.st_get_stat(STAT_DEXTERITY)
 	var/athletics = jumper.st_get_stat(STAT_ATHLETICS)
-	windup_in_progress = TRUE
-	if(!do_after(jumper, 12 - athletics))
-		windup_in_progress = FALSE
+
+	if(!do_after(jumper, 12 - athletics, interaction_key = DOAFTER_SOURCE_JUMP))
 		return
-	windup_in_progress = FALSE
 
 	var/adjusted_jump_range = clamp((BASE_JUMP_DISTANCE + 0.75 + max(0,(strength -1)) * 0.5 + athletics), 1, 6)
 
