@@ -24,7 +24,7 @@
 		new /datum/data/vending_product("cooking enzymes", /obj/item/reagent_containers/condiment/enzyme, 12),
 		new /datum/data/vending_product("salt shaker", /obj/item/reagent_containers/condiment/saltshaker, 3),
 		new /datum/data/vending_product("pepper mill", /obj/item/reagent_containers/condiment/peppermill, 3),
-		new /datum/data/vending_product("bbq sauce", /obj/item/reagent_containers/condiment/bbq, 3),
+		new /datum/data/vending_product("bbq sauce", /obj/item/reagent_containers/condiment/bbqsauce, 3),
 		new /datum/data/vending_product("soy sauce", /obj/item/reagent_containers/condiment/soysauce, 4),
 		new /datum/data/vending_product("mayonnaise", /obj/item/reagent_containers/condiment/mayonnaise, 3),
 		new /datum/data/vending_product("egg carton", /obj/item/storage/fancy/egg_box),
