@@ -259,7 +259,7 @@
 	icon = 'modular_darkpack/master_files/icons/mobs/simple/pets.dmi'
 	var/random_cat_color = TRUE
 
-/mob/living/basic/pet/cat/darkpack/Initialize()
+/mob/living/basic/pet/cat/darkpack/Initialize(mapload)
 	. = ..()
 	if(random_cat_color)
 		var/id = rand(3, 9)
