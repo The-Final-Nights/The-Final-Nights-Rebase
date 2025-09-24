@@ -1,5 +1,4 @@
-// ! Bad code that needs to be removed
-
+// Very mediorce solution. Much much better then what cars USED to do.
 /turf/proc/get_blocking_contents(exclude_mobs = FALSE, source_atom = null, list/ignore_atoms)
 	if(density)
 		return list(src)

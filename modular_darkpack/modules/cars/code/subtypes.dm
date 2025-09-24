@@ -72,7 +72,6 @@
 	light_color = "#ff0000"
 	light_range = 6
 	light_power = 6
-	light_on = FALSE
 	var/color_blue = FALSE
 	COOLDOWN_DECLARE(last_color_change)
 
@@ -81,11 +80,13 @@
 	icon_state = "unmarked"
 */
 
+/*
 /obj/darkpack_car/police/set_headlight_on(new_value)
 	. = ..()
 	if(isnull(.))
 		return
 	set_light_on(headlight_on)
+*/
 
 /obj/darkpack_car/police/car_move()
 	if(!light_on)

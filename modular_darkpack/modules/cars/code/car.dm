@@ -56,6 +56,12 @@
 
 	glide_size = 96
 
+	light_system = OVERLAY_LIGHT_DIRECTIONAL
+	light_color = COLOR_LIGHT_ORANGE
+	light_range = 6
+	light_power = 1
+	light_on = FALSE
+
 	var/movement_vector = 0 //0-359 degrees
 	var/speed_in_pixels = 0 // 16 pixels (turf is 2x2m) = 1 meter per 1 SECOND (process fire). Minus equals to reverse, max should be 444
 	var/last_pos = list("x" = 0, "y" = 0, "x_pix" = 0, "y_pix" = 0, "x_frwd" = 0, "y_frwd" = 0)
@@ -334,6 +340,8 @@
 	else
 		cut_overlay(headlight_image)
 
+	set_light_on(headlight_on)
+
 /obj/darkpack_car/mouse_drop_receive(mob/living/dropped, mob/user, params)
 	. = ..()
 	if(!isliving(dropped))
@@ -480,9 +488,11 @@
 	take_damage(dam)
 	return
 
+/*
 /obj/darkpack_car/setDir(newdir)
 	. = ..()
 	apply_vector_angle()
+*/
 
 /obj/darkpack_car/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
@@ -679,7 +689,7 @@
 
 /obj/darkpack_car/proc/apply_vector_angle()
 	var/turn_state = round(SIMPLIFY_DEGREES(movement_vector + 22.5) / 45)
-	dir = GLOB.modulo_angle_to_dir[turn_state + 1]
+	setDir(GLOB.modulo_angle_to_dir[turn_state + 1])
 	var/minus_angle = turn_state * 45
 
 	var/matrix/M = matrix()
