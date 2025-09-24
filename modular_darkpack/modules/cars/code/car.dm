@@ -108,7 +108,7 @@
 	create_storage(storage_type = car_storage_type)
 	atom_storage.set_real_location(trunk)
 
-/*
+	/*
 	headlight_image = new(src)
 	headlight_image.icon = 'icons/effects/light_overlays/light_cone_car.dmi'
 	headlight_image.icon_state = "light"
@@ -118,15 +118,17 @@
 	headlight_image.plane = O_LIGHTING_VISUAL_PLANE
 	headlight_image.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
 	headlight_image.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-//	headlight_image.vis_flags = NONE
+	//headlight_image.vis_flags = NONE
 	headlight_image.alpha = 110
-*/
+	*/
+
 	gas = rand(100, CAR_TANK_MAX)
 	last_pos["x"] = x
 	last_pos["y"] = y
-//	last_pos["x_pix"] = 32
-//	last_pos["y_pix"] = 32
+	//last_pos["x_pix"] = 32
+	//last_pos["y_pix"] = 32
 	movement_vector = dir2angle(dir)
+
 	add_overlay(image(icon = src.icon, icon_state = src.icon_state, pixel_x = -32, pixel_y = -32))
 	icon_state = "empty"
 
