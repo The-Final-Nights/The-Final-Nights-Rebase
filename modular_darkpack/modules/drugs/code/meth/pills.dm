@@ -33,8 +33,8 @@
 	spawn_count = 5
 	spawn_type = /obj/item/reagent_containers/applicator/pill/placebatol
 
-/obj/item/storage/pill_bottle/antibirth
-	name = "antibirth pill bottle"
-	desc = "There is crossed sex icon on the top."
+/obj/item/storage/pill_bottle/unknown
+	name = "unknown pill bottle"
+	desc = "Its unlabeled and its unclear what they would acctually treat."
 	spawn_count = 5
 	spawn_type = /obj/item/reagent_containers/applicator/pill/placebatol
