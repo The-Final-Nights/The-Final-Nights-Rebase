@@ -110,6 +110,7 @@
 
 	/*
 	headlight_image = new(src)
+	// TODO: [Rebase] see about reimplementing this sprite for cars
 	headlight_image.icon = 'icons/effects/light_overlays/light_cone_car.dmi'
 	headlight_image.icon_state = "light"
 	headlight_image.pixel_x = -64
