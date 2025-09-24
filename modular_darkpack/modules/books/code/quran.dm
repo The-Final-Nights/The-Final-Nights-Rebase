@@ -3,7 +3,7 @@
 	desc = "Inshallah..."
 	icon_state = "quran"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/quran/attack(mob/living/target, mob/living/user)

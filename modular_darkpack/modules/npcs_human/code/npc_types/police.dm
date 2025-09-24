@@ -1,10 +1,7 @@
 /mob/living/carbon/human/npc/police
 	aggressive = TRUE
 	max_stat = DEAD
-	// TODO: [Lucia] reimplement weapons
-	/*
 	my_backup_weapon_type = /obj/item/melee/baton/vamp
-	*/
 
 /mob/living/carbon/human/npc/police/Initialize(mapload)
 	. = ..()

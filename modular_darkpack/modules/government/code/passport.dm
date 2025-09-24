@@ -6,7 +6,7 @@
 	icon_state = "passport1"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_ID
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 	var/clozed = TRUE
 

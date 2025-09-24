@@ -7,9 +7,3 @@
 					H.face_atom(src)
 					H.harm_focus = H.dir
 
-/mob/living/carbon/Move(atom/newloc, direct, glide_size_override)
-	. = ..()
-	if(a_intent == INTENT_HARM && client)
-		setDir(harm_focus)
-	else
-		harm_focus = dir
