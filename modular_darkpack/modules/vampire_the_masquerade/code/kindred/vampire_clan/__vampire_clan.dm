@@ -103,7 +103,7 @@
 	if (alt_sprite)
 		vampire.set_body_sprite(ignore_clan = TRUE)
 
-	// TODO: [Lucia] reimplement clan accessories
+	// TODO: [Rebase] reimplement clan accessories
 	/*
 	// Remove Clan accessories
 	if (vampire.client?.prefs?.clan_accessory)
