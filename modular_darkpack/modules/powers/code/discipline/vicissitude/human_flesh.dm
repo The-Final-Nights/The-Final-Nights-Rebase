@@ -4,7 +4,7 @@
 	singular_name = "human flesh"
 	icon = 'modular_darkpack/modules/deprecated/icons/obj/stack_objects.dmi'
 	icon_state = "human"
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	mats_per_unit = list(/datum/material/pizza = SHEET_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/human_flesh
 	max_amount = 50

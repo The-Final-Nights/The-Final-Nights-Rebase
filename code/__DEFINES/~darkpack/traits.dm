@@ -51,7 +51,7 @@
 #define TRAIT_SENSITIVE_HUMANITY "sensitive_humanity"
 /// Duration of frenzy is doubled
 #define TRAIT_LONGER_FRENZY "longer_frenzy"
-// TODO: [Lucia] refactor these traits into mutant bodyparts and a component maybe
+// TODO: [Rebase] refactor these traits into mutant bodyparts and a component maybe
 /// If eyes are uncovered, they will be obviously supernatural to everyone nearby
 #define TRAIT_MASQUERADE_VIOLATING_EYES "masquerade_violating_eyes"
 /// If face is uncovered, they will be obviously supernatural to everyone nearby

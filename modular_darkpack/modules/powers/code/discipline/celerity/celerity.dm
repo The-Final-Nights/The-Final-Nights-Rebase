@@ -14,7 +14,7 @@
 /datum/discipline_power/celerity/proc/temporis_explode(datum/source, datum/discipline_power/power, atom/target)
 	SIGNAL_HANDLER
 
-	// TODO: [Lucia] reimplement temporis
+	// TODO: [Rebase] reimplement temporis
 	/*
 	if (!istype(power, /datum/discipline_power/temporis/patience_of_the_norns) && !istype(power, /datum/discipline_power/temporis/clothos_gift))
 		return

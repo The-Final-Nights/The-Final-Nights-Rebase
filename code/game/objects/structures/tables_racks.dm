@@ -1419,10 +1419,16 @@
 		return
 	building = TRUE
 	to_chat(user, span_notice("You start constructing a rack..."))
+	// DARKPACK EDIT ADD START
+	var/obj/structure/rack/rack_choice = tgui_input_list(user, "Choose rack type", "Rack Choice", list(/obj/structure/rack, /obj/structure/rack/clothing, /obj/structure/rack/clothing_hanger, /obj/structure/rack/food))
+	if(!rack_choice)
+		return
+	// DARKPACK EDIT ADD END
 	if(do_after(user, 5 SECONDS, target = user, progress=TRUE))
 		if(!user.temporarilyRemoveItemFromInventory(src))
 			return
-		var/obj/structure/rack/R = new /obj/structure/rack(get_turf(src))
+		var/obj/structure/rack/R = new rack_choice(get_turf(src)) // DARKPACK EDIT CHANGE
+		R.dir = user.dir // DARKPACK EDIT ADD - Food rack has dirs
 		user.visible_message(span_notice("[user] assembles \a [R]."), span_notice("You assemble \a [R]."))
 		R.add_fingerprint(user)
 		qdel(src)

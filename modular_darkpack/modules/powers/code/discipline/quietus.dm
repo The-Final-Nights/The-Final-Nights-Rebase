@@ -130,7 +130,7 @@
 
 	return .
 
-/datum/discipline_power/quietus/baals_caress/activate(obj/item/melee/vampirearms/target)
+/datum/discipline_power/quietus/baals_caress/activate(obj/item/melee/vamp/target)
 	. = ..()
 	if(!target.quieted)
 		target.quieted = TRUE

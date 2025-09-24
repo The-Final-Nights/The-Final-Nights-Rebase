@@ -29,9 +29,9 @@
 		var/amount = productlist[typepath]
 
 		var/obj/item/temp = typepath
-		var/datum/data/vending_product/new_record = new
-		new_record.name = initial(temp.name)
-		new_record.product_path = typepath
+		// DARKPACK EDIT START - ECONOMY
+		var/datum/data/vending_product/new_record = new /datum/data/vending_product(initial(temp.name), typepath)
+		// DARKPACK EDIT END - ECONOMY
 		if(!start_empty)
 			new_record.amount = amount
 		new_record.max_amount = amount
@@ -162,12 +162,13 @@
 		flick(icon_deny, src)
 		return
 	if(onstation)
-		// Here we do additional handing ahead of the payment component's logic, such as age restrictions and additional logging
-		var/obj/item/card/id/card_used
+		// DARKPACK EDIT CHANGE START - ECONOMY
+		var/obj/item/card/credit/card_used
 		var/mob/living/living_user
 		if(isliving(user))
 			living_user = user
-			card_used = living_user.get_idcard(TRUE)
+			card_used = living_user.get_creditcard(TRUE)
+		/*
 		if(age_restrictions && item_record.age_restricted && (!card_used.registered_age || card_used.registered_age < AGE_MINOR))
 			speak("You are not of legal age to purchase [item_record.name].")
 			if(!(user in GLOB.narcd_underages))
@@ -180,6 +181,8 @@
 				GLOB.narcd_underages += user
 			flick(icon_deny, src)
 			return
+		*/
+		// DARKPACK EDIT CHANGE START - ECONOMY
 
 		if(!proceed_payment(card_used, living_user, item_record, price_to_use, params["discountless"]))
 			return
@@ -250,24 +253,25 @@
 
 	return
 
+// DARKPACK EDIT CHANGE START - ECONOMY
 /**
  * Handles payment processing: discounts, logging, balance change etc.
  * arguments:
- * paying_id_card - the id card that will be billed for the product.
+ * paying_creditcard - the credit card that will be billed for the product.
  * mob_paying - the mob that is trying to purchase the item.
  * product_to_vend - the product record of the item we're trying to vend.
  * price_to_use - price of the item we're trying to vend.
  * discountless - whether or not to apply discounts
  */
-/obj/machinery/vending/proc/proceed_payment(obj/item/card/id/paying_id_card, mob/living/mob_paying, datum/data/vending_product/product_to_vend, price_to_use, discountless)
+/obj/machinery/vending/proc/proceed_payment(obj/item/card/credit/paying_creditcard, mob/living/mob_paying, datum/data/vending_product/product_to_vend, price_to_use, discountless)
 	PROTECTED_PROC(TRUE)
 
-	if(QDELETED(paying_id_card)) //not available(null) or somehow is getting destroyed
-		speak("You do not possess an ID to purchase [product_to_vend.name].")
+	if(QDELETED(paying_creditcard)) //not available(null) or somehow is getting destroyed
+		speak("You do not possess an credit card to purchase [product_to_vend.name].")
 		return FALSE
-	var/datum/bank_account/account = paying_id_card.registered_account
-	if(account.account_job && account.account_job.paycheck_department == payment_department && !discountless)
-		price_to_use = max(round(price_to_use * DEPARTMENT_DISCOUNT), 1) //No longer free, but signifigantly cheaper.
+	var/datum/bank_account/account = paying_creditcard.registered_account
+	//if(account.account_job && account.account_job.paycheck_department == payment_department && !discountless)
+	//	price_to_use = max(round(price_to_use * DEPARTMENT_DISCOUNT), 1) //No longer free, but signifigantly cheaper.
 	if(LAZYLEN(product_to_vend.returned_products))
 		price_to_use = 0 //returned items are free
 	if(price_to_use && (attempt_charge(src, mob_paying, price_to_use) & COMPONENT_OBJ_CANCEL_CHARGE))
@@ -282,3 +286,4 @@
 		log_econ("[price_to_use] credits were inserted into [src] by [account.account_holder] to buy [product_to_vend].")
 	credits_contained += round(price_to_use * VENDING_CREDITS_COLLECTION_AMOUNT)
 	return TRUE
+// DARKPACK EDIT END START - ECONOMY

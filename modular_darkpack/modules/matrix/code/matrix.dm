@@ -3,7 +3,7 @@
 /turf/closed/indestructible/the_matrix
 	name = "matrix"
 	desc = "Suicide is no exit..."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/matrix/icons/matrix.dmi'
 	icon_state = "matrix"
 
 /turf/closed/indestructible/the_matrix/attack_hand(mob/user)
@@ -11,10 +11,38 @@
 		return FALSE
 	if(!do_after(user, 10 SECONDS, src, interaction_key = DOAFTER_SOURCE_MATRIX))
 		return FALSE
-	despawn_mob(user, src)
+	matrix_mob(user, src)
 	return TRUE
 
-/turf/closed/indestructible/the_matrix/proc/despawn_mob(mob/living/despawning_mob)
+/obj/the_matrix
+	name = "matrix (depricated)"
+	desc = "Suicide is no exit... This is an old evil version, please contact a mapper to replace this with a turf one if you are reading this"
+	icon = 'modular_darkpack/modules/matrix/icons/matrix.dmi'
+	icon_state = "matrix"
+	layer = ABOVE_NORMAL_TURF_LAYER
+	anchored = TRUE
+	opacity = TRUE
+	density = TRUE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+
+/obj/the_matrix/attack_hand(mob/user)
+	if(!user.client)
+		return FALSE
+	if(!do_after(user, 10 SECONDS, src, interaction_key = DOAFTER_SOURCE_MATRIX))
+		return FALSE
+	matrix_mob(user, src)
+	return TRUE
+
+ADMIN_VERB_AND_CONTEXT_MENU(matrix_mob_verb, R_ADMIN, "Matrix Mob", "Matrix (despawn) a mob.", ADMIN_CATEGORY_GAME, mob/living/target in world)
+	var/turf/target_turf = get_turf(target)
+	var/message = "[key_name(user)] has matrixed [target] ([target.type]) at [AREACOORD(target_turf)]"
+	message_admins(message)
+	log_admin(message)
+
+	matrix_mob(target)
+	BLACKBOX_LOG_ADMIN_VERB("Matrix Mob")
+
+/proc/matrix_mob(mob/living/despawning_mob)
 	message_admins("[ADMIN_LOOKUP(despawning_mob)] has exited through the matrix.")
 	log_game("[despawning_mob] has exited through the matrix.")
 
@@ -25,14 +53,5 @@
 	//handle_objectives()
 	despawning_mob.ghostize(FALSE)
 	QDEL_NULL(despawning_mob)
-
-/turf/closed/indestructible/edge
-	name = "edge"
-	desc = null
-	icon = 'icons/turf/space.dmi'
-	icon_state = "black"
-	layer = SPACE_LAYER
-	plane = FLOOR_PLANE
-	rad_insulation = RAD_FULL_INSULATION
 
 #undef DOAFTER_SOURCE_MATRIX

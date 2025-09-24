@@ -57,8 +57,7 @@
 	uniforms = list(/obj/item/clothing/under/vampire/rich)
 	inhand_items = list(/obj/item/storage/briefcase)
 	pockets = list(
-		// TODO: [Lucia] reimplement doors
-		// /obj/item/vamp/keys/npc,
+		/obj/item/vamp/keys/npc,
 		/obj/item/stack/dollar/fifty,
 		/obj/item/stack/dollar/hundred
 	)
