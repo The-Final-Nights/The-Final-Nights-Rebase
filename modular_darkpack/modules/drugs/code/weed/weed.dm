@@ -3,7 +3,7 @@
 	desc = "Green and smelly..."
 	icon_state = "weed"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	bite_consumption = 5
 	tastes = list("cat piss" = 4, "weed" = 2)
 	foodtypes = VEGETABLES

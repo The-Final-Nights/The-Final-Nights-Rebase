@@ -67,10 +67,8 @@
 
 	shoes = list(/obj/item/clothing/shoes/vampire)
 	uniforms = list(/obj/item/clothing/under/vampire/guard)
-	// TODO: [Lucia] reimplement doors
-	/*
+
 	pockets = list(/obj/item/vamp/keys/npc, /obj/item/stack/dollar/rand)
-	*/
 
 	neutral_phrases = list(
 		"No loitering.",

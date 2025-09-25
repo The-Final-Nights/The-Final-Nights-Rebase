@@ -3,7 +3,7 @@
 	desc = "911, I'm stuck in my dishwasher and stepbrother is coming in my room..."
 	icon_state = "radio"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 	var/last_shooting = 0
 	var/last_shooting_victims = 0

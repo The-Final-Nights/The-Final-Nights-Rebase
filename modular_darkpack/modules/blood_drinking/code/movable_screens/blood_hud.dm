@@ -1,6 +1,6 @@
 /atom/movable/screen/blood
 	name = "bloodpool"
-	icon = 'modular_darkpack/modules/deprecated/icons/ui/bloodpool.dmi'
+	icon = 'modular_darkpack/modules/blood_drinking/icons/bloodpool.dmi'
 	icon_state = "blood0"
 
 /atom/movable/screen/blood/Click()

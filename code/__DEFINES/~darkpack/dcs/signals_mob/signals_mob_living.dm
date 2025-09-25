@@ -1,0 +1,1 @@
+#define COMSIG_LIVING_JUMP_PREP_TOGGLE "living_jump_prep_toggle"
