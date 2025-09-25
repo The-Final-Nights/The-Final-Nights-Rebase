@@ -1,6 +1,6 @@
 /datum/action/darkpack_car
 	button_icon = 'modular_darkpack/modules/cars/icons/car_actions.dmi'
-	check_flags = AB_CHECK_CONSCIOUS | TRAITS_HANDS_BLOCKED
+	check_flags = AB_CHECK_HANDS_BLOCKED | AB_CHECK_CONSCIOUS
 
 /datum/action/darkpack_car/Trigger(mob/clicker, trigger_flags)
 	. = ..()
