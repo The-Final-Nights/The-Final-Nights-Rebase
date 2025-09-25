@@ -6,6 +6,11 @@
 /obj/darkpack_car/retro/unlocked
 	locked = FALSE
 
+// So insanely useful for testing im leaving it uncommented
+/obj/darkpack_car/retro/debug
+	debug_car = TRUE
+	locked = FALSE
+
 /obj/darkpack_car/retro/rand
 	icon_state = "3"
 

@@ -8,6 +8,10 @@
 	light_range = 1
 	duration = 0.5 SECONDS
 
+/obj/effect/temp_visual/telegraphing/car
+	icon_state = "target_circle"
+	duration = 0.5 SECONDS
+
 /datum/looping_sound/car_engine
 	start_sound = 'modular_darkpack/modules/cars/sounds/start.ogg'
 	start_length = 2 SECONDS
@@ -91,6 +95,9 @@
 	var/beep_sound = 'modular_darkpack/modules/cars/sounds/beep.ogg'
 
 	var/gas = CAR_TANK_MAX
+
+	/// If we provide extra debug information like path indicators
+	var/debug_car = FALSE
 
 	/// sound loop for the engine
 	var/datum/looping_sound/car_engine/engine_sound_loop
@@ -530,20 +537,24 @@
 			true_movement_angle = SIMPLIFY_DEGREES(used_vector+180)
 
 		var/turf/check_turf = get_turf_in_angle(used_vector, src.loc, 3)
-		// Was used for npc dodge, unsure if needed
-		//var/turf/check_turf_ahead = get_turf_in_angle(used_vector, src.loc, 2)
 
 		handle_npc_dodge(check_turf, used_vector)
 
 		var/turf/hit_turf
 		var/list/in_line = get_line(src, check_turf)
 		for(var/turf/T in in_line)
+			if(debug_car)
+				// For visualising path of car.
+				new /obj/effect/temp_visual/telegraphing/car(T)
 			var/dist_to_hit = get_dist_in_pixels(last_pos["x"]*32+last_pos["x_pix"], last_pos["y"]*32+last_pos["y_pix"], T.x*32, T.y*32)
 			if(dist_to_hit <= used_speed)
 				var/list/stuff = T.get_blocking_contents(FALSE, src)
 				if(length(stuff))
 					if(!hit_turf || dist_to_hit < get_dist_in_pixels(last_pos["x"]*32+last_pos["x_pix"], last_pos["y"]*32+last_pos["y_pix"], hit_turf.x*32, hit_turf.y*32))
 						hit_turf = T
+						if(debug_car)
+							// For visualising hit tile of car.
+							new /obj/effect/temp_visual/telegraphing(T)
 		if(hit_turf)
 			Bump(pick(hit_turf.get_blocking_contents(FALSE, src)))
 			// to_chat(world, "I can't pass that [hit_turf] at [hit_turf.x] x [hit_turf.y] cause of [pick(hit_turf.unpassable)] FUCK")
