@@ -88,7 +88,7 @@
 	var/obj/car_trunk/trunk
 
 	var/exploded = FALSE
-	var/car_alarm_sound = 'modular_darkpack/modules/cars/sounds/car_alarm.ogg'
+	var/beep_sound = 'modular_darkpack/modules/cars/sounds/beep.ogg'
 
 	var/gas = CAR_TANK_MAX
 
@@ -96,7 +96,7 @@
 	var/datum/looping_sound/car_engine/engine_sound_loop
 
 	COOLDOWN_DECLARE(impact_delay)
-	COOLDOWN_DECLARE(car_alarm_cooldown)
+	COOLDOWN_DECLARE(beep_cooldown)
 
 /obj/darkpack_car/Initialize(mapload)
 	. = ..()
@@ -243,9 +243,9 @@
 				qdel(tool)
 			if(ROLL_BOTCH)
 				to_chat(user, span_warning("You've failed to open [src]'s lock."))
-				if(COOLDOWN_FINISHED(src, car_alarm_cooldown))
+				if(COOLDOWN_FINISHED(src, beep_cooldown))
 					playsound(src, 'modular_darkpack/modules/cars/sounds/signal.ogg', 50, FALSE)
-					COOLDOWN_START(src, car_alarm_cooldown, 7 SECONDS)
+					COOLDOWN_START(src, beep_cooldown, 7 SECONDS)
 				return
 	else
 		to_chat(user, span_warning("You've failed to open [src]'s lock."))
@@ -267,8 +267,8 @@
 			if(prob(50))
 				L.apply_damage(round(I.force/2), I.damtype, pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST))
 
-		if(!driver && !length(passengers) && COOLDOWN_FINISHED(src, car_alarm_cooldown) && locked)
-			COOLDOWN_START(src, car_alarm_cooldown, 7 SECONDS)
+		if(!driver && !length(passengers) && COOLDOWN_FINISHED(src, beep_cooldown) && locked)
+			COOLDOWN_START(src, beep_cooldown, 7 SECONDS)
 			playsound(src, 'modular_darkpack/modules/cars/sounds/signal.ogg', 50, FALSE)
 			for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
 				P.Aggro(user)
@@ -385,7 +385,7 @@
 			N.Grant(dropped)
 			var/datum/action/darkpack_car/stage/S = new()
 			S.Grant(dropped)
-			var/datum/action/darkpack_car/car_alarm/B = new()
+			var/datum/action/darkpack_car/beep/B = new()
 			B.Grant(dropped)
 			var/datum/action/darkpack_car/baggage/G = new()
 			G.Grant(dropped)

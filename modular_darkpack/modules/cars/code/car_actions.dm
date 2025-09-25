@@ -1,5 +1,6 @@
 /datum/action/darkpack_car
 	button_icon = 'modular_darkpack/modules/cars/icons/car_actions.dmi'
+	check_flags = AB_CHECK_CONSCIOUS | TRAITS_HANDS_BLOCKED
 
 /datum/action/darkpack_car/Trigger(mob/clicker, trigger_flags)
 	. = ..()
@@ -7,7 +8,7 @@
 		return FALSE
 	if(!owner)
 		return FALSE
-	if(istype(owner.loc, /obj/darkpack_car))
+	if(!istype(owner.loc, /obj/darkpack_car))
 		return FALSE
 
 /datum/action/darkpack_car/headlight
@@ -34,8 +35,8 @@
 	if(!.)
 		return FALSE
 	var/obj/darkpack_car/owned_car = owner.loc
-	if(owned_car.last_beep+10 < world.time)
-		owned_car.last_beep = world.time
+	if(COOLDOWN_FINISHED(owned_car, beep_cooldown))
+		COOLDOWN_START(owned_car, beep_cooldown, 1 SECONDS)
 		playsound(owned_car.loc, owned_car.beep_sound, 60, FALSE)
 
 /datum/action/darkpack_car/stage
