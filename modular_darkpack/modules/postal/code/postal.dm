@@ -80,7 +80,7 @@
 			/obj/item/knife/vamp,
 			/obj/item/melee/vamp/tire,
 			/obj/item/drinkable_bloodpack,
-			/obj/item/gun/ballistic/revolver/darkpack/magnum,
+			/obj/item/gun/ballistic/revolver/darkpack/snub,
 			/obj/item/vamp/keys/hack
 		)
 		new IT(user.loc)
