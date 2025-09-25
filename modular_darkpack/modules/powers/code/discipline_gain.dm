@@ -14,7 +14,7 @@
 	if ((dna.species.id == "kindred") || (dna.species.id == "ghoul")) //only splats that have Disciplines qualify
 		var/list/datum/discipline/adding_disciplines = list()
 
-		// TODO: [Lucia] reimplement Discipline selection?
+		// TODO: [Rebase] reimplement Discipline selection?
 		/*
 		if (discipline_pref) //initialise player's own disciplines
 			for (var/i in 1 to client.prefs.discipline_types.len)
@@ -38,7 +38,7 @@
 		for (var/datum/discipline/discipline in adding_disciplines)
 			give_discipline(discipline)
 
-	// TODO: [Lucia] reimplement kuei-jin
+	// TODO: [Rebase] reimplement kuei-jin
 	/*
 	else if ((dna.species.id == "kuei-jin")) //only splats that have Disciplines qualify
 		var/list/datum/chi_discipline/adding_disciplines = list()
@@ -67,7 +67,7 @@
 	var/datum/species/human/kindred/species = dna.species
 	LAZYADD(species.disciplines, discipline)
 
-// TODO: [Lucia] reimplement kuei-jin
+// TODO: [Rebase] reimplement kuei-jin
 /*
 /mob/living/carbon/human/proc/give_chi_discipline(datum/chi_discipline/discipline)
 	if (discipline.level > 0)
@@ -91,7 +91,7 @@
  * * discipline_checking - The Discipline type that access to is being checked.
  */
 /proc/can_access_discipline(mob/living/carbon/human/vampire_checking, discipline_checking)
-	// TODO: [Lucia] reimplement ghouls
+	// TODO: [Rebase] reimplement ghouls
 	/*
 	if (isghoul(vampire_checking))
 		return TRUE
@@ -117,7 +117,7 @@
 		var/datum/vampire_clan/clan_checking = new clan_type
 
 		//skip this if they can't access it due to whitelists
-		// TODO: [Lucia] reimplement whitelisting
+		// TODO: [Rebase] reimplement whitelisting
 		/*
 		if (clan_checking.whitelisted)
 			if (!SSwhitelists.is_whitelisted(checked_ckey = vampire_checking.ckey, checked_whitelist = clan_checking.name))
