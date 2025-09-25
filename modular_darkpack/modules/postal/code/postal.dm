@@ -60,11 +60,11 @@
 			mail_recipients += alive
 	if(length(mail_recipients))
 		mail_target = pick(mail_recipients)
-		name = "letter ([mail_target])"
+		name = "letter ([mail_target.real_name])"
 
 /obj/item/letter/examine(mob/user)
 	. = ..()
-	. += "This letter is adressed to <b>[mail_target]</b>"
+	. += "This letter is adressed to <b>[mail_target.real_name]</b>"
 
 /obj/item/letter/attack_self(mob/user)
 	. = ..()
