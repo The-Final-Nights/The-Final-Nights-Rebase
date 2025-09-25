@@ -84,13 +84,11 @@
 	var/lockpick_difficulty = 6
 	var/access = "none"
 
-	var/last_beep = 0
-
 	var/car_storage_type = /datum/storage/car
 	var/obj/car_trunk/trunk
 
 	var/exploded = FALSE
-	var/beep_sound = 'modular_darkpack/modules/cars/sounds/beep.ogg'
+	var/car_alarm_sound = 'modular_darkpack/modules/cars/sounds/car_alarm.ogg'
 
 	var/gas = CAR_TANK_MAX
 
@@ -98,6 +96,7 @@
 	var/datum/looping_sound/car_engine/engine_sound_loop
 
 	COOLDOWN_DECLARE(impact_delay)
+	COOLDOWN_DECLARE(car_alarm_cooldown)
 
 /obj/darkpack_car/Initialize(mapload)
 	. = ..()
@@ -244,7 +243,9 @@
 				qdel(tool)
 			if(ROLL_BOTCH)
 				to_chat(user, span_warning("You've failed to open [src]'s lock."))
-				playsound(src, 'modular_darkpack/modules/cars/sounds/signal.ogg', 50, FALSE)
+				if(COOLDOWN_FINISHED(src, car_alarm_cooldown))
+					playsound(src, 'modular_darkpack/modules/cars/sounds/signal.ogg', 50, FALSE)
+					COOLDOWN_START(src, car_alarm_cooldown, 7 SECONDS)
 				return
 	else
 		to_chat(user, span_warning("You've failed to open [src]'s lock."))
@@ -266,8 +267,8 @@
 			if(prob(50))
 				L.apply_damage(round(I.force/2), I.damtype, pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST))
 
-		if(!driver && !length(passengers) && last_beep+70 < world.time && locked)
-			last_beep = world.time
+		if(!driver && !length(passengers) && COOLDOWN_FINISHED(src, car_alarm_cooldown) && locked)
+			COOLDOWN_START(src, car_alarm_cooldown, 7 SECONDS)
 			playsound(src, 'modular_darkpack/modules/cars/sounds/signal.ogg', 50, FALSE)
 			for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
 				P.Aggro(user)
@@ -384,7 +385,7 @@
 			N.Grant(dropped)
 			var/datum/action/darkpack_car/stage/S = new()
 			S.Grant(dropped)
-			var/datum/action/darkpack_car/beep/B = new()
+			var/datum/action/darkpack_car/car_alarm/B = new()
 			B.Grant(dropped)
 			var/datum/action/darkpack_car/baggage/G = new()
 			G.Grant(dropped)
@@ -431,10 +432,9 @@
 		dumpe.Move(get_step(dumpe, exit_alt))
 
 	to_chat(dumpe, span_notice("You exit [src]."))
-	if(dumpe)
-		if(dumpe.client)
-			dumpe.client.pixel_x = 0
-			dumpe.client.pixel_y = 0
+	if(dumpe?.client)
+		dumpe.client.pixel_x = 0
+		dumpe.client.pixel_y = 0
 	playsound(src, 'modular_darkpack/master_files/sounds/door.ogg', 50, TRUE)
 	for(var/datum/action/darkpack_car/C in dumpe.actions)
 		qdel(C)
@@ -493,12 +493,6 @@
 		driver.apply_damage(prev_speed, BRUTE, BODY_ZONE_CHEST)
 	take_damage(dam)
 	return
-
-/*
-/obj/darkpack_car/setDir(newdir)
-	. = ..()
-	apply_vector_angle()
-*/
 
 /obj/darkpack_car/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
