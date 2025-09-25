@@ -55,7 +55,7 @@
 		//vamp_car.balloon_alert(owner, trunk_datum.locked ? "locked" : "unlocked")
 		to_chat(owner, span_notice("You [trunk_datum.locked ? "locked" : "unlocked"] [vamp_car]'s baggage."))
 
-		playsound(vamp_car, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
+		playsound(vamp_car, 'modular_darkpack/master_files/sounds/door.ogg', 50, TRUE)
 
 /datum/action/darkpack_car/engine
 	name = "Toggle Engine"
@@ -112,6 +112,6 @@
 		if(owner?.client)
 			owner.client.pixel_x = 0
 			owner.client.pixel_y = 0
-		playsound(V, 'modular_darkpack/modules/deprecated/sounds/door.ogg', 50, TRUE)
+		playsound(V, 'modular_darkpack/master_files/sounds/door.ogg', 50, TRUE)
 		for(var/datum/action/darkpack_car/C in owner.actions)
 			qdel(C)

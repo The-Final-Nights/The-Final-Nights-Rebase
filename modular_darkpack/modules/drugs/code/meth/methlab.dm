@@ -110,7 +110,7 @@
 			if(!added_iod)
 				troll_explode = TRUE
 			G.stored_gasoline = max(0, G.stored_gasoline-100)
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 25, TRUE)
+			playsound(loc, 'modular_darkpack/master_files/sounds/gas_fill.ogg', 25, TRUE)
 			to_chat(user, "You [pick("spill", "add", "blender")] [used_item] in [src].")
 			added_gas = TRUE
 			if(prob(20))
