@@ -632,13 +632,15 @@
 	last_pos["x"] = clamp(last_pos["x"] + x_add, 1, world.maxx)
 	last_pos["y"] = clamp(last_pos["y"] + y_add, 1, world.maxy)
 
-/obj/darkpack_car/relaymove(mob/living/carbon/human/driver, direct)
+/obj/darkpack_car/relaymove(mob/living/user, direction)
+	if(user != driver)
+		return ..()
 	if(!COOLDOWN_FINISHED(src, impact_delay))
 		return
-	if(driver.IsUnconscious() || HAS_TRAIT(driver, TRAIT_INCAPACITATED) || HAS_TRAIT(driver, TRAIT_RESTRAINED))
+	if(user.IsUnconscious() || HAS_TRAIT(user, TRAIT_INCAPACITATED) || HAS_TRAIT(user, TRAIT_RESTRAINED))
 		return
 	var/turn_speed = min(abs(speed_in_pixels) / 10, 3)
-	switch(direct)
+	switch(direction)
 		if(NORTH)
 			controlling(1, 0)
 		if(NORTHEAST)
