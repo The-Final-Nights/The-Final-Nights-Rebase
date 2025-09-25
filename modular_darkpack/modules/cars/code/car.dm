@@ -297,14 +297,20 @@
 	. = ..()
 	if(user.loc == src)
 		. += "<b>Gas</b>: [gas]/[CAR_TANK_MAX]"
-	if(atom_integrity < max_integrity && atom_integrity >= max_integrity-(max_integrity/4))
-		. += "It's slightly dented..."
-	if(atom_integrity < max_integrity-(max_integrity/4) && atom_integrity >= max_integrity/2)
-		. += "It has some major dents..."
-	if(atom_integrity < max_integrity/2 && atom_integrity >= max_integrity/4)
-		. += "It's heavily damaged..."
-	if(atom_integrity < max_integrity/4)
-		. += span_warning("It appears to be falling apart...")
+
+	if(broken)
+		. += span_notice("It appears to be broken.")
+	var/healthpercent = (atom_integrity/max_integrity) * 100
+	switch(healthpercent)
+		if(75 to 99)
+			. += "It's slightly dented..."
+		if(50 to 74)
+			. += "It has some major dents..."
+		if(25 to 50)
+			. += "It's heavily damaged..."
+		if(0 to 25)
+			. += span_warning("It's falling apart!")
+
 	if(locked)
 		. += span_warning("It's locked.")
 	if(driver || length(passengers))
