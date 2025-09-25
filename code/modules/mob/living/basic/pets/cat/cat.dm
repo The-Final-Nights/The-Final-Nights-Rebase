@@ -62,7 +62,7 @@
 	///callback for after a kitten is born
 	var/datum/callback/post_birth_callback
 
-	//DARKPACK ADD START
+	// DARKPACK ADD START
 	bloodpool = 2
 	maxbloodpool = 2
 	// DARKPACK ADD END
