@@ -254,7 +254,7 @@
 	held_state = "cat"
 
 
-// VTM Cats For Epic Darkpackers
+// DARKPACK EDIT START - VTM Cats For Epic Darkpackers
 /mob/living/basic/pet/cat/darkpack
 	icon = 'modular_darkpack/master_files/icons/mobs/simple/pets.dmi'
 	var/random_cat_color = TRUE
@@ -276,3 +276,4 @@
 	icon_state = "cat_tzi"
 	icon_living = "cat_tzi"
 	icon_dead = "cat_tzi_dead"
+// DARKPACK EDIT END
