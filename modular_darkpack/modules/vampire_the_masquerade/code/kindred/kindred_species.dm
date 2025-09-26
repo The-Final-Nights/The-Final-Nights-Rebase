@@ -21,7 +21,6 @@
 		TRAIT_USES_SKINTONES,
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_LIMBATTACHMENT,
-		TRAIT_NOBLOOD,
 		TRAIT_NOHUNGER,
 		TRAIT_NOBREATH,
 		TRAIT_NOCRITDAMAGE,
@@ -37,6 +36,7 @@
 	coldmod = 0.25
 	heatmod = 2
 	mutanttongue = /obj/item/organ/tongue/kindred
+	exotic_bloodtype = BLOOD_TYPE_KINDRED
 	var/datum/vampire_clan/clan
 	var/list/datum/discipline/disciplines
 	var/enlightenment
