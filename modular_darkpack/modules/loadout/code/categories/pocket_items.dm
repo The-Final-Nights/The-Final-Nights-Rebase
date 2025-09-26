@@ -1,4 +1,4 @@
-/datum/loadout_category/General
+/datum/loadout_category/general
 	category_name = "General"
 	category_ui_icon = FA_ICON_VEST
 	type_to_generate = /datum/loadout_item/general
