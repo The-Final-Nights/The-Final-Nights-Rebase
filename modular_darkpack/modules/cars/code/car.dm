@@ -191,9 +191,8 @@
 
 /obj/darkpack_car/proc/try_refuel(mob/living/user, obj/item/gas_can/can_used)
 	if(can_used.stored_gasoline && gas < CAR_TANK_MAX && isturf(user.loc))
-		var/gas_to_transfer = min(CAR_TANK_MAX-gas, min(CAR_TANK_MAX, max(1, can_used.stored_gasoline)))
-		if(do_after(user, gas_to_transfer/10, src, interaction_key = DOAFTER_SOURCE_CAR))
-			gas_to_transfer = min(CAR_TANK_MAX-gas, min(CAR_TANK_MAX, max(1, can_used.stored_gasoline))) // Run it a second time in the offchance the contents change
+		if(do_after(user, 5 SECONDS, src, interaction_key = DOAFTER_SOURCE_CAR))
+			var/gas_to_transfer = min(CAR_TANK_MAX-gas, min(CAR_TANK_MAX, max(1, can_used.stored_gasoline)))
 			can_used.stored_gasoline = max(0, can_used.stored_gasoline-gas_to_transfer)
 			gas = min(CAR_TANK_MAX, gas+gas_to_transfer)
 			to_chat(user, span_notice("You transfer [gas_to_transfer] fuel to [src]."))
@@ -230,6 +229,7 @@
 		return
 	for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
 		P.Aggro(user)
+	log_game("[user] tried lockpicking [src]")
 	var/total_lockpicking = user.st_get_stat(STAT_LARCENY)
 	if(do_after(user, 10 SECONDS, src, interaction_key = DOAFTER_SOURCE_CAR))
 		if(!locked)
@@ -246,10 +246,11 @@
 						H.AdjustHumanity(-1, 6)
 				return TRUE
 			if(ROLL_FAILURE)
+				to_chat(user, span_warning("You've failed to open [src]'s lock."))
+				return
+			if(ROLL_BOTCH)
 				to_chat(user, span_warning("Your lockpick broke!"))
 				qdel(tool)
-			if(ROLL_BOTCH)
-				to_chat(user, span_warning("You've failed to open [src]'s lock."))
 				if(COOLDOWN_FINISHED(src, beep_cooldown))
 					playsound(src, 'modular_darkpack/modules/cars/sounds/signal.ogg', 50, FALSE)
 					COOLDOWN_START(src, beep_cooldown, 7 SECONDS)
@@ -292,6 +293,7 @@
 			var/atom/throw_target = get_edge_target_turf(src, user.dir)
 			playsound(get_turf(src), 'modular_darkpack/modules/cars/sounds/bump.ogg', 100, FALSE)
 			take_damage(10)
+			log_combat(user, src, "threw")
 			throw_at(throw_target, rand(4, 6), 4, user)
 			return TRUE
 
