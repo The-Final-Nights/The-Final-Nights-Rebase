@@ -37,14 +37,6 @@ Dancer
 		)
 		H.equip_in_one_of_slots(pills, slots, FALSE)
 
-/datum/quirk/experienced_driver
-	name = "Experienced Driver"
-	desc = "Driving, repairing and sustaining a car is much easier to you."
-	mob_trait = TRAIT_EXP_DRIVER
-	value = 2
-	gain_text = "<span class='notice'>You feel more experienced about cars.</span>"
-	lose_text = "<span class='warning'>You feel more clueless about cars.</span>"
-
 /datum/quirk/annonymus
 	name = "Anonymous"
 	desc = "You always bring a mask."

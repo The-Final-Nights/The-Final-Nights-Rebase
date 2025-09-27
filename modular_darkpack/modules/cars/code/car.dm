@@ -500,8 +500,8 @@
 		L.apply_damage(hit_dam, BRUTE, BODY_ZONE_CHEST)
 	var/dam = prev_speed
 	if(driver)
-		if(HAS_TRAIT(driver, TRAIT_EXP_DRIVER))
-			dam = round(dam/2)
+		var/driver_skill = clamp(driver.st_get_stat(STAT_DRIVE)/2, 1, 4)
+		dam = round(dam/driver_skill)
 		driver.apply_damage(prev_speed, BRUTE, BODY_ZONE_CHEST)
 	take_damage(dam)
 	return
@@ -541,9 +541,10 @@
 		if(used_speed < 0)
 			true_movement_angle = SIMPLIFY_DEGREES(used_vector+180)
 
-		var/turf/check_turf = get_turf_in_angle(used_vector, src.loc, 3)
+		// Here lies the Car Backwards Long Jump - 2021-2025
+		var/turf/check_turf = get_turf_in_angle(true_movement_angle, src.loc, 3)
 
-		handle_npc_dodge(check_turf, used_vector)
+		handle_npc_dodge(check_turf, true_movement_angle)
 
 		var/turf/hit_turf
 		var/list/in_line = get_line(src, check_turf)
@@ -552,7 +553,7 @@
 				// For visualising path of car.
 				new /obj/effect/temp_visual/telegraphing/car(T)
 			var/dist_to_hit = get_dist_in_pixels(last_pos["x"]*32+last_pos["x_pix"], last_pos["y"]*32+last_pos["y_pix"], T.x*32, T.y*32)
-			if(dist_to_hit <= used_speed)
+			if(dist_to_hit <= abs(used_speed))
 				var/list/stuff = T.get_blocking_contents(FALSE, src)
 				if(length(stuff))
 					if(!hit_turf || dist_to_hit < get_dist_in_pixels(last_pos["x"]*32+last_pos["x_pix"], last_pos["y"]*32+last_pos["y_pix"], hit_turf.x*32, hit_turf.y*32))
@@ -675,9 +676,7 @@
 			controlling(0, -turn_speed)
 
 /obj/darkpack_car/proc/controlling(adjusting_speed, adjusting_turn)
-	var/drift = 1
-	if(driver && HAS_TRAIT(driver, TRAIT_EXP_DRIVER))
-		drift = 2
+	var/drift = clamp(driver.st_get_stat(STAT_DRIVE)/4, 0.25, 4)
 	var/adjust_true = adjusting_turn
 	if(speed_in_pixels != 0)
 		movement_vector = SIMPLIFY_DEGREES(movement_vector+adjust_true)
