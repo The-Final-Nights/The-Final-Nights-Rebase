@@ -381,33 +381,38 @@
 	visible_message(span_notice("[dropped] begins entering [src]..."), \
 		span_notice("You begin entering [src]..."))
 	if(do_after(user, 1 SECONDS, dropped, interaction_key = DOAFTER_SOURCE_CAR))
-		if(pick == "Driver Seat" && !driver)
-			dropped.forceMove(src)
-			driver = dropped
-			var/datum/action/darkpack_car/exit_car/E = new()
-			E.Grant(dropped)
-			var/datum/action/darkpack_car/headlight/F = new()
-			F.Grant(dropped)
-			var/datum/action/darkpack_car/engine/N = new()
-			N.Grant(dropped)
-			var/datum/action/darkpack_car/stage/S = new()
-			S.Grant(dropped)
-			var/datum/action/darkpack_car/beep/B = new()
-			B.Grant(dropped)
-			var/datum/action/darkpack_car/baggage/G = new()
-			G.Grant(dropped)
-		else if((pick == "Passanger Seat") && (passengers.len < max_passengers))
-			dropped.forceMove(src)
-			passengers += dropped
-			var/datum/action/darkpack_car/exit_car/E = new()
-			E.Grant(dropped)
-		visible_message(span_notice("[dropped] enters [src]."), \
-			span_notice("You enter [src]."))
-		playsound(src, 'modular_darkpack/master_files/sounds/door.ogg', 50, TRUE)
+		if(pick == "Driver Seat" && driver_enter(dropped))
+			return
+		else if(pick == "Passanger Seat" && passenger_enter(dropped))
+			return
+	to_chat(dropped, span_warning("You fail to enter [src]."))
+	return
+
+/obj/darkpack_car/proc/driver_enter(mob/living/user)
+	if(driver)
 		return
-	else
-		to_chat(dropped, span_warning("You fail to enter [src]."))
+	driver = user
+	for(var/car_action in subtypesof(/datum/action/darkpack_car))
+		var/datum/action/darkpack_car/new_action = new car_action()
+		new_action.Grant(user)
+	enter_car(user)
+	return TRUE
+
+/obj/darkpack_car/proc/passenger_enter(mob/living/user)
+	if(passengers.len >= max_passengers)
 		return
+	passengers += user
+	var/datum/action/darkpack_car/exit_car/E = new()
+	E.Grant(user)
+	enter_car(user)
+	return TRUE
+
+// Please only call via driver_enter or passanger_enter
+/obj/darkpack_car/proc/enter_car(mob/living/user)
+	user.forceMove(src)
+	visible_message(span_notice("[user] enters [src]."), \
+		span_notice("You enter [src]."))
+	playsound(src, 'modular_darkpack/master_files/sounds/door.ogg', 50, TRUE)
 
 //Dump out all living from the car
 /obj/darkpack_car/proc/empty_car()
