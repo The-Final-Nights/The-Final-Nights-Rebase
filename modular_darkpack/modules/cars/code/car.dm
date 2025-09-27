@@ -451,14 +451,14 @@
 	for(var/datum/action/darkpack_car/C in dumpe.actions)
 		qdel(C)
 
-/obj/darkpack_car/Bump(atom/A)
+/obj/darkpack_car/Bump(atom/bumped_atom)
 	. = ..()
 	var/prev_speed = round(abs(speed_in_pixels)/4)
 	if(!prev_speed)
 		return
 
-	if(istype(A, /mob/living))
-		var/mob/living/hit_mob = A
+	if(istype(bumped_atom, /mob/living))
+		var/mob/living/hit_mob = bumped_atom
 		switch(hit_mob.mob_size)
 			if(MOB_SIZE_HUGE) 	//gangrel warforms, werewolves, bears, ppl with fortitude
 				playsound(src, 'modular_darkpack/modules/cars/sounds/bump.ogg', 75, TRUE)
@@ -482,8 +482,8 @@
 		speed_in_pixels = 0
 		COOLDOWN_START(src, impact_delay, 2 SECONDS)
 
-	if(driver && istype(A, /mob/living/carbon/human/npc))
-		var/mob/living/carbon/human/npc/NPC = A
+	if(driver && istype(bumped_atom, /mob/living/carbon/human/npc))
+		var/mob/living/carbon/human/npc/NPC = bumped_atom
 		NPC.Aggro(driver, TRUE)
 
 	last_pos["x_pix"] = 0
@@ -492,12 +492,13 @@
 		if(L.client)
 			L.client.pixel_x = 0
 			L.client.pixel_y = 0
-	if(istype(A, /mob/living))
-		var/mob/living/L = A
+	if(istype(bumped_atom, /mob/living))
+		var/mob/living/L = bumped_atom
 		var/hit_dam = prev_speed
 		if(!HAS_TRAIT(L, TRAIT_TOUGH_FLESH))
 			hit_dam = hit_dam*2
 		L.apply_damage(hit_dam, BRUTE, BODY_ZONE_CHEST)
+		log_combat(driver, L, "hit with", src)
 	var/dam = prev_speed
 	if(driver)
 		var/driver_skill = clamp(driver.st_get_stat(STAT_DRIVE)/2, 1, 4)
