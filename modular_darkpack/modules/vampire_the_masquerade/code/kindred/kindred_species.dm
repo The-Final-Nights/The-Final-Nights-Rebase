@@ -21,7 +21,6 @@
 		TRAIT_USES_SKINTONES,
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_LIMBATTACHMENT,
-		TRAIT_NOBLOOD,
 		TRAIT_NOHUNGER,
 		TRAIT_NOBREATH,
 		TRAIT_NOCRITDAMAGE,
@@ -37,6 +36,7 @@
 	coldmod = 0.25
 	heatmod = 2
 	mutanttongue = /obj/item/organ/tongue/kindred
+	exotic_bloodtype = BLOOD_TYPE_KINDRED
 	var/datum/vampire_clan/clan
 	var/list/datum/discipline/disciplines
 	var/enlightenment
@@ -48,7 +48,7 @@
 	var/datum/action/cooldown/blood_power/bloodpower = new()
 	bloodpower.Grant(new_kindred)
 
-	// TODO: [Lucia] reimplement these vars and the actions
+	// TODO: [Rebase] reimplement these vars and the actions
 	/*
 	new_kindred.update_body(0)
 	new_kindred.last_experience = world.time + 5 MINUTES
@@ -285,7 +285,7 @@
 					H.ghostize(FALSE)
 					P.reason_of_death = "Lost control to the Beast ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
 
-	// TODO: [Lucia] this needs to be a component
+	// TODO: [Rebase] this needs to be a component
 	if(H.clan && !H.antifrenzy && !HAS_TRAIT(H, TRAIT_KNOCKEDOUT))
 		if(HAS_TRAIT(H, TRAIT_VITAE_ADDICTION))
 			if(H.mind)

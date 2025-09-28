@@ -14,7 +14,7 @@
 	/// my_backup_weapon = type_path
 	/// This only determines my_weapon, you set my_backup_weapon yourself
 	/// The last entry in the list for a type of NPC should always have 100 as the index
-	// TODO: [Lucia] reimplement weapons
+	// TODO: [Rebase] reimplement weapons
 	/*
 	var/static/list/role_weapons_chances = list(
 		BANDIT_TYPE_NPC = list(
@@ -98,7 +98,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /mob/living/carbon/human/npc/LateInitialize(mapload)
-	// TODO: [Lucia] reimplement weapons
+	// TODO: [Rebase] reimplement weapons
 	/*
 	if (role_weapons_chances.Find(type))
 		for(var/weapon in role_weapons_chances[type])
@@ -212,19 +212,6 @@
 
 	source.Annoy(bumping)
 
-/mob/living/carbon/Move(NewLoc, direct)
-	if (ishuman(src))
-		var/mob/living/carbon/human/H = src
-		H.update_shadow()
-
-	// TODO: [Lucia] reimplement walls
-	/*
-	if (HAS_TRAIT(src, TRAIT_RUBICON))
-		if(istype(NewLoc, /turf/open/water/vamp_sewer))
-			return
-	*/
-
-	. = ..()
 
 /mob/living/carbon/human/npc/Move(NewLoc, direct)
 	if (!can_npc_move())
@@ -273,7 +260,7 @@
 		INVOKE_ASYNC(NEPIC, PROC_REF(Aggro), firer)
 	INVOKE_ASYNC(src, PROC_REF(Aggro), firer, TRUE)
 
-	// TODO: [Lucia] reimplement P25 radios and crime stuff
+	// TODO: [Rebase] reimplement P25 radios and crime stuff
 	/*
 	var/witness_count
 
@@ -311,7 +298,7 @@
 
 	last_grab = world.time
 
-// TODO: [Lucia] reimplement ghouls
+// TODO: [Rebase] reimplement ghouls
 /*
 /mob/living/carbon/human/npc/proc/ghoulificate(mob/owner)
 	set waitfor = FALSE
