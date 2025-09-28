@@ -891,10 +891,6 @@
 "yt" = (
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/interior/shop)
-"yy" = (
-/obj/structure/bloodextractor,
-/turf/open/floor/plating/rough,
-/area/vtm/clinic)
 "yD" = (
 /obj/structure/table,
 /obj/item/storage/medkit/darkpack/burn,
@@ -1575,12 +1571,12 @@
 /obj/structure/closet/crate/freezer/blood{
 	name = "blue blood freezer"
 	},
-/obj/item/reagent_containers/blood/elite,
-/obj/item/reagent_containers/blood/elite,
-/obj/item/reagent_containers/blood/elite,
-/obj/item/reagent_containers/blood/elite,
-/obj/item/reagent_containers/blood/elite,
-/obj/item/reagent_containers/blood/elite,
+/obj/item/reagent_containers/blood/vitae,
+/obj/item/reagent_containers/blood/vitae,
+/obj/item/reagent_containers/blood/vitae,
+/obj/item/reagent_containers/blood/vitae,
+/obj/item/reagent_containers/blood/vitae,
+/obj/item/reagent_containers/blood/vitae,
 /turf/open/floor/plating/rough,
 /area/vtm/clinic)
 "Of" = (
@@ -2823,7 +2819,7 @@ GF
 (21,1,1) = {"
 GF
 SK
-yy
+Tb
 pN
 pN
 pN
@@ -2895,8 +2891,8 @@ GF
 (23,1,1) = {"
 GF
 SK
-yy
-yy
+Tb
+Tb
 pN
 pN
 SK
