@@ -80,20 +80,10 @@
 	var/color_blue = FALSE
 	COOLDOWN_DECLARE(last_color_change)
 
-/*
 /obj/darkpack_car/police/unmarked
-	icon_state = "unmarked"
-*/
+	icon_state = "4"
 
-/*
-/obj/darkpack_car/police/set_headlight_on(new_value)
-	. = ..()
-	if(isnull(.))
-		return
-	set_light_on(headlight_on)
-*/
-
-/obj/darkpack_car/police/car_move()
+/obj/darkpack_car/police/process()
 	if(!light_on)
 		return ..()
 	if(!COOLDOWN_FINISHED(src, last_color_change))

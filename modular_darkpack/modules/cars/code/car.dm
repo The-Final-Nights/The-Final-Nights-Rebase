@@ -51,7 +51,7 @@
 	name = "car"
 	desc = "Take me home, country roads..."
 	icon_state = "2"
-	icon = 'modular_darkpack/modules/deprecated/icons/cars.dmi'
+	icon = 'modular_darkpack/modules/cars/icons/cars.dmi'
 	anchored = TRUE
 	layer = CAR_LAYER
 	density = TRUE

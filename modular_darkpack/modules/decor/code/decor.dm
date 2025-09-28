@@ -290,23 +290,6 @@
 		//Adds the component only once. We do it here & not in Initialize(mapload) because there are tons of windows & we don't want to add to their init times
 		LoadComponent(/datum/component/leanable, dropped)
 
-/obj/structure/vampcar
-	name = "car"
-	desc = "It drives."
-	icon = 'modular_darkpack/modules/deprecated/icons/cars.dmi'
-	icon_state = "taxi"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	pixel_w = -16
-
-/obj/structure/vampcar/Initialize(mapload)
-	. = ..()
-	var/atom/movable/M = new(get_step(loc, EAST))
-	M.set_density(TRUE)
-	M.anchored = TRUE
-	dir = pick(NORTH, SOUTH, WEST, EAST)
-
 /obj/structure/roadblock
 	name = "\improper road block"
 	desc = "Protects places from walking in."
