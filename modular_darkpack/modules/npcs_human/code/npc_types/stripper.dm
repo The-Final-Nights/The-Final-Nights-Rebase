@@ -25,9 +25,6 @@
 	INVOKE_ASYNC(src, PROC_REF(pole_dance))
 
 /mob/living/carbon/human/npc/stripper/proc/pole_dance()
-	// TODO: [Lucia] reimplement decor
-	/*
 	for (var/obj/structure/pole/pole in range(1, src))
 		drop_all_held_items()
 		ClickOn(pole)
-	*/
