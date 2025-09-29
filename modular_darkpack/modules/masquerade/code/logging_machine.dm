@@ -16,11 +16,24 @@
 	clearing_sound = new(src,  FALSE)
 	GLOB.logging_machines += src
 
+	register_context()
+	AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "Print Logs", rmb_text = "Clear Logs")
+
 /obj/machinery/logging_machine/Destroy(force)
 	GLOB.logging_machines -= src
 	QDEL_NULL(clearing_sound)
 	saved_logs = null
 	return ..()
+
+/obj/machinery/logging_machine/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(!isnull(held_item))
+		return
+	context[SCREENTIP_CONTEXT_LMB] = "Print Logs"
+	if(issupernatural(user))
+		var/mob/living/living_user = user
+		context[SCREENTIP_CONTEXT_RMB] = "Clear Logs"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/logging_machine/examine(mob/user)
 	. = ..()
