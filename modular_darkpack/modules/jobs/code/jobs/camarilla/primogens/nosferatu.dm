@@ -1,5 +1,5 @@
 /datum/job/vamp/primogen_nosferatu
-	title = "Primogen Nosferatu"
+	title = JOB_PRIMOGEN_NOSFERATU
 	description = "Offer your infinite knowledge to Prince of the City, and run the warren, your domain watches over the sewers."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	department_head = list("Justicar")

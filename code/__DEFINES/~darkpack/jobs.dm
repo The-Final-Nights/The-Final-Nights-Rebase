@@ -15,6 +15,12 @@
 #define JOB_PRINCE "Prince"
 #define JOB_SHERIFF "Sheriff"
 #define JOB_HOUND "Hound"
+#define JOB_PRIMOGEN_TOREADOR "Primogen Toreador"
+#define JOB_PRIMOGEN_BANU_HAQIM "Primogen Banu Haqim"
+#define JOB_PRIMOGEN_LASOMBRA "Primogen Lasombra"
+#define JOB_PRIMOGEN_MALKAVIAN "Primogen Malkavian"
+#define JOB_PRIMOGEN_NOSFERATU "Primogen Nosferatu"
+#define JOB_PRIMOGEN_VENTRUE "Primogen Ventrue"
 
 #define JOB_DISPLAY_ORDER_CITIZEN 1
 #define JOB_DISPLAY_ORDER_SALUBRI 2
