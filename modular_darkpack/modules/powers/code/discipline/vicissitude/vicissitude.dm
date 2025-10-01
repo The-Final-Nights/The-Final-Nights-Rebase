@@ -137,7 +137,6 @@
 		owner.set_haircolor(original_haircolor)
 		owner.set_facial_haircolor(original_facialhaircolor)
 		owner.set_eye_color(original_eyecolor)
-		owner.set_body_weight(original_body_mod)
 		owner.set_body_sprite(original_body_sprite)
 		is_shapeshifted = FALSE
 		QDEL_NULL(impersonating_dna)
@@ -153,7 +152,6 @@
 		owner.set_haircolor(impersonating_haircolor)
 		owner.set_facial_haircolor(impersonating_facialhaircolor)
 		owner.set_eye_color(impersonating_eyecolor)
-		owner.set_body_weight(impersonating_body_mod)
 		owner.set_body_sprite(impersonating_body_sprite)
 		is_shapeshifted = TRUE
 
@@ -306,7 +304,6 @@
 			original_hairstyle = user.hairstyle
 			user.set_hairstyle("Bald")
 			original_body_mod = user.base_body_mod
-			user.set_body_weight(AVERAGE_BODY_WEIGHT)
 			user.physiology.armor.melee += 20
 			user.physiology.armor.bullet += 20
 		if ("Centipede legs")
@@ -344,7 +341,6 @@
 			user.set_body_sprite()
 			user.skin_tone = original_skin_tone
 			user.set_hairstyle(original_hairstyle)
-			user.set_body_weight(original_body_mod)
 			user.physiology.armor.melee -= 20
 			user.physiology.armor.bullet -= 20
 		if ("Centipede legs")
