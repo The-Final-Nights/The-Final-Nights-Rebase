@@ -15,10 +15,10 @@
 
 	department_for_prefs = /datum/job_department/citizen
 
-	//allowed_species = list("Vampire", "Ghoul", "Human", "Werewolf", "Kuei-Jin")
+	allowed_species = list(SPECIES_KINDRED, SPECIES_GHOUL, SPECIES_HUMAN)
 
-	//minimal_masquerade = 0
-	//allowed_clans = list(VAMPIRE_CLAN_TRUE_BRUJAH, VAMPIRE_CLAN_DAUGHTERS_OF_CACOPHONY, VAMPIRE_CLAN_SALUBRI, VAMPIRE_CLAN_BAALI, VAMPIRE_CLAN_BRUJAH, VAMPIRE_CLAN_TREMERE, VAMPIRE_CLAN_VENTRUE, VAMPIRE_CLAN_NOSFERATU, VAMPIRE_CLAN_GANGREL, VAMPIRE_CLAN_TOREADOR, VAMPIRE_CLAN_MALKAVIAN, VAMPIRE_CLAN_BANU_HAQIM, VAMPIRE_CLAN_GIOVANNI, VAMPIRE_CLAN_FOLLOWERS_OF_SET, VAMPIRE_CLAN_TZIMISCE, VAMPIRE_CLAN_LASOMBRA, VAMPIRE_CLAN_CAITIFF, VAMPIRE_CLAN_OLD_CLAN_TZIMISCE, VAMPIRE_CLAN_KIASYD, VAMPIRE_CLAN_CAPPADOCIAN, VAMPIRE_CLAN_GARGOYLE)
+	minimal_masquerade = 0
+	allowed_clans = list(VAMPIRE_CLAN_TRUE_BRUJAH, VAMPIRE_CLAN_DAUGHTERS_OF_CACOPHONY, VAMPIRE_CLAN_SALUBRI, VAMPIRE_CLAN_BAALI, VAMPIRE_CLAN_BRUJAH, VAMPIRE_CLAN_TREMERE, VAMPIRE_CLAN_VENTRUE, VAMPIRE_CLAN_NOSFERATU, VAMPIRE_CLAN_GANGREL, VAMPIRE_CLAN_TOREADOR, VAMPIRE_CLAN_MALKAVIAN, VAMPIRE_CLAN_BANU_HAQIM, VAMPIRE_CLAN_GIOVANNI, VAMPIRE_CLAN_FOLLOWERS_OF_SET, VAMPIRE_CLAN_TZIMISCE, VAMPIRE_CLAN_LASOMBRA, VAMPIRE_CLAN_CAITIFF, VAMPIRE_CLAN_OLD_CLAN_TZIMISCE, VAMPIRE_CLAN_KIASYD, VAMPIRE_CLAN_CAPPADOCIAN, VAMPIRE_CLAN_GARGOYLE)
 
 	job_flags = CITY_JOB_FLAGS
 	rpg_title = "Lout"
@@ -29,25 +29,6 @@
 	jobtype = /datum/job/vampire/citizen
 	//l_pocket = /obj/item/vamp/phone
 	id = /obj/item/cockclock
-
-/datum/outfit/job/citizen/pre_equip(mob/living/carbon/human/H)
-	. = ..()
-	if(H.clan)
-		if(H.gender == MALE)
-			shoes = /obj/item/clothing/shoes/vampire
-			if(H.clan.male_clothes)
-				uniform = H.clan.male_clothes
-		else
-			shoes = /obj/item/clothing/shoes/vampire/heels
-			if(H.clan.female_clothes)
-				uniform = H.clan.female_clothes
-	else
-		uniform = /obj/item/clothing/under/vampire/emo
-		if(H.gender == MALE)
-			shoes = /obj/item/clothing/shoes/vampire
-		else
-			shoes = /obj/item/clothing/shoes/vampire/heels
-
 	backpack_contents = list(/obj/item/passport, /obj/item/flashlight, /obj/item/card/credit)
 
 /obj/effect/landmark/start/citizen

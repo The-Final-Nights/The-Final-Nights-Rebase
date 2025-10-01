@@ -6,7 +6,7 @@
 	faction = FACTION_CITY
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Camarilla and the Traditions"
+	supervisors = SUPERVISOR_TRADITIONS
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 180
@@ -61,20 +61,7 @@
 	//l_pocket = /obj/item/vamp/phone/prince
 	r_pocket = /obj/item/vamp/keys/prince
 	//backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/phone_book=1, /obj/item/passport=1, /obj/item/cockclock=1, /obj/item/flashlight=1, /obj/item/masquerade_contract=1, /obj/item/card/credit/prince=1)
-
-
-	backpack = /obj/item/storage/backpack
-	satchel = /obj/item/storage/backpack/satchel
-	duffelbag = /obj/item/storage/backpack/duffelbag
-
 	implants = list(/obj/item/implant/mindshield)
-
-/datum/outfit/job/prince/pre_equip(mob/living/carbon/human/H)
-	..()
-	H.ignores_warrant = TRUE
-	if(H.gender == FEMALE)
-		uniform = /obj/item/clothing/under/vampire/prince/female
-		shoes = /obj/item/clothing/shoes/vampire/heels
 
 /obj/effect/landmark/start/prince
 	name = "Prince"
