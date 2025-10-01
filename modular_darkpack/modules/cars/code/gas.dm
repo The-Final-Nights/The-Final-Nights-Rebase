@@ -139,11 +139,11 @@
 	var/stored_money = 0
 
 /obj/structure/fuelstation/click_alt(mob/user)
-	if(stored_money)
+	if(stored_money > 0)
 		say("Money refunded.")
-		for(var/i in 1 to stored_money)
-			new /obj/item/stack/dollar(loc)
-		stored_money = 0
+		var/money_to_spawn = min(stored_money, 1000)
+		new /obj/item/stack/dollar(loc, money_to_spawn)
+		stored_money -= money_to_spawn
 		return CLICK_ACTION_SUCCESS
 
 /obj/structure/fuelstation/examine(mob/user)
@@ -151,10 +151,9 @@
 	. += "<b>Balance</b>: [stored_money] dollars"
 
 /obj/structure/fuelstation/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/stack/dollar))
-		var/obj/item/stack/dollar/dolla = I
-		stored_money += dolla.get_item_credit_value()
-		to_chat(user, span_notice("You insert [dolla.get_item_credit_value()] dollars into [src]."))
+	if(iscash(I))
+		stored_money += I.get_item_credit_value()
+		to_chat(user, span_notice("You insert [I.get_item_credit_value()] dollars into [src]."))
 		qdel(I)
 		say("Payment received.")
 	if(istype(I, /obj/item/gas_can))

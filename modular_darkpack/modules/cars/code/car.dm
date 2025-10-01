@@ -622,14 +622,13 @@
 /// Moves the client cameras of living inside of the car.
 /obj/darkpack_car/proc/move_car_riders(moved_x, moved_y)
 	for(var/mob/living/rider in src)
-		if(rider)
-			if(rider.client)
-				rider.client.pixel_x = last_pos["x_frwd"]
-				rider.client.pixel_y = last_pos["y_frwd"]
-				animate(rider.client, \
-					pixel_x = last_pos["x_pix"] + moved_x * 2, \
-					pixel_y = last_pos["y_pix"] + moved_y * 2, \
-					SScarpool.wait, 1)
+		if(rider.client)
+			rider.client.pixel_x = last_pos["x_frwd"]
+			rider.client.pixel_y = last_pos["y_frwd"]
+			animate(rider.client, \
+				pixel_x = last_pos["x_pix"] + moved_x * 2, \
+				pixel_y = last_pos["y_pix"] + moved_y * 2, \
+				SScarpool.wait, 1)
 
 /obj/darkpack_car/proc/update_last_pos(moved_x, moved_y)
 	// Step 1: Move pixel and forward positions

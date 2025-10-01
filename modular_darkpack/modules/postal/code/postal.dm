@@ -20,15 +20,13 @@
 	..()
 
 /obj/lettermachine/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/stack/dollar))
-		var/obj/item/stack/dollar/D = I
-		money = money+D.amount
-		say("[D] inserted!")
-		qdel(D)
+	if(iscash(I))
+		money += I.get_item_credit_value()
+		to_chat(user, span_notice("You insert [I.get_item_credit_value()] dollars into [src]."))
+		say("[I] inserted.")
+		qdel(I)
 	if(istype(I, /obj/item/mark))
-		new /obj/item/stack/dollar/ten(loc)
-		new /obj/item/stack/dollar/ten(loc)
-		new /obj/item/stack/dollar/ten(loc)
+		new /obj/item/stack/dollar(loc, 30)
 		say("[I] delivered!")
 		qdel(I)
 	return
