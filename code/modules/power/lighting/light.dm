@@ -1,7 +1,7 @@
 // the standard tube light fixture
 /obj/machinery/light
 	name = "light fixture"
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'modular_darkpack/master_files/icons/obj/lighting.dmi' // DARKPACK EDIT CHANGE
 	icon_state = "tube"
 	desc = "A lighting fixture."
 	layer = WALL_OBJ_LAYER
@@ -13,7 +13,7 @@
 	always_area_sensitive = TRUE
 	light_angle = 170
 	///What overlay the light should use
-	var/overlay_icon = 'icons/obj/lighting_overlay.dmi'
+	var/overlay_icon = 'modular_darkpack/master_files/icons/obj/lighting_overlay.dmi' // DARKPACK EDIT CHANGE
 	///base description and icon_state
 	var/base_state = "tube"
 	///Is the light on?
@@ -171,6 +171,7 @@
 			icon_state = "[base_state]-broken"
 	return ..()
 
+/* DARKPACK EDIT REMOVAL - Temp removal because flav is a hack and did not do this properly.
 /obj/machinery/light/update_overlays()
 	. = ..()
 	if(!on || status != LIGHT_OK)
@@ -187,6 +188,7 @@
 		. += mutable_appearance(overlay_icon, "[base_state]_nightshift")
 		return
 	. += mutable_appearance(overlay_icon, base_state)
+*/
 
 // Area sensitivity is traditionally tied directly to power use, as an optimization
 // But since we want it for fire reacting, we disregard that
@@ -720,7 +722,7 @@
 /obj/machinery/light/floor
 	name = "floor light"
 	desc = "A lightbulb you can walk on without breaking it, amazing."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'modular_darkpack/master_files/icons/obj/lighting.dmi' // DARKPACK EDIT CHANGE
 	base_state = "floor" // base description and icon_state
 	icon_state = "floor"
 	brightness = 4

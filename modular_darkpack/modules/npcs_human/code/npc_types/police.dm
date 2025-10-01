@@ -6,9 +6,6 @@
 /mob/living/carbon/human/npc/police/Initialize(mapload)
 	. = ..()
 
-	if (prob(66))
-		set_body_weight(FAT_BODY_WEIGHT)
-
 	AssignSocialRole(/datum/socialrole/police)
 
 /mob/living/carbon/human/npc/police/Life()

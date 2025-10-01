@@ -319,31 +319,6 @@
 /obj/structure/roadblock/alt
 	icon_state = "barrier"
 
-/obj/machinery/light/prince
-	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
-
-/obj/machinery/light/prince/ghost
-
-/obj/machinery/light/prince/ghost/Initialize(mapload)
-	. = ..()
-	RegisterSignal(src, COMSIG_ATOM_ENTERED, PROC_REF(jumpscare))
-
-/obj/machinery/light/prince/ghost/proc/jumpscare(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-	SIGNAL_HANDLER
-
-	if(ishuman(arrived))
-		var/mob/living/L = arrived
-		if(L.client)
-			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
-			s.set_up(5, 1, get_turf(src))
-			s.start()
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/explode.ogg', 100, TRUE)
-			qdel(src)
-
-/obj/machinery/light/prince/broken
-	status = LIGHT_BROKEN
-	icon_state = "tube-broken"
-
 /obj/effect/decal/painting
 	name = "painting"
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
@@ -574,48 +549,11 @@
 			say("Gas filled.")
 */
 
-/obj/structure/bloodextractor
-	name = "blood extractor"
-	desc = "Extract blood in packs."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "bloodextractor"
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	var/last_extracted = 0
-
 /obj/structure/reagent_dispensers/cleaningfluid
 	name = "cleaning fluid tank"
 	desc = "A container filled with cleaning fluid."
 	reagent_id = /datum/reagent/space_cleaner
 	icon_state = "water"
-
-/*
-/mob/living/carbon/human/MouseDrop(atom/over_object)
-	. = ..()
-	if(istype(over_object, /obj/structure/bloodextractor))
-		if(get_dist(src, over_object) < 2)
-			var/obj/structure/bloodextractor/V = over_object
-			if(!buckled)
-				V.visible_message(span_warning("Buckle [src] fist!"))
-			if(bloodpool < 2)
-				V.visible_message(span_warning("[V] can't find enough blood in [src]!"))
-				return
-			if(iskindred(src))
-				if(bloodpool < 4)
-					V.visible_message(span_warning("[V] can't find enough blood in [src]!"))
-					return
-			if(V.last_extracted+1200 > world.time)
-				V.visible_message(span_warning("[V] isn't ready!"))
-				return
-			V.last_extracted = world.time
-			if(!iskindred(src))
-				new /obj/item/drinkable_bloodpack(get_step(V, SOUTH))
-				bloodpool = max(0, bloodpool-2)
-			else
-				new /obj/item/drinkable_bloodpack/vitae(get_step(V, SOUTH))
-				bloodpool = max(0, bloodpool-4)
-*/
 
 /obj/underplate
 	name = "underplate"
