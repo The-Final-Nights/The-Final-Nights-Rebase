@@ -319,31 +319,6 @@
 /obj/structure/roadblock/alt
 	icon_state = "barrier"
 
-/obj/machinery/light/prince
-	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
-
-/obj/machinery/light/prince/ghost
-
-/obj/machinery/light/prince/ghost/Initialize(mapload)
-	. = ..()
-	RegisterSignal(src, COMSIG_ATOM_ENTERED, PROC_REF(jumpscare))
-
-/obj/machinery/light/prince/ghost/proc/jumpscare(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-	SIGNAL_HANDLER
-
-	if(ishuman(arrived))
-		var/mob/living/L = arrived
-		if(L.client)
-			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
-			s.set_up(5, 1, get_turf(src))
-			s.start()
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/explode.ogg', 100, TRUE)
-			qdel(src)
-
-/obj/machinery/light/prince/broken
-	status = LIGHT_BROKEN
-	icon_state = "tube-broken"
-
 /obj/effect/decal/painting
 	name = "painting"
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
