@@ -153,6 +153,7 @@
 	tastes = list("berry" = 2, "ice cream" = 2)
 	food_reagents = list(/datum/reagent/consumable/berryjuice = 4, /datum/reagent/consumable/salt = 1,  /datum/reagent/consumable/cream = 2, /datum/reagent/consumable/vanilla = 1, /datum/reagent/consumable/sugar = 4)
 
+/* Sprites dont match new tg ones, but they look so good.. do something with this fact.
 /obj/item/reagent_containers/condiment/flour
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
 
@@ -161,6 +162,7 @@
 
 /obj/item/reagent_containers/condiment/rice
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
+*/
 
 /obj/item/food/meat/slab
 	ONFLOOR_ICONSTATE_HELPER("meat")
