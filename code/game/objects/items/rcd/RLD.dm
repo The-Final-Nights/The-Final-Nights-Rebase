@@ -38,7 +38,7 @@
 		"Color Pick" = icon(icon = 'icons/hud/radial.dmi', icon_state = "omni"),
 		"Glow Stick" = icon(icon = 'icons/obj/lighting.dmi', icon_state = "glowstick"),
 		"Deconstruct" = icon(icon = 'icons/obj/tools.dmi', icon_state = "wrench"),
-		"Light Fixture" = icon(icon = 'icons/obj/lighting.dmi', icon_state = "ltube"),
+		"Light Fixture" = icon(icon = 'modular_darkpack/master_files/icons/obj/lighting.dmi', icon_state = "ltube"),// DARKPACK EDIT CHANGE
 	)
 	///will contain the original icons modified with the color choice
 	var/list/display_options = list()

@@ -1,10 +1,10 @@
 /datum/action/discipline
 	check_flags = NONE
-	background_icon = 'modular_darkpack/modules/deprecated/icons/ui/actions.dmi' //This is the file for the ACTION icon
-	background_icon_state = "discipline" //And this is the state for the background icon
-	button_icon = 'modular_darkpack/modules/deprecated/icons/ui/actions.dmi' //This is the file for the BACKGROUND icon
-	button_icon_state = "discipline" //And this is the state for the action icon
-	overlay_icon = 'modular_darkpack/modules/deprecated/icons/ui/actions.dmi'
+	background_icon = 'modular_darkpack/master_files/icons/mob/actions/backgrounds.dmi'
+	background_icon_state = "bg_discipline"
+	button_icon = 'modular_darkpack/modules/deprecated/icons/ui/actions.dmi'
+	button_icon_state = "bloodheal"
+	overlay_icon = 'modular_darkpack/master_files/icons/mob/actions/backgrounds.dmi'
 
 	vampiric = TRUE
 	var/datum/discipline/discipline

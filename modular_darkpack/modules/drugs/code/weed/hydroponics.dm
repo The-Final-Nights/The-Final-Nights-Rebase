@@ -40,7 +40,7 @@
 			new /obj/item/food/vampire/weed(get_turf(user))
 	update_weed_icon()
 
-/obj/structure/weedshit/AltClick(mob/user)
+/obj/structure/weedshit/click_alt(mob/user)
 	if(!user.Adjacent(src))
 		return
 	to_chat(user, span_notice("You start [anchored ? "unsecuring" : "securing"] [src] [anchored ? "from" : "to"] the ground."))
