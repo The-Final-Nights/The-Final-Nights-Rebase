@@ -1,24 +1,3 @@
-/turf/open/floor/plating/umbra
-	gender = PLURAL
-	name = "nothing"
-	icon_state = "black"
-	footstep = FOOTSTEP_SNOW
-	barefootstep = FOOTSTEP_SNOW
-	heavyfootstep = FOOTSTEP_SNOW
-	plane = PLANE_SPACE
-	layer = SPACE_LAYER
-	light_power = 0.25
-	//dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
-	umbra = TRUE
-	density = TRUE
-	planetary_atmos = TRUE
-
-/turf/open/floor/plating/umbra/Initialize(mapload)
-	. = ..()
-	var/obj/minespot/M = locate() in src
-	if(M)
-		density = FALSE
-
 /obj/minespot
 	name = "safe umbral tether"
 	desc = "Connects the parts of Penumbra together."
