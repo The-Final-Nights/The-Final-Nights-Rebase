@@ -10,29 +10,7 @@
 	if (iskindred(src))
 		var/mob/living/carbon/human/vampire = src
 		var/datum/species/human/kindred/vampire_species = vampire.dna.species
-		var/torpor_length = 5 MINUTES
-		switch (humanity)
-			if (10)
-				torpor_length = 1 MINUTES
-			if (9)
-				torpor_length = 3 MINUTES
-			if (8)
-				torpor_length = 4 MINUTES
-			if (7)
-				torpor_length = 5 MINUTES
-			if (6)
-				torpor_length = 10 MINUTES
-			if (5)
-				torpor_length = 15 MINUTES
-			if (4)
-				torpor_length = 30 MINUTES
-			if (3)
-				torpor_length = 1 HOURS
-			if (2)
-				torpor_length = 2 HOURS
-			if (1)
-				torpor_length = 3 HOURS
-		COOLDOWN_START(vampire_species, torpor_timer, torpor_length)
+		COOLDOWN_START(vampire_species, torpor_timer, 5 MINUTES)
 
 /mob/living/proc/cure_torpor(source)
 	if (!HAS_TRAIT(src, TRAIT_TORPOR))
@@ -89,6 +67,5 @@
 			to_chat(owner, span_purple("<i>You are in Torpor, the sleep of death that vampires go into when injured, starved, or exhausted.</i>"))
 			if (vampire.bloodpool > 0)
 				to_chat(owner, span_purple("<i>You will be able to awaken in <b>[DisplayTimeText(COOLDOWN_TIMELEFT(kindred_species, torpor_timer))]</b>.</i>"))
-				to_chat(owner, span_purple("<i>The time to re-awaken depends on your [(vampire.humanity > 5) ? "high" : "low"] [kindred_species.enlightenment ? "Enlightenment" : "Humanity"] rating of [vampire.humanity].</i>"))
 			else
 				to_chat(owner, span_danger("<i>You will not be able to re-awaken, because you have no blood available to do so.</i>"))
