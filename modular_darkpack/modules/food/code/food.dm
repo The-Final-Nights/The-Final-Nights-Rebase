@@ -83,7 +83,7 @@
 	food_flags = FOOD_BITE_SPRITE
 
 /obj/item/food/chocolatebar/proc/open_bar(mob/user)
-	to_chat(user, "<span class='notice'>You pull back the wrapper of \the [src].</span>")
+	to_chat(user, span_notice("You pull back the wrapper of \the [src]."))
 	playsound(user.loc, 'sound/items/foodcanopen.ogg', 50)
 	icon_state = "bar1"
 	reagents.flags |= OPENCONTAINER
@@ -95,7 +95,7 @@
 
 /obj/item/food/chocolatebar/attack(mob/living/M, mob/user, def_zone)
 	if (!is_drainable())
-		to_chat(user, "<span class='warning'>[src]'s wrapper hasn't been opened!</span>")
+		to_chat(user, span_warning("[src]'s wrapper hasn't been opened!"))
 		return FALSE
 	return ..()
 

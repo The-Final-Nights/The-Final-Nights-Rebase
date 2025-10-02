@@ -97,7 +97,7 @@
 	initial_language_holder = /datum/language_holder/syndicate
 	allow_custom = FALSE
 
-// APOC EDIT ADD START
+// DARKPACK EDIT ADD START
 /obj/machinery/vending/boozeomat/all_access
 	name = "liquor cabinet"
 	desc = "A climate controlled fridge for booze."
@@ -111,7 +111,7 @@
 		/obj/item/reagent_containers/cup/glass/bottle/trappist = 1,
 		/obj/item/reagent_containers/cup/glass/bottle/bitters = 1,
 	)
-// APOC EDIT ADD END
+// DARKPACK EDIT ADD END
 
 /obj/item/vending_refill/boozeomat
 	machine_name = "Booze-O-Mat"

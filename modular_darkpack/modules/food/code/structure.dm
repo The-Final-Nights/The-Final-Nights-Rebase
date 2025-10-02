@@ -1,4 +1,4 @@
-/obj/food_cart
+/obj/structure/food_cart
 	name = "food cart"
 	desc = "Ding-aling ding dong. Get your cholesterine!"
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
@@ -7,7 +7,7 @@
 	anchored = TRUE
 	layer = ABOVE_MOB_LAYER
 
-/obj/food_cart/Initialize()
+/obj/structure/food_cart/Initialize()
 	. = ..()
 	icon_state = "vat[rand(1, 3)]"
 
