@@ -8,10 +8,6 @@
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "merge_conflict_marker"
 
-/obj/item/gas_can
-	icon = 'icons/effects/mapping_helpers.dmi'
-	icon_state = "merge_conflict_marker"
-
 /obj/item/molotov
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "merge_conflict_marker"

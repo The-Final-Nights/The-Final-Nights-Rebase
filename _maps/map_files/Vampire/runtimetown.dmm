@@ -143,7 +143,7 @@
 "dA" = (
 /obj/structure/table,
 /obj/item/storage/medkit/darkpack/doctor,
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "ee" = (
@@ -169,7 +169,7 @@
 /turf/open/floor/plating/asphalt,
 /area/vtm/outside/pacificheights)
 "eG" = (
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /turf/open/floor/plating/rough,
 /area/vtm/clinic)
 "eJ" = (
@@ -209,7 +209,7 @@
 /area/vtm/outside/pacificheights)
 "fS" = (
 /obj/structure/ladder/manhole/down,
-/obj/machinery/light/small/directional/east,
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/plating/vampcanal,
 /area/vtm/outside/pacificheights)
 "gb" = (
@@ -439,7 +439,7 @@
 /obj/item/storage/box/bodybags,
 /obj/item/storage/box/medipens,
 /obj/structure/closet,
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /turf/open/floor/plating/rough,
 /area/vtm/clinic)
 "nh" = (
@@ -673,17 +673,6 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/techshop)
-"sx" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/cup/glass/drinkingglass/pint{
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/pint{
-	pixel_y = 3;
-	pixel_x = 9
-	},
-/turf/open/misc/beach/vamp,
-/area/vtm/outside/pacificheights)
 "sy" = (
 /mob/living/carbon/human/npc/shop,
 /obj/effect/decal/cleanable/trash{
@@ -813,7 +802,7 @@
 /turf/open/floor/plating/vampcanal,
 /area/vtm/outside/pacificheights)
 "vJ" = (
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /turf/open/floor/plating/vampcanal,
 /area/vtm/outside/pacificheights)
 "wb" = (
@@ -920,7 +909,7 @@
 /area/vtm/outside/pacificheights)
 "zv" = (
 /mob/living/carbon/human/npc/shop,
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "zx" = (
@@ -970,7 +959,7 @@
 "AX" = (
 /obj/structure/table/wood,
 /obj/item/vtm_artifact/weekapaug_thistle,
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/sewer)
 "Bf" = (
@@ -1213,6 +1202,10 @@
 /obj/structure/table,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/supply)
+"FT" = (
+/obj/structure/fire_barrel,
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm/outside/pacificheights)
 "Gm" = (
 /obj/structure/vampdoor/prison,
 /turf/open/floor/plating/rough,
@@ -1280,7 +1273,7 @@
 /area/vtm/interior/shop)
 "GX" = (
 /obj/structure/barrels/rand,
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /turf/open/misc/beach/vamp,
 /area/vtm/outside/pacificheights)
 "Hb" = (
@@ -1518,7 +1511,7 @@
 /turf/closed/wall/vampwall/brick/low,
 /area/vtm/interior/shop)
 "MH" = (
-/obj/machinery/light/small/directional/south,
+/obj/machinery/light/small/directional/north,
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
@@ -1543,7 +1536,7 @@
 /turf/open/misc/beach/vamp,
 /area/vtm/outside/pacificheights)
 "Nw" = (
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "Nx" = (
@@ -1701,7 +1694,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
 "QW" = (
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /obj/effect/spawner/random/vending/snackvend,
 /turf/open/misc/beach/vamp,
 /area/vtm/outside/pacificheights)
@@ -1753,7 +1746,7 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/pacificheights)
 "Sw" = (
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /obj/effect/decal/cleanable/trash,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/sewer)
@@ -1913,7 +1906,7 @@
 /turf/open/misc/dirt/vamp,
 /area/vtm/supply)
 "VP" = (
-/obj/machinery/light/directional/south,
+/obj/machinery/light/directional/north,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "VQ" = (
@@ -2032,7 +2025,7 @@
 "YA" = (
 /obj/item/gas_can{
 	anchored = 1;
-	pixel_y = 16
+	pixel_y = 7
 	},
 /obj/item/gas_can{
 	anchored = 1
@@ -2041,7 +2034,7 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "YC" = (
-/mob/living/basic/pet/cat/vampire{
+/mob/living/basic/pet/cat/darkpack{
 	bloodpool = 10;
 	health = 228;
 	maxbloodpool = 10;
@@ -3690,7 +3683,7 @@ UK
 yt
 kS
 NR
-sx
+Nd
 NR
 NR
 NR
@@ -4636,7 +4629,7 @@ Ys
 MS
 oJ
 oJ
-oJ
+FT
 oJ
 oJ
 oJ
@@ -5070,7 +5063,7 @@ oJ
 oJ
 oJ
 md
-oJ
+FT
 oJ
 md
 qz
@@ -5286,7 +5279,7 @@ oJ
 oJ
 oJ
 md
-md
+eQ
 eQ
 eQ
 eQ
@@ -5322,7 +5315,7 @@ MH
 QM
 QM
 md
-md
+eQ
 eQ
 eQ
 XY
