@@ -615,7 +615,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 
 	return ITALICS | REDUCE_RANGE
 
-/obj/item/p25radio/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
+/obj/item/p25radio/Hear(atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	. = ..()
 	if(!can_receive(speaker, message_mods))
 		return
