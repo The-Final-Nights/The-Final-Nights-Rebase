@@ -135,7 +135,7 @@
 		. += span_notice("[src] requires a key to unlock.")
 
 
-/obj/structure/vaultdoor/AltClick(mob/user)
+/obj/structure/vaultdoor/click_alt(mob/user)
 	. = ..()
 	if(is_broken)
 		return

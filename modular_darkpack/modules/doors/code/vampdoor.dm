@@ -275,7 +275,7 @@
 
 /obj/structure/vampdoor/proc/try_lockpick(mob/living/user, obj/item/tool)
 	if(door_broken)
-		to_chat(user,span_warning("There is no door to pick here."))
+		to_chat(user, span_warning("There is no door to pick here."))
 		return
 	if(locked)
 		proc_unlock(5)
@@ -283,7 +283,7 @@
 		for(var/mob/living/carbon/human/npc/police/P in oviewers(7, src))
 			P.Aggro(user)
 		var/total_lockpicking = user.st_get_stat(STAT_LARCENY)
-		if(do_after(user, (lockpick_timer - total_lockpicking * 2) SECONDS, src, interaction_key = DOAFTER_SOURCE_DOOR))
+		if(do_after(user, lockpick_timer, src, interaction_key = DOAFTER_SOURCE_DOOR))
 			if(!locked)
 				return
 			var/roll_result = SSroll.storyteller_roll(total_lockpicking + user.st_get_stat(STAT_DEXTERITY), lockpick_difficulty, list(user), user)

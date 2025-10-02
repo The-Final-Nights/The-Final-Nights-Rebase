@@ -59,7 +59,7 @@
 		dir = user.dir
 		anchored = TRUE
 
-/obj/item/fishing_rod/MouseDrop(atom/over_object)
+/obj/item/fishing_rod/mouse_drop_receive(atom/over_object)
 	. = ..()
 	if(isturf(loc))
 		if(istype(over_object, /mob/living))
