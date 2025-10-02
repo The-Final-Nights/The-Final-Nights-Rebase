@@ -118,13 +118,12 @@ const GasList = (props: GasListProps) => {
         />
         <NumberInput
           animated
-          tickWhileDragging
           step={1}
           value={parseFloat(data[input_rate])}
           unit="mol/s"
           minValue={input_min}
           maxValue={input_max}
-          onChange={(v) => act(input_rate, { [input_rate]: v })}
+          onDrag={(v) => act(input_rate, { [input_rate]: v })}
         />
       </LabeledList.Item>
       {gases.map((gas) => {

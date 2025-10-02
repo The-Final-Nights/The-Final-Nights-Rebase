@@ -42,11 +42,7 @@
 	throw_range = 3
 	attack_verb_continuous = list("bashes", "batters", "bludgeons", "whacks")
 	attack_verb_simple = list("bash", "batter", "bludgeon", "whack")
-	/// Type of plank you can get from this type of log
 	var/plank_type = /obj/item/stack/sheet/mineral/wood
-	/// How many planks you can get from this type of log, without counting seed potency
-	var/plank_count = 1
-	/// Name of plank, shown in context tips and balloon alerts when cutting the log
 	var/plank_name = "wooden planks"
 	var/static/list/accepted = typecacheof(list(
 		/obj/item/food/grown/tobacco,
@@ -60,8 +56,6 @@
 /obj/item/grown/log/Initialize(mapload, obj/item/seeds/new_seed)
 	. = ..()
 	register_context()
-	if(seed)
-		plank_count += round(seed.potency / 25)
 
 /obj/item/grown/log/add_context(
 	atom/source,
@@ -86,6 +80,9 @@
 
 /obj/item/grown/log/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(attacking_item.get_sharpness())
+		var/plank_count = 1
+		if(seed)
+			plank_count += round(seed.potency / 25)
 
 		user.balloon_alert(user, "made [plank_count] [plank_name]")
 		new plank_type(user.loc, plank_count)
@@ -114,7 +111,6 @@
 	seed = null
 	name = "wood log"
 	desc = "TIMMMMM-BERRRRRRRRRRR!"
-	plank_count = 10
 
 /obj/item/grown/log/steel
 	seed = /obj/item/seeds/tower/steel

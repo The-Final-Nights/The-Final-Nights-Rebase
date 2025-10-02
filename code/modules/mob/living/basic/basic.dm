@@ -2,7 +2,6 @@
 /mob/living/basic
 	name = "basic mob"
 	icon = 'icons/mob/simple/animal.dmi'
-	abstract_type = /mob/living/basic
 	health = 20
 	maxHealth = 20
 	max_stamina = BASIC_MOB_STAMINA_MATCH_HEALTH

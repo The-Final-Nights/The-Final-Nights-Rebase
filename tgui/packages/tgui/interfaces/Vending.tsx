@@ -45,6 +45,7 @@ type Category = {
 
 type VendingData = {
   all_products_free: boolean;
+  onstation: boolean;
   ad: string;
   department: string;
   jobDiscount: number;
@@ -64,7 +65,7 @@ export const Vending = () => {
   const { data } = useBackend<VendingData>();
 
   const {
-    all_products_free,
+    onstation,
     ad,
     product_records = [],
     coin_records = [],
@@ -111,7 +112,7 @@ export const Vending = () => {
       <Window.Content>
         <Stack fill vertical>
            {/* DARKPACK EDIT REMOVAL
-          {!all_products_free && (
+          {!!onstation && (
             <Stack.Item>
               <UserDetails />
             </Stack.Item>

@@ -219,7 +219,7 @@
 
 /obj/item/storage/box/large_dart
 	name = "box of XL shotgun darts"
-	desc = "A box full of shotgun darts with increased chemical storage capacity."
+	name = "A box full of shotgun darts with increased chemical storage capacity."
 	icon_state = "shotdart_box"
 	illustration = null
 

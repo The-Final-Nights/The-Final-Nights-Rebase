@@ -34,8 +34,6 @@
 	var/connector_type = "standard"
 	///Does the cell start without any charge?
 	var/empty = FALSE
-	// Damage multiplier the cells take from emps to prevent stuff like bluespace cells taking 40 shots to drain.
-	var/emp_damage_modifier = 1
 
 /obj/item/stock_parts/power_store/get_cell()
 	return src
@@ -241,7 +239,7 @@
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
-	use((STANDARD_CELL_CHARGE /severity) * emp_damage_modifier , force = TRUE)
+	use(STANDARD_CELL_CHARGE / severity, force = TRUE)
 
 /obj/item/stock_parts/power_store/ex_act(severity, target)
 	. = ..()

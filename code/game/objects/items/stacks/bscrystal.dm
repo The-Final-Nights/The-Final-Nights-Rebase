@@ -11,7 +11,7 @@
 	points = 50
 	refined_type = /obj/item/stack/sheet/bluespace_crystal
 	grind_results = list(/datum/reagent/bluespace = 20)
-	scan_state = "rock_bscrystal"
+	scan_state = "rock_BScrystal"
 	merge_type = /obj/item/stack/ore/bluespace_crystal
 	/// The teleport range when crushed/thrown at someone.
 	var/blink_range = 8

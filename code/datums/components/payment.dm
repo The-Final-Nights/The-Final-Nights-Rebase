@@ -106,7 +106,7 @@
 		return FALSE
 
 	if(physical_cash_total < total_cost)
-		to_chat(user, span_warning("Insufficient funds. Aborting."))
+		to_chat(user, span_notice("Insufficient funds. Aborting."))
 		return FALSE
 	for(var/obj/cash_object in counted_money)
 		qdel(cash_object)
@@ -180,7 +180,7 @@
 	log_econ("[total_cost] credits were spent on [parent] by [user] via [credit_card.registered_account.account_holder]'s card.")
 	credit_card.registered_account.bank_card_talk("[total_cost] credits deducted from your account.")
 	playsound(src, 'sound/effects/cashregister.ogg', 20, TRUE)
-	SSeconomy.add_audit_entry(credit_card.registered_account, total_cost, parent)
+	SSeconomy.track_purchase(credit_card.registered_account, total_cost, parent)
 	return TRUE
 // DARKPACK EDIT CHANGE END - ECONOMY
 

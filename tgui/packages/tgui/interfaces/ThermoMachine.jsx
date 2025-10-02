@@ -48,7 +48,6 @@ export const ThermoMachine = (props) => {
             <LabeledList.Item label="Target Temperature">
               <NumberInput
                 animated
-                tickWhileDragging
                 value={Math.round(data.target)}
                 unit="K"
                 width="62px"
@@ -56,7 +55,7 @@ export const ThermoMachine = (props) => {
                 maxValue={Math.round(data.max)}
                 step={5}
                 stepPixelSize={3}
-                onChange={(value) =>
+                onDrag={(value) =>
                   act('target', {
                     target: value,
                   })

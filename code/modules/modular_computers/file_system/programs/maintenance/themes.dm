@@ -35,19 +35,10 @@
 		qdel(src)
 
 /datum/computer_file/program/maintenance/theme/cat
-	theme_name = PDA_THEME_CAT_NAME
+	theme_name = CAT_THEME_NAME
 
 /datum/computer_file/program/maintenance/theme/lightmode
-	theme_name = PDA_THEME_LIGHT_MODE_NAME
+	theme_name = LIGHT_THEME_NAME
 
 /datum/computer_file/program/maintenance/theme/spooky
-	theme_name = PDA_THEME_SPOOKY_NAME
-
-/datum/computer_file/program/maintenance/theme/hacker
-	theme_name = PDA_THEME_HACKERMAN_NAME
-
-/datum/computer_file/program/maintenance/theme/roulette
-	theme_name = PDA_THEME_ROULETTE_NAME
-
-/datum/computer_file/program/maintenance/theme/alien
-	theme_name = PDA_THEME_ABDUCTOR_NAME
+	theme_name = ELDRITCH_THEME_NAME

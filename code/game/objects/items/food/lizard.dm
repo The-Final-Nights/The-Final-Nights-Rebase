@@ -578,7 +578,6 @@
 /obj/item/food/pizza/flatbread
 	icon = 'icons/obj/food/lizard.dmi'
 	icon_state = null
-	abstract_type = /obj/item/food/pizza/flatbread
 	slice_type = null
 
 /obj/item/food/pizza/flatbread/rustic

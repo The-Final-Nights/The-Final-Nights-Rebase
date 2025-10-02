@@ -92,10 +92,8 @@
 	return ..()
 
 /obj/machinery/quantumpad/interact(mob/user, obj/machinery/quantumpad/target_pad = linked_pad)
-	if(QDELETED(target_pad))
-		if(map_pad_link_id && initMappedLink())
-			target_pad = linked_pad
-		else
+	if(!target_pad || QDELETED(target_pad))
+		if(!map_pad_link_id || !initMappedLink())
 			to_chat(user, span_warning("Target pad not found!"))
 			return
 

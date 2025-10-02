@@ -32,7 +32,7 @@
 
 /datum/action/item_action/mod/do_effect(trigger_flags)
 	var/obj/item/mod/control/mod = target
-	if(mod.malfunctioning && prob(MOD_MALFUNCTION_PROB))
+	if(mod.malfunctioning && prob(75))
 		mod.balloon_alert(usr, "button malfunctions!")
 		return FALSE
 	return TRUE
@@ -182,7 +182,7 @@
 	. = ..()
 	if(!.)
 		return
-	module.on_select(owner)
+	module.on_select()
 
 /datum/action/item_action/mod/pinnable/module/apply_button_overlay(atom/movable/screen/movable/action_button/current_button, force)
 	current_button.cut_overlays()

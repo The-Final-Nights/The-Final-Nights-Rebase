@@ -51,7 +51,6 @@ export type WritingImplement = {
   color: string;
   font: string;
   stamp_class: string;
-  stamp_icon: string;
   stamp_icon_state: string;
   use_bold: boolean;
 }>;

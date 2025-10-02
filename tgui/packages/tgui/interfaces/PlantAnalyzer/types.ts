@@ -1,46 +1,36 @@
-import type { BooleanLike } from 'tgui-core/react';
-
-export enum PlantAnalyzerTabs {
-  STATS = 1,
-  CHEM = 2,
-}
-
 export type PlantAnalyzerData = {
-  graft_data: GraftData | null;
-  seed_data: SeedData | null;
-  plant_data: PlantData | null;
-  tray_data: TrayData | null;
+  graft_data: GraftData;
+  seed_data: SeedData;
+  tray_data: TrayData;
   // Static
   cycle_seconds: number;
   trait_db: TraitData[];
-  active_tab: PlantAnalyzerTabs;
 };
 
 type TrayData = {
-  being_pollinated: BooleanLike;
-  icon: string;
+  being_pollinated: boolean;
   icon_state: string;
-  is_dead: BooleanLike;
+  icon: string;
   light_level: number;
   name: string;
-  nutri: number;
   nutri_max: number;
-  pests: number;
+  nutri: number;
   pests_max: number;
+  pests: number;
   plant_age: number;
   plant_health: number;
   reagents: ReagentVolume[];
-  self_sustaining: BooleanLike;
-  toxins: number;
+  self_sustaining: boolean;
   toxins_max: number;
-  water: number;
+  toxins: number;
   water_max: number;
-  weeds: number;
+  water: number;
   weeds_max: number;
+  weeds: number;
   yield_mod: number;
 };
 
-export type SeedData = {
+type SeedData = {
   core_traits: string[];
   distill_reagent: string;
   endurance: number;
@@ -66,23 +56,6 @@ export type SeedData = {
   weed_chance: number;
   weed_rate: number;
   yield: number;
-  unique_labels: UniqueSeedLabel[];
-  unique_collapsibles: UniqueSeedCollapsible[];
-};
-
-type UniqueSeedLabel = {
-  label: string;
-  data: string;
-};
-
-type UniqueSeedCollapsible = {
-  label: string;
-  // key is shown text, value is tooltip text
-  data: Record<string, string>;
-};
-
-export type PlantData = {
-  reagents: ReagentVolume[];
 };
 
 type GraftData = {
@@ -100,11 +73,10 @@ type GraftData = {
 
 type ReagentVolume = {
   name: string;
-  volume: number;
-  color: string;
+  volume: string;
 };
 
-export type ReagentData = {
+type ReagentData = {
   name: string;
   rate: number;
 };

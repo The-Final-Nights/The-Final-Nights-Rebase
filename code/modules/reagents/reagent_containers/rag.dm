@@ -145,8 +145,7 @@
 			fire_act(500, 100)
 
 	// FINALLY add the dna to us
-	if(length(all_blood_dna))
-		add_blood_DNA(all_blood_dna)
+	add_blood_DNA(all_blood_dna)
 	update_appearance()
 	if(blood_level >= 10)
 		to_chat(cleaner, span_warning("[src] is too dirty to clean anything else! Wash it first!"))

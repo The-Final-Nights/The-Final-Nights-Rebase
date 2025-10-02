@@ -8,7 +8,7 @@
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(1, 2, 3, 4, 5)
 	volume = 5
-	initial_reagent_flags = TRANSPARENT
+	reagent_flags = TRANSPARENT
 	custom_price = PAYCHECK_CREW
 
 /obj/item/reagent_containers/dropper/interact_with_atom(atom/target, mob/living/user, list/modifiers)
@@ -55,7 +55,12 @@
 			SEND_SIGNAL(target, COMSIG_MOB_REAGENTS_DROPPED_INTO_EYES, user, src, reagents, fraction)
 			reagents.expose(target, TOUCH, fraction)
 			var/mob/M = target
-			log_combat(user, M, "squirted", reagents.get_reagent_log_string())
+			var/R
+			if(reagents)
+				for(var/datum/reagent/A in src.reagents.reagent_list)
+					R += "[A] ([num2text(A.volume)]),"
+
+			log_combat(user, M, "squirted", R)
 
 		trans = round(reagents.trans_to(target, amount_per_transfer_from_this, transferred_by = user), CHEMICAL_VOLUME_ROUNDING)
 		to_chat(user, span_notice("You transfer [trans] unit\s of the solution."))

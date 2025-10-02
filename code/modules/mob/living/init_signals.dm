@@ -282,10 +282,13 @@
 	SIGNAL_HANDLER
 	refresh_gravity()
 
-/mob/living/proc/edit_immerse_overlay(datum/source, atom/movable/immerse_mask/effect_relay)
+/// Called in [/datum/element/immerse/apply_filter]
+/mob/living/proc/edit_immerse_overlay(datum/source, atom/movable/immerse_overlay/vis_overlay)
 	SIGNAL_HANDLER
-	effect_relay.transform = effect_relay.transform.Scale(1 / current_size)
-	effect_relay.transform = effect_relay.transform.Turn(-lying_angle)
+
+	vis_overlay.transform = vis_overlay.transform.Scale(1/current_size)
+	vis_overlay.transform = vis_overlay.transform.Turn(-lying_angle)
+	vis_overlay.adjust_living_overlay_offset(src)
 
 /// Called when [TRAIT_UNDENSE] is gained or lost
 /mob/living/proc/undense_changed(datum/source)

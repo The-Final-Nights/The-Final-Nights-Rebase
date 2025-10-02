@@ -1,8 +1,9 @@
 import { useReducer, useState } from 'react';
 import { Button, Dropdown, Input, Section, Stack } from 'tgui-core/components';
+
 import { Window } from '../../layouts';
 import { SORTING_TYPES } from './contants';
-import { FilterAction, type FilterState, filterReducer } from './filters';
+import { FilterAction, filterReducer, type FilterState } from './filters';
 import { OverviewSection } from './OverviewSection';
 import { SubsystemDialog } from './SubsystemDialog';
 import { SubsystemViews } from './SubsystemViews';

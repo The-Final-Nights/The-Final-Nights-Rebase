@@ -12,7 +12,8 @@ import {
   NumberInput,
   Section,
 } from 'tgui-core/components';
-import { numberOfDecimalDigits, toFixed } from 'tgui-core/math';
+import { toFixed } from 'tgui-core/math';
+import { numberOfDecimalDigits } from 'tgui-core/math';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -28,7 +29,7 @@ const FilterIntegerEntry = (props) => {
       step={1}
       stepPixelSize={5}
       width="39px"
-      onChange={(value) =>
+      onDrag={(value) =>
         act('modify_filter_value', {
           name: filterName,
           new_data: {
@@ -55,7 +56,7 @@ const FilterFloatEntry = (props) => {
         step={step}
         format={(value) => toFixed(value, numberOfDecimalDigits(step))}
         width="80px"
-        onChange={(value) =>
+        onDrag={(value) =>
           act('transition_filter_value', {
             name: filterName,
             new_data: {
@@ -172,29 +173,8 @@ const FilterFlagsEntry = (props) => {
   ));
 };
 
-const FilterOptionsEntry = (props) => {
-  const { name, value, filterName, filterType } = props;
-  const { act, data } = useBackend();
-  const filterInfo = data.filter_info;
-  const options = filterInfo[filterType].options[name];
-  return (
-    <Dropdown
-      selected={Object.keys(options).find((x) => value === options[x])}
-      options={Object.keys(options)}
-      onSelected={(value) =>
-        act('modify_filter_value', {
-          name: filterName,
-          new_data: {
-            [name]: options[value],
-          },
-        })
-      }
-    />
-  );
-};
-
 const FilterDataEntry = (props) => {
-  const { name, value, hasValue, filterName, filterType } = props;
+  const { name, value, hasValue, filterName } = props;
 
   const filterEntryTypes = {
     int: <FilterIntegerEntry {...props} />,
@@ -203,8 +183,6 @@ const FilterDataEntry = (props) => {
     color: <FilterColorEntry {...props} />,
     icon: <FilterIconEntry {...props} />,
     flags: <FilterFlagsEntry {...props} />,
-    options: <FilterOptionsEntry {...props} />,
-    plug: 'Not Implemented',
   };
 
   const filterEntryMap = {
@@ -214,32 +192,19 @@ const FilterDataEntry = (props) => {
     render_source: 'string',
     flags: 'flags',
     size: 'float',
-    color: { default: 'color', color: 'plug' },
+    color: 'color',
     offset: 'float',
-    radius: 'int',
+    radius: 'float',
     falloff: 'float',
     density: 'int',
-    alpha: 'int',
-    threshold: { rays: 'float', bloom: 'color' },
+    threshold: 'float',
     factor: 'float',
     repeat: 'int',
-    space: 'options',
-    blend_mode: 'options',
-    transform: 'plug',
   };
-
-  let filterInputType = filterEntryMap[name];
-  // i hate javascript, this checks if its a dict
-  if (filterInputType !== undefined && filterInputType.constructor === Object) {
-    filterInputType = filterInputType[filterType] || filterInputType.default;
-  }
 
   return (
     <LabeledList.Item label={name}>
-      <Box inline>
-        {filterEntryTypes[filterInputType] ||
-          'Not Found (This is an error)'}{' '}
-      </Box>
+      {filterEntryTypes[filterEntryMap[name]] || 'Not Found (This is an error)'}{' '}
       {!hasValue && (
         <Box inline color="average">
           (Default)
@@ -375,11 +340,7 @@ export const Filteriffic = (props) => {
             <Box>No filters</Box>
           ) : (
             map(filters, (entry, key) => (
-              <FilterEntry
-                filterDataEntry={entry}
-                name={entry.name}
-                key={entry.name}
-              />
+              <FilterEntry filterDataEntry={entry} name={key} key={key} />
             ))
           )}
         </Section>

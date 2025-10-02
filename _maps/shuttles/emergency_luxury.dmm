@@ -61,7 +61,7 @@
 /turf/open/floor/plating,
 /area/shuttle/escape)
 "ek" = (
-/obj/machinery/wall_healer/free/directional/north,
+/obj/machinery/vending/wallmed/directional/north,
 /obj/machinery/iv_drip,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape/luxury)
@@ -105,8 +105,10 @@
 	dir = 4;
 	id = "gimmemoney"
 	},
-/obj/effect/spawner/structure/window/reinforced/shuttle/indestructible,
-/turf/open/floor/plating,
+/turf/closed/indestructible/opsglass{
+	desc = "A durable looking window made of an alloy of of plasma and titanium.";
+	name = "plastitanium window"
+	},
 /area/shuttle/escape/luxury)
 "gL" = (
 /obj/effect/decal/cleanable/generic,
@@ -868,7 +870,7 @@
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "Jd" = (
-/obj/machinery/wall_healer/free/directional/south,
+/obj/machinery/vending/wallmed/directional/south,
 /turf/open/floor/carpet/orange,
 /area/shuttle/escape/luxury)
 "JB" = (
@@ -914,7 +916,7 @@
 	dir = 4;
 	id = "gimmemoney"
 	},
-/turf/closed/indestructible/riveted/plastinum/nodiagonal,
+/turf/closed/indestructible/syndicate,
 /area/shuttle/escape/luxury)
 "Ky" = (
 /obj/structure/table/wood/fancy/black,
@@ -965,8 +967,10 @@
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "Mn" = (
-/obj/effect/spawner/structure/window/reinforced/shuttle/indestructible,
-/turf/open/floor/plating,
+/turf/closed/indestructible/opsglass{
+	desc = "A durable looking window made of an alloy of of plasma and titanium.";
+	name = "plastitanium window"
+	},
 /area/shuttle/escape/luxury)
 "MN" = (
 /obj/effect/decal/cleanable/blood/oil/slippery,
@@ -999,7 +1003,7 @@
 /area/shuttle/escape)
 "Nu" = (
 /obj/structure/chair/comfy/shuttle,
-/obj/machinery/wall_healer/free/directional/north,
+/obj/machinery/vending/wallmed/directional/north,
 /turf/open/floor/carpet/red,
 /area/shuttle/escape/brig)
 "Om" = (
@@ -1166,7 +1170,7 @@
 /turf/open/floor/iron,
 /area/shuttle/escape)
 "Wx" = (
-/obj/machinery/wall_healer/free/directional/north,
+/obj/machinery/vending/wallmed/directional/north,
 /turf/open/floor/carpet/blue,
 /area/shuttle/escape/luxury)
 "WF" = (
@@ -1187,13 +1191,17 @@
 /turf/open/floor/carpet/red,
 /area/shuttle/escape/luxury)
 "Xz" = (
-/turf/closed/wall/mineral/plastitanium,
-/area/shuttle/escape)
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/shuttle/escape/luxury)
 "Yb" = (
 /obj/effect/decal/cleanable/generic,
 /obj/item/shard,
 /turf/open/floor/iron,
 /area/shuttle/escape)
+"Yj" = (
+/turf/closed/indestructible/syndicate,
+/area/shuttle/escape/luxury)
 "Yo" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/carpet/blue,
@@ -1258,7 +1266,7 @@ WO
 fH
 "}
 (2,1,1) = {"
-Xz
+JV
 WO
 sC
 sC
@@ -1277,10 +1285,10 @@ sC
 sC
 sC
 WO
-Xz
+JV
 "}
 (3,1,1) = {"
-JV
+CQ
 sH
 qk
 nP
@@ -1299,10 +1307,10 @@ JV
 OK
 MX
 OC
-JV
+CQ
 "}
 (4,1,1) = {"
-JV
+CQ
 Tz
 lz
 Bt
@@ -1321,10 +1329,10 @@ oH
 kc
 JO
 et
-JV
+CQ
 "}
 (5,1,1) = {"
-JV
+CQ
 KS
 rN
 Za
@@ -1343,10 +1351,10 @@ JV
 Sy
 EL
 Fq
-JV
+CQ
 "}
 (6,1,1) = {"
-JV
+CQ
 KS
 dM
 rN
@@ -1365,7 +1373,7 @@ JV
 kG
 dN
 dN
-JV
+CQ
 "}
 (7,1,1) = {"
 JV
@@ -1387,7 +1395,7 @@ Wp
 Br
 eb
 vj
-JV
+CQ
 "}
 (8,1,1) = {"
 JV
@@ -1409,7 +1417,7 @@ yk
 kJ
 iS
 ur
-JV
+CQ
 "}
 (9,1,1) = {"
 jy
@@ -1443,17 +1451,17 @@ Ex
 Ex
 Ex
 Ex
-Ex
+Yj
 gG
 gG
 gG
 gG
-Ex
+Yj
 gG
 gG
 gG
 Kw
-Ex
+Yj
 "}
 (11,1,1) = {"
 DE
@@ -1688,8 +1696,8 @@ SN
 oP
 Ex
 kM
-Mn
-Mn
+Xz
+Xz
 kM
 Ex
 Ex
@@ -1721,13 +1729,13 @@ Ex
 "}
 (23,1,1) = {"
 Ex
-Mn
+Xz
 KJ
 KJ
-Mn
+Xz
 Ex
 qm
-Mn
+Xz
 qm
 Ex
 Ex

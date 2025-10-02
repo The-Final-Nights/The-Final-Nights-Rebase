@@ -9,7 +9,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
 	item_flags = NOBLUDGEON
 	obj_flags = UNIQUE_RENAME
-	initial_reagent_flags = OPENCONTAINER
+	reagent_flags = OPENCONTAINER
 	slot_flags = ITEM_SLOT_BELT
 	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
@@ -37,41 +37,39 @@
 	var/squirt_mode = amount_per_transfer_from_this == initial(amount_per_transfer_from_this)
 	to_chat(user, span_notice("You will now apply the medigel's contents in [squirt_mode ? "extended sprays":"short bursts"]. You'll now use [amount_per_transfer_from_this] units per use."))
 
-/obj/item/reagent_containers/medigel/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!isliving(interacting_with))
-		return NONE
+/obj/item/reagent_containers/medigel/attack(mob/M, mob/user, def_zone)
 	if(!reagents || !reagents.total_volume)
 		to_chat(user, span_warning("[src] is empty!"))
-		return ITEM_INTERACT_BLOCKING
+		return
 
-	if(interacting_with == user)
-		interacting_with.visible_message(span_notice("[user] attempts to [apply_method] [src] on [user.p_them()]self."))
+	if(M == user)
+		M.visible_message(span_notice("[user] attempts to [apply_method] [src] on [user.p_them()]self."))
 		if(self_delay)
-			if(!do_after(user, self_delay, interacting_with))
-				return ITEM_INTERACT_BLOCKING
+			if(!do_after(user, self_delay, M))
+				return
 			if(!reagents || !reagents.total_volume)
-				return ITEM_INTERACT_BLOCKING
-		to_chat(interacting_with, span_notice("You [apply_method] yourself with [src]."))
+				return
+		to_chat(M, span_notice("You [apply_method] yourself with [src]."))
 
 	else
-		log_combat(user, interacting_with, "attempted to apply", src, reagents.get_reagent_log_string())
-		interacting_with.visible_message(
-			span_danger("[user] attempts to [apply_method] [src] on [interacting_with]."),
-			span_userdanger("[user] attempts to [apply_method] [src] on you."),
-		)
-		if(!do_after(user, CHEM_INTERACT_DELAY(3 SECONDS, user), interacting_with))
-			return ITEM_INTERACT_BLOCKING
+		log_combat(user, M, "attempted to apply", src, reagents.get_reagent_log_string())
+		M.visible_message(span_danger("[user] attempts to [apply_method] [src] on [M]."), \
+							span_userdanger("[user] attempts to [apply_method] [src] on you."))
+		if(!do_after(user, CHEM_INTERACT_DELAY(3 SECONDS, user), M))
+			return
 		if(!reagents || !reagents.total_volume)
-			return ITEM_INTERACT_BLOCKING
-		interacting_with.visible_message(
-			span_danger("[user] [apply_method]s [interacting_with] down with [src]."),
-			span_userdanger("[user] [apply_method]s you down with [src]."),
-		)
+			return
+		M.visible_message(span_danger("[user] [apply_method]s [M] down with [src]."), \
+							span_userdanger("[user] [apply_method]s you down with [src]."))
 
-	log_combat(user, interacting_with, "applied", src, reagents.get_reagent_log_string())
-	playsound(src, 'sound/effects/spray.ogg', 30, TRUE, -6)
-	reagents.trans_to(interacting_with, amount_per_transfer_from_this, transferred_by = user, methods = apply_type)
-	return ITEM_INTERACT_SUCCESS
+	if(!reagents || !reagents.total_volume)
+		return
+
+	else
+		log_combat(user, M, "applied", src, reagents.get_reagent_log_string())
+		playsound(src, 'sound/effects/spray.ogg', 30, TRUE, -6)
+		reagents.trans_to(M, amount_per_transfer_from_this, transferred_by = user, methods = apply_type)
+	return
 
 /obj/item/reagent_containers/medigel/libital
 	name = "medical gel (libital)"
@@ -103,9 +101,9 @@
 	if(reagents.total_volume >= 60)
 		. += span_info("One full bottle can restore a corpse husked by burns.")
 
-/obj/item/reagent_containers/medigel/synthflesh/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(iscarbon(interacting_with) && reagents?.total_volume)
-		var/mob/living/carbon/carbies = interacting_with
+/obj/item/reagent_containers/medigel/synthflesh/attack(mob/M, mob/user, def_zone)
+	if(iscarbon(M))
+		var/mob/living/carbon/carbies = M
 		if(HAS_TRAIT_FROM(carbies, TRAIT_HUSK, BURN) && carbies.getFireLoss() > UNHUSK_DAMAGE_THRESHOLD * 2.5)
 			// give them a warning if the mob is a husk but synthflesh won't unhusk yet
 			carbies.visible_message(span_boldwarning("[carbies]'s burns need to be repaired first before synthflesh will unhusk it!"))

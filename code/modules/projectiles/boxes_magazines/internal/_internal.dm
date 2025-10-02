@@ -1,7 +1,5 @@
 /obj/item/ammo_box/magazine/internal
 	desc = "Oh god, this shouldn't be here"
-	abstract_type = /obj/item/ammo_box/magazine/internal
-	spawn_blacklisted = TRUE
 	obj_flags = CONDUCTS_ELECTRICITY
 	item_flags = ABSTRACT
 

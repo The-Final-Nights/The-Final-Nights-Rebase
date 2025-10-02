@@ -1,8 +1,6 @@
 //Gun crafting parts til they can be moved elsewhere
 
 // PARTS //
-/obj/item/weaponcrafting
-	abstract_type = /obj/item/weaponcrafting
 
 /obj/item/weaponcrafting/Initialize(mapload)
 	. = ..()

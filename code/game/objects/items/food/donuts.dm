@@ -4,7 +4,6 @@
 	name = "donut"
 	desc = "Goes great with robust coffee."
 	icon = 'icons/obj/food/donuts.dmi'
-	abstract_type = /obj/item/food/donut
 	inhand_icon_state = "donut1"
 	bite_consumption = 5
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3)
@@ -379,7 +378,6 @@
 /obj/item/food/donut/jelly/slimejelly
 	name = "jelly donut"
 	desc = "You jelly?"
-	abstract_type = /obj/item/food/donut/jelly/slimejelly
 	extra_reagent = /datum/reagent/toxin/slimejelly
 	foodtypes = GRAIN|DAIRY|JUNKFOOD|SUGAR|FRIED|BREAKFAST|TOXIC
 

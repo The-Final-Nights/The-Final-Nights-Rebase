@@ -14,7 +14,6 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 	))
 
 /obj/item/clothing/mask/animal
-	abstract_type = /obj/item/clothing/mask
 	w_class = WEIGHT_CLASS_SMALL
 	clothing_flags = VOICEBOX_TOGGLABLE
 	var/modifies_speech = TRUE
@@ -92,7 +91,6 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 				RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 			to_chat(M, span_userdanger("[src] was cursed!"))
 			M.update_worn_mask()
-			M.refresh_obscured()
 
 /obj/item/clothing/mask/animal/proc/clear_curse()
 	REMOVE_TRAIT(src, TRAIT_NODROP, CURSED_MASK_TRAIT)
@@ -194,7 +192,6 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 /obj/item/clothing/mask/animal/small
 	name = "A small animal mask"
 	desc = "If you're seeing this, yell at a coder."
-	abstract_type = /obj/item/clothing/mask/animal/small
 	flags_inv = HIDEFACE|HIDESNOUT
 
 /obj/item/clothing/mask/animal/small/make_cursed()

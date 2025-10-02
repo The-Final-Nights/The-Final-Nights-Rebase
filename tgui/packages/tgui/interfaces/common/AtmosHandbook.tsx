@@ -1,4 +1,3 @@
-import { atom, useAtom } from 'jotai';
 import { type ReactNode, useState } from 'react';
 import {
   Box,
@@ -11,7 +10,7 @@ import {
   Tooltip,
 } from 'tgui-core/components';
 
-import { useBackend } from '../../backend';
+import { useBackend, useLocalState } from '../../backend';
 
 /**
  * This describes something that influences a particular reaction
@@ -44,27 +43,16 @@ type Gas = {
   name: string;
   description: string;
   specific_heat: number;
-  reactions: Record<string, string> | [];
+  reactions: { [key: string]: string } | [];
 };
 
-type GasSearchProps = {
+const GasSearchBar = (props: {
   title: ReactNode;
   onChange: (inputValue: string) => void;
   activeInput: boolean;
   setActiveInput: (toggle: boolean) => void;
-};
-
-type Data = {
-  gasInfo: Gas[];
-  reactionInfo: Reaction[];
-};
-
-const activeGasAtom = atom('');
-const activeReactionAtom = atom('');
-
-function GasSearchBar(props: GasSearchProps) {
+}) => {
   const { title, onChange, activeInput, setActiveInput } = props;
-
   return (
     <Flex align="center">
       <Flex.Item grow>
@@ -85,16 +73,18 @@ function GasSearchBar(props: GasSearchProps) {
       </Flex.Item>
     </Flex>
   );
-}
+};
 
-function GasHandbook(props) {
-  const { act, data } = useBackend<Data>();
+const GasHandbook = (props) => {
+  const { act, data } = useBackend<{ gasInfo: Gas[] }>();
   const { gasInfo } = data;
-  const [activeGasId, setActiveGasId] = useAtom(activeGasAtom);
-  const [activeReactionId, setActiveReactionId] = useAtom(activeReactionAtom);
+  const [activeGasId, setActiveGasId] = useLocalState('activeGasId', '');
+  const [activeReactionId, setActiveReactionId] = useLocalState(
+    'activeReactionId',
+    '',
+  );
   const [gasActiveInput, setGasActiveInput] = useState(false);
   const relevantGas = gasInfo.find((gas) => gas.id === activeGasId);
-
   return (
     <Section
       title={
@@ -133,18 +123,20 @@ function GasHandbook(props) {
       )}
     </Section>
   );
-}
+};
 
-function ReactionHandbook(props) {
-  const { data } = useBackend<Data>();
+const ReactionHandbook = (props) => {
+  const { data } = useBackend<{ reactionInfo: Reaction[] }>();
   const { reactionInfo } = data;
-  const [activeGasId, setActiveGasId] = useAtom(activeGasAtom);
-  const [activeReactionId, setActiveReactionId] = useAtom(activeReactionAtom);
+  const [activeGasId, setActiveGasId] = useLocalState('activeGasId', '');
+  const [activeReactionId, setActiveReactionId] = useLocalState(
+    'activeReactionId',
+    '',
+  );
   const [reactionActiveInput, setReactionActiveInput] = useState(false);
   const relevantReaction = reactionInfo?.find(
     (reaction) => reaction.id === activeReactionId,
   );
-
   return (
     <Section
       title={
@@ -204,13 +196,9 @@ function ReactionHandbook(props) {
       )}
     </Section>
   );
-}
-
-type HandbookContentProps = {
-  vertical?: boolean;
 };
 
-export function AtmosHandbookContent(props: HandbookContentProps) {
+export const AtmosHandbookContent = (props: { vertical?: boolean }) => {
   return props.vertical ? (
     <>
       <GasHandbook />
@@ -226,11 +214,13 @@ export function AtmosHandbookContent(props: HandbookContentProps) {
       </Stack.Item>
     </Stack>
   );
-}
+};
 
-export function atmosHandbookHooks() {
-  const [_activeGasId, setActiveGasId] = useAtom(activeGasAtom);
-  const [_activeReactionId, setActiveReactionId] = useAtom(activeReactionAtom);
-
+export const atmosHandbookHooks = () => {
+  const [activeGasId, setActiveGasId] = useLocalState('activeGasId', '');
+  const [activeReactionId, setActiveReactionId] = useLocalState(
+    'activeReactionId',
+    '',
+  );
   return [setActiveGasId, setActiveReactionId];
-}
+};

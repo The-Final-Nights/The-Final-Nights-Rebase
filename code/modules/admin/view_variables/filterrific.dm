@@ -74,7 +74,8 @@
 		if("modify_icon_value")
 			var/icon/new_icon = input("Pick icon:", "Icon") as null|icon
 			if(new_icon)
-				target.modify_filter(params["name"], list("icon" = new_icon))
+				target.filter_data[params["name"]]["icon"] = new_icon
+				target.update_filters()
 				. = TRUE
 		if("mass_apply")
 			if(!check_rights_for(usr.client, R_FUN))

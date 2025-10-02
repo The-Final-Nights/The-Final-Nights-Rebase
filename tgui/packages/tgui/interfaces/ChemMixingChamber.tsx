@@ -46,7 +46,6 @@ export const ChemMixingChamber = (props) => {
                   <Stack.Item mt={0.3}>{'Target:'}</Stack.Item>
                   <Stack.Item>
                     <NumberInput
-                      tickWhileDragging
                       width="65px"
                       unit="K"
                       step={10}
@@ -54,7 +53,7 @@ export const ChemMixingChamber = (props) => {
                       value={round(targetTemp, 0.1)}
                       minValue={0}
                       maxValue={1000}
-                      onChange={(value) =>
+                      onDrag={(value) =>
                         act('temperature', {
                           target: value,
                         })
@@ -120,14 +119,13 @@ export const ChemMixingChamber = (props) => {
                     </Stack.Item>
                     <Stack.Item>
                       <NumberInput
-                        tickWhileDragging
                         value={reagentQuantity}
                         minValue={1}
                         maxValue={100}
                         step={1}
                         stepPixelSize={3}
                         width="39px"
-                        onChange={(value) => setReagentQuantity(value)}
+                        onDrag={(value) => setReagentQuantity(value)}
                       />
                       <Box inline mr={1} />
                     </Stack.Item>

@@ -41,6 +41,8 @@
 	var/mask_state = "lava-lightmask"
 	/// The type for the preset fishing spot of this type of turf.
 	var/fish_source_type = /datum/fish_source/lavaland
+	/// The color we use for our immersion overlay
+	var/immerse_overlay_color = "#a15e1b"
 	/// Whether the immerse element has been added yet or not
 	var/immerse_added = FALSE
 	/// Lazy list of atoms that we've checked that can/cannot burn
@@ -56,7 +58,6 @@
 	if(!smoothing_flags)
 		update_appearance()
 	RegisterSignal(src, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON, PROC_REF(on_atom_inited))
-	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_LAVA_STOPPED), PROC_REF(drop_contents_into_lava))
 
 /turf/open/lava/Destroy()
 	checked_atoms = null
@@ -73,7 +74,7 @@
 		START_PROCESSING(SSobj, src)
 	if(immerse_added || is_type_in_typecache(movable, GLOB.immerse_ignored_movable))
 		return
-	AddElement(/datum/element/immerse, "immerse", 215)
+	AddElement(/datum/element/immerse, icon, icon_state, "immerse", immerse_overlay_color)
 	immerse_added = TRUE
 
 /**
@@ -84,7 +85,7 @@
 /turf/open/lava/Entered(atom/movable/arrived)
 	. = ..()
 	if(!immerse_added && !is_type_in_typecache(arrived, GLOB.immerse_ignored_movable))
-		AddElement(/datum/element/immerse, "immerse", 215)
+		AddElement(/datum/element/immerse, icon, icon_state, "immerse", immerse_overlay_color)
 		immerse_added = TRUE
 	if(burn_stuff(arrived))
 		START_PROCESSING(SSobj, src)
@@ -213,14 +214,14 @@
 	..()
 	if(istype(C, /obj/item/stack/rods/lava))
 		var/obj/item/stack/rods/lava/R = C
-		var/obj/structure/lattice/catwalk/lava/H = locate(/obj/structure/lattice/catwalk/lava, src)
+		var/obj/structure/lattice/lava/H = locate(/obj/structure/lattice/lava, src)
 		if(H)
 			to_chat(user, span_warning("There is already a lattice here!"))
 			return
 		if(R.use(1))
 			to_chat(user, span_notice("You construct a lattice."))
 			playsound(src, 'sound/items/weapons/genhit.ogg', 50, TRUE)
-			new /obj/structure/lattice/catwalk/lava(locate(x, y, z))
+			new /obj/structure/lattice/lava(locate(x, y, z))
 		else
 			to_chat(user, span_warning("You need one rod to build a heatproof lattice."))
 		return
@@ -347,17 +348,6 @@
 
 	return FALSE
 
-/**
- * Called when a lava stopper (Catwalks/boulder platforms) is removed and it's contents need to be subjected to the lava underneath.
- */
-/turf/open/lava/proc/drop_contents_into_lava()
-	SIGNAL_HANDLER
-	balloon_alert_to_viewers("[pick("splash","pshhhh","hiss","blorble")]!")
-	playsound(src, 'sound/items/match_strike.ogg', 15, TRUE)
-	for(var/atom/movable/each_content as anything in contents)
-		on_atom_inited(src, each_content)
-	return TRUE
-
 /turf/open/lava/can_cross_safely(atom/movable/crossing)
 	return HAS_TRAIT(src, TRAIT_LAVA_STOPPED) || HAS_TRAIT(crossing, immunity_trait ) || HAS_TRAIT(crossing, TRAIT_MOVE_FLYING)
 
@@ -376,6 +366,7 @@
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_LAVA
 	canSmoothWith = SMOOTH_GROUP_FLOOR_LAVA
 	underfloor_accessibility = 2 //This avoids strangeness when routing pipes / wires along catwalks over lava
+	immerse_overlay_color = "#F98511"
 
 /// Smooth lava needs to take after basalt in order to blend better. If you make a /turf/open/lava/smooth subtype for an area NOT surrounded by basalt; you should override this proc.
 /turf/open/lava/smooth/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
@@ -405,6 +396,7 @@
 	immunity_trait = TRAIT_SNOWSTORM_IMMUNE
 	immunity_resistance_flags = FREEZE_PROOF
 	lava_temperature = 100
+	immerse_overlay_color = "#CD4C9F"
 
 /turf/open/lava/plasma/examine(mob/user)
 	. = ..()

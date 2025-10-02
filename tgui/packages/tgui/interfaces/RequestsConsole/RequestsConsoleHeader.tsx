@@ -22,7 +22,7 @@ const EmergencyBox = (props) => {
     <>
       {!!emergency && (
         <NoticeBox danger>
-          {emergency} called! RETA may open doors in area to them.
+          {emergency} has been dispatched to this location
         </NoticeBox>
       )}
       {!emergency && (

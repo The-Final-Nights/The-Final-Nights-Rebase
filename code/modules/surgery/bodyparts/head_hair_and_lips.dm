@@ -11,10 +11,17 @@
 	LAZYNULL(hair_masks)
 	if(human_head_owner)
 		for(var/obj/item/worn_item in human_head_owner.get_equipped_items())
+			if(worn_item.flags_inv & HIDEHAIR)
+				hair_hidden = TRUE
+			if(worn_item.flags_inv & HIDEFACIALHAIR)
+				facial_hair_hidden = TRUE
 			if(worn_item.hair_mask)
 				LAZYSET(hair_masks, worn_item.hair_mask, TRUE)
-		hair_hidden = !!(human_head_owner.obscured_slots & HIDEHAIR)
-		facial_hair_hidden = !!(human_head_owner.obscured_slots & HIDEFACIALHAIR)
+
+		//invisibility and husk stuff
+		if(HAS_TRAIT(human_head_owner, TRAIT_INVISIBLE_MAN) || HAS_TRAIT(human_head_owner, TRAIT_HUSK))
+			hair_hidden = TRUE
+			facial_hair_hidden = TRUE
 	if(is_husked)
 		hair_hidden = TRUE
 		facial_hair_hidden = TRUE

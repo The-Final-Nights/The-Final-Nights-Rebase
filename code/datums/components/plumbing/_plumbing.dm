@@ -46,7 +46,9 @@
 	set_recipient_reagents_holder(custom_receiver ? custom_receiver : parent_movable.reagents)
 
 	if(start)
-		enable()
+		//We're registering here because I need to check whether we start active or not, and this is just easier
+		//Should be called after we finished. Done this way because other networks need to finish setting up aswell
+		RegisterSignal(parent, COMSIG_COMPONENT_ADDED, PROC_REF(enable))
 
 /datum/component/plumbing/RegisterWithParent()
 	RegisterSignals(parent, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING), PROC_REF(disable))
@@ -58,7 +60,7 @@
 
 /datum/component/plumbing/UnregisterFromParent()
 	UnregisterSignal(parent, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING, COMSIG_OBJ_DEFAULT_UNFASTEN_WRENCH, COMSIG_OBJ_HIDE, \
-	COMSIG_ATOM_UPDATE_OVERLAYS, COMSIG_ATOM_DIR_CHANGE, COMSIG_MOVABLE_CHANGE_DUCT_LAYER))
+	COMSIG_ATOM_UPDATE_OVERLAYS, COMSIG_ATOM_DIR_CHANGE, COMSIG_MOVABLE_CHANGE_DUCT_LAYER, COMSIG_COMPONENT_ADDED))
 	REMOVE_TRAIT(parent, TRAIT_UNDERFLOOR, REF(src))
 
 /datum/component/plumbing/Destroy()
@@ -231,8 +233,10 @@
 			duct.update_appearance()
 
 ///settle wherever we are, and start behaving like a piece of plumbing
-/datum/component/plumbing/proc/enable()
-	if(active)
+/datum/component/plumbing/proc/enable(obj/object, datum/component/component)
+	SIGNAL_HANDLER
+	if(active || (component && component != src))
+		UnregisterSignal(parent, list(COMSIG_COMPONENT_ADDED))
 		return
 
 	update_dir()

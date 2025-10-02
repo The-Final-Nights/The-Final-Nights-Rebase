@@ -325,7 +325,7 @@
 	desc = "The user's muscles slightly expand. Commonly seen in top-ranking boxers."
 	quality = POSITIVE
 	text_gain_indication = span_notice("You feel strong.")
-	instability = POSITIVE_INSTABILITY_MINOR
+	instability = POSITIVE_INSTABILITY_MINI
 	difficulty = 16
 	mutation_traits = list(TRAIT_STRENGTH)
 

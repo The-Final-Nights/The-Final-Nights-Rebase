@@ -320,13 +320,13 @@ const ShuttleConfiguration = () => {
               tooltip={
                 onShuttle
                   ? inDefaultArea
-                    ? 'Designate a room within the shuttle as its own area.'
-                    : 'You can only designate a new area from the default area.'
+                    ? null
+                    : 'You can only create a new area from the default area.'
                   : 'You must be on the linked shuttle to do this.'
               }
               onClick={() => act('createNewArea', { name: name })}
             >
-              Designate New Area
+              Create New Area
             </Button.Confirm>
           </Stack.Item>
           <Stack.Item>
@@ -393,14 +393,14 @@ const ShuttleConfiguration = () => {
             <Stack>
               <Stack.Item>
                 <Button.Confirm
-                  disabled={!(idle && onShuttleFrame) || problems || tooLarge}
+                  disabled={!(idle && onShuttleFrame && problems) || tooLarge}
                   tooltip={
                     <ProblemsTooltip
                       description="Expand the linked shuttle with an adjacent shuttle frame."
-                      problemHeader="The following problems prevent you from expanding the shuttle."
+                      problemHeader="The following problems prevent you from expanding the shuttle with this frame."
                       problems={problems ?? 0}
                       problemStrings={[
-                        'You must be standing on the shuttle frame you wish to expand the shuttle with.',
+                        'You are not on a shuttle frame.',
                         'This frame is not adjacent to the linked shuttle.',
                         'This frame is too large.',
                         'This frame includes the APC of a custom area, but does not enclose the entire area.\
@@ -412,7 +412,7 @@ const ShuttleConfiguration = () => {
                   }
                   onClick={() => act('expandWithFrame')}
                 >
-                  Expand Shuttle With Connected Frame
+                  Expand With Shuttle Frame
                 </Button.Confirm>
               </Stack.Item>
               <Stack.Item>
@@ -455,7 +455,7 @@ const ShuttleConfiguration = () => {
           }
           onClick={() => act('releaseArea')}
         >
-          Undesignate Area
+          Remove Area
         </Button.Confirm>
       </Stack.Item>
       <Stack.Item>

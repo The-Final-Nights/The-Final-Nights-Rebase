@@ -1,6 +1,5 @@
 /obj/item/circuitboard/computer
 	name = "Generic"
-	abstract_type = /obj/item/circuitboard/computer
 	name_extension = "(Computer Board)"
 
 /obj/item/circuitboard/computer/examine()
@@ -677,9 +676,9 @@
 		machine.connect_to_shuttle(TRUE, shuttle)
 
 /obj/item/circuitboard/computer/shuttle/flight_control
-	name = "Shuttle Flight Control"
+	name = "Shuttle Flight Control (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/custom_shuttle
 
 /obj/item/circuitboard/computer/shuttle/docker
-	name = "Shuttle Navigation Computer"
+	name = "Shuttle Navigation Computer (Computer Board)"
 	build_path = /obj/machinery/computer/camera_advanced/shuttle_docker/custom

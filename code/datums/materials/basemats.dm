@@ -741,7 +741,7 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 		MAT_CATEGORY_ITEM_MATERIAL = TRUE,
 		MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = TRUE,
 		)
-	ore_type = /obj/item/stack/ore/glass
+	sheet_type = /obj/item/stack/sheet/sandblock
 	value_per_unit = 2 / SHEET_MATERIAL_AMOUNT
 	strength_modifier = 0.5
 	integrity_modifier = 0.1

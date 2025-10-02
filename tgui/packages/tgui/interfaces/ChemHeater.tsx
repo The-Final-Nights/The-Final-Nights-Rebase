@@ -224,7 +224,6 @@ export const ChemHeater = (props) => {
               <Table.Cell />
               <Table.Cell>
                 <NumberInput
-                  tickWhileDragging
                   width="45px"
                   unit="u"
                   step={1}
@@ -232,7 +231,7 @@ export const ChemHeater = (props) => {
                   value={dispenseVolume}
                   minValue={1}
                   maxValue={10}
-                  onChange={(value) =>
+                  onDrag={(value) =>
                     act('disp_vol', {
                       target: value,
                     })
@@ -246,7 +245,6 @@ export const ChemHeater = (props) => {
               </Table.Cell>
               <Table.Cell>
                 <NumberInput
-                  tickWhileDragging
                   width="65px"
                   unit="K"
                   step={10}
@@ -254,7 +252,7 @@ export const ChemHeater = (props) => {
                   value={round(targetTemp, 0.1)}
                   minValue={0}
                   maxValue={1000}
-                  onChange={(value) =>
+                  onDrag={(value) =>
                     act('temperature', {
                       target: value,
                     })

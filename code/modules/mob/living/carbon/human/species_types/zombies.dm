@@ -7,7 +7,6 @@
 	mutanttongue = /obj/item/organ/tongue/zombie
 	inherent_traits = list(
 		// SHARED WITH ALL ZOMBIES
-		TRAIT_BLOODY_MESS,
 		TRAIT_EASILY_WOUNDED,
 		TRAIT_EASYDISMEMBER,
 		TRAIT_FAKEDEATH,
@@ -103,7 +102,6 @@
 
 	inherent_traits = list(
 		// SHARED WITH ALL ZOMBIES
-		TRAIT_BLOODY_MESS,
 		TRAIT_EASILY_WOUNDED,
 		TRAIT_EASYDISMEMBER,
 		TRAIT_FAKEDEATH,

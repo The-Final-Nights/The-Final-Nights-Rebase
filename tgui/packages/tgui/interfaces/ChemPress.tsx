@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
+  Box,
   Button,
-  ImageButton,
   Input,
   LabeledList,
   NumberInput,
@@ -34,7 +34,7 @@ type Data = {
   packaging_type: string;
 };
 
-export const ChemPress = () => {
+export const ChemPress = (props) => {
   const { act, data } = useBackend<Data>();
   const {
     current_volume,
@@ -52,7 +52,7 @@ export const ChemPress = () => {
     packaging_types.find((category) => category.cat_name === categoryName) ||
     packaging_types[0];
   return (
-    <Window width={450} height={340}>
+    <Window width={300} height={330}>
       <Window.Content>
         <Section>
           <LabeledList>
@@ -60,11 +60,10 @@ export const ChemPress = () => {
               {packaging_types.map((category, i) => (
                 <Button.Checkbox
                   key={category.cat_name}
+                  content={capitalizeAll(category.cat_name)}
                   checked={category.cat_name === shownCategory.cat_name}
                   onClick={() => setCategoryName(category.cat_name)}
-                >
-                  {capitalizeAll(category.cat_name)}
-                </Button.Checkbox>
+                />
               ))}
             </LabeledList.Item>
             <LabeledList.Item label="Volume">
@@ -113,9 +112,7 @@ export const ChemPress = () => {
             </LabeledList.Item>
             <LabeledList.Item label="Styles">
               {shownCategory.products.map((design, j) => (
-                <ImageButton
-                  asset={['', design.class_name]}
-                  imageSize={42}
+                <Button
                   key={design.ref}
                   selected={design.ref === packaging_type}
                   color="transparent"
@@ -124,7 +121,14 @@ export const ChemPress = () => {
                       ref: design.ref,
                     })
                   }
-                />
+                >
+                  <Box
+                    className={design.class_name}
+                    style={{
+                      transform: 'scale(1.5)',
+                    }}
+                  />
+                </Button>
               ))}
             </LabeledList.Item>
           </LabeledList>

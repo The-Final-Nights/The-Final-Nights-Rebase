@@ -70,7 +70,7 @@ export const DynamicTester = () => {
               <NumberInput
                 ml={0.5}
                 value={tier}
-                minValue={1}
+                minValue={0}
                 maxValue={4}
                 step={1}
                 onChange={(e) => act('set_tier', { tier: e })}
@@ -81,7 +81,7 @@ export const DynamicTester = () => {
               <NumberInput
                 ml={0.5}
                 value={num_players}
-                minValue={1}
+                minValue={0}
                 maxValue={200}
                 step={1}
                 onChange={(e) => act('set_num_players', { num_players: e })}

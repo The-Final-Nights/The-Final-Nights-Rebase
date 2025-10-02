@@ -194,15 +194,13 @@
 	icon_state = "pinpointer_hunter"
 	worn_icon_state = "pinpointer_black"
 	icon_suffix = "_hunter"
-	var/obj/docking_port/mobile/shuttleport
+	var/obj/shuttleport
 
 /obj/item/pinpointer/shuttle/Initialize(mapload)
 	. = ..()
 	shuttleport = SSshuttle.getShuttle("huntership")
 
 /obj/item/pinpointer/shuttle/scan_for_target()
-	if(!shuttleport)
-		shuttleport = SSshuttle.getShuttle("huntership")
 	target = shuttleport
 
 /obj/item/pinpointer/shuttle/Destroy()

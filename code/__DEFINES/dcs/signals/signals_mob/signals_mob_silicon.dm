@@ -17,5 +17,3 @@
 #define COMSIG_SILICON_AI_OCCUPY_APC "AI_occupy_apc"
 ///called when an AI vacates an APC
 #define COMSIG_SILICON_AI_VACATE_APC "AI_vacate_apc"
-///called when an AI's control is toggled
-#define COMSIG_SILICON_AI_SET_CONTROL_DISABLED "AI_set_control_disabled"

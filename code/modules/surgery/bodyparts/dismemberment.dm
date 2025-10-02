@@ -206,9 +206,10 @@
 		arm_owner.dropItemToGround(arm_owner.get_item_for_held_index(held_index), 1)
 	. = ..()
 	if(arm_owner.handcuffed)
-		var/obj/item/lost_cuffs = arm_owner.handcuffed
+		arm_owner.handcuffed.forceMove(drop_location())
+		arm_owner.handcuffed.dropped(arm_owner)
 		arm_owner.set_handcuffed(null)
-		arm_owner.dropItemToGround(lost_cuffs, force = TRUE)
+		arm_owner.update_handcuffed()
 	if(arm_owner.hud_used)
 		var/atom/movable/screen/inventory/hand/associated_hand = arm_owner.hud_used.hand_slots["[held_index]"]
 		associated_hand?.update_appearance()
@@ -221,8 +222,13 @@
 	. = ..()
 	if(special || !leg_owner)
 		return
-	leg_owner.dropItemToGround(leg_owner.legcuffed, force = TRUE)
-	leg_owner.dropItemToGround(leg_owner.shoes, force = TRUE)
+	if(leg_owner.legcuffed)
+		leg_owner.legcuffed.forceMove(drop_location())
+		leg_owner.legcuffed.dropped(leg_owner)
+		leg_owner.legcuffed = null
+		leg_owner.update_worn_legcuffs()
+	if(leg_owner.shoes)
+		leg_owner.dropItemToGround(leg_owner.shoes, force = TRUE)
 
 /obj/item/bodypart/head/drop_limb(special, dismembered, move_to_floor = TRUE)
 	if(!special)

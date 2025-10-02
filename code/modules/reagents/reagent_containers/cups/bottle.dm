@@ -499,12 +499,13 @@
 	fill_icon_thresholds = list(0, 20, 40, 60, 80, 100)
 	possible_transfer_amounts = list(5, 10)
 	amount_per_transfer_from_this = 5
+	spillable = FALSE
+	/// Do we currently have our pump cap on?
+	var/cap_on = TRUE
 
 /obj/item/reagent_containers/cup/bottle/syrup_bottle/Initialize(mapload)
 	. = ..()
 	register_context()
-	// this is not done via initial_reagent_flags because it represents state
-	update_container_flags(SEALED_CONTAINER | TRANSPARENT)
 
 /obj/item/reagent_containers/cup/bottle/syrup_bottle/examine(mob/user)
 	. = ..()
@@ -514,10 +515,10 @@
 /obj/item/reagent_containers/cup/bottle/syrup_bottle/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 
-	context[SCREENTIP_CONTEXT_ALT_LMB] = (is_open_container() ? "Add Pump Cap" : "Remove Pump Cap")
+	context[SCREENTIP_CONTEXT_ALT_LMB] = (cap_on ? "Remove Pump Cap" : "Add Pump Cap")
 	if(IS_WRITING_UTENSIL(held_item))
 		context[SCREENTIP_CONTEXT_LMB] = "Write Label"
-	else if(is_open_container() && held_item?.is_refillable())
+	else if(cap_on && held_item?.is_refillable())
 		context[SCREENTIP_CONTEXT_LMB] = "Use Pump"
 
 	return CONTEXTUAL_SCREENTIP_SET
@@ -526,7 +527,7 @@
 /obj/item/reagent_containers/cup/bottle/syrup_bottle/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(IS_WRITING_UTENSIL(tool))
 		return writing_utensil_act(user, tool)
-	if(is_open_container() && tool.is_refillable())
+	if(cap_on && tool.is_refillable())
 		return refillable_act(user, tool)
 	return ..()
 
@@ -560,22 +561,18 @@
 	update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
-/obj/item/reagent_containers/cup/bottle/syrup_bottle/update_icon_state()
-	. = ..()
-	if(is_open_container())
-		icon_state = "syrup_open"
-	else
-		icon_state = "syrup"
-
 /obj/item/reagent_containers/cup/bottle/syrup_bottle/click_alt(mob/user)
-	if(is_open_container())
+	cap_on = !cap_on
+	if(cap_on)
+		icon_state = "syrup"
+		spillable = FALSE
 		balloon_alert(user, "put pump cap on")
-		update_container_flags(SEALED_CONTAINER | TRANSPARENT)
 	else
+		icon_state = "syrup_open"
+		spillable = TRUE
 		balloon_alert(user, "removed pump cap")
-		reset_container_flags()
 
-	update_appearance()
+	update_icon_state()
 	return CLICK_ACTION_SUCCESS
 
 //types of syrups

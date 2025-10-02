@@ -22,7 +22,6 @@
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
 	name = "underbarrel grenade launcher"
-	spawn_blacklisted = TRUE
 	pin = null
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/Initialize(mapload)

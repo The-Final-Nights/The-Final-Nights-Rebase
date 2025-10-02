@@ -13,8 +13,6 @@
 	visor_flags_cover = MASKCOVERSMOUTH
 	resistance_flags = NONE
 	interaction_flags_click = NEED_DEXTERITY|ALLOW_RESTING
-	/// Can this mask be adjusted?
-	var/adjustable = TRUE
 
 /datum/armor/mask_breath
 	bio = 50
@@ -24,19 +22,15 @@
 	return OXYLOSS
 
 /obj/item/clothing/mask/breath/attack_self(mob/user)
-	if(adjustable)
-		adjust_visor(user)
+	adjust_visor(user)
 
 /obj/item/clothing/mask/breath/click_alt(mob/user)
-	if(!adjustable)
-		return
 	adjust_visor(user)
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/breath/examine(mob/user)
 	. = ..()
-	if(adjustable)
-		. += span_notice("Alt-click [src] to adjust it.")
+	. += span_notice("Alt-click [src] to adjust it.")
 
 /obj/item/clothing/mask/breath/medical
 	desc = "A close-fitting sterile mask that can be connected to an air supply."
@@ -58,10 +52,8 @@
 	righthand_file = 'icons/mob/inhands/clothing/masks_righthand.dmi'
 	body_parts_covered = NONE
 	flags_cover = NONE
-	actions_types = null
 	armor_type = /datum/armor/breath_muzzle
 	equip_delay_other = 2.5 SECONDS // my sprite has 4 straps, a-la a head harness. takes a while to equip, longer than a muzzle
-	adjustable = FALSE
 
 /obj/item/clothing/mask/breath/muzzle/Initialize(mapload)
 	. = ..()

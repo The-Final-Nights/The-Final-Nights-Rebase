@@ -661,9 +661,9 @@ Basically, we fill the time between now and 2s from now with hands based off the
 		)
 
 		traumalist -= abstracttraumas
-		for (var/type in forbiddentraumas)
+		for (var/type as anything in forbiddentraumas)
 			traumalist -= typesof(type)
-		for (var/type in forbiddensubtypes)
+		for (var/type as anything in forbiddensubtypes)
 			traumalist -= subtypesof(type)
 
 	traumalist = shuffle(traumalist)

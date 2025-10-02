@@ -178,6 +178,7 @@
 #define SPECIES_HUMAN "human"
 #define SPECIES_JELLYPERSON "jelly"
 #define SPECIES_SLIMEPERSON "slime"
+#define SPECIES_SPIRIT "spirit"
 #define SPECIES_LUMINESCENT "luminescent"
 #define SPECIES_STARGAZER "stargazer"
 #define SPECIES_LIZARD "lizard"
@@ -710,59 +711,57 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
 /// Also consider updating layers_to_offset
-#define TOTAL_LAYERS 40 // DARKPACK EDIT CHANGE - Shadows
+#define TOTAL_LAYERS 38 // DARKPACK EDIT CHANGE - Shadows
 /// Layer for shadow overlays under mobs
-#define UNDERSHADOW_LAYER 39 // DARKPACK EDIT ADD - Shadows
+#define UNDERSHADOW_LAYER 38 // DARKPACK EDIT ADD - Shadows
 /// Mutations layer - Tk headglows, cold resistance glow, etc
-#define MUTATIONS_LAYER 38
+#define MUTATIONS_LAYER 37
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODY_BEHIND_LAYER 37
+#define BODY_BEHIND_LAYER 36
 /// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-#define BODYPARTS_LOW_LAYER 36
+#define BODYPARTS_LOW_LAYER 35
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
-#define BODYPARTS_LAYER 35
+#define BODYPARTS_LAYER 34
 /// Mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_ADJ_LAYER 34
+#define BODY_ADJ_LAYER 33
 /// Underwear, undershirts, socks
-#define BODY_LAYER 33
+#define BODY_LAYER 32
 /// Eyes and eyelids
-#define EYES_LAYER 32
+#define EYES_LAYER 31
 /// Mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define FRONT_MUTATIONS_LAYER 31
+#define FRONT_MUTATIONS_LAYER 30
 /// Damage indicators (cuts and burns)
-#define DAMAGE_LAYER 30
+#define DAMAGE_LAYER 29
 /// Jumpsuit clothing layer
-#define UNIFORM_LAYER 29
+#define UNIFORM_LAYER 28
 /// ID card layer
-#define ID_LAYER 28
+#define ID_LAYER 27
 /// ID card layer (might be deprecated)
-#define ID_CARD_LAYER 27
+#define ID_CARD_LAYER 26
 /// Layer for bodyparts that should appear above every other bodypart - Currently only used for hands
-#define BODYPARTS_HIGH_LAYER 26
+#define BODYPARTS_HIGH_LAYER 25
 /// Gloves layer
-#define GLOVES_LAYER 25
+#define GLOVES_LAYER 24
 /// Shoes layer
-#define SHOES_LAYER 24
+#define SHOES_LAYER 23
 /// Layer for masks that are worn below ears and eyes (like Balaclavas) (layers below hair, use flagsinv=HIDEHAIR as needed)
-#define LOW_FACEMASK_LAYER 23
+#define LOW_FACEMASK_LAYER 22
 /// Ears layer (Spessmen have ears? Wow)
-#define EARS_LAYER 22
+#define EARS_LAYER 21
 /// Layer for neck apperal that should appear below the suit slot (like neckties)
-#define LOW_NECK_LAYER 21
+#define LOW_NECK_LAYER 20
 /// Suit layer (armor, coats, etc.)
-#define SUIT_LAYER 20
+#define SUIT_LAYER 19
 /// Glasses layer
-#define GLASSES_LAYER 19
+#define GLASSES_LAYER 18
 /// Belt layer
-#define BELT_LAYER 18 //Possible make this an overlay of something required to wear a belt?
+#define BELT_LAYER 17 //Possible make this an overlay of something required to wear a belt?
 /// Suit storage layer (tucking a gun or baton underneath your armor)
-#define SUIT_STORE_LAYER 17
+#define SUIT_STORE_LAYER 16
 /// Neck layer (for wearing capes and bedsheets)
-#define NECK_LAYER 16
+#define NECK_LAYER 15
 /// Back layer (for backpacks and equipment on your back)
-#define BACK_LAYER 15
-/// Special layer for rendering beneath hair, for special facemasks
-#define BENEATH_HAIR_LAYER 14
+#define BACK_LAYER 14
 /// Hair layer (mess with the fro and you got to go!)
 #define HAIR_LAYER 13 //TODO: make part of head layer?
 /// Facemask layer (gas masks, breath masks, etc.)
@@ -804,7 +803,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	"[HEAD_LAYER]" = UPPER_BODY,
 	// Hair will get cut off by filter
 	"[HAIR_LAYER]" = UPPER_BODY,
-	"[BENEATH_HAIR_LAYER]" = UPPER_BODY,
 	// Long belts (sabre sheathe) will get cut off by filter
 	"[BELT_LAYER]" = LOWER_BODY,
 	// Everything below looks fine with or without a filter, so we can skip it and just offset

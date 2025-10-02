@@ -257,13 +257,12 @@
 
 /datum/wires/proc/interact(mob/user)
 	if(!interactable(user))
-		return FALSE
+		return
 	ui_interact(user)
 	for(var/A in assemblies)
 		var/obj/item/I = assemblies[A]
 		if(istype(I) && I.on_found(user))
-			break
-	return TRUE
+			return
 
 /**
  * Checks whether wire assignments should be revealed.

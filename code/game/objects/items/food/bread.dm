@@ -4,7 +4,6 @@
 	name = "bread?"
 	desc = "You shouldn't see this, call the coders."
 	icon = 'icons/obj/food/burgerbread.dmi'
-	abstract_type = /obj/item/food/bread
 	max_volume = 80
 	tastes = list("bread" = 10)
 	foodtypes = GRAIN
@@ -30,7 +29,6 @@
 	name = "breadslice?"
 	desc = "You shouldn't see this, call the coders."
 	icon = 'icons/obj/food/burgerbread.dmi'
-	abstract_type = /obj/item/food/breadslice
 	foodtypes = GRAIN
 	food_flags = FOOD_FINGER_FOOD
 	eat_time = 0.5 SECONDS

@@ -1,7 +1,6 @@
 /obj/item/clothing/head/costume
 	icon = 'icons/obj/clothing/head/costume.dmi'
 	worn_icon = 'icons/mob/clothing/head/costume.dmi'
-	abstract_type = /obj/item/clothing/head/costume
 
 /obj/item/clothing/head/costume/powdered_wig
 	name = "powdered wig"

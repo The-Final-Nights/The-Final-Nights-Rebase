@@ -32,11 +32,9 @@
 	var/obj/item/boulder/spawned_boulder = null
 	/// How much ore we spawn when we're mining a mineralType.
 	var/mineralAmt = 3
-	/// The icon of the image we display when we're pinged by a mining scanner, to be overridden if you want to use an alternate file for a subtype.
-	var/scan_icon = 'icons/effects/ore_visuals.dmi'
-	/// Placeholder for the icon_state of the image we display when we're pinged by a mining scanner
+	///Holder for the image we display when we're pinged by a mining scanner
 	var/scan_state = ""
-	/// If true, this turf will not call AfterChange during change_turf calls.
+	///If true, this turf will not call AfterChange during change_turf calls.
 	var/defer_change = FALSE
 	/// If true you can mine the mineral turf without tools.
 	var/weak_turf = FALSE
@@ -87,12 +85,12 @@
 /turf/closed/mineral/proc/Change_Ore(ore_type, random = 0)
 	if(random)
 		mineralAmt = rand(1, 5)
-	if(ispath(ore_type, /obj/item/stack/ore)) // If it has a scan_state, switch to it
+	if(ispath(ore_type, /obj/item/stack/ore)) //If it has a scan_state, switch to it
 		var/obj/item/stack/ore/the_ore = ore_type
 		scan_state = initial(the_ore.scan_state) // I SAID. SWITCH. TO. IT.
 		mineralType = ore_type // Everything else assumes that this is typed correctly so don't set it to non-ores thanks.
 	if(ispath(ore_type, /obj/item/boulder))
-		scan_state = "rock_boulder" // Yes even the lowly boulder has a scan state
+		scan_state = "rock_Boulder" //Yes even the lowly boulder has a scan state
 		spawned_boulder = /obj/item/boulder/gulag_expanded
 
 /**
@@ -162,14 +160,13 @@
 	return ..()
 
 
-/turf/closed/mineral/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers, exp_multiplier = 1)
+/turf/closed/mineral/attackby(obj/item/I, mob/user, list/modifiers)
 	if (!ISADVANCEDTOOLUSER(user))
 		to_chat(usr, span_warning("You don't have the dexterity to do this!"))
 		return
 
 	if(I.tool_behaviour != TOOL_MINING)
 		return
-
 	var/turf/T = user.loc
 	if (!isturf(T))
 		return
@@ -178,12 +175,14 @@
 		return
 
 	TIMER_COOLDOWN_START(src, REF(user), tool_mine_speed)
+
+	balloon_alert(user, "picking...")
+
 	if(!I.use_tool(src, user, tool_mine_speed, volume=50))
 		TIMER_COOLDOWN_END(src, REF(user)) //if we fail we can start again immediately
 		return
-
 	if(ismineralturf(src))
-		gets_drilled(user, exp_multiplier)
+		gets_drilled(user, 1)
 		SSblackbox.record_feedback("tally", "pick_used_mining", 1, I.type)
 
 /turf/closed/mineral/attack_hand(mob/user)
@@ -216,8 +215,7 @@
 		new mineralType(src, mineralAmt)
 		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
 	if(spawned_boulder)
-		var/obj/item/boulder/wall_boulder = new spawned_boulder(src)
-		wall_boulder.platform_lifespan = PLATFORM_LIFE_GULAG
+		new spawned_boulder(src)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(exp_multiplier)
@@ -302,10 +300,8 @@
 
 	. = ..()
 	var/dynamic_prob = mineralChance
-	var/ore_amount = rand(1,5)
 	if(proximity_based)
 		dynamic_prob = proximity_ore_chance() // We assign the chance of ore spawning based on probability.
-		ore_amount = scale_ore_to_vent()
 	if (prob(dynamic_prob))
 		var/list/spawn_chance_list = mineral_chances_by_type[type]
 		if (isnull(spawn_chance_list))
@@ -322,7 +318,7 @@
 			if(ismineralturf(T))
 				var/turf/closed/mineral/M = T
 				M.turf_type = src.turf_type
-				M.mineralAmt = ore_amount
+				M.mineralAmt = scale_ore_to_vent()
 				GLOB.post_ore_random["[M.mineralAmt]"] += 1
 				src = M
 				M.levelupdate()
@@ -333,11 +329,8 @@
 		else
 			Change_Ore(path, FALSE)
 			Spread_Vein(path)
-			mineralAmt = ore_amount
+			mineralAmt = scale_ore_to_vent()
 			GLOB.post_ore_manual["[mineralAmt]"] += 1
-
-	if(mineralType && !mineralAmt)
-		stack_trace("Mineral turf with mineralAmt being zero initialized at [src.x], [src.y], [src.z] ([get_area(src)])")
 
 /turf/closed/mineral/random/high_chance
 	icon_state = "rock_highchance"
@@ -552,7 +545,7 @@
 
 /turf/closed/mineral/iron
 	mineralType = /obj/item/stack/ore/iron
-	scan_state = "rock_iron"
+	scan_state = "rock_Iron"
 
 /turf/closed/mineral/iron/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -572,7 +565,7 @@
 
 /turf/closed/mineral/uranium
 	mineralType = /obj/item/stack/ore/uranium
-	scan_state = "rock_uranium"
+	scan_state = "rock_Uranium"
 
 /turf/closed/mineral/uranium/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -582,7 +575,7 @@
 
 /turf/closed/mineral/diamond
 	mineralType = /obj/item/stack/ore/diamond
-	scan_state = "rock_diamond"
+	scan_state = "rock_Diamond"
 
 /turf/closed/mineral/diamond/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -602,7 +595,7 @@
 
 /turf/closed/mineral/gold
 	mineralType = /obj/item/stack/ore/gold
-	scan_state = "rock_gold"
+	scan_state = "rock_Gold"
 
 /turf/closed/mineral/gold/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -612,7 +605,7 @@
 
 /turf/closed/mineral/silver
 	mineralType = /obj/item/stack/ore/silver
-	scan_state = "rock_silver"
+	scan_state = "rock_Silver"
 
 /turf/closed/mineral/silver/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -627,7 +620,7 @@
 
 /turf/closed/mineral/titanium
 	mineralType = /obj/item/stack/ore/titanium
-	scan_state = "rock_titanium"
+	scan_state = "rock_Titanium"
 
 /turf/closed/mineral/titanium/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -637,7 +630,7 @@
 
 /turf/closed/mineral/plasma
 	mineralType = /obj/item/stack/ore/plasma
-	scan_state = "rock_plasma"
+	scan_state = "rock_Plasma"
 
 /turf/closed/mineral/plasma/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -658,7 +651,7 @@
 /turf/closed/mineral/bananium
 	mineralType = /obj/item/stack/ore/bananium
 	mineralAmt = 3
-	scan_state = "rock_bananium"
+	scan_state = "rock_Bananium"
 
 /turf/closed/mineral/bananium/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -669,7 +662,7 @@
 /turf/closed/mineral/bscrystal
 	mineralType = /obj/item/stack/ore/bluespace_crystal
 	mineralAmt = 1
-	scan_state = "rock_bscrystal"
+	scan_state = "rock_BScrystal"
 
 /turf/closed/mineral/bscrystal/volcanic
 	turf_type = /turf/open/misc/asteroid/basalt/lava_land_surface
@@ -777,7 +770,7 @@
 /turf/closed/mineral/gibtonite
 	mineralAmt = 1
 	MAP_SWITCH(, icon_state = "rock_Gibtonite_inactive")
-	scan_state = "rock_gibtonite"
+	scan_state = "rock_Gibtonite"
 	var/det_time = 8 //Countdown till explosion, but also rewards the player for how close you were to detonation when you defuse it
 	var/stage = GIBTONITE_UNSTRUCK //How far into the lifecycle of gibtonite we are
 	var/activated_ckey = null //These are to track who triggered the gibtonite deposit for logging purposes
@@ -788,7 +781,7 @@
 	det_time = rand(8,10) //So you don't know exactly when the hot potato will explode
 	. = ..()
 
-/turf/closed/mineral/gibtonite/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers, exp_multiplier = 1)
+/turf/closed/mineral/gibtonite/attackby(obj/item/attacking_item, mob/living/user, list/modifiers)
 	var/previous_stage = stage
 	if(istype(attacking_item, /obj/item/goliath_infuser_hammer) && stage == GIBTONITE_ACTIVE)
 		user.visible_message(span_notice("[user] digs [attacking_item] to [src]..."), span_notice("Your tendril hammer instictively digs and wraps around [src] to stop it..."))
@@ -796,7 +789,7 @@
 	else if(istype(attacking_item, /obj/item/mining_scanner) || istype(attacking_item, /obj/item/t_scanner/adv_mining_scanner) && stage == GIBTONITE_ACTIVE)
 		user.visible_message(span_notice("[user] holds [attacking_item] to [src]..."), span_notice("You use [attacking_item] to locate where to cut off the chain reaction and attempt to stop it..."))
 		defuse(user)
-	. = ..()
+	..()
 	if(istype(attacking_item, /obj/item/clothing/gloves/gauntlets) && previous_stage == GIBTONITE_UNSTRUCK && stage == GIBTONITE_ACTIVE && istype(user))
 		user.Immobilize(0.5 SECONDS)
 		user.throw_at(get_ranged_target_turf(src, get_dir(src, user), 5), range = 5, speed = 3, spin = FALSE)
@@ -913,7 +906,7 @@
 	base_icon_state = "rock_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 
-/turf/closed/mineral/strong/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers, exp_multiplier = 1)
+/turf/closed/mineral/strong/attackby(obj/item/I, mob/user, list/modifiers)
 	if(!ishuman(user))
 		to_chat(usr, span_warning("Only a more advanced species could break a rock such as this one!"))
 		return FALSE

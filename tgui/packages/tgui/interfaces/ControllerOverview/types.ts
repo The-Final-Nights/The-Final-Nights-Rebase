@@ -11,7 +11,7 @@ export type SubsystemData = {
   name: string;
   next_fire: number;
   ref: string;
-  overtime: number;
+  tick_overrun: number;
   tick_usage: number;
   usage_per_tick: number;
 };

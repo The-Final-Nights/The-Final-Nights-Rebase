@@ -1652,14 +1652,13 @@
 	search_metadata = "boris"
 
 /datum/design/borg_upgrade_rped
-	name = "Rapid Part Exchange Device Expanded"
+	name = "Rapid Part Exchange Device"
 	id = "borg_upgrade_rped"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/rped
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT*7.5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT*2.5,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT*2.5
+		/datum/material/iron =SHEET_MATERIAL_AMOUNT*5,
+		/datum/material/glass =SHEET_MATERIAL_AMOUNT * 2.5,
 	)
 	construction_time = 12 SECONDS
 	category = list(
@@ -1677,11 +1676,11 @@
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
 	)
 
-/datum/design/borg_upgrade_engineering_app
-	name = "Engineering Apparatus"
-	id = "borg_upgrade_engineeringapp"
+/datum/design/borg_upgrade_circuit_app
+	name = "Circuit Manipulator"
+	id = "borg_upgrade_circuitapp"
 	build_type = MECHFAB
-	build_path = /obj/item/borg/upgrade/engineering_app
+	build_path = /obj/item/borg/upgrade/circuit_app
 	materials = list(
 		/datum/material/iron =SHEET_MATERIAL_AMOUNT,
 		/datum/material/titanium =SMALL_MATERIAL_AMOUNT*5,
@@ -1713,22 +1712,6 @@
 	materials = list(
 		/datum/material/iron =HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass =SMALL_MATERIAL_AMOUNT*5,
-	)
-	construction_time = 12 SECONDS
-	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MEDICAL
-	)
-
-/datum/design/borg_upgrade_syringe
-	name = "Advanced Syringe"
-	id = "borg_upgrade_syringe"
-	build_type = MECHFAB
-	build_path = /obj/item/borg/upgrade/bs_syringe
-	materials = list(
-		/datum/material/iron =SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma =HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond =HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace =SMALL_MATERIAL_AMOUNT*5
 	)
 	construction_time = 12 SECONDS
 	category = list(

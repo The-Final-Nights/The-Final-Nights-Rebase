@@ -1,5 +1,4 @@
 /obj/item/antag_spawner
-	abstract_type = /obj/item/antag_spawner
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY

@@ -303,7 +303,7 @@
 	worn_icon = 'icons/mob/clothing/back.dmi'
 	icon_state = "huntrifle"
 	inhand_icon_state = "huntrifle"
-	worn_icon_state = "sks"
+	worn_icon_state = "mosin_nagant"
 	w_class = WEIGHT_CLASS_BULKY
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack556/hunt
 	burst_size = 1

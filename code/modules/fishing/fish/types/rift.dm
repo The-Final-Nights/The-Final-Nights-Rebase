@@ -722,7 +722,12 @@
 	icon_state = "babbearfish"
 
 /datum/bodypart_overlay/simple/babbearfish/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	return !(bodypart_owner.owner?.obscured_slots & HIDEEARS)
+	var/mob/living/carbon/human/human = bodypart_owner.owner
+	if(!istype(human))
+		return TRUE
+	if((human.head?.flags_inv & HIDEEARS) || (human.wear_mask?.flags_inv & HIDEEARS))
+		return FALSE
+	return TRUE
 
 /obj/item/organ/ears/babbelfish/Initialize(mapload)
 	. = ..()

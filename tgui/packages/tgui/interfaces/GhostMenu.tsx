@@ -201,12 +201,12 @@ const GhostSettingsSection = (props) => {
             value={viewNumber}
             minValue={0}
             maxValue={max_extra_view}
-            onChange={(new_range) => {
-              setviewNumber(new_range);
+            onDrag={(newValue) => setviewNumber(newValue)}
+            onChange={(new_range) =>
               act('view_range', {
                 new_view_range: new_range,
-              });
-            }}
+              })
+            }
           />
         </Stack.Item>
       )}

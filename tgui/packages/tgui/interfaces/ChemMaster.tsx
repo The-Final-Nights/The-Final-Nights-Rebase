@@ -5,8 +5,8 @@ import {
   Button,
   ColorBox,
   Divider,
+  DmIcon,
   Icon,
-  ImageButton,
   LabeledList,
   NumberInput,
   ProgressBar,
@@ -406,28 +406,36 @@ const ContainerButton = (props: CategoryButtonProps) => {
       key={container.ref}
       content={`${capitalize(container.name)}\xa0(${container.volume}u)`}
     >
-      <ImageButton
-        dmIcon={container.icon}
-        dmIconState={container.icon_state}
-        dmFallback={isPillPatch ? fallbackPillPatch : fallback}
-        imageSize={isPillPatch ? 48 : 64}
-        color={
+      <Button
+        overflow="hidden"
+        color={'transparent'}
+        backgroundColor={
           showPreferredContainer &&
           selectedContainerRef !== suggestedContainerRef && // if we selected the same container as the suggested then don't override color
           container.ref === suggestedContainerRef
             ? 'blue'
             : 'transparent'
         }
+        width={isPillPatch ? '32px' : '48px'}
+        height={isPillPatch ? '32px' : '48px'}
         selected={container.ref === selectedContainerRef}
         disabled={isPrinting}
-        m={isPillPatch ? '4px' : '2px'}
         p={0}
         onClick={() => {
           act('selectContainer', {
             ref: container.ref,
           });
         }}
-      />
+      >
+        <DmIcon
+          m={isPillPatch ? '-16px' : '-8px'}
+          fallback={isPillPatch ? fallbackPillPatch : fallback}
+          icon={container.icon}
+          icon_state={container.icon_state}
+          height="64px"
+          width="64px"
+        />
+      </Button>
     </Tooltip>
   );
 };

@@ -96,8 +96,6 @@
 	unregister()
 	destination = null
 	previous = null
-	for(var/obj/machinery/power/shuttle_engine/engine as anything in engine_list)
-		engine.unsync_ship()
 	if(!QDELETED(assigned_transit))
 		qdel(assigned_transit, force = TRUE)
 		assigned_transit = null

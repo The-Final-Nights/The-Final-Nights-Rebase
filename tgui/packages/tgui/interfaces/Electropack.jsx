@@ -41,7 +41,6 @@ export const Electropack = (props) => {
             >
               <NumberInput
                 animate
-                tickWhileDragging
                 unit="kHz"
                 step={0.2}
                 stepPixelSize={6}
@@ -50,7 +49,7 @@ export const Electropack = (props) => {
                 value={frequency / 10}
                 format={(value) => toFixed(value, 1)}
                 width="80px"
-                onChange={(value) =>
+                onDrag={(value) =>
                   act('freq', {
                     freq: value,
                   })
@@ -73,14 +72,13 @@ export const Electropack = (props) => {
             >
               <NumberInput
                 animate
-                tickWhileDragging
                 step={1}
                 stepPixelSize={6}
                 minValue={1}
                 maxValue={100}
                 value={code}
                 width="80px"
-                onChange={(value) =>
+                onDrag={(value) =>
                   act('code', {
                     code: value,
                   })

@@ -36,7 +36,6 @@ export const SignalerContent = (props) => {
         <Stack.Item>
           <NumberInput
             animated
-            tickWhileDragging
             unit="kHz"
             step={0.2}
             stepPixelSize={6}
@@ -45,7 +44,7 @@ export const SignalerContent = (props) => {
             value={frequency / 10}
             format={(value) => toFixed(value, 1)}
             width="80px"
-            onChange={(value) =>
+            onDrag={(value) =>
               act('freq', {
                 freq: value,
               })
@@ -72,14 +71,13 @@ export const SignalerContent = (props) => {
         <Stack.Item>
           <NumberInput
             animated
-            tickWhileDragging
             step={1}
             stepPixelSize={6}
             minValue={1}
             maxValue={100}
             value={code}
             width="80px"
-            onChange={(value) =>
+            onDrag={(value) =>
               act('code', {
                 code: value,
               })

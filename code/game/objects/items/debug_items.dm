@@ -1,6 +1,4 @@
 /* This file contains standalone items for debug purposes. */
-/obj/item/debug
-	abstract_type = /obj/item/debug
 
 /obj/item/debug/human_spawner
 	name = "human spawner"

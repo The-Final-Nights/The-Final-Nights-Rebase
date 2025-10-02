@@ -161,8 +161,7 @@
 		point.set_neigbours(grid, grid_diameter)
 
 	var/center = round(grid_diameter / 2)
-	if(transition_levels.len)
-		point = grid[CHORDS_TO_1D(center, center, grid_diameter)]
+	point = grid[CHORDS_TO_1D(grid_diameter, center, center)]
 	grid.Cut()
 
 	var/list/transition_pick = transition_levels.Copy()

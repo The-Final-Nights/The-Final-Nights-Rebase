@@ -16,19 +16,21 @@
 	. = ..()
 	UnregisterSignal(target, COMSIG_ITEM_INTERACTING_WITH_ATOM)
 
-/datum/element/dunkable/proc/get_dunked(obj/item/source, mob/user, atom/target, params)
+/datum/element/dunkable/proc/get_dunked(datum/source, mob/user, atom/target, params)
 	SIGNAL_HANDLER
 
-	if(target.reagents?.flags & DUNKABLE) // container should be a valid target for dunking
-		if(!target.is_drainable())
-			to_chat(user, span_warning("[target] is unable to be dunked in!"))
+	var/obj/item/reagent_containers/container = target // the container we're trying to dunk into
+	if(istype(container) && (container.reagent_flags & DUNKABLE)) // container should be a valid target for dunking
+		if(!container.is_drainable())
+			to_chat(user, span_warning("[container] is unable to be dunked in!"))
 			return ITEM_INTERACT_BLOCKING
-		if(target.reagents.trans_to(source, dunk_amount, transferred_by = user)) //if reagents were transferred, show the message
-			to_chat(user, span_notice("You dunk \the [target] into \the [target]."))
+		var/obj/item/I = source // the item that has the dunkable element
+		if(container.reagents.trans_to(I, dunk_amount, transferred_by = user)) //if reagents were transferred, show the message
+			to_chat(user, span_notice("You dunk \the [I] into \the [container]."))
 			return ITEM_INTERACT_SUCCESS
-		if(!target.reagents.total_volume)
-			to_chat(user, span_warning("[target] is empty!"))
+		if(!container.reagents.total_volume)
+			to_chat(user, span_warning("[container] is empty!"))
 		else
-			to_chat(user, span_warning("[source] is full!"))
+			to_chat(user, span_warning("[I] is full!"))
 		return ITEM_INTERACT_BLOCKING
 	return NONE
