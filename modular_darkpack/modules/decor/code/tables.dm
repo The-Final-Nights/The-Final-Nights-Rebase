@@ -26,10 +26,10 @@
 	icon = 'icons/obj/smooth_structures/alien_table.dmi'
 	icon_state = "alien_table-0"
 	base_icon_state = "alien_table"
+	frame = /obj/structure/table_frame
+	framestack = /obj/item/stack/sheet/iron
 	buildstack = /obj/item/stack/sheet/plastic
-	framestack = /obj/item/stack/sheet/metal
-	buildstackamount = 1
 	framestackamount = 1
+	buildstackamount = 1
 	smoothing_groups = SMOOTH_GROUP_ABDUCTOR_TABLES
 	canSmoothWith = SMOOTH_GROUP_ABDUCTOR_TABLES
-	frame = /obj/structure/table_frame
