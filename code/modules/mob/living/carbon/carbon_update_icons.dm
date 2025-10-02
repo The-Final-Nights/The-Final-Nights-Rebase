@@ -551,10 +551,6 @@
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		. += "-[human_owner.mob_height]"
-	// DARKPACK EDIT ADD START - Body weight sprites
-	if (body_weight)
-		. += "-[body_weight]"
-	// DARKPACK EDIT ADD END - Body weight sprites
 	return .
 
 ///Generates a cache key specifically for husks

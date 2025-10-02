@@ -129,7 +129,7 @@
 /mob/living/carbon/human/proc/create_walk_to(duration, mob/living/walk_to)
 	var/datum/cb = CALLBACK(src, TYPE_PROC_REF(/mob/living/carbon/human, walk_to_caster), walk_to)
 	for(var/i in 1 to duration)
-		addtimer(cb, (i - 1) * total_multiplicative_slowdown())
+		addtimer(cb, (i - 1) * cached_multiplicative_slowdown)
 
 /datum/discipline_power/melpominee/madrigal/deactivate(mob/living/carbon/human/target)
 	. = ..()

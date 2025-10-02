@@ -23,8 +23,8 @@
 	if(mob.bloodpool <= 1 && mob.maxbloodpool > 1)
 		to_chat(src, span_warning("You feel small amount of <b>BLOOD</b> in your victim."))
 
-	if(!HAS_TRAIT(src, TRAIT_BLOODY_LOVER) && CheckEyewitness(src, src, 7, FALSE))
-		adjust_masquerade(-1)
+	if(!HAS_TRAIT(src, TRAIT_BLOODY_LOVER))
+		SEND_SIGNAL(src, COMSIG_MASQUERADE_VIOLATION)
 
 	if(!do_after(src, 3 SECONDS, target = mob, timed_action_flags = NONE, progress = FALSE))
 		remove_drinking_overlay(mob)

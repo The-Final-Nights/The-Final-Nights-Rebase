@@ -55,7 +55,7 @@
 	hitsound = 'modular_darkpack/modules/deprecated/sounds/drinkblood1.ogg'
 	hitsound_wall = 'sound/items/weapons/effects/searwall.ogg'
 	flag = LASER
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	light_range = 1
 	light_power = 1
 	light_color = COLOR_SOFT_RED

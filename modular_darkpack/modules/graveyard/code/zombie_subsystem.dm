@@ -88,7 +88,7 @@ SUBSYSTEM_DEF(zombiepool)
 				if(punches_to_break)
 					set_density(TRUE)
 					icon_state = "gate"
-				playsound(src, 'modular_darkpack/modules/deprecated/sounds/repair.ogg', 50, TRUE)
+				playsound(src, 'modular_darkpack/master_files/sounds/repair.ogg', 50, TRUE)
 				to_chat(user, span_notice("You repair some dents on [src]."))
 				repairing = FALSE
 			else

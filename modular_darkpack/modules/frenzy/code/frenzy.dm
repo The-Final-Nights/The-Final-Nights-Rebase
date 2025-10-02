@@ -78,7 +78,7 @@
 		return
 	if(move_intent == MOVE_INTENT_WALK)
 		toggle_move_intent(src)
-	set_glide_size(DELAY_TO_GLIDE_SIZE(total_multiplicative_slowdown()))
+	set_glide_size(DELAY_TO_GLIDE_SIZE(cached_multiplicative_slowdown))
 
 	var/atom/fear
 	for(var/obj/effect/fire/F in GLOB.fires_list)
@@ -163,9 +163,9 @@
 		frenzy_target = get_frenzy_targets()
 		if(frenzy_target)
 			var/datum/cb = CALLBACK(src, PROC_REF(frenzystep))
-			var/reqsteps = SSfrenzypool.wait/total_multiplicative_slowdown()
+			var/reqsteps = SSfrenzypool.wait/cached_multiplicative_slowdown
 			for(var/i in 1 to reqsteps)
-				addtimer(cb, (i - 1)*total_multiplicative_slowdown())
+				addtimer(cb, (i - 1)*cached_multiplicative_slowdown)
 		else
 			if(!CheckFrenzyMove())
 				if(isturf(loc))

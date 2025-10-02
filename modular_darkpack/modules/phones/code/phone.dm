@@ -73,6 +73,8 @@
 			if(H.Myself)
 				H.Myself.phone_number = number
 
+	AddComponent(/datum/component/violation_observer, FALSE)
+
 /obj/item/vamp/phone/Destroy()
 	GLOB.phone_numbers_list -= number
 	GLOB.phones_list -= src
@@ -98,7 +100,7 @@
 		ui = new(user, src, interface, interface)
 		ui.open()
 
-/obj/item/vamp/phone/AltClick(mob/user)
+/obj/item/vamp/phone/click_alt(mob/user)
 	if(can_fold && !closed)
 		closed = TRUE
 		icon_state = folded_state

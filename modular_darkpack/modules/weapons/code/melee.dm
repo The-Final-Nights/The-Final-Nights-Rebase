@@ -54,9 +54,9 @@
 		sell_component.RemoveComponent()
 */
 
-/obj/item/katana/vamp/fire/afterattack(atom/target, mob/living/carbon/user, proximity)
+/obj/item/katana/vamp/fire/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if (isliving(target) && proximity)
+	if(isliving(target))
 		var/mob/living/burnt_mob = target
 		burnt_mob.apply_damage(15, BURN)
 
@@ -76,9 +76,9 @@
 		sell_component.RemoveComponent()
 	*/
 
-/obj/item/katana/vamp/blood/afterattack(atom/target, mob/living/carbon/user, proximity)
+/obj/item/katana/vamp/blood/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if (isliving(target) && proximity)
+	if(isliving(target))
 		var/mob/living/burnt_mob = target
 		burnt_mob.apply_damage(15, AGGRAVATED)
 
@@ -215,9 +215,7 @@
 	masquerade_violating = TRUE
 	obj_flags = NONE
 
-/obj/item/knife/vamp/gangrel/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/knife/vamp/gangrel/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.apply_damage(30, AGGRAVATED)
@@ -230,9 +228,7 @@
 	icon_state = "lasombra"
 	masquerade_violating = TRUE
 
-/obj/item/knife/vamp/gangrel/lasombra/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/knife/vamp/gangrel/lasombra/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.apply_damage(16, AGGRAVATED)
@@ -266,9 +262,7 @@
 	icon_state = "falling"
 	inhand_icon_state = "disintegrate"
 
-/obj/item/melee/touch_attack/werewolf/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/melee/touch_attack/werewolf/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.AdjustKnockdown(4 SECONDS)
