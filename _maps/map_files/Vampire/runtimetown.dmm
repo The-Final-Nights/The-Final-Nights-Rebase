@@ -82,9 +82,7 @@
 /area/vtm/sewer)
 "bL" = (
 /obj/structure/table,
-/obj/item/surgery_tray/full{
-	pixel_y = 12
-	},
+/obj/item/surgery_tray/full,
 /turf/open/floor/plating/rough,
 /area/vtm/clinic)
 "bU" = (
@@ -1202,10 +1200,6 @@
 /obj/structure/table,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/supply)
-"FT" = (
-/obj/structure/fire_barrel,
-/turf/open/floor/plating/sidewalk/poor,
-/area/vtm/outside/pacificheights)
 "Gm" = (
 /obj/structure/vampdoor/prison,
 /turf/open/floor/plating/rough,
@@ -1483,6 +1477,10 @@
 	locked = 0
 	},
 /turf/open/floor/plating/asphalt,
+/area/vtm/outside/pacificheights)
+"LL" = (
+/obj/structure/fire_barrel,
+/turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/pacificheights)
 "LR" = (
 /obj/structure/cargo_put,
@@ -2034,13 +2032,8 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "YC" = (
-/mob/living/basic/pet/cat/darkpack{
-	bloodpool = 10;
-	health = 228;
-	maxbloodpool = 10;
-	name = "Cain"
-	},
 /obj/effect/spawner/random/occult/artifact,
+/mob/living/basic/pet/cat/darkpack/cain,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/sewer)
 "YF" = (
@@ -4629,7 +4622,7 @@ Ys
 MS
 oJ
 oJ
-FT
+LL
 oJ
 oJ
 oJ
@@ -5063,7 +5056,7 @@ oJ
 oJ
 oJ
 md
-FT
+LL
 oJ
 md
 qz

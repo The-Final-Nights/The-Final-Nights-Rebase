@@ -1,7 +1,5 @@
 # Not related to any changes of speicifc second city prs. Just to convert old maps pre-rebase to second city
 
-/obj/item/food/cheesewheel : /obj/item/food/cheese/wheel {@OLD}
-
 # #66978 never made an updates path
 /obj/structure/flora/ausbushes : /obj/structure/flora/bush/style_random {@OLD}
 /obj/structure/flora/ausbushes/reedbush : /obj/structure/flora/bush/reed/style_random {@OLD}
@@ -20,3 +18,11 @@
 /obj/structure/flora/ausbushes/sparsegrass : /obj/structure/flora/bush/sparsegrass/style_random {@OLD}
 /obj/structure/flora/ausbushes/fullgrass : /obj/structure/flora/bush/fullgrass/style_random {@OLD}
 /obj/structure/flora/stump : /obj/structure/flora/tree/stump
+
+/obj/structure/fluff/hedge : /obj/structure/hedge {@OLD}
+/obj/structure/mopbucket : /obj/structure/mop_bucket {@OLD}
+/obj/structure/reagent_dispensers/peppertank : /obj/structure/reagent_dispensers/wall/peppertank {@OLD}
+
+/obj/item/grown/sunflower : /obj/item/food/grown/sunflower
+/obj/item/food/cheesewheel : /obj/item/food/cheese/wheel {@OLD}
+/obj/item/soapstone : @DELETE
