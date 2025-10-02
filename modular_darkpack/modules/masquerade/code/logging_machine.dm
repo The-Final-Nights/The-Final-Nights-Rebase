@@ -30,15 +30,13 @@
 	if(!isnull(held_item))
 		return
 	context[SCREENTIP_CONTEXT_LMB] = "Print Logs"
-	if(issupernatural(user))
-		context[SCREENTIP_CONTEXT_RMB] = "Clear Logs"
+	context[SCREENTIP_CONTEXT_RMB] = "Clear Logs"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/logging_machine/examine(mob/user)
 	. = ..()
 	. += span_info(span_bold("Click")) + span_info(" on [src] to print all obtained logs.")
-	if(issupernatural(user))
-		. += span_info(span_bold("Right Click")) + span_info(" on [src] to clear all obtained logs and clear all phone call breaches.")
+	. += span_info(span_bold("Right Click")) + span_info(" on [src] to clear all obtained logs and clear all phone call breaches.")
 
 /obj/machinery/logging_machine/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
