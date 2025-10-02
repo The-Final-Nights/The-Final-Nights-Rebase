@@ -55,7 +55,6 @@
 		animate(src, color = "#FFFFFF", time = 1 SECONDS)
 		icon_state = "boom"
 		if(!dangerous)
-			to_chat(user, span_revenwarning("Oops! Luckily this tether is safe..."))
 			return
 		var/roll_result = SSroll.storyteller_roll(user.st_get_stat(STAT_PERCEPTION) + user.st_get_stat(STAT_OCCULT), 6, list(user), user)
 		switch(roll_result)
