@@ -24,7 +24,7 @@
 			var/gas_to_transfer = min(1000-fuel_remain, min(100, max(1, G.stored_gasoline)))
 			G.stored_gasoline = max(0, G.stored_gasoline-gas_to_transfer)
 			fuel_remain = min(1000, fuel_remain+gas_to_transfer)
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 25, TRUE)
+			playsound(loc, 'modular_darkpack/master_files/sounds/gas_fill.ogg', 25, TRUE)
 			to_chat(user, span_notice("You transfer [gas_to_transfer] fuel to [src]."))
 		return
 

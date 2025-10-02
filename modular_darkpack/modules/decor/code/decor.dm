@@ -290,23 +290,6 @@
 		//Adds the component only once. We do it here & not in Initialize(mapload) because there are tons of windows & we don't want to add to their init times
 		LoadComponent(/datum/component/leanable, dropped)
 
-/obj/structure/vampcar
-	name = "car"
-	desc = "It drives."
-	icon = 'modular_darkpack/modules/deprecated/icons/cars.dmi'
-	icon_state = "taxi"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	pixel_w = -16
-
-/obj/structure/vampcar/Initialize(mapload)
-	. = ..()
-	var/atom/movable/M = new(get_step(loc, EAST))
-	M.set_density(TRUE)
-	M.anchored = TRUE
-	dir = pick(NORTH, SOUTH, WEST, EAST)
-
 /obj/structure/roadblock
 	name = "\improper road block"
 	desc = "Protects places from walking in."
@@ -503,51 +486,6 @@
 	density = TRUE
 	pixel_w = -24
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-
-/obj/structure/fuelstation
-	name = "fuel station"
-	desc = "Fuel your car here. 50 dollars per 1000 units."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "fuelstation"
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	var/stored_money = 0
-
-// TODO: [Rebase] - Refactor into signal handler
-/*
-/obj/structure/fuelstation/AltClick(mob/user)
-	if(stored_money)
-		say("Money refunded.")
-		for(var/i in 1 to stored_money)
-			new /obj/item/stack/dollar(loc)
-		stored_money = 0
-*/
-
-/obj/structure/fuelstation/examine(mob/user)
-	. = ..()
-	. += "<b>Balance</b>: [stored_money] dollars"
-
-// TODO: [Rebase] - Requires /obj/item/gas_can
-/*
-/obj/structure/fuelstation/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/stack/dollar))
-		var/obj/item/stack/dollar/dolla = I
-		stored_money += dolla.get_item_credit_value()
-		to_chat(user, span_notice("You insert [dolla.get_item_credit_value()] dollars into [src]."))
-		qdel(I)
-		say("Payment received.")
-	if(istype(I, /obj/item/gas_can))
-		var/obj/item/gas_can/G = I
-		if(G.stored_gasoline < 1000 && stored_money)
-			var/gas_to_dispense = min(stored_money*20, 1000-G.stored_gasoline)
-			var/money_to_spend = round(gas_to_dispense/20)
-			G.stored_gasoline = min(1000, G.stored_gasoline+gas_to_dispense)
-			stored_money = max(0, stored_money-money_to_spend)
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 50, TRUE)
-			to_chat(user, span_notice("You fill [I]."))
-			say("Gas filled.")
-*/
 
 /obj/structure/reagent_dispensers/cleaningfluid
 	name = "cleaning fluid tank"
