@@ -133,7 +133,7 @@
 		if (length(GLOB.masquerade_latejoin))
 			var/obj/effect/landmark/latejoin_masquerade/LM = pick(GLOB.masquerade_latejoin)
 			if (LM)
-				vampire.forceMove(LM.loc)
+				vampire.forceMove(get_turf(LM))
 
 	if (clan_keys)
 		vampire.put_in_r_hand(new clan_keys(vampire))

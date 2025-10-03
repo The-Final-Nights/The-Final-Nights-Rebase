@@ -897,7 +897,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	desc = "Don't forget your life jacket."
 	immerse_overlay = "immerse_deep"
 	baseturfs = /turf/open/water/beach/vamp/deep
-	immerse_overlay_color = "#57707c"
 	is_swimming_tile = TRUE
 
 //Make a pr to TG eventually adding acid from shiptest mabye.
@@ -906,7 +905,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "acid"
 	baseturfs = /turf/open/water/acid/vamp
-	immerse_overlay_color = "#1b7c4c"
 
 /turf/open/water/acid/vamp/Initialize(mapload)
 	. = ..()
@@ -975,7 +973,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	. = ..()
 	if(istype(mover, /mob/living/carbon/human))
 		if(prob(10))
-			new /mob/living/simple_animal/pet/rat(oldloc)
+			new /mob/living/basic/mouse/rat/vampire(oldloc)
 */
 
 /turf/open/floor/plating/vampcanal/Initialize(mapload)
@@ -995,7 +993,7 @@ LOW_WALL_HELPER(vampwall/wood)
 	. = ..()
 	if(istype(mover, /mob/living/carbon/human))
 		if(prob(10))
-			new /mob/living/simple_animal/pet/rat(oldloc)
+			new /mob/living/basic/mouse/rat/vampire(oldloc)
 */
 
 /turf/open/floor/plating/vampcanal/Initialize(mapload)
@@ -1029,7 +1027,6 @@ LOW_WALL_HELPER(vampwall/wood)
 	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
 	icon_state = "blood"
 	baseturfs = /turf/open/water/bloodwave
-	immerse_overlay_color = COLOR_MAROON
 	immerse_overlay = "immerse_deep"
 	is_swimming_tile = TRUE
 	///All dirs we can expand to

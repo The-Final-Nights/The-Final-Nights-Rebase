@@ -631,25 +631,36 @@
 	pixel_z = -16
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "baali"
-	var/total_corpses = 0
+	var/rune_in_use = FALSE
 
-// TODO: [Rebase] - Requires /mob/living/simple_animal/hostile/baali_guard
-/*
 /obj/effect/decal/baalirune/attack_hand(mob/living/user)
 	. = ..()
-	var/mob/living/carbon/human/H = locate() in get_turf(src)
-	if(H)
-		if(H.stat == DEAD)
-			H.gib()
-			total_corpses += 1
-			if(total_corpses >= 20)
-				total_corpses = 0
-				playsound(get_turf(src), 'sound/effects/magic/demon_dies.ogg', 100, TRUE)
-				new /mob/living/simple_animal/hostile/baali_guard(get_turf(src))
-//			var/datum/preferences/P = GLOB.preferences_datums[ckey(user.key)]
-//			if(P)
-//				P.exper = min(calculate_mob_max_exper(user), P.exper+15)
-*/
+	if(rune_in_use)
+		return
+
+	var/list/myriad_targets = list()
+	for(var/mob/living/target in loc)
+		if(!IS_DEAD_OR_INCAP(target))
+			myriad_targets += target
+
+	if(length(myriad_targets) < 20)
+		visible_message(span_warning("The markings pulse with a small flash of red light, then fall dark."))
+		var/oldcolor = color
+		color = rgb(255, 0, 0)
+		animate(src, color = oldcolor, time = 5)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_atom_colour)), 0.5 SECONDS)
+		return
+
+	rune_in_use = TRUE
+	visible_message(span_warning("[src] pulses blood red!"))
+	color = RUNE_COLOR_DARKRED
+	playsound(get_turf(src), 'sound/effects/magic/demon_dies.ogg', 100, TRUE)
+	new /mob/living/basic/baali_guard(get_turf(src))
+	animate(src, color = initial(color), time = 0.5 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_atom_colour)), 0.5 SECONDS)
+	for(var/mob/living/dead_victim as anything in myriad_targets)
+		dead_victim.gib(DROP_ALL_REMAINS)
+	rune_in_use = FALSE
 
 /obj/structure/vampstatue
 	name = "statue"

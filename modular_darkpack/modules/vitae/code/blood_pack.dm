@@ -6,7 +6,7 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/vitae/icons/onfloor.dmi')
 	icon_state = "blood100"
 	inhand_icon_state = "blood100"
-	reagent_flags = OPENCONTAINER | REFILLABLE | DRAWABLE
+	initial_reagent_flags = OPENCONTAINER | REFILLABLE | DRAWABLE
 
 /obj/item/reagent_containers/blood/Initialize(mapload, vol)
 	. = ..()
