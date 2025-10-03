@@ -18,10 +18,10 @@
 			return
 		if(!user.can_perform_action(src, NEED_DEXTERITY))
 			return
-		usr.visible_message(span_notice("[usr] grabs and folds \the [src.name]."), span_notice("You grab and fold \the [src.name]."))
+		user.visible_message(span_notice("[user] grabs and folds \the [src.name]."), span_notice("You grab and fold \the [src.name]."))
 		var/obj/item/flag_item = new item_flag(loc)
 		TransferComponents(flag_item)
-		usr.put_in_hands(flag_item)
+		user.put_in_hands(flag_item)
 		qdel(src)
 
 
