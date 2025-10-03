@@ -29,6 +29,7 @@
 	name = "folded blank flag"
 	desc = "The folded flag of nothing. It has nothing on it. Beautiful."
 	icon_state = "folded_coder"
+	icon = 'modular_darkpack/modules/flags/icons/flags.dmi'
 	sign_path = /obj/structure/sign/flag
 	is_editable = FALSE
 
