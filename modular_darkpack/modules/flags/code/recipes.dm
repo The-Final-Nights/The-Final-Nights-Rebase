@@ -1,4 +1,3 @@
-// TODO: [Rebase] CAT_FURNITURE : CAT_FURINTURE
 /datum/crafting_recipe/gaypride
 	name = "gay pride flag"
 	reqs = list(

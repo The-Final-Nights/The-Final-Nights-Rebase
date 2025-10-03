@@ -1,7 +1,3 @@
-
-
-// HORIZONTAL
-
 /obj/structure/sign/flag/pride
 	name = "coder pride flag"
 	desc = "You probably shouldn't be seeing this. Yell at the coders about it."
