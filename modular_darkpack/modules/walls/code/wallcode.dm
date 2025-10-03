@@ -702,6 +702,10 @@ LOW_WALL_HELPER(vampwall/wood)
 	layer = ABOVE_NORMAL_TURF_LAYER	//WALLPAPER_LAYER dont work
 	mouse_opacity = 0
 
+// This sucks. Not within the scope of this pr to fix.
+/obj/effect/decal/wallpaper/NeverShouldHaveComeHere(turf/here_turf)
+	return !(isclosedturf(loc) || isclosedturf(get_step(src, NORTH)))
+
 /obj/effect/decal/wallpaper/Initialize(mapload)
 	. = ..()
 	if(isclosedturf(loc))
