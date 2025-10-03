@@ -11,7 +11,7 @@
 	volume = 30
 	possible_transfer_amounts = list(5)
 	resistance_flags = ACID_PROOF
-	reagent_flags = OPENCONTAINER
+	initial_reagent_flags = OPENCONTAINER
 	slot_flags = ITEM_SLOT_BELT
 	var/ignore_flags = NONE
 	var/infinite = FALSE
@@ -23,8 +23,10 @@
 /obj/item/reagent_containers/hypospray/attack_paw(mob/user, list/modifiers)
 	return attack_hand(user, modifiers)
 
-/obj/item/reagent_containers/hypospray/attack(mob/living/affected_mob, mob/user)
-	inject(affected_mob, user)
+/obj/item/reagent_containers/hypospray/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isliving(interacting_with))
+		return NONE
+	return inject(interacting_with, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
 
 ///Handles all injection checks, injection and logging.
 /obj/item/reagent_containers/hypospray/proc/inject(mob/living/affected_mob, mob/user)
@@ -122,7 +124,7 @@
 	has_variable_transfer_amount = FALSE
 	volume = 15
 	ignore_flags = 1 //so you can medipen through spacesuits
-	reagent_flags = NONE
+	initial_reagent_flags = NONE
 	flags_1 = null
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 10, /datum/reagent/toxin/formaldehyde = 3, /datum/reagent/medicine/coagulant = 2)
 	custom_price = PAYCHECK_CREW
@@ -232,6 +234,17 @@
 	inhand_icon_state = "salpen"
 	base_icon_state = "salpen"
 	list_reagents = list(/datum/reagent/medicine/salbutamol = 10)
+
+// DARKPACK EDIT ADD START
+/obj/item/reagent_containers/hypospray/medipen/ifak
+	name = "ifak stabilization medipen"
+	desc = "A single use autoinjector used for general healing and stabilization. DO NOT INJECT TWICE. Contains salicylic acid, salbutamol, oxandrolone, blood-coagulant and epinephrine."
+	icon_state = "salpen"
+	inhand_icon_state = "salpen"
+	volume = 45
+	amount_per_transfer_from_this = 45
+	list_reagents = list(/datum/reagent/medicine/sal_acid = 10, /datum/reagent/medicine/salbutamol = 10, /datum/reagent/medicine/oxandrolone = 10, /datum/reagent/medicine/epinephrine = 10, /datum/reagent/medicine/coagulant = 5)
+// DARKPACK EDIT ADD END
 
 /obj/item/reagent_containers/hypospray/medipen/tuberculosiscure
 	name = "BVAK autoinjector"

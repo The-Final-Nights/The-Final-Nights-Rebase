@@ -1,9 +1,10 @@
 ///Subtype for any kind of ballistic gun
 ///This has a shitload of vars on it, and I'm sorry for that, but it does make making new subtypes really easy
 /obj/item/gun/ballistic
-	desc = "Now comes in flavors like GUN. Uses 10mm ammo, for some reason."
 	name = "projectile gun"
+	desc = "Now comes in flavors like GUN. Uses 10mm ammo, for some reason."
 	icon_state = "debug"
+	abstract_type = /obj/item/gun/ballistic
 	w_class = WEIGHT_CLASS_NORMAL
 	pickup_sound = 'sound/items/handling/gun/gun_pick_up.ogg'
 	drop_sound = 'sound/items/handling/gun/gun_drop.ogg'
@@ -359,6 +360,7 @@
 							to_chat(wielder, span_notice("You reach out and catch \the [casing] as it ejects from [src]. Awesome. Your [affecting.plaintext_zone] hurts, though."))
 							wielder.apply_damage(4, BURN, affecting, wound_bonus = CANT_WOUND)
 				if(hitting_ground)
+					SEND_SIGNAL(casing, COMSIG_ITEM_DROPPED) // DARKPACK EDIT ADD
 					casing.bounce_away(TRUE)
 		else if(empty_chamber)
 			clear_chambered()

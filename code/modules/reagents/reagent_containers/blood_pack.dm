@@ -4,7 +4,7 @@
 	icon = 'icons/obj/medical/bloodpack.dmi'
 	icon_state = "bloodpack"
 	volume = 200
-	fill_icon_thresholds = list(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+	//fill_icon_thresholds = list(10, 20, 30, 40, 50, 60, 70, 80, 90, 100) DARKPACK EDIT REMOVAL
 	var/blood_type = null
 	var/labelled = FALSE
 
@@ -29,7 +29,7 @@
 
 /obj/item/reagent_containers/blood/random/Initialize(mapload, vol)
 	icon_state = "bloodpack"
-	blood_type = pick(BLOOD_TYPE_A_PLUS, BLOOD_TYPE_A_MINUS, BLOOD_TYPE_B_PLUS, BLOOD_TYPE_B_MINUS, BLOOD_TYPE_O_PLUS, BLOOD_TYPE_O_MINUS, BLOOD_TYPE_LIZARD)
+	blood_type = random_human_blood_type_name() // DARKPACK EDIT, ORIGINAL: blood_type = pick(BLOOD_TYPE_A_PLUS, BLOOD_TYPE_A_MINUS, BLOOD_TYPE_B_PLUS, BLOOD_TYPE_B_MINUS, BLOOD_TYPE_O_PLUS, BLOOD_TYPE_O_MINUS, BLOOD_TYPE_LIZARD)
 	return ..()
 
 /obj/item/reagent_containers/blood/a_plus

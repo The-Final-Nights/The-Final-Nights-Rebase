@@ -1,8 +1,8 @@
 /obj/item/melee/vamp
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	var/quieted = FALSE
 
 // TODO: [Rebase] reimplement selling stuff
@@ -15,21 +15,21 @@
 /obj/item/fireaxe/vamp
 	name = "fire axe"
 	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe?"
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	pixel_w = -8
 
 /obj/item/katana/vamp
 	name = "katana"
 	desc = "An elegant weapon, its tiny edge is capable of cutting through flesh and bone with ease."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	pixel_w = -8
 
 /obj/item/katana/vamp/Initialize(mapload)
@@ -54,9 +54,9 @@
 		sell_component.RemoveComponent()
 */
 
-/obj/item/katana/vamp/fire/afterattack(atom/target, mob/living/carbon/user, proximity)
+/obj/item/katana/vamp/fire/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if (isliving(target) && proximity)
+	if(isliving(target))
 		var/mob/living/burnt_mob = target
 		burnt_mob.apply_damage(15, BURN)
 
@@ -76,20 +76,20 @@
 		sell_component.RemoveComponent()
 	*/
 
-/obj/item/katana/vamp/blood/afterattack(atom/target, mob/living/carbon/user, proximity)
+/obj/item/katana/vamp/blood/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if (isliving(target) && proximity)
+	if(isliving(target))
 		var/mob/living/burnt_mob = target
 		burnt_mob.apply_damage(15, AGGRAVATED)
 
 /obj/item/melee/sabre/rapier
 	name = "rapier"
 	desc = "A thin, elegant sword, the rapier is a weapon of the duelist, designed for thrusting."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "rapier"
 
 // TODO: [Rebase] reimplement selling stuff
@@ -102,11 +102,11 @@
 /obj/item/claymore/machete
 	name = "machete"
 	desc = "A certified chopper fit for the jungles...but you don't see any vines around. Well-weighted enough to be thrown."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "machete"
 	inhand_icon_state = "machete"
 	pixel_w = -8
@@ -122,11 +122,11 @@
 /obj/item/melee/sabre/vamp
 	name = "sabre"
 	desc = "A curved sword, the sabre is a weapon of the cavalry, designed for slashing and thrusting."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "sabre"
 
 // TODO: [Rebase] reimplement selling stuff
@@ -139,11 +139,11 @@
 /obj/item/claymore/longsword
 	name = "longsword"
 	desc = "A classic weapon of the knight, the longsword is a versatile weapon that can be used for both cutting and thrusting."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "longsword"
 	inhand_icon_state = "longsword"
 
@@ -157,11 +157,11 @@
 /obj/item/melee/baseball_bat/vamp
 	name = "baseball bat"
 	desc = "There ain't a skull in the league that can withstand a swatter."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "baseball"
 	inhand_icon_state = "baseball"
 
@@ -183,7 +183,7 @@
 /obj/item/melee/vamp/tire
 	name = "tire iron"
 	desc = "Can be used as a tool or as a weapon."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "pipe"
 	force = 20
 	wound_bonus = 10
@@ -198,11 +198,11 @@
 /obj/item/knife/vamp
 	name = "knife"
 	desc = "Don't cut yourself accidentally."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 /obj/item/knife/vamp/gangrel
 	name = "claws"
@@ -215,9 +215,7 @@
 	masquerade_violating = TRUE
 	obj_flags = NONE
 
-/obj/item/knife/vamp/gangrel/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/knife/vamp/gangrel/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.apply_damage(30, AGGRAVATED)
@@ -230,9 +228,7 @@
 	icon_state = "lasombra"
 	masquerade_violating = TRUE
 
-/obj/item/knife/vamp/gangrel/lasombra/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/knife/vamp/gangrel/lasombra/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.apply_damage(16, AGGRAVATED)
@@ -241,7 +237,7 @@
 /obj/item/melee/vamp/handsickle
 	name = "hand sickle"
 	desc = "Reap what they have sowed."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "handsickle"
 	force = 30
 	wound_bonus = -5
@@ -260,15 +256,13 @@
 /obj/item/melee/touch_attack/werewolf
 	name = "\improper falling touch"
 	desc = "This is kind of like when you rub your feet on a shag rug so you can zap your friends, only a lot less safe."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	//catchphrase = null
 	//on_use_sound = 'sound/magic/disintegrate.ogg'
 	icon_state = "falling"
 	inhand_icon_state = "disintegrate"
 
-/obj/item/melee/touch_attack/werewolf/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/melee/touch_attack/werewolf/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.AdjustKnockdown(4 SECONDS)
@@ -285,16 +279,17 @@
 /obj/item/chainsaw/vamp
 	name = "chainsaw"
 	desc = "A versatile power tool. Useful for limbing trees and delimbing humans."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 /obj/item/vampire_stake
 	name = "stake"
 	desc = "Paralyzes blank-bodies if aimed straight to the heart."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	icon_state = "stake"
 	force = 10
 //	wound_bonus = -10
@@ -335,55 +330,55 @@
 /obj/item/shovel/vamp
 	name = "shovel"
 	desc = "Great weapon against mortal or immortal."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "shovel"
 
 /obj/item/scythe/vamp
 	name = "scythe"
 	desc = "More instrument, than a weapon. Instrumentally cuts heads..."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "kosa"
 	inhand_icon_state = "kosa"
 
 /obj/item/instrument/eguitar/vamp
 	name = "electric guitar"
 	desc = "You are pretty fly for a white guy..."
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	icon_state = "rock0"
 	inhand_icon_state = "rock0"
 
 /obj/item/melee/baton/vamp
 	name = "police baton"
 	desc = "Blunt instrument of justice."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "baton"
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/switchblade/vamp
 	name = "switchblade"
 	desc = "A spring-loaded knife. Perfect for stabbing sharks and jets."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
-	lefthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	righthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 /obj/item/melee/vamp/brick
 	name = "Brick"
 	desc = "Killer of gods and men alike, builder of worlds vast."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "red_brick"
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'

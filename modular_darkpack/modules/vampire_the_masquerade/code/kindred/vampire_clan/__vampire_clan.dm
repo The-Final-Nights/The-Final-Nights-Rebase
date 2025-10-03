@@ -103,7 +103,7 @@
 	if (alt_sprite)
 		vampire.set_body_sprite(ignore_clan = TRUE)
 
-	// TODO: [Lucia] reimplement clan accessories
+	// TODO: [Rebase] reimplement clan accessories
 	/*
 	// Remove Clan accessories
 	if (vampire.client?.prefs?.clan_accessory)
@@ -133,7 +133,7 @@
 		if (length(GLOB.masquerade_latejoin))
 			var/obj/effect/landmark/latejoin_masquerade/LM = pick(GLOB.masquerade_latejoin)
 			if (LM)
-				vampire.forceMove(LM.loc)
+				vampire.forceMove(get_turf(LM))
 
 	if (clan_keys)
 		vampire.put_in_r_hand(new clan_keys(vampire))

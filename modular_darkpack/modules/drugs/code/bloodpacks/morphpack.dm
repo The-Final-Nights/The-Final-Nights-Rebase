@@ -6,7 +6,7 @@
 	inhand_icon_state = "blood4"
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	list_reagents = list(/datum/reagent/toxin/chloralhydrate = 10, /datum/reagent/medicine/morphine = 10) //some of the source chemicals are lost in the process
 	resistance_flags = FREEZE_PROOF
 	item_flags = NOBLUDGEON

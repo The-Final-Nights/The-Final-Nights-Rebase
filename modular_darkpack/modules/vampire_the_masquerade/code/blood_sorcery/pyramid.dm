@@ -3,7 +3,7 @@
 	desc = "The secrets of Blood Magic..."
 	icon_state = "arcane"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 	is_magic = TRUE
 	var/list/rituals = list()
@@ -81,7 +81,7 @@
 			else
 				complete()
 
-/obj/ritualrune/AltClick(mob/user)
+/obj/ritualrune/click_alt(mob/user)
 	. = ..()
 	qdel(src)
 
@@ -108,7 +108,7 @@
 		E1.Grant(last_activator)
 		var/datum/action/beastmaster_deaggro/E2 = new()
 		E2.Grant(last_activator)
-	var/mob/living/simple_animal/hostile/beastmaster/blood_guard/BG = new(loc)
+	var/mob/living/basic/blood_guard/BG = new(loc)
 	BG.beastmaster = last_activator
 	H.beastmaster |= BG
 	BG.my_creator = last_activator

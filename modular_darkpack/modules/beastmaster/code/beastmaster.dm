@@ -37,7 +37,7 @@
 	var/follow = TRUE
 	var/mob/living/carbon/human/beastmaster
 	var/list/enemies = list()
-	var/mob/living/targa
+	var/mob/living/target
 
 /mob/living/simple_animal/hostile/beastmaster/Initialize(mapload)
 	. = ..()
@@ -75,34 +75,34 @@
 	if(stat > 0)
 		GLOB.beast_list -= src
 		return
-	if(!targa)
+	if(!target)
 		if(length(enemies))
 			for(var/mob/living/L in enemies)
 				if(L.stat < 1 && L.z == z && get_dist(src, L) < 12)
-					targa = L
-	else if(targa.z != z || get_dist(src, targa) > 11 || targa.stat > 0)
-		targa = null
+					target = L
+	else if(target.z != z || get_dist(src, target) > 11 || target.stat > 0)
+		target = null
 		if(length(enemies))
 			for(var/mob/living/L in enemies)
 				if(L.stat < 1 && L.z == z && get_dist(src, L) < 12)
-					targa = L
+					target = L
 
 	var/totalshit = 1
-	if(total_multiplicative_slowdown() > 0)
-		totalshit = total_multiplicative_slowdown()
+	if(cached_multiplicative_slowdown > 0)
+		totalshit = cached_multiplicative_slowdown
 
-	if(targa)
+	if(target)
 		var/reqsteps = round((SSbeastmastering.next_fire-world.time)/totalshit)
-		walk_to(src, targa, reqsteps, total_multiplicative_slowdown())
-		if(get_dist(src, targa) <= 1)
-			ClickOn(targa)
+		walk_to(src, target, reqsteps, cached_multiplicative_slowdown)
+		if(get_dist(src, target) <= 1)
+			ClickOn(target)
 	else
 		if(follow && isturf(beastmaster.loc))
 			if( (z != beastmaster.z) & (get_dist(beastmaster.loc, loc) <= 10) )
 				forceMove(get_turf(beastmaster))
 			else
 				var/reqsteps = round((SSbeastmastering.next_fire-world.time)/totalshit)
-				walk_to(src, beastmaster, reqsteps, total_multiplicative_slowdown())
+				walk_to(src, beastmaster, reqsteps, cached_multiplicative_slowdown)
 		else
 			walk(src, 0)
 
@@ -114,8 +114,8 @@
 	if(L == beastmaster)
 		return
 	enemies |= L
-	if(!targa)
-		targa = L
+	if(!target)
+		target = L
 
 /mob/living/simple_animal/hostile/beastmaster/attack_hand(mob/user)
 	if(user)

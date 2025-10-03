@@ -38,6 +38,7 @@
 	desc = "A generic vending machine."
 	icon = 'icons/obj/machines/vending.dmi'
 	icon_state = "generic"
+	abstract_type = /obj/machinery/vending
 	layer = BELOW_OBJ_LAYER
 	density = TRUE
 	verb_say = "beeps"
@@ -152,7 +153,7 @@
 	///fontawesome icon name to use in to display the user's balance in the vendor UI
 	var/displayed_currency_icon = "coins"
 	///String of the used currency to display in the vendor UI
-	var/displayed_currency_name = " cr"
+	var/displayed_currency_name = " $" // DARKPACK EDIT CHANGE
 	///Whether our age check is currently functional
 	var/age_restrictions = TRUE
 	/// How many credits does this vending machine have? 20% of all sales go to this pool, and are given freely when the machine is restocked, or successfully tilted. Lost on deconstruction.
@@ -396,11 +397,12 @@
 
 /obj/machinery/vending/vv_edit_var(vname, vval)
 	. = ..()
-	if (vname == NAMEOF(src, all_products_free))
+	if(vname == NAMEOF(src, all_products_free))
 		if (all_products_free)
-			RemoveComponentSource(src, /datum/component/payment)
+			qdel(GetComponent(/datum/component/payment))
 		else
 			AddComponent(/datum/component/payment, 0, SSeconomy.get_dep_account(payment_department), PAYMENT_VENDING)
+		update_static_data_for_all_viewers()
 
 /obj/machinery/vending/emp_act(severity)
 	. = ..()

@@ -1,12 +1,12 @@
 /obj/item/vampire/drill
 	name = "thermal drill"
 	desc = "Guys! The thermal drill, go get it!"
-	icon = 'modular_darkpack/modules/deprecated/icons/48x32weapons.dmi'
+	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	icon_state = "vaultdrill"
 	inhand_icon_state = "vaultdrill"
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_HUGE
 	force = 8
 	throwforce = 10
@@ -69,7 +69,7 @@
 	if(obj_integrity < max_integrity)
 		. += span_notice("[src] is [health_status].")
 
-/obj/structure/drill/MouseDrop(over_object, src_location, over_location)
+/obj/structure/drill/mouse_drop_receive(over_object, src_location, over_location)
 	. = ..()
 	if(over_object == usr && Adjacent(usr) && !active)
 		if(do_after(usr, 5 SECONDS))

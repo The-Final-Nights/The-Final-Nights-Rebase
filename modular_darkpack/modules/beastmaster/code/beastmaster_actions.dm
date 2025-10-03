@@ -48,4 +48,4 @@
 	var/mob/living/carbon/human/H = owner
 	for (var/mob/living/simple_animal/hostile/beastmaster/B in H.beastmaster)
 		B.enemies = list()
-		B.targa = null
+		B.target = null

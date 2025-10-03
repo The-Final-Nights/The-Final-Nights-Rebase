@@ -26,7 +26,7 @@
 	name = "Security Guard Chunk"
 	uniform = /obj/item/clothing/under/vampire/guard
 	shoes = /obj/item/clothing/shoes/vampire
-	belt = /obj/item/gun/ballistic/automatic/vampire/m1911
+	belt = /obj/item/gun/ballistic/automatic/pistol/darkpack/m1911
 	l_pocket = /obj/item/vamp/phone
 	r_pocket = /obj/item/vamp/keys/camarilla
 	back = /obj/item/storage/backpack/satchel
@@ -41,9 +41,9 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	worn_icon_state = "id2"
 
-/obj/item/card/id/chunk/AltClick(mob/user)
+/obj/item/card/id/chunk/click_alt(mob/user)
 	return

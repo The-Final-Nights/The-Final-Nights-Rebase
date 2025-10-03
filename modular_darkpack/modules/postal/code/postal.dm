@@ -20,15 +20,13 @@
 	..()
 
 /obj/lettermachine/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/stack/dollar))
-		var/obj/item/stack/dollar/D = I
-		money = money+D.amount
-		say("[D] inserted!")
-		qdel(D)
+	if(iscash(I))
+		money += I.get_item_credit_value()
+		to_chat(user, span_notice("You insert [I.get_item_credit_value()] dollars into [src]."))
+		say("[I] inserted.")
+		qdel(I)
 	if(istype(I, /obj/item/mark))
-		new /obj/item/stack/dollar/ten(loc)
-		new /obj/item/stack/dollar/ten(loc)
-		new /obj/item/stack/dollar/ten(loc)
+		new /obj/item/stack/dollar(loc, 30)
 		say("[I] delivered!")
 		qdel(I)
 	return
@@ -41,15 +39,15 @@
 	name = "letter"
 	icon_state = "letter"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
-	var/mob/living/carbon/human/Targ
+	var/mob/living/carbon/human/mail_target
 
 /obj/item/mark
 	name = "letter mark"
 	icon_state = "mark"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/letter/Initialize(mapload)
@@ -59,59 +57,31 @@
 		if(alive.stat != DEAD)
 			mail_recipients += alive
 	if(length(mail_recipients))
-		Targ = pick(mail_recipients)
-		name = "letter ([Targ])"
+		mail_target = pick(mail_recipients)
+		name = "letter ([mail_target.real_name])"
 
 /obj/item/letter/examine(mob/user)
 	. = ..()
-	. += "This letter is adressed to <b>[Targ]</b>"
+	. += "This letter is adressed to <b>[mail_target.real_name]</b>"
 
 /obj/item/letter/attack_self(mob/user)
 	. = ..()
-	if(user == Targ)
-		playsound(loc, 'sound/items/poster_ripped.ogg', 50, TRUE)
-		var/IT = pick(/obj/item/storage/pill_bottle/estrogen,
-						/obj/item/storage/pill_bottle/antibirth,
-						/obj/item/storage/pill_bottle/ephedrine,
-						/obj/item/storage/pill_bottle/potassiodide,
-						/obj/item/vampire_stake,
-						/obj/item/stack/dollar/rand,
-						/obj/item/knife/vamp,
-						/obj/item/melee/vamp/tire,
-						/datum/supply_pack/vampire/bloodpack,
-						/obj/item/gun/ballistic/vampire/revolver,
-						/obj/item/vamp/keys/hack)
+	if(user == mail_target)
+		playsound(loc, 'sound/items/poster/poster_ripped.ogg', 50, TRUE)
+		var/IT = pick(
+			/obj/item/storage/pill_bottle/estrogen,
+			/obj/item/storage/pill_bottle/unknown,
+			/obj/item/storage/pill_bottle/ephedrine,
+			/obj/item/storage/pill_bottle/potassiodide,
+			/obj/item/vampire_stake,
+			/obj/item/stack/dollar/rand,
+			/obj/item/knife/vamp,
+			/obj/item/melee/vamp/tire,
+			/obj/item/drinkable_bloodpack,
+			/obj/item/gun/ballistic/revolver/darkpack/snub,
+			/obj/item/vamp/keys/hack
+		)
 		new IT(user.loc)
 		new /obj/item/mark(user.loc)
 		qdel(src)
 
-/obj/item/storage/pill_bottle/estrogen
-	name = "estrogen pill bottle"
-	desc = "There are boobs on the top."
-
-/obj/item/storage/pill_bottle/estrogen/PopulateContents()
-	for(var/i in 1 to 5)
-		new /obj/item/reagent_containers/pill/epinephrine(src)
-
-/obj/item/storage/pill_bottle/ephedrine
-	name = "ephedrine pill bottle"
-	desc = "There is opium attention sign on the top."
-
-/obj/item/storage/pill_bottle/ephedrine/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/reagent_containers/pill/ephedrine(src)
-
-/obj/item/reagent_containers/pill/ephedrine
-	name = "ephedrine pill"
-	desc = "Used to stabilize patients."
-	icon_state = "pill5"
-	list_reagents = list(/datum/reagent/medicine/ephedrine = 15)
-	rename_with_volume = TRUE
-
-/obj/item/storage/pill_bottle/antibirth
-	name = "antibirth pill bottle"
-	desc = "There is crossed sex icon on the top."
-
-/obj/item/storage/pill_bottle/antibirth/PopulateContents()
-	for(var/i in 1 to 5)
-		new /obj/item/reagent_containers/pill/iron(src)

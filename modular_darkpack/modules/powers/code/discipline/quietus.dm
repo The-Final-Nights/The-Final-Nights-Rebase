@@ -40,15 +40,13 @@
 /obj/item/melee/touch_attack/quietus
 	name = "\improper poison touch"
 	desc = "This is kind of like when you rub your feet on a shag rug so you can zap your friends, only a lot less safe."
-	icon = 'modular_darkpack/modules/deprecated/icons/weapons.dmi'
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	catchphrase = null
 	on_use_sound = 'sound/magic/disintegrate.ogg'
 	icon_state = "quietus"
 	inhand_icon_state = "mansus"
 
-/obj/item/melee/touch_attack/quietus/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/melee/touch_attack/quietus/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.adjustFireLoss(10)
@@ -130,7 +128,7 @@
 
 	return .
 
-/datum/discipline_power/quietus/baals_caress/activate(obj/item/melee/vampirearms/target)
+/datum/discipline_power/quietus/baals_caress/activate(obj/item/melee/vamp/target)
 	. = ..()
 	if(!target.quieted)
 		target.quieted = TRUE
