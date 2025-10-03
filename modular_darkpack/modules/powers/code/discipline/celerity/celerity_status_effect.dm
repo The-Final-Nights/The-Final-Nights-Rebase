@@ -35,9 +35,7 @@
 /datum/status_effect/celerity/proc/celerity_visual(atom/newloc, dir)
 	new /obj/effect/celerity(owner.loc, owner)
 
-	if (owner.CheckEyewitness(owner, owner, 7, FALSE) && ishuman(owner))
-		var/mob/living/carbon/human/human_owner = owner
-		human_owner.adjust_masquerade(-1)
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 
 // Status effect ranks
 /datum/status_effect/celerity/one

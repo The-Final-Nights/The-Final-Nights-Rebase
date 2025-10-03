@@ -53,8 +53,6 @@
 	var/last_bloodpower_click = 0
 
 	var/harm_focus = SOUTH
-	var/masquerade_votes = 0
-	var/list/voted_for = list()
 	var/flavor_text
 	var/true_real_name
 	var/died_already = FALSE
@@ -63,8 +61,7 @@
 	var/maxbloodpool = 5
 	var/generation = 13
 	var/humanity = 7
-	var/masquerade = 5
-	COOLDOWN_DECLARE(masquerade_violation_cooldown)
+	var/masquerade_score = 5
 	var/last_nonraid = 0
 	var/warrant = FALSE
 	var/ignores_warrant = FALSE

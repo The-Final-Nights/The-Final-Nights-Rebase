@@ -73,6 +73,8 @@
 			if(H.Myself)
 				H.Myself.phone_number = number
 
+	AddComponent(/datum/component/violation_observer, FALSE)
+
 /obj/item/vamp/phone/Destroy()
 	GLOB.phone_numbers_list -= number
 	GLOB.phones_list -= src

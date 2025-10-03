@@ -95,6 +95,10 @@
 	// Aggro if shot or hit by any projectile
 	RegisterSignal(src, COMSIG_PROJECTILE_ON_HIT, PROC_REF(handle_projectile_hit))
 
+	// NPC humans get the area of effect, player humans dont. This is a fucky way of doing this.
+	qdel(GetComponent(/datum/component/violation_observer))
+	AddComponent(/datum/component/violation_observer, TRUE)
+
 	return INITIALIZE_HINT_LATELOAD
 
 /mob/living/carbon/human/npc/LateInitialize(mapload)
