@@ -15,7 +15,7 @@
 		new /datum/data/vending_product("soda can", /obj/item/reagent_containers/cup/glass/soda_cans/vampiresoda),
 		new /datum/data/vending_product("two liter cola bottle", /obj/item/reagent_containers/cup/glass/vampirecola),
 		new /datum/data/vending_product("cola can", /obj/item/reagent_containers/cup/glass/soda_cans/vampirecola),
-		new /datum/data/vending_product("summer thaw", /obj/item/reagent_containers/cup/glass/vampirecola/summer_thaw),
+		new /datum/data/vending_product("summer thaw", /obj/item/reagent_containers/cup/glass/soda_cans/summer_thaw),
 		new /datum/data/vending_product("milk", /obj/item/reagent_containers/condiment/milk,	5),
 		new /datum/data/vending_product("beer bottle", /obj/item/reagent_containers/cup/glass/bottle/beer/vampire,	10),
 		new /datum/data/vending_product("blue stripe", /obj/item/reagent_containers/cup/glass/bottle/beer/vampire/blue_stripe, 8),

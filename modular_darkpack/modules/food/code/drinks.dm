@@ -58,18 +58,6 @@
 	list_reagents = list(/datum/reagent/consumable/space_up = 100)
 	icon_state = "colablue"
 
-/obj/item/reagent_containers/cup/glass/vampirecola/summer_thaw
-	name = "summer thaw"
-	desc = "A refreshing drink. Brought to you by King Breweries and Distilleries!"
-	icon_state = "soda"
-	list_reagents = list(/datum/reagent/consumable/space_cola = 75, /datum/reagent/medicine/muscle_stimulant = 15, /datum/reagent/toxin/amatoxin = 10)
-
-/obj/item/reagent_containers/cup/glass/vampirecola/thaw_club
-	name = "thaw club soda"
-	desc = "For your energy needs. Brought to you by King Breweries and Distilleries!"
-	icon_state = "soda"
-	list_reagents = list(/datum/reagent/consumable/monkey_energy = 50)
-
 /obj/item/reagent_containers/cup/glass/bottle/vampirewater
 	name = "water bottle"
 	desc = "H2O."
@@ -80,12 +68,15 @@
 	list_reagents = list(/datum/reagent/water = 100)
 	age_restricted = FALSE
 
+// Bad path
+/obj/item/reagent_containers/cup/glass/soda_cans
+	icon = 'modular_darkpack/modules/food/icons/items.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
+
 /obj/item/reagent_containers/cup/glass/soda_cans/vampirecola
 	name = "cola"
 	desc = "Coca cola espuma..."
 	icon_state = "colared2"
-	icon = 'modular_darkpack/modules/food/icons/items.dmi'
-	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
 	list_reagents = list(/datum/reagent/consumable/space_cola = 50)
 
 /obj/item/reagent_containers/cup/glass/soda_cans/vampirecola/blue
@@ -97,9 +88,19 @@
 	name = "soda"
 	desc = "More water..."
 	icon_state = "soda"
-	icon = 'modular_darkpack/modules/food/icons/items.dmi'
-	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
 	list_reagents = list(/datum/reagent/consumable/sodawater = 50)
+
+/obj/item/reagent_containers/cup/glass/soda_cans/summer_thaw
+	name = "summer thaw"
+	desc = "A refreshing drink. Brought to you by King Breweries and Distilleries!"
+	icon_state = "soda"
+	list_reagents = list(/datum/reagent/consumable/space_cola = 75, /datum/reagent/medicine/muscle_stimulant = 15, /datum/reagent/toxin/amatoxin = 10)
+
+/obj/item/reagent_containers/cup/glass/soda_cans/thaw_club
+	name = "thaw club soda"
+	desc = "For your energy needs. Brought to you by King Breweries and Distilleries!"
+	icon_state = "soda"
+	list_reagents = list(/datum/reagent/consumable/monkey_energy = 50)
 
 /obj/item/reagent_containers/condiment/milk
 	name = "milk"

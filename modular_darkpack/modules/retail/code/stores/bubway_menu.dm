@@ -4,5 +4,5 @@
 		new /datum/data/vending_product("burger", /obj/item/food/burger/plain),
 		new /datum/data/vending_product("coffee", /obj/item/reagent_containers/cup/glass/coffee/vampire),
 		new /datum/data/vending_product("robust coffee", /obj/item/reagent_containers/cup/glass/coffee/vampire/robust),
-		new /datum/data/vending_product("thaw club soda", /obj/item/reagent_containers/cup/glass/vampirecola/thaw_club)
+		new /datum/data/vending_product("thaw club soda", /obj/item/reagent_containers/cup/glass/soda_cans/thaw_club)
 	)
