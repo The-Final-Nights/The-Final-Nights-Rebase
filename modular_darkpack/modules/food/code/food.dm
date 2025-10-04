@@ -42,6 +42,9 @@
 /obj/item/food/taco/plain
 	icon_state = "taco"
 
+/obj/item/food/taco/fish
+	icon_state = "taco"
+
 /obj/item/trash/vampirenugget
 	name = "chicken wing bone"
 	icon_state = "nugget0"

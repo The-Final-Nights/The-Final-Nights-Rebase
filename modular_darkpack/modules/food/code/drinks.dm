@@ -70,6 +70,8 @@
 
 // Bad path
 /obj/item/reagent_containers/cup/glass/soda_cans
+	abstract_type = /obj/item/reagent_containers/cup/glass/soda_cans
+	icon_state = "colared2"
 	icon = 'modular_darkpack/modules/food/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
 
