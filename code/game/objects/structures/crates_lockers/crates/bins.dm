@@ -25,6 +25,7 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+/* // DARKPACK EDIT REMOVAL - No sprites for this yet.
 /obj/structure/closet/crate/bin/update_overlays()
 	. = ..()
 	. += emissive_appearance(icon, base_icon_state + "_empty", src, alpha = src.alpha)
@@ -35,6 +36,7 @@
 		. += base_icon_state + "_full"
 		return
 	. += base_icon_state + "_some"
+*/
 
 /obj/structure/closet/crate/bin/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(W, /obj/item/storage/bag/trash) && !opened)
