@@ -11,7 +11,7 @@
 	time = 1 SECONDS
 	reqs = list(/obj/item/paper = 2)
 	category = CAT_CONTAINERS
-
+/*
 /datum/crafting_recipe/boh
 	name = "Bag of Holding"
 	reqs = list(
@@ -20,7 +20,7 @@
 	)
 	result = /obj/item/storage/backpack/holding
 	category = CAT_CONTAINERS
-
+*/
 /datum/crafting_recipe/underwater_basket
 	name = "Underwater Basket (Bamboo)"
 	reqs = list(
@@ -29,7 +29,7 @@
 	result = /obj/item/storage/basket
 	category = CAT_CONTAINERS
 	steps = list(
-		"master the art of underwater basketweaving", 
+		"master the art of underwater basketweaving",
 		"be underwater"
 	)
 
@@ -48,3 +48,4 @@
 /datum/crafting_recipe/underwater_basket/wheat
 	name = "Underwater Basket (Wheat)"
 	reqs = list(/obj/item/food/grown/wheat = 50)
+

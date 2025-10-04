@@ -1,4 +1,4 @@
-/datum/crafting_recipe/bluespace_vendor_mount
+/* /datum/crafting_recipe/bluespace_vendor_mount // DARKPACK EDIT REMOVE
 	name = "Bluespace Vendor Wall Mount"
 	result = /obj/item/wallframe/bluespace_vendor_mount
 	time = 6 SECONDS
@@ -247,3 +247,4 @@
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
 	pipe_type = /obj/machinery/atmospherics/components/unary/airlock_pump
+ */
