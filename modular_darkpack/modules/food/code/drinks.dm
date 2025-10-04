@@ -28,7 +28,7 @@
 	name = "blue stripe"
 	desc = "Blue stripe beer, brought to you by King Breweries and Distilleries!"
 	icon_state = "beer_blue"
-	list_reagents = list(/datum/reagent/consumable/ethanol/beer = 40, /datum/reagent/toxin/amatoxin = 10)
+	list_reagents = list(/datum/reagent/consumable/ethanol/beer/light = 25, /datum/reagent/toxin/amatoxin = 5)
 
 /obj/item/reagent_containers/cup/glass/bottle/beer/vampire/typhon
 	name = "Typhon's Beer"
