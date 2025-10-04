@@ -165,6 +165,7 @@
 	desc = "Holds garbage inside."
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "garbage"
+	base_icon_state = "garbage"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE

@@ -13,15 +13,13 @@
 	icon_state = "merge_conflict_marker"
 
 /obj/lombard
-	icon = 'icons/effects/mapping_helpers.dmi'
-	icon_state = "merge_conflict_marker"
+	icon_state = "sell"
+	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 /obj/lombard/blackmarket
-	icon = 'icons/effects/mapping_helpers.dmi'
-	icon_state = "merge_conflict_marker"
 
 /obj/machinery/atm
-	icon = 'icons/effects/mapping_helpers.dmi'
-	icon_state = "merge_conflict_marker"
+	icon = 'modular_darkpack/modules/economy/icons/atm.dmi'
+	icon_state = "atm"
 
 /obj/machinery/computer/order_console/mining/restricted/police
 	icon = 'icons/effects/mapping_helpers.dmi'
@@ -31,12 +29,11 @@
 	icon_state = "merge_conflict_marker"
 
 /obj/vampire_computer
-	icon = 'icons/effects/mapping_helpers.dmi'
-	icon_state = "merge_conflict_marker"
+	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon_state = "computer"
 /obj/vampire_computer/prince
-	icon = 'icons/effects/mapping_helpers.dmi'
-	icon_state = "merge_conflict_marker"
+	icon_state = "computerprince"
 
 /obj/item/vamp/phone/street
-	icon = 'icons/effects/mapping_helpers.dmi'
-	icon_state = "merge_conflict_marker"
+	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon_state = "payphone"
