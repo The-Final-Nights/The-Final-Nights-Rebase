@@ -82,9 +82,7 @@
 /area/vtm/sewer)
 "bL" = (
 /obj/structure/table,
-/obj/item/surgery_tray/full{
-	pixel_y = 12
-	},
+/obj/item/surgery_tray/full,
 /turf/open/floor/plating/rough,
 /area/vtm/clinic)
 "bU" = (
@@ -682,17 +680,6 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/techshop)
-"sx" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/cup/glass/drinkingglass/pint{
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/pint{
-	pixel_y = 3;
-	pixel_x = 9
-	},
-/turf/open/misc/beach/vamp,
-/area/vtm/outside/pacificheights)
 "sy" = (
 /mob/living/carbon/human/npc/shop,
 /obj/effect/decal/cleanable/trash{
@@ -1742,14 +1729,10 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/misc/dirt/vamp,
 /area/vtm/supply)
-"Ri" = (
-/obj/structure/table,
-/obj/structure/retail/deli,
-/turf/closed/wall/vampwall/brick/low,
-/area/vtm/interior/shop)
 "Rj" = (
 /obj/structure/table/wood,
 /obj/item/vtm_artifact/tarulfang,
+/mob/living/basic/pet/cat/darkpack/cain,
 /turf/open/floor/plating/parquetry/old,
 /area/vtm/sewer)
 "Ro" = (
@@ -2071,7 +2054,7 @@
 "YA" = (
 /obj/item/gas_can{
 	anchored = 1;
-	pixel_y = 16
+	pixel_y = 7
 	},
 /obj/item/gas_can{
 	anchored = 1
@@ -2080,15 +2063,11 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "YC" = (
-/mob/living/basic/pet/cat/darkpack{
-	bloodpool = 10;
-	health = 228;
-	maxbloodpool = 10;
-	name = "Cain"
-	},
-/obj/effect/spawner/random/occult/artifact,
-/turf/open/floor/plating/parquetry/old,
-/area/vtm/sewer)
+/obj/item/kirbyplants/random,
+/obj/item/kirbyplants/random,
+/obj/structure/retail/flower_shop,
+/turf/open/misc/beach/vamp,
+/area/vtm/outside/pacificheights)
 "YF" = (
 /obj/item/clothing/head/cone,
 /turf/open/misc/dirt/vamp,
@@ -2355,7 +2334,7 @@ GF
 GF
 Ul
 Rj
-YC
+Jv
 jt
 bE
 Ul
@@ -3332,7 +3311,7 @@ ci
 NR
 NR
 NR
-Ri
+YJ
 BL
 ie
 oW
@@ -3729,12 +3708,12 @@ UK
 yt
 kS
 NR
-sx
+Nd
 NR
 NR
 NR
 NR
-mG
+YC
 mG
 Cd
 ig
@@ -3770,7 +3749,7 @@ NR
 NR
 NR
 GL
-mG
+YC
 ig
 ig
 ig

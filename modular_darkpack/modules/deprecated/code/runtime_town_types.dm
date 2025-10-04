@@ -1,9 +1,5 @@
 // TODO: [Rebase] This file should not exist and is only so we can save runtime town
 
-/obj/item/blood_hunt
-	icon = 'icons/effects/mapping_helpers.dmi'
-	icon_state = "merge_conflict_marker"
-
 /obj/item/arcane_tome
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "merge_conflict_marker"
@@ -20,13 +16,6 @@
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "merge_conflict_marker"
 /obj/lombard/blackmarket
-	icon = 'icons/effects/mapping_helpers.dmi'
-	icon_state = "merge_conflict_marker"
-
-/obj/structure/cargo_put
-	icon = 'icons/effects/mapping_helpers.dmi'
-	icon_state = "merge_conflict_marker"
-/obj/structure/cargo_take
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = "merge_conflict_marker"
 
