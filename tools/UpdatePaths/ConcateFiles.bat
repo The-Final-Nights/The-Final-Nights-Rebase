@@ -1,3 +1,3 @@
 @echo off
 type nul > merged.txt
-FOR /R .\Scripts %%f IN (*) DO (type "%%f" >> merged.txt) && (echo. >> merged.txt)
+FOR /R .\bulk %%f IN (*) DO (type "%%f" >> merged.txt) && (echo. >> merged.txt)
