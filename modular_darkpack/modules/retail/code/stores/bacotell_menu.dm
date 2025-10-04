@@ -3,8 +3,8 @@
 		new /datum/data/vending_product("square pizza", /obj/item/food/pizzaslice/square),
 		new /datum/data/vending_product("taco", /obj/item/food/taco),
 		new /datum/data/vending_product("burger", /obj/item/food/burger/plain),
-		new /datum/data/vending_product("two liter cola bottle", /obj/item/reagent_containers/cup/glass/bottle/vampirecola),
+		new /datum/data/vending_product("two liter cola bottle", /obj/item/reagent_containers/cup/glass/vampirecola),
 		new /datum/data/vending_product("cola can", /obj/item/reagent_containers/cup/glass/soda_cans/vampirecola),
-		new /datum/data/vending_product("summer thaw", /obj/item/reagent_containers/cup/glass/bottle/vampirecola/summer_thaw),
-		new /datum/data/vending_product("thaw club soda", /obj/item/reagent_containers/cup/glass/bottle/vampirecola/thaw_club),
+		new /datum/data/vending_product("summer thaw", /obj/item/reagent_containers/cup/glass/vampirecola/summer_thaw),
+		new /datum/data/vending_product("thaw club soda", /obj/item/reagent_containers/cup/glass/vampirecola/thaw_club),
 	)

@@ -43,7 +43,7 @@
 	reagents.trans_to(M, gulp_size, transfered_by = user, methods = VAMPIRE)
 */
 
-/obj/item/reagent_containers/cup/glass/bottle/vampirecola
+/obj/item/reagent_containers/cup/glass/vampirecola
 	name = "two liter cola bottle"
 	desc = "Coca cola espuma..."
 	icon_state = "colared"
@@ -53,18 +53,18 @@
 	list_reagents = list(/datum/reagent/consumable/space_cola = 100)
 	age_restricted = FALSE
 
-/obj/item/reagent_containers/cup/glass/bottle/vampirecola/blue
+/obj/item/reagent_containers/cup/glass/vampirecola/blue
 	desc = "Pep Cola. Put some pep in your step"
 	list_reagents = list(/datum/reagent/consumable/space_up = 100)
 	icon_state = "colablue"
 
-/obj/item/reagent_containers/cup/glass/bottle/vampirecola/summer_thaw
+/obj/item/reagent_containers/cup/glass/vampirecola/summer_thaw
 	name = "summer thaw"
 	desc = "A refreshing drink. Brought to you by King Breweries and Distilleries!"
 	icon_state = "soda"
 	list_reagents = list(/datum/reagent/consumable/space_cola = 75, /datum/reagent/medicine/muscle_stimulant = 15, /datum/reagent/toxin/amatoxin = 10)
 
-/obj/item/reagent_containers/cup/glass/bottle/vampirecola/thaw_club
+/obj/item/reagent_containers/cup/glass/vampirecola/thaw_club
 	name = "thaw club soda"
 	desc = "For your energy needs. Brought to you by King Breweries and Distilleries!"
 	icon_state = "soda"
