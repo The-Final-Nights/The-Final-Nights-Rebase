@@ -275,7 +275,7 @@
 	. = ..()
 	if(!fill_icon_thresholds)
 		return
-	if(!reagents.total_volume)
+	if(!reagents?.total_volume) // DARKPACK EDIT CHANGE - Onfloors can call update_icon_state before reagents exist
 		return
 
 	var/fill_name = fill_icon_state ? fill_icon_state : icon_state
