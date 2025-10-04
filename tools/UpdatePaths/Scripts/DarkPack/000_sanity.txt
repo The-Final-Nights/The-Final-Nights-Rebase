@@ -20,3 +20,16 @@
 /obj/machinery/light/prince{dir = 2} : /obj/machinery/light/prince/directional/north
 /obj/machinery/light/prince{dir = 4} : /obj/machinery/light/prince/directional/east
 /obj/machinery/light/prince{dir = 8} : /obj/machinery/light/prince/directional/west
+
+
+# Fixing terrible mapping partices or linting fails
+
+# You are NOT allowed to varedit area subtypes
+/area/@SUBTYPES : /area/@SUBTYPES
+
+/obj/@SUBTYPES : /obj/@SUBTYPES{@OLD;layer=@SKIP}
+
+/obj/structure/window : /obj/structure/window{@OLD;dir=@SKIP}
+/obj/structure/window/@SUBTYPES : /obj/structure/window/@SUBTYPES{@OLD;dir=@SKIP}
+
+/turf/closed/wall/vampwall/@SUBTYPES{density=0} : @OLD{@OLD;color="#BBBBBB"}

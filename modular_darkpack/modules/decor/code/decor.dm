@@ -57,6 +57,10 @@
 /obj/effect/decal/lamplight
 	alpha = 0
 
+// TODO: [Rebase] Fix lol.
+/obj/effect/decal/lamplight/NeverShouldHaveComeHere(turf/here_turf)
+	return FALSE
+
 /obj/effect/decal/lamplight/Initialize(mapload)
 	. = ..()
 	set_light(4, 3, "#ffde9b")
@@ -163,8 +167,9 @@
 /obj/structure/closet/crate/dumpster
 	name = "dumpster"
 	desc = "Holds garbage inside."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/crates.dmi'
 	icon_state = "garbage"
+	base_icon_state = "garbage"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -714,63 +719,6 @@
 	pixel_z = -16
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "kover"
-
-/obj/structure/vamprocks
-	name = "rock"
-	desc = "Rokk."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "rock1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-
-/obj/structure/vamprocks/Initialize(mapload)
-	. = ..()
-	icon_state = "rock[rand(1, 9)]"
-
-/obj/structure/small_vamprocks
-	name = "rock"
-	desc = "Rokk."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "smallrock1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-
-/obj/structure/small_vamprocks/Initialize(mapload)
-	. = ..()
-	icon_state = "smallrock[rand(1, 6)]"
-
-/obj/structure/big_vamprocks
-	name = "rock"
-	desc = "Rokk."
-	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
-	icon_state = "rock1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	pixel_w = -16
-
-/obj/structure/big_vamprocks/Initialize(mapload)
-	. = ..()
-	icon_state = "rock[rand(1, 4)]"
-
-/obj/structure/stalagmite
-	name = "stalagmite"
-	desc = "Rokk."
-	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
-	icon_state = "stalagmite1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	pixel_w = -16
-
-/obj/structure/stalagmite/Initialize(mapload)
-	. = ..()
-	icon_state = "stalagmite[rand(1, 5)]"
 
 /obj/were_ice
 	name = "ice block"
