@@ -51,6 +51,7 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/consumable/space_cola = 100)
+	volume = 100
 	age_restricted = FALSE
 
 /obj/item/reagent_containers/cup/glass/vampirecola/blue
@@ -65,7 +66,7 @@
 	icon = 'modular_darkpack/modules/food/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
 	isGlass = FALSE
-	list_reagents = list(/datum/reagent/water = 100)
+	list_reagents = list(/datum/reagent/water = 50)
 	age_restricted = FALSE
 
 /obj/item/reagent_containers/cup/soda_cans/vampirecola
@@ -74,12 +75,12 @@
 	icon_state = "colared2"
 	icon = 'modular_darkpack/modules/food/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
-	list_reagents = list(/datum/reagent/consumable/space_cola = 50)
+	list_reagents = list(/datum/reagent/consumable/space_cola = 30)
 
 /obj/item/reagent_containers/cup/soda_cans/vampirecola/blue
 	desc = "Pep cola. Put some Pep in your step"
 	icon_state = "colablue2"
-	list_reagents = list(/datum/reagent/consumable/space_up = 50)
+	list_reagents = list(/datum/reagent/consumable/space_up = 30)
 
 /obj/item/reagent_containers/cup/soda_cans/vampiresoda
 	name = "soda"
@@ -87,7 +88,7 @@
 	icon_state = "soda"
 	icon = 'modular_darkpack/modules/food/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
-	list_reagents = list(/datum/reagent/consumable/sodawater = 50)
+	list_reagents = list(/datum/reagent/consumable/sodawater = 30)
 
 /obj/item/reagent_containers/cup/soda_cans/summer_thaw
 	name = "summer thaw"
@@ -95,7 +96,7 @@
 	icon_state = "soda"
 	icon = 'modular_darkpack/modules/food/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
-	list_reagents = list(/datum/reagent/consumable/space_cola = 40, /datum/reagent/medicine/muscle_stimulant = 5, /datum/reagent/toxin/amatoxin = 5)
+	list_reagents = list(/datum/reagent/consumable/space_cola = 20, /datum/reagent/medicine/muscle_stimulant = 5, /datum/reagent/toxin/amatoxin = 5)
 
 /obj/item/reagent_containers/cup/soda_cans/thaw_club
 	name = "thaw club soda"
@@ -103,7 +104,7 @@
 	icon_state = "soda"
 	icon = 'modular_darkpack/modules/food/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
-	list_reagents = list(/datum/reagent/consumable/monkey_energy = 50)
+	list_reagents = list(/datum/reagent/consumable/monkey_energy = 30)
 
 /obj/item/reagent_containers/condiment/milk
 	name = "milk"
