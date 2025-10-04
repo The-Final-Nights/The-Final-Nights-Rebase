@@ -896,7 +896,7 @@ LOW_WALL_HELPER(vampwall/wood)
 			new /mob/living/basic/mouse/rat/vampire(oldloc)
 */
 
-/turf/open/floor/plating/vampcanal/Initialize(mapload)
+/turf/open/floor/plating/vampcanalplating/Initialize(mapload)
 	. = ..()
 	icon_state = "canal_plating[rand(1, 4)]"
 
