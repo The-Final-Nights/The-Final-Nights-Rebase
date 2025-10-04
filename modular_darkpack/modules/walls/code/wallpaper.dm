@@ -8,7 +8,7 @@
 
 // This sucks. Not within the scope of this pr to fix.
 /obj/effect/decal/wallpaper/NeverShouldHaveComeHere(turf/here_turf)
-	return !(isclosedturf(loc) || isclosedturf(get_step(src, NORTH)))
+	return FALSE
 
 /obj/effect/decal/wallpaper/Initialize(mapload)
 	. = ..()
