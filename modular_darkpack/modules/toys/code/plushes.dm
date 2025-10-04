@@ -16,16 +16,16 @@
 
 /obj/item/toy/plush/goatplushie
 	name = "strange goat plushie"
-	icon = 'modular_darkpack\modules\toys\icons\plushes.dmi'
+	icon = 'modular_darkpack/modules/toys/icons/plushes.dmi'
 	icon_state = "goat"
 	desc = "Despite its cuddly appearance and plush nature, it will beat you up all the same. Goats never change."
-	squeak_override = list('sound\items\weapons\punch1.ogg'=1)
+	squeak_override = list('sound/items/weapons/punch1.ogg'=1)
 
 /obj/item/toy/plush/tzi
 	name = "wretched creature"
 	desc = "A horrid flesh-thing with a still functioning brain. Perfect for working intricate meat contraptions!"
-	icon = 'modular_darkpack\modules\toys\icons\plushes.dmi'
+	icon = 'modular_darkpack/modules/toys/icons/plushes.dmi'
 	icon_state = "plushtzi"
 	attack_verb_continuous = list("tortures", "scourges")
 	attack_verb_simple = list("torture", "scourge")
-	squeak_override = list('modular_darkpack\modules\toys\sounds\femurbreaker.ogg'=1)
+	squeak_override = list('modular_darkpack/modules/toys/sounds/femurbreaker.ogg'=1)
