@@ -1085,20 +1085,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
 "Dw" = (
-/obj/structure/fluff/tv/order/one{
-	pixel_y = 12
-	},
-/obj/structure/fluff/tv/order/two{
-	pixel_y = 12
-	},
-/obj/structure/fluff/tv/order/three{
-	pixel_x = 16;
-	pixel_y = 12
-	},
-/obj/structure/fluff/tv/order/one{
-	pixel_x = -16;
-	pixel_y = 12
-	},
+/obj/machinery/stove,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "DF" = (
@@ -1128,7 +1115,7 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "DV" = (
-/obj/structure/table,
+/obj/structure/closet/secure_closet/freezer/meat,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "DY" = (
@@ -1606,7 +1593,7 @@
 /obj/structure/table,
 /obj/item/gun/ballistic/shotgun/toy/crossbow/vampire,
 /turf/open/floor/plating/rough,
-/area/vtm/outside/pacificheights)
+/area/vtm/anarch)
 "On" = (
 /mob/living/carbon/human/npc/shop,
 /turf/open/floor/plating/rough,
@@ -1635,8 +1622,9 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "ON" = (
-/turf/open/misc/beach/vamp,
-/area/vtm/supply)
+/obj/machinery/oven,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/shop)
 "OO" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/drinkingglasses{
@@ -1922,9 +1910,6 @@
 /turf/open/misc/beach/vamp,
 /area/vtm/outside/pacificheights)
 "Vv" = (
-/obj/structure/fluff/tv/order/four{
-	pixel_y = 12
-	},
 /obj/machinery/griddle,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
@@ -2211,7 +2196,7 @@ se
 se
 se
 se
-NR
+Rj
 Rj
 Rj
 Rj
@@ -2279,7 +2264,7 @@ NR
 NR
 NR
 NR
-NR
+Rj
 Rj
 Rj
 Rj
@@ -2347,7 +2332,7 @@ NR
 NR
 NR
 NR
-NR
+Rj
 Rj
 Rj
 Rj
@@ -2415,7 +2400,7 @@ NR
 NR
 NR
 NR
-NR
+Rj
 Rj
 Rj
 Rj
@@ -2483,7 +2468,7 @@ NR
 NR
 NR
 NR
-NR
+Rj
 Rj
 Rj
 Rj
@@ -2551,7 +2536,7 @@ NR
 NR
 NR
 NR
-NR
+Rj
 Rj
 Rj
 Rj
@@ -4319,7 +4304,7 @@ yk
 yk
 yk
 yk
-ON
+qT
 Rj
 Rj
 Rj
@@ -4387,7 +4372,7 @@ oM
 oM
 oM
 oM
-ON
+qT
 Rj
 Rj
 Rj
@@ -4424,8 +4409,8 @@ GF
 (35,1,1) = {"
 GF
 Fg
+ON
 oW
-Fg
 Fg
 NR
 NR
@@ -4455,7 +4440,7 @@ oM
 oM
 oM
 oM
-ON
+qT
 Rj
 Rj
 Rj
