@@ -15,7 +15,7 @@
 	reqs = list(/obj/item/stack/cable_coil = 15)
 	result = /obj/item/restraints/handcuffs/cable
 	category = CAT_TOOLS
-
+/*
 /datum/crafting_recipe/runed_metal
 	reqs = list(/obj/item/stack/sheet/plasteel = 1)
 	requirements_mats_blacklist = list(/obj/item/stack/sheet/plasteel) // runed metal has its own material
@@ -30,7 +30,7 @@
 	category = CAT_CULT
 	non_craftable = TRUE
 	steps = list("Use Twisted Construction on iron")
-
+ */
 // Food reactions
 
 /datum/crafting_recipe/food/reaction
@@ -153,12 +153,12 @@
 /datum/crafting_recipe/food/reaction/gravy
 	result = /datum/reagent/consumable/gravy
 	reaction = /datum/chemical_reaction/food/gravy
-
+/*
 /datum/crafting_recipe/food/reaction/mothic_pizza_dough
 	result = /obj/item/food/mothic_pizza_dough
 	reaction = /datum/chemical_reaction/food/mothic_pizza_dough
 	category = CAT_BREAD
-
+ */
 /datum/crafting_recipe/food/reaction/curd_cheese
 	result = /obj/item/food/cheese/curd_cheese
 	reaction = /datum/chemical_reaction/food/curd_cheese
@@ -210,12 +210,12 @@
 	reqs = list(/obj/item/food/dough = 1)
 	result = /obj/item/food/flatdough
 	category = CAT_BREAD
-
+/*
 /datum/crafting_recipe/food/rollingpin/flatrootdough
 	reqs = list(/obj/item/food/rootdough = 1)
 	result = /obj/item/food/flatrootdough
 	category = CAT_BREAD
-
+ */
 /datum/crafting_recipe/food/rollingpin/piedough
 	reqs = list(/obj/item/food/cakebatter = 1)
 	result = /obj/item/food/piedough
@@ -262,12 +262,12 @@
 	reqs = list(/obj/item/food/flatdough = 1)
 	result = /obj/item/food/doughslice
 	category = CAT_BREAD
-
+/*
 /datum/crafting_recipe/food/knife/rootdoughslice
 	reqs = list(/obj/item/food/flatrootdough = 1)
 	result = /obj/item/food/rootdoughslice
 	category = CAT_BREAD
-
+ */
 /datum/crafting_recipe/food/knife/rawpastrybase
 	reqs = list(/obj/item/food/piedough = 1)
 	result = /obj/item/food/rawpastrybase
@@ -281,22 +281,22 @@
 	reqs = list(/obj/item/food/doughslice = 1)
 	result = /obj/item/food/bait/doughball
 	category = CAT_BREAD
-
+/*
 /datum/crafting_recipe/food/knife/nizaya
 	reqs = list(/obj/item/food/rootdoughslice = 1)
 	result = /obj/item/food/spaghetti/nizaya
 	category = CAT_SPAGHETTI
-
+ */
 /datum/crafting_recipe/food/knife/rawcutlet
 	reqs = list(/obj/item/food/meat/slab = 1)
 	result = /obj/item/food/meat/rawcutlet
 	category = CAT_MEAT
-
+/*
 /datum/crafting_recipe/food/knife/headcheese_slice
 	reqs = list(/obj/item/food/headcheese = 1)
 	result = /obj/item/food/headcheese_slice
 	category = CAT_MEAT
-
+ */
 /datum/crafting_recipe/food/knife/potatowedge
 	reqs = list(/obj/item/food/grown/potato = 1)
 	result = /obj/item/food/grown/potato/wedges
@@ -430,12 +430,12 @@
 	reqs = list(/obj/item/food/fishmeat/moonfish = 1)
 	result = /obj/item/food/grilled_moonfish
 	category = CAT_SEAFOOD
-
+/*
 /datum/crafting_recipe/food/grill/rootflatbread
 	reqs = list(/obj/item/food/flatrootdough = 1)
 	result = /obj/item/food/root_flatbread
 	category = CAT_BREAD
-
+ */
 /datum/crafting_recipe/food/grill/griddle_toast
 	reqs = list(/obj/item/food/breadslice/plain = 1)
 	result = /obj/item/food/griddle_toast
@@ -665,11 +665,11 @@
 /datum/crafting_recipe/food/processor/popsicle_stick
 	reqs = list(/obj/item/grown/log = 1)
 	result = /obj/item/popsicle_stick
-
+/*
 /datum/crafting_recipe/food/processor/spidereggs
 	reqs = list(/obj/item/food/spidereggs = 1)
 	result = /obj/item/food/spidereggs/processed
-
+ */
 // Machinery: Microwave
 /datum/crafting_recipe/food/microwave
 	machinery = list(/obj/machinery/microwave)
@@ -700,7 +700,7 @@
 /datum/crafting_recipe/food/microwave/popcorn
 	reqs = list(/obj/item/food/grown/corn = 1)
 	result = /obj/item/food/popcorn
-
+/*
 /datum/crafting_recipe/food/microwave/cakehat
 	reqs = list(/obj/item/food/cake/birthday = 1)
 	result = /obj/item/clothing/head/utility/hardhat/cakehat
@@ -710,7 +710,7 @@
 	reqs = list(/obj/item/food/cake/birthday/energy = 1)
 	result = /obj/item/clothing/head/utility/hardhat/cakehat/energycake
 	category = CAT_CAKE
-
+ */
 /datum/crafting_recipe/food/microwave/cheese_curds
 	reqs = list(/obj/item/food/cheese/curd_cheese = 1)
 	result = /obj/item/food/cheese/cheese_curds
@@ -725,19 +725,19 @@
 /datum/crafting_recipe/food/oven/bread
 	reqs = list(/obj/item/food/dough = 1)
 	result = /obj/item/food/bread/plain
-
+/*
 /datum/crafting_recipe/food/oven/rootbread
 	reqs = list(/obj/item/food/rootdough = 1)
 	result = /obj/item/food/bread/root
-
+ */
 /datum/crafting_recipe/food/oven/bun
 	reqs = list(/obj/item/food/doughslice = 1)
 	result = /obj/item/food/bun
-
+/*
 /datum/crafting_recipe/food/oven/rootroll
 	reqs = list(/obj/item/food/rootdoughslice = 1)
 	result = /obj/item/food/rootroll
-
+ */
 /datum/crafting_recipe/food/oven/pastrybase
 	reqs = list(/obj/item/food/rawpastrybase = 1)
 	result = /obj/item/food/pastrybase
@@ -752,11 +752,11 @@
 	reqs = list(/obj/item/food/pizza/margherita/raw = 1)
 	result = /obj/item/food/pizza/margherita
 	category = CAT_PIZZA
-
+/*
 /datum/crafting_recipe/food/oven/rootflatbread
 	reqs = list(/obj/item/food/flatrootdough = 1)
 	result = /obj/item/food/root_flatbread
-
+ */
 /datum/crafting_recipe/food/oven/pie
 	reqs = list(/obj/item/food/piedough = 1)
 	result = /obj/item/food/pie/plain
@@ -836,7 +836,7 @@
 /datum/crafting_recipe/food/drying/firm_cheese
 	reqs = list(/obj/item/food/cheese/cheese_curds = 1)
 	result = /obj/item/food/cheese/firm_cheese
-
+/*
 /datum/crafting_recipe/food/drying/headcheese
 	reqs = list(/obj/item/food/raw_headcheese = 1)
 	result = /obj/item/food/headcheese
@@ -846,7 +846,7 @@
 	reqs = list(/obj/item/food/raw_tiziran_sausage = 1)
 	result = /obj/item/food/tiziran_sausage
 	category = CAT_MEAT
-
+ */
 /datum/crafting_recipe/food/drying/sosjerky
 	reqs = list(/obj/item/food/meat/slab = 1)
 	result = /obj/item/food/sosjerky/healthy
