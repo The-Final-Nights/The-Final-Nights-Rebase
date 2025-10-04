@@ -1,7 +1,7 @@
 /obj/structure/food_cart
 	name = "food cart"
 	desc = "Ding-aling ding dong. Get your cholesterine!"
-	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
+	icon = 'modular_darkpack/modules/food/icons/food_cart.dmi'
 	icon_state = "vat1"
 	density = TRUE
 	anchored = TRUE
