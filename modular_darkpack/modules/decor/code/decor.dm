@@ -57,6 +57,10 @@
 /obj/effect/decal/lamplight
 	alpha = 0
 
+// TODO: [Rebase] Fix lol.
+/obj/effect/decal/lamplight/NeverShouldHaveComeHere(turf/here_turf)
+	return FALSE
+
 /obj/effect/decal/lamplight/Initialize(mapload)
 	. = ..()
 	set_light(4, 3, "#ffde9b")
