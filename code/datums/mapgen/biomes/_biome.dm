@@ -182,7 +182,7 @@
 /datum/biome/mudlands
 	turf_type = /turf/open/misc/dirt/vamp
 	flora_types = list(
-		/obj/structure/small_vamprocks = 1,
+		/obj/structure/small_vamprocks = 2,
 		/obj/structure/vamprocks = 1,
 		/obj/structure/big_vamprocks = 1,
 	)
@@ -195,7 +195,6 @@
 		/obj/structure/flora/tree/vamp/pine = 1,
 		/obj/structure/small_vamprocks = 1,
 		/obj/structure/vamprocks = 1,
-		/obj/structure/big_vamprocks = 1,
 	)
 	flora_density = 50
 
@@ -206,7 +205,6 @@
 		/obj/structure/flora/tree/vamp/pine = 2,
 		/obj/structure/small_vamprocks = 1,
 		/obj/structure/vamprocks = 1,
-		/obj/structure/big_vamprocks = 1,
 	)
 	flora_density = 40
 

@@ -1,8 +1,11 @@
 /obj/structure/closet/crate/bin
 	desc = "A trash bin, place your trash here for the janitor to collect."
 	name = "trash bin"
-	icon_state = "trashbin"
-	base_icon_state = "trashbin"
+	// DARKPACK EDIT CHANGE START - DECOR
+	icon_state = "largebins"
+	base_icon_state = "largebin"
+	icon = 'modular_darkpack/modules/decor/icons/crates.dmi'
+	// DARKPACK EDIT CHANGE END - DECOR
 	open_sound = 'sound/effects/bin/bin_open.ogg'
 	close_sound = 'sound/effects/bin/bin_close.ogg'
 	anchored = TRUE
