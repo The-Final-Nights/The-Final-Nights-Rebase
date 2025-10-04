@@ -1623,6 +1623,7 @@
 /area/vtm/interior/shop)
 "ON" = (
 /obj/machinery/oven,
+/obj/machinery/light/directional/north,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "OO" = (
@@ -1817,7 +1818,8 @@
 /area/vtm/interior/shop)
 "TY" = (
 /obj/structure/rack/food{
-	dir = 4
+	dir = 4;
+	pixel_x = 7
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
@@ -4478,7 +4480,7 @@ GF
 GF
 Hp
 Dw
-OL
+oW
 uL
 NR
 NR
