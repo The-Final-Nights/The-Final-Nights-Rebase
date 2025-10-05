@@ -2,7 +2,7 @@
 	name = "strange plushie"
 	desc = "Voiding..."
 	icon_state = "argemia"
-	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
+	icon = 'modular_darkpack/modules/toys/icons/plushes.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 
