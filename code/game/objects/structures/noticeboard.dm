@@ -3,7 +3,7 @@
 /obj/structure/noticeboard
 	name = "notice board"
 	desc = "A board for pinning important notices upon. It is made of the finest Spanish cork."
-	icon = 'icons/obj/wallmounts.dmi'
+	icon = 'modular_darkpack/master_files/icons/obj/wallmounts.dmi' // DARKPACK EDIT CHANGE
 	icon_state = "noticeboard"
 	density = FALSE
 	anchored = TRUE
@@ -102,7 +102,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/noticeboard, 32)
 /obj/structure/noticeboard/update_overlays()
 	. = ..()
 	if(notices)
-		. += "notices_[notices]"
+		. += "notices_[clamp(notices, 1, 5)]" // DARKPACK EDIT CHANGE - fix the sprites and add 3 more states so we can remove the clamp
 
 /**
  * Removes an item from the notice board
