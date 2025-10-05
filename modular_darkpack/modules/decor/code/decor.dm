@@ -167,7 +167,7 @@
 /obj/structure/closet/crate/dumpster
 	name = "dumpster"
 	desc = "Holds garbage inside."
-	icon = 'modular_darkpack/modules/decor/icons/crates.dmi'
+	icon = 'modular_darkpack/master_files/icons/obj/storage/crates32x32.dmi'
 	icon_state = "garbage"
 	base_icon_state = "garbage"
 	plane = GAME_PLANE
