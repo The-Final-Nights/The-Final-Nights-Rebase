@@ -258,7 +258,6 @@
 		/obj/item/toy/plush/horse,
 		/obj/item/toy/plush/monkey,
 		/obj/item/toy/plush/goatplushie, 	// DARKPACK EDIT ADD - TOYS - Plushes.dm addition for mapping
-		/obj/item/toy/plush/tzi,			// DARKPACK EDIT ADD - TOYS - Plushes.dm addition for mapping
 	)
 
 /obj/effect/spawner/random/entertainment/plushie_delux
@@ -286,7 +285,6 @@
 		/obj/item/toy/plush/shark = 3,
 		/obj/item/toy/plush/unicorn = 3,
 		/obj/item/toy/plush/monkey = 3,
-		/obj/item/toy/plush/tzi = 3,			// DARKPACK EDIT ADD - TOYS - Plushes.dm addition for mapping
 		// super rare plushies
 		/obj/item/toy/plush/bubbleplush = 2,
 		/obj/item/toy/plush/ratplush = 2,
