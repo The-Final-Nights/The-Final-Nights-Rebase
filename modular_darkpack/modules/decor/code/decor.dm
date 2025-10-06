@@ -125,7 +125,7 @@
 /obj/structure/trafficlight
 	name = "traffic light"
 	desc = "Shows when road is free or not."
-	icon = 'modular_darkpack/modules/deprecated/icons/lamppost.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/lamppost.dmi'
 	icon_state = "traffic"
 	layer = SPACEVINE_LAYER
 	pixel_w = -32
