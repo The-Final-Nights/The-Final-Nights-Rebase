@@ -195,7 +195,7 @@
 	desc = "Use vitae in your blood to heal your wounds."
 	button_icon_state = "bloodheal"
 	button_icon = 'modular_darkpack/modules/deprecated/icons/ui/actions.dmi'
-	background_icon_state = "discipline"
+	background_icon_state = "bg_discipline"
 	icon_icon = 'modular_darkpack/modules/deprecated/icons/ui/actions.dmi'
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 	vampiric = TRUE
