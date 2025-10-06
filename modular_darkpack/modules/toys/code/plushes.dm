@@ -2,8 +2,8 @@
 	name = "strange plushie"
 	desc = "Voiding..."
 	icon_state = "argemia"
-	icon = 'modular_darkpack/modules/toys/icons/plushes.dmi'
-	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
+	icon = 'modular_darkpack/modules/toys/icons/toys.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/toys/icons/toys-onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/toy/plush/argemia/microwave_act(obj/machinery/microwave/microwave_source, mob/microwaver, randomize_pixel_offset)
@@ -16,7 +16,7 @@
 
 /obj/item/toy/plush/goatplushie
 	name = "strange goat plushie"
-	icon = 'modular_darkpack/modules/toys/icons/plushes.dmi'
+	icon = 'modular_darkpack/modules/toys/icons/toys.dmi'
 	icon_state = "goat"
 	desc = "Despite its cuddly appearance and plush nature, it will beat you up all the same. Goats never change."
 	squeak_override = list('sound/items/weapons/punch1.ogg'=1)
@@ -24,7 +24,7 @@
 /obj/item/toy/plush/tzi
 	name = "wretched creature"
 	desc = "A horrid flesh-thing with a still functioning brain. Perfect for working intricate meat contraptions!"
-	icon = 'modular_darkpack/modules/toys/icons/plushes.dmi'
+	icon = 'modular_darkpack/modules/toys/icons/toys.dmi'
 	icon_state = "plushtzi"
 	attack_verb_continuous = list("tortures", "scourges")
 	attack_verb_simple = list("torture", "scourge")
