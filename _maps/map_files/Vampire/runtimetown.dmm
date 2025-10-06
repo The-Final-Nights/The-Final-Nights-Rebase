@@ -25,7 +25,7 @@
 /area/vtm/outside/pacificheights)
 "aW" = (
 /obj/structure/roofstuff/vent_end,
-/turf/open/misc/beach/vamp,
+/turf/open/floor/plating/concrete,
 /area/vtm/outside/pacificheights)
 "ba" = (
 /obj/structure/retail/clothing_store,
@@ -36,7 +36,7 @@
 /obj/structure/chair/greyscale{
 	dir = 8
 	},
-/turf/open/floor/plating/rough/cave,
+/turf/open/floor/iron/vaporwave,
 /area/vtm/outside/pacificheights)
 "bo" = (
 /obj/structure/table/wood,
@@ -161,6 +161,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 32
 	},
+/obj/structure/table,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/techshop)
 "el" = (
@@ -312,7 +313,7 @@
 /turf/closed/wall/vampwall/painted,
 /area/vtm/interior/shop)
 "iH" = (
-/turf/open/floor/plating/rough/cave,
+/turf/open/floor/iron/vaporwave,
 /area/vtm/outside/pacificheights)
 "iM" = (
 /obj/effect/turf_decal/bordur/corner{
@@ -322,7 +323,7 @@
 /area/vtm/outside/pacificheights)
 "iQ" = (
 /obj/structure/roofstuff/vent/autotiling,
-/turf/open/misc/beach/vamp,
+/turf/open/floor/plating/concrete,
 /area/vtm/outside/pacificheights)
 "iV" = (
 /obj/darkpack_car/track{
@@ -390,7 +391,7 @@
 /obj/structure/roofstuff/vent_end{
 	dir = 4
 	},
-/turf/open/misc/beach/vamp,
+/turf/open/floor/plating/concrete,
 /area/vtm/outside/pacificheights)
 "kS" = (
 /turf/closed/wall/vampwall/market,
@@ -408,9 +409,7 @@
 /turf/open/misc/beach/vamp,
 /area/vtm/outside/pacificheights)
 "lu" = (
-/obj/effect/landmark/navigate_destination,
-/obj/effect/landmark/event_spawn,
-/turf/open/floor/plating/rough,
+/turf/open/floor/iron,
 /area/vtm/interior/techshop)
 "lN" = (
 /turf/open/floor/plating/sidewalk/poor,
@@ -886,11 +885,13 @@
 /area/vtm/anarch)
 "xZ" = (
 /obj/machinery/light/floor,
-/turf/open/floor/plating/rough,
+/obj/effect/landmark/event_spawn,
+/obj/effect/landmark/navigate_destination,
+/turf/open/floor/iron,
 /area/vtm/interior/techshop)
 "yc" = (
 /obj/structure/roofstuff/vent/south,
-/turf/open/misc/beach/vamp,
+/turf/open/floor/plating/concrete,
 /area/vtm/outside/pacificheights)
 "yk" = (
 /turf/closed/wall/vampwall/brick,
@@ -925,7 +926,7 @@
 /area/vtm/interior/shop)
 "yK" = (
 /obj/structure/vampdoor,
-/turf/open/floor/plating/rough/cave,
+/turf/open/floor/iron/vaporwave,
 /area/vtm/outside/pacificheights)
 "zc" = (
 /obj/structure/vampdoor,
@@ -1157,7 +1158,7 @@
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "debughouse"
 	},
-/turf/open/floor/plating/rough,
+/turf/open/floor/plating,
 /area/vtm/interior/techshop)
 "EF" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1170,11 +1171,11 @@
 /area/vtm/clinic)
 "EN" = (
 /obj/effect/landmark/error,
-/turf/open/floor/plating/rough/cave,
+/turf/open/floor/iron/vaporwave,
 /area/vtm/outside/pacificheights)
 "ES" = (
 /obj/structure/roofstuff/vent,
-/turf/open/misc/beach/vamp,
+/turf/open/floor/plating/concrete,
 /area/vtm/outside/pacificheights)
 "ET" = (
 /obj/structure/vampdoor/camarilla{
@@ -1252,7 +1253,7 @@
 /area/vtm/interior/shop)
 "Gw" = (
 /obj/machinery/light/directional/west,
-/turf/open/floor/plating/rough/cave,
+/turf/open/floor/iron/vaporwave,
 /area/vtm/outside/pacificheights)
 "Gz" = (
 /mob/living/carbon/human/npc/shop,
@@ -1325,7 +1326,7 @@
 /obj/item/paper{
 	default_raw_text = "Error room!!"
 	},
-/turf/open/floor/plating/rough/cave,
+/turf/open/floor/iron/vaporwave,
 /area/vtm/outside/pacificheights)
 "Hh" = (
 /obj/darkpack_car/rand{
@@ -1475,6 +1476,9 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
+"Kq" = (
+/turf/open/floor/plating/concrete,
+/area/vtm/outside/pacificheights)
 "Kt" = (
 /obj/structure/table/wood,
 /obj/structure/retail/pharmacy,
@@ -1585,7 +1589,7 @@
 /obj/structure/roofstuff/vent_end{
 	dir = 8
 	},
-/turf/open/misc/beach/vamp,
+/turf/open/floor/plating/concrete,
 /area/vtm/outside/pacificheights)
 "Nw" = (
 /obj/machinery/light/directional/north,
@@ -1714,7 +1718,7 @@
 /area/vtm/clinic)
 "Py" = (
 /obj/machinery/light/directional/east,
-/turf/open/floor/plating/rough/cave,
+/turf/open/floor/iron/vaporwave,
 /area/vtm/outside/pacificheights)
 "PO" = (
 /turf/open/floor/plating/rough,
@@ -3101,9 +3105,9 @@ pN
 Id
 Id
 Id
-Id
-Id
-Id
+lu
+lu
+lu
 Id
 Id
 Ev
@@ -3169,9 +3173,9 @@ pN
 Id
 Id
 Id
-Id
+lu
 xZ
-Id
+lu
 Id
 Id
 Ev
@@ -3237,9 +3241,9 @@ bC
 Id
 Id
 Id
-Id
 lu
-Id
+lu
+lu
 Id
 Id
 Ev
@@ -5269,10 +5273,10 @@ GF
 (47,1,1) = {"
 GF
 sb
-NR
-NR
+Kq
+Kq
 iQ
-NR
+Kq
 ES
 kM
 NR
@@ -5337,12 +5341,12 @@ GF
 (48,1,1) = {"
 GF
 sb
-NR
-NR
+Kq
+Kq
 iQ
 iQ
 iQ
-NR
+Kq
 NR
 fw
 NR
@@ -5405,12 +5409,12 @@ GF
 (49,1,1) = {"
 GF
 sb
-NR
-NR
+Kq
+Kq
 Nu
-NR
+Kq
 Nu
-NR
+Kq
 NR
 NR
 NR
@@ -5473,8 +5477,8 @@ GF
 (50,1,1) = {"
 GF
 sb
-NR
-NR
+Kq
+Kq
 NR
 NR
 NR
@@ -5541,7 +5545,7 @@ GF
 (51,1,1) = {"
 GF
 sb
-NR
+Kq
 aW
 NR
 NR
@@ -5677,7 +5681,7 @@ GF
 (53,1,1) = {"
 GF
 sb
-NR
+Kq
 kM
 NR
 NR
