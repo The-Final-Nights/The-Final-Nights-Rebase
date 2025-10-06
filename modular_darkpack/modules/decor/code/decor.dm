@@ -57,6 +57,10 @@
 /obj/effect/decal/lamplight
 	alpha = 0
 
+// TODO: [Rebase] Fix lol.
+/obj/effect/decal/lamplight/NeverShouldHaveComeHere(turf/here_turf)
+	return FALSE
+
 /obj/effect/decal/lamplight/Initialize(mapload)
 	. = ..()
 	set_light(4, 3, "#ffde9b")
@@ -163,8 +167,9 @@
 /obj/structure/closet/crate/dumpster
 	name = "dumpster"
 	desc = "Holds garbage inside."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/crates.dmi'
 	icon_state = "garbage"
+	base_icon_state = "garbage"
 	plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -290,23 +295,6 @@
 		//Adds the component only once. We do it here & not in Initialize(mapload) because there are tons of windows & we don't want to add to their init times
 		LoadComponent(/datum/component/leanable, dropped)
 
-/obj/structure/vampcar
-	name = "car"
-	desc = "It drives."
-	icon = 'modular_darkpack/modules/deprecated/icons/cars.dmi'
-	icon_state = "taxi"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	pixel_w = -16
-
-/obj/structure/vampcar/Initialize(mapload)
-	. = ..()
-	var/atom/movable/M = new(get_step(loc, EAST))
-	M.set_density(TRUE)
-	M.anchored = TRUE
-	dir = pick(NORTH, SOUTH, WEST, EAST)
-
 /obj/structure/roadblock
 	name = "\improper road block"
 	desc = "Protects places from walking in."
@@ -318,31 +306,6 @@
 
 /obj/structure/roadblock/alt
 	icon_state = "barrier"
-
-/obj/machinery/light/prince
-	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
-
-/obj/machinery/light/prince/ghost
-
-/obj/machinery/light/prince/ghost/Initialize(mapload)
-	. = ..()
-	RegisterSignal(src, COMSIG_ATOM_ENTERED, PROC_REF(jumpscare))
-
-/obj/machinery/light/prince/ghost/proc/jumpscare(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-	SIGNAL_HANDLER
-
-	if(ishuman(arrived))
-		var/mob/living/L = arrived
-		if(L.client)
-			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
-			s.set_up(5, 1, get_turf(src))
-			s.start()
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/explode.ogg', 100, TRUE)
-			qdel(src)
-
-/obj/machinery/light/prince/broken
-	status = LIGHT_BROKEN
-	icon_state = "tube-broken"
 
 /obj/effect/decal/painting
 	name = "painting"
@@ -529,93 +492,11 @@
 	pixel_w = -24
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
-/obj/structure/fuelstation
-	name = "fuel station"
-	desc = "Fuel your car here. 50 dollars per 1000 units."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "fuelstation"
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	var/stored_money = 0
-
-// TODO: [Rebase] - Refactor into signal handler
-/*
-/obj/structure/fuelstation/AltClick(mob/user)
-	if(stored_money)
-		say("Money refunded.")
-		for(var/i in 1 to stored_money)
-			new /obj/item/stack/dollar(loc)
-		stored_money = 0
-*/
-
-/obj/structure/fuelstation/examine(mob/user)
-	. = ..()
-	. += "<b>Balance</b>: [stored_money] dollars"
-
-// TODO: [Rebase] - Requires /obj/item/gas_can
-/*
-/obj/structure/fuelstation/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/stack/dollar))
-		var/obj/item/stack/dollar/dolla = I
-		stored_money += dolla.get_item_credit_value()
-		to_chat(user, span_notice("You insert [dolla.get_item_credit_value()] dollars into [src]."))
-		qdel(I)
-		say("Payment received.")
-	if(istype(I, /obj/item/gas_can))
-		var/obj/item/gas_can/G = I
-		if(G.stored_gasoline < 1000 && stored_money)
-			var/gas_to_dispense = min(stored_money*20, 1000-G.stored_gasoline)
-			var/money_to_spend = round(gas_to_dispense/20)
-			G.stored_gasoline = min(1000, G.stored_gasoline+gas_to_dispense)
-			stored_money = max(0, stored_money-money_to_spend)
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/gas_fill.ogg', 50, TRUE)
-			to_chat(user, span_notice("You fill [I]."))
-			say("Gas filled.")
-*/
-
-/obj/structure/bloodextractor
-	name = "blood extractor"
-	desc = "Extract blood in packs."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "bloodextractor"
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	var/last_extracted = 0
-
 /obj/structure/reagent_dispensers/cleaningfluid
 	name = "cleaning fluid tank"
 	desc = "A container filled with cleaning fluid."
 	reagent_id = /datum/reagent/space_cleaner
 	icon_state = "water"
-
-/*
-/mob/living/carbon/human/MouseDrop(atom/over_object)
-	. = ..()
-	if(istype(over_object, /obj/structure/bloodextractor))
-		if(get_dist(src, over_object) < 2)
-			var/obj/structure/bloodextractor/V = over_object
-			if(!buckled)
-				V.visible_message(span_warning("Buckle [src] fist!"))
-			if(bloodpool < 2)
-				V.visible_message(span_warning("[V] can't find enough blood in [src]!"))
-				return
-			if(iskindred(src))
-				if(bloodpool < 4)
-					V.visible_message(span_warning("[V] can't find enough blood in [src]!"))
-					return
-			if(V.last_extracted+1200 > world.time)
-				V.visible_message(span_warning("[V] isn't ready!"))
-				return
-			V.last_extracted = world.time
-			if(!iskindred(src))
-				new /obj/item/drinkable_bloodpack(get_step(V, SOUTH))
-				bloodpool = max(0, bloodpool-2)
-			else
-				new /obj/item/drinkable_bloodpack/vitae(get_step(V, SOUTH))
-				bloodpool = max(0, bloodpool-4)
-*/
 
 /obj/underplate
 	name = "underplate"
@@ -755,25 +636,36 @@
 	pixel_z = -16
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "baali"
-	var/total_corpses = 0
+	var/rune_in_use = FALSE
 
-// TODO: [Rebase] - Requires /mob/living/simple_animal/hostile/baali_guard
-/*
 /obj/effect/decal/baalirune/attack_hand(mob/living/user)
 	. = ..()
-	var/mob/living/carbon/human/H = locate() in get_turf(src)
-	if(H)
-		if(H.stat == DEAD)
-			H.gib()
-			total_corpses += 1
-			if(total_corpses >= 20)
-				total_corpses = 0
-				playsound(get_turf(src), 'sound/effects/magic/demon_dies.ogg', 100, TRUE)
-				new /mob/living/simple_animal/hostile/baali_guard(get_turf(src))
-//			var/datum/preferences/P = GLOB.preferences_datums[ckey(user.key)]
-//			if(P)
-//				P.exper = min(calculate_mob_max_exper(user), P.exper+15)
-*/
+	if(rune_in_use)
+		return
+
+	var/list/myriad_targets = list()
+	for(var/mob/living/target in loc)
+		if(!IS_DEAD_OR_INCAP(target))
+			myriad_targets += target
+
+	if(length(myriad_targets) < 20)
+		visible_message(span_warning("The markings pulse with a small flash of red light, then fall dark."))
+		var/oldcolor = color
+		color = rgb(255, 0, 0)
+		animate(src, color = oldcolor, time = 5)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_atom_colour)), 0.5 SECONDS)
+		return
+
+	rune_in_use = TRUE
+	visible_message(span_warning("[src] pulses blood red!"))
+	color = RUNE_COLOR_DARKRED
+	playsound(get_turf(src), 'sound/effects/magic/demon_dies.ogg', 100, TRUE)
+	new /mob/living/basic/baali_guard(get_turf(src))
+	animate(src, color = initial(color), time = 0.5 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_atom_colour)), 0.5 SECONDS)
+	for(var/mob/living/dead_victim as anything in myriad_targets)
+		dead_victim.gib(DROP_ALL_REMAINS)
+	rune_in_use = FALSE
 
 /obj/structure/vampstatue
 	name = "statue"
@@ -827,63 +719,6 @@
 	pixel_z = -16
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "kover"
-
-/obj/structure/vamprocks
-	name = "rock"
-	desc = "Rokk."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "rock1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-
-/obj/structure/vamprocks/Initialize(mapload)
-	. = ..()
-	icon_state = "rock[rand(1, 9)]"
-
-/obj/structure/small_vamprocks
-	name = "rock"
-	desc = "Rokk."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "smallrock1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-
-/obj/structure/small_vamprocks/Initialize(mapload)
-	. = ..()
-	icon_state = "smallrock[rand(1, 6)]"
-
-/obj/structure/big_vamprocks
-	name = "rock"
-	desc = "Rokk."
-	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
-	icon_state = "rock1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	pixel_w = -16
-
-/obj/structure/big_vamprocks/Initialize(mapload)
-	. = ..()
-	icon_state = "rock[rand(1, 4)]"
-
-/obj/structure/stalagmite
-	name = "stalagmite"
-	desc = "Rokk."
-	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
-	icon_state = "stalagmite1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	pixel_w = -16
-
-/obj/structure/stalagmite/Initialize(mapload)
-	. = ..()
-	icon_state = "stalagmite[rand(1, 5)]"
 
 /obj/were_ice
 	name = "ice block"

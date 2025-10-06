@@ -54,9 +54,9 @@
 		sell_component.RemoveComponent()
 */
 
-/obj/item/katana/vamp/fire/afterattack(atom/target, mob/living/carbon/user, proximity)
+/obj/item/katana/vamp/fire/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if (isliving(target) && proximity)
+	if(isliving(target))
 		var/mob/living/burnt_mob = target
 		burnt_mob.apply_damage(15, BURN)
 
@@ -76,9 +76,9 @@
 		sell_component.RemoveComponent()
 	*/
 
-/obj/item/katana/vamp/blood/afterattack(atom/target, mob/living/carbon/user, proximity)
+/obj/item/katana/vamp/blood/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if (isliving(target) && proximity)
+	if(isliving(target))
 		var/mob/living/burnt_mob = target
 		burnt_mob.apply_damage(15, AGGRAVATED)
 
@@ -185,6 +185,7 @@
 	desc = "Can be used as a tool or as a weapon."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "pipe"
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	force = 20
 	wound_bonus = 10
 	throwforce = 10
@@ -215,9 +216,7 @@
 	masquerade_violating = TRUE
 	obj_flags = NONE
 
-/obj/item/knife/vamp/gangrel/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/knife/vamp/gangrel/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.apply_damage(30, AGGRAVATED)
@@ -230,9 +229,7 @@
 	icon_state = "lasombra"
 	masquerade_violating = TRUE
 
-/obj/item/knife/vamp/gangrel/lasombra/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/knife/vamp/gangrel/lasombra/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.apply_damage(16, AGGRAVATED)
@@ -243,6 +240,7 @@
 	desc = "Reap what they have sowed."
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "handsickle"
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	force = 30
 	wound_bonus = -5
 	throwforce = 15
@@ -266,9 +264,7 @@
 	icon_state = "falling"
 	inhand_icon_state = "disintegrate"
 
-/obj/item/melee/touch_attack/werewolf/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/melee/touch_attack/werewolf/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.AdjustKnockdown(4 SECONDS)
@@ -388,6 +384,7 @@
 	icon_state = "red_brick"
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	w_class = WEIGHT_CLASS_NORMAL
 	armour_penetration = 0
 	throwforce = 15

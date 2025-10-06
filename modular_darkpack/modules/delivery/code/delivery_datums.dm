@@ -7,7 +7,7 @@
 	var/list/contract_takers = list()
 	var/area/vtm/interior/delivery_garage/garage_area
 	var/obj/effect/landmark/delivery_truck_beacon/truck_spawner
-	var/obj/vampire_car/delivery_truck/active_truck
+	var/obj/darkpack_car/delivery_truck/active_truck
 	var/list/spawned_keys = list()
 	var/list/delivery_dispensers = list()
 	var/list/delivery_receivers = list()
@@ -339,7 +339,7 @@
 
 
 /datum/delivery_storage/
-	var/obj/vampire_car/delivery_truck/owner
+	var/obj/darkpack_car/delivery_truck/owner
 	var/capacity = 20
 	var/search_delay = 1 SECONDS
 	var/list/user_list = list()

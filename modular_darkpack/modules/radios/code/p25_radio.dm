@@ -615,7 +615,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 
 	return ITALICS | REDUCE_RANGE
 
-/obj/item/p25radio/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
+/obj/item/p25radio/Hear(atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	. = ..()
 	if(!can_receive(speaker, message_mods))
 		return
@@ -632,7 +632,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 		to_chat(M, formatted)
 	playsound(src, 'sound/effects/radioclick.ogg', 30, FALSE)
 
-/obj/item/p25radio/AltClick(mob/user)
+/obj/item/p25radio/click_alt(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 	powered = !powered
@@ -689,7 +689,7 @@ GLOBAL_LIST_EMPTY(p25_transceivers)
 		return "Patrol callsign must be between 100 - 499"
 	return TRUE
 
-/obj/item/p25radio/police/AltClick(mob/user)
+/obj/item/p25radio/police/click_alt(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE))
 		return
 

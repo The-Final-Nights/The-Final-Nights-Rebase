@@ -73,6 +73,8 @@
 			if(H.Myself)
 				H.Myself.phone_number = number
 
+	AddComponent(/datum/component/violation_observer, FALSE)
+
 /obj/item/vamp/phone/Destroy()
 	GLOB.phone_numbers_list -= number
 	GLOB.phones_list -= src
@@ -98,7 +100,7 @@
 		ui = new(user, src, interface, interface)
 		ui.open()
 
-/obj/item/vamp/phone/AltClick(mob/user)
+/obj/item/vamp/phone/click_alt(mob/user)
 	if(can_fold && !closed)
 		closed = TRUE
 		icon_state = folded_state
@@ -738,7 +740,7 @@
 /obj/item/vamp/phone/street
 	desc = "An ordinary street payphone"
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/props.dmi')
 	icon_state = "payphone"
 	anchored = TRUE
 	number = "1447"
