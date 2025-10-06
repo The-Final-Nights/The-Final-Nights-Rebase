@@ -1,6 +1,6 @@
 /datum/species/human/garou
 	name = "Garou"
-	plural_form = "garou"
+	plural_form = "Garou"
 	id = SPECIES_GAROU
 	examine_limb_id = SPECIES_HUMAN
 	inherent_traits = list(
