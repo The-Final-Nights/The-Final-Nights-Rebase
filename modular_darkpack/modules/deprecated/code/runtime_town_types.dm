@@ -35,5 +35,5 @@
 	icon_state = "computerprince"
 
 /obj/item/vamp/phone/street
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/phones/icons/phone.dmi'
 	icon_state = "payphone"
