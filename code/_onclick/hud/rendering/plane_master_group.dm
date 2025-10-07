@@ -112,9 +112,11 @@
 /datum/plane_master_group/proc/build_planes_offset(datum/hud/source, new_offset, use_scale = TRUE)
 	// Check if this feature is disabled for the client, in which case don't use scale.
 	var/mob/our_mob = our_hud?.mymob
+	/*	// DARKPACK REMOVAL -- Offsets Z levels to give the appearance of building 'stacking' -- this will always be toggled off
 	if(!our_mob?.client?.prefs?.read_preference(/datum/preference/toggle/multiz_parallax))
 		use_scale = FALSE
-
+	*/ // DARKPACK REMOVAL END
+	use_scale = FALSE
 	// No offset? piss off
 	if(!SSmapping.max_plane_offset)
 		return
