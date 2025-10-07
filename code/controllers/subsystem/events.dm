@@ -203,10 +203,8 @@ GLOBAL_LIST(holidays)
 
 	if(GLOB.holidays.len)
 		shuffle_inplace(GLOB.holidays)
-		/* DARKPACK EDIT REMOVAL - No longer needed as we dont set out "station" name based on the holiday
 		// regenerate station name because holiday prefixes.
 		set_station_name(new_station_name())
 		world.update_status()
-		*/
 
 	return TRUE
