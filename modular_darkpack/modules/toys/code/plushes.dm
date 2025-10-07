@@ -3,7 +3,7 @@
 	desc = "Voiding..."
 	icon_state = "argemia"
 	icon = 'modular_darkpack/modules/toys/icons/toys.dmi'
-	ONFLOOR_ICON_HELPER('modular_darkpack/modules/toys/icons/toys-onfloor.dmi')
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/toys/icons/toys_onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/toy/plush/argemia/microwave_act(obj/machinery/microwave/microwave_source, mob/microwaver, randomize_pixel_offset)
