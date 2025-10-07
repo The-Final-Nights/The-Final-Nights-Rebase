@@ -45,7 +45,7 @@
 	// Don't display us if we're below everything else yeah?
 	AddComponent(/datum/component/plane_hide_highest_offset)
 	color = list(0.9,0,0,0, 0,0.9,0,0, 0,0,0.9,0, 0,0,0,1, 0,0,0,0)
-	transform = matrix(1, 0, 0, 0, 1, -20)
+	transform = matrix(1, 0, 0, 0, 1, -20) // TFN ADDITION -- Offzets Z levels for the appearance of buildings having 'stacked' walls
 
 ///Contains most things in the game world
 /atom/movable/screen/plane_master/rendering_plate/game_world
