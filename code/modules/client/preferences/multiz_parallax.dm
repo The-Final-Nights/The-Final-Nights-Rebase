@@ -5,11 +5,9 @@
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "multiz_parallax"
 	savefile_identifier = PREFERENCE_PLAYER
-	default_value = FALSE // DARKPACK EDIT ADD - Default to disabled
 
 /datum/preference/toggle/multiz_parallax/apply_to_client(client/client, value)
 	// DARKPACK EDIT ADD - Force disabled
-	value = FALSE
 
 	// Update the plane master group's Z transforms.
 
