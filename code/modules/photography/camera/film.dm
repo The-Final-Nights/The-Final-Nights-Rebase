@@ -4,7 +4,7 @@
 /obj/item/camera_film
 	name = "film cartridge"
 	icon = 'modular_darkpack/master_files/icons/obj/art/camera.dmi' // DARKPACK EDIT CHANGE
-	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi') // DARKPACK EDIT ADD
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	inhand_icon_state = "electropack"
