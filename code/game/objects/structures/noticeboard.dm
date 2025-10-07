@@ -1,4 +1,4 @@
-#define MAX_NOTICES 8
+#define MAX_NOTICES 5 // DARKPACK EDIT CHANGE - Only have sprite state up to 5.
 
 /obj/structure/noticeboard
 	name = "notice board"
@@ -102,7 +102,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/noticeboard, 32)
 /obj/structure/noticeboard/update_overlays()
 	. = ..()
 	if(notices)
-		. += "notices_[clamp(notices, 1, 5)]" // DARKPACK EDIT CHANGE - fix the sprites and add 3 more states so we can remove the clamp
+		. += "notices_[clamp(notices, 1, MAX_NOTICES)]" // DARKPACK EDIT CHANGE
 
 /**
  * Removes an item from the notice board

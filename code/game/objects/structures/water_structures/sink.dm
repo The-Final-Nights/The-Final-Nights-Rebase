@@ -246,6 +246,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink/kitchen, (-16))
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
 	buildstacktype = null
 
+// DARKPACK EDIT ADD START
+// Please no more map varedits for this.
+/obj/structure/sink/basin
+	icon_state = "basin"
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink/basin, (-14))
+// DARKPACK EDIT ADD END
+
 /obj/structure/sinkframe
 	name = "sink frame"
 	icon = 'icons/obj/watercloset.dmi'
