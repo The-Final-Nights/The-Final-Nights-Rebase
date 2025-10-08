@@ -30,13 +30,13 @@
 		if(DOOR_CLOSING_FINISHED)
 			return 1.388 SECONDS
 
-// DARKPACK EDIT START
+// DARKPACK EDIT ADD START
 /obj/machinery/door/poddoor/shutters/topless
 	icon = 'modular_darkpack/master_files/icons/obj/doors/shutters_topless.dmi'
 
 /obj/machinery/door/poddoor/shutters/preopen/topless
 	icon = 'modular_darkpack/master_files/icons/obj/doors/shutters_topless.dmi'
-// DARKPACK EDIT END
+// DARKPACK EDIT ADD END
 
 /obj/machinery/door/poddoor/shutters/preopen
 	icon_state = "open"
