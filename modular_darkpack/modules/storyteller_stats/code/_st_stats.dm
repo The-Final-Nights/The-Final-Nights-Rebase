@@ -8,6 +8,9 @@
 	VAR_PROTECTED/score = 0
 	var/bonus_score = 0
 
+	var/xp_cost = 0
+	var/freebie_point_cost = 0
+
 	//if a stat affects the hp pool, recalculate the hp of the mob when changed.
 	var/affects_health_pool = FALSE
 

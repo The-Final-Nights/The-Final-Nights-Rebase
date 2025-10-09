@@ -3,3 +3,4 @@
 
 /datum/st_stat/pooled/willpower
 	name = "Willpower"
+	freebie_point_cost = FREEBIE_COST_WILLPOWER
