@@ -198,7 +198,7 @@
 	var/is_captain = IS_NOT_CAPTAIN
 	var/captain_sound = 'sound/announcer/notice/notice2.ogg'
 	// If we already have a captain, are they a "Captain" rank and are we allowing multiple of them to be assigned?
-	if(is_captain_job(job))
+	if(is_prince_job(job)) //DARKPACK EDIT, ORIGINAL: if(is_captain_job(job))
 		is_captain = IS_FULL_CAPTAIN
 		captain_sound = 'sound/announcer/announcement/announce.ogg'
 	// If we don't have an assigned cap yet, check if this person qualifies for some from of captaincy.

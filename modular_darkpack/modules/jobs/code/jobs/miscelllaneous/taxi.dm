@@ -1,0 +1,63 @@
+/datum/job/vampire/taxi
+	title = "Taxi Driver"
+	department_head = list("Justicar")
+	faction = "Vampire"
+	total_positions = 3
+	spawn_positions = 3
+	supervisors = " the Traditions"
+	selection_color = "#e3e3e3"
+
+	outfit = /datum/outfit/job/taxi
+
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_MINERAL_STOREROOM, ACCESS_THEATRE)
+	minimal_access = list(ACCESS_BAR, ACCESS_MINERAL_STOREROOM, ACCESS_THEATRE)
+	paycheck = PAYCHECK_EASY
+	paycheck_department = ACCOUNT_SRV
+	display_order = JOB_DISPLAY_ORDER_TAXI
+	exp_type_department = EXP_TYPE_SERVICES
+
+	allowed_species = list("Vampire", "Ghoul", "Human", "Werewolf", "Kuei-Jin")
+
+	v_duty = "Drive people in the city."
+	duty = "Drive people in the city."
+	minimal_masquerade = 0
+
+	allowed_clans = list(VAMPIRE_CLAN_FOLLOWERS_OF_SET, VAMPIRE_CLAN_SALUBRI, VAMPIRE_CLAN_BAALI, VAMPIRE_CLAN_BRUJAH, VAMPIRE_CLAN_TREMERE, VAMPIRE_CLAN_VENTRUE, VAMPIRE_CLAN_NOSFERATU, VAMPIRE_CLAN_GANGREL, VAMPIRE_CLAN_TOREADOR, VAMPIRE_CLAN_MALKAVIAN, VAMPIRE_CLAN_BANU_HAQIM, VAMPIRE_CLAN_GIOVANNI, VAMPIRE_CLAN_FOLLOWERS_OF_SET, VAMPIRE_CLAN_TZIMISCE, VAMPIRE_CLAN_LASOMBRA, VAMPIRE_CLAN_CAITIFF, VAMPIRE_CLAN_KIASYD, VAMPIRE_CLAN_CAPPADOCIAN)
+
+/datum/job/vampire/taxi/after_spawn(mob/living/H, mob/M, latejoin = FALSE)
+	..()
+	H.taxist = TRUE
+
+/datum/outfit/job/taxi
+	name = "Taxi Driver"
+	jobtype = /datum/job/vampire/taxi
+
+	id = /obj/item/cockclock
+	glasses = /obj/item/clothing/glasses/vampire/sun
+	uniform = /obj/item/clothing/under/vampire/suit
+	shoes = /obj/item/clothing/shoes/vampire
+	l_pocket = /obj/item/vamp/phone
+	r_pocket = /obj/item/vamp/keys/taxi
+	backpack_contents = list(/obj/item/passport=1, /obj/item/flashlight=1, /obj/item/card/credit=1, /obj/item/melee/vamp/tire=1)
+
+/datum/outfit/job/taxi/pre_equip(mob/living/carbon/human/H)
+	..()
+	if(H.clan)
+		if(H.gender == MALE)
+			shoes = /obj/item/clothing/shoes/vampire
+			if(H.clan.male_clothes)
+				uniform = H.clan.male_clothes
+		else
+			shoes = /obj/item/clothing/shoes/vampire/heels
+			if(H.clan.female_clothes)
+				uniform = H.clan.female_clothes
+	else
+		if(H.gender == MALE)
+			shoes = /obj/item/clothing/shoes/vampire
+			uniform = /obj/item/clothing/under/vampire/sport
+		else
+			shoes = /obj/item/clothing/shoes/vampire/heels
+			uniform = /obj/item/clothing/under/vampire/red
+
+/obj/effect/landmark/start/taxi
+	name = "Taxi Driver"

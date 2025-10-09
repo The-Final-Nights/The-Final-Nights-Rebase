@@ -348,11 +348,14 @@ export function JobsPage() {
       <Stack vertical fill>
         <Stack.Item mt={15}>
           <Stack fill g={1} className="PreferencesMenu__Jobs">
+            {
+            // DARKPACK EDIT END
+            }
             <Stack.Item>
               <Stack vertical>
                 <PriorityHeaders />
-                <Department department="Engineering" />
-                <Department department="Science" />
+                <Department department="Prince" />
+                <Department department="Camarilla" />
                 <Department department="Silicon" />
                 <Department department="Assistant" />
               </Stack>
@@ -360,7 +363,7 @@ export function JobsPage() {
             <Stack.Item mt={-5.9}>
               <Stack vertical>
                 <PriorityHeaders />
-                <Department department="Captain" />
+                <Department department="Captain"/>
                 <Department department="Service" />
                 <Department department="Cargo" />
               </Stack>
@@ -372,6 +375,9 @@ export function JobsPage() {
                 <Department department="Medical" />
               </Stack>
             </Stack.Item>
+            {
+            // DARKPACK EDIT END
+            }
           </Stack>
         </Stack.Item>
       </Stack>

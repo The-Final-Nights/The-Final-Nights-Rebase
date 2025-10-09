@@ -60,7 +60,7 @@
 		if(G.master)
 			dat += "<p>My Regnant is [G.master.real_name], I should obey their wants.<BR>"
 			if(G.master.clan)
-				if(G.master.clan.name != "Caitiff")
+				if(G.master.clan != VAMPIRE_CLAN_CAITIFF)
 					dat += "Regnant's clan is [G.master.clan], maybe I can try some of it's disciplines..."
 			dat += "</p>"
 		var/datum/bank_account/account = host.account_id ? SSeconomy.bank_accounts_by_id["[host.account_id]"] : null

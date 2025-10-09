@@ -89,10 +89,10 @@
 							BLOODBONDED.update_body()
 							if (H.clan.whitelisted)
 								if (!SSwhitelists.is_whitelisted(BLOODBONDED.ckey, H.clan.name))
-									if(H.clan.name == "True Brujah")
+									if(H.clan.name == VAMPIRE_CLAN_TRUE_BRUJAH)
 										BLOODBONDED.set_clan(/datum/vampire_clan/brujah)
 										to_chat(BLOODBONDED,span_warning(" You don't got that whitelist! Changing to the non WL Brujah"))
-									else if(H.clan.name == "Tzimisce")
+									else if(H.clan.name == VAMPIRE_CLAN_TZIMISCE)
 										BLOODBONDED.set_clan(/datum/vampire_clan/old_clan_tzimisce)
 										to_chat(BLOODBONDED,span_warning(" You don't got that whitelist! Changing to the non WL Old Tzmisce"))
 									else
