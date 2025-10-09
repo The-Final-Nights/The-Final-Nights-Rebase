@@ -62,6 +62,12 @@
 	///callback for after a kitten is born
 	var/datum/callback/post_birth_callback
 
+	// DARKPACK ADD START
+	bloodpool = 2
+	maxbloodpool = 2
+	// DARKPACK ADD END
+
+
 /datum/emote/cat
 	mob_type_allowed_typecache = /mob/living/basic/pet/cat
 	mob_type_blacklist_typecache = list()

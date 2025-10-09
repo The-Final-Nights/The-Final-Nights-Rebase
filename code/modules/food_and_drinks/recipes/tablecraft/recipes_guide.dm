@@ -9,6 +9,7 @@
 	)
 	result = /obj/item/knife/shiv
 	category = CAT_WEAPON_MELEE
+	non_craftable = TRUE
 	steps = list("Use cloth on a glass shard of any type")
 
 /datum/crafting_recipe/restraints

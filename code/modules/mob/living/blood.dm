@@ -342,6 +342,12 @@
 	for(var/datum/quirk/quirk as anything in quirks)
 		blood_data["quirks"] += quirk.type
 
+	// DARKPACK EDIT START - Vitae
+	blood_data["donor"] = WEAKREF(src)
+	blood_data["generation"] = generation
+	blood_data["clan"] = clan?.name
+	// DARKPACK EDIT END
+
 	return blood_data
 
 /mob/living/proc/get_bloodtype()
@@ -475,6 +481,9 @@
 /mob/living/proc/add_splatter_floor(turf/splatter_turf, small_drip = FALSE)
 	if (!splatter_turf)
 		splatter_turf = get_turf(src)
+
+	if (!splatter_turf)
+		return
 
 	// Check for husking and TRAIT_NOBLOOD
 	switch (can_bleed(BLOOD_COVER_TURFS))

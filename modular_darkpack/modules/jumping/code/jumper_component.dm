@@ -126,9 +126,7 @@
 	jumper.Stun(10)
 	shake_camera(jumper, 4, 3)
 
-	if(ishuman(jumper) && jumper.CheckEyewitness(jumper, jumper, 6, FALSE))
-		var/mob/living/carbon/human/human_jumper = jumper
-		human_jumper.adjust_masquerade(-1)
+	SEND_SIGNAL(jumper, COMSIG_MASQUERADE_VIOLATION)
 
 
 #undef JUMP_DELAY

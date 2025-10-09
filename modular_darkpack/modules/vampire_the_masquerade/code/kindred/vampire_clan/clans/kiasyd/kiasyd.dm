@@ -28,9 +28,6 @@
 	else if (!H.has_quirk(/datum/quirk/tower))
 		H.add_quirk(/datum/quirk/tower)
 
-	if (H.base_body_mod == FAT_BODY_WEIGHT)
-		H.set_body_weight(AVERAGE_BODY_WEIGHT)
-
 	var/obj/item/organ/eyes/night_vision/kiasyd/NV = new()
 	NV.Insert(H, TRUE, FALSE)
 

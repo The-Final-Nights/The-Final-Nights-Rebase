@@ -56,8 +56,7 @@
 					playsound(src, 'modular_darkpack/modules/blood_drinking/sounds/drinkblood1.ogg', 50, TRUE)
 					LV.visible_message(span_warning(span_bold("[src] bites [LV]'s neck!")), span_warning(span_bold("[src] bites your neck!")))
 				if(!HAS_TRAIT(src, TRAIT_BLOODY_LOVER))
-					if(src.CheckEyewitness(LV, src, 7, FALSE))
-						src.adjust_masquerade(-1)
+					SEND_SIGNAL(src, COMSIG_MASQUERADE_VIOLATION)
 				else
 					playsound(src, 'modular_darkpack/modules/blood_drinking/sounds/kiss.ogg', 50, TRUE)
 					LV.visible_message(span_italics(span_bold("[src] kisses [LV]!")), span_userlove(span_bold("[src] kisses you!")))

@@ -1,6 +1,4 @@
 /obj/item/bodypart
-	var/body_weight = AVERAGE_BODY_WEIGHT
-
 	///The current amount of aggravated damage the limb has
 	var/aggravated_dam = 0
 	/// Aggravated damage gets multiplied by this on receive_damage()
