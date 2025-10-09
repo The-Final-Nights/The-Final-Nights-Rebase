@@ -15,6 +15,7 @@
 
 /obj/item/storage/fancy
 	icon = 'icons/obj/food/containers.dmi'
+	abstract_type = /obj/item/storage/fancy
 	resistance_flags = FLAMMABLE
 	custom_materials = list(/datum/material/cardboard = SHEET_MATERIAL_AMOUNT)
 	/// Used by examine to report what this thing is holding.
@@ -175,6 +176,7 @@
 	open_status = FANCY_CONTAINER_ALWAYS_OPEN
 	contents_tag = "candle"
 	storage_type = /datum/storage/candle_box
+	custom_price = 8 // DARKPACK EDIT ADD
 
 ////////////
 //CIG PACK//
