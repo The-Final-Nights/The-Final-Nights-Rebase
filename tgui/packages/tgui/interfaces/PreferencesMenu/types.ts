@@ -178,13 +178,14 @@ export type PreferencesMenuData = {
   // DARKPACK EDIT ADD START
   stats: Record<string, number>;
 
-  staticStats: Record<
+  static_stats: Record<
     string,
     {
       name: string;
       desc: string;
-      maxScore: number;
+      max_score: number;
       category: string;
+      subcategory: string;
     }
   >;
   // DARKPACK EDIT ADD END
