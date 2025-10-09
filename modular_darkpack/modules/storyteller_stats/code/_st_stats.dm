@@ -8,6 +8,7 @@
 	var/category = "Unknown"
 	var/subcategory = "Unknown"
 	VAR_PROTECTED/score = 0
+	var/min_score = 0
 	var/max_score = 5
 	var/bonus_score = 0
 
@@ -26,8 +27,41 @@
 	else
 		return score
 
+/datum/st_stat/proc/can_set_score(amount)
+	var/new_score = score + amount
+	if((new_score < min_score) || (new_score > max_score))
+		return FALSE
+	return TRUE
+
 /datum/st_stat/proc/set_score(amount)
-	score = amount
+	if(!can_set_score(amount))
+		return FALSE
+	score = clamp(amount, min_score, max_score)
+	return TRUE
+
+/datum/st_stat/proc/can_increase_score(amount)
+	var/new_score = score + amount
+	if(new_score > max_score)
+		return FALSE
+	return TRUE
+
+/datum/st_stat/proc/increase_score(amount)
+	if(!can_increase_score(amount))
+		return FALSE
+	score = clamp(score + amount, min_score, max_score)
+	return TRUE
+
+/datum/st_stat/proc/can_decrease_score(amount)
+	var/new_score = score - amount
+	if(new_score < min_score)
+		return FALSE
+	return TRUE
+
+/datum/st_stat/proc/decrease_score(amount)
+	if(!can_decrease_score(amount))
+		return FALSE
+	score = clamp(score - amount, min_score, max_score)
+	return TRUE
 
 /datum/st_stat/proc/update_modifiers()
 	SHOULD_NOT_OVERRIDE(TRUE)
