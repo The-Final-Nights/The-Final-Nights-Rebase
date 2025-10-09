@@ -5,8 +5,8 @@
 
 	var/name = ""
 	var/description = ""
-	var/category
-	var/subcategory
+	var/category = "Unknown"
+	var/subcategory = "Unknown"
 	VAR_PROTECTED/score = 0
 	var/max_score = 5
 	var/bonus_score = 0
