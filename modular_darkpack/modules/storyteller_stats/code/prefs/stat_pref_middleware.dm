@@ -38,7 +38,7 @@
 	tainted = TRUE
 
 /datum/preference_middleware/stats/proc/increase_stat(list/params, mob/user)
-	var/stat_path = params["stat"]
+	var/stat_path = text2path(params["stat"])
 	var/datum/st_stat/public_stat = GLOB.public_storyteller_stats[stat_path]
 	if(!public_stat)
 		return
@@ -47,7 +47,7 @@
 		tainted = TRUE
 
 /datum/preference_middleware/stats/proc/decrease_stat(list/params, mob/user)
-	var/stat_path = params["stat"]
+	var/stat_path = text2path(params["stat"])
 	var/datum/st_stat/public_stat = GLOB.public_storyteller_stats[stat_path]
 	if(!public_stat) // We dont acctually need public stat for this one, its just sanity to make sure you cant adjust non-existant stats
 		return

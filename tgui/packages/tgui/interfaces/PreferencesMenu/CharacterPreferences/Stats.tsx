@@ -27,7 +27,7 @@ export function StatsPage() {
       {Object.entries(grouped).map(([category, subcats]) => (
         <Stack.Item key={category}>
           <b>{category}</b>
-          <Stack vertical>
+          <Stack>
             {Object.entries(subcats).map(([subcat, paths]) => (
               <Stack.Item key={subcat} style={{ marginLeft: '1em' }}>
                 <Stack vertical>
