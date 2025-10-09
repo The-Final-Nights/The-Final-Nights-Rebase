@@ -1,2 +1,2 @@
 /datum/st_stat/ability
-	base_type = /datum/st_stat/ability
+	abstract_type = /datum/st_stat/ability

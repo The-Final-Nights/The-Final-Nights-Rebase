@@ -22,9 +22,9 @@ SUBSYSTEM_DEF(city_time)
 	var/shifting_colors = FALSE
 
 /datum/controller/subsystem/city_time/Initialize(start_timeofday)
-	. = ..()
 	time_till_daytime = CONFIG_GET(number/time_till_day)
 	time_till_roundend = CONFIG_GET(number/time_till_roundend)
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/city_time/fire()
 	// TODO: [Rebase] - Move XP gains onto its own subsystem

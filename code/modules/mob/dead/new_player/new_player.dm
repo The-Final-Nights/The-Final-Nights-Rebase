@@ -237,6 +237,10 @@
 
 	if((job.job_flags & JOB_ASSIGN_QUIRKS) && humanc && CONFIG_GET(flag/roundstart_traits))
 		SSquirks.AssignQuirks(humanc, humanc.client)
+	// DARKPACK EDIT ADD - STORYTELLR_STATS
+	if(humanc)
+		SSstats.apply_stats_from_prefs(humanc, humanc.client)
+	// DARKPACK EDIT END
 
 	if(humanc) // Quirks may change manifest datapoints, so inject only after assigning quirks
 		GLOB.manifest.inject(humanc)

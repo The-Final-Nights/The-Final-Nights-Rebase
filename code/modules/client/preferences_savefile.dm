@@ -339,6 +339,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Quirks
 	all_quirks = save_data?["all_quirks"]
+	// DARKPACK EDIT ADD - STORYTELLR_STATS
+	storyteller_stats = save_data?["storyteller_stats"]
+	// DARKPACK EDIT END
 
 	//try to fix any outdated data if necessary
 	//preference updating will handle saving the updated data for us.
@@ -349,6 +352,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	randomise = SANITIZE_LIST(randomise)
 	job_preferences = SANITIZE_LIST(job_preferences)
 	all_quirks = SANITIZE_LIST(all_quirks)
+	storyteller_stats = SANITIZE_LIST(storyteller_stats) // DARKPACK EDIT ADD - STORYTELLR_STATS
 
 	//Validate job prefs
 	for(var/j in job_preferences)
@@ -356,6 +360,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			job_preferences -= j
 
 	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks))
+	storyteller_stats = SSstats.sanitize_stat_list(storyteller_stats) // DARKPACK EDIT ADD - STORYTELLR_STATS
 	validate_quirks()
 
 	return TRUE
@@ -397,6 +402,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Quirks
 	save_data["all_quirks"] = all_quirks
+	// DARKPACK EDIT ADD - TTRPG Preferences
+	save_data["storyteller_stats"] = storyteller_stats
+	// DARKPACK EDIT END
 
 	return TRUE
 
