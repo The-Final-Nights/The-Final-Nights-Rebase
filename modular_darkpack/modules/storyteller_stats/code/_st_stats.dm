@@ -1,12 +1,19 @@
 
 /datum/st_stat
+	//determines the base type for this class, so we don't add in empty types
+	abstract_type = /datum/st_stat
+
 	var/name = ""
 	var/description = ""
-	var/score = 0
+	var/category = "Unknown"
+	var/subcategory = "Unknown"
+	VAR_PROTECTED/score = 0
+	var/min_score = 0
+	var/max_score = 5
 	var/bonus_score = 0
 
-	//determines the base type for this class, so we don't add in empty types
-	var/base_type = /datum/st_stat
+	var/xp_cost = 0
+	var/freebie_point_cost = 0
 
 	//if a stat affects the hp pool, recalculate the hp of the mob when changed.
 	var/affects_health_pool = FALSE
@@ -20,8 +27,41 @@
 	else
 		return score
 
+/datum/st_stat/proc/can_set_score(amount)
+	var/new_score = score + amount
+	if((new_score < min_score) || (new_score > max_score))
+		return FALSE
+	return TRUE
+
 /datum/st_stat/proc/set_score(amount)
-	score = amount
+	if(!can_set_score(amount))
+		return FALSE
+	score = clamp(amount, min_score, max_score)
+	return TRUE
+
+/datum/st_stat/proc/can_increase_score(amount)
+	var/new_score = score + amount
+	if(new_score > max_score)
+		return FALSE
+	return TRUE
+
+/datum/st_stat/proc/increase_score(amount)
+	if(!can_increase_score(amount))
+		return FALSE
+	score = clamp(score + amount, min_score, max_score)
+	return TRUE
+
+/datum/st_stat/proc/can_decrease_score(amount)
+	var/new_score = score - amount
+	if(new_score < min_score)
+		return FALSE
+	return TRUE
+
+/datum/st_stat/proc/decrease_score(amount)
+	if(!can_decrease_score(amount))
+		return FALSE
+	score = clamp(score - amount, min_score, max_score)
+	return TRUE
 
 /datum/st_stat/proc/update_modifiers()
 	SHOULD_NOT_OVERRIDE(TRUE)

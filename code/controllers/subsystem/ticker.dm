@@ -556,6 +556,10 @@ SUBSYSTEM_DEF(ticker)
 			if(new_player_mob.client?.prefs?.should_be_random_hardcore(player_assigned_role, new_player_living.mind))
 				new_player_mob.client.prefs.hardcore_random_setup(new_player_living)
 			SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
+		// DARKPACK EDIT ADD - STORYTELLR_STATS
+		if(isliving(new_player_living))
+			SSstats.apply_stats_from_prefs(new_player_living, new_player_mob.client)
+		// DARKPACK EDIT END
 		if(ishuman(new_player_living))
 			SEND_SIGNAL(new_player_living, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 		CHECK_TICK

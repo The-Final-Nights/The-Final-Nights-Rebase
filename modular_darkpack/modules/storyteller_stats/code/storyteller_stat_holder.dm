@@ -5,11 +5,10 @@
 
 /datum/storyteller_stats/New()
 	. = ..()
-	for(var/datum/path as anything in subtypesof(/datum/st_stat))
-		var/datum/st_stat/new_trait = new path
-		if(new_trait.type == new_trait.base_type)
-			qdel(new_trait)
+	for(var/datum/st_stat/path as anything in subtypesof(/datum/st_stat))
+		if(path == path.abstract_type)
 			continue
+		var/datum/st_stat/new_trait = new path
 		st_stats[path] = new_trait
 
 /datum/storyteller_stats/Destroy()

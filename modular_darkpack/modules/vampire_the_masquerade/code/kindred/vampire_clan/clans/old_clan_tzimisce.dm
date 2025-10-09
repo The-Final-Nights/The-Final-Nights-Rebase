@@ -1,7 +1,8 @@
 /datum/vampire_clan/old_clan_tzimisce
 	name = "Old Clan Tzimisce"
 	id = VAMPIRE_CLAN_OLD_CLAN_TZIMISCE
-	desc = " The Old Clan Tzimisce are a small group of Fiends who predate the use of fleshcrafting. They regard Vicissitude as a disease of the soul, and refuse to learn or employ it. In most other respects, though, they resemble the rest of the Clan."
+	desc = "The Old Clan Tzimisce are a small group of Fiends who predate the use of fleshcrafting. They regard Vicissitude as a disease of the soul, and refuse to learn or employ it. In most other respects, though, they resemble the rest of the Clan."
+	icon = "old_clan_tzimisce"
 	curse = "Grounded to material domain."
 	clan_disciplines = list(
 		/datum/discipline/auspex,
@@ -12,7 +13,6 @@
 	female_clothes = /obj/item/clothing/under/vampire/red
 	enlightenment = TRUE
 	restricted_disciplines = list(/datum/discipline/vicissitude)
-	whitelisted = FALSE
 
 /datum/vampire_clan/old_clan_tzimisce/on_join_round(mob/living/carbon/human/H)
 	. = ..()
