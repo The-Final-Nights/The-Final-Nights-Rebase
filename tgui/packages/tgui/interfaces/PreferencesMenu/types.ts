@@ -177,6 +177,16 @@ export type PreferencesMenuData = {
   species_disallowed_quirks: string[];
   // DARKPACK EDIT ADD START
   stats: Record<string, number>;
+
+  staticStats: Record<
+    string,
+    {
+      name: string;
+      desc: string;
+      maxScore: number;
+      category: string;
+    }
+  >;
   // DARKPACK EDIT ADD END
 
   antag_bans?: string[];

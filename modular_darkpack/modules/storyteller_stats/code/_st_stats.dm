@@ -5,7 +5,10 @@
 
 	var/name = ""
 	var/description = ""
+	var/category
+	var/subcategory
 	VAR_PROTECTED/score = 0
+	var/max_score = 5
 	var/bonus_score = 0
 
 	var/xp_cost = 0
