@@ -19,7 +19,6 @@
 	examine_limb_id = SPECIES_HUMAN
 	inherent_traits = list(
 		TRAIT_USES_SKINTONES,
-		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_LIMBATTACHMENT,
 		TRAIT_NOHUNGER,
 		TRAIT_NOBREATH,
@@ -29,7 +28,8 @@
 		TRAIT_VTM_MORALITY,
 		TRAIT_VTM_CLANS,
 		TRAIT_UNAGING,
-		TRAIT_BLOOD_DRINKER
+		TRAIT_NO_DNA_COPY,
+		TRAIT_DRINKS_BLOOD
 	)
 	inherent_biotypes = MOB_UNDEAD | MOB_HUMANOID
 	changesource_flags = MIRROR_BADMIN
@@ -38,9 +38,12 @@
 	mutanttongue = /obj/item/organ/tongue/kindred
 	exotic_bloodtype = BLOOD_TYPE_KINDRED
 	var/datum/vampire_clan/clan
-	var/list/datum/discipline/disciplines
+	var/list/disciplines
 	var/enlightenment
 	COOLDOWN_DECLARE(torpor_timer)
+
+/mob/living/carbon/human/species/kindred
+	race = /datum/species/human/kindred
 
 /datum/species/human/kindred/on_species_gain(mob/living/carbon/human/new_kindred, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
@@ -53,9 +56,6 @@
 
 	// TODO: [Rebase] reimplement these vars and the actions
 	/*
-	new_kindred.update_body(0)
-	new_kindred.last_experience = world.time + 5 MINUTES
-
 	var/datum/action/vampireinfo/infor = new()
 	infor.host = new_kindred
 	infor.Grant(new_kindred)
@@ -82,6 +82,8 @@
 	// Apply bashing damage resistance
 	RegisterSignal(new_kindred, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(damage_resistance))
 
+	RegisterSignal(new_kindred, COMSIG_HUMAN_ON_HANDLE_BLOOD, PROC_REF(kindred_blood))
+
 	// TODO: [Rebase] reimplement choosing disciplines
 	new_kindred.give_discipline(new /datum/discipline/celerity(5))
 	new_kindred.give_discipline(new /datum/discipline/potence(5))
@@ -99,6 +101,7 @@
 	UnregisterSignal(human, SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION))
 	UnregisterSignal(human, COMSIG_MOB_VAMPIRE_SUCKED)
 	UnregisterSignal(human, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS)
+	UnregisterSignal(human, COMSIG_HUMAN_ON_HANDLE_BLOOD)
 
 	// TODO: [Rebase] reimplement vampire actions
 	/*
@@ -176,146 +179,6 @@
 
 	return COMPONENT_RESIST_VAMPIRE_KISS
 
-// TODO: [Rebase] reimplement the godforsaken stuff in here
-/*
-/datum/species/human/kindred/spec_life(mob/living/carbon/human/H)
-	. = ..()
-
-	//FIRE FEAR
-	if(!H.antifrenzy && !HAS_TRAIT(H, TRAIT_KNOCKEDOUT))
-		var/fearstack = 0
-		for(var/obj/effect/fire/F in GLOB.fires_list)
-			if(get_dist(F, H) < 8 && F.z == H.z)
-				fearstack += F.stage
-		for(var/mob/living/carbon/human/U in viewers(7, H))
-			if(U.on_fire)
-				fearstack += 1
-
-		fearstack = min(fearstack, 10)
-
-		if(fearstack)
-			if(prob(fearstack*5))
-				H.do_jitter_animation(10)
-				if(fearstack > 20)
-					if(prob(fearstack))
-						if(!H.in_frenzy)
-							H.rollfrenzy()
-			if(!H.has_status_effect(STATUS_EFFECT_FEAR))
-				H.apply_status_effect(STATUS_EFFECT_FEAR)
-		else
-			H.remove_status_effect(STATUS_EFFECT_FEAR)
-
-	// Masquerade violations due to unnatural appearances
-	if (H.is_face_visible())
-		// Gargoyles, nosferatu, skeletons, that kind of thing
-		if (HAS_TRAIT(H, TRAIT_MASQUERADE_VIOLATING_FACE))
-			if (H.CheckEyewitness(H, H, 7, FALSE))
-				H.adjust_masquerade(-1)
-		// Masquerade breach if eyes are uncovered, short range
-		else if (HAS_TRAIT(H, TRAIT_MASQUERADE_VIOLATING_EYES))
-			if (!H.is_eyes_covered())
-				if (H.CheckEyewitness(H, H, 3, FALSE))
-					H.adjust_masquerade(-1)
-
-	if (HAS_TRAIT(H, TRAIT_UNMASQUERADE))
-		if(H.CheckEyewitness(H, H, 7, FALSE))
-			H.adjust_masquerade(-1)
-
-	if(istype(get_area(H), /area/vtm))
-		var/area/vtm/V = get_area(H)
-		if(V.zone_type == ZONE_MASQUERADE && V.outdoors)
-			if(H.pulling)
-				if(ishuman(H.pulling))
-					var/mob/living/carbon/human/pull = H.pulling
-					if(pull.stat == DEAD)
-						var/obj/item/card/id/id_card = H.get_idcard(FALSE)
-						if(!istype(id_card, /obj/item/card/id/clinic))
-							if(H.CheckEyewitness(H, H, 7, FALSE))
-								if(H.last_loot_check+50 <= world.time)
-									H.last_loot_check = world.time
-									H.last_nonraid = world.time
-									H.killed_count = H.killed_count+1
-									if(!H.warrant && !H.ignores_warrant)
-										if(H.killed_count >= 5)
-											H.warrant = TRUE
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
-										else
-											SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-											to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (corpse)</b>"))
-			for (var/obj/item/I in H.contents)
-				if (!I.masquerade_violating || (I.loc != H))
-					continue
-
-				var/obj/item/card/id/id_card = H.get_idcard(FALSE)
-				if (istype(id_card, /obj/item/card/id/clinic))
-					continue
-
-				if (H.warrant || H.ignores_warrant)
-					continue
-
-				if (H.last_loot_check + 5 SECONDS > world.time)
-					continue
-
-				if (!H.CheckEyewitness(H, H, 7, FALSE))
-					continue
-
-				H.last_loot_check = world.time
-				H.last_nonraid = world.time
-				H.killed_count++
-
-				if (H.killed_count >= 5)
-					H.warrant = TRUE
-					SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/suspect.ogg', 0, 0, 75))
-					to_chat(H, span_userdanger("<b>POLICE ASSAULT IN PROGRESS</b>"))
-				else
-					SEND_SOUND(H, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', 0, 0, 75))
-					to_chat(H, span_userdanger("<b>SUSPICIOUS ACTION (equipment)</b>"))
-
-	if(H.key && (H.stat <= HARD_CRIT))
-		var/datum/preferences/P = GLOB.preferences_datums[ckey(H.key)]
-		if(P)
-			if(P.humanity != H.humanity)
-				P.humanity = H.humanity
-				P.save_preferences()
-				P.save_character()
-			if(P.masquerade != H.masquerade)
-				P.masquerade = H.masquerade
-				P.save_preferences()
-				P.save_character()
-
-			if(!H.antifrenzy)
-				if(P.humanity < 1)
-					H.enter_frenzymod()
-					to_chat(H, span_userdanger("You have lost control of the Beast within you, and it has taken your body. Be more [H.client.prefs.enlightenment ? "Enlightened" : "humane"] next time."))
-					H.ghostize(FALSE)
-					P.reason_of_death = "Lost control to the Beast ([time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")])."
-
-	// TODO: [Rebase] this needs to be a component
-	if(H.clan && !H.antifrenzy && !HAS_TRAIT(H, TRAIT_KNOCKEDOUT))
-		if(HAS_TRAIT(H, TRAIT_VITAE_ADDICTION))
-			if(H.mind)
-				if(H.mind.enslaved_to)
-					if(get_dist(H, H.mind.enslaved_to) > 10)
-						if((H.last_frenzy_check + 40 SECONDS) <= world.time)
-							to_chat(H, span_warning("<b>As you are far from [H.mind.enslaved_to], you feel the desire to drink more vitae!<b>"))
-							H.last_frenzy_check = world.time
-							H.rollfrenzy()
-					else if(H.bloodpool > 1 || H.in_frenzy)
-						H.last_frenzy_check = world.time
-		else
-			if(H.bloodpool > 1 || H.in_frenzy)
-				H.last_frenzy_check = world.time
-
-	if(!H.antifrenzy && !HAS_TRAIT(H, TRAIT_KNOCKEDOUT))
-		if(H.bloodpool <= 1 && !H.in_frenzy)
-			if((H.last_frenzy_check + 40 SECONDS) <= world.time)
-				H.last_frenzy_check = world.time
-				H.rollfrenzy()
-				if (H.client?.prefs?.enlightenment)
-					if(!H.CheckFrenzyMove())
-						H.AdjustHumanity(1, 10)
-*/
 
 /obj/item/organ/tongue/kindred
 	liked_foodtypes = NONE
@@ -350,5 +213,62 @@
 		else
 			return value
 
-/mob/living/carbon/human/species/kindred
-	race = /datum/species/human/kindred
+
+/datum/species/human/kindred/proc/kindred_blood(mob/living/carbon/human/kindred, seconds_per_tick, times_fired)
+	SIGNAL_HANDLER
+
+	if(kindred.stat == DEAD)
+		return HANDLE_BLOOD_HANDLED
+
+	return HANDLE_BLOOD_NO_NUTRITION_DRAIN|HANDLE_BLOOD_NO_OXYLOSS
+
+/datum/species/human/kindred/get_species_description()
+	return "Blood sucking vampires of the dark realm!"
+
+/datum/species/human/kindred/get_species_lore()
+	return list(
+		"Insert Kindred Lore Here",
+	)
+
+/datum/species/human/kindred/create_pref_unique_perks()
+	var/list/to_add = list()
+
+	to_add += list(
+		list(
+			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+			SPECIES_PERK_ICON = "book-dead",
+			SPECIES_PERK_NAME = "Kindred Clans",
+			SPECIES_PERK_DESC = "Kindred belong to many clans, which you are able to choose in the preferences, all with their own special abilities and weaknesses!",
+		),
+	)
+
+	return to_add
+
+// Vampire blood is special, so it needs to be handled with its own entry.
+/datum/species/human/kindred/create_pref_blood_perks()
+	var/list/to_add = list()
+
+	to_add += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+		SPECIES_PERK_ICON = "tint",
+		SPECIES_PERK_NAME = "Example Negative Perk",
+		SPECIES_PERK_DESC = "Lorem Ipsum",
+	))
+
+	return to_add
+
+// There isn't a "Minor Undead" biotype, so we have to explain it in an override (see: dullahans)
+/datum/species/human/kindred/create_pref_biotypes_perks()
+	var/list/to_add = list()
+
+	to_add += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "skull",
+		SPECIES_PERK_NAME = "Minor Undead",
+		SPECIES_PERK_DESC = "[name] are minor undead. \
+			Minor undead enjoy some of the perks of being dead, like \
+			not needing to breathe or eat, but do not get many of the \
+			environmental immunities involved with being fully undead.",
+	))
+
+	return to_add
