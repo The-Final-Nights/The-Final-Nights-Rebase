@@ -246,7 +246,8 @@
  */
 /**
  * Recipe used for upgrading fake N-spect scanners to bananium HONK-spect scanners
- *//*
+ */
+/* // DARKPACK EDIT REMOVE
 /datum/crafting_recipe/clown_scanner_upgrade
 	name = "Bananium HONK-spect scanner"
 	result = /obj/item/inspector/clown/bananium

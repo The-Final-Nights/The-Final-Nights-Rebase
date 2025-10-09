@@ -34,16 +34,16 @@
 
 	var/list/global_stack_recipes = list(
 		/obj/item/stack/sheet/glass = GLOB.glass_recipes,
-		/obj/item/stack/sheet/plasmaglass = GLOB.pglass_recipes,
+	/* 	/obj/item/stack/sheet/plasmaglass = GLOB.pglass_recipes, */ // DARKPACK EDIT REMOVE
 		/obj/item/stack/sheet/rglass = GLOB.reinforced_glass_recipes,
-		/obj/item/stack/sheet/plasmarglass = GLOB.prglass_recipes,
-		/obj/item/stack/sheet/animalhide/gondola = GLOB.gondola_recipes,
-		/obj/item/stack/sheet/animalhide/corgi = GLOB.corgi_recipes,
-		/obj/item/stack/sheet/animalhide/monkey = GLOB.monkey_recipes,
-		/obj/item/stack/sheet/animalhide/xeno = GLOB.xeno_recipes,
+	/* 	/obj/item/stack/sheet/plasmarglass = GLOB.prglass_recipes, */ // DARKPACK EDIT REMOVE
+	/* 	/obj/item/stack/sheet/animalhide/gondola = GLOB.gondola_recipes, */ // DARKPACK EDIT REMOVE
+	/* 	/obj/item/stack/sheet/animalhide/corgi = GLOB.corgi_recipes, */ // DARKPACK EDIT REMOVE
+	/* 	/obj/item/stack/sheet/animalhide/monkey = GLOB.monkey_recipes, */ // DARKPACK EDIT REMOVE
+	/* 	/obj/item/stack/sheet/animalhide/xeno = GLOB.xeno_recipes, */ // DARKPACK EDIT REMOVE
 		/obj/item/stack/sheet/leather = GLOB.leather_recipes,
 		/obj/item/stack/sheet/sinew = GLOB.sinew_recipes,
-		/obj/item/stack/sheet/animalhide/carp = GLOB.carp_recipes,
+	/* 	/obj/item/stack/sheet/animalhide/carp = GLOB.carp_recipes, */ // DARKPACK EDIT REMOVE
 		/obj/item/stack/sheet/mineral/sandstone = GLOB.sandstone_recipes,
 		/obj/item/stack/sheet/mineral/sandbags = GLOB.sandbag_recipes,
 		/obj/item/stack/sheet/mineral/diamond = GLOB.diamond_recipes,
@@ -56,7 +56,7 @@
 		/obj/item/stack/sheet/mineral/plastitanium = GLOB.plastitanium_recipes,
 		/obj/item/stack/sheet/mineral/snow = GLOB.snow_recipes,
 		/obj/item/stack/sheet/mineral/adamantine = GLOB.adamantine_recipes,
-		/obj/item/stack/sheet/mineral/abductor = GLOB.abductor_recipes,
+		/* /obj/item/stack/sheet/mineral/abductor = GLOB.abductor_recipes, */ // DARKPACK EDIT REMOVE
 		/obj/item/stack/sheet/iron = GLOB.metal_recipes,
 		/obj/item/stack/sheet/plasteel = GLOB.plasteel_recipes,
 		/obj/item/stack/sheet/mineral/wood = GLOB.wood_recipes,
