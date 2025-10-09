@@ -175,6 +175,9 @@ export type PreferencesMenuData = {
   overflow_role: string;
   selected_quirks: string[];
   species_disallowed_quirks: string[];
+  // DARKPACK EDIT ADD START
+  stats: Record<string, number>;
+  // DARKPACK EDIT ADD END
 
   antag_bans?: string[];
   antag_days_left?: Record<string, number>;
