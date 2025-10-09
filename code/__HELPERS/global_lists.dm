@@ -62,7 +62,7 @@
 		/obj/item/stack/sheet/mineral/wood = GLOB.wood_recipes,
 		/obj/item/stack/sheet/mineral/bamboo = GLOB.bamboo_recipes,
 		/obj/item/stack/sheet/cloth = GLOB.cloth_recipes,
-		/obj/item/stack/sheet/durathread = GLOB.durathread_recipes,
+		/* /obj/item/stack/sheet/durathread = GLOB.durathread_recipes,*/ // DARKPACK EDIT REMOVE
 		/obj/item/stack/sheet/cardboard = GLOB.cardboard_recipes,
 		/obj/item/stack/sheet/bronze = GLOB.bronze_recipes,
 		/obj/item/stack/sheet/plastic = GLOB.plastic_recipes,

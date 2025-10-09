@@ -571,7 +571,7 @@
 		/obj/item/clothing/suit/armor/vest = 1,
 	)
 	category = CAT_CLOTHING
- */
+
 /datum/crafting_recipe/balloon_helmet
 	result = /obj/item/clothing/head/helmet/balloon
 	reqs = list(
@@ -604,7 +604,7 @@
 
 /datum/crafting_recipe/balloon_vest/check_requirements(mob/user, list/collected_requirements)
 	return HAS_TRAIT(user, TRAIT_BALLOON_SUTRA)
-
+ */
 /datum/crafting_recipe/press_armor
 	name = "press armor vest"
 	result = /obj/item/clothing/suit/armor/vest/press
