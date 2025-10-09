@@ -3,8 +3,8 @@
 	desc = "Use vitae to gain supernatural abilities."
 	button_icon = 'modular_darkpack/modules/deprecated/icons/ui/actions.dmi'
 	button_icon_state = "bloodpower"
-	background_icon = 'modular_darkpack/modules/deprecated/icons/ui/actions.dmi'
-	background_icon_state = "discipline"
+	background_icon = 'modular_darkpack/master_files/icons/mob/actions/backgrounds.dmi'
+	background_icon_state = "bg_discipline"
 	check_flags = AB_CHECK_HANDS_BLOCKED | AB_CHECK_IMMOBILE | AB_CHECK_LYING | AB_CHECK_CONSCIOUS
 	cooldown_time = 10 SECONDS
 	vampiric = TRUE

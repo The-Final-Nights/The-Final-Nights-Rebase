@@ -46,9 +46,7 @@
 	icon_state = "quietus"
 	inhand_icon_state = "mansus"
 
-/obj/item/melee/touch_attack/quietus/afterattack(atom/target, mob/living/carbon/user, proximity)
-	if(!proximity)
-		return
+/obj/item/melee/touch_attack/quietus/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(isliving(target))
 		var/mob/living/L = target
 		L.adjustFireLoss(10)

@@ -30,7 +30,7 @@
 	l_pocket = /obj/item/vamp/phone
 	r_pocket = /obj/item/vamp/keys/camarilla
 	back = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/flashlight=1, /obj/item/card/credit=1,/obj/item/food/vampire/donut=5,/obj/item/card/id/chunk=1)
+	backpack_contents = list(/obj/item/flashlight=1, /obj/item/card/credit=1,/obj/item/food/donut/plain=5,/obj/item/card/id/chunk=1)
 
 /obj/item/card/id/chunk
 	name = "Millenium Tower Security ID"
@@ -45,5 +45,5 @@
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	worn_icon_state = "id2"
 
-/obj/item/card/id/chunk/AltClick(mob/user)
+/obj/item/card/id/chunk/click_alt(mob/user)
 	return
