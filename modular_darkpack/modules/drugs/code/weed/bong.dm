@@ -4,7 +4,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	icon_state = "bulbulator"
 	inhand_icon_state = "bulbulator"
-	onflooricon = 'modular_darkpack/modules/deprecated/icons/onfloor.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 
 	///The icon state when the bong is lit
 	var/icon_on = "bulbulator"

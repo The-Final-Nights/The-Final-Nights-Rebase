@@ -159,49 +159,6 @@
 			if(V.outdoors)
 				icon_state = "[initial(icon_state)]-snow"
 
-/obj/structure/clothingrack
-	name = "clothing rack"
-	desc = "Have some clothes."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "rack"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-
-/obj/structure/clothingrack/rand
-	icon_state = "rack2"
-
-/obj/structure/clothingrack/rand/Initialize(mapload)
-	. = ..()
-	icon_state = "rack[rand(1, 5)]"
-
-/obj/structure/clothinghanger
-	name = "clothing hanger"
-	desc = "Have some clothes."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "hanger1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-
-/obj/structure/clothinghanger/Initialize(mapload)
-	. = ..()
-	icon_state = "hanger[rand(1, 4)]"
-
-/obj/structure/foodrack
-	name = "food rack"
-	desc = "Have some food."
-	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
-	icon_state = "rack2"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-	pixel_w = -16
-
-/obj/structure/foodrack/Initialize(mapload)
-	. = ..()
-	icon_state = "rack[rand(1, 5)]"
-
 //I should make these slow to move
 /obj/structure/closet/crate/dumpster
 	name = "dumpster"
@@ -660,58 +617,6 @@
 				bloodpool = max(0, bloodpool-4)
 */
 
-/obj/structure/rack/tacobell
-	name = "table"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "tacobell"
-
-/obj/structure/rack/tacobell/attack_hand(mob/living/user)
-	return
-
-/obj/structure/rack/tacobell/horizontal
-	icon_state = "tacobell1"
-
-/obj/structure/rack/tacobell/vertical
-	icon_state = "tacobell2"
-
-/obj/structure/rack/tacobell/south
-	icon_state = "tacobell3"
-
-/obj/structure/rack/tacobell/north
-	icon_state = "tacobell4"
-
-/obj/structure/rack/tacobell/east
-	icon_state = "tacobell5"
-
-/obj/structure/rack/tacobell/west
-	icon_state = "tacobell6"
-
-/obj/structure/rack/bubway
-	name = "table"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "bubway"
-
-/obj/structure/rack/bubway/attack_hand(mob/living/user)
-	return
-
-/obj/structure/rack/bubway/horizontal
-	icon_state = "bubway1"
-
-/obj/structure/rack/bubway/vertical
-	icon_state = "bubway2"
-
-/obj/structure/rack/bubway/south
-	icon_state = "bubway3"
-
-/obj/structure/rack/bubway/north
-	icon_state = "bubway4"
-
-/obj/structure/rack/bubway/east
-	icon_state = "bubway5"
-
-/obj/structure/rack/bubway/west
-	icon_state = "bubway6"
-
 /obj/underplate
 	name = "underplate"
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
@@ -817,25 +722,6 @@
 	pixel_w = -16
 	pixel_z = -16
 
-/obj/structure/coclock
-	name = "clock"
-	desc = "See the time."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "clock"
-	anchored = TRUE
-	pixel_z = 32
-
-/obj/structure/coclock/examine(mob/user)
-	. = ..()
-	. += "The clock reads: <b>[station_time_timestamp()]</b>"
-
-/obj/structure/coclock/grandpa
-	icon = 'modular_darkpack/modules/deprecated/icons/grandpa_cock.dmi'
-	icon_state = "cock"
-	anchored = TRUE
-	density = TRUE
-	pixel_z = 0
-
 /obj/effect/decal/graffiti
 	name = "graffiti"
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
@@ -855,33 +741,6 @@
 		icon_state = "graffiti[rand(1, 15)]"
 	else
 		icon_state = "graffiti[rand(1, 3)]"
-
-/obj/structure/roofstuff
-	name = "roof ventilation"
-	desc = "Air to inside."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
-	icon_state = "roof1"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
-
-/obj/structure/roofstuff/Initialize(mapload)
-	. = ..()
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.outdoors)
-				icon_state = "[initial(icon_state)]-snow"
-
-/obj/structure/roofstuff/alt1
-	icon_state = "roof2"
-	density = FALSE
-
-/obj/structure/roofstuff/alt2
-	icon_state = "roof3"
-
-/obj/structure/roofstuff/alt3
-	icon_state = "roof4"
 
 /obj/effect/decal/kopatich
 	name = "hide carpet"

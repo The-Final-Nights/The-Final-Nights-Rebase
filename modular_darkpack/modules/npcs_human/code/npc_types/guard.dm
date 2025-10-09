@@ -2,11 +2,8 @@
 	staying = TRUE
 	aggressive = TRUE
 	max_stat = DEAD
-	// TODO: [Lucia] reimplement weapons
-	/*
 	my_weapon_type = /obj/item/gun/ballistic/automatic/pistol/darkpack/m1911
 	my_backup_weapon_type = /obj/item/melee/baton/vamp
-	*/
 
 /mob/living/carbon/human/npc/guard/Initialize(mapload)
 	. = ..()

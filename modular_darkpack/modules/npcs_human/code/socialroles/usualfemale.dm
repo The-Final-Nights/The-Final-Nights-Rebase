@@ -93,8 +93,7 @@
 		/obj/item/clothing/under/vampire/gothic
 	)
 	pockets = list(
-		// TODO: [Lucia] reimplement doors
-		// /obj/item/vamp/keys/npc,
+		/obj/item/vamp/keys/npc,
 		/obj/item/stack/dollar/rand
 	)
 
