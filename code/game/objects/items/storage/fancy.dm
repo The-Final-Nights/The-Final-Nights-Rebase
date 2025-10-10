@@ -296,8 +296,8 @@
 		cig_position++
 
 /obj/item/storage/fancy/cigarettes/dromedaryco
-	name = "\improper DromedaryCo packet"
-	desc = "A packet of six imported DromedaryCo cancer sticks. A label on the packaging reads, \"Wouldn't a slow death make a change?\""
+	name = "\improper Camel packet" // DARKPACK EDIT CHANGE
+	desc = "I'd walk a mile for a Camel!" // DARKPACK EDIT CHANGE
 	icon_state = "dromedary"
 	base_icon_state = "dromedary"
 	spawn_type = /obj/item/cigarette/dromedary
@@ -310,15 +310,15 @@
 	spawn_type = /obj/item/cigarette/uplift
 
 /obj/item/storage/fancy/cigarettes/cigpack_robust
-	name = "\improper Robust packet"
-	desc = "Smoked by the robust."
+	name = "\improper Malboro packet" // DARKPACK EDIT CHANGE
+	desc = "You get a lot to like with Malboro." // DARKPACK EDIT CHANGE
 	icon_state = "robust"
 	base_icon_state = "robust"
 	spawn_type = /obj/item/cigarette/robust
 
 /obj/item/storage/fancy/cigarettes/cigpack_robustgold
-	name = "\improper Robust Gold packet"
-	desc = "Smoked by the truly robust."
+	name = "\improper Malboro Gold packet" // DARKPACK EDIT CHANGE
+	desc = "You get a lot to like with Malboro." // DARKPACK EDIT CHANGE
 	icon_state = "robustg"
 	base_icon_state = "robustg"
 	spawn_type = /obj/item/cigarette/robustgold
@@ -332,7 +332,7 @@
 
 /obj/item/storage/fancy/cigarettes/cigpack_carp
 	name = "\improper Carp Classic packet"
-	desc = "Since 2313."
+	desc = "Since 1896." // DARKPACK EDIT CHANGE
 	icon_state = "carp"
 	base_icon_state = "carp"
 	spawn_type = /obj/item/cigarette/carp
@@ -374,8 +374,8 @@
 	spawn_type = /obj/item/cigarette/shadyjims
 
 /obj/item/storage/fancy/cigarettes/cigpack_xeno
-	name = "\improper Xeno Filtered packet"
-	desc = "Loaded with 100% pure slime. And also nicotine."
+	name = "\improper Newport packet" // DARKPACK EDIT CHANGE
+	desc = "Alive with pleasure!" // DARKPACK EDIT CHANGE
 	icon_state = "slime"
 	base_icon_state = "slime"
 	spawn_type = /obj/item/cigarette/xeno
@@ -396,7 +396,7 @@
 
 /obj/item/storage/fancy/rollingpapers
 	name = "rolling paper pack"
-	desc = "A pack of Nanotrasen brand rolling papers."
+	desc = "A pack of Rollers brand rolling papers." // DARKPACK EDIT CHANGE
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig_paper_pack"
