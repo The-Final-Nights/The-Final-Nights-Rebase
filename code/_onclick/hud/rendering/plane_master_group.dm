@@ -116,7 +116,6 @@
 	if(!our_mob?.client?.prefs?.read_preference(/datum/preference/toggle/multiz_parallax))
 		use_scale = FALSE
 	*/ // DARKPACK EDIT REMOVAL END
-	use_scale = FALSE
 	// No offset? piss off
 	if(!SSmapping.max_plane_offset)
 		return
