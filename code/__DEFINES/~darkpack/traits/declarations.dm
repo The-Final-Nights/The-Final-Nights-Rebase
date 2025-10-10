@@ -1,3 +1,14 @@
+// This file contains all of the "static" define strings that tie to a trait.
+// WARNING: The sections here actually matter in this file as it's tested by CI. Please do not toy with the sections."
+
+// BEGIN TRAIT DEFINES
+
+/*
+Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
+*/
+
+// Mob traits
+
 // If the user is unbondable via blood bonds.
 #define TRAIT_UNBONDABLE "unbondable"
 // If the kindred's blood can't bond others.
@@ -70,3 +81,5 @@
 #define TRAIT_BLOOD_DRINKER "blood_drinker"
 /// Does not biologically age, and so has a disconnected biological and chronological age
 #define TRAIT_UNAGING "unaging"
+
+// END TRAIT DEFINES
