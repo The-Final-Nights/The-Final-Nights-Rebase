@@ -32,16 +32,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_CHARMER			"charmer"
 /// The mob will automatically breach the Masquerade when seen by others, with no exceptions
 #define TRAIT_UNMASQUERADE		"unmasquerade"
-/// Halves firing delay and cooldown between burst fire shots
-#define TRAIT_GUNFIGHTER "gunfighter"
-/// Makes gambling incredibly effective, and causes random beneficial events to happen for the mob.
-#define TRAIT_SUPERNATURAL_LUCK	"supernatural_luck"
-/// Lets the mob block projectiles like bullets using only their hands.
-#define TRAIT_HANDS_BLOCK_PROJECTILES "hands_block_projectiles"
 /// The mob always dodges melee attacks
 #define TRAIT_ENHANCED_MELEE_DODGE "enhanced_melee_dodge"
-/// The mob can easily swim and jump very far.
-#define TRAIT_SUPERNATURAL_DEXTERITY "supernatural_dexterity"
 /// Can pass through walls so long as it doesn't move the mob into a new area
 #define TRAIT_PASS_THROUGH_WALLS "pass_through_walls"
 /// Technology supernaturally refuses to work or doesn't work properly for this person
