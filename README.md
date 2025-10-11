@@ -1,14 +1,16 @@
-## The Second City codebase
+## The Final Nights Rebase Codebase
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-| Website                 | Link                                                                                 |
-| ----------------------- | ------------------------------------------------------------------------------------ |
-| Code                    | [https://github.com/DarkPack13/SecondCity](https://github.com/DarkPack13/SecondCity) |
-| The Second City Discord | [https://discord.gg/rmAbJcuChD](https://discord.gg/rmAbJcuChD)                       |
-| Coderbus Discord        | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                             |
+| Website                  | Link                                                                                 |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| Upstream Repository      | [https://github.com/DarkPack13/SecondCity](https://github.com/DarkPack13/SecondCity) |
+| The Final Nights Website | [https://thefinalnights.com](https://thefinalnights.com)                             |
+| The Final Nights Discord | [https://discord.gg/cy77FTNpnD](https://discord.gg/cy77FTNpnD)                       |
+| The Upstream Discord     | [https://discord.gg/rmAbJcuChD](https://discord.gg/rmAbJcuChD)                       |
+| Coderbus Discord         | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                             |
 
-This is the codebase for the Darkpack13 Project, a fork of TGstation 2025 for the purposes of being an upstream for The Final Nights, Apocrypha, Requiem and World of Darkness 13.
+This is the codebase for the Final Nights project, a fork off of the Darkpack13 Project, which is a fork of TGstation.
 
 We are based on the Paradox Interactive World of Darkness(c) gamelines, with administrative oversight determining what we add to our game.
 
@@ -53,6 +55,6 @@ See the footer of [code/\_\_DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) and [code/m
 
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
 
-Darkpack13 is not official World of Darkness material. Portions of the materials are the copyrights and trademarks of Paradox Interactive AB, and are used with permission. All rights reserved. For more information please visit worldofdarkness.com.
+The Final Nights is not official World of Darkness material. Portions of the materials are the copyrights and trademarks of Paradox Interactive AB, and are used with permission. All rights reserved. For more information please visit worldofdarkness.com.
 
 ![darkpack_logo2](https://github.com/user-attachments/assets/643ce14e-066c-4c81-998f-2e7881f0518d)
