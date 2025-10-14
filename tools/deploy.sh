@@ -30,6 +30,13 @@ mkdir -p \
 find modular_darkpack/ -name \*.dmi -exec cp --parents {} $1 \;
 # DARKPACK EDIT ADDITION END
 
+# TFN EDIT ADDITION START - Get all the .dmis from modular_tfn
+mkdir -p \
+		$1/modular_tfn \
+
+find modular_tfn/ -name \*.dmi -exec cp --parents {} $1 \;
+# TFN EDIT ADDITION END
+
 cp tgstation.dmb tgstation.rsc $1/
 cp -r _maps/* $1/_maps/
 cp -r code/datums/greyscale/json_configs/* $1/code/datums/greyscale/json_configs/
