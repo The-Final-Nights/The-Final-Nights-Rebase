@@ -1,4 +1,7 @@
 ///When attached, the footstep sound played by the footstep element will be replaced by this one's
+
+//[TFN REBASE] -- This file appears to already be made in /tg/code. Different number of lines. Not sure the changes - will look later.
+
 /datum/element/footstep_override
 	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH_ON_HOST_DESTROY
 	argument_hash_start_idx = 2
