@@ -1,6 +1,6 @@
 /datum/status_effect/blood_of_potency
 	id = "blood_of_potency"
-	duration = 1 INGAME_HOURS
+	duration = 22
 	status_type = STATUS_EFFECT_REFRESH
 	alert_type = /atom/movable/screen/alert/status_effect/blood_of_potency
 	var/stored_generation

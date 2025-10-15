@@ -5,8 +5,6 @@
 	var/alignment
 	/// The bearing of the path's ethos
 	var/bearing
-	/// The current dot score of the path
-	var/score = 7
 
 /datum/morality/humanity
 	name = "Humanity"
@@ -91,3 +89,32 @@
 	desc = "The Code of Samiel is a doctrine that formalized the tenets of the Warrior Salubri and of the Path of Retribution. It was designed by Saulot's greatest childe warrior, Samiel himself. Adherents swear to bring retribution to all manner of evil, chief among which are Infernalists, Demons and the Followers of Set. Vengeance, vigilance and righteousness are all held as core virtues."
 	alignment = MORALITY_ENLIGHTENMENT
 	bearing = BEARING_JUSTICE //I have no idea what this actually does
+
+/datum/preference/choiced/vtm_morality/create_default_value()
+	return "Humanity"
+
+/datum/preference/choiced/vtm_morality/init_possible_values()
+	var/list/paths = list()
+	for(var/datum/morality/path as anything in subtypesof(/datum/morality))
+		var/datum/morality/temp = new path()
+		paths += temp.name
+		qdel(temp)
+	return paths
+
+/datum/preference/choiced/vtm_morality/apply_to_human(mob/living/carbon/human/target, value)
+	var/datum/species/human/kindred/kindred_species = target.dna.species
+	if(!istype(kindred_species))
+		return
+
+	// Find the matching morality path by name and set enlightenment accordingly
+	for(var/datum/morality/path_type as anything in subtypesof(/datum/morality))
+		var/datum/morality/temp = new path_type()
+		if(temp.name == value)
+			// Set enlightenment TRUE for enlightenment paths, FALSE for humanity paths
+			kindred_species.enlightenment = (temp.alignment == MORALITY_ENLIGHTENMENT)
+			qdel(temp)
+			return
+		qdel(temp)
+
+	// Fallback: if nothing matched, default to humanity (not enlightened)
+	kindred_species.enlightenment = FALSE

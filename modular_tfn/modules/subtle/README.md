@@ -1,3 +1,0 @@
-# Subtle
-
-Borrowed from Bubberstation.
