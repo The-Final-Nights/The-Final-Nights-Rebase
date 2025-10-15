@@ -20,15 +20,15 @@ Start by opening the git bash and navigating to your repo directory.
 
 - (use `cd name_of_folder` to navigate, you can use tab for autocomplete to make it go faster). When you arrive in the right place it should look something like this. ![image](https://github.com/user-attachments/assets/97532c25-fce0-43da-a451-32ce7195fa19) My current branch is 'Guide' so that's why it says '(Guide)'.
 
-Once in there, add tgstation as a remote if you do not already have that done on your fork. Simply run the following command:
+Once in there, add SecondCity as a remote if you do not already have that done on your fork. Simply run the following command:
 
-`git remote add tgstation https://github.com/tgstation/tgstation`
+`git remote add darkpack https://github.com/DarkPack13/SecondCity`
 
-This will ad TG's repo as a remote under the name of tgstation. **You only need to do this step once.**
+This will add SecondCity's repo as a remote under the name of darkpack. **You only need to do this step once.**
 
 From here we need to [fetch](https://git-scm.com/docs/git-fetch) the repo to actually get the refs. Simply run the following command:
 
-`git fetch tgstation`
+`git fetch darkpack`
 
 This will simply grab an up to date set of refs that make up the history of the repo. It wont download the actual files, but it will update the history so you are able to cherry pick the most recent commits from TG. **You will generally want do do this every time you make a mirror.**
 
@@ -52,7 +52,7 @@ While we are at it, let's take a moment to publish the branch so that it appears
 
 Next up you need to find the hash(es) of the merge commit(s) of the PR(s) that you are trying to mirror. There are a few ways of doing this but here is a simple way that requires no additional software:
 
-Using this Pull Request as an [Example](https://github.com/tgstation/tgstation/pull/85448)
+Using this Pull Request as an [Example](https://github.com/DarkPack13/SecondCity/pull/152)
 
 You would want to scroll down to the bottom of the page and look for the merge commit. It would look like this:
 
@@ -133,7 +133,7 @@ It is as such faster once you get the hang of it, so this is a recommended way o
 Open up Git-fork, and using open up the directory containing your cloned fork (or clone your fork if you dont have it already cloned)
 
 On the left side panel there should be a list that has all of the repo's remotes, right click on it and click on add new remote.
-From there, name the remote as you want I.E. 'tgstation' and for the repository URL put `https://github.com/tgstation/tgstation`
+From there, name the remote as you want I.E. 'darkpack' and for the repository URL put `https://github.com/DarkPack13/SecondCity`
 
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/Fork_oqKYvSerNP.png)
 ![Screenshot2](http://files.byondhome.com/SomeRandomOwl/Fork_F2LtlwBlFA.png)
@@ -145,7 +145,7 @@ Create a new branch using either the Repository dropdown on the title bar -> New
 
 From here it is super simple to add in the the Pull requests from TG you wish to add to your pull request to merge into Nova.
 On the side panel where it lists remotes, click on the filter button with the tooltip `show branches from here only`
-**It is recommended to pin the tgstation master branch to the left panel so you can easily click the filter button (to the right of the pin button) when you need to. Clear branch filter is Ctrl+Shift+A, use this to quickly swap between tg's commits and your own branches**
+**It is recommended to pin the darkpack master branch to the left panel so you can easily click the filter button (to the right of the pin button) when you need to. Clear branch filter is Ctrl+Shift+A, use this to quickly swap between tg's commits and your own branches**
 ![image](https://github.com/user-attachments/assets/233baa7e-7615-4c5e-ba45-0c59e5045654)
 
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/Fork_8L4ULsFpcP.png)

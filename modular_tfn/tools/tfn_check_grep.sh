@@ -6,7 +6,7 @@ GREEN="\033[0;32m"
 BLUE="\033[0;34m"
 NC="\033[0m" # No Color
 
-echo -e "${BLUE}Re-running grep checks, but looking in modular_nova...${NC}"
+echo -e "${BLUE}Re-running grep checks, but looking in modular_tfn...${NC}"
 
-# Run the linters again, but modular The Final Nights code.
+# Run the linters again, but modular DarkPack13 code.
 sed "s|code/\*\*/\*\.dm|modular_tfn/\*\*/\*\.dm|g" <tools/ci/check_grep.sh | bash
