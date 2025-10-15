@@ -1,0 +1,29 @@
+/**
+ * Clan defines
+ */
+
+#define CLAN_NONE "Caitiff"
+#define CLAN_BRUJAH "Brujah"
+#define CLAN_TOREADOR "Toreador"
+#define CLAN_NOSFERATU "Nosferatu"
+#define CLAN_TREMERE "Tremere"
+#define CLAN_GANGREL "Gangrel"
+#define CLAN_VENTRUE "Ventrue"
+#define CLAN_MALKAVIAN "Malkavian"
+#define CLAN_TZIMISCE "Tzimisce"
+#define CLAN_TRUE_BRUJAH "True Brujah"
+#define CLAN_OLD_TZIMISCE "Old Clan Tzimisce"
+#define CLAN_SALUBRI "Salubri"
+#define CLAN_BAALI "Baali"
+#define CLAN_KIASYD "Kiasyd"
+#define CLAN_LASOMBRA "Lasombra"
+#define CLAN_SETITES "Setite"
+#define CLAN_BANU_HAQIM "Banu Haqim"
+#define CLAN_GIOVANNI "Giovanni"
+#define CLAN_GARGOYLE "Gargoyle"
+#define CLAN_DAUGHTERS_OF_CACOPHONY "Daughters of Cacophony"
+#define CLAN_CAPPADOCIAN "Cappadocian"
+#define CLAN_NAGARAJA "Nagaraja"
+#define CLAN_SALUBRI_WARRIOR "Salubri Warrior"
+
+#define CLAN_ALL list(CLAN_NONE, CLAN_BRUJAH, CLAN_TOREADOR, CLAN_NOSFERATU, CLAN_TREMERE, CLAN_GANGREL, CLAN_VENTRUE, CLAN_MALKAVIAN, CLAN_TZIMISCE, CLAN_TRUE_BRUJAH, CLAN_OLD_TZIMISCE, CLAN_SALUBRI, CLAN_BAALI, CLAN_KIASYD, CLAN_LASOMBRA, CLAN_SETITES, CLAN_BANU_HAQIM, CLAN_GIOVANNI, CLAN_GARGOYLE, CLAN_DAUGHTERS_OF_CACOPHONY, CLAN_CAPPADOCIAN, CLAN_NAGARAJA, CLAN_SALUBRI_WARRIOR)
