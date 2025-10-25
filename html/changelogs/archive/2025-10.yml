@@ -35,21 +35,11 @@
   - rscadd: Goat Plushie + loot lists for mapping random spawn plushies.
   - rscadd: Tzimisce Plushie + loot lists for mapping random spawn plushies.
 2025-10-12:
-  FalloutFalcon:
-  - rscadd: Hub shows the ingame year after the city name.
   XeonMations:
-  - code_imp: Proper traits organization, plus linter for globaltraits
-  chazzyjazzy:
-  - code_imp: Offsets transparency hud from lower z levels by 20 pixels to give the
-      appearance of coherent buildings
+  - bugfix: Fixed README file on the repository.
 2025-10-15:
-  FalloutFalcon:
-  - refactor: ghosts updated to use the existing basic mob subtype
-  dwinters99:
-  - rscdel: relationship system
-  - image: new default titlescreen
-  - rscdel: redundant click.dm
-  - image: new default species appearance
+  XeonMations:
+  - code_imp: Added linters to the modular_tfn files.
 2025-10-16:
   KCartridge:
   - rscdel: A lot of crafting recipes
@@ -83,9 +73,6 @@
   - balance: SWAT officers now get police keys and an IFAK
   - image: updated icons for the unmarked police car and original police gear
   - map: added ranger car to runtimetown
-2025-10-15:
+2025-10-25:
   XeonMations:
-  - code_imp: Added linters to the modular_tfn files.
-2025-10-12:
-  XeonMations:
-  - bugfix: Fixed README file on the repository.
+  - code_imp: Pulled some code from our upstream
