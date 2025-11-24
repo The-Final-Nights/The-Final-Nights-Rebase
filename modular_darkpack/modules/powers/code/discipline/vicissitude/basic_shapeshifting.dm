@@ -116,7 +116,7 @@
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_name(mob/living/carbon/human/user)
-	var/newname = sanitize_name(tgui_input_text(user, "Who are we again?", "Name change", user.name, MAX_NAME_LEN))
+	var/newname = sanitize_name(tgui_input_text(owner, "Who are we again?", "Name change", user.name, MAX_NAME_LEN))
 	if(!newname)
 		return TRUE
 	user.real_name = newname
