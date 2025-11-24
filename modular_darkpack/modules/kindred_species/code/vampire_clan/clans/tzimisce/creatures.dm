@@ -1,4 +1,3 @@
-
 /mob/living/basic/biter
 	name = "biter"
 	desc = "A ferocious, fang-bearing creature that resembles a spider."
@@ -184,14 +183,15 @@
 /mob/living/basic/bloodcrawler
 	var/collected_blood = 0
 
-/mob/living/basic/bloodcrawler/Move(NewLoc, direct)
+/mob/living/basic/bloodcrawler/Move(atom/newloc, direct, glide_size_override)
 	. = ..()
-	var/obj/structure/vampdoor/V = locate() in NewLoc
+
+	var/obj/structure/vampdoor/V = locate() in newloc
 	if(V?.lockpick_difficulty <= 10)
 		forceMove(get_turf(V))
-	for(var/obj/effect/decal/cleanable/blood/B in range(1, NewLoc))
-		if(B.bloodiness)
-			collected_blood = collected_blood+1
-			to_chat(src, span_info("You sense blood entering your mass..."))
-			var/turf/T = get_turf(B)
-			T?.wash(CLEAN_SCRUB)
+
+	for(var/obj/effect/decal/cleanable/blood/B in get_turf(newloc))
+		collected_blood += B.bloodiness
+		to_chat(src, span_info("You sense blood entering your mass..."))
+		var/turf/T = get_turf(B)
+		T?.wash(CLEAN_SCRUB)
