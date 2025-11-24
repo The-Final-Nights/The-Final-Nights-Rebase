@@ -58,7 +58,6 @@
 	level = 1
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
 	target_type = TARGET_HUMAN
-	violates_masquerade = TRUE
 	cooldown_length = 1 TURNS
 	vitae_cost = 1
 	toggled = FALSE

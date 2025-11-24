@@ -61,6 +61,8 @@
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_sex(mob/living/carbon/human/target)
 	var/chosen_sex = tgui_input_list(owner, "Choose a gender.", "Confirmation", list("Male", "Female", "Plural", "Neuter"))
+	if(!do_after(owner, delay = 1 TURNS, target = target))
+		return FALSE
 	switch(chosen_sex)
 		if("Male")
 			target.gender = MALE
@@ -70,51 +72,72 @@
 			target.gender = PLURAL
 		if("Neuter")
 			target.gender = NEUTER
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 
 	var/chosen_physique = tgui_input_list(owner, "Alter physique as well?", "Confirmation", list("Masculine", "Feminine"))
-	if(chosen_physique)
-		target.physique = (chosen_physique == "Masculine") ? MALE : FEMALE
-
+	if(!chosen_physique)
+		return FALSE
+	if(!do_after(owner, delay = 1 TURNS, target = target))
+		return FALSE
+	target.physique = (chosen_physique == "Masculine") ? MALE : FEMALE
 	target.dna.update_ui_block(/datum/dna_block/identity/gender)
 	target.update_body(is_creating = TRUE) // or else physique won't change properly
 	target.update_mutations_overlay() //(hulk male/female)
 	target.update_clothing(ITEM_SLOT_ICLOTHING) // update gender shaped clothing
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	to_chat(owner, span_notice("You finish altering the gender of [target]."))
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_eyes(mob/living/carbon/human/target)
 	var/new_eye_color = input(owner, "Choose a eye color", "Eye Color", target.eye_color_left) as color|null
 	if(isnull(new_eye_color))
 		return TRUE
+	if(!do_after(owner, delay = 1 TURNS, target = target))
+		return FALSE
 	target.set_eye_color(sanitize_hexcolor(new_eye_color))
 	target.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
 	target.update_body()
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	to_chat(owner, span_notice("You finish altering the eye color of [target]."))
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_beard(mob/living/carbon/human/target)
 	var/new_style = tgui_input_list(owner, "Select a facial hairstyle", "Grooming", SSaccessories.facial_hairstyles_list)
 	if(isnull(new_style))
-		return TRUE
+		return FALSE
+	if(!do_after(owner, delay = 1 TURNS, target = target))
+		return FALSE
 	target.set_facial_hairstyle(new_style, update = TRUE)
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	to_chat(owner, span_notice("You finish altering the facial style of [target]."))
 
 	var/new_face_color = input(owner, "Choose a facial hair color", "Hair Color", target.facial_hair_color) as color|null
-	if(new_face_color)
-		target.set_facial_haircolor(sanitize_hexcolor(new_face_color))
-		target.dna.update_ui_block(/datum/dna_block/identity/facial_color)
+	if(!new_face_color)
+		return FALSE
+	if(!do_after(owner, delay = 1 TURNS, target = target))
+		return FALSE
+	target.set_facial_haircolor(sanitize_hexcolor(new_face_color))
+	target.dna.update_ui_block(/datum/dna_block/identity/facial_color)
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	to_chat(owner, span_notice("You finish altering the facial hair color of [target]."))
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_hair(mob/living/carbon/human/target)
 	var/new_style = tgui_input_list(owner, "Select a hairstyle", "Grooming", SSaccessories.hairstyles_list)
 	if(isnull(new_style))
-		return TRUE
+		return FALSE
+	if(!do_after(owner, delay = 1 TURNS, target = target))
+		return FALSE
 	target.set_hairstyle(new_style, update = TRUE)
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	to_chat(owner, span_notice("You finish altering the hair style of [target]."))
 
 	var/new_hair_color = input(owner, "Choose a hair color", "Hair Color", target.hair_color) as color|null
-	if(new_hair_color)
-		target.set_haircolor(sanitize_hexcolor(new_hair_color))
-		target.dna.update_ui_block(/datum/dna_block/identity/hair_color)
+	if(!new_hair_color)
+		return FALSE
+	if(!do_after(owner, delay = 1 TURNS, target = target))
+		return FALSE
+	target.set_haircolor(sanitize_hexcolor(new_hair_color))
+	target.dna.update_ui_block(/datum/dna_block/identity/hair_color)
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	to_chat(owner, span_notice("You finish altering the hair color of [target]."))
 	return TRUE
 
@@ -122,12 +145,15 @@
 	var/newname = sanitize_name(tgui_input_text(owner, "Who are we again?", "Name change", user.name, MAX_NAME_LEN))
 	if(!newname || newname == user.name)
 		return FALSE
+	if(!do_after(owner, delay = 1 TURNS, target = target))
+		return FALSE
 	user.real_name = newname
 	user.name = newname
 	if(user.dna)
 		user.dna.real_name = newname
 	if(user.mind)
 		user.mind.name = newname
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_race(mob/living/carbon/human/user)
@@ -138,11 +164,15 @@
 
 	var/new_s_tone = tgui_input_list(owner, "Choose a skin tone", "Race change", skin_tones)
 	new_s_tone = skin_tones[new_s_tone]
-	if(new_s_tone)
-		user.skin_tone = new_s_tone
-		user.dna.update_ui_block(/datum/dna_block/identity/skin_tone)
+	if(!new_s_tone)
+		return FALSE
+	if(!do_after(owner, delay = 1 TURNS, target = target))
+		return FALSE
+	user.skin_tone = new_s_tone
+	user.dna.update_ui_block(/datum/dna_block/identity/skin_tone)
 	user.update_body(is_creating = TRUE)
 	user.update_mutations_overlay()
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_height(mob/living/carbon/human/user)
@@ -156,8 +186,12 @@
 
 	var/new_height = tgui_input_list(owner, "Choose a height", "Height change", heights)
 	new_height = heights[new_height]
-	if(new_height)
-		user.set_mob_height(new_height)
+	if(!new_height)
+		return FALSE
+	if(!do_after(owner, delay = 1 TURNS, target = target))
+		return FALSE
+	user.set_mob_height(new_height)
+	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	return TRUE
 
 #undef CHANGE_HAIR
