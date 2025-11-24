@@ -4,7 +4,8 @@
 #define CHANGE_NAME "Change Name"
 #define CHANGE_EYES "Change Eyes"
 #define CHANGE_RACE "Change Race"
-#define CHOICE_OPTIONS list(CHANGE_HAIR, CHANGE_BEARD, CHANGE_SEX, CHANGE_EYES, CHANGE_NAME, CHANGE_RACE)
+#define CHANGE_HEIGHT "Change Height"
+#define CHOICE_OPTIONS list(CHANGE_HAIR, CHANGE_BEARD, CHANGE_SEX, CHANGE_EYES, CHANGE_NAME, CHANGE_RACE, CHANGE_HEIGHT)
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude
 	name = "Vicissitude Shapeshfting"
@@ -23,7 +24,7 @@
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/update_choices()
 	for(var/i in choices)
-		choices[i] = icon('icons/hud/radial.dmi', i)
+		choices[i] = icon('modular_darkpack/modules/powers/icons/shapeshifting_radial.dmi', i)
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/Activate(atom/target)
 	if(!ishuman(target))
@@ -54,6 +55,8 @@
 			change_eyes(target)
 		if(CHANGE_RACE)
 			change_race(target)
+		if(CHANGE_HEIGHT)
+			change_height(target)
 	return display_radial_menu(target)
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_sex(mob/living/carbon/human/target)
@@ -117,8 +120,8 @@
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_name(mob/living/carbon/human/user)
 	var/newname = sanitize_name(tgui_input_text(owner, "Who are we again?", "Name change", user.name, MAX_NAME_LEN))
-	if(!newname)
-		return TRUE
+	if(!newname || newname == user.name)
+		return FALSE
 	user.real_name = newname
 	user.name = newname
 	if(user.dna)
@@ -128,7 +131,13 @@
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_race(mob/living/carbon/human/user)
-	var/new_s_tone = tgui_input_list(owner, "Choose a skin tone", "Race change", GLOB.skin_tones)
+	var/list/skin_tones = list()
+	for(var/skin_tone as anything in GLOB.skin_tone_names)
+		var/skin_tone_name = GLOB.skin_tone_names[skin_tone]
+		skin_tones[skin_tone_name] = skin_tone
+
+	var/new_s_tone = tgui_input_list(owner, "Choose a skin tone", "Race change", skin_tones)
+	new_s_tone = skin_tones[new_s_tone]
 	if(new_s_tone)
 		user.skin_tone = new_s_tone
 		user.dna.update_ui_block(/datum/dna_block/identity/skin_tone)
@@ -136,8 +145,26 @@
 	user.update_mutations_overlay()
 	return TRUE
 
+/datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/change_height(mob/living/carbon/human/user)
+	var/list/heights = list(
+		"Taller" = HUMAN_HEIGHT_TALLER,
+		"Tall" = HUMAN_HEIGHT_TALL,
+		"Average" = HUMAN_HEIGHT_MEDIUM,
+		"Short" = HUMAN_HEIGHT_SHORT,
+		"Shorter" = HUMAN_HEIGHT_SHORTEST,
+		)
+
+	var/new_height = tgui_input_list(owner, "Choose a height", "Height change", heights)
+	new_height = heights[new_height]
+	if(new_height)
+		user.set_mob_height(new_height)
+	return TRUE
+
 #undef CHANGE_HAIR
 #undef CHANGE_BEARD
 #undef CHANGE_SEX
 #undef CHANGE_EYES
+#undef CHANGE_NAME
+#undef CHANGE_RACE
+#undef CHANGE_HEIGHT
 #undef CHOICE_OPTIONS
