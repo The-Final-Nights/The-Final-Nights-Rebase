@@ -12,9 +12,9 @@
 	vampiric = TRUE
 	click_to_activate = TRUE
 
-/datum/action/cooldown/basic_vicissitude/Trigger()
+/datum/action/cooldown/basic_vicissitude/Trigger(mob/clicker, trigger_flags, atom/target)
 	. = ..()
-	display_radial_menu(owner)
+	display_radial_menu(target)
 
 /datum/action/cooldown/basic_vicissitude/proc/display_radial_menu(mob/target)
 	var/chosen_option = show_radial_menu(owner, target, CHOICE_OPTIONS, target, radius = 36, tooltips = TRUE)
@@ -32,8 +32,8 @@
 			change_eyes(target)
 	return display_radial_menu(target)
 
-/datum/action/cooldown/basic_viscissitude/proc/change_sex(mob/living/carbon/human/target)
-	var/chosen_sex = tgui_input_list(target, "Choose a gender.", "Confirmation", list("Male", "Female", "Plural", "Neuter"))
+/datum/action/cooldown/basic_vicissitude/proc/change_sex(mob/living/carbon/human/target)
+	var/chosen_sex = tgui_input_list(owner, "Choose a gender.", "Confirmation", list("Male", "Female", "Plural", "Neuter"))
 	switch(chosen_sex)
 		if("Male")
 			target.gender = MALE
@@ -44,7 +44,7 @@
 		if("Neuter")
 			target.gender = NEUTER
 
-	var/chosen_physique = tgui_input_list(target, "Alter your physique as well?", "Confirmation", list("Masculine", "Feminine"))
+	var/chosen_physique = tgui_input_list(owner, "Alter your physique as well?", "Confirmation", list("Masculine", "Feminine"))
 	if(chosen_physique)
 		target.physique = (chosen_physique == "Masculine") ? MALE : FEMALE
 
@@ -54,8 +54,8 @@
 	target.update_clothing(ITEM_SLOT_ICLOTHING) // update gender shaped clothing
 	to_chat(owner, span_notice("You finish altering the gender of [target]."))
 
-/datum/action/cooldown/basic_viscissitude/proc/change_eyes(mob/living/carbon/human/target)
-	var/new_eye_color = input(target, "Choose your eye color", "Eye Color", target.eye_color_left) as color|null
+/datum/action/cooldown/basic_vicissitude/proc/change_eyes(mob/living/carbon/human/target)
+	var/new_eye_color = input(owner, "Choose your eye color", "Eye Color", target.eye_color_left) as color|null
 	if(isnull(new_eye_color))
 		return TRUE
 	target.set_eye_color(sanitize_hexcolor(new_eye_color))
@@ -63,28 +63,28 @@
 	target.update_body()
 	to_chat(owner, span_notice("You finish altering the eye color of [target]."))
 
-/datum/action/cooldown/basic_viscissitude/proc/change_beard(mob/living/carbon/human/beard_dresser)
-	var/new_style = tgui_input_list(beard_dresser, "Select a facial hairstyle", "Grooming", SSaccessories.facial_hairstyles_list)
+/datum/action/cooldown/basic_vicissitude/proc/change_beard(mob/living/carbon/human/target)
+	var/new_style = tgui_input_list(owner, "Select a facial hairstyle", "Grooming", SSaccessories.facial_hairstyles_list)
 	if(isnull(new_style))
 		return TRUE
-	beard_dresser.set_facial_hairstyle(new_style, update = TRUE)
+	target.set_facial_hairstyle(new_style, update = TRUE)
 	to_chat(owner, span_notice("You finish altering the facial style of [target]."))
 
-	var/new_face_color = input(target, "Choose your facial hair color", "Hair Color", target.facial_hair_color) as color|null
+	var/new_face_color = input(owner, "Choose your facial hair color", "Hair Color", target.facial_hair_color) as color|null
 	if(new_face_color)
 		target.set_facial_haircolor(sanitize_hexcolor(new_face_color))
 		target.dna.update_ui_block(/datum/dna_block/identity/facial_color)
 	to_chat(owner, span_notice("You finish altering the facial hair color of [target]."))
 	return TRUE
 
-/datum/action/cooldown/basic_viscissitude/proc/change_hair(mob/living/carbon/human/target)
-	var/new_style = tgui_input_list(hairdresser, "Select a hairstyle", "Grooming", SSaccessories.hairstyles_list)
+/datum/action/cooldown/basic_vicissitude/proc/change_hair(mob/living/carbon/human/target)
+	var/new_style = tgui_input_list(owner, "Select a hairstyle", "Grooming", SSaccessories.hairstyles_list)
 	if(isnull(new_style))
 		return TRUE
-	hairdresser.set_hairstyle(new_style, update = TRUE)
+	target.set_hairstyle(new_style, update = TRUE)
 	to_chat(owner, span_notice("You finish altering the hair style of [target]."))
 
-	var/new_hair_color = input(target, "Choose your hair color", "Hair Color", target.hair_color) as color|null
+	var/new_hair_color = input(owner, "Choose your hair color", "Hair Color", target.hair_color) as color|null
 	if(new_hair_color)
 		target.set_haircolor(sanitize_hexcolor(new_hair_color))
 		target.dna.update_ui_block(/datum/dna_block/identity/hair_color)

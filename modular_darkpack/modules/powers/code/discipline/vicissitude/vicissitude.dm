@@ -19,7 +19,7 @@
 // Level 2
 /datum/discipline_power/vicissitude/fleshcrafting/post_gain()
 	. = ..()
-	var/obj/item/organ/cyberimp/arm/surgery/surgery_implant = new()
+	var/obj/item/organ/cyberimp/arm/toolkit/surgery/surgery_implant = new()
 	surgery_implant.Insert(owner)
 
 	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_wall)
