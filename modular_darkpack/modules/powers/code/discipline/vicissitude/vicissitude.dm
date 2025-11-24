@@ -13,7 +13,7 @@
 
 /datum/discipline_power/vicissitude/malleable_visage/post_gain()
 	. = ..()
-	var/datum/action/cooldown/basic_vicissitude/basic_vicissitude = new()
+	var/datum/action/cooldown/mob_cooldown/basic_vicissitude/basic_vicissitude = new(owner)
 	basic_vicissitude.Grant(owner)
 
 // Level 2
@@ -53,10 +53,10 @@
 
 /datum/discipline_power/vicissitude/malleable_visage
 	name = "Malleable Visage"
-	desc = "Change your features to mimic those of a victim."
+	desc = "Remember another person's features and copy them at a later time."
 
 	level = 1
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_FREE_HAND
+	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
 	target_type = TARGET_HUMAN
 	violates_masquerade = TRUE
 	cooldown_length = 1 TURNS
