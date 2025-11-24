@@ -13,7 +13,7 @@
 
 /datum/discipline_power/vicissitude/malleable_visage/post_gain()
 	. = ..()
-	var/datum/action/basic_vicissitude/basic_vicissitude = new()
+	var/datum/action/cooldown/basic_vicissitude/basic_vicissitude = new()
 	basic_vicissitude.Grant(owner)
 
 // Level 2
