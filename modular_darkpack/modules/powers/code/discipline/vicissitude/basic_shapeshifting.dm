@@ -34,7 +34,6 @@
 		return FALSE
 	unset_click_ability(owner, refund_cooldown = FALSE)
 	display_radial_menu(target)
-	// StartCooldown()
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/basic_vicissitude/proc/display_radial_menu(mob/target)
