@@ -11,11 +11,6 @@
 	owner.faction |= VAMPIRE_CLAN_TZIMISCE
 	ADD_TRAIT(owner, TRAIT_VICISSITUDE_KNOWLEDGE, DISCIPLINE_TRAIT)
 
-/datum/discipline_power/vicissitude/malleable_visage/post_gain()
-	. = ..()
-	var/datum/action/cooldown/mob_cooldown/basic_vicissitude/basic_vicissitude = new(owner)
-	basic_vicissitude.Grant(owner)
-
 // Level 2
 /datum/discipline_power/vicissitude/fleshcrafting/post_gain()
 	. = ..()
@@ -50,21 +45,6 @@
 	activate_sound = 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg'
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/datum/discipline_power/vicissitude/malleable_visage
-	name = "Malleable Visage"
-	desc = "Remember another person's features and copy them at a later time."
-
-	level = 1
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
-	target_type = TARGET_HUMAN
-	cooldown_length = 1 TURNS
-	vitae_cost = 1
-	toggled = FALSE
-
-/datum/discipline_power/vicissitude/malleable_visage/activate(atom/target)
-	. = ..()
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

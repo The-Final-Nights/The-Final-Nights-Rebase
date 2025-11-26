@@ -18,9 +18,6 @@
 ///Targets mobs only if they are vampires/Kindred
 #define TARGET_VAMPIRE (1<<8)
 
-//Aggregated targeting for /mob/living
-#define MOB_LIVING_TARGETING (TARGET_MOB | TARGET_LIVING | TARGET_HUMAN | TARGET_PLAYER | TARGET_VAMPIRE)
-
 //bitflags to check for certain conditions determining ability to actually cast a discipline
 //flags overlap, like DISC_CHECK_CAPABLE covers DISC_CHECK_CONSCIOUS and DISC_CHECK_TORPOR
 ///Caster must not be in Torpor
@@ -41,9 +38,3 @@
 #define DISC_CHECK_SEE (1<<7)
 ///Caster must see the target directly (without the usage of auspex for example)
 #define DISC_CHECK_DIRECT_SEE (1<<8)
-
-//power type defines, will be useful when it's made generic
-///Power is a Discipline of the Vampire: The Masquerade game line
-#define POWER_TYPE_DISCIPLINE "discipline"
-///Power is a Chi Art of the Kindred of the East game line
-#define POWER_TYPE_CHI_ART "chi_art"
