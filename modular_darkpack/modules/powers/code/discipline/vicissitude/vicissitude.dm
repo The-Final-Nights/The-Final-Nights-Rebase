@@ -17,25 +17,6 @@
 	var/obj/item/organ/cyberimp/arm/toolkit/surgery/surgery_implant = new()
 	surgery_implant.Insert(owner)
 
-	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_wall)
-	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_stool)
-	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_floor)
-	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_eyes)
-	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_implant)
-
-// Level 3
-/datum/discipline_power/vicissitude/bonecrafting/post_gain()
-	. = ..()
-	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_trench)
-	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_biter)
-	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_fister)
-	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_tanker)
-
-// Level 4
-/datum/discipline_power/vicissitude/horrid_form/post_gain()
-	. = ..()
-	owner.mind?.teach_crafting_recipe(/datum/crafting_recipe/tzi_heart)
-
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/discipline_power/vicissitude
