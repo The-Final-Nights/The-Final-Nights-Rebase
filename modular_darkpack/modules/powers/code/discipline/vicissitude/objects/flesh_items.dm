@@ -33,7 +33,7 @@
 /obj/item/stack/human_flesh/five
 	amount = 5
 
-/obj/item/autosurgeon/organ/vicissitude
+/obj/item/autosurgeon/vicissitude
 	name = "little brother"
 	desc = "A talented fleshcrafted creature that can insert an implant or organ into its master without the hassle of extensive surgery. \
 		Its mouth is eagerly awaiting implants or organs. However, it's quite greedy, so a screwdriver must be used to pry away accidentally added items."
