@@ -3,6 +3,7 @@
 	steps = list(/datum/surgery_step/incise, /datum/surgery_step/retract_skin, /datum/surgery_step/modify_eyes, /datum/surgery_step/close)
 	possible_locs = list(BODY_ZONE_PRECISE_EYES)
 	replaced_by = null
+	requires_tech = TRUE
 
 //reshape_face
 /datum/surgery_step/modify_eyes

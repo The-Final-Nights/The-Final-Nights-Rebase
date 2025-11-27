@@ -72,6 +72,7 @@
 	. = ..()
 	var/obj/item/organ/cyberimp/arm/toolkit/surgery/surgery_implant = new()
 	surgery_implant.Insert(owner)
+	ADD_TRAIT(owner, TRAIT_SURGEON, DISCIPLINE_TRAIT)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

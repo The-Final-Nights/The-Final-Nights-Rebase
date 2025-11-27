@@ -12,6 +12,7 @@
 		)
 
 	replaced_by = null
+	requires_tech = TRUE
 
 /datum/surgery_step/change_spine
 	name = "Manipulate Spine"

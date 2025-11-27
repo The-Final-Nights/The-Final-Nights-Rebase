@@ -8,6 +8,7 @@
 				/datum/surgery_step/close)
 
 	replaced_by = null
+	requires_tech = TRUE
 
 /datum/surgery_step/sex_change
 	name = "Sex Change"

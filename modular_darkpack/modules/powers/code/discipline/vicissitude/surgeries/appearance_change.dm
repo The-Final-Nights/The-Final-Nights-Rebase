@@ -3,6 +3,7 @@
 	steps = list(/datum/surgery_step/incise, /datum/surgery_step/retract_skin, /datum/surgery_step/reshape_appearance, /datum/surgery_step/close)
 	possible_locs = list(BODY_ZONE_HEAD)
 	replaced_by = null
+	requires_tech = TRUE
 
 /datum/surgery_step/reshape_appearance
 	name = "Reshape Face"

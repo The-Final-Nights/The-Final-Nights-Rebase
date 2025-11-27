@@ -3,6 +3,7 @@
 	steps = list(/datum/surgery_step/incise, /datum/surgery_step/retract_skin, /datum/surgery_step/modify_skin, /datum/surgery_step/close)
 	possible_locs = list(BODY_ZONE_CHEST)
 	replaced_by = null
+	requires_tech = TRUE
 
 //Modify Skin Tone
 /datum/surgery_step/modify_skin
