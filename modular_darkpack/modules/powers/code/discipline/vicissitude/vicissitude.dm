@@ -77,7 +77,7 @@
 
 /datum/discipline_power/vicissitude/bonecrafting
 	name = "Bonecrafting"
-	desc = "Force a body to have an upgrade, or injure it."
+	desc = "Forcefully injure a body."
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND
