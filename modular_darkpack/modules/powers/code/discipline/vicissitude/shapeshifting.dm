@@ -89,6 +89,7 @@
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the physique of [target]."))
+	return TRUE
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/change_eyes(mob/living/carbon/human/target)
 	var/new_eye_color = input(owner, "Choose a eye color", "Eye Color", target.eye_color_left) as color|null
@@ -104,6 +105,7 @@
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the eye color of [target]."))
+	return TRUE
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/change_beard(mob/living/carbon/human/target)
 	var/new_style = tgui_input_list(owner, "Select a facial hairstyle", "Grooming", SSaccessories.facial_hairstyles_list)
@@ -227,10 +229,10 @@
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/show_saved_profiles(mob/living/carbon/human/target)
 	var/chosen_option // = show_radial_menu(owner, target, saved_profiles, target, radius = 36, tooltips = TRUE)
 	if(!chosen_option)
-		return TRUE
+		return FALSE
 	if(!IN_GIVEN_RANGE(owner, target, range))
 		return FALSE
-
+	return TRUE
 
 #undef CHANGE_HAIR
 #undef CHANGE_BEARD
