@@ -62,7 +62,7 @@
 	hostile = TRUE
 	violates_masquerade = TRUE
 
-	cooldown_length =1 TURNS
+	cooldown_length = 1 TURNS
 	grouped_powers = list(/datum/discipline_power/vicissitude/bonecrafting)
 
 /datum/discipline_power/vicissitude/fleshcrafting/activate(mob/living/target)
@@ -102,8 +102,8 @@
 
 	violates_masquerade = TRUE
 
-	duration_length = 20 SECONDS
-	cooldown_length = 20 SECONDS
+	duration_length = 1 TURNS
+	cooldown_length = 1 TURNS
 
 /datum/discipline_power/vicissitude/horrid_form/activate()
 	. = ..()
