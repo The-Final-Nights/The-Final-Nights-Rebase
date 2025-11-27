@@ -27,6 +27,27 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/datum/discipline_power/vicissitude/malleable_visage
+	name = "Malleable Visage"
+	desc = "Basic Shapeshifting."
+
+	level = 1
+	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND
+	target_type = TARGET_SELF
+	cooldown_length = 1 TURNS
+	vitae_cost = 1
+	range = 1
+	toggled = FALSE
+
+/datum/discipline_power/vicissitude/malleable_visage/activate(atom/target)
+	. = ..()
+	if(!ishuman(target))
+		return FALSE
+	display_radial_menu(target)
+	return TRUE
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 /datum/discipline_power/vicissitude/fleshcrafting
 	name = "Fleshcrafting"
 	desc = "Mold your victim's flesh and soft tissue to your desire."
