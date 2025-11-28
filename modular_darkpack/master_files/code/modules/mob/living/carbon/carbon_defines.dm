@@ -31,9 +31,8 @@
 	var/last_showed = 0
 	var/last_raid = 0
 	var/killed_count = 0
+	var/fakediablerist = FALSE
 
 	bloodquality = 2
-
-	var/soul_state = SOUL_PRESENT
 
 	var/can_be_embraced = TRUE

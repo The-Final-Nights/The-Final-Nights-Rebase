@@ -1,9 +1,13 @@
 /mob/living
 	COOLDOWN_DECLARE(masquerade_timer)
+	//thaumaturgy & necro path stuff
+	var/research_points = 0
+	var/collected_souls = 0
 
 /mob/living/Initialize(mapload)
 	. = ..()
 	storyteller_stat_holder = new() // STORYTELLER_STATS
+	AddComponent(/datum/component/aura)
 
 /mob/living/set_pull_offsets(mob/living/mob_to_set, grab_state = GRAB_PASSIVE, animate = TRUE)
 	. = ..()

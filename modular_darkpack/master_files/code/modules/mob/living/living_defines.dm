@@ -18,7 +18,6 @@
 	var/thaum_damage_plus = 0
 
 	var/resistant_to_disciplines = FALSE
-	var/auspex_examine = FALSE
 
 	var/dancing = FALSE
 
@@ -79,3 +78,7 @@
 	//beastmaster
 	var/list/beastmaster_minions = list()
 	var/list/datum/component/obeys_commands/minion_command_components = list()
+
+	var/obj/grabbed_by_tentacle = null
+	var/escape_attempt = 0
+	var/tentacle_aggro_mode = "Aggressive"
