@@ -2,7 +2,18 @@
 	icon_state = "toolkit_implant_vic"
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 	organ_flags = ORGAN_ORGANIC
-	contents = newlist(/obj/item/retractor/augment/vicissitude, /obj/item/hemostat/augment/vicissitude, /obj/item/cautery/augment/vicissitude, /obj/item/surgicaldrill/augment/vicissitude, /obj/item/scalpel/augment/vicissitude, /obj/item/circular_saw/augment/vicissitude, /obj/item/surgical_drapes/vicissitude, /obj/item/bonesetter/augment/vicissitude, /obj/item/blood_filter/augment/vicissitude, /obj/item/healthanalyzer/vicissitude, /obj/item/shockpaddles/cyborg/vicissitude)
+	items_to_create = list(
+		/obj/item/retractor/augment/vicissitude,
+		/obj/item/hemostat/augment/vicissitude,
+		/obj/item/cautery/augment/vicissitude,
+		/obj/item/surgicaldrill/augment/vicissitude,
+		/obj/item/scalpel/augment/vicissitude,
+		/obj/item/circular_saw/augment/vicissitude,
+		/obj/item/surgical_drapes/vicissitude,
+		/obj/item/bonesetter/augment/vicissitude,
+		/obj/item/blood_filter/augment/vicissitude,
+		/obj/item/healthanalyzer/vicissitude,
+		/obj/item/shockpaddles/cyborg/vicissitude)
 
 /obj/item/retractor/augment/vicissitude
 	name = "retracting appendage"
@@ -101,3 +112,7 @@
 	inhand_icon_state = "syndiepaddles0"
 	base_icon_state = "shockpaddles"
 	req_defib = FALSE
+
+/obj/item/shockpaddles/cyborg/vicissitude/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NEEDS_TWO_HANDS, "implant_requirement")
