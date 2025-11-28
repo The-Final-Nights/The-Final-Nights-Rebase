@@ -135,7 +135,7 @@
 
 	level = 4
 	violates_masquerade = TRUE
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND
+	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
 	target_type = TARGET_SELF | TARGET_HUMAN
 	duration_length = 1 TURNS
 	vitae_cost = 2
@@ -145,10 +145,13 @@
 
 /datum/discipline_power/vicissitude/horrid_form/activate()
 	. = ..()
+	owner.Stun(2 SECONDS)
+	owner.do_jitter_animation(50)
 
 /datum/discipline_power/vicissitude/horrid_form/deactivate()
 	. = ..()
-
+	owner.Stun(2 SECONDS)
+	owner.do_jitter_animation(50)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
