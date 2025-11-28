@@ -46,6 +46,7 @@
 	name = "surgical fang"
 	desc = "A spiral fang that bores into the flesh with reckless glee."
 	icon_state = "drill_vic"
+	inhand_icon_state = "drill_vic"
 	hitsound = 'sound/effects/wounds/blood2.ogg'
 	lefthand_file = 'modular_darkpack/modules/powers/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/powers/icons/lefthand.dmi'
