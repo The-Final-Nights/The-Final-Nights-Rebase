@@ -47,6 +47,6 @@
 		return FALSE
 	target.set_mob_height(new_height)
 	SEND_SIGNAL(user, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(user, span_notice("You finish altering the height of [target]."))
 	return TRUE

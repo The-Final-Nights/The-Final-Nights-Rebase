@@ -29,7 +29,7 @@
 		return FALSE
 	target.set_hairstyle(new_style, update = TRUE)
 	SEND_SIGNAL(user, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(user, span_notice("You finish altering the hair style of [target]."))
 
 	var/new_hair_color = input(user, "Choose a hair color", "Hair Color", target.hair_color) as color|null
@@ -40,6 +40,6 @@
 	target.set_haircolor(sanitize_hexcolor(new_hair_color))
 	target.dna.update_ui_block(/datum/dna_block/identity/hair_color)
 	SEND_SIGNAL(user, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(user, span_notice("You finish altering the hair color of [target]."))
 	return TRUE

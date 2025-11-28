@@ -21,6 +21,7 @@
 /datum/discipline_power/vicissitude
 	name = "Vicissitude power name"
 	desc = "Vicissitude power description"
+	effect_sound = 'modular_darkpack/modules/powers/sounds/vicissitude.ogg'
 
 	var/datum/action/cooldown/mob_cooldown/shapeshift/shapeshift_ability
 
@@ -55,7 +56,7 @@
 	desc = "Shapeshift others."
 
 	level = 2
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND
+	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
 	target_type = TARGET_SELF | TARGET_HUMAN
 	vitae_cost = 1
 	range = 1
@@ -63,9 +64,12 @@
 	aggravating = TRUE
 	cooldown_length = 1 TURNS
 
-/datum/discipline_power/vicissitude/fleshcrafting/activate(atom/target)
+/datum/discipline_power/vicissitude/fleshcrafting/activate(atom/movable/target)
 	. = ..()
-	shapeshift_ability.Activate(target)
+	if(target.pulledby == owner && (owner.grab_state == GRAB_AGGRESSIVE))
+		shapeshift_ability.Activate(target)
+	else
+		to_chat(owner, span_danger("You need to have a firm grip on [target]!"))
 	return TRUE
 
 /datum/discipline_power/vicissitude/fleshcrafting/post_gain()
@@ -81,16 +85,47 @@
 	desc = "Forcefully injure a body."
 
 	level = 3
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND
-	target_type = TARGET_SELF | TARGET_HUMAN
+	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
+	target_type = TARGET_MOB
 	vitae_cost = 1
 	range = 1
 	toggled = FALSE
 	aggravating = TRUE
+	hostile = TRUE
+	violates_masquerade = TRUE
+
 	cooldown_length = 1 TURNS
 
 /datum/discipline_power/vicissitude/bonecrafting/activate(mob/living/target)
 	. = ..()
+
+	var/roll = SSroll.storyteller_roll((owner.st_get_stat(STAT_STRENGTH) + owner.st_get_stat(STAT_MEDICINE)), 7, owner, target, TRUE)
+
+	if(target.stat >= HARD_CRIT)
+		if(target.stat != DEAD)
+			target.death()
+		var/obj/item/bodypart/arm/right/r_arm = target.get_bodypart(BODY_ZONE_R_ARM)
+		var/obj/item/bodypart/arm/left/l_arm = target.get_bodypart(BODY_ZONE_L_ARM)
+		var/obj/item/bodypart/leg/right/r_leg = target.get_bodypart(BODY_ZONE_R_LEG)
+		var/obj/item/bodypart/leg/left/l_leg = target.get_bodypart(BODY_ZONE_L_LEG)
+		if(r_arm)
+			r_arm.drop_limb()
+		if(l_arm)
+			l_arm.drop_limb()
+		if(r_leg)
+			r_leg.drop_limb()
+		if(l_leg)
+			l_leg.drop_limb()
+		new /obj/item/stack/human_flesh/twenty(target.loc)
+		new /obj/item/guts(target.loc)
+		new /obj/item/spine(target.loc)
+		qdel(target)
+	else
+		target.emote("scream")
+		target.apply_damage(roll * 30, BRUTE, BODY_ZONE_CHEST)
+		if(roll >= 5)
+			target.visible_message(span_danger("[target]'s rib cage curves inwards grotesquely!"), span_danger("Your feel your ribcages curve inwards and pierce your heart!"))
+			target.adjustBloodPool(-(target.bloodpool * 0.5)) // A vampire who scores five or more successes on the roll (...) cause the affected vampire to lose half his blood points.
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

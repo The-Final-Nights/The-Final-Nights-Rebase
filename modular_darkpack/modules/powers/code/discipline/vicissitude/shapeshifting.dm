@@ -71,7 +71,7 @@
 		if("Neuter")
 			target.gender = NEUTER
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the gender of [target]."))
 
 	var/chosen_physique = tgui_input_list(owner, "Alter physique as well?", "Confirmation", list("Masculine", "Feminine"))
@@ -87,7 +87,7 @@
 	target.update_mutations_overlay() //(hulk male/female)
 	target.update_clothing(ITEM_SLOT_ICLOTHING) // update gender shaped clothing
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the physique of [target]."))
 	return TRUE
 
@@ -103,7 +103,7 @@
 	target.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
 	target.update_body()
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the eye color of [target]."))
 	return TRUE
 
@@ -117,7 +117,7 @@
 		return FALSE
 	target.set_facial_hairstyle(new_style, update = TRUE)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the facial style of [target]."))
 
 	var/new_face_color = input(owner, "Choose a facial hair color", "Hair Color", target.facial_hair_color) as color|null
@@ -130,7 +130,7 @@
 	target.set_facial_haircolor(sanitize_hexcolor(new_face_color))
 	target.dna.update_ui_block(/datum/dna_block/identity/facial_color)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the facial hair color of [target]."))
 	return TRUE
 
@@ -144,7 +144,7 @@
 		return FALSE
 	target.set_hairstyle(new_style, update = TRUE)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the hair style of [target]."))
 
 	var/new_hair_color = input(owner, "Choose a hair color", "Hair Color", target.hair_color) as color|null
@@ -157,7 +157,7 @@
 	target.set_haircolor(sanitize_hexcolor(new_hair_color))
 	target.dna.update_ui_block(/datum/dna_block/identity/hair_color)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the hair color of [target]."))
 	return TRUE
 
@@ -176,7 +176,7 @@
 	if(target.mind)
 		target.mind.name = newname
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the name of [target]."))
 	return TRUE
 
@@ -199,7 +199,7 @@
 	target.update_body(is_creating = TRUE)
 	target.update_mutations_overlay()
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the race of [target]."))
 	return TRUE
 
@@ -222,7 +222,7 @@
 		return FALSE
 	target.set_mob_height(new_height)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(owner, span_notice("You finish altering the height of [target]."))
 	return TRUE
 

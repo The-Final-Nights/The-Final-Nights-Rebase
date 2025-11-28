@@ -45,7 +45,7 @@
 		if("Neuter")
 			target.gender = NEUTER
 	SEND_SIGNAL(user, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(user, span_notice("You finish altering the gender of [target]."))
 
 	var/chosen_physique = tgui_input_list(user, "Alter physique as well?", "Confirmation", list("Masculine", "Feminine"))
@@ -59,6 +59,6 @@
 	target.update_mutations_overlay() //(hulk male/female)
 	target.update_clothing(ITEM_SLOT_ICLOTHING) // update gender shaped clothing
 	SEND_SIGNAL(user, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(user, span_notice("You finish altering the physique of [target]."))
 	return TRUE

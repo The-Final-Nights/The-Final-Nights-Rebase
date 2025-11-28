@@ -34,6 +34,6 @@
 	if(target.mind)
 		target.mind.name = newname
 	SEND_SIGNAL(user, COMSIG_MASQUERADE_VIOLATION)
-	playsound(target, 'modular_darkpack/modules/deprecated/sounds/vicissitude.ogg', 50, TRUE)
+	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(user, span_notice("You finish altering the name of [target]."))
 	return TRUE
