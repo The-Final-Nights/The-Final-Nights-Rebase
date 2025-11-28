@@ -52,7 +52,7 @@
 
 /datum/discipline_power/vicissitude/fleshcrafting
 	name = "Fleshcrafting"
-	desc = "Mold your victim's flesh and soft tissue to your desire."
+	desc = "Shapeshift others."
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND
@@ -70,7 +70,7 @@
 
 /datum/discipline_power/vicissitude/fleshcrafting/post_gain()
 	. = ..()
-	var/obj/item/organ/cyberimp/arm/toolkit/surgery/surgery_implant = new()
+	var/obj/item/organ/cyberimp/arm/toolkit/surgery/vicissitude/surgery_implant = new()
 	surgery_implant.Insert(owner)
 	ADD_TRAIT(owner, TRAIT_SURGEON, DISCIPLINE_TRAIT)
 
