@@ -92,47 +92,6 @@
 	bloodpool = 7
 	maxbloodpool = 7
 
-/mob/living/basic/tzimisce_beast
-	name = "tzimisce beast form"
-	desc = "The peak of abominations armor. Unbelievably undamagable..."
-	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
-	icon_state = "weretzi"
-	icon_living = "weretzi"
-	pixel_w = -16
-	pixel_z = -16
-	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mob_size = MOB_SIZE_HUGE
-	speed = -0.55
-	maxHealth = 575
-	health = 575
-	butcher_results = list(/obj/item/stack/human_flesh = 10)
-	melee_damage_lower = 35
-	melee_damage_upper = 70
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
-	attack_sound = 'sound/items/weapons/slash.ogg'
-	combat_mode = TRUE
-	bloodpool = 10
-	maxbloodpool = 10
-
-/mob/living/basic/bloodcrawler
-	name = "tzimisce blood form"
-	desc = "The peak of abominations. Unbelievably undamagable..."
-	icon = 'modular_darkpack/modules/deprecated/icons/mobs.dmi'
-	icon_state = "liquid"
-	icon_living = "liquid"
-	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	speed = 3
-	butcher_results = list(/obj/item/stack/human_flesh = 1)
-	melee_damage_lower = 10
-	melee_damage_upper = 10
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
-	attack_sound = 'sound/items/weapons/slash.ogg'
-	combat_mode = TRUE
-	bloodpool = 20
-	maxbloodpool = 20
-
 /mob/living/basic/biter/hostile
 	faction = list(FACTION_HOSTILE)
 

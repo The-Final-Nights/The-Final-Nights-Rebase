@@ -142,6 +142,12 @@
 	toggled = FALSE
 	aggravating = TRUE
 	cooldown_length = 1 TURNS
+	var/datum/action/cooldown/spell/shapeshift/zulo/zulo_form
+
+/datum/discipline_power/vicissitude/horrid_form/post_gain()
+	if(!zulo_form)
+		zulo_form = new(owner)
+	zulo_form.Grant(owner)
 
 /datum/discipline_power/vicissitude/horrid_form/activate()
 	. = ..()
