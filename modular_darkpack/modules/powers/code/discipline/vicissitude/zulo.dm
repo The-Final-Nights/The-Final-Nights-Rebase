@@ -7,7 +7,6 @@
 	spell_requirements = NONE
 	convert_damage = FALSE
 	possible_shapes = list(/mob/living/basic/zulo)
-	owner_has_control = FALSE
 
 /mob/living/basic/zulo
 	name = "unknown creature"
@@ -15,7 +14,6 @@
 	icon = 'modular_darkpack/modules/powers/icons/zulo_forms.dmi'
 	icon_state = "fiend"
 	pixel_w = -16
-	pixel_z = -16
 	mob_biotypes = MOB_ORGANIC
 	mob_size = MOB_SIZE_HUGE
 
@@ -23,6 +21,15 @@
 	attack_verb_simple = "slash"
 	attack_sound = 'sound/items/weapons/slash.ogg'
 	combat_mode = TRUE
+
+	maxHealth = 600
+	health = 600
+	speed = 2
+	obj_damage = 20
+	armour_penetration = 5
+	wound_bonus = 0
+	sharpness = SHARP_POINTY
+	attacked_sound = SFX_DESECRATION
 
 	bloodpool = 10
 	maxbloodpool = 10

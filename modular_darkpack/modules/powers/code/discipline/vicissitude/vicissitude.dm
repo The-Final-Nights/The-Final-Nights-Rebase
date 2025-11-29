@@ -136,12 +136,12 @@
 	level = 4
 	violates_masquerade = TRUE
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
-	target_type = TARGET_SELF | TARGET_HUMAN
-	duration_length = 1 TURNS
+	target_type = TARGET_SELF
 	vitae_cost = 2
 	toggled = FALSE
 	aggravating = TRUE
 	cooldown_length = 1 TURNS
+	duration_length = 1 SCENES
 	var/datum/action/cooldown/spell/shapeshift/zulo/zulo_form
 
 /datum/discipline_power/vicissitude/horrid_form/post_gain()
@@ -153,6 +153,7 @@
 	. = ..()
 	owner.Stun(2 SECONDS)
 	owner.do_jitter_animation(50)
+	zulo_form.Activate(owner)
 
 /datum/discipline_power/vicissitude/horrid_form/deactivate()
 	. = ..()
