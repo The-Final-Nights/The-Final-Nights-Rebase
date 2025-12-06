@@ -6,16 +6,47 @@
 #define CHANGE_RACE "Change Race"
 #define CHANGE_HEIGHT "Change Height"
 #define CHANGE_APPEARANCE "Change Appearance"
-#define CHOICE_OPTIONS list(CHANGE_HAIR, CHANGE_BEARD, CHANGE_SEX, CHANGE_EYES, CHANGE_NAME, CHANGE_RACE, CHANGE_HEIGHT, CHANGE_APPEARANCE)
+#define SAVE_APPEARANCE "Save Appearance"
+#define CHOICE_OPTIONS list(CHANGE_HAIR, CHANGE_BEARD, CHANGE_SEX, CHANGE_EYES, CHANGE_NAME, CHANGE_RACE, CHANGE_HEIGHT, CHANGE_APPEARANCE, SAVE_APPEARANCE)
 
 /datum/action/cooldown/mob_cooldown/shapeshift
 	owner_has_control = FALSE
+	/// What choices we get to pick.
 	var/list/choices = CHOICE_OPTIONS
+	/// The range of this action.
 	var/range = 1
+	/// list of datum/changeling_profile
+	var/list/stored_profiles = list()
+	/// The original profile of this vicissitude holder.
+	var/datum/changeling_profile/first_profile = null
+	///	Keeps track of the currently selected profile.
+	var/datum/changeling_profile/current_profile
+	/// Satic list of what each slot associated with (in regard to changeling flesh items).
+	var/static/list/slot2type = list(
+		"head" = /obj/item/clothing/head/changeling,
+		"wear_mask" = /obj/item/clothing/mask/changeling,
+		"wear_neck" = /obj/item/changeling,
+		"back" = /obj/item/changeling,
+		"wear_suit" = /obj/item/clothing/suit/changeling,
+		"w_uniform" = /obj/item/clothing/under/changeling,
+		"shoes" = /obj/item/clothing/shoes/changeling,
+		"belt" = /obj/item/changeling,
+		"gloves" = /obj/item/clothing/gloves/changeling,
+		"glasses" = /obj/item/clothing/glasses/changeling,
+		"ears" = /obj/item/changeling,
+		"wear_id" = /obj/item/changeling/id,
+		"s_store" = /obj/item/changeling,
+	)
+	/// How many different appearances we can choose from.
+	var/max_appearances = 6
 
 /datum/action/cooldown/mob_cooldown/shapeshift/New(Target, original)
 	. = ..()
 	update_choices()
+
+/datum/action/cooldown/mob_cooldown/shapeshift/Destroy()
+	current_profile = null
+	return ..()
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/update_choices()
 	for(var/i in choices)
@@ -31,23 +62,32 @@
 	if(!chosen_option)
 		return TRUE
 
-	switch(chosen_option)
-		if(CHANGE_HAIR)
-			change_hair(target)
-		if(CHANGE_BEARD)
-			change_beard(target)
-		if(CHANGE_SEX)
-			change_sex(target)
-		if(CHANGE_NAME)
-			change_name(target)
-		if(CHANGE_EYES)
-			change_eyes(target)
-		if(CHANGE_RACE)
-			change_race(target)
-		if(CHANGE_HEIGHT)
-			change_height(target)
-		if(CHANGE_APPEARANCE)
-			show_saved_profiles(target)
+	if(chosen_option == SAVE_APPEARANCE)
+		if(target == owner)
+			return TRUE
+		add_profile_save(target)
+
+	if((target.pulledby == owner && (owner.grab_state != GRAB_AGGRESSIVE)) || (target == owner))
+		switch(chosen_option)
+			if(CHANGE_HAIR)
+				change_hair(target)
+			if(CHANGE_BEARD)
+				change_beard(target)
+			if(CHANGE_SEX)
+				change_sex(target)
+			if(CHANGE_NAME)
+				change_name(target)
+			if(CHANGE_EYES)
+				change_eyes(target)
+			if(CHANGE_RACE)
+				change_race(target)
+			if(CHANGE_HEIGHT)
+				change_height(target)
+			if(CHANGE_APPEARANCE)
+				transform_mob(target)
+	else
+		to_chat(owner, span_danger("You need to have a firm grip on [target]!"))
+		return TRUE
 
 	if(!IN_GIVEN_RANGE(owner, target, range))
 		return FALSE
@@ -226,12 +266,11 @@
 	to_chat(owner, span_notice("You finish altering the height of [target]."))
 	return TRUE
 
-/datum/action/cooldown/mob_cooldown/shapeshift/proc/show_saved_profiles(mob/living/carbon/human/target)
-	var/chosen_option // = show_radial_menu(owner, target, saved_profiles, target, radius = 36, tooltips = TRUE)
-	if(!chosen_option)
-		return FALSE
+/datum/action/cooldown/mob_cooldown/shapeshift/proc/add_profile_save(mob/living/carbon/human/target)
 	if(!IN_GIVEN_RANGE(owner, target, range))
 		return FALSE
+	if(!has_profile_with_dna(target.dna))
+		add_new_profile(target)
 	return TRUE
 
 #undef CHANGE_HAIR
@@ -243,3 +282,4 @@
 #undef CHANGE_HEIGHT
 #undef CHOICE_OPTIONS
 #undef CHANGE_APPEARANCE
+#undef SAVE_APPEARANCE

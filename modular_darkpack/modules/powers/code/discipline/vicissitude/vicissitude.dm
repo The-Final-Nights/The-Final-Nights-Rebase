@@ -21,7 +21,6 @@
 /datum/discipline_power/vicissitude
 	name = "Vicissitude power name"
 	desc = "Vicissitude power description"
-	effect_sound = 'modular_darkpack/modules/powers/sounds/vicissitude.ogg'
 
 	var/datum/action/cooldown/mob_cooldown/shapeshift/shapeshift_ability
 
@@ -29,6 +28,7 @@
 	if(!shapeshift_ability)
 		shapeshift_ability = new(owner)
 	shapeshift_ability.Grant(owner)
+	shapeshift_ability.create_initial_profile()
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -42,7 +42,6 @@
 	cooldown_length = 1 TURNS
 	vitae_cost = 1
 	toggled = FALSE
-	aggravating = TRUE
 
 /datum/discipline_power/vicissitude/malleable_visage/activate(atom/target)
 	. = ..()
@@ -57,19 +56,15 @@
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
-	target_type = TARGET_SELF | TARGET_HUMAN | TARGET_VAMPIRE
+	target_type = TARGET_SELF | TARGET_HUMAN
 	vitae_cost = 1
 	range = 1
 	toggled = FALSE
-	aggravating = TRUE
 	cooldown_length = 1 TURNS
 
 /datum/discipline_power/vicissitude/fleshcrafting/activate(atom/movable/target)
 	. = ..()
-	if(target.pulledby == owner && (owner.grab_state == GRAB_AGGRESSIVE))
-		shapeshift_ability.Activate(target)
-	else
-		to_chat(owner, span_danger("You need to have a firm grip on [target]!"))
+	shapeshift_ability.Activate(target)
 	return TRUE
 
 /datum/discipline_power/vicissitude/fleshcrafting/post_gain()
