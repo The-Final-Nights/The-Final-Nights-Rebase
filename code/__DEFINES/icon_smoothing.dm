@@ -140,12 +140,11 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_HIEROPHANT S_TURF(61) ///turf/closed/indestructible/riveted/hierophant
 #define SMOOTH_GROUP_PLASTINUM_WALLS S_TURF(62) ///turf/closed/indestructible/riveted/plastinum
 
-// DARKPACK EDIT START
+// DARKPACK EDIT CHANGE START - WALLS
 #define SMOOTH_GROUP_CITY_WALL S_TURF(63) ///turf/closed/wall/vampwall
-#define SMOOTH_GROUP_CITY_LOW_WALL S_TURF(64) ///turf/closed/wall/vampwall/low
 
-#define MAX_S_TURF 64 //Always match this value with the one above it.
-// DARKPACK EDIT END
+#define MAX_S_TURF 63 //Always match this value with the one above it.
+// DARKPACK EDIT CHANGE END
 
 
 #define S_OBJ(num) ("-" + #num + ",")
@@ -192,8 +191,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 // DARKPACK EDIT START
 #define SMOOTH_GROUP_REINFORCED_TABLES S_OBJ(57) ///obj/structure/table/reinforced
-#define SMOOTH_GROUP_BACO_TABLES S_OBJ(58) ///obj/structure/table/bacotell
-#define SMOOTH_GROUP_BUB_TABLES S_OBJ(59) ///obj/structure/table/bubway
+#define SMOOTH_GROUP_BACO_TABLES S_OBJ(58) ///obj/structure/table/countertop/bacotell
+#define SMOOTH_GROUP_BUB_TABLES S_OBJ(59) ///obj/structure/table/countertop/bubway
 // DARKPACK EDIT END
 
 #define SMOOTH_GROUP_ALIEN_NEST S_OBJ(60) ///obj/structure/bed/nest
@@ -231,10 +230,15 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_PLATFORMS_PIZZA S_OBJ(85) ///obj/structure/platform/pizza
 #define SMOOTH_GROUP_PLATFORMS_PAPER S_OBJ(86) ///obj/structure/platform/paper
 
+#define SMOOTH_GROUP_BOULDER_PLATFORM S_OBJ(87) ///obj/structure/lattice/catwalk/boulder
+
 // DARKPACK EDIT START
-#define SMOOTH_GROUP_VENTS S_OBJ(87) ///obj/structure/roofstuff/vent/autotiling
-#define SMOOTH_GROUP_SPILL S_OBJ(88) ///obj/effect/decal/cleanable/gasoline
+#define SMOOTH_GROUP_VENTS S_OBJ(88) ///obj/structure/roofstuff/vent/autotiling
+#define SMOOTH_GROUP_SPILL S_OBJ(89) ///obj/effect/decal/cleanable/gasoline
+
+#define SMOOTH_GROUP_COLOR_COUNTERTOP S_OBJ(90) ///obj/structure/table/countertop/(color)
 // DARKPACK EDIT END
+#define SMOOTH_GROUP_CITY_LOW_WALL S_TURF(91) ///obj/structure/platform/lowwall // DARKPACK EDIT ADD - WALLS
 
 /// Performs the work to set smoothing_groups and canSmoothWith.
 /// An inlined function used in both turf/Initialize and atom/Initialize.

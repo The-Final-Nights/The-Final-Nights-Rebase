@@ -1,16 +1,7 @@
-/obj/effect/decal/rugs
-	name = "rugs"
-	icon = 'modular_darkpack/modules/deprecated/icons/tiles.dmi'
-	icon_state = "rugs"
-
-/obj/effect/decal/rugs/Initialize(mapload)
-	. = ..()
-	icon_state = "rugs[rand(1, 11)]"
-
 /obj/structure/vampfence
 	name = "\improper fence"
 	desc = "Protects places from walking in."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/fence.dmi'
 	icon_state = "fence"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -57,11 +48,10 @@
 
 /obj/structure/lamppost/Initialize(mapload)
 	. = ..()
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.outdoors)
-				icon_state = "[initial(icon_state)]-snow"
+	if(check_holidays(FESTIVE_SEASON))
+		var/area/my_area = get_area(src)
+		if(istype(my_area) && my_area.outdoors)
+			icon_state = "[initial(icon_state)]-snow"
 	switch(number_of_lamps)
 		if(1)
 			new_light(get_step(loc, dir))
@@ -91,7 +81,7 @@
 /obj/effect/decal/lamplight
 	alpha = 0
 
-// TODO: [Rebase] Fix lol.
+// DARKPACK TODO - Fix lol.
 /obj/effect/decal/lamplight/NeverShouldHaveComeHere(turf/here_turf)
 	return FALSE
 
@@ -133,23 +123,18 @@
 
 /obj/structure/trafficlight/Initialize(mapload)
 	. = ..()
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.outdoors)
-				icon_state = "[initial(icon_state)]-snow"
+	if(check_holidays(FESTIVE_SEASON))
+		var/area/my_area = get_area(src)
+		if(istype(my_area) && my_area.outdoors)
+			icon_state = "[initial(icon_state)]-snow"
 
-//I should make these slow to move
 /obj/structure/closet/crate/dumpster
 	name = "dumpster"
 	desc = "Holds garbage inside."
 	icon = 'modular_darkpack/master_files/icons/obj/storage/crates32x32.dmi'
 	icon_state = "garbage"
 	base_icon_state = "garbage"
-	plane = GAME_PLANE
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-	density = TRUE
+	drag_slowdown = 3
 	var/internal_trash_chance = 75
 	var/external_trash_chance = 10
 
@@ -158,11 +143,10 @@
 		icon_state = "garbageopen"
 	. = ..()
 	//Letting you clear the snow by opening and closing it is acctually pretty flavor
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.outdoors)
-				icon_state = "[initial(icon_state)]-snow"
+	if(check_holidays(FESTIVE_SEASON))
+		var/area/my_area = get_area(src)
+		if(istype(my_area) && my_area.outdoors)
+			icon_state = "[base_icon_state]-snow"
 
 /obj/structure/closet/crate/dumpster/PopulateContents()
 	if(prob(internal_trash_chance))
@@ -180,7 +164,7 @@
 /obj/structure/trashbag
 	name = "trash bags"
 	desc = "Enough trashbags to block your way."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/trash.dmi'
 	icon_state = "garbage1"
 	density = TRUE
 	anchored = TRUE
@@ -196,35 +180,32 @@
 /obj/structure/hotelbanner
 	name = "banner"
 	desc = "It says H O T E L."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/city_sign.dmi'
 	icon_state = "banner"
-	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
 
 /obj/structure/hotelbanner/Initialize(mapload)
 	. = ..()
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.outdoors)
-				icon_state = "[initial(icon_state)]-snow"
+	if(check_holidays(FESTIVE_SEASON))
+		var/area/my_area = get_area(src)
+		if(istype(my_area) && my_area.outdoors)
+			icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/arc
 	name = "chinatown arc"
 	desc = "Cool chinese architecture."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/chinatown.dmi'
 	icon_state = "ark1"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/arc/Initialize(mapload)
 	. = ..()
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.outdoors)
-				icon_state = "[initial(icon_state)]-snow"
+	if(check_holidays(FESTIVE_SEASON))
+		var/area/my_area = get_area(src)
+		if(istype(my_area) && my_area.outdoors)
+			icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/arc/add
 	icon_state = "ark2"
@@ -232,21 +213,21 @@
 /obj/structure/trad
 	name = "traditional lamp"
 	desc = "Cool chinese lamp."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/chinatown.dmi'
 	icon_state = "trad"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/vampipe
 	name = "pipes"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/pipes.dmi'
 	icon_state = "piping1"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/vamproofwall
 	name = "wall"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/roofwall.dmi'
 	icon_state = "the_wall"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -254,17 +235,16 @@
 /obj/structure/hydrant
 	name = "hydrant"
 	desc = "Used for firefighting."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/hydrant.dmi'
 	icon_state = "hydrant"
 	anchored = TRUE
 
 /obj/structure/hydrant/Initialize(mapload)
 	. = ..()
-	if(check_holidays(CHRISTMAS))
-		if(istype(get_area(src), /area/vtm))
-			var/area/vtm/V = get_area(src)
-			if(V.outdoors)
-				icon_state = "[initial(icon_state)]-snow"
+	if(check_holidays(FESTIVE_SEASON))
+		var/area/my_area = get_area(src)
+		if(istype(my_area) && my_area.outdoors)
+			icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/hydrant/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(HAS_TRAIT(user, TRAIT_DWARF)) //Only lean on the fire hydrant if we are smol
@@ -274,20 +254,21 @@
 /obj/structure/roadblock
 	name = "\improper road block"
 	desc = "Protects places from walking in."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/barriers.dmi'
 	icon_state = "roadblock"
-	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
 
 /obj/structure/roadblock/alt
 	icon_state = "barrier"
 
+// DARKPACK TODO - Does not pass the sniff test of being a decal. Make a structure
 /obj/effect/decal/painting
 	name = "painting"
-	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/paintings.dmi'
 	icon_state = "painting1"
-	layer = ABOVE_ALL_MOB_LAYER
+	plane = GAME_PLANE
+	layer = SIGN_LAYER
 
 /obj/effect/decal/painting/second
 	icon_state = "painting2"
@@ -306,62 +287,10 @@
 	pixel_w = -16
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
-/obj/structure/roadsign
-	name = "road sign"
-	desc = "Do not drive your car cluelessly."
-	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
-	icon_state = "stop"
-	layer = ABOVE_ALL_MOB_LAYER
-	anchored = TRUE
-
-/obj/structure/roadsign/stop
-	name = "stop sign"
-	icon_state = "stop"
-
-/obj/structure/roadsign/noparking
-	name = "no parking sign"
-	icon_state = "noparking"
-
-/obj/structure/roadsign/nopedestrian
-	name = "no pedestrian sign"
-	icon_state = "nopedestrian"
-
-/obj/structure/roadsign/busstop
-	name = "bus stop sign"
-	icon_state = "busstop"
-
-/obj/structure/roadsign/speedlimit
-	name = "speed limit sign"
-	icon_state = "speed50"
-
-/obj/structure/roadsign/speedlimit40
-	name = "speed limit sign"
-	icon_state = "speed40"
-
-/obj/structure/roadsign/speedlimit25
-	name = "speed limit sign"
-	icon_state = "speed25"
-
-/obj/structure/roadsign/warningtrafficlight
-	name = "traffic light warning sign"
-	icon_state = "warningtrafficlight"
-
-/obj/structure/roadsign/warningpedestrian
-	name = "pedestrian warning sign"
-	icon_state = "warningpedestrian"
-
-/obj/structure/roadsign/parking
-	name = "parking sign"
-	icon_state = "parking"
-
-/obj/structure/roadsign/crosswalk
-	name = "crosswalk sign"
-	icon_state = "crosswalk"
-
 /obj/structure/barrels
 	name = "barrel"
 	desc = "Storage some liquids."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/barrels.dmi'
 	icon_state = "barrel1"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -377,7 +306,7 @@
 /obj/structure/bricks
 	name = "bricks"
 	desc = "Building material."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/alleyway.dmi'
 	icon_state = "bricks"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -385,8 +314,11 @@
 
 /obj/effect/decal/pallet
 	name = "pallet"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/alleyway.dmi'
 	icon_state = "under1"
+
+/obj/effect/decal/pallet/NeverShouldHaveComeHere(turf/here_turf)
+	return FALSE
 
 /obj/effect/decal/pallet/Initialize(mapload)
 	. = ..()
@@ -395,7 +327,7 @@
 /obj/cargotrain
 	name = "cargocrate"
 	desc = "It delivers a lot of things."
-	icon = 'modular_darkpack/modules/deprecated/icons/containers.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/containers.dmi'
 	icon_state = "1"
 	anchored = TRUE
 	density = FALSE
@@ -420,7 +352,7 @@
 /obj/cargocrate
 	name = "cargocrate"
 	desc = "It delivers a lot of things."
-	icon = 'modular_darkpack/modules/deprecated/icons/containers.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/containers.dmi'
 	icon_state = "1"
 	anchored = TRUE
 
@@ -461,7 +393,7 @@
 /obj/structure/marketplace
 	name = "stock market"
 	desc = "Recent stocks visualization."
-	icon = 'modular_darkpack/modules/deprecated/icons/stonks.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/stonks.dmi'
 	icon_state = "marketplace"
 	anchored = TRUE
 	density = TRUE
@@ -476,7 +408,7 @@
 
 /obj/underplate
 	name = "underplate"
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/restaurant.dmi'
 	icon_state = "underplate"
 	layer = TABLE_LAYER
 	anchored = TRUE
@@ -560,8 +492,8 @@
 /obj/structure/fire_barrel
 	name = "barrel"
 	desc = "Some kind of light and warm source..."
-	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
-	icon_state = "barrel"
+	icon = 'modular_darkpack/modules/decor/icons/barrels.dmi'
+	icon_state = "firebarrel"
 	anchored = TRUE
 	density = TRUE
 
@@ -572,7 +504,7 @@
 /obj/structure/fountain
 	name = "fountain"
 	desc = "Gothic water structure."
-	icon = 'modular_darkpack/modules/deprecated/icons/fountain.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/fountain.dmi'
 	icon_state = "fountain"
 	anchored = TRUE
 	density = TRUE
@@ -668,7 +600,7 @@
 /obj/structure/bath
 	name = "bath"
 	desc = "Not big enough for hiding in."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/bathroom.dmi'
 	icon_state = "tub"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
@@ -678,11 +610,11 @@
 /obj/weapon_showcase
 	name = "weapon showcase"
 	desc = "Look, a gun."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/showcase.dmi'
 	icon_state = "showcase"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = BELOW_OBJ_LAYER
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 /obj/weapon_showcase/Initialize(mapload)
@@ -714,7 +646,7 @@
 /obj/structure/bury_pit
 	name = "bury pit"
 	desc = "You can bury someone here."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/bury_pit.dmi'
 	icon_state = "pit0"
 	layer = ABOVE_OPEN_TURF_LAYER
 	anchored = TRUE
@@ -722,7 +654,7 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	var/burying = FALSE
 
-// TODO: [Rebase]
+// DARKPACK TODO - reimplement
 /*
 /obj/structure/bury_pit/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/shovel/vamp))
@@ -759,12 +691,13 @@
 /obj/structure/fluff/tv
 	name = "\improper TV"
 	desc = "A slightly battered looking TV. Various infomercials play on a loop, accompanied by a jaunty tune."
-	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
+	icon = 'modular_darkpack/modules/decor/icons/television.dmi'
 	icon_state = "tv_news"
 
 /obj/structure/fluff/tv/order
 	name = "order screen"
 	desc = "A slightly battered looking TV. It shows a menu to order from."
+	icon = 'modular_darkpack/modules/decor/icons/restaurant.dmi'
 	icon_state = "order1"
 
 /obj/structure/fluff/tv/order/one
@@ -784,3 +717,8 @@
 /obj/structure/fluff/tv/order/random/Initialize(mapload)
 	. = ..()
 	icon_state = "order[rand(1,4)]"
+
+/obj/structure/projector
+	name = "projector"
+	icon = 'icons/obj/machines/stationary_camera.dmi'
+	icon_state = "camera"

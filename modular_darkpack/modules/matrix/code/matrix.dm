@@ -34,6 +34,10 @@
 	return TRUE
 
 ADMIN_VERB_AND_CONTEXT_MENU(matrix_mob_verb, R_ADMIN, "Matrix Mob", "Matrix (despawn) a mob.", ADMIN_CATEGORY_GAME, mob/living/target in world)
+	var/confirm = tgui_alert(user, "Are you sure you want to matrix this mob?", "Confirm", list("Yes", "No"))
+	if(confirm != "Yes")
+		return
+
 	var/turf/target_turf = get_turf(target)
 	var/message = "[key_name(user)] has matrixed [target] ([target.type]) at [AREACOORD(target_turf)]"
 	message_admins(message)
@@ -46,7 +50,7 @@ ADMIN_VERB_AND_CONTEXT_MENU(matrix_mob_verb, R_ADMIN, "Matrix Mob", "Matrix (des
 	message_admins("[ADMIN_LOOKUP(despawning_mob)] has exited through the matrix.")
 	log_game("[despawning_mob] has exited through the matrix.")
 
-	SSjob.FreeRole(despawning_mob.mind.assigned_role)
+	SSjob.FreeRole(despawning_mob)
 
 	GLOB.joined_player_list -= despawning_mob.ckey
 

@@ -1,12 +1,11 @@
-
-/mob/living/basic/biter
+/mob/living/basic/szlachta
 	name = "biter"
 	desc = "A ferocious, fang-bearing creature that resembles a spider."
 	icon = 'modular_darkpack/modules/deprecated/icons/mobs.dmi'
 	icon_state = "biter"
 	icon_living = "biter"
 	icon_dead = "biter_dead"
-	mob_biotypes = MOB_ORGANIC|MOB_BEAST
+	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	butcher_results = list(/obj/item/stack/human_flesh = 1)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
@@ -28,34 +27,12 @@
 	bloodpool = 2
 	maxbloodpool = 2
 
-/mob/living/basic/biter/lasombra
-	name = "shadow abomination"
-	mob_biotypes = MOB_SPIRIT
-	icon_state = "shadow"
-	icon_living = "shadow"
-	basic_mob_flags = DEL_ON_DEATH
-	maxHealth = 100
-	health = 100
-	bloodpool = 0
-	maxbloodpool = 0
-	faction = list(VAMPIRE_CLAN_LASOMBRA)
-
-/mob/living/basic/biter/lasombra/better
-	icon_state = "shadow2"
-	icon_living = "shadow2"
-	maxHealth = 200
-	health = 200
-	melee_damage_lower = 50
-	melee_damage_upper = 50
-
-/mob/living/basic/fister
+/mob/living/basic/szlachta/fister
 	name = "fister"
-	desc = "True abomination walking on both hands."
-	icon = 'modular_darkpack/modules/deprecated/icons/mobs.dmi'
+	desc = "A true abomination walking on both hands."
 	icon_state = "fister"
 	icon_living = "fister"
 	icon_dead = "fister_dead"
-	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	maxHealth = 125
 	health = 125
 	butcher_results = list(/obj/item/stack/human_flesh = 2)
@@ -66,19 +43,15 @@
 	attack_sound = 'sound/items/weapons/punch1.ogg'
 	combat_mode = TRUE
 	status_flags = CANPUSH
-	faction = list(VAMPIRE_CLAN_TZIMISCE)
-	bloodquality = BLOOD_QUALITY_LOW
 	bloodpool = 5
 	maxbloodpool = 5
 
-/mob/living/basic/tanker
+/mob/living/basic/szlachta/tanker
 	name = "tanker"
-	desc = "The peak of abominations armor. Unbelievably undamagable..."
-	icon = 'modular_darkpack/modules/deprecated/icons/mobs.dmi'
+	desc = "The peak of abominable armor. Unbelievably undamagable..."
 	icon_state = "tanker"
 	icon_living = "tanker"
 	icon_dead = "tanker_dead"
-	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	maxHealth = 350
 	health = 350
 	butcher_results = list(/obj/item/stack/human_flesh = 4)
@@ -88,51 +61,11 @@
 	attack_verb_simple = "slash"
 	attack_sound = 'sound/items/weapons/slash.ogg'
 	combat_mode = TRUE
-	faction = list(VAMPIRE_CLAN_TZIMISCE)
-	bloodquality = BLOOD_QUALITY_LOW
 	bloodpool = 7
 	maxbloodpool = 7
 
-/mob/living/basic/gangrel
-	name = "Gangrel Form"
-	desc = "The peak of abominations armor. Unbelievably undamagable..."
-	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
-	icon_state = "gangrel_f"
-	icon_living = "gangrel_f"
-	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mob_size = MOB_SIZE_HUGE
-	speed = -0.4
-	maxHealth = 400
-	health = 400
-	butcher_results = list(/obj/item/stack/human_flesh = 10)
-	melee_damage_lower = 40
-	melee_damage_upper = 40
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
-	attack_sound = 'sound/items/weapons/slash.ogg'
-	combat_mode = TRUE
-	bloodpool = 10
-	maxbloodpool = 10
-	held_items = list(null, null)
-
-/mob/living/basic/gangrel/better
-	maxHealth = 500
-	health = 500
-	melee_damage_lower = 45
-	melee_damage_upper = 45
-	speed = -0.6
-
-/mob/living/basic/gangrel/best
-	icon_state = "gangrel_m"
-	icon_living = "gangrel_m"
-	maxHealth = 600
-	health = 600
-	melee_damage_lower = 55
-	melee_damage_upper = 55
-	speed = -0.8
-
 /mob/living/basic/tzimisce_beast
-	name = "Tzimisce Beast Form"
+	name = "tzimisce beast form"
 	desc = "The peak of abominations armor. Unbelievably undamagable..."
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "weretzi"
@@ -155,7 +88,7 @@
 	maxbloodpool = 10
 
 /mob/living/basic/bloodcrawler
-	name = "Tzimisce Blood Form"
+	name = "tzimisce blood form"
 	desc = "The peak of abominations. Unbelievably undamagable..."
 	icon = 'modular_darkpack/modules/deprecated/icons/mobs.dmi'
 	icon_state = "liquid"
@@ -172,13 +105,13 @@
 	bloodpool = 20
 	maxbloodpool = 20
 
-/mob/living/basic/biter/hostile
+/mob/living/basic/szlachta/hostile
 	faction = list(FACTION_HOSTILE)
 
-/mob/living/basic/fister/hostile
+/mob/living/basic/szlachta/fister/hostile
 	faction = list(FACTION_HOSTILE)
 
-/mob/living/basic/tanker/hostile
+/mob/living/basic/szlachta/tanker/hostile
 	faction = list(FACTION_HOSTILE)
 
 /mob/living/basic/bloodcrawler

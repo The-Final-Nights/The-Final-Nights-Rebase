@@ -43,8 +43,6 @@ SUBSYSTEM_DEF(masquerade)
  * reason - Optional, the reason for the breach. For example,
  */
 /datum/controller/subsystem/masquerade/proc/masquerade_reinforce(atom/source, mob/living/player_breacher, reason)
-	if(!GLOB.canon_event)
-		return
 	. = FALSE
 	for(var/masquerade_breach as anything in masquerade_breachers)
 		var/breach_sources = masquerade_breach[2]
@@ -69,11 +67,11 @@ SUBSYSTEM_DEF(masquerade)
 				. = TRUE
 				break
 	if(player_breacher.masquerade_score == 5) //Doesn't matter if they weren't in one of these lists.
-		// TODO: [Rebase] - GAROU
+		// DARKPACK TODO - GAROU
 		//GLOB.veil_breakers_list -= player_breacher
 		GLOB.masquerade_breakers_list -= player_breacher
 
-	/* TODO: [Rebase] - GAROU
+	/* // DARKPACK TODO - GAROU
 	if(isgarou(player_breacher) || iswerewolf(player_breacher))
 		var/random_renown = pick("Honor","Wisdom","Glory")
 		switch(random_renown)
@@ -95,15 +93,13 @@ SUBSYSTEM_DEF(masquerade)
  * reason - The reason for the breach. For example,
  */
 /datum/controller/subsystem/masquerade/proc/masquerade_breach(atom/source, mob/living/player_breacher, reason)
-	if(!GLOB.canon_event)
-		return
 	log_game("[player_breacher] has caused a masquerade breach in front of [source] by [reason]")
 	var/pre_breach_score = player_breacher.masquerade_score
 	if(pre_breach_score == 0)
 		return
 	player_breacher.masquerade_score = max(0, player_breacher.masquerade_score - 1)
 	masquerade_breachers += list(list(player_breacher, source, reason))
-	// TODO: [Rebase] - GAROU
+	// DARKPACK TODO - GAROU
 	//if(isgarou(player_breacher) || iswerewolf(player_breacher))
 	//	GLOB.veil_breakers_list |= player_breacher
 	//else
@@ -123,7 +119,7 @@ SUBSYSTEM_DEF(masquerade)
 /datum/controller/subsystem/masquerade/proc/save_persistent_masquerade(mob/living/player_breacher)
 	var/datum/preferences/preferences = GLOB.preferences_datums[ckey(player_breacher.key)]
 	if(preferences)
-		preferences.write_preference(GLOB.preference_entries[/datum/preference/numeric/masquerade], player_breacher.masquerade_score)
+		preferences.write_preference_midround(GLOB.preference_entries[/datum/preference/numeric/masquerade], player_breacher.masquerade_score)
 		preferences.save_character()
 
 // This is for clearing the round's masquerade because a player matrix'd
@@ -132,7 +128,7 @@ SUBSYSTEM_DEF(masquerade)
 		if((player_breacher in masquerade_breach))
 			masquerade_breachers -= list(masquerade_breach)
 			masquerade_level = min(MASQUERADE_MAX_LEVEL, masquerade_level + 1)
-	// TODO: [Rebase] - GAROU
+	// DARKPACK TODO - GAROU
 	//if(isgarou(player_breacher) || iswerewolf(player_breacher))
 	//	GLOB.veil_breakers_list -= player_breacher
 	//else
@@ -143,13 +139,13 @@ SUBSYSTEM_DEF(masquerade)
 // This is for checking if a joined player should be on the breachers list.
 /datum/controller/subsystem/masquerade/proc/masquerade_breacher_check(mob/living/player_breacher)
 	if(player_breacher.masquerade_score < 5)
-		// TODO: [Rebase] - GAROU
+		// DARKPACK TODO - GAROU
 		//if(isgarou(player_breacher) || iswerewolf(player_breacher))
 		//	GLOB.veil_breakers_list |= player_breacher
 		//else
 		GLOB.masquerade_breakers_list |= player_breacher
 	else
-		// TODO: [Rebase] - GAROU
+		// DARKPACK TODO - GAROU
 		//if(isgarou(player_breacher) || iswerewolf(player_breacher))
 		//	GLOB.veil_breakers_list -= player_breacher
 		//else

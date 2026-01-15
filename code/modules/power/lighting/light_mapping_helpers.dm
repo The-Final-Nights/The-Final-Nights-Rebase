@@ -2,7 +2,11 @@
 	status = LIGHT_BROKEN
 	icon_state = "tube-broken"
 
-/obj/machinery/light/built
+/obj/machinery/light/burned
+	status = LIGHT_BURNED
+	icon_state = "tube-burned"
+
+/obj/machinery/light/empty
 	icon_state = "tube-empty"
 	start_with_cell = FALSE
 	status = LIGHT_EMPTY
@@ -68,7 +72,11 @@
 	status = LIGHT_BROKEN
 	icon_state = "bulb-broken"
 
-/obj/machinery/light/small/built
+/obj/machinery/light/small/burned
+	status = LIGHT_BURNED
+	icon_state = "bulb-burned"
+
+/obj/machinery/light/small/empty
 	icon_state = "bulb-empty"
 	start_with_cell = FALSE
 	status = LIGHT_EMPTY
@@ -94,8 +102,9 @@
 	fire_brightness = 4.5
 	fire_colour = "#d400ff"
 
-// DARKPACK EDIT START
+// DARKPACK EDIT CHANGE START
 /obj/machinery/light/prince
+	icon_state = "prince"
 	base_state = "prince"
 
 /obj/machinery/light/prince/ghost
@@ -113,12 +122,12 @@
 			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 			s.set_up(5, 1, get_turf(src))
 			s.start()
-			playsound(loc, 'modular_darkpack/modules/deprecated/sounds/explode.ogg', 100, TRUE)
+			playsound(loc, 'modular_darkpack/modules/electricity/sounds/generator_break.ogg', 100, TRUE)
 			qdel(src)
 
 /obj/machinery/light/prince/broken
 	status = LIGHT_BROKEN
-	icon_state = "tube-broken"
+	icon_state = "prince-broken"
 
 #define LIGHTING_DIRECTIONAL_HELPERS(path) \
 MAPPING_DIRECTIONAL_HELPERS(##path, 0) \
@@ -137,11 +146,14 @@ LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light)
 // ---- Broken tube
 LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/broken)
 
+// ---- Burned tube
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/burned)
+
 // ---- Tube construct
 LIGHTING_DIRECTIONAL_HELPERS(/obj/structure/light_construct)
 
 // ---- Tube frames
-LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/built)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/empty)
 
 // ---- No nightlight tubes
 LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/no_nightlight)
@@ -184,10 +196,13 @@ LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small)
 LIGHTING_DIRECTIONAL_HELPERS(/obj/structure/light_construct/small)
 
 // ---- Bulb frames
-LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/built)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/empty)
 
 // ---- Broken bulbs
 LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/broken)
+
+// ---- Burned bulb
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/burned)
 
 // ---- Red bulbs
 LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/dim)
@@ -200,7 +215,10 @@ LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/red/dim)
 // ---- Blacklight bulbs
 LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/blacklight)
 
-LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/prince) // DARKPACK EDIT ADD
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/prince)
+
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/prince/broken)
+LIGHTING_DIRECTIONAL_HELPERS(/obj/machinery/light/prince/ghost)
 
 #undef LIGHTING_DIRECTIONAL_HELPERS
-// DARKPACK EDIT END
+// DARKPACK EDIT CHANGE END
