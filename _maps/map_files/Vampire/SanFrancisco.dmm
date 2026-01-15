@@ -1196,7 +1196,6 @@
 "aoN" = (
 /obj/structure/rack/food{
 	pixel_x = 3;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack."
 	},
@@ -11800,7 +11799,6 @@
 "cXm" = (
 /obj/structure/rack/food{
 	dir = 8;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack.";
 	pixel_y = 16
@@ -12553,7 +12551,6 @@
 "dhD" = (
 /obj/structure/rack/food{
 	dir = 8;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack.";
 	pixel_y = 16;
@@ -12731,7 +12728,6 @@
 "dku" = (
 /obj/structure/rack/food{
 	dir = 8;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack.";
 	pixel_y = 16;
@@ -12781,8 +12777,7 @@
 /area/vtm/interior)
 "dkJ" = (
 /obj/structure/vampdoor/prison{
-	dir = 8;
-	locked = 0
+	dir = 8
 	},
 /obj/effect/turf_decal/siding/white{
 	color = "#828282";
@@ -17962,8 +17957,7 @@
 	},
 /obj/structure/fluff/tv{
 	icon_state = "tv_analog";
-	pixel_y = 14;
-	density = 0
+	pixel_y = 14
 	},
 /obj/effect/bump_teleporter{
 	id = 69;
@@ -23386,7 +23380,6 @@
 "fRd" = (
 /obj/structure/rack/food{
 	pixel_x = -4;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack."
 	},
@@ -23629,7 +23622,6 @@
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate/large,
 /obj/machinery/button{
-	anchored = 1;
 	id = 24;
 	pixel_y = 30
 	},
@@ -27682,8 +27674,7 @@
 	},
 /obj/structure/fluff/tv{
 	icon_state = "tv_nature";
-	pixel_y = 12;
-	density = 0
+	pixel_y = 12
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/caves)
@@ -28184,7 +28175,6 @@
 "hcQ" = (
 /obj/structure/rack/food{
 	dir = 8;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack.";
 	pixel_y = 16
@@ -37499,7 +37489,6 @@
 	color = "#636363"
 	},
 /obj/machinery/button{
-	anchored = 1;
 	id = 7;
 	pixel_y = 30
 	},
@@ -41488,7 +41477,6 @@
 "kqV" = (
 /obj/structure/rack/food{
 	pixel_x = 3;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack."
 	},
@@ -42466,7 +42454,6 @@
 "kEr" = (
 /obj/effect/decal/pallet,
 /obj/machinery/button{
-	anchored = 1;
 	id = 24;
 	pixel_y = 30
 	},
@@ -45328,7 +45315,6 @@
 "lol" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/button{
-	anchored = 1;
 	id = 22;
 	pixel_y = 30
 	},
@@ -46553,7 +46539,6 @@
 "lFy" = (
 /obj/structure/rack/food{
 	dir = 8;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack.";
 	pixel_y = 16;
@@ -47836,7 +47821,6 @@
 /area/vtm/interior/clinic)
 "lVU" = (
 /obj/machinery/button{
-	anchored = 1;
 	id = 76;
 	pixel_y = 31
 	},
@@ -50676,19 +50660,6 @@
 	},
 /turf/open/water,
 /area/vtm/interior/shop)
-"mGP" = (
-/obj/structure/vampdoor/prison{
-	dir = 8;
-	locked = 0
-	},
-/obj/effect/turf_decal/siding/white{
-	color = "#828282";
-	dir = 4
-	},
-/turf/open/floor/plating/concrete{
-	color = "#bfbfbf"
-	},
-/area/vtm/interior/sewer/police)
 "mGR" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -55300,7 +55271,6 @@
 "nMx" = (
 /obj/effect/decal/pallet,
 /obj/machinery/button{
-	anchored = 1;
 	id = 76;
 	pixel_y = 31
 	},
@@ -59832,8 +59802,7 @@
 /obj/structure/table/wood/fancy/blue,
 /obj/item/melee/sabre/rapier{
 	name = "old rapier";
-	desc = "An engraved and brittle rapier with a bent tip. Supposedly, it was used in some historic battle.";
-	force = 20
+	desc = "An engraved and brittle rapier with a bent tip. Supposedly, it was used in some historic battle."
 	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/plating/granite/black,
@@ -65341,7 +65310,6 @@
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate/large,
 /obj/machinery/button{
-	anchored = 1;
 	id = 3;
 	pixel_y = 30
 	},
@@ -65698,7 +65666,6 @@
 "qol" = (
 /obj/structure/rack/food{
 	pixel_x = -4;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack."
 	},
@@ -68359,7 +68326,6 @@
 "qVN" = (
 /obj/structure/rack/food{
 	pixel_x = 3;
-	icon_state = "rack1";
 	pixel_y = -19;
 	name = "rack";
 	desc = "Nice rack."
@@ -69949,8 +69915,7 @@
 /obj/structure/fluff/tv{
 	icon_state = "tv_nature";
 	pixel_y = 13;
-	pixel_x = 6;
-	density = 0
+	pixel_x = 6
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/cog/pantry)
@@ -72049,7 +72014,6 @@
 "rTB" = (
 /obj/structure/table,
 /obj/machinery/button{
-	anchored = 1;
 	id = 22;
 	pixel_y = 30
 	},
@@ -72973,7 +72937,6 @@
 /area/vtm/interior/hotel)
 "shK" = (
 /obj/machinery/button{
-	anchored = 1;
 	id = 3;
 	pixel_y = 30
 	},
@@ -74126,7 +74089,6 @@
 "sxx" = (
 /obj/structure/rack/food{
 	pixel_x = 3;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack."
 	},
@@ -77865,8 +77827,7 @@
 	},
 /obj/structure/fluff/tv{
 	icon_state = "tv_nature";
-	pixel_y = 12;
-	density = 0
+	pixel_y = 12
 	},
 /obj/effect/bump_teleporter{
 	id = 210;
@@ -81781,7 +81742,6 @@
 "uvH" = (
 /obj/structure/rack/food{
 	pixel_x = -4;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack."
 	},
@@ -83200,14 +83160,6 @@
 	color = "#9c8064"
 	},
 /area/vtm/interior/ghetto)
-"uNt" = (
-/obj/machinery/button{
-	anchored = 1;
-	id = 33;
-	pixel_y = 30
-	},
-/turf/open/floor/city/plating_mono,
-/area/vtm/interior/clinic)
 "uNw" = (
 /obj/structure/chair/wood/wings{
 	dir = 1
@@ -83615,7 +83567,6 @@
 /area/vtm/interior/clinic/haven)
 "uSX" = (
 /obj/machinery/button{
-	anchored = 1;
 	id = 7;
 	pixel_y = 30
 	},
@@ -86067,10 +86018,6 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/clinic/haven)
-"vES" = (
-/obj/machinery/disposal/bin,
-/turf/open/floor/plating/concrete,
-/area/vtm/interior/vjanitor)
 "vEY" = (
 /obj/structure/billiard_table{
 	pixel_y = -7
@@ -86765,7 +86712,6 @@
 	color = "#636363"
 	},
 /obj/machinery/button{
-	anchored = 1;
 	id = 33;
 	pixel_y = 30
 	},
@@ -95589,7 +95535,6 @@
 "yag" = (
 /obj/structure/rack/food{
 	pixel_x = 3;
-	icon_state = "rack1";
 	name = "rack";
 	desc = "Nice rack."
 	},
@@ -112847,7 +112792,7 @@ xfw
 rCB
 cqA
 oko
-mGP
+gRM
 cqA
 cqA
 oko
@@ -112855,7 +112800,7 @@ gRM
 cqA
 cqA
 oko
-mGP
+gRM
 cqA
 cqA
 cqA
@@ -112866,11 +112811,11 @@ rjk
 ewc
 cqA
 oko
-mGP
+gRM
 cqA
 cqA
 oko
-mGP
+gRM
 cqA
 cqA
 rCB
@@ -162452,7 +162397,7 @@ mjT
 tYY
 fca
 pzu
-vES
+pzu
 sxc
 sxc
 sxc
@@ -170299,7 +170244,7 @@ joX
 joX
 joX
 mJv
-uNt
+jup
 kaD
 mPT
 joX
