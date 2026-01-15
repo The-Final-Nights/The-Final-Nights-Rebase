@@ -9,8 +9,9 @@ import { AntagsPage } from './AntagsPage';
 import { JobsPage } from './JobsPage';
 import { LoadoutPage } from './loadout';
 import { MainPage } from './MainPage';
-import { QuirksPage } from './QuirksPage';
+import { QuirkPersonalityPage } from './QuirksPage';
 import { SpeciesPage } from './SpeciesPage';
+import { StatsPage } from './Stats'; // DARKPACK EDIT ADD
 
 enum Page {
   Antags,
@@ -19,6 +20,7 @@ enum Page {
   Species,
   Quirks,
   Loadout,
+  Stats, // DARKPACK EDIT ADD
 }
 
 type ProfileProps = {
@@ -76,12 +78,18 @@ export function CharacterPreferenceWindow(props) {
 
       break;
     case Page.Quirks:
-      pageContents = <QuirksPage />;
+      pageContents = <QuirkPersonalityPage />;
       break;
 
     case Page.Loadout:
       pageContents = <LoadoutPage />;
       break;
+
+    // DARKPACK EDIT ADD START - Stats
+    case Page.Stats:
+      pageContents = <StatsPage />;
+      break;
+    // DARKPACK EDIT ADD END
 
     default:
       exhaustiveCheck(currentPage);
@@ -119,6 +127,22 @@ export function CharacterPreferenceWindow(props) {
             </PageButton>
           </Stack.Item>
 
+          {
+          // DARKPACK EDIT ADD START - STATS
+          }
+          <Stack.Item grow>
+            <PageButton
+              currentPage={currentPage}
+              page={Page.Stats}
+              setPage={setCurrentPage}
+            >
+              Stats
+            </PageButton>
+          </Stack.Item>
+          {
+          // DARKPACK EDIT ADD END
+          }
+
           <Stack.Item grow>
             <PageButton
               currentPage={currentPage}
@@ -153,15 +177,21 @@ export function CharacterPreferenceWindow(props) {
             </PageButton>
           </Stack.Item>
 
+          {
+          // DARKPACK EDIT ADD START - Merits
+          }
           <Stack.Item grow>
             <PageButton
               currentPage={currentPage}
               page={Page.Quirks}
               setPage={setCurrentPage}
             >
-              Quirks
+              Merits / Flaws
             </PageButton>
           </Stack.Item>
+          {
+          // DARKPACK EDIT ADD END
+          }
         </Stack>
       </Stack.Item>
       <Stack.Divider />
