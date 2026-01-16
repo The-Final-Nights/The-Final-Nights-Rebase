@@ -85,7 +85,7 @@
 
 // Supply
 #define JOB_DEALER "Dealer"
-#define JOB_SUPPLY_TECH "Dealer"
+#define JOB_SUPPLY_TECH "Supply Tech"
 
 // Forest Wolves
 #define JOB_GAROU_COUNCIL "Councillor" // Elder, Athro
