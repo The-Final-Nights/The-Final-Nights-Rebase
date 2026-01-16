@@ -6089,6 +6089,12 @@
 	icon_state = "stone8"
 	},
 /area/vtm/interior/caves)
+"bBI" = (
+/obj/structure/table/wood,
+/obj/vampire_computer,
+/obj/structure/sign/city/strip_club/directional/north,
+/turf/open/floor/carpet/darkpack/old,
+/area/vtm/interior/chantry)
 "bBZ" = (
 /obj/structure/chair/darkpack/green{
 	dir = 4
@@ -9784,6 +9790,10 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
+"cwz" = (
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/plating/sidewalk/old,
+/area/vtm/interior/tzimisce_sanctum)
 "cwA" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/bordur,
@@ -10509,7 +10519,7 @@
 	color = "#828282";
 	dir = 4
 	},
-/obj/machinery/light/small/broken/directional/north,
+/obj/machinery/light/small/broken/directional/south,
 /obj/effect/decal/cleanable/gasoline,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/hotel)
@@ -11949,6 +11959,10 @@
 /obj/effect/landmark/start/darkpack/chantry/archivist,
 /turf/open/floor/carpet/red,
 /area/vtm/interior/chantry)
+"dbK" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm/interior/clinic/haven)
 "dbL" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -14472,10 +14486,6 @@
 	dir = 5
 	},
 /turf/open/misc/dirt,
-/area/vtm/interior/sewer)
-"dJk" = (
-/obj/structure/sign/warning/directional/north,
-/turf/open/floor/plating/rough/cave,
 /area/vtm/interior/sewer)
 "dJr" = (
 /obj/effect/turf_decal/stock,
@@ -19721,10 +19731,10 @@
 /turf/closed/wall/vampwall/brick_old,
 /area/vtm/interior/sewer/nosferatu_warren)
 "faf" = (
+/obj/machinery/light/small/red/directional/east,
 /obj/structure/vampipe{
 	icon_state = "piping35"
 	},
-/obj/machinery/light/small/red/directional/east,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "fag" = (
@@ -21545,6 +21555,10 @@
 	},
 /turf/open/misc/grass,
 /area/vtm/outside/park)
+"fvy" = (
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior)
 "fvP" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
@@ -25094,13 +25108,6 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
-"gra" = (
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#5a2355"
-	},
-/obj/machinery/light/prince/directional/north,
-/turf/open/floor/wood/ornate,
-/area/vtm)
 "grg" = (
 /obj/item/flashlight/flare/candle/infinite{
 	pixel_x = 13;
@@ -26373,13 +26380,6 @@
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
-"gIe" = (
-/obj/structure/vampipe{
-	icon_state = "piping41"
-	},
-/obj/machinery/light/small/red/directional/east,
-/turf/open/floor/plating/canalplating,
-/area/vtm/interior/sewer)
 "gIf" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 10;
@@ -29612,7 +29612,7 @@
 	density = 0
 	},
 /obj/item/cigbutt,
-/obj/machinery/light/small/broken/directional/south,
+/obj/machinery/light/small/broken/directional/north,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior)
 "hAD" = (
@@ -32885,7 +32885,7 @@
 	},
 /area/vtm/interior/ghetto)
 "ioR" = (
-/obj/machinery/light/small/broken/directional/north,
+/obj/machinery/light/small/broken/directional/south,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/clinic/haven)
 "ioY" = (
@@ -34607,6 +34607,13 @@
 /mob/living/carbon/human/npc/endronsecurity,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
+"iKB" = (
+/obj/structure/vampipe{
+	icon_state = "piping35"
+	},
+/obj/machinery/light/small/red/directional/east,
+/turf/open/floor/plating/canalplating,
+/area/vtm/interior/sewer)
 "iKE" = (
 /obj/structure/fermenting_barrel,
 /turf/open/floor/plating/rough/cave,
@@ -41403,10 +41410,6 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/wood/smooth/old,
 /area/vtm)
-"kvN" = (
-/obj/machinery/light/prince/directional/north,
-/turf/open/floor/plating/sidewalk/old,
-/area/vtm/interior/tzimisce_sanctum)
 "kvT" = (
 /obj/structure/railing{
 	dir = 1
@@ -43417,7 +43420,7 @@
 	pixel_y = 14
 	},
 /obj/effect/decal/cleanable/gasoline,
-/obj/machinery/light/small/broken/directional/south,
+/obj/machinery/light/small/broken/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/hotel)
 "kWD" = (
@@ -47348,7 +47351,7 @@
 /obj/effect/decal/fakelattice{
 	density = 0
 	},
-/obj/machinery/light/small/broken/directional/north,
+/obj/machinery/light/small/broken/directional/south,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior)
 "lWc" = (
@@ -60561,9 +60564,12 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
 "piy" = (
-/obj/machinery/light/warm/directional/north,
-/turf/open/floor/plating/concrete,
-/area/vtm/interior)
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#5a2355"
+	},
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/wood/ornate,
+/area/vtm)
 "piC" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/plating/rough{
@@ -65636,10 +65642,6 @@
 	},
 /turf/open/water/beach/vamp/deep,
 /area/vtm/interior/tzimisce_manor)
-"qwX" = (
-/obj/machinery/light/directional/south,
-/turf/open/floor/plating/sidewalk/poor,
-/area/vtm/interior/clinic/haven)
 "qxa" = (
 /obj/structure/railing{
 	dir = 4
@@ -66600,7 +66602,7 @@
 /obj/item/melee/baseball_bat/vamp{
 	pixel_y = 20
 	},
-/obj/machinery/light/small/broken/directional/south,
+/obj/machinery/light/small/broken/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "qIO" = (
@@ -68162,13 +68164,6 @@
 /obj/item/flashlight/lamp,
 /turf/open/floor/city/plating,
 /area/vtm/interior/endron_facility/restricted)
-"rdc" = (
-/obj/machinery/light/small/red/directional/east,
-/obj/structure/vampipe{
-	icon_state = "piping35"
-	},
-/turf/open/floor/plating/canalplating,
-/area/vtm/interior/sewer)
 "rdd" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
@@ -68219,6 +68214,13 @@
 	},
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/anarch)
+"rdu" = (
+/obj/structure/vampipe{
+	icon_state = "piping41"
+	},
+/obj/machinery/light/small/red/directional/east,
+/turf/open/floor/plating/canalplating,
+/area/vtm/interior/sewer)
 "rdv" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
@@ -92490,12 +92492,6 @@
 /obj/structure/fence,
 /turf/open/misc/grass,
 /area/vtm/outside/forest)
-"xyR" = (
-/obj/structure/table/wood,
-/obj/vampire_computer,
-/obj/structure/sign/city/strip_club/directional/north,
-/turf/open/floor/carpet/darkpack/old,
-/area/vtm/interior/chantry)
 "xza" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -93361,6 +93357,10 @@
 /obj/structure/bookcase/random/religion,
 /turf/open/floor/wood/old,
 /area/vtm)
+"xJA" = (
+/obj/structure/sign/warning/directional/north,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/sewer)
 "xJC" = (
 /obj/structure/closet/crate/bin,
 /obj/machinery/light/directional/east,
@@ -101496,7 +101496,7 @@ xfw
 xfw
 rCB
 iiT
-kvN
+cwz
 jYk
 jYk
 jYk
@@ -104054,7 +104054,7 @@ xyw
 bEG
 xyw
 xyw
-dJk
+xJA
 qWY
 hyR
 xyw
@@ -110916,16 +110916,16 @@ qcw
 fZF
 fZF
 hAO
-rdc
+faf
 bmy
 bmy
 okV
 bmy
-gIe
+rdu
 hge
 exq
 skK
-faf
+iKB
 bmy
 bmy
 bmy
@@ -110998,11 +110998,11 @@ sBB
 uxV
 bmy
 bmy
-gIe
+rdu
 hge
 exq
 skK
-faf
+iKB
 bmy
 bmy
 bmy
@@ -111011,11 +111011,11 @@ bmy
 bmy
 bmy
 bmy
-gIe
+rdu
 hge
 vFf
 skK
-faf
+iKB
 bmy
 bmy
 okV
@@ -125406,22 +125406,22 @@ bmy
 bmy
 bmy
 bmy
-gIe
+rdu
 hge
 vFf
 skK
-faf
+iKB
 bmy
 bmy
 bmy
 bmy
 bmy
 bmy
-gIe
+rdu
 hge
 lup
 skK
-faf
+iKB
 bmy
 bmy
 bmy
@@ -125438,11 +125438,11 @@ okV
 bmy
 bmy
 bmy
-gIe
+rdu
 hge
 lup
 skK
-faf
+iKB
 bmy
 bmy
 bmy
@@ -125462,7 +125462,7 @@ bmy
 bmy
 bmy
 bmy
-gIe
+rdu
 hge
 uxV
 dbZ
@@ -125482,11 +125482,11 @@ bmy
 xvy
 bmy
 bmy
-gIe
+rdu
 hge
 exq
 skK
-faf
+iKB
 bmy
 sBB
 kOa
@@ -125501,11 +125501,11 @@ bmy
 bmy
 bmy
 bmy
-gIe
+rdu
 hge
 vFf
 skK
-faf
+iKB
 bmy
 bmy
 okV
@@ -125537,11 +125537,11 @@ bmy
 bmy
 bmy
 bmy
-gIe
+rdu
 hge
 vFf
 skK
-faf
+iKB
 bmy
 bmy
 okV
@@ -129804,7 +129804,7 @@ uoL
 uoL
 uoL
 uoL
-qwX
+dbK
 pik
 wmA
 vsw
@@ -130212,7 +130212,7 @@ kpw
 sfu
 pik
 ipv
-qwX
+dbK
 pik
 uNb
 eGy
@@ -161399,7 +161399,7 @@ pUy
 mLV
 sgk
 wtF
-xyR
+bBI
 tRm
 pIb
 qpV
@@ -161807,7 +161807,7 @@ nwX
 pdg
 sgk
 wtF
-xyR
+bBI
 tRm
 sEx
 qpV
@@ -162011,7 +162011,7 @@ lkt
 sgk
 sgk
 wtF
-xyR
+bBI
 tRm
 sEx
 qpV
@@ -168437,21 +168437,21 @@ top
 top
 top
 bMY
-piy
+fvy
 cfC
 cze
 aZz
 aZz
 aZz
 cze
-piy
+fvy
 wPr
 hwU
 nEV
 nEV
 nEV
 hwU
-piy
+fvy
 gIJ
 dbG
 keR
@@ -224308,7 +224308,7 @@ uvs
 wUD
 ogy
 rXm
-gra
+piy
 iiN
 mjT
 ijz
@@ -224716,7 +224716,7 @@ uvs
 wUD
 ogy
 rXm
-gra
+piy
 iiN
 mjT
 ijz
