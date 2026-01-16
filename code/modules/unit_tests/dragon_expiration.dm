@@ -12,7 +12,6 @@
 	dragon_time.death()
 	TEST_ASSERT(isturf(to_be_consumed.loc), "After dying, the space dragon did not eject the consumed dummy content barfer element.")
 
-/* // TFN EDIT REMOVAL START
 /// Unit tests that the space dragon - when its rift expires and it gets qdel'd - doesn't delete all the mobs it has eaten
 /datum/unit_test/space_dragon_expiration
 
@@ -30,4 +29,3 @@
 	TEST_ASSERT(QDELETED(dragon_time), "The space dragon wasn't deleted after having its rift timer exceeded!")
 	TEST_ASSERT(!QDELETED(to_be_consumed), "After having its rift timer exceeded, the dragon deleted the dummy instead! The dragon should be dead prior to being deleted!")
 	TEST_ASSERT(isturf(to_be_consumed.loc), "After having its rift timer exceeded, the dragon did not eject the dummy! (Dummy's loc: [to_be_consumed.loc])")
-*/ // TFN EDIT REMOVAL END
