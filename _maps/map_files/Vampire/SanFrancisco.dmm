@@ -1725,7 +1725,7 @@
 /turf/open/misc/dirt,
 /area/vtm/interior/supply)
 "auX" = (
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility)
 "ava" = (
@@ -8259,7 +8259,7 @@
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
 	},
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
 "cex" = (
@@ -11011,7 +11011,7 @@
 	color = "#636363";
 	dir = 1
 	},
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
 "cNe" = (
@@ -14485,10 +14485,6 @@
 	},
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer)
-"dJk" = (
-/obj/machinery/light/prince/directional/north,
-/turf/open/floor/plating/sidewalk/old,
-/area/vtm/interior/tzimisce_sanctum)
 "dJr" = (
 /obj/effect/turf_decal/stock,
 /turf/open/floor/plating/asphalt,
@@ -15127,7 +15123,7 @@
 	dir = 9
 	},
 /obj/effect/decal/rugs,
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/millennium_tower/f2)
 "dRF" = (
@@ -19587,7 +19583,7 @@
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/interior/littleitaly)
 "eXP" = (
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate/large,
 /turf/open/floor/plating/concrete,
@@ -23838,7 +23834,7 @@
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/outside/giovanni/courtyard)
 "fZd" = (
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /obj/structure/closet/crate/large{
 	anchored = 1
 	},
@@ -26137,7 +26133,7 @@
 	dir = 6;
 	color = "#636363"
 	},
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/police/upstairs)
 "gFC" = (
@@ -26389,9 +26385,12 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
 "gIe" = (
-/obj/machinery/light/warm/directional/north,
-/turf/open/floor/plating/concrete,
-/area/vtm/interior)
+/obj/structure/vampipe{
+	icon_state = "piping41"
+	},
+/obj/machinery/light/small/red/directional/east,
+/turf/open/floor/plating/canalplating,
+/area/vtm/interior/sewer)
 "gIf" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 10;
@@ -28142,7 +28141,7 @@
 /turf/open/floor/plating/roofwalk,
 /area/vtm)
 "hfp" = (
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "hfz" = (
@@ -30079,7 +30078,7 @@
 	},
 /obj/effect/decal/rugs,
 /obj/structure/closet/crate/coffin,
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/millennium_tower/f2)
 "hGP" = (
@@ -30148,7 +30147,7 @@
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
 	},
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
 "hHk" = (
@@ -32045,12 +32044,10 @@
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
 "ies" = (
-/obj/structure/sign/city/police_department{
-	pixel_x = -8
-	},
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 5
 	},
+/obj/structure/sign/city/police_department,
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/police/upstairs)
 "iez" = (
@@ -35732,7 +35729,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "jaq" = (
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /obj/effect/decal/pallet,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
@@ -36908,7 +36905,7 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "joT" = (
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /turf/open/water/acid,
 /area/vtm/interior/endron_facility)
 "joX" = (
@@ -42582,7 +42579,7 @@
 /obj/item/gun/ballistic/automatic/darkpack/sniper,
 /obj/item/gun/ballistic/automatic/darkpack/ar15,
 /obj/item/gun/ballistic/automatic/darkpack/ar15,
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility/restricted)
 "kKu" = (
@@ -42845,7 +42842,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
 "kPf" = (
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /obj/effect/spawner/random/occult/artifact,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
@@ -48031,7 +48028,7 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer)
 "mey" = (
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /obj/effect/landmark/start/darkpack/camarilla/hound,
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f2)
@@ -51741,7 +51738,7 @@
 /turf/open/floor/city/industrial,
 /area/vtm/interior/nosferatu_office)
 "mZf" = (
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /obj/effect/turf_decal/siding/white{
 	dir = 8;
 	color = "#636363"
@@ -58294,7 +58291,7 @@
 /area/vtm/interior/sewer)
 "oCV" = (
 /obj/effect/turf_decal/box,
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /obj/machinery/shower/directional/south,
 /turf/open/floor/city/circled,
 /area/vtm/interior/endron_facility/restricted)
@@ -60128,6 +60125,10 @@
 /obj/structure/flora/bush/flowers_br/style_random,
 /turf/open/misc/grass,
 /area/vtm/outside/baywalk)
+"pcP" = (
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior)
 "pcR" = (
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#39537F";
@@ -60582,6 +60583,10 @@
 /mob/living/carbon/human/npc/bandit,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
+"piy" = (
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/plating/sidewalk/old,
+/area/vtm/interior/tzimisce_sanctum)
 "piC" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/plating/rough{
@@ -64907,7 +64912,7 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer)
 "qlZ" = (
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/endron_facility/plant)
 "qmc" = (
@@ -65654,6 +65659,13 @@
 	},
 /turf/open/water/beach/vamp/deep,
 /area/vtm/interior/tzimisce_manor)
+"qwX" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#5a2355"
+	},
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/wood/ornate,
+/area/vtm)
 "qxa" = (
 /obj/structure/railing{
 	dir = 4
@@ -66803,7 +66815,7 @@
 	pixel_y = 24
 	},
 /obj/structure/barrels/rand,
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/endron_facility/plant)
 "qKq" = (
@@ -68232,13 +68244,6 @@
 	},
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/anarch)
-"rdu" = (
-/obj/structure/vampipe{
-	icon_state = "piping41"
-	},
-/obj/machinery/light/small/red/directional/east,
-/turf/open/floor/plating/canalplating,
-/area/vtm/interior/sewer)
 "rdv" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
@@ -69421,7 +69426,7 @@
 /area/vtm/interior/tzimisce_sanctum)
 "run" = (
 /obj/effect/mob_spawn/corpse/human/ciz3,
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/city/circled,
 /area/vtm/interior/sewer/police)
 "ruo" = (
@@ -70301,7 +70306,7 @@
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/caves)
 "rFY" = (
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /obj/structure/closet/crate/large,
 /obj/effect/decal/pallet,
 /turf/open/floor/plating/concrete,
@@ -73469,7 +73474,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/ghetto)
 "syI" = (
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility/plant)
 "syM" = (
@@ -82555,7 +82560,7 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/clinic)
 "uPw" = (
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
 "uPH" = (
@@ -82666,7 +82671,7 @@
 /area/vtm/interior/endron_facility/restricted)
 "uRm" = (
 /obj/effect/decal/pallet,
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility/plant)
 "uRt" = (
@@ -84711,7 +84716,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/vtm/interior/giovanni)
 "vwC" = (
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility/restricted)
 "vwL" = (
@@ -85138,7 +85143,7 @@
 /obj/fusebox/transformer{
 	name = "milllennium tower transformer"
 	},
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower/f3)
 "vDz" = (
@@ -85796,7 +85801,7 @@
 /area/vtm/interior/endron_facility/plant)
 "vNA" = (
 /obj/effect/decal/pallet,
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility/restricted)
 "vNH" = (
@@ -91892,7 +91897,7 @@
 /area/vtm/interior/museum)
 "xpw" = (
 /obj/effect/decal/rugs,
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate/large,
 /turf/open/floor/plating/concrete,
@@ -93399,13 +93404,6 @@
 /obj/structure/bookcase/random/religion,
 /turf/open/floor/wood/old,
 /area/vtm)
-"xJA" = (
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#5a2355"
-	},
-/obj/machinery/light/prince/directional/north,
-/turf/open/floor/wood/ornate,
-/area/vtm)
 "xJC" = (
 /obj/structure/closet/crate/bin,
 /obj/machinery/light/directional/east,
@@ -93428,7 +93426,7 @@
 "xJK" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/corner,
-/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
 /turf/open/openspace,
 /area/vtm/interior/supply)
 "xJR" = (
@@ -95496,7 +95494,7 @@
 /turf/open/floor/wood/old,
 /area/vtm/outside/fishermanswharf/lower)
 "ykL" = (
-/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -101096,7 +101094,7 @@ xfw
 xfw
 rCB
 jmr
-vXN
+alS
 xEJ
 xEJ
 xEJ
@@ -101104,7 +101102,7 @@ xEJ
 xEJ
 lkp
 xEJ
-alS
+vXN
 jmr
 rCB
 xfw
@@ -101544,7 +101542,7 @@ xfw
 xfw
 rCB
 iiT
-dJk
+piy
 jYk
 jYk
 jYk
@@ -110969,7 +110967,7 @@ bmy
 bmy
 okV
 bmy
-rdu
+gIe
 hge
 exq
 skK
@@ -111046,7 +111044,7 @@ sBB
 uxV
 bmy
 bmy
-rdu
+gIe
 hge
 exq
 skK
@@ -111059,7 +111057,7 @@ bmy
 bmy
 bmy
 bmy
-rdu
+gIe
 hge
 vFf
 skK
@@ -125454,7 +125452,7 @@ bmy
 bmy
 bmy
 bmy
-rdu
+gIe
 hge
 vFf
 skK
@@ -125465,7 +125463,7 @@ bmy
 bmy
 bmy
 bmy
-rdu
+gIe
 hge
 lup
 skK
@@ -125486,7 +125484,7 @@ okV
 bmy
 bmy
 bmy
-rdu
+gIe
 hge
 lup
 skK
@@ -125510,7 +125508,7 @@ bmy
 bmy
 bmy
 bmy
-rdu
+gIe
 hge
 uxV
 dbZ
@@ -125530,7 +125528,7 @@ bmy
 xvy
 bmy
 bmy
-rdu
+gIe
 hge
 exq
 skK
@@ -125549,7 +125547,7 @@ bmy
 bmy
 bmy
 bmy
-rdu
+gIe
 hge
 vFf
 skK
@@ -125585,7 +125583,7 @@ bmy
 bmy
 bmy
 bmy
-rdu
+gIe
 hge
 vFf
 skK
@@ -138020,7 +138018,7 @@ uRm
 goA
 nMx
 vcn
-aSQ
+mWi
 goA
 ruB
 hdQ
@@ -139034,7 +139032,7 @@ tvm
 tvm
 tvm
 goA
-mWi
+aSQ
 uzh
 goA
 hOz
@@ -168485,21 +168483,21 @@ top
 top
 top
 bMY
-gIe
+pcP
 cfC
 cze
 aZz
 aZz
 aZz
 cze
-gIe
+pcP
 wPr
 hwU
 nEV
 nEV
 nEV
 hwU
-gIe
+pcP
 gIJ
 dbG
 keR
@@ -180480,9 +180478,9 @@ tul
 tul
 tul
 tul
-uWc
-oYt
 pbQ
+oYt
+uWc
 tul
 tul
 oYt
@@ -183744,9 +183742,9 @@ tul
 tul
 tul
 tul
-uWc
-oYt
 pbQ
+oYt
+uWc
 tul
 tul
 oYt
@@ -186804,9 +186802,9 @@ tul
 tul
 tul
 tul
-uWc
-oYt
 pbQ
+oYt
+uWc
 tul
 tul
 oYt
@@ -224356,7 +224354,7 @@ uvs
 wUD
 ogy
 rXm
-xJA
+qwX
 iiN
 mjT
 ijz
@@ -224764,7 +224762,7 @@ uvs
 wUD
 ogy
 rXm
-xJA
+qwX
 iiN
 mjT
 ijz
