@@ -2826,7 +2826,7 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior)
 "aJn" = (
-/obj/machinery/jukebox,
+/obj/machinery/jukebox/no_access,
 /obj/structure/sign/city/strip_club,
 /turf/open/floor/light,
 /area/vtm/interior/strip)
@@ -9163,7 +9163,6 @@
 /obj/effect/turf_decal/siding/white,
 /obj/structure/closet/secure_closet/evidence,
 /obj/item/food/grown/cannabis{
-	cost = 30;
 	desc = "Green and TOO smelly... Don't worth so much...";
 	name = "strange green package"
 	},
@@ -12645,7 +12644,7 @@
 /turf/open/floor/city/bacotell,
 /area/vtm/interior)
 "dkB" = (
-/obj/machinery/jukebox{
+/obj/machinery/jukebox/no_access{
 	density = 0;
 	pixel_y = 19
 	},
@@ -15710,7 +15709,6 @@
 /obj/machinery/light/prince/directional/north,
 /obj/item/katana/vamp{
 	color = "#ccffff";
-	cost = 500;
 	desc = "A flimsy appearing replica katana. It looks quite sharp, despite being an apparent reference to Japanese animation. ";
 	force = 50;
 	name = "Sheriff's special";
@@ -18064,7 +18062,7 @@
 /turf/open/floor/city/toilet,
 /area/vtm/interior/church/haven)
 "eEw" = (
-/obj/machinery/jukebox{
+/obj/machinery/jukebox/no_access{
 	density = 0;
 	pixel_y = 19
 	},
@@ -22905,7 +22903,6 @@
 	pixel_y = 10
 	},
 /obj/item/documents{
-	cost = 500;
 	desc = "A stack of papers pertaining to money laundering operations in the city. This should pawn off well."
 	},
 /turf/open/floor/wood/herring,
@@ -28957,7 +28954,7 @@
 	},
 /area/vtm/interior/caves)
 "hqW" = (
-/obj/machinery/jukebox,
+/obj/machinery/jukebox/no_access,
 /obj/effect/decal/support,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/strip)
@@ -31278,7 +31275,6 @@
 /obj/item/stack/dollar/hundred,
 /obj/item/stack/dollar/hundred,
 /obj/item/documents{
-	cost = 500;
 	desc = "A stack of papers pertaining to money laundering operations in the city. This should pawn off well.";
 	pixel_y = 12
 	},
@@ -55345,7 +55341,6 @@
 /obj/item/clothing/under/vampire/suit/female,
 /obj/item/clothing/under/vampire/suit,
 /obj/item/gun/ballistic/automatic/darkpack/ar15{
-	cost = 700;
 	desc = "This rifle has an official hunting license and 'supposed' modifications. The underclass should keep their heads down.";
 	masquerade_violating = 0;
 	name = "Licensed AR-15 Carbine";
@@ -58757,7 +58752,6 @@
 "oIp" = (
 /obj/item/ammo_box/magazine/darkpackthompson,
 /obj/item/gun/ballistic/automatic/darkpack/thompson{
-	cost = 1000;
 	desc = "As perfectly cared for as the day you met her. The pride of the family, with antique ownership license and a polished sheen. No one can stop you out walking with your wife.";
 	masquerade_violating = 0;
 	name = "The Dontessa";
@@ -65222,9 +65216,7 @@
 /obj/item/ammo_box/darkpack/c45acp,
 /obj/item/gun/ballistic/automatic/pistol/darkpack/m1911,
 /obj/item/ammo_box/magazine/darkpack45acp,
-/obj/item/documents{
-	cost = 500
-	},
+/obj/item/documents,
 /turf/open/floor/carpet,
 /area/vtm/interior/bianchiBank)
 "qqq" = (
@@ -65977,9 +65969,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 9
 	},
-/obj/machinery/jukebox{
-	can_be_unanchored = 1
-	},
+/obj/machinery/jukebox/no_access,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/clinic/haven)
 "qAT" = (
@@ -75410,7 +75400,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/cog/caern)
 "sYO" = (
-/obj/machinery/jukebox,
+/obj/machinery/jukebox/no_access,
 /turf/open/floor/plating/rough{
 	icon_state = "carpet_black"
 	},
@@ -81486,14 +81476,12 @@
 	name = "Training Sabre";
 	force = 1;
 	throwforce = 5;
-	cost = 10;
 	pixel_y = 7
 	},
 /obj/item/melee/sabre/vamp{
 	name = "Training Sabre";
 	force = 1;
-	throwforce = 5;
-	cost = 10
+	throwforce = 5
 	},
 /obj/item/rag{
 	pixel_y = 15
@@ -83871,9 +83859,7 @@
 /area/vtm/interior/vjanitor)
 "vio" = (
 /obj/structure/table/wood,
-/obj/item/documents{
-	cost = 500
-	},
+/obj/item/documents,
 /turf/open/floor/carpet,
 /area/vtm/interior/bianchiBank)
 "viz" = (
@@ -89292,7 +89278,7 @@
 /turf/open/floor/carpet,
 /area/vtm/interior/shop)
 "wFX" = (
-/obj/machinery/jukebox,
+/obj/machinery/jukebox/no_access,
 /turf/open/floor/carpet/purple,
 /area/vtm)
 "wGd" = (
@@ -90665,7 +90651,7 @@
 /obj/effect/turf_decal/siding/wood{
 	color = "#503e28"
 	},
-/obj/machinery/jukebox,
+/obj/machinery/jukebox/no_access,
 /obj/machinery/light/prince/directional/west,
 /turf/open/floor/wood/herring,
 /area/vtm/outside/giovanni/courtyard)
