@@ -9,6 +9,9 @@
 	. = ..()
 	icon_state = "trash[rand(1, 30)]"
 
+/obj/effect/decal/cleanable/NeverShouldHaveComeHere(turf/here_turf)
+	return FALSE
+
 /obj/effect/decal/cleanable/litter
 	name = "litter"
 	icon = 'modular_darkpack/modules/decor/icons/trash.dmi'

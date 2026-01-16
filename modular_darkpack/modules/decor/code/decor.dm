@@ -519,6 +519,9 @@
 	anchored = TRUE
 	var/large = FALSE
 
+/obj/effect/decal/graffiti/NeverShouldHaveComeHere(turf/here_turf)
+	return FALSE
+
 /obj/effect/decal/graffiti/large
 	pixel_w = -16
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
@@ -648,7 +651,7 @@
 	desc = "You can bury someone here."
 	icon = 'modular_darkpack/modules/decor/icons/bury_pit.dmi'
 	icon_state = "pit0"
-	layer = ABOVE_OPEN_TURF_LAYER
+	layer = ABOVE_NORMAL_TURF_LAYER
 	anchored = TRUE
 	density = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
