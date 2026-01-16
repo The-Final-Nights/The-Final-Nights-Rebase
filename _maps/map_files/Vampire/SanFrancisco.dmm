@@ -643,10 +643,11 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/baywalk)
 "ahU" = (
-/obj/structure/sign/city/store/bubway{
-	pixel_y = 40
-	},
 /obj/structure/chair/wood,
+/obj/structure/sign/city/store/bubway/directional/north{
+	pixel_x = 16;
+	pixel_y = 38
+	},
 /turf/open/floor/city/circled,
 /area/vtm/interior/shop)
 "ahZ" = (
@@ -9637,9 +9638,7 @@
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f3)
 "cuT" = (
-/obj/structure/sign/city/chinese{
-	dir = 8
-	},
+/obj/structure/sign/city/chinese/directional/east,
 /turf/open/openspace,
 /area/vtm)
 "cuZ" = (
@@ -28192,8 +28191,9 @@
 /turf/open/floor/plating/roofwalk,
 /area/vtm)
 "hgM" = (
-/obj/structure/sign/city/store/bubway{
-	pixel_y = 40
+/obj/structure/sign/city/store/bubway/directional/north{
+	pixel_x = 16;
+	pixel_y = 38
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/financialdistrict)
@@ -42849,13 +42849,13 @@
 /turf/open/floor/plating/asphalt,
 /area/vtm/outside/pacificheights)
 "kQt" = (
-/obj/structure/sign/city/store/bacotell{
-	pixel_x = 16;
-	pixel_y = 40
-	},
 /obj/structure/table/wood,
 /obj/underplate{
 	pixel_y = 8
+	},
+/obj/structure/sign/city/store/bacotell/directional/north{
+	pixel_y = 37;
+	pixel_x = 16
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
@@ -45727,9 +45727,7 @@
 /turf/open/water/vamp_sewer,
 /area/vtm/interior/sewer)
 "lAx" = (
-/obj/structure/sign/city/chinese{
-	dir = 8
-	},
+/obj/structure/sign/city/chinese/directional/east,
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/chinatown)
 "lAy" = (
@@ -58935,13 +58933,11 @@
 /area/vtm/interior/sewer/police)
 "oMU" = (
 /obj/structure/table/countertop/bacotell,
-/obj/structure/sign/city/order{
-	pixel_y = 8
-	},
 /obj/effect/turf_decal/siding/wood{
 	color = "#9a704a";
 	dir = 1
 	},
+/obj/structure/sign/city/order/directional/west,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/shop)
 "oNa" = (
@@ -59299,10 +59295,6 @@
 	},
 /turf/open/floor/carpet/purple,
 /area/vtm)
-"oSk" = (
-/obj/effect/decal/coastline,
-/turf/closed/wall/vampwall/rock,
-/area/vtm/outside/northbeach)
 "oSl" = (
 /obj/machinery/light/prince/directional/south,
 /turf/open/floor/wood/herring,
@@ -59635,9 +59627,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "oWS" = (
-/obj/structure/sign/city/order{
-	pixel_y = 32
-	},
+/obj/structure/sign/city/order/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "oXi" = (
@@ -62624,9 +62614,9 @@
 /turf/closed/wall/vampwall/rich/old,
 /area/vtm/interior/giovanni)
 "pJW" = (
-/obj/structure/sign/city/store/gummaguts{
-	pixel_x = 16;
-	pixel_y = 40
+/obj/structure/sign/city/store/gummaguts/directional/north{
+	pixel_y = 37;
+	pixel_x = 17
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
@@ -71929,14 +71919,14 @@
 /turf/open/floor/city/toilet,
 /area/vtm/interior/techshop)
 "sel" = (
-/obj/structure/sign/city/store/bubway{
-	pixel_y = 40;
-	pixel_x = 8
-	},
 /obj/effect/landmark/npcbeacon/directed{
 	dir = 4
 	},
 /obj/effect/landmark/npcability,
+/obj/structure/sign/city/store/bubway/directional/north{
+	pixel_x = 16;
+	pixel_y = 38
+	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/library)
 "sep" = (
@@ -73175,11 +73165,11 @@
 /turf/open/floor/wood/herring,
 /area/vtm/interior/shop)
 "swK" = (
-/obj/structure/sign/city/store/bacotell{
-	pixel_x = 16;
-	pixel_y = 40
-	},
 /obj/effect/landmark/npcbeacon,
+/obj/structure/sign/city/store/bacotell/directional/north{
+	pixel_y = 37;
+	pixel_x = 16
+	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/financialdistrict)
 "swM" = (
@@ -76259,7 +76249,7 @@
 	},
 /area/vtm/interior/sewer/nosferatu_warren)
 "tlr" = (
-/obj/structure/sign/city/anarch/directional/west,
+/obj/structure/sign/city/anarch,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
 "tls" = (
@@ -84807,9 +84797,9 @@
 /turf/closed/wall/vampwall/city,
 /area/vtm/interior/clinic/haven)
 "vAN" = (
-/obj/structure/sign/city/store/gummaguts{
-	pixel_x = 16;
-	pixel_y = 40
+/obj/structure/sign/city/store/gummaguts/directional/north{
+	pixel_y = 37;
+	pixel_x = 17
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/library)
@@ -87600,9 +87590,9 @@
 /area/vtm/interior/anarch)
 "wou" = (
 /obj/structure/table/countertop/bubway,
-/obj/structure/sign/city/store/bubway{
-	pixel_y = 40;
-	pixel_x = 14
+/obj/structure/sign/city/store/bubway/directional/north{
+	pixel_x = 16;
+	pixel_y = 38
 	},
 /turf/open/floor/city/circled,
 /area/vtm/interior/shop)
@@ -91640,7 +91630,7 @@
 	pixel_x = 15;
 	pixel_y = 11
 	},
-/turf/open/water/beach/vamp/deep,
+/turf/open/misc/dirt,
 /area/vtm/interior/cog/caern)
 "xno" = (
 /obj/effect/turf_decal/siding/white{
@@ -94343,7 +94333,6 @@
 /obj/structure/barrels{
 	icon_state = "barrels9"
 	},
-/obj/structure/sign/city/anarch/directional/west,
 /obj/effect/decal/cleanable/trash,
 /turf/open/floor/plating/rough/cave{
 	icon_state = "stone8"
@@ -109359,7 +109348,7 @@ uvs
 rCB
 rCB
 rCB
-oSk
+uiq
 uiq
 uiq
 uiq
@@ -109563,7 +109552,7 @@ uvs
 uvs
 uvs
 uvs
-oSk
+uiq
 bNx
 bNx
 uiq
@@ -176740,7 +176729,7 @@ gHN
 okJ
 okJ
 cAt
-oMU
+uDx
 crF
 crF
 crF
@@ -176944,7 +176933,7 @@ rCs
 mxU
 okJ
 cAt
-uDx
+oMU
 crF
 crF
 crF
