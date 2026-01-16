@@ -5932,7 +5932,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "bzI" = (
 /obj/structure/table,
@@ -6256,9 +6256,6 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/endron_facility/restricted)
 "bDY" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 6
-	},
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/food/vampire/icecream,
 /obj/item/food/vampire/icecream,
@@ -14714,6 +14711,9 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/jazzclub)
+"dLO" = (
+/turf/open/indestructible/necropolis/air,
+/area/vtm/interior/hotel)
 "dLU" = (
 /obj/structure/railing{
 	dir = 5;
@@ -16958,7 +16958,7 @@
 /area/vtm/interior/giovanni)
 "eoI" = (
 /obj/machinery/gibber,
-/turf/open/floor/fake_snow,
+/turf/open/floor/iron/freezer,
 /area/vtm/interior/jazzclub)
 "eoK" = (
 /obj/effect/turf_decal/siding/wood{
@@ -26633,7 +26633,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "gLa" = (
 /obj/effect/turf_decal/bordur/corner,
@@ -33762,10 +33762,7 @@
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/sewer)
 "ixn" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 9
-	},
-/obj/machinery/light/cold/directional/south,
+/obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/freezer,
 /area/vtm/interior/shop)
 "ixr" = (
@@ -34840,7 +34837,7 @@
 /area/vtm/interior/caves)
 "iMY" = (
 /mob/living/basic/szlachta,
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "iNb" = (
 /obj/structure/table/wood,
@@ -40249,7 +40246,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 5
 	},
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "kgF" = (
 /turf/closed/wall/vampwall/brick_old,
@@ -40801,7 +40798,7 @@
 "knB" = (
 /obj/effect/turf_decal/bordur,
 /mob/living/basic/szlachta/fister,
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "knF" = (
 /obj/machinery/light/prince/directional/east,
@@ -41490,11 +41487,9 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "kwg" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 1
-	},
-/turf/open/floor/iron/freezer,
-/area/vtm/interior/shop)
+/obj/effect/decal/cleanable/litter,
+/turf/open/indestructible/necropolis/air,
+/area/vtm/outside/baywalk)
 "kwh" = (
 /obj/darkpack_car/track/ambulance{
 	dir = 2
@@ -47169,7 +47164,7 @@
 	dir = 4
 	},
 /mob/living/basic/szlachta/tanker,
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "lSF" = (
 /obj/structure/fence{
@@ -53395,7 +53390,7 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior)
 "nva" = (
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "nvh" = (
 /turf/open/floor/mineral/titanium/white,
@@ -54170,9 +54165,6 @@
 /turf/closed/wall/vampwall/rustbad,
 /area/vtm/interior/sewer)
 "nFh" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 9
-	},
 /obj/machinery/light/cold/directional/south,
 /obj/structure/table/countertop/bubway,
 /obj/effect/decal/wallpaper/stone/low,
@@ -54375,7 +54367,7 @@
 /area/vtm)
 "nHd" = (
 /obj/effect/decal/gut_floor,
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "nHo" = (
 /obj/effect/decal/cleanable/ash,
@@ -54718,6 +54710,10 @@
 /obj/structure/closet/crate,
 /turf/open/floor/city/circled,
 /area/vtm/interior/clinic)
+"nLa" = (
+/obj/structure/dresser,
+/turf/open/indestructible/necropolis/air,
+/area/vtm/interior/hotel)
 "nLh" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -63084,7 +63080,7 @@
 	pixel_y = 1;
 	pixel_x = 12
 	},
-/turf/open/floor/fake_snow,
+/turf/open/floor/iron/freezer,
 /area/vtm/interior/jazzclub)
 "pNI" = (
 /obj/structure/rack/food{
@@ -71267,7 +71263,7 @@
 /obj/item/food/icecreamsandwich,
 /obj/item/food/icecreamsandwich,
 /obj/item/food/icecreamsandwich,
-/turf/open/misc/ice/smooth,
+/turf/open/floor/iron/freezer,
 /area/vtm/interior/shop)
 "rRQ" = (
 /obj/transfer_point_vamp{
@@ -71478,9 +71474,9 @@
 /turf/open/misc/grass,
 /area/vtm/outside/park)
 "rUF" = (
-/obj/effect/turf_decal/weather/snow/corner,
-/turf/open/floor/iron/freezer,
-/area/vtm/interior/jazzclub)
+/obj/the_matrix,
+/turf/closed/indestructible/the_matrix,
+/area/vtm)
 "rUH" = (
 /obj/effect/turf_decal/stock{
 	dir = 4;
@@ -73110,7 +73106,7 @@
 "sth" = (
 /obj/effect/decal/gut_floor,
 /obj/effect/turf_decal/bordur,
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "stl" = (
 /obj/effect/decal/wallpaper/paper,
@@ -76287,7 +76283,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 6
 	},
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "tkc" = (
 /obj/structure/chair/wood{
@@ -77999,9 +77995,6 @@
 /turf/open/floor/carpet/red,
 /area/vtm/interior)
 "tGL" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 1
-	},
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/food/raw_meatball,
 /obj/item/food/raw_meatball,
@@ -80837,9 +80830,8 @@
 /turf/open/floor/city/industrial,
 /area/vtm/interior/shop)
 "usf" = (
-/obj/effect/turf_decal/weather/snow/corner,
-/turf/open/floor/iron/freezer,
-/area/vtm/interior/shop)
+/turf/closed/wall/vampwall/rich,
+/area/vtm)
 "usj" = (
 /obj/effect/turf_decal/bordur,
 /turf/open/floor/plating/sidewalk/poor,
@@ -85258,8 +85250,7 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer/nosferatu_warren)
 "vDS" = (
-/obj/the_matrix,
-/turf/closed/wall/vampwall/rock,
+/turf/closed/indestructible/the_matrix,
 /area/vtm)
 "vDX" = (
 /obj/structure/chair/comfy/black{
@@ -85536,7 +85527,7 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/cabdepot)
 "vHJ" = (
-/turf/open/misc/ice/smooth,
+/turf/open/floor/iron/freezer,
 /area/vtm/interior/jazzclub)
 "vHN" = (
 /obj/effect/turf_decal/bordur,
@@ -88949,7 +88940,7 @@
 /area/vtm/outside/financialdistrict)
 "wBO" = (
 /obj/machinery/icecream_vat,
-/turf/open/floor/fake_snow,
+/turf/open/floor/iron/freezer,
 /area/vtm/interior/shop)
 "wBP" = (
 /obj/effect/turf_decal/siding/wood{
@@ -89644,7 +89635,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/turf/open/indestructible/necropolis,
+/turf/open/indestructible/necropolis/air,
 /area/vtm/interior/endron_facility/restricted)
 "wKD" = (
 /obj/structure/table,
@@ -90581,9 +90572,6 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
 "wWX" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 6
-	},
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/food/raw_sausage,
 /obj/item/food/raw_sausage,
@@ -106759,7 +106747,7 @@ bhB
 "}
 (55,1,1) = {"
 bhB
-rCB
+rUF
 pwb
 vey
 rBa
@@ -106963,7 +106951,7 @@ bhB
 "}
 (56,1,1) = {"
 bhB
-rCB
+rUF
 bnb
 bnb
 bnb
@@ -107167,9 +107155,9 @@ bhB
 "}
 (57,1,1) = {"
 bhB
-xfw
-rCB
-rCB
+vDS
+rUF
+rUF
 bnb
 rNi
 naX
@@ -107371,8 +107359,8 @@ bhB
 "}
 (58,1,1) = {"
 bhB
-rCB
-rCB
+rUF
+rUF
 bnb
 bnb
 vsQ
@@ -107575,7 +107563,7 @@ bhB
 "}
 (59,1,1) = {"
 bhB
-rCB
+rUF
 bnb
 bnb
 gwJ
@@ -107779,7 +107767,7 @@ bhB
 "}
 (60,1,1) = {"
 bhB
-rCB
+rUF
 bnb
 jAJ
 qTq
@@ -107791,7 +107779,7 @@ wHE
 nep
 bnb
 rCB
-xfw
+vDS
 rCB
 pwb
 mwl
@@ -107983,7 +107971,7 @@ bhB
 "}
 (61,1,1) = {"
 bhB
-rCB
+rUF
 bnb
 rOT
 dGB
@@ -108187,7 +108175,7 @@ bhB
 "}
 (62,1,1) = {"
 bhB
-rCB
+rUF
 bnb
 qRF
 ahB
@@ -108391,7 +108379,7 @@ bhB
 "}
 (63,1,1) = {"
 bhB
-rCB
+rUF
 bnb
 egn
 iLV
@@ -108595,7 +108583,7 @@ bhB
 "}
 (64,1,1) = {"
 bhB
-rCB
+rUF
 bnb
 bnb
 dFC
@@ -108799,8 +108787,8 @@ bhB
 "}
 (65,1,1) = {"
 bhB
-rCB
-rCB
+rUF
+rUF
 bnb
 bnb
 egn
@@ -109003,9 +108991,9 @@ bhB
 "}
 (66,1,1) = {"
 bhB
-xfw
-rCB
-rCB
+vDS
+rUF
+rUF
 bnb
 bnb
 bnb
@@ -109014,7 +109002,7 @@ bnb
 bnb
 rCB
 rCB
-xfw
+vDS
 rCB
 pJS
 sRJ
@@ -109217,8 +109205,8 @@ rCB
 rCB
 rCB
 rCB
-xfw
-xfw
+vDS
+vDS
 rCB
 pJS
 pJS
@@ -109421,7 +109409,7 @@ rCB
 rCB
 rCB
 rCB
-xfw
+vDS
 rCB
 rCB
 rCB
@@ -144908,7 +144896,7 @@ bhB
 "}
 (40,1,2) = {"
 bhB
-rCB
+rUF
 bal
 pDA
 pDA
@@ -145112,7 +145100,7 @@ bhB
 "}
 (41,1,2) = {"
 bhB
-rCB
+rUF
 bal
 cJF
 mPm
@@ -145724,7 +145712,7 @@ bhB
 "}
 (44,1,2) = {"
 bhB
-rCB
+vDS
 vrx
 kmQ
 wJp
@@ -145928,7 +145916,7 @@ bhB
 "}
 (45,1,2) = {"
 bhB
-rCB
+vDS
 vrx
 mGT
 mGT
@@ -146132,7 +146120,7 @@ bhB
 "}
 (46,1,2) = {"
 bhB
-rCB
+vDS
 vrx
 hyk
 hyk
@@ -146336,7 +146324,7 @@ bhB
 "}
 (47,1,2) = {"
 bhB
-rCB
+vDS
 vrx
 fbB
 lKs
@@ -146540,7 +146528,7 @@ bhB
 "}
 (48,1,2) = {"
 bhB
-rCB
+vDS
 dMI
 jjw
 jjw
@@ -146744,8 +146732,8 @@ bhB
 "}
 (49,1,2) = {"
 bhB
-uAE
-rCB
+vDS
+vDS
 jjw
 bPv
 rHN
@@ -146948,8 +146936,8 @@ bhB
 "}
 (50,1,2) = {"
 bhB
-rCB
-rCB
+vDS
+vDS
 jjw
 bPv
 dVy
@@ -147152,7 +147140,7 @@ bhB
 "}
 (51,1,2) = {"
 bhB
-rCB
+vDS
 jjw
 jjw
 jjw
@@ -149600,8 +149588,8 @@ bhB
 "}
 (63,1,2) = {"
 bhB
-wJe
-wJe
+usf
+usf
 ijU
 jcn
 ydi
@@ -149804,7 +149792,7 @@ bhB
 "}
 (64,1,2) = {"
 bhB
-wJe
+usf
 jjw
 ijU
 gti
@@ -150008,7 +149996,7 @@ bhB
 "}
 (65,1,2) = {"
 bhB
-wJe
+usf
 ijU
 llR
 cJw
@@ -150212,7 +150200,7 @@ bhB
 "}
 (66,1,2) = {"
 bhB
-wJe
+usf
 ijU
 mXM
 nrn
@@ -150416,7 +150404,7 @@ bhB
 "}
 (67,1,2) = {"
 bhB
-uvs
+usf
 ijU
 pSw
 hgb
@@ -162422,7 +162410,7 @@ fzy
 fzy
 lAe
 wBO
-kwg
+sTr
 bDY
 nOJ
 kQv
@@ -162626,7 +162614,7 @@ fzy
 fzy
 lAe
 ixn
-usf
+sTr
 rRO
 nOJ
 ews
@@ -162830,7 +162818,7 @@ ioK
 fzy
 lAe
 sTr
-usf
+sTr
 wBO
 nOJ
 mgV
@@ -169578,7 +169566,7 @@ eQC
 eQC
 lUP
 vuM
-vuM
+dLO
 vuM
 eQC
 eQC
@@ -169783,7 +169771,7 @@ wYY
 dcj
 vuM
 oVM
-ifv
+nLa
 lTc
 xHG
 cud
@@ -170193,7 +170181,7 @@ ltr
 eWO
 eWO
 ade
-xAV
+kwg
 eWO
 bEO
 jRh
@@ -181833,8 +181821,8 @@ bhB
 "}
 (19,1,3) = {"
 bhB
-rCB
-rCB
+rUF
+rUF
 lfj
 cqc
 cqc
@@ -182037,8 +182025,8 @@ bhB
 "}
 (20,1,3) = {"
 bhB
-xfw
-rCB
+vDS
+rUF
 lfj
 cqc
 pFN
@@ -182241,8 +182229,8 @@ bhB
 "}
 (21,1,3) = {"
 bhB
-xfw
-rCB
+vDS
+rUF
 lfj
 cqc
 pFN
@@ -182445,8 +182433,8 @@ bhB
 "}
 (22,1,3) = {"
 bhB
-rCB
-rCB
+rUF
+rUF
 lfj
 cqc
 pFN
@@ -184485,8 +184473,8 @@ bhB
 "}
 (32,1,3) = {"
 bhB
-rCB
-rCB
+rUF
+rUF
 lfj
 bfK
 fVB
@@ -184689,8 +184677,8 @@ bhB
 "}
 (33,1,3) = {"
 bhB
-xfw
-rCB
+vDS
+rUF
 lfj
 eAC
 fVB
@@ -184893,8 +184881,8 @@ bhB
 "}
 (34,1,3) = {"
 bhB
-xfw
-rCB
+vDS
+rUF
 lfj
 fZi
 fZi
@@ -185097,8 +185085,8 @@ bhB
 "}
 (35,1,3) = {"
 bhB
-xfw
-rCB
+vDS
+rUF
 lfj
 sXn
 uuL
@@ -185301,8 +185289,8 @@ bhB
 "}
 (36,1,3) = {"
 bhB
-rCB
-rCB
+rUF
+rUF
 lfj
 lfj
 lfj
@@ -185505,7 +185493,7 @@ bhB
 "}
 (37,1,3) = {"
 bhB
-rCB
+vDS
 uvs
 uvs
 mjT
@@ -185709,7 +185697,7 @@ bhB
 "}
 (38,1,3) = {"
 bhB
-rCB
+vDS
 uvs
 mjT
 mjT
@@ -185913,7 +185901,7 @@ bhB
 "}
 (39,1,3) = {"
 bhB
-rCB
+vDS
 uvs
 mjT
 mjT
@@ -186117,7 +186105,7 @@ bhB
 "}
 (40,1,3) = {"
 bhB
-rCB
+vDS
 uvs
 mjT
 mjT
@@ -186321,7 +186309,7 @@ bhB
 "}
 (41,1,3) = {"
 bhB
-rCB
+vDS
 uvs
 mjT
 mjT
@@ -186525,7 +186513,7 @@ bhB
 "}
 (42,1,3) = {"
 bhB
-rCB
+vDS
 vrx
 taC
 xpI
@@ -186729,7 +186717,7 @@ bhB
 "}
 (43,1,3) = {"
 bhB
-wJe
+vDS
 vrx
 bKy
 bKy
@@ -186933,7 +186921,7 @@ bhB
 "}
 (44,1,3) = {"
 bhB
-wJe
+vDS
 vrx
 bKy
 bKy
@@ -187137,7 +187125,7 @@ bhB
 "}
 (45,1,3) = {"
 bhB
-wJe
+vDS
 vrx
 bKy
 bKy
@@ -212751,7 +212739,7 @@ gSU
 lpy
 ucp
 nFh
-rUF
+vHJ
 vHJ
 ucp
 xEp
@@ -212955,7 +212943,7 @@ eUt
 vMC
 ucp
 gUz
-rUF
+vHJ
 eoI
 ucp
 xEp
