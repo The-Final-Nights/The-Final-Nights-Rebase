@@ -519,6 +519,9 @@
 	anchored = TRUE
 	var/large = FALSE
 
+/obj/effect/decal/graffiti/NeverShouldHaveComeHere(turf/here_turf)
+	return FALSE
+
 /obj/effect/decal/graffiti/large
 	pixel_w = -16
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
