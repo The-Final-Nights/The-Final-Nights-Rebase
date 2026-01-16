@@ -41,19 +41,12 @@
 	. = ..()
 	temperature = initial_temperature
 
-/* // TFN EDIT REMOVAL START
 //used by space tiles
 /datum/gas_mixture/immutable/space
 	initial_temperature = TCMB
 
 /datum/gas_mixture/immutable/space/heat_capacity()
 	return HEAT_CAPACITY_VACUUM
-*/ // TFN EDIT REMOVAL END
-// TFN EDIT ADDITION START
-/datum/gas_mixture/immutable/space
-	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	temperature = T20C
-// TFN EDIT ADDITION END
 
 /datum/gas_mixture/immutable/space/remove()
 	return copy() //we're always empty, so we can just return a copy.
