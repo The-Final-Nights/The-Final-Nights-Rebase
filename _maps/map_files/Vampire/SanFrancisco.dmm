@@ -5863,7 +5863,7 @@
 /obj/structure/bodycontainer/morgue{
 	dir = 1
 	},
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/clinic)
 "byO" = (
@@ -6517,7 +6517,7 @@
 "bGq" = (
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate/large,
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
 "bGI" = (
@@ -9795,10 +9795,6 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
-"cwz" = (
-/obj/machinery/light/warm/directional/north,
-/turf/open/floor/plating/concrete,
-/area/vtm/interior)
 "cwA" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/bordur,
@@ -11537,7 +11533,7 @@
 /area/vtm/interior/sewer/nosferatu_warren)
 "cVd" = (
 /obj/structure/closet,
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic)
 "cVk" = (
@@ -11964,10 +11960,6 @@
 /obj/effect/landmark/start/darkpack/chantry/archivist,
 /turf/open/floor/carpet/red,
 /area/vtm/interior/chantry)
-"dbK" = (
-/obj/machinery/light/prince/directional/north,
-/turf/open/floor/plating/sidewalk/old,
-/area/vtm/interior/tzimisce_sanctum)
 "dbL" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -12077,7 +12069,7 @@
 /turf/open/misc/grass,
 /area/vtm/outside/pacificheights)
 "ddj" = (
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /obj/item/kirbyplants/random,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
@@ -14493,6 +14485,10 @@
 	},
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer)
+"dJk" = (
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/plating/sidewalk/old,
+/area/vtm/interior/tzimisce_sanctum)
 "dJr" = (
 /obj/effect/turf_decal/stock,
 /turf/open/floor/plating/asphalt,
@@ -21648,7 +21644,7 @@
 /obj/structure/closet/crate/large{
 	anchored = 1
 	},
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
 "fwF" = (
@@ -25120,13 +25116,6 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
-"gra" = (
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#5a2355"
-	},
-/obj/machinery/light/prince/directional/north,
-/turf/open/floor/wood/ornate,
-/area/vtm)
 "grg" = (
 /obj/item/flashlight/flare/candle/infinite{
 	pixel_x = 13;
@@ -26398,6 +26387,10 @@
 	density = 0
 	},
 /turf/open/floor/plating/rough,
+/area/vtm/interior)
+"gIe" = (
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/plating/concrete,
 /area/vtm/interior)
 "gIf" = (
 /obj/effect/turf_decal/siding/white{
@@ -30763,7 +30756,7 @@
 	dir = 1;
 	color = "#574d46"
 	},
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /turf/open/openspace,
 /area/vtm/interior)
 "hPd" = (
@@ -37922,7 +37915,7 @@
 	dir = 1;
 	pixel_y = 6
 	},
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/shop)
 "jBF" = (
@@ -54833,6 +54826,10 @@
 /obj/structure/roadblock/alt,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/sewer/nosferatu_warren)
+"nNe" = (
+/obj/machinery/light/dim/directional/south,
+/turf/open/floor/plating/rough,
+/area/vtm/interior)
 "nNf" = (
 /obj/effect/turf_decal/siding/white/end{
 	color = "#636363";
@@ -55114,7 +55111,7 @@
 	color = "#636363"
 	},
 /obj/effect/decal/rugs,
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/city/toilet,
 /area/vtm/interior)
 "nQo" = (
@@ -61749,7 +61746,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/apartment)
 "pwA" = (
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/shop)
 "pwF" = (
@@ -76399,7 +76396,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights/industrial)
 "tlS" = (
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /obj/structure/chair/darkpack/green{
 	dir = 4
 	},
@@ -83683,6 +83680,10 @@
 /obj/item/clothing/head/vampire/blackbag,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/giovanni/basement)
+"vgC" = (
+/obj/machinery/light/dim/directional/south,
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm/interior)
 "vgD" = (
 /obj/structure/curtain/bounty{
 	pixel_x = -32;
@@ -84789,7 +84790,7 @@
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
 "vyx" = (
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
@@ -86232,7 +86233,7 @@
 /turf/open/misc/grass,
 /area/vtm/graveyard)
 "vSU" = (
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower)
 "vTb" = (
@@ -89439,7 +89440,7 @@
 /area/vtm/interior/sewer)
 "wJv" = (
 /obj/structure/vampstatue/angel,
-/obj/machinery/light/dim/directional/north,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -93397,6 +93398,13 @@
 "xJz" = (
 /obj/structure/bookcase/random/religion,
 /turf/open/floor/wood/old,
+/area/vtm)
+"xJA" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#5a2355"
+	},
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/wood/ornate,
 /area/vtm)
 "xJC" = (
 /obj/structure/closet/crate/bin,
@@ -101536,7 +101544,7 @@ xfw
 xfw
 rCB
 iiT
-dbK
+dJk
 jYk
 jYk
 jYk
@@ -150264,7 +150272,7 @@ tML
 ajj
 poR
 eWf
-poR
+nNe
 ajj
 feA
 yis
@@ -153952,7 +153960,7 @@ tND
 ajj
 nJr
 dTf
-oMH
+vgC
 ajj
 mmB
 svq
@@ -168477,21 +168485,21 @@ top
 top
 top
 bMY
-cwz
+gIe
 cfC
 cze
 aZz
 aZz
 aZz
 cze
-cwz
+gIe
 wPr
 hwU
 nEV
 nEV
 nEV
 hwU
-cwz
+gIe
 gIJ
 dbG
 keR
@@ -224348,7 +224356,7 @@ uvs
 wUD
 ogy
 rXm
-gra
+xJA
 iiN
 mjT
 ijz
@@ -224756,7 +224764,7 @@ uvs
 wUD
 ogy
 rXm
-gra
+xJA
 iiN
 mjT
 ijz
