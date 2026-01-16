@@ -3554,12 +3554,8 @@
 	dir = 1
 	},
 /mob/living/basic/pet/dog/corgi{
-	icon = 'code/modules/wod13/mobs.dmi';
-	icon_dead = "dog_dead";
-	icon_state = "dog";
 	name = "Lupus Wolfkin";
 	desc = "A timber wolf.";
-	icon_living = "dog"
 	},
 /obj/effect/turf_decal/weather/dirt{
 	dir = 4
@@ -6096,7 +6092,6 @@
 /obj/vampire_computer,
 /obj/structure/sign/city/strip_club{
 	icon_state = "cursed";
-	icon = 'code/modules/wod13/posters.dmi';
 	pixel_x = 6;
 	pixel_y = 3;
 	desc = ""
@@ -21572,7 +21567,6 @@
 /obj/structure/table/wood,
 /obj/vampire_computer,
 /obj/structure/sign/city/strip_club{
-	icon = 'code/modules/wod13/posters.dmi';
 	icon_state = "blade";
 	pixel_x = 15;
 	pixel_y = -2;
@@ -28335,7 +28329,6 @@
 "hhS" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/operating{
-	icon = 'code/modules/wod13/props.dmi';
 	icon_state = "computerprince";
 	pixel_y = 4
 	},
@@ -39006,11 +38999,7 @@
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/chantry/basement)
 "jQN" = (
-/obj/structure/bonfire/prelit{
-	burn_icon = "campfire_on";
-	icon = 'code/modules/wod13/props.dmi';
-	icon_state = "campfire_off"
-	},
+/obj/structure/bonfire/prelit,
 /turf/open/floor/plating/stone,
 /area/vtm/interior/caves)
 "jQP" = (
@@ -45333,9 +45322,6 @@
 	dir = 9
 	},
 /obj/structure/bonfire/prelit{
-	burn_icon = "campfire_on";
-	icon = 'code/modules/wod13/props.dmi';
-	icon_state = "campfire_off";
 	pixel_y = 7
 	},
 /turf/open/misc/grass,
@@ -49333,12 +49319,8 @@
 /area/vtm/interior/sewer/nosferatu_warren)
 "muc" = (
 /mob/living/basic/pet/dog/corgi{
-	icon = 'code/modules/wod13/mobs.dmi';
-	icon_dead = "dog_dead";
-	icon_state = "dog";
 	name = "Lupus Wolfkin";
-	desc = "A timber wolf.";
-	icon_living = "dog"
+	desc = "A timber wolf."
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/caves)
@@ -51356,7 +51338,6 @@
 /area/vtm/interior)
 "mUC" = (
 /obj/machinery/computer/operating{
-	icon = 'code/modules/wod13/props.dmi';
 	icon_state = "computerprince"
 	},
 /obj/structure/table,
@@ -55468,7 +55449,6 @@
 /area/vtm)
 "nTY" = (
 /obj/structure/fluff/tv{
-	icon = 'icons/obj/computer.dmi';
 	icon_state = "arcade";
 	color = "#917357";
 	dir = 4;
@@ -60057,12 +60037,8 @@
 /area/vtm)
 "pbt" = (
 /mob/living/basic/pet/dog/corgi{
-	icon = 'code/modules/wod13/mobs.dmi';
-	icon_dead = "dog_dead";
-	icon_state = "dog";
 	name = "Lupus Wolfkin";
-	desc = "A timber wolf.";
-	icon_living = "dog"
+	desc = "A timber wolf."
 	},
 /turf/open/misc/dirt,
 /area/vtm/interior/cog/caern)
@@ -61637,8 +61613,7 @@
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 140;
 	max_integrity = 500;
-	dir = 4;
-	icon = 'icons/obj/doors/shutters_topless.dmi'
+	dir = 4
 	},
 /turf/closed/wall/vampwall/metal/glass,
 /area/vtm/interior/endron_facility/restricted)
@@ -69200,14 +69175,12 @@
 /obj/structure/table/wood,
 /obj/vampire_computer,
 /obj/structure/sign/city/strip_club{
-	icon = 'icons/obj/contraband.dmi';
 	icon_state = "poster_15";
 	pixel_x = 23;
 	pixel_y = 3;
 	desc = ""
 	},
 /obj/structure/sign/city/strip_club{
-	icon = 'code/modules/wod13/posters.dmi';
 	icon_state = "war of the worlds";
 	pixel_x = 1;
 	pixel_y = 4;
@@ -74074,9 +74047,6 @@
 /area/vtm/interior/church/staff)
 "sGK" = (
 /obj/structure/bonfire/prelit{
-	burn_icon = "campfire_on";
-	icon = 'code/modules/wod13/props.dmi';
-	icon_state = "campfire_off";
 	pixel_y = 7
 	},
 /obj/structure/stone_tile/surrounding,
@@ -74926,12 +74896,8 @@
 /area/vtm/interior/giovanni)
 "sRP" = (
 /mob/living/basic/pet/dog/corgi{
-	icon = 'code/modules/wod13/mobs.dmi';
-	icon_dead = "dog_dead";
-	icon_state = "dog";
 	name = "Lupus Wolfkin";
-	desc = "A timber wolf.";
-	icon_living = "dog"
+	desc = "A timber wolf."
 	},
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
@@ -92592,11 +92558,8 @@
 /obj/structure/table/wood,
 /obj/vampire_computer,
 /obj/structure/sign/city/strip_club{
-	icon = 'code/modules/wod13/posters.dmi';
-	icon_state = "land of dead";
 	pixel_x = 8;
 	pixel_y = 2;
-	desc = ""
 	},
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/chantry)
@@ -94663,11 +94626,8 @@
 "xZP" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
 /obj/structure/sign/city/strip_club{
-	icon = 'code/modules/wod13/posters.dmi';
-	icon_state = "blade";
 	pixel_x = 10;
 	pixel_y = -1;
-	desc = ""
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/chantry)
@@ -95614,7 +95574,6 @@
 "ylj" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/operating{
-	icon = 'code/modules/wod13/props.dmi';
 	icon_state = "computerprince";
 	pixel_x = -2;
 	pixel_y = 3
