@@ -18164,9 +18164,7 @@
 /area/vtm/interior/museum)
 "eGa" = (
 /obj/structure/table/wood,
-/obj/vampire_computer{
-	owner = "Supply Technician"
-	},
+/obj/vampire_computer,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/supply)
 "eGg" = (
@@ -46492,9 +46490,7 @@
 /area/vtm)
 "lJD" = (
 /obj/structure/table,
-/obj/vampire_computer{
-	owner = "Street Janitor"
-	},
+/obj/vampire_computer,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/vjanitor)
 "lJF" = (
@@ -57086,9 +57082,7 @@
 /obj/item/stamp/granted{
 	pixel_x = 12
 	},
-/obj/vampire_computer{
-	owner = "Clerk"
-	},
+/obj/vampire_computer,
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#802d29";
 	dir = 6
@@ -72672,9 +72666,7 @@
 /area/vtm/outside/financialdistrict)
 "snP" = (
 /obj/structure/table,
-/obj/vampire_computer{
-	owner = "Doctor"
-	},
+/obj/vampire_computer,
 /obj/effect/decal/wallpaper/light/low,
 /obj/structure/platform/lowwall/painted,
 /turf/open/floor/plating/rough,
@@ -81460,9 +81452,7 @@
 /area/vtm/interior/shop)
 "uAV" = (
 /obj/structure/table/wood,
-/obj/vampire_computer{
-	owner = "Doctor"
-	},
+/obj/vampire_computer,
 /obj/item/toy/cards/deck/cas{
 	pixel_y = 8;
 	pixel_x = 9
@@ -92049,7 +92039,6 @@
 /area/vtm/outside/pacificheights)
 "xqs" = (
 /obj/structure/vampdoor{
-	baseicon = "wood";
 	dir = 4;
 	icon_state = "wood-1";
 	lock_id = "toreador";
