@@ -6978,7 +6978,6 @@
 /area/vtm/interior/police/court)
 "bMR" = (
 /obj/structure/vampdoor/prison{
-	lock_id = "giovanni";
 	dir = 4
 	},
 /turf/open/floor/city/church,
@@ -8010,15 +8009,6 @@
 "cbn" = (
 /turf/open/floor/plating/asphalt,
 /area/vtm/outside/pacificheights/community)
-"cbq" = (
-/obj/effect/decal/cleanable/crayon{
-	icon_state = "safe";
-	color = "#000000";
-	name = "strange graffiti";
-	pixel_y = 29
-	},
-/turf/open/floor/plating/canal,
-/area/vtm/interior/sewer)
 "cbt" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/bush/fullgrass/style_random,
@@ -8200,10 +8190,7 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
 "cdN" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "hunter";
-	lockpick_difficulty = 20
-	},
+/obj/structure/vampdoor/prison,
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
@@ -10737,10 +10724,7 @@
 /turf/open/misc/grass,
 /area/vtm/outside/pacificheights)
 "cJU" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "sabbat";
-	lockpick_difficulty = 8
-	},
+/obj/structure/vampdoor/prison,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "cJV" = (
@@ -13690,10 +13674,7 @@
 /turf/open/floor/wood/old,
 /area/vtm/interior/shop)
 "dxj" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "anarch";
-	lockpick_difficulty = 8
-	},
+/obj/structure/vampdoor/prison,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
 "dxt" = (
@@ -26960,13 +26941,6 @@
 	},
 /turf/open/floor/wood/herring,
 /area/vtm/interior/tzimisce_manor)
-"gQE" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "nosferatu";
-	lockpick_difficulty = 8
-	},
-/turf/open/floor/plating/canal,
-/area/vtm/interior/sewer)
 "gQF" = (
 /obj/structure/closet/mini_fridge,
 /obj/item/reagent_containers/cup/glass/waterbottle,
@@ -32475,9 +32449,7 @@
 /turf/closed/wall/vampwall/rich,
 /area/vtm/interior/giovanni)
 "ika" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "giovanni"
-	},
+/obj/structure/vampdoor/prison,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "trails_2-old"
 	},
@@ -32981,7 +32953,6 @@
 /area/vtm/interior)
 "ipW" = (
 /obj/structure/vampdoor/prison{
-	lock_id = "tzimiscemanor";
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/white{
@@ -43317,10 +43288,7 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/shop)
 "kUV" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "glowie";
-	lockpick_difficulty = 16
-	},
+/obj/structure/vampdoor/prison,
 /turf/open/floor/wood/rough,
 /area/vtm/interior/police/fed)
 "kVg" = (
@@ -43873,10 +43841,7 @@
 /turf/open/misc/grass,
 /area/vtm/outside/ghetto)
 "lcZ" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "coggie";
-	lockpick_difficulty = 16
-	},
+/obj/structure/vampdoor/prison,
 /turf/open/floor/plating/stone,
 /area/vtm/interior/cog/caern)
 "ldl" = (
@@ -48533,10 +48498,7 @@
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/outside/baywalk)
 "mjO" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "nosferatu";
-	lockpick_difficulty = 15
-	},
+/obj/structure/vampdoor/prison,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer/nosferatu_warren)
 "mjT" = (
@@ -50136,10 +50098,7 @@
 /turf/open/floor/city/plating,
 /area/vtm/interior/shop)
 "mGw" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "nps";
-	lockpick_difficulty = 16
-	},
+/obj/structure/vampdoor/prison,
 /turf/open/floor/plating/stone,
 /area/vtm/interior/caves)
 "mGx" = (
@@ -54714,7 +54673,6 @@
 /area/vtm/interior/sewer)
 "nLk" = (
 /obj/structure/vampdoor/prison{
-	lock_id = "giovanni";
 	dir = 4
 	},
 /turf/open/floor/city/toilet/large,
@@ -55548,9 +55506,6 @@
 /area/vtm/interior/theatre)
 "nUX" = (
 /obj/structure/vampdoor/prison{
-	lock_id = "anarch";
-	lockpick_difficulty = 15;
-	opacity = 0;
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/wood{
@@ -60052,8 +60007,6 @@
 /area/vtm/interior)
 "pba" = (
 /obj/structure/vampdoor/prison{
-	lock_id = "nps";
-	lockpick_difficulty = 16;
 	dir = 8
 	},
 /turf/open/floor/plating/rough/cave{
@@ -65504,16 +65457,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/apartment)
-"quj" = (
-/obj/structure/vampipe{
-	pixel_y = 32
-	},
-/obj/effect/decal/cleanable/blood/footprints{
-	dir = 1;
-	icon_state = "trails_1-old"
-	},
-/turf/open/floor/plating/canal,
-/area/vtm/interior/sewer)
 "qur" = (
 /obj/structure/platform/lowwall/painted/window,
 /turf/open/floor/plating/rough,
@@ -72247,7 +72190,6 @@
 /area/vtm/interior/shop)
 "sgu" = (
 /obj/structure/vampdoor/prison{
-	lock_id = "tzimiscemanor";
 	dir = 4
 	},
 /turf/open/floor/plating/rough/cave{
@@ -73540,7 +73482,6 @@
 /area/vtm/interior/endron_facility/restricted)
 "syM" = (
 /obj/structure/vampdoor/prison{
-	lock_id = "giovanni";
 	dir = 4
 	},
 /turf/open/floor/plating/rough/cave,
@@ -75025,9 +74966,6 @@
 /area/vtm/interior/sewer)
 "sTf" = (
 /obj/structure/vampdoor/prison{
-	lock_id = "baron";
-	lockpick_difficulty = 15;
-	opacity = 0;
 	dir = 1
 	},
 /turf/open/floor/plating/concrete,
@@ -79939,9 +79877,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "ufh" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "giovanni"
-	},
+/obj/structure/vampdoor/prison,
 /turf/open/floor/city/toilet/large,
 /area/vtm/interior/giovanni/basement)
 "ufj" = (
@@ -82508,9 +82444,7 @@
 /turf/open/misc/beach/sand,
 /area/vtm/interior/museum)
 "uOs" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "tzimiscemanor"
-	},
+/obj/structure/vampdoor/prison,
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
 	},
@@ -82901,10 +82835,7 @@
 /area/vtm/interior/giovanni/basement)
 "uTH" = (
 /obj/structure/vampdoor/prison{
-	dir = 1;
-	lock_id = "camarilla";
-	lockpick_difficulty = 11;
-	name = "Detainment"
+	dir = 1
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower)
@@ -84515,9 +84446,7 @@
 	},
 /area/vtm/interior/apartment)
 "vrM" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "giovanni"
-	},
+/obj/structure/vampdoor/prison,
 /turf/open/floor/city/church,
 /area/vtm/interior/giovanni/basement)
 "vrS" = (
@@ -89817,13 +89746,6 @@
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/hotel)
-"wNb" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "pentex";
-	lockpick_difficulty = 16
-	},
-/turf/open/floor/plating/canal,
-/area/vtm/interior/sewer)
 "wNd" = (
 /obj/structure/vampdoor/glass/clinic{
 	name = "Fire Shelter";
@@ -93076,9 +92998,7 @@
 /turf/open/floor/wood/old,
 /area/vtm)
 "xFI" = (
-/obj/structure/vampdoor/prison{
-	lock_id = "giovanni"
-	},
+/obj/structure/vampdoor/prison,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "trails_1-old"
 	},
@@ -105101,7 +105021,7 @@ uaT
 dCM
 xIb
 lof
-quj
+aej
 vFf
 kRM
 tuX
@@ -105305,7 +105225,7 @@ hbw
 hbw
 xwG
 lof
-quj
+aej
 vFf
 kRM
 tuX
@@ -110219,7 +110139,7 @@ lZa
 yhF
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110238,7 +110158,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110266,7 +110186,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110291,7 +110211,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110318,7 +110238,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110348,7 +110268,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110364,14 +110284,14 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 iDA
@@ -110831,7 +110751,7 @@ lCp
 iep
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110850,7 +110770,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110878,7 +110798,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110903,7 +110823,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110930,7 +110850,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110960,7 +110880,7 @@ hge
 lNI
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -110976,14 +110896,14 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 iDA
@@ -124668,7 +124588,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -124679,7 +124599,7 @@ hge
 hge
 lNI
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -124734,7 +124654,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -124760,7 +124680,7 @@ hge
 lNI
 hge
 hge
-wNb
+dxj
 hge
 hge
 hge
@@ -124771,7 +124691,7 @@ hge
 hge
 hge
 hge
-wNb
+dxj
 hge
 hge
 hge
@@ -124808,7 +124728,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -124844,7 +124764,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -125280,7 +125200,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -125291,7 +125211,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -125346,7 +125266,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -125372,7 +125292,7 @@ hge
 lup
 hge
 hge
-wNb
+dxj
 hge
 hge
 hge
@@ -125383,7 +125303,7 @@ hge
 hge
 hge
 hge
-wNb
+dxj
 hge
 hge
 hge
@@ -125420,7 +125340,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -125456,7 +125376,7 @@ hge
 hge
 hge
 hge
-gQE
+dxj
 hge
 hge
 hge
@@ -132255,7 +132175,7 @@ lcZ
 jjY
 cAV
 lof
-cbq
+hge
 vFf
 gxA
 gVZ
