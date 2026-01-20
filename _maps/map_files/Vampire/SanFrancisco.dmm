@@ -652,7 +652,7 @@
 /area/vtm/interior/shop)
 "ahZ" = (
 /obj/structure/flora/rock/pile/darkpack,
-/turf/open/water/beach/vamp/deep,
+/turf/open/water/beach/vamp,
 /area/vtm/outside/forest)
 "aik" = (
 /obj/structure/table/wood,
@@ -987,12 +987,17 @@
 	dir = 8;
 	color = "#636363"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf{
+	dir = 4
+	},
 /obj/machinery/door/poddoor/shutters{
 	id = 136;
 	dir = 8;
 	max_integrity = 500
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility/restricted)
 "amt" = (
@@ -1134,10 +1139,8 @@
 /turf/open/indestructible/necropolis/air,
 /area/vtm/interior/wyrm_corrupted)
 "aoq" = (
-/obj/machinery/light/red/directional/south,
-/turf/open/floor/plating/sidewalk/poor{
-	color = "#bfbfbf"
-	},
+/obj/structure/platform/lowwall/bar/window,
+/turf/open/floor/plating/sidewalk,
 /area/vtm/interior/anarch)
 "aos" = (
 /obj/effect/decal/cleanable/trash,
@@ -1564,6 +1567,11 @@
 "atb" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/junk/alt,
+/obj/structure/retail/costume_store{
+	pixel_y = 10
+	},
+/obj/structure/retail/clothing_store,
+/obj/effect/decal/wallpaper/paper/darkred/low,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "ath" = (
@@ -1800,7 +1808,10 @@
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/access/supply,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/supply)
 "avt" = (
@@ -1899,11 +1910,13 @@
 /turf/open/floor/light,
 /area/vtm/interior/strip)
 "awX" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/woodglass,
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/turf/open/misc/dirt,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/autoname,
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "axa" = (
 /obj/fusebox,
@@ -2859,11 +2872,15 @@
 /turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "aKv" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
 	color = "#574d46"
 	},
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/graveyard,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/graveyard/interior)
 "aKx" = (
@@ -3580,6 +3597,15 @@
 /obj/item/storage/pill_bottle/mannitol,
 /turf/open/floor/city/circled,
 /area/vtm/interior/clinic)
+"aTH" = (
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/baali,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/baali)
 "aTJ" = (
 /turf/open/floor/iron/stairs{
 	dir = 8;
@@ -3699,14 +3725,11 @@
 /turf/open/floor/plating/asphalt,
 /area/vtm/interior)
 "aVu" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 1
-	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 10
-	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/obj/structure/table/wood,
+/obj/structure/platform/lowwall/junk/alt,
+/obj/effect/decal/wallpaper/paper/darkred/low,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/shop)
 "aVx" = (
 /obj/effect/turf_decal/siding/wood{
 	color = "#665136";
@@ -3767,13 +3790,11 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "aXf" = (
-/obj/effect/decal/fakelattice{
-	density = 0
+/obj/merge_conflict_marker{
+	name = "Area lacks laso primo access"
 	},
-/obj/effect/decal/cleanable/litter,
-/obj/effect/decal/cleanable/litter,
-/turf/open/floor/plating/rough,
-/area/vtm/interior/shop)
+/turf/open/floor/city/church,
+/area/vtm/interior/church/haven)
 "aXg" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -4367,9 +4388,17 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
 "bev" = (
-/obj/effect/decal/cleanable/litter,
-/turf/open/floor/wood/old,
-/area/vtm/interior/shop)
+/obj/effect/turf_decal/siding/wood{
+	dir = 8;
+	color = "#574d46"
+	},
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/npc,
+/obj/effect/mapping_helpers/door/lock,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior)
 "beD" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
@@ -5381,7 +5410,7 @@
 /turf/open/floor/carpet/red,
 /area/vtm/interior/laundromat)
 "bts" = (
-/obj/effect/decal/wallpaper/paper/rich,
+/obj/effect/decal/wallpaper/paper/green,
 /turf/closed/wall/vampwall/city,
 /area/vtm/interior/shop)
 "btu" = (
@@ -5605,14 +5634,13 @@
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
 "bwj" = (
-/obj/structure/chair/wood/darkpack{
-	dir = 8
-	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 5
-	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/obj/effect/decal/rugs,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/lock,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/sewer/nosferatu_warren)
 "bwo" = (
 /obj/structure/chair/office/darkpack/blue{
 	dir = 1
@@ -6025,13 +6053,18 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/merge_conflict_marker,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 5467;
 	max_integrity = 3500;
 	name = "Warrens";
 	dir = 8
 	},
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/sewer/nosferatu_warren)
 "bBa" = (
@@ -6869,6 +6902,13 @@
 /obj/effect/landmark/start/darkpack/citizen/graveyardkeeper,
 /turf/open/floor/plating/canal,
 /area/vtm/graveyard/interior)
+"bLF" = (
+/obj/structure/rack,
+/obj/item/clothing/mask/kitsune,
+/obj/item/clothing/mask/facescarf,
+/obj/item/clothing/mask/bandana/skull,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/shop)
 "bLL" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /obj/effect/decal/wallpaper/paper/darkred/low,
@@ -7047,9 +7087,12 @@
 /turf/open/floor/carpet/blue,
 /area/vtm/interior/shop)
 "bOw" = (
-/obj/structure/fire_barrel,
-/turf/open/floor/wood/old,
-/area/vtm/interior/shop)
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm/interior)
 "bOy" = (
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#aa4f25";
@@ -7146,8 +7189,13 @@
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/outside/financialdistrict)
 "bPK" = (
-/obj/merge_conflict_marker,
 /obj/effect/decal/rugs,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/sewer/nosferatu_warren)
 "bPP" = (
@@ -7707,6 +7755,8 @@
 "bYa" = (
 /obj/effect/mapping_helpers/door/access/pentex,
 /obj/structure/vampdoor/prison,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
 "bYb" = (
@@ -8323,11 +8373,15 @@
 /turf/open/floor/city/plating_stone,
 /area/vtm/interior/bianchiBank)
 "cfz" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
-/turf/open/floor/plating/concrete,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/autoname,
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "cfC" = (
 /obj/structure/closet/cardboard,
@@ -8845,8 +8899,13 @@
 	},
 /area/vtm)
 "clE" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
 /obj/effect/decal/rugs,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/nosferatu,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer/nosferatu_warren)
 "clQ" = (
@@ -9362,14 +9421,10 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/museum)
 "csd" = (
-/obj/effect/decal/fakelattice{
-	density = 0
-	},
-/obj/effect/decal/cleanable/trash,
-/obj/structure/chair/stool/bar/darkpack/red,
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
-	},
+/obj/structure/table/glass,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/paper/pamphlet/violent_video_games,
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "csf" = (
 /obj/effect/decal/cleanable/trash,
@@ -9660,6 +9715,9 @@
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#aa4f25";
 	dir = 4
+	},
+/obj/structure/railing/corner{
+	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/church)
@@ -10026,8 +10084,13 @@
 /turf/open/misc/grass,
 /area/vtm/interior/bianchiBank)
 "cAR" = (
-/obj/merge_conflict_marker,
 /obj/effect/decal/cleanable/trash,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/water/vamp_sewer,
 /area/vtm/interior/sewer)
 "cAV" = (
@@ -10161,7 +10224,10 @@
 /area/vtm/outside/giovanni/courtyard)
 "cCs" = (
 /obj/effect/decal/rugs,
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/sewer/nosferatu_warren)
 "cCE" = (
@@ -10296,7 +10362,13 @@
 	dir = 4;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/woodglass{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/bar,
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "cEb" = (
@@ -10412,6 +10484,7 @@
 /obj/structure/vampdoor/old{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "cFQ" = (
@@ -10656,7 +10729,10 @@
 /turf/open/misc/grass,
 /area/vtm/outside/pacificheights)
 "cJU" = (
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/lock_difficulty/nine,
+/obj/effect/mapping_helpers/door/access/sabbat,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/prison,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "cJV" = (
@@ -11562,7 +11638,7 @@
 	pixel_x = 13;
 	pixel_y = 25
 	},
-/turf/open/water/beach/vamp/deep,
+/turf/open/water/beach/vamp,
 /area/vtm/outside/forest)
 "cWE" = (
 /obj/effect/decal/coastline,
@@ -11639,7 +11715,10 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/npc,
+/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "cYb" = (
@@ -11813,7 +11892,10 @@
 /area/vtm/interior/caves)
 "daw" = (
 /obj/effect/decal/rugs,
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
+/obj/effect/mapping_helpers/door/access/nosferatu,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer/nosferatu_warren)
 "daA" = (
@@ -12398,7 +12480,12 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/shop)
 "dja" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/access/church,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/church)
 "dji" = (
@@ -12591,6 +12678,7 @@
 	},
 /obj/effect/mapping_helpers/door/access/npc,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/iron/cafeteria,
 /area/vtm/interior/shop)
 "dkZ" = (
@@ -13550,11 +13638,13 @@
 /area/vtm)
 "dxi" = (
 /obj/structure/sink/directional/west,
-/obj/effect/decal/cleanable/trash,
-/turf/open/floor/wood/old,
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "dxj" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/prison,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/access/nosferatu,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
 "dxt" = (
@@ -13963,8 +14053,7 @@
 	color = "#574d46"
 	},
 /obj/structure/railing{
-	dir = 9;
-	pixel_y = 5
+	dir = 9
 	},
 /obj/effect/turf_decal/siding/wideplating/corner{
 	color = "#aa4f25"
@@ -14018,7 +14107,12 @@
 	dir = 8;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/sabbat,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "dEq" = (
@@ -14330,13 +14424,9 @@
 /turf/open/water/beach/vamp/deep,
 /area/vtm/outside/pacificheights/forest)
 "dIR" = (
-/obj/structure/curtain/bounty{
-	icon_state = "bounty-closed";
-	open = 0;
-	pixel_y = 40
-	},
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior/baali)
+/mob/living/carbon/human/npc/guard,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/pacificheights/industrial)
 "dIX" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
@@ -14648,10 +14738,15 @@
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic)
 "dNs" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/sabbat,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior)
 "dNw" = (
@@ -14781,11 +14876,16 @@
 /turf/open/floor/plating/rough,
 /area/vtm)
 "dOO" = (
-/obj/merge_conflict_marker,
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
 /obj/effect/decal/rugs,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer/nosferatu_bar)
 "dOS" = (
@@ -15521,7 +15621,12 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "dYH" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "dYJ" = (
@@ -15897,7 +16002,10 @@
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/giovanni)
 "edG" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/woodglass,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/bar,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "edM" = (
@@ -16132,7 +16240,10 @@
 	dir = 1;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/anarch,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch)
 "egA" = (
@@ -16790,7 +16901,10 @@
 	dir = 1;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/access/supply,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "epp" = (
@@ -17169,6 +17283,11 @@
 /obj/structure/chair/office/darkpack/green,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
+"evQ" = (
+/obj/structure/lattice/grate,
+/mob/living/carbon/human/npc/guard,
+/turf/open/openspace,
+/area/vtm/interior)
 "evZ" = (
 /obj/structure/railing{
 	dir = 8;
@@ -18505,7 +18624,10 @@
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf,
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility/restricted)
 "eNC" = (
@@ -19108,7 +19230,12 @@
 /turf/open/floor/carpet/red,
 /area/vtm/interior)
 "eVg" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/water/vamp_sewer,
 /area/vtm/interior/sewer)
 "eVj" = (
@@ -19309,12 +19436,15 @@
 /area/vtm/interior/museum)
 "eXp" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/merge_conflict_marker,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 5467;
 	max_integrity = 3500;
 	name = "Warrens"
 	},
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/sewer/nosferatu_warren)
 "eXs" = (
@@ -19379,10 +19509,15 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/library)
 "eYn" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/access/bar,
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "eYo" = (
@@ -19703,11 +19838,13 @@
 	dir = 4;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
-/obj/structure/curtain/cloth{
-	color = "#525252";
-	pixel_y = 15
+/obj/structure/vampdoor/wood{
+	dir = 4
 	},
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/anarch,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "fcg" = (
@@ -20097,12 +20234,17 @@
 	dir = 8;
 	color = "#636363"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf{
+	dir = 4
+	},
 /obj/machinery/door/poddoor/shutters{
 	id = 137;
 	dir = 8;
 	max_integrity = 500
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility/restricted)
 "fgw" = (
@@ -20324,10 +20466,15 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/baywalk)
 "fjm" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "fjo" = (
@@ -20503,8 +20650,8 @@
 /turf/open/misc/grass,
 /area/vtm/outside/park)
 "flA" = (
-/obj/machinery/hydroponics/soil,
-/turf/open/misc/dirt,
+/obj/machinery/hydroponics/simple/wooden,
+/turf/open/misc/grass,
 /area/vtm/outside/forest)
 "flC" = (
 /obj/effect/turf_decal/bordur,
@@ -21775,7 +21922,12 @@
 /area/vtm/interior/jazzclub)
 "fCJ" = (
 /obj/effect/decal/rugs,
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/concrete{
 	icon_state = "canal_concrete"
 	},
@@ -22151,7 +22303,8 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/endron_facility/restricted)
 "fIa" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior)
 "fIg" = (
@@ -22697,7 +22850,12 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/library)
 "fQh" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/nosferatu_office)
 "fQp" = (
@@ -22708,9 +22866,7 @@
 /turf/open/floor/city/industrial,
 /area/vtm/interior/littleitaly/apartments)
 "fQt" = (
-/obj/machinery/hydroponics/simple/plastic{
-	pixel_y = 4
-	},
+/obj/machinery/hydroponics/simple/plastic,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -22955,6 +23111,12 @@
 	},
 /turf/open/misc/beach/vamp,
 /area/vtm/outside/northbeach)
+"fTj" = (
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/npc,
+/obj/effect/mapping_helpers/door/lock,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/shop)
 "fTk" = (
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 4
@@ -23440,7 +23602,11 @@
 /turf/open/misc/grass,
 /area/vtm/outside/pacificheights/forest)
 "fYM" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/church,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/church/staff)
 "fYN" = (
@@ -23832,6 +23998,7 @@
 /area/vtm/outside/pacificheights/forest)
 "gdO" = (
 /obj/structure/platform/lowwall/junk/alt/window,
+/obj/effect/decal/wallpaper/paper/darkred/low,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "gdR" = (
@@ -23957,7 +24124,10 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/access/graveyard,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/graveyard/interior)
 "gfU" = (
@@ -23982,7 +24152,10 @@
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "ggd" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
+/obj/effect/mapping_helpers/door/access/bar,
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/anarch)
 "ggt" = (
@@ -23998,14 +24171,11 @@
 /turf/closed/wall/vampwall/brick_old,
 /area/vtm/interior/sewer)
 "ggB" = (
-/obj/structure/ladder/manhole/up{
-	pixel_y = 13
+/obj/structure/altar,
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
 	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 8
-	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/area/vtm/interior/caves)
 "ggG" = (
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#802d29"
@@ -25297,7 +25467,20 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
 "gzd" = (
-/turf/open/misc/dirt,
+/obj/structure/table/wood,
+/obj/item/newspaper{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/item/newspaper{
+	pixel_y = 5;
+	pixel_x = -7
+	},
+/obj/item/newspaper,
+/obj/effect/decal/wallpaper/papers/random{
+	pixel_y = 27
+	},
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "gzh" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -25510,8 +25693,7 @@
 	color = "#574d46"
 	},
 /obj/structure/railing{
-	dir = 5;
-	pixel_y = 6
+	dir = 5
 	},
 /obj/effect/turf_decal/siding/wideplating/corner{
 	color = "#aa4f25";
@@ -25761,8 +25943,11 @@
 	},
 /area/vtm/interior/sewer/nosferatu_bar)
 "gFc" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
 /obj/effect/decal/cleanable/trash,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "gFh" = (
@@ -25981,7 +26166,12 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/clinic)
 "gHE" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/graveyard,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/graveyard/interior)
 "gHH" = (
@@ -26115,9 +26305,8 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "gJb" = (
-/obj/effect/decal/wallpaper/paper/rich/low,
-/obj/structure/barricade/wooden/crude,
 /obj/structure/platform/lowwall/city/window,
+/obj/effect/decal/wallpaper/paper/green/low,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "gJe" = (
@@ -26490,14 +26679,16 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights/industrial)
 "gOL" = (
-/obj/effect/decal/fakelattice{
-	density = 0
+/obj/item/flashlight/flare/candle/infinite{
+	anchored = 1;
+	pixel_y = 4;
+	pixel_x = 10
 	},
-/obj/machinery/light/broken/directional/east,
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
+/obj/item/flashlight/flare/candle/infinite{
+	anchored = 1
 	},
-/area/vtm/interior/shop)
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/caves)
 "gPc" = (
 /obj/structure/railing,
 /obj/structure/railing{
@@ -27501,8 +27692,17 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "hbR" = (
-/obj/structure/table/wood,
-/turf/open/floor/wood/old,
+/obj/structure/table/glass,
+/obj/item/dyespray{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "hca" = (
 /obj/structure/chair/office/darkpack/green,
@@ -28946,7 +29146,13 @@
 	pixel_y = 32
 	},
 /obj/effect/turf_decal/siding/white,
-/turf/open/floor/plating/asphalt,
+/obj/vampire_computer{
+	pixel_y = 4
+	},
+/obj/item/gun/ballistic/shotgun/vampire{
+	pixel_y = 29
+	},
+/turf/open/floor/city/plating_mono,
 /area/vtm/interior/shop)
 "hvo" = (
 /obj/effect/decal/shadow,
@@ -29680,7 +29886,12 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/cleaning,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/substation)
 "hGt" = (
@@ -29950,12 +30161,9 @@
 /turf/open/openspace,
 /area/vtm/interior/tzimisce_manor)
 "hKt" = (
-/obj/effect/turf_decal/siding/white{
-	icon_state = "siding_corner";
-	color = "#636363"
-	},
-/turf/open/floor/city/industrial,
-/area/vtm/interior/nosferatu_office)
+/obj/structure/platform/lowwall/city/window,
+/turf/closed/wall/vampwall/city,
+/area/vtm/interior/shop)
 "hKE" = (
 /obj/structure/chair/wood/darkpack/red{
 	dir = 4
@@ -30487,6 +30695,9 @@
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#aa4f25";
 	dir = 8
+	},
+/obj/structure/railing/corner{
+	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/church)
@@ -31037,12 +31248,11 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/pacificheights)
 "hXg" = (
-/obj/effect/decal/pallet{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/structure/chair/office/darkpack/green{
+	dir = 4
 	},
-/obj/structure/chair/stool/bar/darkpack/red,
-/turf/open/misc/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "hXj" = (
 /obj/machinery/light/cold/directional/north,
@@ -31171,9 +31381,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/obj/machinery/hydroponics/simple/plastic{
-	pixel_y = 4
-	},
+/obj/machinery/hydroponics/simple/plastic,
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 20
 	},
@@ -31182,10 +31390,10 @@
 	},
 /area/vtm/interior/anarch/basement)
 "hZr" = (
-/obj/structure/rack/clothing/rand{
-	icon_state = "rack1";
-	dir = 1
-	},
+/obj/structure/rack,
+/obj/item/clothing/neck/large_scarf/blue,
+/obj/item/clothing/neck/bowtie,
+/obj/item/clothing/neck/bowtie/rainbow,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "hZx" = (
@@ -31223,7 +31431,10 @@
 	dir = 1;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/anarch,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch/basement)
 "hZV" = (
@@ -31335,7 +31546,7 @@
 	},
 /obj/structure/table,
 /obj/effect/turf_decal/siding/white,
-/turf/open/floor/plating/asphalt,
+/turf/open/floor/city/plating_mono,
 /area/vtm/interior/shop)
 "ibx" = (
 /obj/effect/turf_decal/bordur{
@@ -31401,6 +31612,7 @@
 /obj/structure/railing{
 	dir = 9
 	},
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "ibW" = (
@@ -31513,16 +31725,16 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "idB" = (
-/obj/merge_conflict_marker,
-/obj/effect/turf_decal/siding/white{
-	dir = 8;
-	icon_state = "siding_corner";
-	color = "#636363"
-	},
 /obj/effect/turf_decal/siding/white{
 	dir = 4;
 	color = "#636363"
 	},
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/primogen_nosferatu,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/nosferatu_office)
 "idF" = (
@@ -32546,8 +32758,7 @@
 /area/vtm/interior)
 "ipk" = (
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 9
+	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/church/staff)
@@ -32717,11 +32928,8 @@
 /turf/open/floor/wood/herring,
 /area/vtm/interior/clinic/haven)
 "iqO" = (
-/obj/effect/decal/cleanable/litter,
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
-	},
-/area/vtm/interior/shop)
+/turf/open/water/beach/vamp,
+/area/vtm/outside/forest)
 "iqP" = (
 /obj/machinery/light/prince/directional/north,
 /obj/structure/chair/sofa/corp/left{
@@ -33334,11 +33542,12 @@
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
 "ixm" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 10
+/obj/structure/flora/bush/reed/style_random{
+	pixel_x = 15;
+	pixel_y = 11
 	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/turf/open/water/beach/vamp,
+/area/vtm/outside/forest)
 "ixn" = (
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/freezer,
@@ -33552,9 +33761,7 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/clinic/haven)
 "iBU" = (
-/obj/machinery/hydroponics/simple/plastic{
-	pixel_y = 4
-	},
+/obj/machinery/hydroponics/simple/plastic,
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
@@ -35237,11 +35444,16 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "iZD" = (
-/obj/merge_conflict_marker,
 /obj/effect/decal/rugs,
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/nosferatu_office)
 "iZI" = (
@@ -35270,7 +35482,9 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "jan" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "jao" = (
@@ -36153,11 +36367,14 @@
 /turf/open/water/vamp_sewer/border,
 /area/vtm/interior/sewer)
 "jlR" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
 	color = "#574d46"
 	},
+/obj/effect/mapping_helpers/door/lock_difficulty/ten,
+/obj/effect/mapping_helpers/door/access/anarch,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch/basement)
 "jlS" = (
@@ -37243,9 +37460,12 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/endron_facility/restricted)
 "jxK" = (
-/obj/merge_conflict_marker,
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer/nosferatu_warren)
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/npc,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/autoname,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/shop)
 "jxM" = (
 /obj/structure/stone_tile/block/cracked,
 /turf/open/floor/plating/rough/cave,
@@ -37382,6 +37602,17 @@
 	},
 /turf/open/misc/grass,
 /area/vtm/interior/bianchiBank)
+"jAr" = (
+/obj/item/flashlight/flare/candle/infinite{
+	anchored = 1
+	},
+/obj/item/flashlight/flare/candle/infinite{
+	anchored = 1;
+	pixel_y = 4;
+	pixel_x = -10
+	},
+/turf/open/floor/plating/stone,
+/area/vtm/interior/caves)
 "jAt" = (
 /obj/structure/table,
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
@@ -37494,7 +37725,9 @@
 /obj/effect/vip_barrier/endron/endron_lab{
 	dir = 8
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/white{
 	dir = 4;
 	color = "#636363"
@@ -37508,6 +37741,10 @@
 	id = 131;
 	max_integrity = 500
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility/restricted)
 "jCh" = (
@@ -38165,8 +38402,12 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "jLE" = (
-/obj/merge_conflict_marker,
 /obj/effect/turf_decal/bordur,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/police,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/structure/vampdoor/woodglass,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/police/court)
 "jLI" = (
@@ -38300,7 +38541,10 @@
 	dir = 1;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/access/police,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/police/court)
 "jNE" = (
@@ -38438,15 +38682,12 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
 "jPB" = (
-/obj/structure/table/wood,
-/obj/item/flashlight/flare/candle,
-/obj/item/storage/fancy/candle_box,
-/obj/item/storage/box/matches,
-/obj/effect/turf_decal/weather/dirt{
-	dir = 10
-	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/access/supply,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/supply)
 "jPE" = (
 /obj/structure/railing,
 /turf/open/floor/city/circled,
@@ -39297,9 +39538,12 @@
 	},
 /area/vtm/interior/police/fed)
 "kci" = (
-/obj/merge_conflict_marker,
 /obj/effect/turf_decal/bordur,
 /obj/effect/decal/rugs,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/rough{
 	icon_state = "carpet_black"
 	},
@@ -40219,6 +40463,8 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility)
 "kmF" = (
@@ -40426,12 +40672,9 @@
 /turf/open/floor/wood/old,
 /area/vtm/outside/fishermanswharf/industrial)
 "koW" = (
-/obj/machinery/light/directional/east,
-/obj/effect/decal/fakelattice{
-	density = 0
-	},
-/obj/effect/decal/cleanable/litter,
-/turf/open/floor/plating/rough,
+/obj/structure/rack,
+/obj/item/clothing/head/soft/fishing_hat,
+/turf/open/floor/city/plating,
 /area/vtm/interior/shop)
 "kpb" = (
 /obj/machinery/light/directional/south,
@@ -40597,10 +40840,6 @@
 /area/vtm/interior/supply)
 "kqY" = (
 /obj/structure/closet/cardboard,
-/obj/item/vampirebook/lilith,
-/obj/item/clothing/suit/vampire/bahari,
-/obj/item/clothing/head/vampire/bahari_mask,
-/obj/item/card/bahari,
 /obj/item/clothing/suit/vampire/orthodox,
 /obj/item/clothing/head/vampire/hijab,
 /obj/item/clothing/head/chaplain/nun_hood,
@@ -41685,7 +41924,11 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/clinic)
 "kFK" = (
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/church,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/city/church,
 /area/vtm/interior/church/staff)
 "kFM" = (
@@ -41744,11 +41987,16 @@
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
 "kGH" = (
-/obj/merge_conflict_marker,
 /obj/effect/decal/rugs,
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer/nosferatu_bar)
 "kGS" = (
@@ -42115,7 +42363,11 @@
 /area/vtm/interior)
 "kKV" = (
 /obj/effect/turf_decal/bordur,
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/graveyard,
+/obj/effect/mapping_helpers/door/lock_difficulty/ten,
+/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/plating/concrete,
 /area/vtm/graveyard/interior)
 "kLe" = (
@@ -42159,13 +42411,18 @@
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
 "kLG" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor{
+	dir = 4
+	},
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/endron_facility/plant)
 "kLY" = (
@@ -42763,7 +43020,7 @@
 /obj/effect/decal/wallpaper/papers/six{
 	pixel_y = -3
 	},
-/obj/effect/decal/wallpaper/paper/rich,
+/obj/effect/decal/wallpaper/paper/green,
 /turf/closed/wall/vampwall/city,
 /area/vtm/interior/shop)
 "kUC" = (
@@ -42923,14 +43180,9 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/hotel)
 "kWD" = (
-/obj/structure/chair/wood/darkpack{
-	dir = 4
-	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 1
-	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/obj/weapon_showcase,
+/turf/open/floor/city/plating,
+/area/vtm/interior/shop)
 "kWG" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
@@ -43097,12 +43349,8 @@
 /turf/open/water/vamp_sewer/border,
 /area/vtm/interior/sewer)
 "kZY" = (
-/obj/effect/decal/fakelattice{
-	density = 0
-	},
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
-	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "laa" = (
 /obj/structure/railing{
@@ -43224,7 +43472,12 @@
 	dir = 4;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/access/police,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/police/court)
 "lby" = (
@@ -44498,7 +44751,12 @@
 	dir = 4;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/supply,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "lqx" = (
@@ -44577,11 +44835,12 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/endron_facility/restricted)
 "lrG" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 5
-	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/sabbat,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/old,
+/turf/open/floor/plating/canalplating,
+/area/vtm/interior/sabbat_lair)
 "lrL" = (
 /obj/machinery/light/prince/directional/east,
 /turf/open/floor/wood/ornate,
@@ -44590,10 +44849,9 @@
 /turf/closed/wall/vampwall/market,
 /area/vtm/interior)
 "lrX" = (
-/obj/effect/decal/rugs,
-/obj/machinery/camera/directional/west,
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer/nosferatu_warren)
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/anarch)
 "lrY" = (
 /obj/structure/platform/lowwall/junk/window,
 /turf/open/floor/plating/rough,
@@ -44743,11 +45001,11 @@
 /turf/open/misc/grass,
 /area/vtm/outside/forest)
 "ltD" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 9
-	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/obj/structure/table/wood,
+/obj/item/clothing/suit/costume/judgerobe,
+/obj/item/clothing/head/costume/powdered_wig,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/police/court)
 "ltJ" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/railing{
@@ -45063,6 +45321,15 @@
 	icon_state = "canal_concrete"
 	},
 /area/vtm/interior/nosferatu_office)
+"lym" = (
+/obj/structure/vampdoor/woodglass{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/access/bar,
+/obj/effect/mapping_helpers/door/unlock,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/anarch)
 "lyn" = (
 /obj/structure/hedge,
 /turf/open/floor/plating/sidewalk,
@@ -45099,8 +45366,13 @@
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/littleitaly)
 "lyF" = (
-/obj/merge_conflict_marker,
 /obj/effect/decal/rugs,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer/nosferatu_warren)
 "lyN" = (
@@ -45758,6 +46030,13 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
+"lIm" = (
+/obj/effect/mapping_helpers/door/access/sabbat,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/old,
+/turf/open/floor/plating/canalplating,
+/area/vtm/interior/sabbat_lair)
 "lIz" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -45975,7 +46254,12 @@
 /area/vtm/interior/setite)
 "lKU" = (
 /obj/effect/decal/rugs,
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer/nosferatu_warren)
 "lKW" = (
@@ -46416,10 +46700,15 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/chantry/basement)
 "lQR" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
 "lQS" = (
@@ -46976,7 +47265,11 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "lYB" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor,
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "lYG" = (
@@ -47672,8 +47965,7 @@
 	color = "#574d46"
 	},
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 9
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating/corner{
 	color = "#aa4f25"
@@ -47899,7 +48191,10 @@
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/outside/baywalk)
 "mjO" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/nine,
+/obj/effect/mapping_helpers/door/access/nosferatu,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer/nosferatu_warren)
 "mjT" = (
@@ -48218,7 +48513,12 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "mnG" = (
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/sabbat,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sabbat_lair)
 "mnL" = (
@@ -48673,9 +48973,10 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior)
 "mtT" = (
+/mob/living/carbon/human/npc/shop,
 /obj/structure/chair/office/darkpack/green,
-/obj/effect/decal/cleanable/litter,
-/turf/open/floor/plating/rough,
+/obj/effect/mapping_helpers/mob_buckler,
+/turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "mtZ" = (
 /obj/effect/turf_decal/weather/dirt,
@@ -48894,11 +49195,14 @@
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 139;
 	max_integrity = 500
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility/restricted)
 "mxw" = (
@@ -49782,9 +50086,7 @@
 	},
 /area/vtm/interior/sewer/police)
 "mJQ" = (
-/obj/machinery/hydroponics/simple/plastic{
-	pixel_y = 4
-	},
+/obj/machinery/hydroponics/simple/plastic,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch/basement)
 "mKd" = (
@@ -49976,7 +50278,9 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/npc,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/shop)
 "mMC" = (
@@ -50076,9 +50380,7 @@
 /obj/structure/railing{
 	dir = 5
 	},
-/obj/machinery/hydroponics/simple/plastic{
-	pixel_y = 4
-	},
+/obj/machinery/hydroponics/simple/plastic,
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 20
 	},
@@ -51891,8 +52193,8 @@
 /turf/open/floor/city/church,
 /area/vtm/interior/church/haven)
 "njK" = (
-/obj/effect/decal/wallpaper/blue,
-/turf/closed/wall/vampwall/junk,
+/mob/living/carbon/human/npc/guard,
+/turf/open/floor/city/plating,
 /area/vtm/interior/shop)
 "njP" = (
 /obj/effect/turf_decal/bordur{
@@ -52446,8 +52748,7 @@
 	color = "#574d46"
 	},
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 9
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#aa4f25"
@@ -53099,7 +53400,7 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/graveyard/interior)
 "nAv" = (
-/turf/open/floor/wood/old,
+/turf/open/floor/city/plating,
 /area/vtm/interior/shop)
 "nAA" = (
 /obj/structure/easel,
@@ -53160,6 +53461,7 @@
 	},
 /obj/effect/mapping_helpers/door/access/npc,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/iron/cafeteria,
 /area/vtm/interior/shop)
 "nBc" = (
@@ -53206,12 +53508,9 @@
 /turf/open/floor/carpet/red,
 /area/vtm/interior/chantry)
 "nBI" = (
-/obj/structure/curtain/cloth/fancy,
-/obj/effect/turf_decal/weather/dirt{
-	dir = 4
-	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/obj/structure/platform/lowwall/brick/window,
+/turf/closed/wall/vampwall/brick,
+/area/vtm/interior/police/court)
 "nBN" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
@@ -53600,10 +53899,11 @@
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
 "nGm" = (
-/obj/effect/decal/graffiti,
-/obj/effect/landmark/npcactivity,
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/pacificheights/industrial)
+/obj/merge_conflict_marker{
+	name = "Area lacks hunter access"
+	},
+/turf/open/floor/plating/rough,
+/area/vtm/interior)
 "nGq" = (
 /obj/structure/table/wood,
 /obj/item/storage/ashtray{
@@ -54519,7 +54819,11 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor,
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "nQy" = (
@@ -54657,7 +54961,9 @@
 /area/vtm/interior/millennium_tower)
 "nSp" = (
 /obj/effect/turf_decal/bordur,
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/glass,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/city/circled,
 /area/vtm/interior/shop)
 "nSv" = (
@@ -54892,11 +55198,16 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/theatre)
 "nUX" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/prison{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
 	color = "#574d46"
 	},
+/obj/effect/mapping_helpers/door/lock_difficulty/nine,
+/obj/effect/mapping_helpers/door/access/anarch,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/misc/dirt,
 /area/vtm/interior/anarch/basement)
 "nUY" = (
@@ -54995,12 +55306,15 @@
 	icon_state = "piping38"
 	},
 /obj/effect/decal/cleanable/trash,
-/obj/merge_conflict_marker,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 5467;
 	max_integrity = 3500;
 	name = "Warrens"
 	},
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/sewer/nosferatu_warren)
 "nWA" = (
@@ -55342,7 +55656,11 @@
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 8
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "obE" = (
@@ -55506,11 +55824,15 @@
 /turf/open/floor/city/church,
 /area/vtm/interior/giovanni)
 "odq" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
 	color = "#574d46"
 	},
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/graveyard,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/graveyard/interior)
 "ody" = (
@@ -55777,11 +56099,8 @@
 	},
 /area/vtm)
 "ogD" = (
-/obj/effect/decal/cleanable/trash,
-/obj/structure/bed/maint,
-/obj/item/clothing/suit/vampire/coat,
-/obj/item/clothing/head/vampire/beanie/homeless,
-/turf/open/floor/plating/concrete,
+/obj/structure/hedge,
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "ogR" = (
 /obj/structure/table,
@@ -56933,11 +57252,15 @@
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "otJ" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/woodglass,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
 	color = "#574d46"
 	},
+/obj/effect/mapping_helpers/door/access/baali,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/baali)
 "otS" = (
@@ -57064,9 +57387,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
 "owl" = (
-/obj/machinery/hydroponics/simple/plastic{
-	pixel_y = 4
-	},
+/obj/machinery/hydroponics/simple/plastic,
 /obj/machinery/light/directional/west,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch/basement)
@@ -57533,7 +57854,11 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/chantry)
 "oBD" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/npc,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "oBJ" = (
@@ -57752,7 +58077,7 @@
 /turf/open/misc/grass,
 /area/vtm/outside/pacificheights/forest)
 "oEd" = (
-/obj/effect/decal/wallpaper/blue,
+/obj/effect/decal/wallpaper/red,
 /turf/closed/wall/vampwall/junk/alt,
 /area/vtm/interior/shop)
 "oEg" = (
@@ -58082,7 +58407,12 @@
 	dir = 8;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/npc,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "oIx" = (
@@ -58137,7 +58467,12 @@
 /area/vtm/outside/financialdistrict)
 "oJw" = (
 /obj/effect/decal/cleanable/blood,
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "oJG" = (
@@ -58218,6 +58553,12 @@
 /obj/effect/decal/cleanable/cardboard,
 /turf/open/floor/plating/stone,
 /area/vtm/interior/cog/caern)
+"oKV" = (
+/obj/structure/rack/clothing,
+/obj/item/clothing/head/vampire/straw_hat,
+/obj/item/clothing/suit/apron/overalls,
+/turf/open/floor/city/plating,
+/area/vtm/interior/shop)
 "oKW" = (
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
@@ -58279,12 +58620,12 @@
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
 "oMe" = (
-/obj/structure/curtain/cloth/fancy,
-/obj/effect/turf_decal/weather/dirt{
-	dir = 8
-	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/obj/structure/table/wood,
+/obj/item/clothing/head/vampire/bahari_mask,
+/obj/item/clothing/suit/vampire/bahari,
+/obj/item/card/bahari,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/caves)
 "oMl" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -58938,7 +59279,9 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/cog/pantry)
 "oVd" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/white{
 	dir = 4;
 	color = "#636363"
@@ -58947,6 +59290,9 @@
 	dir = 8;
 	color = "#636363"
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility/restricted)
 "oVh" = (
@@ -58974,8 +59320,11 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/chantry)
 "oVu" = (
-/obj/merge_conflict_marker,
 /obj/effect/decal/rugs,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/sewer)
 "oVE" = (
@@ -59063,7 +59412,10 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "oXi" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/baali,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/baali)
 "oXp" = (
@@ -59473,11 +59825,6 @@
 /obj/item/kirbyplants/organic/plant17{
 	pixel_y = 12;
 	pixel_x = -1
-	},
-/obj/structure/curtain/bounty{
-	icon_state = "bounty-closed";
-	open = 0;
-	pixel_y = 40
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/baali)
@@ -59955,6 +60302,13 @@
 "piW" = (
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/supply)
+"piY" = (
+/obj/effect/turf_decal/bordur,
+/obj/merge_conflict_marker{
+	name = "Area lacks baron access"
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/anarch/basement)
 "pjb" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/flowers_yw/style_random,
@@ -60481,6 +60835,9 @@
 	dir = 1;
 	color = "#574d46"
 	},
+/obj/structure/railing{
+	dir = 1
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/church)
 "poR" = (
@@ -60634,6 +60991,13 @@
 /obj/effect/decal/rugs,
 /turf/open/floor/city/toilet,
 /area/vtm/interior)
+"pqT" = (
+/obj/structure/rack,
+/obj/item/clothing/head/cowboy,
+/obj/item/clothing/head/cowboy/red,
+/obj/item/clothing/head/costume/sombrero,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/shop)
 "pqX" = (
 /obj/structure/closet/crate/large,
 /obj/effect/decal/pallet,
@@ -60680,7 +61044,12 @@
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/bianchiBank)
 "prU" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/supply,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "prZ" = (
@@ -60788,11 +61157,12 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/shop)
 "psE" = (
-/obj/effect/decal/fakelattice{
-	density = 0
-	},
-/turf/open/floor/plating/concrete,
-/area/vtm/interior/shop)
+/obj/effect/mapping_helpers/door/lock_difficulty/ten,
+/obj/effect/mapping_helpers/door/access/sabbat,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/prison,
+/turf/open/floor/plating/canal,
+/area/vtm/interior/sabbat_lair)
 "psM" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	color = "#574d46";
@@ -60939,8 +61309,7 @@
 	color = "#574d46"
 	},
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 9
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#aa4f25"
@@ -61293,7 +61662,11 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/taxi,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/five,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/cabdepot)
 "pzA" = (
@@ -62078,7 +62451,11 @@
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/structure/vampdoor/woodglass,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/access/church,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/church)
 "pLS" = (
@@ -63406,7 +63783,10 @@
 	dir = 1;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/access/police,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/police/court)
 "qcn" = (
@@ -63963,12 +64343,12 @@
 /turf/open/misc/grass,
 /area/vtm/outside/forest)
 "qji" = (
-/obj/structure/table/wood,
+/obj/structure/table/glass,
 /obj/item/razor{
 	pixel_y = 10;
 	pixel_x = 7
 	},
-/turf/open/floor/plating/concrete,
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "qjp" = (
 /obj/effect/turf_decal/siding/wood/corner{
@@ -64039,7 +64419,12 @@
 	},
 /area/vtm/interior/sewer/nosferatu_warren)
 "qkl" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/baali,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/baali)
 "qkr" = (
@@ -64747,7 +65132,10 @@
 	dir = 1
 	},
 /obj/effect/decal/rugs,
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/sewer/nosferatu_warren)
 "quE" = (
@@ -64778,7 +65166,10 @@
 /turf/open/misc/dirt,
 /area/vtm/outside/forest)
 "quQ" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/sewer)
 "quU" = (
@@ -65654,8 +66045,7 @@
 /area/vtm/interior/library)
 "qGk" = (
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 9
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
@@ -65663,6 +66053,16 @@
 	},
 /turf/open/floor/city/church,
 /area/vtm/interior/church/haven)
+"qGm" = (
+/obj/structure/vampdoor{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/autoname,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/endron_facility/plant)
 "qGt" = (
 /obj/effect/turf_decal/bordur,
 /turf/open/floor/plating/concrete{
@@ -66408,10 +66808,14 @@
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/chinatown)
 "qPm" = (
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
+/obj/structure/vampdoor/old{
+	dir = 4
 	},
-/area/vtm/interior/shop)
+/obj/effect/mapping_helpers/door/access/supply,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/supply)
 "qPu" = (
 /obj/structure/bodycontainer/morgue{
 	dir = 2
@@ -66680,10 +67084,15 @@
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/outside/financialdistrict)
 "qSs" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/anarch,
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "qSy" = (
@@ -67580,12 +67989,15 @@
 /turf/closed/wall/vampwall/brick,
 /area/vtm/interior)
 "reF" = (
-/obj/effect/decal/pallet{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/structure/vampdoor/old{
+	dir = 4
 	},
-/turf/open/misc/dirt,
-/area/vtm/interior/shop)
+/obj/effect/turf_decal/bordur{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior)
 "reG" = (
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#39537F";
@@ -67747,7 +68159,12 @@
 /area/vtm/outside/financialdistrict)
 "rhF" = (
 /obj/effect/decal/rugs,
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/sewer/nosferatu_warren)
 "rhJ" = (
@@ -68049,11 +68466,13 @@
 /turf/open/floor/carpet/green,
 /area/vtm/interior)
 "rlR" = (
-/obj/structure/rack/clothing/rand,
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
-	},
-/area/vtm/interior/shop)
+/obj/effect/decal/rugs,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/turf/open/floor/plating/canalplating,
+/area/vtm/interior/sewer/nosferatu_warren)
 "rlY" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/bush/fullgrass/style_random,
@@ -69599,7 +70018,13 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/taxi,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/five,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/cabdepot)
 "rHA" = (
@@ -70508,12 +70933,14 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/baywalk)
 "rSW" = (
-/obj/effect/decal/cleanable/molten_object{
-	pixel_y = 6;
-	pixel_x = 8
+/obj/structure/vampdoor/wood{
+	dir = 4
 	},
-/turf/open/water/vamp_sewer,
-/area/vtm/interior/sewer)
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/anarch,
+/obj/effect/mapping_helpers/door/lock,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/anarch)
 "rTb" = (
 /obj/structure/dresser,
 /turf/open/floor/city/plating_mono,
@@ -70849,7 +71276,9 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/woodglass,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/shop)
 "rYO" = (
@@ -70925,6 +71354,15 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/city/circled,
 /area/vtm/interior/endron_facility/restricted)
+"saU" = (
+/obj/structure/table/wood,
+/obj/item/vampirebook/lilith,
+/obj/item/vampirebook/lilith{
+	pixel_y = 8;
+	pixel_x = 5
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/caves)
 "sba" = (
 /obj/structure/closet,
 /obj/item/surgery_tray/full{
@@ -71182,10 +71620,13 @@
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf,
 /obj/effect/vip_barrier/endron/endron_lab_2{
 	dir = 1
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility/restricted)
 "sdE" = (
@@ -72210,7 +72651,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bordur,
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/access/npc,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior)
 "stc" = (
@@ -72808,11 +73251,14 @@
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/jazzclub)
 "sBk" = (
-/obj/effect/decal/fakelattice{
-	density = 0
+/obj/structure/vampdoor/wood{
+	dir = 4
 	},
-/turf/open/floor/plating/rough,
-/area/vtm/interior/shop)
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/church,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/church/staff)
 "sBn" = (
 /obj/machinery/shower/directional/east,
 /obj/effect/turf_decal/stock{
@@ -73803,13 +74249,18 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/merge_conflict_marker,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 5467;
 	max_integrity = 3500;
 	name = "Warrens";
 	dir = 8
 	},
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate{
 	icon_state = "lattice_new_dirt"
 	},
@@ -74141,7 +74592,9 @@
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/sewer)
 "sTf" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/prison,
+/obj/effect/mapping_helpers/door/lock_difficulty/ten,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch/basement)
 "sTg" = (
@@ -74166,9 +74619,12 @@
 /turf/open/floor/iron/freezer,
 /area/vtm/interior/shop)
 "sTw" = (
-/obj/structure/railing,
-/turf/open/openspace,
-/area/vtm/interior/church)
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/baali,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/baali)
 "sTD" = (
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/chantry/basement)
@@ -74635,8 +75091,6 @@
 /obj/structure/guncase{
 	anchored = 1
 	},
-/obj/item/gun/ballistic/automatic/darkpack/sniper,
-/obj/item/ammo_box/darkpack/c50,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "tao" = (
@@ -74739,7 +75193,9 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer/nosferatu_bar)
 "tbu" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/npc,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/shop)
 "tbx" = (
@@ -74902,9 +75358,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/obj/machinery/hydroponics/simple/plastic{
-	pixel_y = 4
-	},
+/obj/machinery/hydroponics/simple/plastic,
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 20
 	},
@@ -74975,7 +75429,6 @@
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 4
 	},
-/obj/machinery/light/red/directional/south,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "teZ" = (
@@ -75276,7 +75729,10 @@
 /turf/open/openspace,
 /area/vtm/interior/clinic)
 "tix" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/church,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/city/toilet/large,
 /area/vtm/interior/church/staff)
 "tiK" = (
@@ -75430,10 +75886,15 @@
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/giovanni)
 "tkB" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/supply,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior)
 "tkD" = (
@@ -76351,9 +76812,14 @@
 /turf/open/misc/dirt,
 /area/vtm/interior/library)
 "twf" = (
-/obj/effect/decal/cleanable/litter,
 /obj/effect/turf_decal/siding/white,
-/turf/open/floor/plating/asphalt,
+/obj/structure/filingcabinet{
+	pixel_x = 7
+	},
+/obj/structure/filingcabinet{
+	pixel_x = -6
+	},
+/turf/open/floor/city/plating_mono,
 /area/vtm/interior/shop)
 "twn" = (
 /obj/structure/stone_tile/block{
@@ -76375,9 +76841,12 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "twP" = (
-/obj/effect/decal/cleanable/molten_object,
-/turf/open/water/vamp_sewer,
-/area/vtm/interior/sewer)
+/obj/structure/flora/bush/reed/style_random{
+	pixel_x = -2;
+	pixel_y = -4
+	},
+/turf/open/water/beach/vamp,
+/area/vtm/outside/forest)
 "twY" = (
 /obj/structure/chair/wood/darkpack,
 /turf/open/floor/carpet/green,
@@ -77685,8 +78154,7 @@
 /obj/structure/chair/office/darkpack/green{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/litter,
-/turf/open/floor/plating/rough,
+/turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "tNU" = (
 /obj/item/flashlight/flare/candle/infinite{
@@ -78599,11 +79067,18 @@
 /turf/open/misc/grass,
 /area/vtm/outside/forest)
 "uai" = (
-/obj/effect/decal/cleanable/litter,
-/obj/machinery/light/broken/directional/north,
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
+/obj/machinery/light/directional/north,
+/obj/structure/rack/clothing_hanger,
+/obj/item/clothing/suit/hooded/robes/black{
+	pixel_y = 5;
+	pixel_x = 3
 	},
+/obj/item/clothing/suit/hooded/robes/black,
+/obj/item/clothing/suit/hooded/robes/black{
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "uao" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -78770,9 +79245,7 @@
 /area/vtm/outside/forest)
 "ucn" = (
 /obj/structure/closet,
-/obj/item/liquid_flamethrower{
-	masquerade_violating = 0
-	},
+/obj/item/liquid_flamethrower,
 /obj/item/gas_can/full,
 /turf/open/floor/plating/concrete{
 	icon_state = "canal_concrete"
@@ -79179,7 +79652,9 @@
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/police/upstairs)
 "uht" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/white{
 	dir = 4;
 	color = "#636363"
@@ -79193,6 +79668,9 @@
 	id = 132;
 	max_integrity = 500
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility/restricted)
 "uhv" = (
@@ -79237,14 +79715,18 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/police)
 "uhQ" = (
-/obj/effect/decal/fakelattice{
-	density = 0
-	},
 /obj/effect/decal/cleanable/trash,
-/obj/structure/table/wood,
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
+/obj/structure/table/glass,
+/obj/item/clothing/head/wig/natural,
+/obj/item/clothing/head/wig/natural{
+	pixel_x = -5;
+	pixel_y = -10
 	},
+/obj/item/clothing/head/wig/natural{
+	pixel_y = -5;
+	pixel_x = 5
+	},
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "uia" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -79471,8 +79953,8 @@
 /area/vtm)
 "ulK" = (
 /obj/structure/table,
-/obj/effect/decal/wallpaper/blue/low,
 /obj/structure/platform/lowwall/junk,
+/obj/structure/retail/camping,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "ulL" = (
@@ -79721,11 +80203,10 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/police/upstairs)
 "upq" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 6
-	},
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/obj/effect/turf_decal/siding/white,
+/obj/structure/closet/crate/bin,
+/turf/open/floor/city/plating_mono,
+/area/vtm/interior/shop)
 "upt" = (
 /obj/structure/rack/clothing/rand{
 	dir = 1;
@@ -79784,13 +80265,11 @@
 	},
 /area/vtm/interior/sewer/nosferatu_warren)
 "uqr" = (
-/obj/structure/ladder/manhole/down,
-/obj/effect/decal/cleanable/trash,
-/obj/structure/lattice/grate{
+/obj/structure/chair/comfy/darkpack/green{
 	dir = 4
 	},
-/turf/open/floor/plating/grate/dirty,
-/area/vtm/interior/library)
+/turf/open/floor/city/plating_stone,
+/area/vtm/interior/shop)
 "uqv" = (
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/giovanni)
@@ -79891,9 +80370,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "usw" = (
-/obj/machinery/hydroponics/simple/plastic{
-	pixel_y = 4
-	},
+/obj/machinery/hydroponics/simple/plastic,
 /obj/machinery/light/directional/west,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
@@ -80410,11 +80887,16 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/unionsquare)
 "uzJ" = (
-/obj/merge_conflict_marker,
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 8
 	},
 /obj/effect/decal/rugs,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/sewer/nosferatu_bar)
 "uzT" = (
@@ -80442,7 +80924,10 @@
 	color = "#636363";
 	dir = 1
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
+/obj/effect/mapping_helpers/door/access/bar,
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "uAp" = (
@@ -81664,6 +82149,7 @@
 /area/vtm/interior/police/upstairs)
 "uPi" = (
 /obj/effect/decal/cleanable/litter,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/plating/sidewalk/poor{
 	color = "#bfbfbf"
 	},
@@ -81774,12 +82260,12 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/ghetto)
 "uQH" = (
-/obj/structure/table/wood,
+/obj/structure/table/glass,
 /obj/item/dyespray{
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/turf/open/floor/wood/old,
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "uQK" = (
 /turf/open/floor/city/plating_stone,
@@ -82861,7 +83347,12 @@
 	color = "#6e635a";
 	dir = 4
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/supply,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/supply)
 "vgY" = (
@@ -82917,6 +83408,15 @@
 /obj/effect/landmark/start/darkpack/camarilla/prince,
 /turf/open/floor/carpet/royalblack,
 /area/vtm/interior/millennium_tower/f3)
+"vhL" = (
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/unlock,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/shop)
 "vhO" = (
 /mob/living/basic/pet/cat/darkpack{
 	name = "Autun"
@@ -86387,6 +86887,12 @@
 /obj/machinery/light/prince/directional/north,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
+"whY" = (
+/obj/merge_conflict_marker{
+	name = "Area lacks baron access"
+	},
+/turf/open/floor/carpet/darkpack/old,
+/area/vtm/interior/anarch/basement)
 "whZ" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
@@ -87205,9 +87711,8 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/financialdistrict)
 "wsf" = (
-/obj/effect/decal/cleanable/litter,
-/obj/effect/decal/cleanable/litter,
-/turf/open/floor/wood/old,
+/obj/effect/decal/wallpaper/paper/darkred,
+/turf/closed/wall/vampwall/junk/alt,
 /area/vtm/interior/shop)
 "wsh" = (
 /obj/effect/turf_decal/bordur/corner,
@@ -87419,8 +87924,10 @@
 /turf/open/floor/wood/herring,
 /area/vtm/interior/endron_facility/restricted)
 "wvh" = (
-/obj/structure/chair/stool/bar/darkpack/red,
-/turf/open/floor/wood/old,
+/obj/structure/chair/office/darkpack/green{
+	dir = 4
+	},
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "wvk" = (
 /obj/structure/chair/darkpack/green{
@@ -87636,8 +88143,11 @@
 /turf/open/floor/city/toilet,
 /area/vtm/interior/police/upstairs)
 "wxO" = (
-/obj/merge_conflict_marker,
 /obj/effect/decal/rugs,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/primogen_nosferatu,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/rough/cave{
 	icon_state = "stone8"
 	},
@@ -88254,7 +88764,10 @@
 /area/vtm/outside/pacificheights/forest)
 "wEy" = (
 /obj/effect/decal/rugs,
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/nosferatu_office)
 "wEC" = (
@@ -88447,9 +88960,10 @@
 /turf/open/floor/carpet/red,
 /area/vtm/interior/apartment)
 "wHk" = (
-/obj/structure/curtain/cloth/fancy,
-/turf/open/floor/plating/rough/cave,
-/area/vtm/interior/sewer)
+/obj/structure/table,
+/obj/structure/platform/lowwall/junk,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/shop)
 "wHx" = (
 /obj/effect/decal/graffiti,
 /obj/effect/decal/cleanable/litter,
@@ -88785,8 +89299,13 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "wLz" = (
-/obj/machinery/light/broken/directional/east,
-/turf/open/floor/wood/smooth/old,
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/structure/vampdoor/glass,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/autoname,
+/turf/open/floor/plating/sidewalk,
 /area/vtm/interior/shop)
 "wLK" = (
 /obj/effect/turf_decal/bordur{
@@ -88796,7 +89315,11 @@
 /turf/open/misc/grass,
 /area/vtm)
 "wLO" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/city/church,
 /area/vtm/interior/church/haven)
 "wLR" = (
@@ -89195,7 +89718,12 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/sewer)
 "wRf" = (
@@ -89203,7 +89731,11 @@
 /turf/closed/wall/vampwall/brick,
 /area/vtm/interior/apartment)
 "wRj" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/anarch,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch)
 "wRl" = (
@@ -89234,6 +89766,14 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
+"wRp" = (
+/mob/living/carbon/human/npc/shop,
+/obj/structure/chair/office/darkpack/red{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/mob_buckler,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/shop)
 "wRs" = (
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -89494,7 +90034,15 @@
 /area/vtm/interior/laundromat)
 "wVk" = (
 /obj/effect/decal/cleanable/litter,
-/turf/open/misc/dirt,
+/obj/effect/turf_decal/siding/white,
+/obj/machinery/photocopier/prebuilt,
+/obj/structure/noticeboard{
+	pixel_y = 32
+	},
+/obj/item/fish/darkpack/catfish{
+	pixel_y = 30
+	},
+/turf/open/floor/city/plating_mono,
 /area/vtm/interior/shop)
 "wVz" = (
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -89947,7 +90495,7 @@
 /area/vtm)
 "xaT" = (
 /obj/machinery/light/directional/west,
-/turf/open/floor/wood/old,
+/turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "xbd" = (
 /obj/machinery/light/directional/north,
@@ -90099,8 +90647,13 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/sewer/police)
 "xcE" = (
-/obj/merge_conflict_marker,
 /obj/effect/decal/rugs,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/nosferatu_office)
 "xcM" = (
@@ -90109,8 +90662,7 @@
 	color = "#574d46"
 	},
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 9
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating/corner{
 	color = "#aa4f25";
@@ -90838,12 +91390,15 @@
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 140;
 	max_integrity = 500;
 	dir = 1
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/city/circled,
 /area/vtm/interior/endron_facility/restricted)
 "xlN" = (
@@ -90913,11 +91468,14 @@
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 134;
 	max_integrity = 500
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility/restricted)
 "xny" = (
@@ -91411,10 +91969,14 @@
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/caves)
 "xvm" = (
-/obj/effect/turf_decal/siding/wideplating/dark/corner,
-/obj/machinery/light/red/directional/north,
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior/anarch)
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/nosferatu,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/sewer)
 "xvw" = (
 /obj/structure/table/wood/fancy/red,
 /obj/item/reagent_containers/cup/glass/drinkingglass/martini_glass{
@@ -91595,12 +92157,15 @@
 /turf/closed/wall/vampwall/rock,
 /area/vtm/interior/sewer)
 "xyx" = (
-/obj/merge_conflict_marker,
 /obj/effect/turf_decal/siding/white{
 	color = "#828282";
 	dir = 1
 	},
-/turf/open/floor/wood/old,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/access/npc,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/turf/open/floor/city/plating,
 /area/vtm/interior/shop)
 "xyB" = (
 /obj/structure/mirror{
@@ -92195,6 +92760,10 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/hotel)
+"xGo" = (
+/obj/effect/decal/carpet,
+/turf/open/floor/plating/stone,
+/area/vtm/interior/caves)
 "xGp" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "trails_1-old";
@@ -92686,30 +93255,6 @@
 /area/vtm/interior/shop)
 "xMQ" = (
 /obj/structure/table,
-/obj/item/vamp/keys/police{
-	accesslocks = list("nosferatu3");
-	name = "nosferatu house-3"
-	},
-/obj/item/vamp/keys/police{
-	accesslocks = list("nosferatu3");
-	name = "nosferatu house-3"
-	},
-/obj/item/vamp/keys/police{
-	accesslocks = list("nosferatu2");
-	name = "nosferatu house-2"
-	},
-/obj/item/vamp/keys/police{
-	accesslocks = list("nosferatu2");
-	name = "nosferatu house-2"
-	},
-/obj/item/vamp/keys/police{
-	accesslocks = list("nosferatu1");
-	name = "nosferatu house-1"
-	},
-/obj/item/vamp/keys/police{
-	accesslocks = list("nosferatu1");
-	name = "nosferatu house-1"
-	},
 /obj/machinery/camera/directional/west,
 /obj/fusebox,
 /turf/open/floor/plating/concrete{
@@ -93490,13 +94035,8 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm)
 "xXr" = (
-/obj/effect/decal/fakelattice{
-	density = 0
-	},
-/obj/machinery/light/broken/directional/south,
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
-	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "xXs" = (
 /obj/structure/table/wood,
@@ -93730,10 +94270,9 @@
 /turf/open/misc/grass,
 /area/vtm/outside/forest)
 "yaA" = (
-/obj/effect/decal/fakelattice{
-	density = 0
-	},
-/turf/open/misc/dirt,
+/obj/structure/rack,
+/obj/item/fishing_rod,
+/turf/open/floor/city/plating,
 /area/vtm/interior/shop)
 "yaE" = (
 /obj/fusebox,
@@ -93760,7 +94299,11 @@
 /turf/open/misc/grass,
 /area/vtm/outside/pacificheights/forest)
 "yaZ" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/old,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/taxi,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/five,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/cabdepot)
 "ybh" = (
@@ -94016,6 +94559,13 @@
 /obj/structure/railing/corner,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/hotel)
+"yeG" = (
+/obj/structure/vampdoor/prison,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/anarch,
+/turf/open/floor/plating/canal,
+/area/vtm/interior/sewer)
 "yeX" = (
 /obj/effect/landmark/npcwall,
 /turf/open/floor/plating/rough/cave,
@@ -94268,12 +94818,15 @@
 /obj/effect/turf_decal/siding/white{
 	color = "#636363"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/reinf,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 140;
 	max_integrity = 500;
 	dir = 1
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility/restricted)
 "yhj" = (
@@ -96049,7 +96602,7 @@ kRM
 anE
 rDz
 two
-wZc
+whY
 wZc
 lGZ
 jKX
@@ -97492,7 +98045,7 @@ niE
 niE
 niE
 sTf
-lLl
+piY
 hrm
 qFM
 lGZ
@@ -98036,16 +98589,16 @@ eZe
 tXG
 khY
 aQE
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
 xfw
 xfw
 xfw
@@ -98086,7 +98639,7 @@ tuX
 aej
 vFf
 hge
-dxj
+yeG
 kOa
 kOa
 cSy
@@ -98249,7 +98802,7 @@ aQE
 aQE
 aQE
 aQE
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -98453,7 +99006,7 @@ hZV
 msD
 ijr
 aQE
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -98650,14 +99203,14 @@ hZV
 daw
 hZV
 hZV
-daw
+rlR
 msD
 efu
 hZV
 hZV
 msD
 aQE
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -98861,7 +99414,7 @@ aQE
 hZV
 hZV
 aQE
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -99065,9 +99618,9 @@ vex
 msD
 lne
 aQE
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 xfw
 xfw
 xfw
@@ -99240,7 +99793,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 pUg
 iGp
 ucn
@@ -99271,6 +99824,8 @@ msD
 aQE
 xRn
 xRn
+rCB
+rCB
 xfw
 xfw
 xfw
@@ -99278,15 +99833,13 @@ xfw
 xfw
 xfw
 xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
 rCB
 rCB
 rCB
@@ -99444,11 +99997,11 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 iGp
 xMQ
 mZd
-hKt
+mZd
 uJV
 uJV
 pUg
@@ -99476,25 +100029,25 @@ aQE
 wJZ
 xRn
 xRn
+rCB
 xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
 aQE
 xRn
 xRn
 xRn
-xRn
 xyw
 xyw
+xyw
+rCB
 xfw
-xfw
-xfw
+rCB
 xyw
 xyw
 cBs
@@ -99502,7 +100055,7 @@ dzB
 kOa
 xZF
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -99648,7 +100201,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 iGp
 aHh
 mZd
@@ -99667,7 +100220,7 @@ tvN
 hZV
 hZV
 hZV
-daw
+rlR
 hZV
 hZV
 nsz
@@ -99680,9 +100233,9 @@ aQE
 wiT
 gZN
 xRn
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 aQE
 aQE
 aQE
@@ -99691,22 +100244,22 @@ aQE
 aQE
 aQE
 qAT
-jxK
-lrX
+tls
 lak
 abL
+fZF
 xyw
-xfw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
+rCB
 xyw
 tFr
 jpE
 bEG
 xyw
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -99852,7 +100405,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 iGp
 ssA
 hbx
@@ -99897,20 +100450,20 @@ aQE
 lQR
 xRn
 xRn
-xRn
 tbl
+fZF
 xyw
 xyw
 xyw
-xfw
-xfw
+rCB
+rCB
 xyw
 xyw
 lsS
 xyw
 xyw
-xfw
-xfw
+rCB
+rCB
 xfw
 xfw
 xfw
@@ -100056,7 +100609,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 pUg
 iGp
 vnQ
@@ -100114,12 +100667,12 @@ rqY
 bEG
 xyw
 xyw
+rCB
+rCB
+rCB
 xfw
-xfw
-xfw
-xfw
-xfw
-xfw
+rCB
+rCB
 rCB
 rCB
 tuX
@@ -100260,8 +100813,8 @@ xfw
 xfw
 xfw
 xfw
-xfw
-xfw
+rCB
+rCB
 pUg
 pUg
 idB
@@ -100320,9 +100873,9 @@ bEG
 xyw
 xyw
 xyw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 xyw
 tuX
 tuX
@@ -100465,7 +101018,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 iGp
 vHn
 cnu
@@ -100525,7 +101078,7 @@ cBs
 rqY
 xyw
 xyw
-xfw
+rCB
 xyw
 xyw
 cBs
@@ -100669,7 +101222,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 iGp
 dDm
 cnu
@@ -100873,7 +101426,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 iGp
 nOu
 cnu
@@ -101074,10 +101627,10 @@ rCB
 xfw
 xfw
 xfw
-xfw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
+rCB
 iGp
 cpu
 cnu
@@ -101278,7 +101831,7 @@ rCB
 xfw
 xfw
 xfw
-xfw
+rCB
 aUY
 aUY
 aUY
@@ -101482,7 +102035,7 @@ rCB
 xfw
 xfw
 xfw
-xfw
+rCB
 pek
 got
 jOz
@@ -101684,9 +102237,9 @@ kRM
 tuX
 rCB
 xfw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 cmN
 cDd
 wPF
@@ -101888,7 +102441,7 @@ kRM
 tuX
 rCB
 xfw
-xfw
+rCB
 aUY
 aUY
 aUY
@@ -102092,7 +102645,7 @@ kRM
 tuX
 rCB
 xfw
-xfw
+rCB
 blT
 qIz
 rCZ
@@ -102296,7 +102849,7 @@ kRM
 tuX
 rCB
 xfw
-xfw
+rCB
 blT
 wsU
 oeP
@@ -102500,7 +103053,7 @@ kRM
 tuX
 rCB
 xfw
-xfw
+rCB
 cCE
 tsv
 qnd
@@ -102704,7 +103257,7 @@ kRM
 tuX
 rCB
 xfw
-xfw
+rCB
 aUY
 cMq
 rot
@@ -102908,7 +103461,7 @@ kRM
 tuX
 rCB
 xfw
-xfw
+rCB
 cMq
 fvj
 riW
@@ -103112,7 +103665,7 @@ kRM
 tuX
 rCB
 xfw
-xfw
+rCB
 jGn
 iaE
 riW
@@ -103234,7 +103787,7 @@ rCB
 hYX
 qWQ
 nab
-cJU
+psE
 nab
 mTX
 nab
@@ -103315,8 +103868,8 @@ vFf
 kRM
 tuX
 rCB
-xfw
-xfw
+rCB
+rCB
 aUY
 aUY
 aUY
@@ -103519,7 +104072,7 @@ vFf
 kRM
 tuX
 rCB
-xfw
+rCB
 xRn
 xRn
 sCJ
@@ -104608,7 +105161,7 @@ oJd
 xyw
 xyw
 xyw
-xfw
+rCB
 rCB
 tuX
 aej
@@ -104658,7 +105211,7 @@ tWF
 mTX
 oWy
 mTX
-mnG
+lIm
 jxH
 rWY
 gmc
@@ -104670,7 +105223,7 @@ mTX
 mTX
 mTX
 mTX
-mnG
+lrG
 laa
 cBs
 cBs
@@ -104810,9 +105363,9 @@ fZF
 xyw
 xyw
 xyw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 rCB
 tuX
 aej
@@ -105013,8 +105566,8 @@ oSg
 bnY
 aLN
 xyw
-xfw
-xfw
+rCB
+rCB
 xfw
 xfw
 rCB
@@ -105217,7 +105770,7 @@ xyw
 xyw
 xyw
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -105421,7 +105974,7 @@ rqY
 bEG
 cBs
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -105605,7 +106158,7 @@ bEG
 bEG
 xyw
 xyw
-quQ
+xvm
 xyw
 xyw
 xyw
@@ -105625,7 +106178,7 @@ xyw
 xyw
 bEG
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -105829,7 +106382,7 @@ fFY
 cBs
 cBs
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -106033,7 +106586,7 @@ xyw
 bEG
 xyw
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -106171,7 +106724,7 @@ vFf
 kRM
 tuX
 rCB
-xfw
+rCB
 xRn
 jFX
 mYM
@@ -106187,7 +106740,7 @@ vgk
 aUY
 xRn
 xRn
-xfw
+rCB
 rCB
 xfw
 xfw
@@ -106237,7 +106790,7 @@ rqY
 rqY
 uYe
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -106375,8 +106928,8 @@ vFf
 kRM
 tuX
 rCB
-xfw
-xfw
+rCB
+rCB
 xRn
 aUY
 aUY
@@ -106389,9 +106942,9 @@ oja
 lKU
 aUY
 aUY
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 xfw
 xfw
 xfw
@@ -106441,7 +106994,7 @@ rjF
 xyw
 xyw
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -106580,8 +107133,8 @@ kRM
 tuX
 rCB
 xfw
-xfw
-xfw
+rCB
+rCB
 oja
 aIS
 iCT
@@ -106593,7 +107146,7 @@ xnE
 iJP
 fcn
 aUY
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -106643,9 +107196,9 @@ qFb
 xyw
 fFY
 xyw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 xfw
 xfw
 xfw
@@ -106785,7 +107338,7 @@ tuX
 rCB
 xfw
 xfw
-xfw
+rCB
 oja
 udY
 wPF
@@ -106797,7 +107350,7 @@ ljH
 exP
 iHN
 aUY
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -106823,9 +107376,9 @@ tuX
 tuX
 rCB
 rCB
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 xyw
 bEG
 bEG
@@ -106847,7 +107400,7 @@ mkX
 bEG
 cBs
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -106989,7 +107542,7 @@ tuX
 rCB
 xfw
 xfw
-xfw
+rCB
 icW
 tGG
 wPF
@@ -107001,7 +107554,7 @@ exP
 iJP
 rWf
 aUY
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -107029,7 +107582,7 @@ rCB
 xfw
 xfw
 xfw
-xfw
+rCB
 xyw
 xyw
 rqY
@@ -107051,7 +107604,7 @@ qWu
 xyw
 xyw
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -107193,19 +107746,19 @@ tuX
 rCB
 xfw
 xfw
-xfw
+rCB
 nhW
 xoD
 iCT
 iCT
-lKU
+bwj
 iJP
 exP
 vDJ
 exP
 iHN
 aUY
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -107233,8 +107786,8 @@ xfw
 xfw
 xfw
 xfw
-xfw
-xfw
+rCB
+rCB
 xyw
 xyw
 bEG
@@ -107254,8 +107807,8 @@ lXN
 oDq
 rqY
 xyw
-xfw
-xfw
+rCB
+rCB
 xfw
 xfw
 xfw
@@ -107397,7 +107950,7 @@ tuX
 rCB
 xfw
 xfw
-xfw
+rCB
 aUY
 aUY
 aUY
@@ -107409,7 +107962,7 @@ ybH
 iJP
 fWR
 aUY
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -107438,7 +107991,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 xyw
 cBs
 cBs
@@ -107458,7 +108011,7 @@ bEG
 xyw
 xyw
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -107601,19 +108154,19 @@ tuX
 rCB
 xfw
 xfw
-xfw
+rCB
 pyo
 wgN
 iCT
 wPF
-lKU
+bwj
 hYG
 exP
 aUY
-lKU
+lyF
 aUY
 aUY
-xfw
+rCB
 xfw
 rCB
 rCB
@@ -107642,7 +108195,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 xyw
 pUY
 egt
@@ -107660,9 +108213,9 @@ xyw
 xyw
 xyw
 xyw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 xfw
 xfw
 xfw
@@ -107805,7 +108358,7 @@ tuX
 rCB
 xfw
 xfw
-xfw
+rCB
 pyo
 uos
 iCT
@@ -107817,7 +108370,7 @@ nAb
 irX
 obO
 aUY
-xfw
+rCB
 xfw
 rCB
 tuX
@@ -107846,7 +108399,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 xyw
 xyw
 xyw
@@ -107862,9 +108415,9 @@ rqY
 rqY
 sSM
 xyw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 xfw
 xfw
 xfw
@@ -108009,7 +108562,7 @@ tuX
 rCB
 xfw
 xfw
-xfw
+rCB
 ocC
 tGG
 wPF
@@ -108021,7 +108574,7 @@ aUY
 gKv
 wPF
 aUY
-xfw
+rCB
 xfw
 rCB
 tuX
@@ -108050,9 +108603,9 @@ xfw
 xfw
 xfw
 xfw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
 xyw
 ory
 xyw
@@ -108066,7 +108619,7 @@ bEG
 cBs
 xyw
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -108213,7 +108766,7 @@ tuX
 rCB
 xfw
 xfw
-xfw
+rCB
 pyo
 wZB
 bdF
@@ -108225,7 +108778,7 @@ aUY
 tMd
 iCT
 aUY
-xfw
+rCB
 xfw
 rCB
 tuX
@@ -108256,7 +108809,7 @@ xfw
 xfw
 xfw
 xfw
-xfw
+rCB
 xyw
 xyw
 xyw
@@ -108269,7 +108822,7 @@ xyw
 xyw
 cBs
 xyw
-xfw
+rCB
 rCB
 xfw
 xfw
@@ -108417,7 +108970,7 @@ tuX
 rCB
 xfw
 xfw
-xfw
+rCB
 aUY
 aUY
 aUY
@@ -108429,7 +108982,7 @@ aUY
 aUY
 aUY
 aUY
-xfw
+rCB
 xfw
 rCB
 tuX
@@ -108460,10 +109013,10 @@ xfw
 xfw
 xfw
 xfw
-xfw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
+rCB
 xyw
 xyw
 xyw
@@ -108473,7 +109026,7 @@ rCB
 xyw
 fFY
 xyw
-xfw
+rCB
 xfw
 xfw
 xfw
@@ -108621,19 +109174,19 @@ tuX
 rCB
 rCB
 rCB
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
-xfw
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
 rCB
 rCB
 tuX
@@ -108677,7 +109230,7 @@ rCB
 xyw
 cBs
 xyw
-xfw
+rCB
 rCB
 rCB
 rCB
@@ -126055,10 +126608,10 @@ vFf
 kRM
 tuX
 rCB
-rCB
-rCB
-rCB
-rCB
+xfw
+xfw
+xfw
+xfw
 rCB
 vAM
 cEX
@@ -126259,11 +126812,11 @@ vFf
 kRM
 tuX
 rCB
-xyw
-xyw
-xyw
-xyw
-xyw
+xfw
+xfw
+xfw
+xfw
+rCB
 rCB
 rCB
 rCB
@@ -126463,15 +127016,15 @@ vFf
 kRM
 tuX
 rCB
-xyw
-ltD
-ggB
-ixm
-xyw
-xyw
-xyw
-xyw
-xyw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+rCB
+cEX
 cNT
 dYo
 reP
@@ -126667,19 +127220,19 @@ vFf
 kRM
 tuX
 rCB
-xyw
-gcI
-cBs
-cBs
-oMe
-hqh
-hqh
-jPB
-xyw
-fFY
-xyw
-xyw
-xyw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+rCB
+cEX
+cEX
+cEX
+cEX
+cEX
 vAM
 vAM
 vAM
@@ -126871,19 +127424,19 @@ vFf
 kRM
 tuX
 rCB
-xyw
-lrG
-lOq
-lOq
-nBI
-lOq
-cBs
-ttW
-xyw
-twP
-rSW
-aVu
-xyw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+rCB
+rCB
+rCB
+rCB
+rCB
+rCB
 rCB
 pEn
 qgw
@@ -127075,19 +127628,19 @@ vFf
 kRM
 tuX
 rCB
-xyw
-xyw
-xyw
-xyw
-xyw
-xyw
-kWD
-cBs
-wHk
-hqh
-hqh
-ttW
-xyw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
 rCB
 dyb
 gXa
@@ -127284,14 +127837,14 @@ rCB
 rCB
 rCB
 rCB
-xyw
-bwj
-lOq
-nBI
-lOq
-lOq
-upq
-xyw
+rCB
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
 rCB
 eTV
 wQQ
@@ -127488,14 +128041,14 @@ vAM
 vAM
 vAM
 vAM
-xyw
-xyw
-xyw
-xyw
-xyw
-xyw
-xyw
-xyw
+rCB
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
+xfw
 rCB
 vAM
 vAM
@@ -136693,7 +137246,7 @@ kKS
 veZ
 ycd
 wvU
-prU
+jPB
 tNl
 tNl
 tNl
@@ -137416,8 +137969,8 @@ vnH
 sWS
 sWS
 tyN
-dIO
-dIO
+fag
+fag
 dIO
 vIp
 vIp
@@ -137620,9 +138173,9 @@ sbp
 sWS
 sWS
 tyN
-dIO
-dIO
-dIO
+tZm
+fag
+fag
 gdL
 jTm
 jTm
@@ -137824,9 +138377,9 @@ sWS
 sWS
 sWS
 uIc
-dIO
-dIO
-dIO
+fag
+aQN
+tZm
 iYd
 duW
 jTm
@@ -138074,7 +138627,7 @@ dSH
 dSH
 kBM
 uHB
-edG
+rSW
 kBM
 kBM
 kBM
@@ -138301,7 +138854,7 @@ goA
 goA
 goA
 goA
-lYB
+qGm
 goA
 goA
 qKf
@@ -138436,10 +138989,10 @@ sWS
 sWS
 gZT
 nki
-dIO
-dIO
-dIO
-dIO
+fag
+fag
+fag
+fag
 gdL
 jTm
 jTm
@@ -138641,9 +139194,9 @@ qZE
 uIc
 dIO
 dIO
-dIO
-dIO
-dIO
+fag
+fag
+fag
 gdL
 jTm
 jTm
@@ -138847,7 +139400,7 @@ dIO
 dIO
 dIO
 dIO
-dIO
+fag
 gdL
 jTm
 sHh
@@ -139921,7 +140474,7 @@ dWd
 bRv
 uPi
 kBM
-tao
+uTI
 hdQ
 uDw
 uDw
@@ -140124,7 +140677,7 @@ tsD
 dWd
 bRv
 bRv
-kBM
+aoq
 tao
 hdQ
 uDw
@@ -140251,7 +140804,7 @@ aqb
 aqb
 aqb
 aqb
-odD
+iqO
 ylK
 wZV
 ucm
@@ -140327,8 +140880,8 @@ eqY
 jkk
 dWd
 bRv
+bRv
 aoq
-kBM
 tao
 hdQ
 uDw
@@ -140455,9 +141008,9 @@ kFM
 sWS
 dzv
 nyI
-odD
-odD
-odD
+ahZ
+ixm
+iqO
 otS
 sWS
 sWS
@@ -140532,8 +141085,8 @@ jkk
 dWd
 bRv
 bRv
-kBM
-xXP
+aoq
+tao
 hdQ
 uDw
 uDw
@@ -140660,7 +141213,7 @@ kpl
 sWS
 pEJ
 nyI
-odD
+iqO
 ahZ
 wzA
 bCL
@@ -140865,8 +141418,8 @@ sWS
 sWS
 pEJ
 nyI
-pOS
-xuU
+twP
+ixm
 pPV
 sWS
 sWS
@@ -140941,7 +141494,7 @@ dWd
 bRv
 bRv
 kBM
-tao
+xXP
 hdQ
 uDw
 uDw
@@ -141138,7 +141691,7 @@ kBM
 kBM
 kBM
 ivd
-hZi
+lrX
 hZi
 gbC
 cKQ
@@ -141274,8 +141827,8 @@ sXx
 sWS
 sWS
 tyN
-odD
-odD
+iqO
+iqO
 wzA
 ucm
 sWS
@@ -141342,13 +141895,13 @@ naa
 naa
 aqu
 vrT
-xvm
+hEB
 jOc
 jOc
 xex
 bJE
 teV
-kBM
+aoq
 qgR
 hdQ
 uDw
@@ -141480,7 +142033,7 @@ sWS
 pEJ
 nyI
 ahZ
-odD
+iqO
 wzA
 ucm
 gZT
@@ -141552,8 +142105,8 @@ sGz
 sGz
 sGz
 eqY
-kBM
-nGm
+aoq
+oqM
 vHT
 gjZ
 gjZ
@@ -141591,7 +142144,7 @@ tow
 tao
 oYt
 oYt
-prU
+qPm
 oYt
 oYt
 oYt
@@ -141684,8 +142237,8 @@ kFM
 sWS
 pEJ
 uGj
-odD
-odD
+ixm
+ahZ
 wzA
 iIN
 bNc
@@ -141756,7 +142309,7 @@ rvK
 rvK
 rvK
 ocQ
-kBM
+aoq
 nSW
 hdQ
 uDw
@@ -141888,8 +142441,8 @@ pDA
 kFM
 sWS
 tyN
-odD
-odD
+iqO
+iqO
 odD
 dIO
 dIO
@@ -141958,10 +142511,10 @@ uHB
 eYn
 kBM
 kBM
-edG
+lym
 kBM
 kBM
-xXP
+tao
 hdQ
 uDw
 uDw
@@ -142165,7 +142718,7 @@ dpa
 psm
 xxq
 kBM
-tao
+xXP
 hdQ
 uDw
 uDw
@@ -145836,7 +146389,7 @@ iFg
 blS
 blS
 blS
-rYJ
+wLz
 tao
 hdQ
 uDw
@@ -146052,7 +146605,7 @@ bef
 ude
 ude
 viN
-oXi
+aTH
 bef
 bef
 bef
@@ -146457,7 +147010,7 @@ uDw
 qeq
 tao
 fqR
-dIR
+egE
 egE
 egE
 egE
@@ -146665,7 +147218,7 @@ egE
 egE
 egE
 egE
-oXi
+sTw
 egE
 egE
 egE
@@ -148624,7 +149177,7 @@ cJF
 cJF
 mPm
 aqb
-kXE
+atR
 atR
 atR
 cLr
@@ -148829,7 +149382,7 @@ cJF
 aqb
 aqb
 cLr
-atR
+oiE
 cLr
 atR
 lin
@@ -148906,7 +149459,7 @@ rQf
 lLR
 pUu
 lLO
-cFY
+ltD
 olc
 koQ
 tdw
@@ -149031,9 +149584,9 @@ cJF
 mPm
 cJF
 aqb
-cLr
-atR
-atR
+saU
+jAr
+oiE
 atR
 aqb
 aqb
@@ -149235,9 +149788,9 @@ mPm
 cJF
 deA
 aqb
-tig
-fJf
-atR
+ggB
+xGo
+cLr
 hFk
 aqb
 xYN
@@ -149439,9 +149992,9 @@ cJF
 cJF
 mPm
 aqb
-drk
-nSe
-cdb
+oMe
+gOL
+cLr
 aqb
 aqb
 oiE
@@ -149537,7 +150090,7 @@ bMP
 oAm
 oAm
 sWH
-dAL
+nBI
 tao
 pQW
 uDw
@@ -149643,9 +150196,9 @@ cJF
 cJF
 cJF
 aqb
-kXE
-gCV
-lwI
+xYN
+atR
+oiE
 aqb
 xYN
 cLr
@@ -149741,7 +150294,7 @@ bMP
 sJr
 sJr
 uzy
-dAL
+nBI
 tao
 hdQ
 uDw
@@ -151984,7 +152537,7 @@ kpf
 kpf
 kpf
 kpf
-tao
+dIR
 tao
 tao
 ajj
@@ -152005,7 +152558,7 @@ tao
 ajj
 ajj
 ajj
-tkB
+reF
 ajj
 ajj
 ajj
@@ -152103,9 +152656,9 @@ xYN
 aqb
 xYN
 cLr
-cLr
-oiE
-hFk
+tig
+fJf
+atR
 aqb
 sBv
 pUu
@@ -152184,8 +152737,8 @@ pUu
 fzc
 inG
 hXd
-kpf
-rlR
+wsf
+aru
 aru
 kpf
 whP
@@ -152306,10 +152859,10 @@ cLr
 atR
 aqb
 aqb
-aqb
-cLr
-vcs
 atR
+drk
+nSe
+cdb
 aqb
 hPC
 pUu
@@ -152385,13 +152938,13 @@ pUu
 bLW
 kpf
 kpf
-ryB
+qeo
 kpf
 kpf
-kpf
+wsf
 xQB
-qPm
-iTR
+xQB
+jxK
 thu
 uLp
 tao
@@ -152509,11 +153062,11 @@ atR
 aqb
 cLr
 oiE
-cLr
 aqb
-atR
-atR
+xYN
 cLr
+gCV
+lwI
 aqb
 hPC
 pUu
@@ -152591,7 +153144,7 @@ gdO
 iZu
 xQB
 xQB
-atb
+aVu
 xQB
 xQB
 kZY
@@ -152623,7 +153176,7 @@ eWf
 vyx
 ajj
 ajj
-fIa
+bOw
 ajj
 ajj
 xDx
@@ -152713,7 +153266,7 @@ atR
 aqb
 aqb
 atR
-cLr
+aqb
 aqb
 atR
 oiE
@@ -152794,10 +153347,10 @@ pUu
 gdO
 iZu
 xQB
-kZY
+xQB
 atb
-xQB
-xQB
+wRp
+vMN
 xQB
 kpf
 ttF
@@ -152821,7 +153374,7 @@ tao
 ajj
 eWf
 eWf
-eWf
+nGm
 eWf
 eWf
 tND
@@ -152916,11 +153469,11 @@ atR
 oiE
 hFk
 aqb
-xYN
 atR
 atR
+lin
 cLr
-atR
+xYN
 aqb
 dsP
 hPC
@@ -152996,13 +153549,13 @@ rQf
 pUu
 haF
 gdO
-iZu
+pqT
+xQB
 kZY
+wsf
+vAS
 xQB
-kpf
-kZY
-xQB
-xQB
+bLF
 kpf
 tao
 mmB
@@ -153121,8 +153674,8 @@ cLr
 atR
 aqb
 aqb
-oiE
-atR
+hFk
+aqb
 aqb
 aqb
 aqb
@@ -153201,11 +153754,11 @@ pUu
 czr
 gdO
 iZu
-wLz
 xQB
-iTR
 xQB
-wLz
+fTj
+xQB
+xQB
 hZr
 kpf
 tao
@@ -153327,9 +153880,9 @@ cLr
 aqb
 aqb
 aqb
-aqb
 atR
-cLr
+atR
+vcs
 aqb
 aqb
 pUu
@@ -153590,13 +154143,13 @@ oJS
 vlG
 ofW
 oEd
-gzd
+upq
 xaT
-bev
-njK
-aoH
+xQB
+oQL
+kWD
 yaA
-fUq
+koW
 oQL
 jxB
 pUu
@@ -153609,8 +154162,8 @@ pUu
 pUu
 bts
 gzd
-yaA
-fUq
+uqr
+uqr
 ogD
 klS
 nxO
@@ -153795,13 +154348,13 @@ vlG
 ofW
 oEd
 wVk
-sBk
+xQB
 mtT
 ulK
 nAv
-reF
 nAv
-diP
+nAv
+vhL
 pUu
 pUu
 qYl
@@ -153812,10 +154365,10 @@ rQf
 pUu
 pUu
 awX
-nAv
-reF
-bOw
-iqO
+uQK
+uQK
+uQK
+uQK
 klS
 gcp
 mmB
@@ -153999,12 +154552,12 @@ aSI
 ofW
 oEd
 twf
-wsf
-aXf
-ulK
-gzd
-yaA
-fUq
+xQB
+xQB
+wHk
+nAv
+nAv
+nAv
 oQL
 ryh
 pUu
@@ -154017,8 +154570,8 @@ pUu
 ryh
 kUB
 uai
-gzd
-yaA
+uQK
+uQK
 xXr
 bts
 cfz
@@ -154204,10 +154757,10 @@ tHV
 oEd
 hvl
 tNQ
-gzd
-njK
+xQB
+oQL
 nAv
-reF
+nAv
 nAv
 qtP
 fWf
@@ -154220,12 +154773,12 @@ gsw
 pUu
 haF
 gJb
-csd
+hXg
 wvh
 hXg
-fUq
-nAv
-kZY
+uQK
+uQK
+uQK
 hbR
 klS
 rnf
@@ -154407,12 +154960,12 @@ ofW
 ofW
 oEd
 ibt
-koW
-gzd
+jJD
+xQB
 xyx
-iqO
-aoH
-yaA
+nAv
+njK
+oKV
 qtP
 owi
 pUu
@@ -154425,10 +154978,10 @@ kOW
 czr
 gJb
 uQH
-hbR
+csd
 qji
-psE
-gOL
+uQK
+uQK
 dxi
 uhQ
 klS
@@ -154631,9 +155184,9 @@ klS
 klS
 klS
 klS
-klS
-klS
-klS
+hKt
+hKt
+hKt
 klS
 klS
 jAE
@@ -167674,7 +168227,7 @@ pdy
 pdy
 cOT
 gXN
-uqr
+iEh
 iEh
 iEh
 lGt
@@ -186807,7 +187360,7 @@ xny
 xny
 xny
 xny
-fYM
+sBk
 xny
 xny
 xny
@@ -187224,7 +187777,7 @@ uip
 uip
 uip
 uip
-sTw
+uip
 poO
 pMT
 ylF
@@ -187428,7 +187981,7 @@ uip
 uip
 uip
 uip
-sTw
+uip
 poO
 pMT
 ylF
@@ -187624,7 +188177,7 @@ muT
 xny
 xny
 xny
-fYM
+sBk
 xny
 xny
 ylF
@@ -194424,7 +194977,7 @@ ajj
 vGl
 gQV
 gQV
-gQV
+evQ
 ajj
 mjT
 mjT
@@ -194626,7 +195179,7 @@ mjT
 ajj
 ajj
 ajj
-aFQ
+bev
 ajj
 ajj
 ajj
@@ -228833,7 +229386,7 @@ aOJ
 hSw
 iIf
 eEt
-aUM
+aXf
 eEt
 hSw
 aOJ
