@@ -20,6 +20,7 @@
 		#include "map_files\debug\multiz.dmm"
 		#include "map_files\debug\runtimestation.dmm"
 		// DARKPACK EDIT CHANGE END
+		#include "map_files\Vampire\SanFrancisco.dmm" // TFN EDIT ADDITION
 	#endif
 	#ifdef ALL_TEMPLATES
 		#include "templates.dm"
