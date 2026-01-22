@@ -6178,6 +6178,8 @@
 	dir = 4
 	},
 /obj/effect/decal/rugs,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/mineral/titanium/tiled/white{
 	color = "#F5DDB0"
 	},
@@ -6191,8 +6193,7 @@
 /area/vtm/outside/forest)
 "bCM" = (
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 16
+	dir = 1
 	},
 /obj/structure/railing{
 	dir = 8;
@@ -6747,7 +6748,11 @@
 	dir = 8;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior)
 "bJc" = (
@@ -8664,11 +8669,16 @@
 /turf/open/misc/grass,
 /area/vtm)
 "civ" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#802d29";
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "ciw" = (
@@ -9756,11 +9766,16 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/vjanitor)
 "cvN" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/white{
 	dir = 8;
 	color = "#636363"
 	},
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/city/church,
 /area/vtm/interior/jazzclub)
 "cvO" = (
@@ -10104,10 +10119,13 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/littleitaly)
 "czW" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
 	},
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/carpet/red,
 /area/vtm/interior/laundromat)
 "czX" = (
@@ -11372,7 +11390,11 @@
 	color = "#9a704a";
 	dir = 8
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior)
 "cRJ" = (
@@ -11617,11 +11639,16 @@
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic)
 "cVk" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
 	color = "#574d46"
 	},
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/nine,
 /turf/open/floor/wood/rough,
 /area/vtm/interior/laundromat)
 "cVm" = (
@@ -14149,7 +14176,8 @@
 /area/vtm/interior/church)
 "dDM" = (
 /obj/effect/turf_decal/siding/white,
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior)
 "dDO" = (
@@ -14929,7 +14957,12 @@
 /turf/open/floor/carpet/green,
 /area/vtm/interior/cog/caern)
 "dOh" = (
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/theatre)
 "dOt" = (
@@ -18053,7 +18086,10 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/police/court)
 "eDA" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/city/church,
 /area/vtm/interior/jazzclub)
 "eDC" = (
@@ -20652,7 +20688,12 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/laundromat)
 "fjR" = (
@@ -22070,11 +22111,16 @@
 /turf/open/floor/plating/roofwalk,
 /area/vtm)
 "fCs" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#5a2355";
 	dir = 8
 	},
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "fCJ" = (
@@ -22441,7 +22487,10 @@
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/woodglass,
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/laundromat)
 "fHw" = (
@@ -28340,7 +28389,12 @@
 	dir = 4;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/woodglass{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/laundromat)
 "hhO" = (
@@ -33930,7 +33984,10 @@
 	dir = 1;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/nine,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/theatre)
 "iAX" = (
@@ -35387,7 +35444,10 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/police/court)
 "iTR" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "iTS" = (
@@ -35487,7 +35547,10 @@
 /turf/open/floor/city/church,
 /area/vtm/interior)
 "iWC" = (
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/npc,
+/obj/structure/vampdoor/reinf,
 /turf/open/floor/city/circled,
 /area/vtm/interior/subway)
 "iWH" = (
@@ -36024,16 +36087,22 @@
 /turf/open/floor/city/toilet,
 /area/vtm/interior/shop)
 "jey" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8;
 	color = "#574d46"
 	},
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/carpet/red,
 /area/vtm/interior/laundromat)
 "jez" = (
 /obj/effect/turf_decal/siding/white,
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/city/circled,
 /area/vtm/interior)
 "jeE" = (
@@ -36845,11 +36914,10 @@
 /turf/open/floor/carpet,
 /area/vtm/interior/chantry/basement)
 "jok" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 1;
-	icon_state = "siding_corner"
-	},
 /obj/item/kirbyplants/random,
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 1
+	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
 "joo" = (
@@ -37117,6 +37185,8 @@
 	dir = 4
 	},
 /obj/effect/decal/rugs,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior)
 "jrb" = (
@@ -37339,7 +37409,9 @@
 /turf/open/misc/grass,
 /area/vtm/outside/forest)
 "juf" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/vip_barrier/elysium/theatre_backdoor{
 	dir = 8
 	},
@@ -37347,6 +37419,9 @@
 	color = "#004136";
 	dir = 8
 	},
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "jui" = (
@@ -38309,10 +38384,16 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/millennium_tower/f3)
 "jFF" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/woodglass{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/city/circled,
 /area/vtm/interior/laundromat)
 "jFS" = (
@@ -39841,8 +39922,7 @@
 	density = 0
 	},
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 12
+	dir = 1
 	},
 /turf/open/floor/plating/concrete{
 	color = "#9c8064"
@@ -40312,9 +40392,18 @@
 	},
 /area/vtm/interior/cog/pantry)
 "khA" = (
-/obj/merge_conflict_marker,
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior)
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 8;
+	color = "#636363"
+	},
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
+/turf/open/floor/city/church,
+/area/vtm/interior/jazzclub)
 "khB" = (
 /obj/merge_conflict_marker,
 /obj/effect/turf_decal/siding/white{
@@ -42033,7 +42122,11 @@
 /turf/open/floor/carpet/royalblue,
 /area/vtm/interior/strip)
 "kDp" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/woodglass,
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/carpet/red,
 /area/vtm/interior/jazzclub)
 "kDw" = (
@@ -44230,11 +44323,16 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/shop)
 "lgN" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#802d29";
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/city/toilet/large,
 /area/vtm/interior/jazzclub)
 "lgQ" = (
@@ -45646,8 +45744,7 @@
 /area/vtm/interior/giovanni)
 "lyu" = (
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 12
+	dir = 1
 	},
 /turf/open/openspace,
 /area/vtm/interior/laundromat)
@@ -47992,7 +48089,10 @@
 	color = "#004136";
 	dir = 1
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "mee" = (
@@ -50389,10 +50489,13 @@
 	},
 /area/vtm/interior/supply)
 "mJN" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#802d29"
 	},
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "mJP" = (
@@ -55731,7 +55834,10 @@
 /area/vtm/interior/setite)
 "nWH" = (
 /obj/structure/curtain/bounty,
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/laundromat)
 "nWO" = (
@@ -56013,9 +56119,15 @@
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/interior/library)
 "oan" = (
-/obj/merge_conflict_marker,
 /obj/effect/vip_barrier/elysium/theatre{
 	dir = 8
+	},
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/structure/vampdoor/wood{
+	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/theatre)
@@ -57552,10 +57664,13 @@
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/interior/tzimisce_manor)
 "orB" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
 	},
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/laundromat)
 "orI" = (
@@ -66747,7 +66862,10 @@
 	dir = 1;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/laundromat)
 "qIU" = (
@@ -69852,11 +69970,17 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/church)
 "ryB" = (
-/obj/merge_conflict_marker,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8;
 	color = "#574d46"
 	},
+/obj/structure/vampdoor/woodglass{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "ryG" = (
@@ -70127,6 +70251,7 @@
 "rCk" = (
 /obj/structure/vampdoor/wood/apartment,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/littleitaly/apartments)
 "rCl" = (
@@ -71690,11 +71815,14 @@
 /turf/closed/wall/vampwall/rich/old,
 /area/vtm)
 "rXn" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
 	color = "#574d46"
 	},
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/laundromat)
 "rXt" = (
@@ -73104,6 +73232,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/littleitaly/apartments)
 "ssx" = (
@@ -78562,7 +78691,10 @@
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/laundromat)
 "tMs" = (
@@ -87450,7 +87582,10 @@
 	dir = 1;
 	color = "#574d46"
 	},
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/access/triad,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/laundromat)
 "wgt" = (
@@ -87721,6 +87856,8 @@
 	dir = 4
 	},
 /obj/effect/decal/rugs,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/city/circled,
 /area/vtm/interior)
 "wkw" = (
@@ -88050,11 +88187,10 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/shop)
 "wow" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 4;
-	icon_state = "siding_corner"
-	},
 /obj/item/kirbyplants/random,
+/obj/effect/turf_decal/siding/white/corner{
+	dir = 4
+	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
 "woz" = (
@@ -93536,8 +93672,7 @@
 /area/vtm/interior/tzimisce_manor)
 "xHs" = (
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 16
+	dir = 1
 	},
 /obj/structure/chair/plastic/darkpack{
 	dir = 8
@@ -94148,9 +94283,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/chantry/basement)
 "xPg" = (
-/obj/effect/turf_decal/siding/white{
-	icon_state = "siding_corner"
-	},
+/obj/effect/turf_decal/siding/white/corner,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic/haven)
 "xPj" = (
@@ -94432,7 +94565,10 @@
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic)
 "xUf" = (
-/obj/merge_conflict_marker,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior)
 "xUg" = (
@@ -173996,7 +174132,7 @@ ucp
 ucp
 ucp
 eMF
-cvN
+khA
 ucp
 ucp
 ucp
@@ -209211,7 +209347,7 @@ mPp
 aKK
 xCm
 mPp
-khA
+bqv
 mPp
 qdY
 dRH
@@ -215193,7 +215329,7 @@ bhn
 bhn
 ucp
 eMF
-cvN
+khA
 ucp
 ucp
 eMF
