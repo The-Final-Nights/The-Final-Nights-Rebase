@@ -71,6 +71,27 @@
 	. = ..()
 	var/obj/item/organ/cyberimp/arm/toolkit/surgery/vicissitude/surgery_implant = new()
 	surgery_implant.Insert(owner)
+	RegisterSignal(owner, COMSIG_LIVING_OPERATING_ON, PROC_REF(add_surgery))
+
+/datum/discipline_power/vicissitude/fleshcrafting/Destroy(force)
+	UnregisterSignal(owner, COMSIG_LIVING_OPERATING_ON)
+	return ..()
+
+/datum/discipline_power/vicissitude/fleshcrafting/proc/add_surgery(datum/source, atom/movable/operating_on, list/possible_operations)
+	SIGNAL_HANDLER
+
+	var/static/list/tzimisce_operations
+	if(!length(tzimisce_operations))
+		tzimisce_operations = list()
+		tzimisce_operations += /datum/surgery_operation/basic/tend_wounds/combo/upgraded/master
+		tzimisce_operations += /datum/surgery_operation/limb/add_plastic
+		tzimisce_operations += typesof(/datum/surgery_operation/limb/bioware)
+		tzimisce_operations += typesof(/datum/surgery_operation/organ/brainwash)
+		tzimisce_operations += typesof(/datum/surgery_operation/organ/lobotomy)
+		tzimisce_operations += typesof(/datum/surgery_operation/organ/pacify)
+		tzimisce_operations += /datum/surgery_operation/organ/eye_color_surgery
+
+	possible_operations |= tzimisce_operations
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
