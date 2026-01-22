@@ -71,7 +71,6 @@
 	. = ..()
 	var/obj/item/organ/cyberimp/arm/toolkit/surgery/vicissitude/surgery_implant = new()
 	surgery_implant.Insert(owner)
-	ADD_TRAIT(owner, TRAIT_SURGEON, DISCIPLINE_TRAIT)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

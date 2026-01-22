@@ -1,3 +1,4 @@
+/*
 /datum/surgery/fleshcraft/sex_change
 	name = "Sex Change"
 	steps = list(/datum/surgery_step/incise,
@@ -62,3 +63,5 @@
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(user, span_notice("You finish altering the physique of [target]."))
 	return TRUE
+
+*/

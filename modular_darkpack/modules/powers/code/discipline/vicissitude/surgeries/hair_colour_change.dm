@@ -1,3 +1,4 @@
+/*
 /datum/surgery/fleshcraft/hair
 	name = "Change Hair Colour"
 	steps = list(/datum/surgery_step/incise, /datum/surgery_step/retract_skin, /datum/surgery_step/modify_hair, /datum/surgery_step/close)
@@ -43,3 +44,4 @@
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(user, span_notice("You finish altering the hair color of [target]."))
 	return TRUE
+*/

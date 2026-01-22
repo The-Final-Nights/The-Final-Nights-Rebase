@@ -1,3 +1,4 @@
+/*
 /datum/surgery/fleshcraft/skin_colour_change
 	name = "Change Skin Colour"
 	steps = list(/datum/surgery_step/incise, /datum/surgery_step/retract_skin, /datum/surgery_step/modify_skin, /datum/surgery_step/close)
@@ -42,3 +43,4 @@
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
 	to_chat(user, span_notice("You finish altering the race of [target]."))
 	return TRUE
+*/
