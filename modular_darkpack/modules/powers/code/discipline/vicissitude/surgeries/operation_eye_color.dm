@@ -50,9 +50,9 @@
 	var/eye_color_left = operation_args[OPERATION_NEW_COLOR][1]
 	var/eye_color_right = operation_args[OPERATION_NEW_COLOR][2]
 	if(eye_color_left)
-		patient.add_eye_color_left(eye_color_left, EYE_COLOR_ORGAN_PRIORITY, update_body = FALSE)
+		patient.add_eye_color_left(eye_color_left, EYE_COLOR_ORGAN_PRIORITY, update_body = TRUE)
 	if(eye_color_right)
-		patient.add_eye_color_right(eye_color_right, EYE_COLOR_ORGAN_PRIORITY, update_body = FALSE)
+		patient.add_eye_color_right(eye_color_right, EYE_COLOR_ORGAN_PRIORITY, update_body = TRUE)
 
 	display_results(
 		surgeon,
