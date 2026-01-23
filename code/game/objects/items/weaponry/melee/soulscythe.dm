@@ -95,8 +95,7 @@
 
 	soul.PossessByPlayer(ghost.ckey)
 	soul.copy_languages(master, LANGUAGE_MASTER) //Make sure the sword can understand and communicate with the master.
-	soul.set_allies(list("[REF(master)]"))
-	soul.set_faction(null)
+	soul.faction = list("[REF(master)]")
 	balloon_alert(master, "the scythe glows")
 	add_overlay("soulscythe_gem")
 	density = TRUE
@@ -256,6 +255,7 @@
 	health = 200
 	gender = NEUTER
 	mob_biotypes = MOB_SPIRIT
+	faction = list()
 	default_blood_volume = MAX_BLOOD_LEVEL
 	hud_type = /datum/hud/soulscythe
 	spawn_blacklisted = TRUE

@@ -54,10 +54,6 @@
 	bloodpool = 10
 	maxbloodpool = 10
 	held_items = list(null, null)
-	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
-
-/mob/living/basic/gangrel/hostile
-	faction = list(FACTION_HOSTILE)
 
 /mob/living/basic/gangrel/better
 	maxHealth = 325
@@ -65,9 +61,6 @@
 	melee_damage_lower = 35
 	melee_damage_upper = 35
 	speed = -0.6
-
-/mob/living/basic/gangrel/better/hostile
-	faction = list(FACTION_HOSTILE)
 
 /mob/living/basic/gangrel/best
 	icon_state = "gangrel_m"
@@ -77,6 +70,3 @@
 	melee_damage_lower = 40
 	melee_damage_upper = 40
 	speed = -0.8
-
-/mob/living/basic/gangrel/best/hostile
-	faction = list(FACTION_HOSTILE)

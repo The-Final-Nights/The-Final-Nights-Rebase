@@ -10,14 +10,14 @@ import { JobsPage } from './JobsPage';
 import { LoadoutPage } from './loadout';
 import { MainPage } from './MainPage';
 import { QuirkPersonalityPage } from './QuirksPage';
-import { SplatsPage } from './SplatsPage'; // DARKPACK EDIT CHANGE - SPLATS
+import { SpeciesPage } from './SpeciesPage';
 import { StatsPage } from './Stats'; // DARKPACK EDIT ADD
 
 enum Page {
   Antags,
   Main,
   Jobs,
-  Splats, // DARKPACK EDIT CHANGE - SPLATS
+  Species,
   Quirks,
   Loadout,
   Stats, // DARKPACK EDIT ADD
@@ -67,13 +67,13 @@ export function CharacterPreferenceWindow(props) {
       break;
     case Page.Main:
       pageContents = (
-        <MainPage openSplats={() => setCurrentPage(Page.Splats)} /> // DARKPACK EDIT CHANGE - SPLATS
+        <MainPage openSpecies={() => setCurrentPage(Page.Species)} />
       );
 
       break;
-    case Page.Splats: // DARKPACK EDIT CHANGE - SPLATS
+    case Page.Species:
       pageContents = (
-        <SplatsPage closeSplats={() => setCurrentPage(Page.Main)} /> // DARKPACK EDIT CHANGE - SPLATS
+        <SpeciesPage closeSpecies={() => setCurrentPage(Page.Main)} />
       );
 
       break;
@@ -121,7 +121,7 @@ export function CharacterPreferenceWindow(props) {
               currentPage={currentPage}
               page={Page.Main}
               setPage={setCurrentPage}
-              otherActivePages={[Page.Splats]} // DARKPACK EDIT CHANGE - SPLATS
+              otherActivePages={[Page.Species]}
             >
               Character
             </PageButton>
@@ -167,8 +167,6 @@ export function CharacterPreferenceWindow(props) {
             </PageButton>
           </Stack.Item>
 
-          {
-            /* DARKPACK EDIT REMOVAL - (We dont have antags and this is useless atm)
           <Stack.Item grow>
             <PageButton
               currentPage={currentPage}
@@ -178,8 +176,6 @@ export function CharacterPreferenceWindow(props) {
               Antagonists
             </PageButton>
           </Stack.Item>
-            */
-          }
 
           {
           // DARKPACK EDIT ADD START - Merits

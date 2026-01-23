@@ -322,7 +322,6 @@
 	crate_name = "grilling fuel kit crate"
 	discountable = SUPPLY_PACK_UNCOMMON_DISCOUNTABLE
 
-/* // DARKPACK EDIT REMOVAL
 /datum/supply_pack/organic/tiziran_supply
 	name = "Tiziran Supply Box"
 	desc = "A packaged box of supplies from the heart of the Lizard Empire. \
@@ -347,7 +346,6 @@
 				)
 	crate_name = "\improper Mothic Supply box"
 	crate_type = /obj/structure/closet/crate/cardboard/mothic
-*/
 
 /datum/supply_pack/organic/syrup
 	name = "Coffee Syrups Box"

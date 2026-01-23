@@ -60,7 +60,7 @@
 		if(33 to 65)
 			mytray.mutateweed()
 		if(1 to 32)
-			mytray.mutatepest()
+			mytray.mutatepest(user)
 		else
 			if(prob(20))
 				mytray.visible_message(span_warning("Nothing happens..."))

@@ -32,7 +32,12 @@
 	if(!istype(user))
 		return ..()
 
-	if(!iskindred(user))
+	var/is_vampire_species = FALSE
+	if(istype(user, /mob/living/carbon/human))
+		if(iskindred(user))
+			is_vampire_species = TRUE
+
+	if(!is_vampire_species)
 		to_chat(user, span_warning("You have no urge to spill your blood into this cup."))
 		return
 
@@ -67,7 +72,13 @@
 	if(!reagents.has_reagent(/datum/reagent/blood) && !reagents.has_reagent(/datum/reagent/blood/vitae))
 		return ..()
 
-	if(!iskindred(target_mob))
+	var/is_vampire_species = FALSE
+	if(istype(target_mob, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target_mob
+		if(iskindred(H))
+			is_vampire_species = TRUE
+
+	if(!is_vampire_species)
 		return ..()
 
 	if(length(blood_donors) >= 2)

@@ -12,7 +12,7 @@
 	medhud.add_atom_to_hud(src)
 	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]
 	diag_hud.add_atom_to_hud(src)
-	add_ally(src)
+	faction += "[REF(src)]"
 	GLOB.mob_living_list += src
 	SSpoints_of_interest.make_point_of_interest(src)
 	update_fov()
@@ -651,9 +651,11 @@
 /**
  * Returns the access list for this mob
  */
-/mob/living/get_access()
+/mob/living/proc/get_access() as /list
 	var/list/access_list = list()
-	SEND_SIGNAL(src, COMSIG_MOB_RETRIEVE_ACCESS, access_list)
+	SEND_SIGNAL(src, COMSIG_MOB_RETRIEVE_SIMPLE_ACCESS, access_list)
+	var/obj/item/card/id/id = get_idcard()
+	access_list += id?.GetAccess()
 	return access_list
 
 /mob/living/proc/get_id_in_hand()
@@ -1090,10 +1092,6 @@
 
 ///Called by mob Move() when the lying_angle is different than zero, to better visually simulate crawling.
 /mob/living/proc/lying_angle_on_movement(direct)
-	if(buckled && buckled.buckle_lying != NO_BUCKLE_LYING)
-		set_lying_angle(buckled.buckle_lying)
-		return
-
 	if(direct & EAST)
 		set_lying_angle(LYING_ANGLE_EAST)
 	else if(direct & WEST)
@@ -2830,7 +2828,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /// Proc called when TARGETED by a lazarus injector
 /mob/living/proc/lazarus_revive(mob/living/reviver, malfunctioning)
 	revive(HEAL_ALL)
-	add_faction(FACTION_NEUTRAL)
+	faction |= FACTION_NEUTRAL
 	if (!malfunctioning)
 		befriend(reviver)
 	var/lazarus_policy = get_policy(ROLE_LAZARUS_GOOD) || "The lazarus injector has brought you back to life! You are now friendly to everyone."
@@ -2849,9 +2847,9 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(QDELETED(new_friend))
 		return
 	var/friend_ref = REF(new_friend)
-	if (has_ally(friend_ref))
+	if (faction.Find(friend_ref))
 		return FALSE
-	add_ally(friend_ref)
+	faction |= friend_ref
 	ai_controller?.insert_blackboard_key_lazylist(BB_FRIENDS_LIST, new_friend)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_BEFRIENDED, new_friend)
@@ -2861,9 +2859,9 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /mob/living/proc/unfriend(mob/living/old_friend)
 	SHOULD_CALL_PARENT(TRUE)
 	var/friend_ref = REF(old_friend)
-	if (!has_ally(friend_ref))
+	if (!faction.Find(friend_ref))
 		return FALSE
-	remove_ally(friend_ref)
+	faction -= friend_ref
 	ai_controller?.remove_thing_from_blackboard_key(BB_FRIENDS_LIST, old_friend)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_UNFRIENDED, old_friend)

@@ -6,7 +6,6 @@
 
 // Themes
 import './styles/main.scss';
-import './styles/darkpack.scss'; // DARKPACK EDIT ADD
 
 import { setupGlobalEvents } from 'tgui-core/events';
 import { setupHotKeys } from 'tgui-core/hotkeys';
