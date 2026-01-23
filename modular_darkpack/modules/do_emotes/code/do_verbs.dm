@@ -27,7 +27,7 @@
 
 	for(var/mob/ghost as anything in GLOB.dead_mob_list)
 		if((ghost.client?.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers))
-			ghost.show_message(span_emote(message_with_name))
+			to_chat(ghost, "[FOLLOW_LINK(ghost, src)] [span_emote(message_with_name)]")
 
 	for(var/mob/reciever in viewers)
 		reciever.show_message(span_emote(message_with_name), alt_msg = span_emote(message_with_name))
