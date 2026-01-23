@@ -57,7 +57,7 @@
 	if(SStts.tts_enabled)
 		voice = pick(SStts.available_speakers)
 	GLOB.silicon_mobs += src
-	add_faction(FACTION_SILICON)
+	faction += FACTION_SILICON
 	if(ispath(radio))
 		radio = new radio(src)
 	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]

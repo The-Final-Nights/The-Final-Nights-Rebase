@@ -1908,7 +1908,7 @@
 	return null
 
 /obj/item/animate_atom_living(mob/living/owner)
-	return new /mob/living/basic/mimic/copy(drop_location(), src, owner)
+	new /mob/living/basic/mimic/copy(drop_location(), src, owner)
 
 /**
  * Used to update the weight class of the item in a way that other atoms can react to the change.

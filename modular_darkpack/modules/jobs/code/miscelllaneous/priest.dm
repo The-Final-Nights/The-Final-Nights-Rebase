@@ -13,7 +13,7 @@
 	departments_list = list(
 		/datum/job_department/church,
 	)
-	allowed_splats = list(SPLAT_NONE)
+	allowed_species = list(SPECIES_HUMAN)
 	description = "Be the shepherd of the flock in " + CITY_NAME + ", lead them to salvation, piety and righteousness."
 
 /datum/outfit/job/vampire/priest

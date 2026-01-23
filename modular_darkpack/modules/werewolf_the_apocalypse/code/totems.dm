@@ -152,11 +152,11 @@
 						if(do_mob(user, src, 10 SECONDS))
 							playsound(loc, 'modular_darkpack/modules/deprecated/sounds/portal.ogg', 75, FALSE)
 							var/obj/umbra_portal/U = new (get_step(src, SOUTH))
-							// New code doesnt relay on ID for these two's connections buy why not.
 							U.id = "[tribe][rand(1, 999)]"
+							U.later_initialize()
 							var/obj/umbra_portal/P = new (teleport_turf)
 							P.id = U.id
-							U.link_portal(P)
+							P.later_initialize()
 							opening = FALSE
 						else
 							opening = FALSE

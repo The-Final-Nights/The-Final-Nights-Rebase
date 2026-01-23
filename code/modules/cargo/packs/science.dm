@@ -1,4 +1,3 @@
-/* // DARKPACK EDIT REMOVAL
 /datum/supply_pack/science
 	group = "Science"
 	access_view = ACCESS_RESEARCH
@@ -191,4 +190,3 @@
 	contains = list(/obj/item/mod/core/standard = 3)
 	crate_name = "\improper MOD core crate"
 	crate_type = /obj/structure/closet/crate/nakamura
-*/

@@ -239,7 +239,6 @@
 	contains = list(/obj/item/storage/fish_case/random = 2)
 	crate_name = "aquarium fish crate"
 
-/* // DARKPACK EDIT REMOVAL - FISHING
 /datum/supply_pack/critter/fish/freshwater_fish
 	name = "Freshwater Fish Case"
 	desc = "Aquarium fish that have had most of their mud cleaned off."
@@ -260,7 +259,6 @@
 	cost = CARGO_CRATE_VALUE * 2
 	contains = list(/obj/item/storage/fish_case/tiziran = 2)
 	crate_name = "tiziran fish crate"
-*/
 
 /datum/supply_pack/critter/turtle
 	name = "Turtle Crate"
