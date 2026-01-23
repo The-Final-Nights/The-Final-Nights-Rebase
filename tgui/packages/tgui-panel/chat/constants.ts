@@ -65,7 +65,7 @@ export const MESSAGE_TYPES: MessageType[] = [
     type: MESSAGE_TYPE_LOCALCHAT,
     name: 'Local',
     description: 'In-character local messages (say, emote, etc)',
-    selector: '.say, .emote, .looc', // DARKPACK EDIT, ORIGINAL: selector: '.say, .emote',
+    selector: '.say, .emote, .looc, .do', // DARKPACK EDIT, ORIGINAL: selector: '.say, .emote',
   },
   {
     type: MESSAGE_TYPE_RADIO,

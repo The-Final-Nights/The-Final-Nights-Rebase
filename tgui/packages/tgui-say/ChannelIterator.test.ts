@@ -15,6 +15,7 @@ describe('ChannelIterator', () => {
     expect(channelIterator.next()).toBe('Me');
     // DARKPACK EDIT ADD START
     expect(channelIterator.next()).toBe('LOOC');
+    expect(channelIterator.next()).toBe('Do');
     // DARKPACK EDIT ADD END
     expect(channelIterator.next()).toBe('OOC');
     expect(channelIterator.next()).toBe('Say'); // Admin is blacklisted so it should be skipped
