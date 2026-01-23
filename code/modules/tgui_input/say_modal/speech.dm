@@ -51,6 +51,9 @@
 		if(LOOC_CHANNEL)
 			client.looc(entry)
 			return TRUE
+		if(DO_CHANNEL)
+			client.mob.do_verb(entry)
+			return TRUE
 		// DARKPACK EDIT END
 	return FALSE
 
