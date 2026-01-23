@@ -2842,12 +2842,6 @@
 /obj/effect/landmark/npcbeacon,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights/industrial)
-"aJN" = (
-/obj/merge_conflict_marker{
-	name = "Area lacks kiasyd access"
-	},
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior/museum)
 "aJQ" = (
 /obj/structure/curtain/bounty{
 	pixel_y = 8
@@ -3800,12 +3794,6 @@
 /obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
-"aXf" = (
-/obj/merge_conflict_marker{
-	name = "Area lacks laso primo access"
-	},
-/turf/open/floor/city/church,
-/area/vtm/interior/church/haven)
 "aXg" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -3942,6 +3930,7 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/setite,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/setite/basement)
 "aYS" = (
@@ -5371,6 +5360,7 @@
 /obj/effect/mapping_helpers/door/autoname,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
+/obj/effect/mapping_helpers/door/access/kiasyd,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
 "bsP" = (
@@ -6146,9 +6136,6 @@
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/clinic)
 "bCz" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
@@ -6301,7 +6288,6 @@
 /turf/open/floor/carpet,
 /area/vtm/interior/bianchiBank)
 "bEc" = (
-/obj/structure/vampdoor/wood/apartment,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/smooth/old,
@@ -7114,6 +7100,7 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/hunter,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior)
 "bOy" = (
@@ -7321,9 +7308,6 @@
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "bRV" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/littleitaly/apartments)
@@ -8234,6 +8218,7 @@
 /obj/structure/vampdoor/prison,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/ten,
+/obj/effect/mapping_helpers/door/access/hunter,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -15812,9 +15797,6 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/sidewalk,
@@ -16256,9 +16238,7 @@
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer/nosferatu_warren)
 "efx" = (
-/obj/structure/sign/city/millenium{
-	pixel_y = 32
-	},
+/obj/structure/sign/city/millenium,
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/outside/financialdistrict)
 "efC" = (
@@ -16932,16 +16912,6 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/culture)
-"enX" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4;
-	color = "#503e28"
-	},
-/obj/merge_conflict_marker{
-	name = "Area lacks BH primo access"
-	},
-/turf/open/floor/carpet,
-/area/vtm/interior/banu/haven)
 "eoa" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
@@ -17067,9 +17037,6 @@
 /turf/open/misc/beach/vamp,
 /area/vtm/outside/fishermanswharf/lower)
 "eqa" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/autoname,
@@ -19208,10 +19175,7 @@
 	color = "#802d29";
 	dir = 5
 	},
-/obj/structure/sign/city/millenium{
-	dir = 1;
-	pixel_y = 32
-	},
+/obj/structure/sign/city/millenium,
 /turf/open/floor/carpet/red,
 /area/vtm/interior/millennium_tower)
 "eTI" = (
@@ -19783,6 +19747,7 @@
 /obj/structure/vampdoor/prison,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/nine,
+/obj/effect/mapping_helpers/door/access/hunter,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -20857,7 +20822,6 @@
 /turf/open/openspace,
 /area/vtm)
 "fnh" = (
-/obj/structure/vampdoor/wood/apartment,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/turf_decal/siding/wood{
@@ -20901,9 +20865,6 @@
 	},
 /area/vtm/interior/sewer)
 "fnI" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
 	color = "#503e28"
@@ -22434,6 +22395,7 @@
 /obj/structure/vampdoor/old,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/hunter,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior)
 "fIg" = (
@@ -23474,9 +23436,6 @@
 /turf/open/floor/city/plating,
 /area/vtm/interior/endron_facility)
 "fVD" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/decal/cleanable/gasoline,
@@ -23557,9 +23516,7 @@
 	color = "#503e28"
 	},
 /obj/item/kirbyplants/random,
-/obj/structure/sign/city/millenium{
-	pixel_y = 32
-	},
+/obj/structure/sign/city/millenium,
 /turf/open/floor/carpet/red,
 /area/vtm/interior/apartment)
 "fWR" = (
@@ -28628,6 +28585,7 @@
 	},
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/access/setite,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/setite)
 "hlT" = (
@@ -31404,12 +31362,6 @@
 	},
 /turf/closed/wall/vampwall/redbrick,
 /area/vtm/interior/setite)
-"hXL" = (
-/obj/merge_conflict_marker{
-	name = "Area lacks setite access"
-	},
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior/setite)
 "hXM" = (
 /obj/structure/bookcase/random/kindred{
 	density = 0;
@@ -33570,6 +33522,7 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/kiasyd,
 /turf/open/floor/carpet/blue,
 /area/vtm/interior/museum)
 "ivS" = (
@@ -34941,7 +34894,6 @@
 /area/vtm/interior/sewer)
 "iPQ" = (
 /obj/effect/turf_decal/bordur,
-/obj/structure/vampdoor/wood/apartment,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/sidewalk,
@@ -35653,6 +35605,7 @@
 /obj/structure/vampdoor/wood,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/baron,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "jao" = (
@@ -37057,9 +37010,6 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/supply)
 "jqZ" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
@@ -39164,6 +39114,7 @@
 /obj/structure/vampdoor/wood,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/kiasyd,
 /turf/open/floor/carpet/blue,
 /area/vtm/interior/museum)
 "jTF" = (
@@ -39568,9 +39519,6 @@
 /turf/open/floor/wood/old,
 /area/vtm/outside/fishermanswharf/ghetto)
 "jYD" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
@@ -41444,6 +41392,7 @@
 /obj/structure/vampdoor/wood,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/access/setite,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/setite/basement)
 "kwh" = (
@@ -41879,6 +41828,7 @@
 /obj/structure/vampdoor/wood,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/kiasyd,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
 "kBY" = (
@@ -42123,6 +42073,7 @@
 /obj/structure/vampdoor/woodglass,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
+/obj/effect/mapping_helpers/door/access/kiasyd,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
 "kES" = (
@@ -45923,6 +45874,7 @@
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/setite,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/setite)
 "lDq" = (
@@ -47128,7 +47080,6 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/financialdistrict)
 "lUh" = (
-/obj/structure/vampdoor/wood/apartment,
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
@@ -51650,9 +51601,6 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/clinic)
 "mYS" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8;
 	color = "#503e28"
@@ -54201,12 +54149,6 @@
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
-"nGm" = (
-/obj/merge_conflict_marker{
-	name = "Area lacks hunter access"
-	},
-/turf/open/floor/plating/rough,
-/area/vtm/interior)
 "nGq" = (
 /obj/structure/table/wood,
 /obj/item/storage/ashtray{
@@ -55171,7 +55113,6 @@
 	color = "#4a3925";
 	dir = 1
 	},
-/obj/structure/vampdoor/wood/apartment,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior)
 "nQP" = (
@@ -55833,6 +55774,7 @@
 /obj/structure/vampdoor/wood,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/kiasyd,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
 "nZl" = (
@@ -56000,6 +55942,7 @@
 	},
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/baron,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "obE" = (
@@ -56023,6 +55966,7 @@
 	},
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/access/setite,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/setite)
 "obO" = (
@@ -57429,9 +57373,6 @@
 /turf/open/misc/grass,
 /area/vtm/interior/millennium_tower/f3)
 "orq" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
 	color = "#503e28"
@@ -60371,9 +60312,6 @@
 /turf/open/floor/city/plating_stone,
 /area/vtm/interior/shop)
 "pfe" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wood{
 	color = "#503e28";
 	dir = 8
@@ -60666,13 +60604,6 @@
 "piW" = (
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/supply)
-"piY" = (
-/obj/effect/turf_decal/bordur,
-/obj/merge_conflict_marker{
-	name = "Area lacks baron access"
-	},
-/turf/open/floor/plating/concrete,
-/area/vtm/interior/anarch/basement)
 "pjb" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/flowers_yw/style_random,
@@ -63901,7 +63832,6 @@
 /obj/effect/turf_decal/siding/wood{
 	color = "#503e28"
 	},
-/obj/structure/vampdoor/wood/apartment,
 /obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
@@ -68404,6 +68334,7 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/hunter,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior)
 "reG" = (
@@ -70088,7 +70019,6 @@
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/anarch/basement)
 "rCk" = (
-/obj/structure/vampdoor/wood/apartment,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/herring,
@@ -71035,9 +70965,6 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
 "rOC" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4;
 	color = "#503e28"
@@ -72886,9 +72813,6 @@
 /area/vtm/interior/jazzclub)
 "spx" = (
 /obj/structure/table/wood,
-/obj/item/vamp/keys/axes,
-/obj/item/vamp/keys/axes,
-/obj/item/vamp/keys/axes,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/laundromat)
 "spK" = (
@@ -73066,9 +72990,6 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	color = "#503e28";
 	dir = 1
-	},
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
@@ -74296,9 +74217,6 @@
 /turf/open/floor/plating/asphalt,
 /area/vtm/outside/giovanni/courtyard)
 "sIQ" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8;
 	color = "#503e28"
@@ -74496,9 +74414,6 @@
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "sLT" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/turf_decal/siding/wood{
@@ -75107,6 +75022,7 @@
 /obj/structure/vampdoor/prison,
 /obj/effect/mapping_helpers/door/lock_difficulty/ten,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/baron,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch/basement)
 "sTg" = (
@@ -76687,9 +76603,6 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/police/court)
 "tmU" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/turf_decal/siding/wood{
@@ -80873,6 +80786,7 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/kiasyd,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
 "urP" = (
@@ -84124,6 +84038,7 @@
 /obj/structure/vampdoor/wood{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/access/banu_haqim_primogen,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/banu/haven)
 "vkd" = (
@@ -87490,12 +87405,6 @@
 /obj/machinery/light/prince/directional/north,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
-"whY" = (
-/obj/merge_conflict_marker{
-	name = "Area lacks baron access"
-	},
-/turf/open/floor/carpet/darkpack/old,
-/area/vtm/interior/anarch/basement)
 "whZ" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
@@ -87665,9 +87574,6 @@
 /turf/open/misc/grass,
 /area/vtm/outside/financialdistrict)
 "wkk" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
@@ -87686,6 +87592,7 @@
 	},
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/access/setite,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/setite)
 "wkz" = (
@@ -89911,9 +89818,6 @@
 /turf/open/misc/grass,
 /area/vtm/outside/giovanni/courtyard)
 "wLr" = (
-/obj/structure/vampdoor/wood/apartment{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
@@ -89951,6 +89855,7 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/lasombra_primogen,
 /turf/open/floor/city/church,
 /area/vtm/interior/church/haven)
 "wLR" = (
@@ -93387,9 +93292,7 @@
 	color = "#802d29";
 	dir = 9
 	},
-/obj/structure/sign/city/millenium{
-	pixel_y = 32
-	},
+/obj/structure/sign/city/millenium,
 /obj/item/paper_bin{
 	pixel_y = 6
 	},
@@ -93748,7 +93651,6 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/obj/structure/vampdoor/wood/apartment,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/sidewalk/poor,
@@ -97235,7 +97137,7 @@ kRM
 anE
 rDz
 two
-whY
+wZc
 wZc
 lGZ
 jKX
@@ -98678,7 +98580,7 @@ niE
 niE
 niE
 sTf
-piY
+lLl
 hrm
 qFM
 lGZ
@@ -154007,7 +153909,7 @@ tao
 ajj
 eWf
 eWf
-nGm
+eWf
 eWf
 eWf
 tND
@@ -167419,7 +167321,7 @@ yit
 yit
 rHd
 uAK
-aJN
+uAK
 uAK
 nQW
 xQB
@@ -176572,7 +176474,7 @@ tjo
 tjo
 hGt
 bRi
-hXL
+tjo
 tjo
 dTo
 ncf
@@ -205209,7 +205111,7 @@ tWz
 lFu
 xQA
 siQ
-enX
+siQ
 xVt
 siQ
 adQ
@@ -230019,7 +229921,7 @@ aOJ
 hSw
 iIf
 eEt
-aXf
+aUM
 eEt
 hSw
 aOJ
