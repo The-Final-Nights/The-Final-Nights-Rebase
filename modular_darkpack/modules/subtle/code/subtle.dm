@@ -162,6 +162,20 @@
 			var/datum/preferences/prefs = hologram.Impersonation.client?.prefs
 			if(prefs && prefs.read_preference(/datum/preference/toggle/subtler_sound))
 				hologram.Impersonation.playsound_local(get_turf(hologram.Impersonation), 'sound/effects/achievement/glockenspiel_ping.ogg', 50)
+	else
+		if(isobj(target))
+			return TRUE
+		var/ghostless = get_hearers_in_view(target, user) - GLOB.dead_mob_list
+		for(var/obj/item/dullahan_relay/dullahan in ghostless)
+			ghostless -= dullahan
+			ghostless += dullahan.owner
+
+		for(var/mob/receiver in ghostless)
+			receiver.show_message(subtler_message, alt_msg = subtler_message)
+			var/datum/preferences/prefs = receiver.client?.prefs
+			if(prefs && prefs.read_preference(/datum/preference/toggle/subtler_sound))
+				receiver.playsound_local(get_turf(receiver), 'sound/effects/achievement/glockenspiel_ping.ogg', 50)
+
 	return TRUE
 
 /*
