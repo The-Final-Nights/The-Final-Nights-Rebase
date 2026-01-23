@@ -76,6 +76,12 @@
 	ambience_index = AMBIENCE_NATURE
 	music_index = MUSIC_CITY
 
+/area/vtm/outside/culture
+	name = "Cultural District"
+	icon_state = "unionsquare"
+	ambience_index = AMBIENCE_CITY
+	music_index = MUSIC_CITY
+
 /area/vtm/outside/supply
 	name = "Supply"
 	icon_state = "supply"
