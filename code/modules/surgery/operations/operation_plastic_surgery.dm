@@ -109,6 +109,7 @@
 	desc = "Apply plastic to a patient's face to to allow for greater customization in following plastic surgery."
 	implements = list(
 		/obj/item/stack/sheet/plastic = 1,
+		/obj/item/stack/human_flesh = 1, // DARKPACK EDIT ADD
 	)
 	time = 4.8 SECONDS
 	operation_flags = OPERATION_MORBID | OPERATION_LOCKED
