@@ -8,12 +8,19 @@ Module ID: DO EMOTES
 
 ### TG Proc/File Changes:
 
-- `code/datums/keybinding/living.dm`
-- `code/modules/admin/verbs/admin.dm`
-- `code/modules/admin/verbs/admingame.dm`
-- `code/modules/admin/sql_ban_system.dm`
-- `code/modules/tgui_input/say_modal/modal.dm`
+- `code/__DEFINES/speech_channels.dm`
 - `code/modules/tgui_input/say_modal/speech.dm`
+
+### Modular Overrides:
+
+- N/A
+
+### Defines:
+
+- `code/__DEFINES/~darkpack/keybindings.dm`
+
+### Included files that are not contained in this module:
+
 - `tgui/packages/tgui-panel/chat/constants.ts`
 - `tgui/packages/tgui-panel/styles/tgchat/chat-dark.scss`
 - `tgui/packages/tgui-panel/styles/tgchat/chat-light.scss`
@@ -21,25 +28,7 @@ Module ID: DO EMOTES
 - `tgui/packages/tgui-say/ChannelIterator.test.ts`
 - `tgui/packages/tgui-say/ChannelIterator.ts`
 
-### Modular Overrides:
-
-- `modular_darkpack/master_files/code/_globalvars/configuration.dm`
-- `modular_darkpack/master_files/code/controllers/configuration/entries/general.dm`
-
-### Defines:
-
-- `code/__DEFINES/~darkpack/banning.dm`
-- `code/__DEFINES/~darkpack/keybinding.dm`
-- `code/__DEFINES/admin.dm`
-- `code/__DEFINES/chat.dm`
-- `code/__DEFINES/span.dm`
-- `code/__DEFINES/speech_channels.dm`
-
-### Included files that are not contained in this module:
-
-- `tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/game_preferences/darkpack_looc.tsx`
-- `config/darkpack_config.txt`
-
 ### Credits:
 
+yooriss
 XeonMations
