@@ -465,7 +465,7 @@
 	if (recipe.category == CAT_CULT && !IS_CULTIST(user)) // Skip blood cult recipes if not cultist
 		return FALSE
 	// DARKPACK EDIT ADD - START
-	if (recipe.category == CAT_TZIMISCE) // TODO: [Disciplines] Uncomment when viscissitude is a thing.
+	if (recipe.category == CAT_TZIMISCE)
 		return HAS_TRAIT(user, TRAIT_VICISSITUDE_KNOWLEDGE)
 	// DARKPACK EDIT ADD - END
 	return recipe.is_recipe_available(user) // DARKPACK EDIT CHANGE

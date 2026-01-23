@@ -80,6 +80,9 @@
 	for (var/trait in clan_traits)
 		ADD_TRAIT(vampire, trait, CLAN_TRAIT)
 
+	if(isdummy(vampire))
+		return
+
 	// Applies on_join_round effects when a client logs into this mob
 	if (joining_round)
 		RegisterSignal(vampire, COMSIG_MOB_LOGIN, PROC_REF(on_join_round), override = TRUE)
