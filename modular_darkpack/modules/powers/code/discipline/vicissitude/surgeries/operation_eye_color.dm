@@ -28,8 +28,8 @@
 
 /datum/surgery_operation/organ/eye_color_surgery/pre_preop(atom/movable/operating_on, mob/living/surgeon, tool, list/operation_args)
 	operation_args[OPERATION_NEW_COLOR] = list()
-	operation_args[OPERATION_NEW_COLOR][1] = tgui_color_picker(surgeon, "Left Eye", "Keratopigmentation Surgery")
-	operation_args[OPERATION_NEW_COLOR][2] = tgui_color_picker(surgeon, "Right Eye", "Keratopigmentation Surgery")
+	operation_args[OPERATION_NEW_COLOR] += tgui_color_picker(surgeon, "Left Eye", "Keratopigmentation Surgery")
+	operation_args[OPERATION_NEW_COLOR] += tgui_color_picker(surgeon, "Right Eye", "Keratopigmentation Surgery")
 	return !!operation_args[OPERATION_NEW_COLOR][1] || !!operation_args[OPERATION_NEW_COLOR][2]
 
 /datum/surgery_operation/organ/eye_color_surgery/on_preop(atom/movable/operating_on, mob/living/surgeon, tool, list/operation_args)
@@ -49,10 +49,9 @@
 
 	var/eye_color_left = operation_args[OPERATION_NEW_COLOR][1]
 	var/eye_color_right = operation_args[OPERATION_NEW_COLOR][2]
-	if(eye_color_left)
-		patient.add_eye_color_left(eye_color_left, EYE_COLOR_ORGAN_PRIORITY, update_body = TRUE)
-	if(eye_color_right)
-		patient.add_eye_color_right(eye_color_right, EYE_COLOR_ORGAN_PRIORITY, update_body = TRUE)
+	patient.set_eye_color(sanitize_hexcolor(eye_color_left), sanitize_hexcolor(eye_color_right))
+	patient.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
+	patient.update_body()
 
 	display_results(
 		surgeon,
