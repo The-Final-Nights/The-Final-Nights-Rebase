@@ -2400,6 +2400,10 @@
 	},
 /obj/structure/hedge,
 /obj/structure/flora/bush/flowers_pp/style_random,
+/obj/effect/turf_decal/siding/wood{
+	color = "#574d46"
+	},
+/obj/structure/railing,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/chantry)
 "aCU" = (
@@ -5078,8 +5082,7 @@
 /area/vtm/interior/millennium_tower/f3)
 "bpp" = (
 /obj/structure/railing{
-	dir = 5;
-	pixel_y = 3
+	dir = 5
 	},
 /obj/effect/turf_decal/siding/white,
 /obj/effect/turf_decal/siding/wood{
@@ -10026,6 +10029,10 @@
 	},
 /obj/structure/hedge,
 /obj/structure/flora/bush/flowers_br/style_random,
+/obj/effect/turf_decal/siding/wood{
+	color = "#574d46"
+	},
+/obj/structure/railing,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/chantry)
 "cyJ" = (
@@ -27800,9 +27807,7 @@
 /area/vtm/interior)
 "haV" = (
 /obj/structure/railing{
-	dir = 9;
-	pixel_y = 8;
-	pixel_x = 1
+	dir = 9
 	},
 /obj/effect/turf_decal/bordur/corner{
 	dir = 8
@@ -32633,8 +32638,6 @@
 /obj/structure/railing{
 	dir = 6
 	},
-/obj/structure/hedge,
-/obj/structure/flora/bush/flowers_yw/style_random,
 /turf/open/misc/dirt,
 /area/vtm/interior/library)
 "ilK" = (
@@ -33907,6 +33910,7 @@
 /turf/open/misc/grass,
 /area/vtm/outside/forest)
 "iAu" = (
+/obj/structure/railing,
 /turf/open/floor/iron/stairs{
 	dir = 4
 	},
@@ -37152,6 +37156,10 @@
 	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/ghetto)
+"jrf" = (
+/obj/structure/railing/corner,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/chantry)
 "jrg" = (
 /obj/structure/barricade/wooden/crude,
 /obj/structure/platform/lowwall/old,
@@ -37307,8 +37315,7 @@
 /area/vtm/interior/clinic)
 "jtz" = (
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 7
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
@@ -44744,6 +44751,9 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
+/obj/structure/railing/corner{
+	dir = 4
+	},
 /turf/open/floor/city/plating_stone,
 /area/vtm/interior/chantry/basement)
 "lmk" = (
@@ -46269,8 +46279,7 @@
 /area/vtm/interior)
 "lHx" = (
 /obj/structure/railing{
-	dir = 5;
-	pixel_y = 3
+	dir = 5
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 5;
@@ -48561,8 +48570,7 @@
 "mkb" = (
 /obj/structure/bookcase/random/fiction,
 /obj/structure/railing{
-	dir = 6;
-	pixel_y = 3
+	dir = 6
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 6;
@@ -58957,6 +58965,9 @@
 	color = "#574d46";
 	dir = 8
 	},
+/obj/structure/railing/corner{
+	dir = 8
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/chantry)
 "oKi" = (
@@ -59579,8 +59590,7 @@
 "oTa" = (
 /obj/structure/hedge,
 /obj/structure/railing{
-	dir = 6;
-	pixel_y = 3
+	dir = 6
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 6;
@@ -62443,17 +62453,6 @@
 /obj/structure/stone_tile/surrounding_tile,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/caves)
-"pDH" = (
-/obj/structure/hedge,
-/obj/structure/railing,
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/structure/flora/bush/flowers_pp/style_random,
-/obj/structure/hedge,
-/obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/dirt,
-/area/vtm/interior/library)
 "pDO" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/bottle/whiskey{
@@ -66837,6 +66836,9 @@
 	color = "#574d46";
 	dir = 1
 	},
+/obj/structure/railing/corner{
+	dir = 1
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/chantry)
 "qJk" = (
@@ -70017,6 +70019,13 @@
 	},
 /turf/open/floor/carpet/green,
 /area/vtm/interior/endron_facility/restricted)
+"rzQ" = (
+/obj/effect/turf_decal/bordur{
+	dir = 4
+	},
+/obj/structure/railing/corner,
+/turf/open/floor/city/plating_stone,
+/area/vtm/interior/chantry/basement)
 "rzS" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/chair/pew/left,
@@ -73786,11 +73795,6 @@
 /obj/structure/railing{
 	dir = 9
 	},
-/obj/structure/hedge,
-/obj/structure/railing{
-	dir = 10
-	},
-/obj/structure/flora/bush/flowers_yw/style_random,
 /turf/open/misc/dirt,
 /area/vtm/interior/library)
 "sAq" = (
@@ -79278,8 +79282,7 @@
 /area/vtm/interior/church)
 "tUj" = (
 /obj/structure/railing{
-	dir = 1;
-	pixel_y = 7
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
@@ -80277,6 +80280,9 @@
 	color = "#574d46";
 	dir = 4
 	},
+/obj/structure/railing/corner{
+	dir = 4
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/chantry)
 "ugR" = (
@@ -81064,6 +81070,10 @@
 /turf/open/floor/carpet/red,
 /area/vtm/interior/chantry)
 "utg" = (
+/obj/effect/turf_decal/siding/wideplating{
+	color = "#004136";
+	dir = 8
+	},
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#004136";
 	dir = 8
@@ -82197,8 +82207,7 @@
 /area/vtm/interior/police)
 "uHy" = (
 /obj/structure/railing{
-	dir = 9;
-	pixel_y = 3
+	dir = 9
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 9;
@@ -83184,6 +83193,7 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	color = "#574d46"
 	},
+/obj/structure/railing/corner,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/chantry)
 "uUm" = (
@@ -91607,9 +91617,7 @@
 "xej" = (
 /obj/machinery/light/directional/east,
 /obj/structure/bookcase/random/fiction,
-/obj/structure/railing{
-	dir = 10
-	},
+/obj/structure/railing,
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
 	},
@@ -93782,9 +93790,7 @@
 /area/vtm/outside/fishermanswharf/industrial)
 "xIA" = (
 /obj/structure/bookcase/random/fiction,
-/obj/structure/railing{
-	dir = 10
-	},
+/obj/structure/railing,
 /obj/effect/turf_decal/siding/wood{
 	color = "#574d46"
 	},
@@ -124159,7 +124165,7 @@ rCB
 rCB
 cNM
 tgZ
-lmj
+rzQ
 rEi
 ekC
 qvk
@@ -164323,7 +164329,7 @@ jcZ
 fTm
 mNz
 uux
-pDH
+xav
 uux
 aWv
 wMg
@@ -204925,7 +204931,7 @@ mjT
 mjT
 vTS
 iWK
-sgk
+jrf
 xBB
 mkb
 gZQ
