@@ -54,7 +54,6 @@
 #define LOG_STATS (1 << 23) // DARKPACK EDIT ADD - logging stats to prevent abuse
 // DARKPACK EDIT START
 #define LOG_SUBTLE (1 << 24)
-#define LOG_SUBTLER (1 << 25)
 // DARKPACK EDIT END
 
 //Individual logging panel pages

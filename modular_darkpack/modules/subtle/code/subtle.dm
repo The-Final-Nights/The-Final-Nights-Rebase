@@ -139,7 +139,7 @@
 		to_chat(user, span_warning("You can't emote at this time."))
 		return FALSE
 
-	user.log_message(subtler_message, LOG_SUBTLER)
+	user.log_message(subtler_message, LOG_SUBTLE)
 
 	var/space = should_have_space_before_emote(html_decode(subtler_message)[1]) ? " " : ""
 
@@ -196,9 +196,6 @@
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
 	usr.emote("subtler")
-
-/proc/log_subtler(text, list/data)
-	logger.Log(LOG_CATEGORY_SUBTLER, text, data)
 
 #undef SUBTLE_DEFAULT_DISTANCE
 #undef SUBTLE_ONE_TILE

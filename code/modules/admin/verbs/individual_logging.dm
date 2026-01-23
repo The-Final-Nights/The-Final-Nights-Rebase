@@ -17,6 +17,12 @@
 		dat += " | "
 		dat += individual_logging_panel_link(M, INDIVIDUAL_EMOTE_LOG, LOGSRC_CKEY, "Emote Log", source, ntype)
 		dat += " | "
+		// DARKPACK EDIT START
+		dat += individual_logging_panel_link(M, INDIVIDUAL_SUBTLE_LOG, LOGSRC_CKEY, "Subtle Log", source, ntype)
+		dat += " | "
+		dat += individual_logging_panel_link(M, INDIVIDUAL_SUBTLER_LOG, LOGSRC_CKEY, "Subtler Log", source, ntype)
+		dat += " | "
+		// DARKPACK EDIT END
 		dat += individual_logging_panel_link(M, INDIVIDUAL_COMMS_LOG, LOGSRC_CKEY, "Comms Log", source, ntype)
 		dat += " | "
 		dat += individual_logging_panel_link(M, INDIVIDUAL_OOC_LOG, LOGSRC_CKEY, "OOC Log", source, ntype)
@@ -38,6 +44,12 @@
 	dat += " | "
 	dat += individual_logging_panel_link(M, INDIVIDUAL_EMOTE_LOG, LOGSRC_MOB, "Emote Log", source, ntype)
 	dat += " | "
+	// DARKPACK EDIT START
+	dat += individual_logging_panel_link(M, INDIVIDUAL_SUBTLE_LOG, LOGSRC_MOB, "Subtle Log", source, ntype)
+	dat += " | "
+	dat += individual_logging_panel_link(M, INDIVIDUAL_SUBTLER_LOG, LOGSRC_MOB, "Subtler Log", source, ntype)
+	dat += " | "
+	// DARKPACK EDIT END
 	dat += individual_logging_panel_link(M, INDIVIDUAL_COMMS_LOG, LOGSRC_MOB, "Comms Log", source, ntype)
 	dat += " | "
 	dat += individual_logging_panel_link(M, INDIVIDUAL_OOC_LOG, LOGSRC_MOB, "OOC Log", source, ntype)

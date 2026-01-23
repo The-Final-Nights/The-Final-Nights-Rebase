@@ -48,8 +48,6 @@
 		// DARKPACK EDIT START
 		if(LOG_SUBTLE)
 			colored_message = "(SUBTLE) [colored_message]"
-		if(LOG_SUBTLER)
-			colored_message = "(SUBTLER) [colored_message]"
 		// DARKPACK EDIT END
 
 	var/list/timestamped_message = list("\[[time_stamp(format = "YYYY-MM-DD hh:mm:ss")]\] [key_name_and_tag(src)] [loc_name(src)] (Event #[LAZYLEN(logging[smessage_type])])" = colored_message)
