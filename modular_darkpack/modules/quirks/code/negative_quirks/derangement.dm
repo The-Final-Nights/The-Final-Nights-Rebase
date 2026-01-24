@@ -85,7 +85,7 @@
 	var/list/objects = list()
 
 	for(var/obj/object in view(hallucinator))
-		if((object.invisibility > hallucinator.see_invisible) || !object.loc || !object.name || object in hallucinator.contents)
+		if((object.invisibility > hallucinator.see_invisible) || !object.loc || !object.name || (object in hallucinator.contents))
 			continue
 		var/weight = 1
 		if(isitem(object))

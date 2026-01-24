@@ -13,3 +13,13 @@
 		if(original_human == ending_human)
 			original_human.client.prefs.guestbook_names = original_human.mind.guestbook.known_names
 			original_human.client.prefs.save_character()
+
+/mob/living/carbon/human/proc/load_guestbook()
+	if(!mind || !mind.original_character_slot_index || !client)
+		return
+
+	var/list/known_names = client.prefs.guestbook_names
+	if(!known_names)
+		return
+
+	mind.guestbook.known_names = known_names
