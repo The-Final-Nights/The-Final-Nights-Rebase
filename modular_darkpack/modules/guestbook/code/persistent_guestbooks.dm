@@ -1,9 +1,9 @@
 ///Saves all guestbooks for everyone's original characters
-/mob/living/carbon/human/proc/save_guestbook(list/known_names)
+/mob/living/proc/save_guestbook(list/known_names)
 	client.prefs.guestbook_names = known_names
 	client.prefs.save_character()
 
-/mob/living/carbon/human/proc/load_guestbook()
+/mob/living/proc/load_guestbook()
 	if(!mind || !mind.original_character_slot_index || !client)
 		return
 

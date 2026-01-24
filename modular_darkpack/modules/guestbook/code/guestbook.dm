@@ -79,7 +79,7 @@
 			return FALSE
 	return TRUE
 
-/datum/guestbook/proc/add_guest(mob/living/carbon/human/user, mob/living/carbon/guest, real_name, given_name, silent = TRUE)
+/datum/guestbook/proc/add_guest(mob/living/user, mob/living/carbon/guest, real_name, given_name, silent = TRUE)
 	//Already exists, should be handled by rename_guest()
 	var/existing_name = LAZYACCESS(known_names, real_name)
 	if(existing_name)
@@ -113,7 +113,7 @@
 		return FALSE
 	return TRUE
 
-/datum/guestbook/proc/remove_guest(mob/living/carbon/human/user, mob/living/carbon/guest, real_name, silent = TRUE)
+/datum/guestbook/proc/remove_guest(mob/living/user, mob/living/carbon/guest, real_name, silent = TRUE)
 	//Already exists, should be handled by rename_guest()
 	var/existing_name = LAZYACCESS(known_names, real_name)
 	if(!existing_name)
