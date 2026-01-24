@@ -1,6 +1,5 @@
 SUBSYSTEM_DEF(dynamic)
 	name = "Dynamic"
-	flags = SS_NO_INIT
 	wait = 5 MINUTES
 
 	// These vars just exist for admins interfacing with dynamic
@@ -58,6 +57,10 @@ SUBSYSTEM_DEF(dynamic)
 	var/list/datum/dynamic_ruleset/unreported_rulesets = list()
 	/// Whether random events that spawn antagonists or modify dynamic are enabled
 	var/antag_events_enabled = FALSE
+
+/datum/controller/subsystem/dynamic/Initialize()
+	admin_disabled_rulesets |= subtypesof(/datum/dynamic_ruleset)
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/dynamic/fire(resumed)
 	if(!COOLDOWN_FINISHED(src, midround_cooldown) || EMERGENCY_PAST_POINT_OF_NO_RETURN)
