@@ -113,7 +113,7 @@
 		return FALSE
 	return TRUE
 
-/datum/guestbook/proc/remove_guest(mob/user, mob/living/carbon/guest, real_name, silent = TRUE)
+/datum/guestbook/proc/remove_guest(mob/living/carbon/human/user, mob/living/carbon/guest, real_name, silent = TRUE)
 	//Already exists, should be handled by rename_guest()
 	var/existing_name = LAZYACCESS(known_names, real_name)
 	if(!existing_name)
