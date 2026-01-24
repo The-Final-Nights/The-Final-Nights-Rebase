@@ -182,6 +182,7 @@
 	var/datum/dna/original_dna
 	var/original_real_name
 	var/original_name
+	var/original_physique
 	var/original_sprite
 	var/original_sprite_greyscale
 	var/list/cached_targets
@@ -244,6 +245,7 @@
 		owner.dna.copy_dna(original_dna, 0)
 		original_real_name = owner.real_name
 		original_name = owner.name
+		original_physique = owner.physique
 		if(owner_splat.clan?.alt_sprite)
 			original_sprite = owner_splat.clan.alt_sprite
 			original_sprite_greyscale = owner_splat.clan.alt_sprite_greyscale
@@ -254,6 +256,7 @@
 	target.dna.copy_dna(owner.dna, 0)
 	owner.real_name = target.real_name
 	owner.name = target.name
+	owner.physique = target.physique
 	var/datum/splat/vampire/kindred/target_splat = iskindred(target)
 	if(target_splat?.clan?.alt_sprite)
 		owner.set_body_sprite(target_splat.clan.alt_sprite, target_splat.clan.alt_sprite_greyscale, TRUE)
@@ -276,6 +279,7 @@
 	original_dna.copy_dna(owner.dna, 0)
 	owner.real_name = original_real_name
 	owner.name = original_name
+	owner.physique = original_physique
 
 	if(owner_splat.clan && (TRAIT_MASQUERADE_VIOLATING_FACE in owner_splat.clan.clan_traits))
 		ADD_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_FACE, MAGIC_TRAIT)
