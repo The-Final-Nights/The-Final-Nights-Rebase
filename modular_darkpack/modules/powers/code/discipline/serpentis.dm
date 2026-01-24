@@ -223,7 +223,7 @@
 
 /mob/living/basic/cobra/typhon/Life(seconds_per_tick)
 	. = ..()
-	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
+	SEND_SIGNAL(src, COMSIG_MASQUERADE_VIOLATION)
 
 //THE HEART OF DARKNESS
 /datum/discipline_power/serpentis/the_heart_of_darkness
