@@ -1890,7 +1890,7 @@
 "awD" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/wood/old,
-/area/vtm/outside/fishermanswharf/lower)
+/area/vtm/interior/shop)
 "awE" = (
 /obj/structure/table/wood/fancy,
 /obj/item/storage/backpack/duffelbag,
@@ -7274,6 +7274,9 @@
 /obj/effect/spawner/random/occult/artifact,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/laundromat)
+"bQC" = (
+/turf/open/floor/wood/old,
+/area/vtm/interior/shop)
 "bQX" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1;
@@ -9659,7 +9662,7 @@
 /obj/structure/closet/crate/large,
 /obj/item/gun/ballistic/shotgun/vampire,
 /turf/open/floor/wood/old,
-/area/vtm/outside/fishermanswharf/lower)
+/area/vtm/interior/shop)
 "cuG" = (
 /obj/structure/rack/clothing_hanger{
 	density = 0;
@@ -13035,7 +13038,7 @@
 	pixel_y = 7
 	},
 /turf/open/floor/wood/old,
-/area/vtm/outside/fishermanswharf/lower)
+/area/vtm/interior/shop)
 "doU" = (
 /obj/structure/table,
 /turf/open/floor/carpet/black,
@@ -21919,18 +21922,10 @@
 /turf/open/floor/plating/concrete,
 /area/vtm)
 "fBn" = (
-/obj/structure/table/wood,
-/obj/lombard/blackmarket{
-	pixel_y = 12;
-	pixel_x = 7
-	},
-/obj/structure/retail/black_market{
-	pixel_y = 12;
-	pixel_x = -7
-	},
-/obj/structure/platform/lowwall/brick_old,
-/turf/open/floor/plating/rough,
-/area/vtm/outside/fishermanswharf/lower)
+/obj/effect/decal/pallet,
+/obj/structure/closet/crate/large,
+/turf/open/floor/wood/old,
+/area/vtm/interior/shop)
 "fBp" = (
 /obj/structure/flora/bush/leavy/style_random,
 /turf/open/misc/grass/nosmooth,
@@ -30101,7 +30096,7 @@
 /obj/effect/decal/pallet,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/wood/old,
-/area/vtm/outside/fishermanswharf/lower)
+/area/vtm/interior/shop)
 "hGZ" = (
 /obj/structure/table,
 /obj/item/newspaper,
@@ -31806,7 +31801,7 @@
 	},
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/wood/old,
-/area/vtm/outside/fishermanswharf/lower)
+/area/vtm/interior/shop)
 "icK" = (
 /obj/structure/vampdoor{
 	dir = 4
@@ -56573,6 +56568,10 @@
 /obj/effect/landmark/npcwall,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/financialdistrict)
+"ohz" = (
+/obj/effect/decal/pallet,
+/turf/open/floor/wood/old,
+/area/vtm/interior/shop)
 "ohF" = (
 /obj/structure/railing{
 	dir = 1
@@ -60540,7 +60539,7 @@
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/old,
-/area/vtm/outside/fishermanswharf/lower)
+/area/vtm/interior/shop)
 "pgX" = (
 /obj/structure/railing,
 /turf/open/floor/city/toilet,
@@ -64649,7 +64648,7 @@
 "qhK" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood/old,
-/area/vtm/outside/fishermanswharf/lower)
+/area/vtm/interior/shop)
 "qhR" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
@@ -92764,7 +92763,7 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /obj/effect/mapping_helpers/door/access/npc,
 /turf/open/floor/wood/old,
-/area/vtm/outside/fishermanswharf/lower)
+/area/vtm/interior/shop)
 "xwX" = (
 /obj/structure/barrels/rand,
 /turf/open/floor/plating/sidewalk,
@@ -120517,9 +120516,9 @@ uNM
 cnQ
 uUS
 ghg
-ptu
+mEk
 pgU
-ptu
+mEk
 tuX
 aej
 qcw
@@ -120721,9 +120720,9 @@ iow
 cnQ
 ghg
 ghg
-hhY
-bEj
-oEs
+fBn
+bQC
+ohz
 tuX
 aej
 vFf
@@ -120924,10 +120923,10 @@ kSY
 kSY
 kSY
 ghg
-hhY
-bEj
-bEj
-hhY
+fBn
+bQC
+bQC
+fBn
 tuX
 aej
 vFf
@@ -121127,10 +121126,10 @@ dnp
 kSY
 rCB
 rCB
-ptu
+mEk
 hGY
-bEj
-bEj
+bQC
+bQC
 awD
 tuX
 aej
@@ -121331,11 +121330,11 @@ vSU
 kSY
 rCB
 rCB
-ptu
-hhY
-bEj
-oEs
-bEj
+mEk
+fBn
+bQC
+ohz
+bQC
 tuX
 aej
 vFf
@@ -121535,10 +121534,10 @@ dnp
 kSY
 rCB
 rCB
-ptu
-ptu
-fBn
-ptu
+mEk
+mEk
+cFL
+mEk
 xwW
 tuX
 aej
@@ -121740,10 +121739,10 @@ kSY
 rCB
 rCB
 rCB
-ptu
+mEk
 icA
-bEj
-bEj
+bQC
+bQC
 tuX
 aej
 vFf
@@ -121944,7 +121943,7 @@ kSY
 rCB
 xfw
 rCB
-ptu
+mEk
 doQ
 qhK
 cuF
@@ -122148,10 +122147,10 @@ rCB
 rCB
 xfw
 rCB
-ptu
-ptu
-ptu
-ptu
+mEk
+mEk
+mEk
+mEk
 tuX
 aej
 vFf
