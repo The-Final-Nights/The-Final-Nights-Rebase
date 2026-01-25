@@ -5026,10 +5026,12 @@
 /turf/open/floor/wood/herring,
 /area/vtm/interior/endron_facility/restricted)
 "boQ" = (
-/obj/effect/landmark/npcability,
-/obj/effect/landmark/npcbeacon,
-/turf/open/floor/plating/sidewalk/poor,
-/area/vtm/outside/pacificheights/community)
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/mob/living/carbon/human/npc/police,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/pacificheights/industrial)
 "boW" = (
 /turf/open/floor/city/toilet/large,
 /area/vtm/interior/police/upstairs)
@@ -13649,9 +13651,12 @@
 /turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "dwh" = (
-/obj/effect/landmark/npcactivity,
-/turf/open/floor/plating/sidewalk/poor,
-/area/vtm/outside/pacificheights/community)
+/obj/effect/turf_decal/bordur{
+	dir = 4
+	},
+/mob/living/carbon/human/npc/police,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/outside/baywalk)
 "dwm" = (
 /obj/structure/chair/comfy/black{
 	dir = 1
@@ -16320,8 +16325,6 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/obj/effect/landmark/npcability,
-/obj/effect/landmark/npcbeacon,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/pacificheights/community)
 "egt" = (
@@ -42821,13 +42824,9 @@
 /turf/open/floor/carpet/red,
 /area/vtm/interior/library)
 "kOD" = (
-/obj/effect/decal/graffiti{
-	pixel_y = -28
-	},
-/turf/open/floor/plating/rough/cave{
-	icon_state = "stone8"
-	},
-/area/vtm)
+/mob/living/carbon/human/npc/police,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/culture)
 "kOI" = (
 /obj/structure/toilet{
 	pixel_y = 16
@@ -43027,7 +43026,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
-/mob/living/carbon/human/npc/walkby,
+/mob/living/carbon/human/npc/police,
 /obj/effect/landmark/npcbeacon,
 /obj/effect/landmark/npcability,
 /turf/open/floor/plating/sidewalk,
@@ -74515,14 +74514,6 @@
 /obj/effect/landmark/start/darkpack/citizen/janitor,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
-"sLQ" = (
-/obj/effect/turf_decal/bordur{
-	dir = 1
-	},
-/obj/effect/landmark/npcability,
-/obj/effect/landmark/npcbeacon,
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/financialdistrict)
 "sLR" = (
 /obj/structure/chair/sofa/corp/left{
 	alpha = 225;
@@ -74669,7 +74660,6 @@
 	dir = 8
 	},
 /obj/structure/roadsign/warningtrafficlight,
-/mob/living/carbon/human/npc/walkby,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/culture)
 "sNl" = (
@@ -75479,11 +75469,9 @@
 /turf/open/floor/carpet/red,
 /area/vtm/interior/littleitaly)
 "sYf" = (
-/obj/effect/turf_decal/bordur,
-/obj/effect/landmark/npcability,
-/obj/effect/landmark/npcbeacon,
-/turf/open/floor/plating/sidewalk/rich,
-/area/vtm/outside/financialdistrict)
+/mob/living/carbon/human/npc/police,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/pacificheights/industrial)
 "sYn" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/ten,
 /obj/effect/turf_decal/siding/wood{
@@ -75563,14 +75551,6 @@
 	},
 /turf/open/misc/dirt,
 /area/vtm/outside/pacificheights/forest)
-"sZl" = (
-/obj/effect/turf_decal/bordur{
-	dir = 1
-	},
-/obj/effect/landmark/npcability,
-/obj/effect/landmark/npcbeacon,
-/turf/open/floor/plating/sidewalk/rich,
-/area/vtm/outside/financialdistrict)
 "sZp" = (
 /obj/structure/chair/wood/darkpack/red{
 	dir = 8
@@ -92010,10 +91990,6 @@
 /obj/effect/spawner/random/occult/artifact,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/shop)
-"xkB" = (
-/mob/living/carbon/human/npc/walkby,
-/turf/open/floor/plating/sidewalk/poor,
-/area/vtm/outside/pacificheights/community)
 "xkK" = (
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
@@ -93143,13 +93119,6 @@
 /obj/effect/turf_decal/bordur,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/endron_facility/plant)
-"xCd" = (
-/obj/effect/turf_decal/bordur/corner{
-	dir = 1
-	},
-/mob/living/carbon/human/npc/walkby,
-/turf/open/floor/plating/sidewalk/rich,
-/area/vtm/outside/financialdistrict)
 "xCm" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10;
@@ -93208,7 +93177,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/mob/living/carbon/human/npc/walkby,
+/mob/living/carbon/human/npc/police,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/ghetto)
 "xDd" = (
@@ -139554,7 +139523,7 @@ uGq
 uDw
 vGb
 uDw
-tow
+boQ
 oyj
 oYt
 oYt
@@ -148718,7 +148687,7 @@ tao
 mmB
 gcp
 oyj
-tao
+sYf
 tao
 tao
 mmB
@@ -149359,7 +149328,7 @@ tao
 tao
 tao
 tao
-oyj
+tao
 tao
 tao
 tao
@@ -149564,7 +149533,7 @@ tao
 tao
 oyj
 oqM
-oyj
+tao
 tao
 tao
 tao
@@ -150502,7 +150471,7 @@ wUD
 vMX
 oyz
 oyz
-kOD
+aOb
 uvs
 uvs
 axB
@@ -151195,7 +151164,7 @@ dNs
 ajj
 ajj
 mQl
-fvP
+hry
 uKH
 uDw
 uDw
@@ -151281,7 +151250,7 @@ xyP
 xyP
 xyP
 dtC
-boQ
+kKu
 qLs
 kKu
 kKu
@@ -151400,7 +151369,7 @@ tao
 tao
 oyj
 aCx
-aJL
+hdQ
 gjZ
 gjZ
 gjZ
@@ -151485,14 +151454,14 @@ pDA
 pDA
 pDA
 ego
-dwh
-boQ
 kKu
 kKu
 kKu
 kKu
 kKu
-xkB
+kKu
+kKu
+kKu
 dxR
 kKu
 kKu
@@ -152709,10 +152678,10 @@ sAM
 sAM
 sAM
 ego
-dwh
-boQ
 kKu
-xkB
+kKu
+kKu
+kKu
 kKu
 kKu
 kKu
@@ -152913,7 +152882,7 @@ sWE
 rjV
 sAM
 dtC
-boQ
+kKu
 fCn
 kKu
 kKu
@@ -164891,7 +164860,7 @@ eNr
 xEh
 xEh
 xEh
-vZu
+xEh
 xEh
 xEh
 svd
@@ -165094,7 +165063,7 @@ pWE
 eGA
 xEh
 eaD
-vZu
+xEh
 wkP
 vZu
 xEh
@@ -165205,13 +165174,13 @@ mNz
 mNz
 fpd
 bYY
-sYf
+uJR
 sJy
 sJy
 sJy
 sJy
 sJy
-sZl
+fTm
 bYY
 uVC
 pbF
@@ -165415,7 +165384,7 @@ jcZ
 jcZ
 jcZ
 bCS
-xCd
+oRA
 vHt
 rmJ
 pRr
@@ -165471,7 +165440,7 @@ hqu
 hqu
 mjJ
 waf
-psR
+dwh
 thV
 psR
 hqu
@@ -166726,7 +166695,7 @@ pWE
 eGA
 rOn
 qqZ
-qMh
+agC
 vXT
 bbW
 lPj
@@ -166837,13 +166806,13 @@ luB
 qyD
 qeX
 mqg
-gEX
+jBa
 sJy
 sJy
 sJy
 sJy
 sJy
-sLQ
+qtm
 dCc
 yhJ
 eMw
@@ -169517,7 +169486,7 @@ ilK
 vxQ
 koE
 iEh
-iEh
+kOD
 sfn
 joX
 qdm
@@ -174394,7 +174363,7 @@ jcZ
 qtm
 scd
 iEh
-rAL
+iEh
 iEh
 iEh
 iEh
