@@ -25,6 +25,10 @@
 /area/vtm/outside/pacificheights/community
 	name = "Pacific Heights - Community Road"
 
+/area/vtm/outside/pacificheights/community/tunnel
+	name = "Pacific Heights - Community Road Tunnel"
+	outdoors = FALSE
+
 /area/vtm/outside/pacificheights/industrial
 	name = "Pacific Heights - Industrial District"
 
