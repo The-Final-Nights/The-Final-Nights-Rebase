@@ -170,7 +170,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "abW" = (
 /obj/effect/turf_decal/siding/white{
@@ -515,7 +515,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "afX" = (
 /obj/structure/railing{
@@ -1640,7 +1640,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "aup" = (
 /obj/effect/turf_decal/bordur,
@@ -1709,7 +1709,7 @@
 	icon_state = "tree10";
 	pixel_y = 6
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "auO" = (
 /obj/structure/vampfence/rich{
@@ -1724,7 +1724,7 @@
 /area/vtm/interior/sewer)
 "auQ" = (
 /obj/structure/flora/bush/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "auU" = (
 /obj/machinery/light/directional/north,
@@ -1788,7 +1788,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree7"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "avn" = (
 /obj/structure/table,
@@ -2030,11 +2030,11 @@
 	pixel_y = -1;
 	pixel_x = -2
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "ayj" = (
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "ayp" = (
 /obj/structure/chair/comfy/black,
@@ -2907,7 +2907,7 @@
 /obj/structure/vampfence/rich{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "aKK" = (
 /obj/structure/closet/cabinet,
@@ -3438,7 +3438,7 @@
 /area/vtm/interior/sewer)
 "aRO" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "aRT" = (
 /obj/structure/dresser,
@@ -3641,7 +3641,7 @@
 "aUp" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "aUq" = (
 /obj/structure/sink/directional/east,
@@ -3940,7 +3940,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "aZk" = (
 /obj/effect/turf_decal/siding/white{
@@ -4173,7 +4173,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "bcf" = (
 /obj/effect/landmark/npcability,
@@ -4438,7 +4438,7 @@
 "bfa" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "bfj" = (
 /obj/structure/platform/lowwall/junk/window,
@@ -5219,7 +5219,7 @@
 	icon_state = "tree5";
 	pixel_y = 14
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "bqS" = (
 /obj/effect/turf_decal/bordur{
@@ -5288,7 +5288,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "brP" = (
 /obj/structure/chair/plastic/darkpack,
@@ -6142,6 +6142,10 @@
 /obj/effect/decal/rugs,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/claimable,
 /turf/open/floor/mineral/titanium/tiled/white{
 	color = "#F5DDB0"
 	},
@@ -6290,6 +6294,8 @@
 "bEc" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/apartment)
 "bEh" = (
@@ -6652,7 +6658,7 @@
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/rock/darkpack,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "bID" = (
 /obj/effect/turf_decal/bordur{
@@ -6662,7 +6668,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "bIF" = (
 /obj/structure/railing{
@@ -6766,7 +6772,7 @@
 /area/vtm/interior/sewer)
 "bJD" = (
 /obj/effect/turf_decal/bordur,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "bJE" = (
 /obj/effect/turf_decal/siding/wood{
@@ -7308,7 +7314,15 @@
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "bRV" = (
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	color = "#503e28"
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/littleitaly/apartments)
 "bRY" = (
@@ -7586,7 +7600,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "bUZ" = (
 /obj/effect/decal/wallpaper/stone/low{
@@ -8561,7 +8575,7 @@
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "chL" = (
 /obj/item/flashlight/flare/candle/infinite{
@@ -8813,7 +8827,7 @@
 /area/vtm/interior/littleitaly)
 "cka" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "ckt" = (
 /obj/structure/curtain/bounty{
@@ -9365,7 +9379,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree3"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "cqO" = (
 /obj/structure/chair/sofa/corner/brown{
@@ -9401,7 +9415,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "crr" = (
 /obj/structure/table,
@@ -9800,7 +9814,7 @@
 /obj/structure/vampfence/rich{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "cwo" = (
 /obj/structure/table/wood,
@@ -10151,7 +10165,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree7"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "cBl" = (
 /obj/structure/table/countertop/bacotell,
@@ -10597,7 +10611,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "cHM" = (
 /obj/structure/flora/tree/vamp,
@@ -10685,7 +10699,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "cJw" = (
 /obj/effect/turf_decal/siding/wood{
@@ -10771,7 +10785,7 @@
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
 /mob/living/basic/pet/cat/darkpack,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "cJU" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/nine,
@@ -11434,7 +11448,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "cTh" = (
 /obj/effect/turf_decal/siding/white/end{
@@ -11626,7 +11640,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "cVE" = (
 /obj/structure/rack/food{
@@ -11762,6 +11776,10 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/clinic/haven)
+"cXz" = (
+/obj/structure/flora/tree/vamp/pine,
+/turf/open/misc/grass/nosmooth,
+/area/vtm/outside/pacificheights)
 "cXM" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/wood/smooth/old,
@@ -11960,7 +11978,7 @@
 "daE" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/effect/turf_decal/bordur,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "daG" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -12097,7 +12115,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "ddj" = (
 /obj/machinery/light/dim/directional/south,
@@ -12990,7 +13008,7 @@
 	icon_state = "fence_end"
 	},
 /obj/effect/turf_decal/bordur,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "doG" = (
 /obj/structure/table/wood,
@@ -13375,7 +13393,7 @@
 "dsP" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "dsR" = (
 /obj/machinery/washing_machine,
@@ -13628,7 +13646,7 @@
 	icon_state = "tree10";
 	pixel_y = 6
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "dwh" = (
 /obj/effect/landmark/npcactivity,
@@ -14088,7 +14106,7 @@
 	dir = 4
 	},
 /obj/machinery/light/prince/directional/north,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "dDB" = (
 /obj/structure/filingcabinet/medical{
@@ -14335,7 +14353,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "dGB" = (
 /obj/structure/table/wood/fancy/royalblack,
@@ -14377,7 +14395,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/lavendergrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "dGW" = (
 /obj/structure/vampdoor/woodglass{
@@ -14793,7 +14811,7 @@
 /area/vtm/interior/shop)
 "dNg" = (
 /obj/effect/decal/pallet,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "dNi" = (
 /obj/structure/vampdoor{
@@ -15794,11 +15812,15 @@
 /turf/open/floor/plating/rough,
 /area/vtm/outside/giovanni/courtyard)
 "dZX" = (
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/lock_difficulty/six,
-/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior)
 "eac" = (
@@ -15822,7 +15844,7 @@
 	pixel_y = -1;
 	pixel_x = -2
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "eag" = (
 /obj/effect/decal/rugs,
@@ -15854,7 +15876,7 @@
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "eaD" = (
 /obj/effect/landmark/start/darkpack/citizen/citizen,
@@ -16399,7 +16421,7 @@
 /obj/structure/vampfence/rich{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "ehn" = (
 /obj/structure/chair/sofa/corp/right{
@@ -16820,7 +16842,7 @@
 /area/vtm/interior/clinic)
 "emC" = (
 /obj/structure/flora/bush/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "emL" = (
 /obj/effect/turf_decal/siding/wood{
@@ -16919,7 +16941,7 @@
 /obj/structure/flora/bush/sparsegrass/style_random{
 	pixel_x = -2
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "eoo" = (
 /obj/structure/railing{
@@ -17016,7 +17038,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "epM" = (
 /obj/structure/chair/office/darkpack/green{
@@ -17040,6 +17062,10 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/hotel)
 "eqk" = (
@@ -17098,7 +17124,7 @@
 	dir = 8
 	},
 /obj/structure/flora/tree/vamp/pine,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "erJ" = (
 /obj/structure/stone_tile/slab/cracked,
@@ -17255,7 +17281,7 @@
 	pixel_x = -2
 	},
 /obj/structure/flora/bush/flowers_br/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "euu" = (
 /obj/structure/railing{
@@ -18042,7 +18068,7 @@
 	dir = 10
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "eEz" = (
 /turf/open/floor/city/circled,
@@ -18088,7 +18114,7 @@
 "eFi" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/tree/vamp/pine,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "eFu" = (
 /obj/effect/decal/wallpaper/paper/stripe/low,
@@ -18201,7 +18227,7 @@
 	dir = 8
 	},
 /obj/structure/vampfence/rich,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "eGT" = (
 /obj/structure/hedge,
@@ -18514,7 +18540,7 @@
 	pixel_x = -2
 	},
 /obj/structure/flora/tree/vamp,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "eLS" = (
 /obj/effect/turf_decal/siding/wideplating/corner{
@@ -19183,7 +19209,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/lavendergrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "eTJ" = (
 /obj/effect/turf_decal/siding/wideplating{
@@ -19648,7 +19674,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "eZe" = (
 /obj/structure/vampipe{
@@ -20724,7 +20750,7 @@
 /area/vtm/interior/sewer/nosferatu_bar)
 "flz" = (
 /obj/structure/lamppost/sidewalk,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "flA" = (
 /obj/machinery/hydroponics/simple/wooden,
@@ -20824,6 +20850,8 @@
 "fnh" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	color = "#4a3925";
 	dir = 1
@@ -20865,14 +20893,8 @@
 	},
 /area/vtm/interior/sewer)
 "fnI" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4;
-	color = "#503e28"
-	},
-/obj/effect/mapping_helpers/door/lock_difficulty/six,
-/obj/effect/mapping_helpers/door/lock,
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior)
+/turf/open/misc/grass/nosmooth,
+/area/vtm/outside/giovanni/courtyard)
 "fnL" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 8
@@ -20923,6 +20945,10 @@
 /obj/structure/railing,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
+"fow" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/grass/nosmooth,
+/area/vtm/outside/giovanni/courtyard)
 "fox" = (
 /obj/structure/vampfence/rich{
 	dir = 4;
@@ -21353,7 +21379,7 @@
 	pixel_x = 20;
 	density = 0
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "ftB" = (
 /obj/structure/table,
@@ -21520,7 +21546,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree8"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "fvP" = (
 /obj/effect/turf_decal/bordur{
@@ -21806,7 +21832,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 5
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "fzD" = (
 /obj/structure/vampstatue,
@@ -21906,7 +21932,7 @@
 /area/vtm/outside/fishermanswharf/lower)
 "fBp" = (
 /obj/structure/flora/bush/leavy/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "fBs" = (
 /mob/living/basic/pet/cat/darkpack,
@@ -22136,7 +22162,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "fEE" = (
 /obj/structure/toilet{
@@ -22898,7 +22924,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "fPO" = (
 /obj/structure/curtain/cloth/fancy/mechanical{
@@ -23019,7 +23045,7 @@
 "fQE" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "fQM" = (
 /obj/effect/turf_decal/siding/white/end{
@@ -23180,7 +23206,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "fSI" = (
 /obj/effect/turf_decal/bordur{
@@ -23316,7 +23342,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree8"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "fUl" = (
 /obj/structure/curtain/cloth{
@@ -23440,6 +23466,9 @@
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/decal/cleanable/gasoline,
 /obj/effect/mapping_helpers/door/autoname,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/hotel)
 "fVK" = (
@@ -23754,6 +23783,11 @@
 /obj/structure/platform/lowwall/rich/old/window,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/tzimisce_manor)
+"fZw" = (
+/obj/structure/table/wood,
+/obj/machinery/light/directional/west,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior)
 "fZA" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
@@ -24500,7 +24534,7 @@
 /obj/structure/vampfence/rich{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "gjK" = (
 /obj/structure/hedge,
@@ -24541,6 +24575,19 @@
 /obj/effect/landmark/npcbeacon,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/baywalk)
+"gkq" = (
+/obj/effect/turf_decal/siding/wood{
+	color = "#503e28";
+	dir = 8
+	},
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/oldwood{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/ghetto)
 "gks" = (
 /obj/effect/decal/cleanable/trash,
 /obj/machinery/light/directional/east,
@@ -25102,7 +25149,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 10
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "grU" = (
 /obj/structure/chair/office/darkpack/green{
@@ -25708,7 +25755,7 @@
 /obj/structure/vampfence/corner/rich{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "gAJ" = (
 /obj/machinery/shower/directional/south,
@@ -25963,6 +26010,11 @@
 /obj/structure/platform/lowwall/junk,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
+"gEj" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/structure/flora/tree/vamp/pine,
+/turf/open/misc/grass/nosmooth,
+/area/vtm/outside/giovanni/courtyard)
 "gEk" = (
 /obj/structure/table/wood,
 /obj/structure/reagent_dispensers/beerkeg{
@@ -26225,7 +26277,7 @@
 	pixel_x = -2
 	},
 /obj/structure/flora/bush/flowers_br/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/interior/hotel)
 "gHb" = (
 /obj/machinery/light/directional/east,
@@ -26325,7 +26377,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "gIr" = (
 /obj/structure/table/wood/fancy/purple,
@@ -26615,7 +26667,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree7"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "gMz" = (
 /obj/structure/table/wood,
@@ -26681,7 +26733,7 @@
 "gNc" = (
 /obj/structure/flora/bush/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "gNf" = (
 /obj/structure/chair/office/darkpack/green,
@@ -26722,7 +26774,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 10
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "gOu" = (
 /obj/structure/vampdoor/wood{
@@ -26884,7 +26936,7 @@
 /obj/structure/vampfence/corner/rich{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "gQB" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -27332,7 +27384,7 @@
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/sunny/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "gXa" = (
 /obj/vampire_computer,
@@ -27514,7 +27566,7 @@
 	dir = 4
 	},
 /obj/structure/fence,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/forest)
 "gZb" = (
 /obj/structure/table,
@@ -27565,7 +27617,7 @@
 /area/vtm/interior/millennium_tower/f3)
 "gZB" = (
 /obj/structure/flora/bush/fullgrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "gZF" = (
 /obj/structure/railing{
@@ -28234,7 +28286,7 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/ghetto)
 "hhw" = (
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "hhA" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
@@ -29676,7 +29728,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 9
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "hBY" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -30207,7 +30259,7 @@
 	dir = 8
 	},
 /obj/structure/vampfence/corner/rich,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "hJx" = (
 /obj/structure/closet/crate/coffin{
@@ -30262,7 +30314,7 @@
 /area/vtm/interior/tzimisce_manor)
 "hKt" = (
 /obj/structure/platform/lowwall/city/window,
-/turf/closed/wall/vampwall/city,
+/turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "hKE" = (
 /obj/structure/chair/wood/darkpack/red{
@@ -30428,7 +30480,7 @@
 	icon_state = "tree7";
 	pixel_y = 12
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "hLQ" = (
 /obj/item/paper/fluff{
@@ -30446,6 +30498,9 @@
 /obj/structure/chair/office/darkpack/green,
 /turf/open/floor/carpet/green,
 /area/vtm/interior/endron_facility/restricted)
+"hMh" = (
+/turf/open/misc/grass/nosmooth,
+/area/vtm/outside/pacificheights)
 "hMi" = (
 /obj/structure/platform/lowwall/rich/old/window,
 /turf/open/floor/plating/rough,
@@ -30708,7 +30763,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/bordur,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "hPE" = (
 /obj/structure/ladder/manhole/up{
@@ -30992,7 +31047,7 @@
 	pixel_y = 4
 	},
 /obj/structure/flora/tree/vamp,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "hSA" = (
 /obj/machinery/light/directional/east,
@@ -32113,7 +32168,7 @@
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/lamppost/one,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "igx" = (
 /obj/machinery/light/directional/west,
@@ -33273,7 +33328,7 @@
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "itN" = (
 /obj/effect/turf_decal/siding/wood{
@@ -33442,7 +33497,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree10"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "ivj" = (
 /turf/closed/wall/vampwall/rock,
@@ -33588,7 +33643,7 @@
 "iwD" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/effect/turf_decal/bordur/corner,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "iwK" = (
 /obj/structure/table,
@@ -33784,7 +33839,7 @@
 /obj/structure/lamppost/one{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "iAu" = (
 /obj/structure/railing,
@@ -34069,7 +34124,7 @@
 /obj/structure/flora/bush/sparsegrass/style_random{
 	pixel_y = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/interior/hotel)
 "iEj" = (
 /obj/structure/hedge,
@@ -34893,9 +34948,11 @@
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "iPQ" = (
-/obj/effect/turf_decal/bordur,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood,
+/obj/effect/turf_decal/bordur,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior)
 "iPS" = (
@@ -35085,7 +35142,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "iSg" = (
 /obj/effect/turf_decal/siding/wideplating{
@@ -35258,7 +35315,7 @@
 	pixel_y = 4
 	},
 /obj/structure/flora/bush/flowers_br/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "iTJ" = (
 /obj/structure/platform/lowwall/brick/window,
@@ -35989,7 +36046,7 @@
 	},
 /obj/structure/flora/bush/flowers_br/style_random,
 /obj/structure/flora/tree/vamp,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "jfo" = (
 /obj/structure/table/wood,
@@ -36023,7 +36080,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/weather/dirt,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "jfZ" = (
 /obj/structure/table/wood/fancy/red,
@@ -36460,7 +36517,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "jkJ" = (
 /obj/structure/chair/office/darkpack/green{
@@ -36486,7 +36543,7 @@
 /area/vtm/interior/ghetto)
 "jkX" = (
 /obj/structure/flora/bush/fullgrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "jlf" = (
 /obj/effect/turf_decal/bordur{
@@ -36699,7 +36756,7 @@
 /area/vtm/interior/chantry/basement)
 "jnJ" = (
 /obj/structure/flora/bush/lavendergrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "jnQ" = (
 /obj/item/kirbyplants/random,
@@ -37016,6 +37073,10 @@
 /obj/effect/decal/rugs,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/claimable,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior)
 "jrb" = (
@@ -37453,7 +37514,7 @@
 /obj/effect/turf_decal/bordur/corner{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "jwe" = (
 /obj/effect/turf_decal/bordur,
@@ -37711,7 +37772,7 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "jzd" = (
 /obj/effect/decal/wallpaper/grey,
@@ -38891,7 +38952,7 @@
 "jPI" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/lamppost/sidewalk,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "jPP" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -39310,7 +39371,7 @@
 	dir = 1;
 	icon_state = "fence_end"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "jVU" = (
 /obj/machinery/washing_machine,
@@ -39524,6 +39585,10 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/oldwood{
+	dir = 4
+	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/ghetto)
 "jYK" = (
@@ -39534,7 +39599,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "jYS" = (
 /obj/structure/fire_barrel,
@@ -40178,7 +40243,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "kgO" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -40324,7 +40389,7 @@
 /obj/structure/vampfence/rich{
 	pixel_y = 13
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "kiu" = (
 /obj/the_matrix,
@@ -40349,6 +40414,9 @@
 	icon_state = "stone8"
 	},
 /area/vtm/interior/caves)
+"kiI" = (
+/turf/open/misc/grass/nosmooth,
+/area/vtm/graveyard)
 "kiJ" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
@@ -40993,7 +41061,7 @@
 /area/vtm/interior/setite)
 "kqw" = (
 /obj/structure/flora/tree/vamp,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "kqD" = (
 /obj/structure/stone_tile/block{
@@ -41416,7 +41484,7 @@
 	dir = 8;
 	icon_state = "fence_end"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "kwr" = (
 /obj/effect/turf_decal/trimline/yellow/warning{
@@ -42603,7 +42671,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "kLy" = (
 /obj/effect/turf_decal/siding/white{
@@ -43404,7 +43472,7 @@
 "kXu" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "kXz" = (
 /obj/structure/table/wood,
@@ -43780,7 +43848,7 @@
 /area/vtm/interior/endron_facility/plant)
 "lcX" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "ldl" = (
 /obj/structure/chair/comfy/beige,
@@ -44320,7 +44388,7 @@
 /obj/structure/flora/bush/sparsegrass/style_random{
 	pixel_x = -2
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "liJ" = (
 /obj/structure/stairs/west,
@@ -44630,12 +44698,9 @@
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "lmt" = (
-/obj/structure/chair/wood/darkpack{
-	dir = 1
-	},
-/obj/machinery/light/directional/west,
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior)
+/obj/structure/flora/bush/fullgrass/style_random,
+/turf/open/misc/grass/nosmooth,
+/area/vtm/outside/pacificheights)
 "lmy" = (
 /obj/structure/arc/add{
 	dir = 8
@@ -45560,7 +45625,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree10"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "lyE" = (
 /turf/open/floor/city/bacotell,
@@ -45629,6 +45694,11 @@
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/leavy/style_random,
 /turf/open/misc/grass,
+/area/vtm/outside/forest)
+"lzG" = (
+/obj/structure/flora/tree/vamp/pine,
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "lzL" = (
 /obj/structure/platform/lowwall/rich/old/window,
@@ -45711,7 +45781,7 @@
 	},
 /obj/structure/vampfence/rich,
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "lAM" = (
 /obj/machinery/light/small/directional/south,
@@ -45782,7 +45852,7 @@
 	},
 /obj/structure/fence,
 /obj/effect/turf_decal/weather/dirt,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/forest)
 "lCi" = (
 /obj/structure/curtain/cloth/fancy{
@@ -47082,6 +47152,8 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/old,
 /turf/open/floor/wood/rough,
 /area/vtm/interior/ghetto)
 "lUq" = (
@@ -47348,7 +47420,7 @@
 	icon_state = "tree10";
 	pixel_y = 6
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "lXg" = (
 /obj/structure/railing{
@@ -47772,7 +47844,7 @@
 	pixel_x = 20;
 	density = 0
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "mcN" = (
 /obj/structure/toilet{
@@ -48146,7 +48218,7 @@
 "mgL" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "mgM" = (
 /turf/open/floor/city/bacotell,
@@ -48991,7 +49063,7 @@
 	},
 /obj/structure/flora/tree/vamp/pine,
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "mrg" = (
 /obj/structure/roadblock,
@@ -49254,7 +49326,7 @@
 	density = 0;
 	id = 661
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "mvm" = (
 /obj/structure/railing{
@@ -50499,6 +50571,12 @@
 	icon_state = "stone8"
 	},
 /area/vtm/interior/cog/caern)
+"mMW" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/turf/open/misc/grass/nosmooth,
+/area/vtm/outside/pacificheights)
 "mNb" = (
 /obj/machinery/light/floor{
 	pixel_x = -7;
@@ -51071,7 +51149,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree10"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "mSX" = (
 /obj/structure/hedge,
@@ -51097,7 +51175,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree3"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "mTl" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
@@ -51450,7 +51528,7 @@
 /obj/structure/flora/bush/sparsegrass/style_random{
 	pixel_x = -2
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/interior/hotel)
 "mWE" = (
 /obj/structure/chair/plastic/darkpack,
@@ -51604,6 +51682,10 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/oldwood{
+	dir = 4
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/ghetto)
 "mYU" = (
@@ -51862,7 +51944,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 5
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "nbN" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -52270,7 +52352,7 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/subway)
 "nhw" = (
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "nhx" = (
 /obj/effect/turf_decal/bordur{
@@ -52850,7 +52932,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "npO" = (
 /obj/effect/turf_decal/siding/white{
@@ -53032,7 +53114,7 @@
 	},
 /obj/structure/flora/bush/flowers_br/style_random,
 /obj/structure/flora/tree/vamp,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/interior/hotel)
 "nru" = (
 /obj/fusebox/transformer{
@@ -54508,7 +54590,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree3"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "nKf" = (
 /obj/structure/fire_barrel,
@@ -55106,6 +55188,8 @@
 "nQN" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	color = "#4a3925";
 	dir = 1
@@ -55177,7 +55261,7 @@
 	},
 /obj/structure/flora/bush/flowers_br/style_random,
 /obj/machinery/light/directional/east,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/interior/hotel)
 "nRJ" = (
 /obj/structure/railing,
@@ -55471,7 +55555,7 @@
 "nVm" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "nVv" = (
 /obj/effect/decal/support,
@@ -55692,12 +55776,12 @@
 "nXC" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	color = "#4a3925";
 	dir = 1
 	},
-/obj/structure/vampdoor/wood,
-/obj/effect/mapping_helpers/door/access/camarilla,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior)
 "nXG" = (
@@ -56219,7 +56303,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "oeP" = (
 /obj/structure/table/wood,
@@ -56682,7 +56766,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/lavendergrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "ojP" = (
 /obj/structure/closet,
@@ -57093,7 +57177,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "ooh" = (
 /obj/structure/fence/door/opened{
@@ -57374,8 +57458,12 @@
 	dir = 4;
 	color = "#503e28"
 	},
-/obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/claimable,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "oru" = (
@@ -57436,7 +57524,7 @@
 /area/vtm/interior/laundromat)
 "orJ" = (
 /obj/effect/turf_decal/bordur,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "orU" = (
 /obj/structure/railing{
@@ -57868,7 +57956,7 @@
 	pixel_x = -2
 	},
 /obj/structure/flora/bush/flowers_br/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "oyV" = (
 /obj/structure/curtain/bounty{
@@ -58151,7 +58239,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree5"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "oBM" = (
 /obj/structure/curtain/bounty{
@@ -58740,7 +58828,7 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "oJp" = (
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "oJw" = (
 /obj/effect/decal/cleanable/blood,
@@ -58949,7 +59037,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "oMH" = (
 /obj/machinery/light/dim/directional/north,
@@ -59751,7 +59839,7 @@
 	icon_state = "tree10";
 	pixel_y = 13
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "oXU" = (
 /obj/structure/lattice/grate{
@@ -59791,7 +59879,7 @@
 /obj/effect/turf_decal/bordur/corner{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "oYo" = (
 /obj/effect/decal/fakelattice{
@@ -60008,7 +60096,7 @@
 "pbv" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "pbF" = (
 /obj/effect/decal/cleanable/litter,
@@ -60102,7 +60190,7 @@
 "pcM" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "pcR" = (
 /obj/effect/turf_decal/siding/wideplating{
@@ -60148,7 +60236,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree5"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "pde" = (
 /obj/effect/decal/fakelattice{
@@ -60315,6 +60403,10 @@
 	},
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/ghetto)
 "pfk" = (
@@ -60626,7 +60718,7 @@
 /obj/structure/vampfence/rich{
 	pixel_y = 13
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "pjo" = (
 /obj/item/stack/dollar/hundred,
@@ -61009,7 +61101,7 @@
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/pointy/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "pmO" = (
 /obj/structure/table/wood,
@@ -61779,7 +61871,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "pxx" = (
 /obj/effect/turf_decal/loading_area/white{
@@ -61993,7 +62085,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree7"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "pzJ" = (
 /obj/effect/turf_decal/siding/wood/corner{
@@ -62297,7 +62389,7 @@
 /obj/structure/fence{
 	pixel_y = 22
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/forest)
 "pEn" = (
 /obj/effect/decal/wallpaper/lightpadded,
@@ -63233,7 +63325,7 @@
 /obj/structure/flora/bush/sparsegrass/style_random{
 	pixel_y = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "pQM" = (
 /obj/effect/decal/wallpaper/lightpadded/low,
@@ -63823,13 +63915,17 @@
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "pYm" = (
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood{
 	color = "#503e28"
 	},
-/obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "pYu" = (
@@ -65228,7 +65324,7 @@
 "qqU" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "qqZ" = (
 /obj/effect/decal/cleanable/litter,
@@ -65349,7 +65445,7 @@
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "qsI" = (
 /obj/structure/table/wood,
@@ -65780,6 +65876,9 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/hotel)
+"qzq" = (
+/turf/open/misc/grass/nosmooth,
+/area/vtm/outside/forest)
 "qzs" = (
 /obj/structure/chair/office/darkpack/blue{
 	dir = 4
@@ -65846,7 +65945,7 @@
 /obj/structure/lamppost/three{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "qzZ" = (
 /obj/structure/bed/maint{
@@ -66168,7 +66267,7 @@
 /obj/structure/flora/bush/sparsegrass/style_random{
 	pixel_x = -2
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/interior/hotel)
 "qEb" = (
 /obj/effect/decal/wallpaper/blue,
@@ -66735,7 +66834,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "qJQ" = (
 /obj/structure/table/wood,
@@ -66825,7 +66924,7 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "qKw" = (
 /obj/structure/flora/tree/vamp/pine,
@@ -67526,7 +67625,7 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/bordur,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "qTV" = (
 /obj/structure/closet/crate/large{
@@ -67681,7 +67780,7 @@
 /area/vtm/interior/jazzclub)
 "qVW" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "qWa" = (
 /obj/effect/turf_decal/bordur{
@@ -68462,7 +68561,7 @@
 	pixel_y = -1;
 	pixel_x = -2
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "rgK" = (
 /obj/effect/decal/cleanable/litter,
@@ -69163,7 +69262,7 @@
 	dir = 4
 	},
 /obj/structure/vampfence/rich,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "rqK" = (
 /obj/structure/railing,
@@ -69344,7 +69443,7 @@
 "rtf" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/railing,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "rtm" = (
 /obj/structure/closet/crate/large,
@@ -69418,7 +69517,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 5
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "ruz" = (
 /obj/structure/railing,
@@ -70016,8 +70115,10 @@
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/anarch/basement)
 "rCk" = (
-/obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/littleitaly/apartments)
 "rCl" = (
@@ -70274,7 +70375,7 @@
 	},
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "rFA" = (
 /obj/effect/decal/cleanable/trash,
@@ -70968,6 +71069,10 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/ghetto)
 "rOE" = (
@@ -71101,7 +71206,7 @@
 	dir = 8
 	},
 /obj/structure/roadsign/speedlimit25,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "rQH" = (
 /obj/structure/vampfence/rich{
@@ -71419,7 +71524,7 @@
 /obj/structure/vampfence/corner/rich{
 	icon_state = "fence_end"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "rUF" = (
 /obj/the_matrix,
@@ -71630,7 +71735,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 9
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "rYz" = (
 /obj/structure/rack,
@@ -72378,6 +72483,19 @@
 /obj/structure/roadsign/speedlimit40,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/outside/culture)
+"siZ" = (
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/turf_decal/siding/wood{
+	color = "#503e28";
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/ghetto)
 "sjc" = (
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#802d29"
@@ -72579,7 +72697,7 @@
 	dir = 6
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "smD" = (
 /obj/effect/decal/cleanable/cardboard,
@@ -72984,14 +73102,15 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/chinatown)
 "sss" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	color = "#503e28";
+/obj/effect/turf_decal/bordur{
 	dir = 1
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior/littleitaly/apartments)
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/old,
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm/interior/ghetto)
 "ssx" = (
 /obj/structure/platform/lowwall/rich/window,
 /turf/open/floor/plating/rough,
@@ -73134,7 +73253,7 @@
 "stU" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/roadsign/speedlimit25,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "sub" = (
 /obj/machinery/light/prince/directional/east,
@@ -73689,7 +73808,7 @@
 	icon_state = "fence_end"
 	},
 /obj/effect/turf_decal/bordur,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "sBB" = (
 /obj/structure/vampipe{
@@ -73882,7 +74001,7 @@
 /area/vtm/interior/library)
 "sEz" = (
 /obj/structure/flora/bush/grassy/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "sET" = (
 /obj/structure/closet/crate/large,
@@ -73914,7 +74033,7 @@
 /area/vtm/interior/sewer)
 "sFa" = (
 /obj/effect/turf_decal/bordur/corner,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "sFe" = (
 /obj/structure/railing{
@@ -74220,6 +74339,10 @@
 	},
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/old{
+	dir = 4
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/ghetto)
 "sJa" = (
@@ -74415,6 +74538,10 @@
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/turf_decal/siding/wood{
 	color = "#503e28";
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/oldwood{
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
@@ -75824,7 +75951,7 @@
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "tet" = (
 /obj/structure/rack/clothing_hanger,
@@ -76226,7 +76353,7 @@
 	dir = 1;
 	icon_state = "fence_end"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "tjw" = (
 /obj/structure/fence/door{
@@ -76491,7 +76618,7 @@
 "tlV" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/lamppost/one,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "tlZ" = (
 /obj/structure/table/wood,
@@ -76602,11 +76729,15 @@
 "tmU" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8;
 	color = "#503e28"
 	},
-/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/hotel)
 "tmY" = (
@@ -77143,7 +77274,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree3"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "tuX" = (
 /turf/closed/wall/vampwall/brick_old,
@@ -77478,7 +77609,7 @@
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree5"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "tAL" = (
 /obj/structure/rack,
@@ -78364,7 +78495,7 @@
 /obj/structure/vampfence/rich{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "tLx" = (
 /obj/structure/vampfence/rich{
@@ -78993,7 +79124,7 @@
 	},
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "tTy" = (
 /obj/structure/vampdoor/wood,
@@ -79175,7 +79306,7 @@
 	pixel_x = -5;
 	pixel_y = 5
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/interior/hotel)
 "tVh" = (
 /obj/effect/turf_decal/box/white/corners{
@@ -79510,7 +79641,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "uai" = (
 /obj/machinery/light/directional/north,
@@ -79669,7 +79800,7 @@
 	pixel_x = -19
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "ucg" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -80565,7 +80696,7 @@
 	icon_state = "tree10";
 	pixel_y = 6
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/interior/hotel)
 "unO" = (
 /obj/structure/bed,
@@ -81616,7 +81747,7 @@
 /obj/structure/vampfence/rich{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "uCY" = (
 /obj/machinery/door/poddoor/shutters{
@@ -81704,7 +81835,7 @@
 /obj/structure/flora/bush/sparsegrass/style_random{
 	pixel_x = -2
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "uEx" = (
 /obj/structure/railing{
@@ -81737,7 +81868,7 @@
 	pixel_y = -1;
 	pixel_x = -2
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "uEJ" = (
 /obj/structure/hedge,
@@ -83167,7 +83298,7 @@
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "uXs" = (
 /obj/structure/chair/sofa/right/brown{
@@ -83177,7 +83308,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/techshop)
 "uXz" = (
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "uXE" = (
 /obj/effect/decal/wallpaper/paper/stripe/low,
@@ -83218,7 +83349,7 @@
 	icon_state = "tree10";
 	pixel_y = 14
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "uYG" = (
 /obj/structure/table/wood,
@@ -83313,7 +83444,7 @@
 /obj/effect/turf_decal/bordur/corner{
 	dir = 8
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "uZS" = (
 /obj/structure/table,
@@ -85457,7 +85588,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/forest)
 "vGb" = (
 /obj/effect/turf_decal/asphaltline{
@@ -85500,7 +85631,7 @@
 /obj/structure/vampfence/corner/rich{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "vGQ" = (
 /obj/effect/turf_decal/siding/white{
@@ -85763,7 +85894,7 @@
 	icon_state = "tree10";
 	pixel_y = 6
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/interior/hotel)
 "vKu" = (
 /obj/effect/turf_decal/siding/white{
@@ -86188,7 +86319,7 @@
 /area/vtm/interior/sewer/nosferatu_warren)
 "vQg" = (
 /obj/structure/flora/bush/lavendergrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/ghetto)
 "vQk" = (
 /obj/structure/table/wood,
@@ -86323,7 +86454,7 @@
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "vRL" = (
 /obj/fusebox,
@@ -86526,7 +86657,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "vUN" = (
 /obj/structure/noticeboard{
@@ -86611,7 +86742,7 @@
 "vWa" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "vWf" = (
 /obj/effect/turf_decal/bordur,
@@ -86949,6 +87080,10 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
+"wbn" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/grass/nosmooth,
+/area/vtm/outside/forest)
 "wbG" = (
 /mob/living/carbon/human/npc/shop,
 /turf/open/floor/wood/smooth,
@@ -87199,7 +87334,7 @@
 /obj/structure/vampfence/corner/rich{
 	icon_state = "fence_end"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "wfo" = (
 /obj/effect/decal/pallet,
@@ -87568,7 +87703,7 @@
 	dir = 4
 	},
 /obj/structure/vampfence/rich,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/financialdistrict)
 "wkk" = (
 /obj/effect/turf_decal/bordur{
@@ -87577,6 +87712,10 @@
 /obj/effect/decal/rugs,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/claimable,
 /turf/open/floor/city/circled,
 /area/vtm/interior)
 "wkw" = (
@@ -88243,7 +88382,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 5
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/forest)
 "wsn" = (
 /obj/machinery/light/prince/directional/south,
@@ -88434,7 +88573,7 @@
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/tree/vamp/pine,
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights/community)
 "wuT" = (
 /obj/effect/turf_decal/siding/wideplating{
@@ -89346,7 +89485,8 @@
 	pixel_y = 4
 	},
 /obj/structure/flora/bush/flowers_br/style_random,
-/turf/open/misc/grass,
+/obj/effect/turf_decal/bordur/corner,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/interior/hotel)
 "wEJ" = (
 /obj/structure/table/reinforced,
@@ -89449,7 +89589,7 @@
 "wGt" = (
 /obj/structure/flora/bush/grassy/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "wGy" = (
 /obj/structure/table/wood,
@@ -89815,8 +89955,12 @@
 /turf/open/misc/grass,
 /area/vtm/outside/giovanni/courtyard)
 "wLr" = (
-/obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "wLt" = (
@@ -89949,7 +90093,7 @@
 	dir = 4;
 	icon_state = "fence_end"
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "wML" = (
 /obj/effect/decal/cleanable/litter,
@@ -91106,7 +91250,7 @@
 	},
 /obj/structure/vampfence/rich,
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "xcc" = (
 /obj/structure/table/wood,
@@ -91139,7 +91283,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "xcq" = (
 /obj/effect/decal/cleanable/blood/splatter{
@@ -91344,7 +91488,7 @@
 	icon_state = "tree7";
 	pixel_y = 12
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "xeb" = (
 /obj/structure/table,
@@ -91357,7 +91501,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 9
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "xej" = (
 /obj/machinery/light/directional/east,
@@ -91431,7 +91575,7 @@
 /area/vtm/interior/police/court)
 "xfl" = (
 /obj/structure/flora/bush/grassy/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "xfm" = (
 /obj/effect/turf_decal/siding/white{
@@ -92254,7 +92398,7 @@
 /area/vtm/interior/anarch)
 "xre" = (
 /obj/structure/flora/bush/ferny/style_random,
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "xrg" = (
 /obj/effect/turf_decal/siding/wood{
@@ -92671,7 +92815,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "xxM" = (
 /obj/structure/transport/linear/public,
@@ -92706,7 +92850,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/graveyard)
 "xyw" = (
 /turf/closed/wall/vampwall/rock,
@@ -92962,7 +93106,7 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/giovanni/courtyard)
 "xBH" = (
 /obj/structure/vampipe{
@@ -93266,7 +93410,7 @@
 	pixel_y = 13;
 	pixel_x = -2
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "xGe" = (
 /obj/structure/table/wood,
@@ -93650,6 +93794,8 @@
 	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/claimable,
+/obj/structure/vampdoor/oldwood,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/ghetto)
 "xJK" = (
@@ -95240,6 +95386,10 @@
 	color = "#c2c0bc"
 	},
 /area/vtm/interior/banu)
+"ygh" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/grass/nosmooth,
+/area/vtm/graveyard)
 "ygm" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4;
@@ -95293,7 +95443,7 @@
 	icon_state = "tree10";
 	pixel_y = 6
 	},
-/turf/open/misc/grass,
+/turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "ygG" = (
 /obj/effect/turf_decal/siding/wood{
@@ -139693,7 +139843,7 @@ wbi
 wbi
 wbi
 tCG
-aqb
+atR
 aqb
 aqb
 keD
@@ -139897,7 +140047,7 @@ wbi
 wbi
 wbi
 wbi
-atR
+aqb
 aqb
 cLr
 kaL
@@ -142596,8 +142746,8 @@ whz
 dVI
 dVI
 kKV
-daY
-daY
+ygh
+ygh
 gOq
 xzo
 oWx
@@ -142801,8 +142951,8 @@ jmW
 jmx
 whz
 dNg
-daY
-kGS
+ygh
+kiI
 cJp
 ooe
 sBq
@@ -146077,10 +146227,10 @@ hMi
 cwv
 pMT
 gpu
-hFF
+hMh
 aUp
 nVm
-hFF
+hMh
 mSS
 pUu
 qYl
@@ -149957,7 +150107,7 @@ hFF
 hFF
 hFF
 fNh
-pqj
+mMW
 pUu
 vAo
 dSH
@@ -150884,7 +151034,7 @@ roD
 wJp
 wJp
 skt
-aQK
+fnI
 aQK
 qcL
 bdM
@@ -151079,16 +151229,16 @@ jjw
 jjw
 jjw
 jjw
-vCx
-bdM
-vCx
-aQK
-bdM
+gEj
+fow
+gEj
+fnI
+fow
 rtf
 wJp
 wJp
 xBC
-bdM
+fow
 bdM
 aQK
 bdM
@@ -151491,12 +151641,12 @@ mjT
 mjT
 bdM
 bdM
-vCx
+gEj
 rtf
 wJp
 wJp
 bID
-aQK
+fnI
 bdM
 aQK
 aQK
@@ -151695,12 +151845,12 @@ mjT
 mjT
 mjT
 bdM
-aQK
+fnI
 opu
 wJp
 wJp
 lYI
-aQK
+fnI
 aQK
 aQK
 vCx
@@ -151904,7 +152054,7 @@ ejr
 qQR
 vTZ
 gvx
-bdM
+fow
 aQK
 bdM
 qcL
@@ -152108,7 +152258,7 @@ fXI
 cpL
 cpL
 oTn
-bdM
+fow
 qcL
 bdM
 aQK
@@ -152312,7 +152462,7 @@ mjT
 mjT
 mjT
 mjT
-bdM
+fow
 aQK
 aQK
 vCx
@@ -152541,8 +152691,8 @@ cJF
 cJF
 bqB
 pDA
-pDA
-pDA
+wbn
+wbn
 jZy
 lko
 cbn
@@ -152746,8 +152896,8 @@ pDA
 cJF
 cJF
 cJF
-bqB
-cJF
+lzG
+qzq
 jZy
 lko
 cbn
@@ -152951,8 +153101,8 @@ pDA
 cJF
 cJF
 pDA
-bqB
-pDA
+lzG
+wbn
 jZy
 nQV
 nQV
@@ -153156,7 +153306,7 @@ pDA
 cJF
 cJF
 cJF
-pDA
+wbn
 sWU
 vWT
 sWU
@@ -153373,7 +153523,7 @@ gGo
 pdy
 rmp
 sWU
-cJF
+qzq
 aqb
 hpE
 oiE
@@ -155023,7 +155173,7 @@ cLr
 cLr
 aqb
 aqb
-inh
+lmt
 sBv
 pUu
 pUu
@@ -155226,7 +155376,7 @@ aqb
 aqb
 atR
 aqb
-kQL
+cXz
 wGt
 hPC
 leM
@@ -155431,7 +155581,7 @@ atR
 atR
 aqb
 dsP
-inh
+lmt
 hPC
 pUu
 pUu
@@ -161750,7 +161900,7 @@ qdG
 eJk
 bFp
 fgG
-eou
+fgG
 llt
 qdG
 qxS
@@ -171883,7 +172033,7 @@ iCi
 vdk
 tlv
 xYV
-xJH
+sss
 jpZ
 grs
 gsY
@@ -203961,7 +204111,7 @@ mjT
 mjT
 mjT
 aHi
-fnI
+orq
 tHJ
 tHJ
 tHJ
@@ -211178,7 +211328,7 @@ pra
 hLf
 hLf
 sow
-sss
+bRV
 gce
 qFu
 fam
@@ -211867,7 +212017,7 @@ mjT
 fAa
 fAa
 fAa
-sLT
+siZ
 fAa
 mjT
 gmC
@@ -212251,8 +212401,8 @@ vmy
 eDC
 wgf
 dgO
-vLp
-lmt
+fZw
+qbm
 baE
 dKx
 uOW
@@ -213498,7 +213648,7 @@ mjT
 mjT
 mjT
 gmC
-pfe
+gkq
 gmC
 gmC
 gmC
@@ -214903,8 +215053,8 @@ qDl
 iHX
 koy
 baE
-baE
 aKN
+baE
 baE
 cuG
 ajj
@@ -244166,9 +244316,9 @@ qxS
 qxS
 qdG
 bjD
-eou
-eou
-eou
+bjD
+bjD
+bjD
 rLl
 rxw
 qxS
@@ -244372,7 +244522,7 @@ gky
 bjD
 bjD
 bjD
-eou
+bjD
 rLl
 gky
 qxS
