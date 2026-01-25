@@ -56097,6 +56097,10 @@
 /obj/effect/landmark/transport/transport_id{
 	specific_transport_id = "Hospital"
 	},
+/obj/machinery/elevator_control_panel/directional/north{
+	linked_elevator_id = "Hospital";
+	preset_destination_names = list("2" = "Ground Level", "3" = "Inpatient Level")
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/vtm/interior/clinic)
 "ocs" = (
