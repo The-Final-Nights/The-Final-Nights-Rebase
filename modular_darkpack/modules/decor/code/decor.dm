@@ -552,10 +552,8 @@
 	else
 		icon_state = "graffiti[rand(1, 3)]"
 
-// DARKPACK EDIT ADDITION START
 /obj/effect/decal/graffiti/NeverShouldHaveComeHere(turf/here_turf)
 	return isclosedturf(here_turf)
-// DARKPACK EDIT ADDITION END
 
 /obj/effect/decal/kopatich
 	name = "hide carpet"
