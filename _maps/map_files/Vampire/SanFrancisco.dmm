@@ -16054,13 +16054,14 @@
 /area/vtm/interior/endron_facility/restricted)
 "ecW" = (
 /obj/effect/turf_decal/weather/dirt{
-	dir = 9
-	},
-/obj/structure/sign/flag/anarchy{
-	pixel_y = 30
+	dir = 5
 	},
 /obj/effect/turf_decal/weather/dirt{
-	dir = 6
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/dirt,
+/obj/structure/sign/flag/anarchy{
+	pixel_y = 30
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch/basement)
@@ -44503,9 +44504,6 @@
 "lke" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 6
-	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 1
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch/basement)
@@ -76354,10 +76352,10 @@
 /area/vtm/interior/clinic)
 "tjl" = (
 /obj/effect/turf_decal/weather/dirt{
-	dir = 4
+	dir = 5
 	},
 /obj/effect/turf_decal/weather/dirt{
-	dir = 10
+	dir = 9
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch/basement)
@@ -83349,15 +83347,12 @@
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/ghetto)
 "uYa" = (
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/graffiti,
 /obj/effect/decal/cleanable/trash,
-/obj/effect/turf_decal/weather/dirt{
-	dir = 5
-	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 10
-	},
-/turf/open/floor/plating/concrete,
+/turf/open/water/vamp_sewer/border,
 /area/vtm/interior/anarch/basement)
 "uYe" = (
 /obj/structure/flora/rock/darkpack,
