@@ -1503,7 +1503,8 @@
 	color = "#5a2355"
 	},
 /obj/structure/bookcase/random{
-	pixel_y = 20
+	pixel_y = 20;
+	density = 0
 	},
 /turf/open/floor/wood/herring,
 /area/vtm/interior/tzimisce_manor)
@@ -3757,6 +3758,14 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/light/prince/directional/east,
+/obj/item/soap/deluxe{
+	pixel_x = -9;
+	pixel_y = 7
+	},
+/obj/item/soap/deluxe{
+	pixel_x = 3;
+	pixel_y = -1
+	},
 /turf/open/floor/city/toilet,
 /area/vtm/interior/tzimisce_manor)
 "aWc" = (
@@ -9850,6 +9859,7 @@
 	color = "#6e635a";
 	dir = 1
 	},
+/obj/structure/closet,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/tzimisce_manor)
 "cwv" = (
@@ -11145,10 +11155,6 @@
 /turf/open/floor/city/toilet/large,
 /area/vtm/interior/police/upstairs)
 "cNT" = (
-/obj/effect/decal/cleanable/molten_object{
-	pixel_y = 6;
-	pixel_x = 8
-	},
 /turf/open/water/vamp_sewer,
 /area/vtm/interior/clinic/haven)
 "cNV" = (
@@ -23167,7 +23173,8 @@
 	color = "#5a2355"
 	},
 /obj/structure/bookcase/random{
-	pixel_y = 20
+	pixel_y = 20;
+	density = 0
 	},
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
@@ -24794,6 +24801,9 @@
 	},
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /turf/open/floor/wood/herring,
 /area/vtm/interior/tzimisce_manor)
 "gnj" = (
@@ -38306,10 +38316,6 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/vtm/interior/clinic/haven)
-"jFX" = (
-/obj/effect/decal/cleanable/trash,
-/turf/closed/wall/vampwall/rock,
-/area/vtm/interior/sewer/nosferatu_warren)
 "jGe" = (
 /turf/open/floor/wood/herring,
 /area/vtm/interior/tzimisce_manor)
@@ -41622,7 +41628,8 @@
 	dir = 8
 	},
 /obj/structure/bookcase/random{
-	pixel_y = 20
+	pixel_y = 20;
+	density = 0
 	},
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
@@ -53071,6 +53078,9 @@
 /obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
 /turf/open/floor/wood/herring,
 /area/vtm/interior/tzimisce_manor)
 "nra" = (
@@ -81799,7 +81809,6 @@
 	pixel_y = 32
 	},
 /obj/structure/sink/directional/south,
-/obj/effect/decal/cleanable/molten_object,
 /turf/open/water/vamp_sewer,
 /area/vtm/interior/clinic/haven)
 "uDT" = (
@@ -84502,7 +84511,8 @@
 	dir = 4
 	},
 /obj/structure/bookcase/random{
-	pixel_y = 20
+	pixel_y = 20;
+	density = 0
 	},
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
@@ -87795,12 +87805,12 @@
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sabbat_lair)
 "wlc" = (
-/obj/effect/decal/cleanable/molten_object{
-	pixel_y = -3;
-	pixel_x = -9
+/obj/structure/bookcase/random{
+	pixel_y = 20;
+	density = 0
 	},
-/turf/open/water/vamp_sewer,
-/area/vtm/interior/clinic/haven)
+/turf/open/floor/wood/herring,
+/area/vtm/interior/tzimisce_manor)
 "wld" = (
 /obj/structure/chair/darkpack/green{
 	dir = 8
@@ -107413,7 +107423,7 @@ tuX
 rCB
 rCB
 xRn
-jFX
+xRn
 mYM
 seE
 wPh
@@ -127509,7 +127519,7 @@ rCB
 rCB
 tmp
 uDL
-wlc
+cNT
 xog
 reP
 bMO
@@ -140821,7 +140831,7 @@ rCB
 rCB
 rCB
 lfj
-oze
+wlc
 jGe
 jGe
 dRD
@@ -141025,7 +141035,7 @@ xfw
 xfw
 rCB
 lfj
-oze
+wlc
 jGe
 cUY
 cUY
@@ -141433,7 +141443,7 @@ xfw
 xfw
 rCB
 lfj
-oze
+wlc
 jGe
 rDI
 rDI
@@ -141637,7 +141647,7 @@ xfw
 xfw
 rCB
 lfj
-oze
+wlc
 jGe
 jGe
 aNA
@@ -142249,7 +142259,7 @@ xfw
 xfw
 rCB
 lfj
-oze
+wlc
 jGe
 jGe
 lfj
@@ -143271,7 +143281,7 @@ rCB
 rCB
 rCB
 lfj
-oze
+wlc
 dRD
 jGe
 vKF
@@ -143475,7 +143485,7 @@ xfw
 xfw
 rCB
 lfj
-oze
+wlc
 smq
 mln
 qga
@@ -143883,7 +143893,7 @@ xfw
 xfw
 rCB
 lfj
-oze
+wlc
 smq
 wOb
 qga
@@ -144087,7 +144097,7 @@ rCB
 rCB
 rCB
 lfj
-oze
+wlc
 aNA
 jGe
 mYP
