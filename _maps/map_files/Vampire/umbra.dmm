@@ -79,14 +79,6 @@
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/misc/grass/nosmooth,
 /area/vtm/outside/penumbra)
-"ba" = (
-/obj/structure/sign/city/chinese/alt2{
-	dir = 1;
-	pixel_y = 32
-	},
-/obj/effect/decal/cleanable/litter,
-/turf/open/floor/plating/sidewalkalt,
-/area/vtm/outside/penumbra)
 "be" = (
 /obj/effect/turf_decal/crosswalk{
 	dir = 8
@@ -658,9 +650,6 @@
 /turf/open/floor/plating/canalplating,
 /area/vtm/outside/penumbra)
 "gP" = (
-/obj/machinery/light/broken{
-	dir = 4
-	},
 /obj/effect/decal/cleanable/trash,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
@@ -966,12 +955,6 @@
 	dir = 9
 	},
 /turf/open/misc/grass/nosmooth,
-/area/vtm/outside/penumbra)
-"jP" = (
-/obj/structure/sign/city/police_department{
-	dir = 1
-	},
-/turf/open/umbra,
 /area/vtm/outside/penumbra)
 "jQ" = (
 /obj/effect/turf_decal/siding/white{
@@ -1447,9 +1430,6 @@
 /obj/item/pen{
 	pixel_y = 8
 	},
-/obj/machinery/light/cold{
-	pixel_y = 32
-	},
 /turf/open/floor/city/circled,
 /area/vtm/outside/penumbra)
 "oq" = (
@@ -1883,17 +1863,6 @@
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
-"sG" = (
-/obj/effect/decal/fakelattice{
-	density = 0
-	},
-/obj/machinery/light/broken{
-	dir = 4
-	},
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
-	},
-/area/vtm/outside/penumbra)
 "sM" = (
 /obj/structure/table,
 /obj/item/storage/fancy/candle_box{
@@ -2196,15 +2165,6 @@
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/outside/penumbra)
-"vY" = (
-/obj/effect/decal/cleanable/litter,
-/obj/machinery/light/broken{
-	pixel_y = 31
-	},
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
-	},
-/area/vtm/outside/penumbra)
 "vZ" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -2248,12 +2208,6 @@
 	color = "#636363"
 	},
 /turf/open/floor/city/plating,
-/area/vtm/outside/penumbra)
-"wB" = (
-/obj/structure/sign/city/police_department{
-	pixel_x = -8
-	},
-/turf/open/umbra,
 /area/vtm/outside/penumbra)
 "wG" = (
 /obj/effect/turf_decal/bordur{
@@ -2406,11 +2360,6 @@
 /area/vtm/outside/penumbra)
 "yj" = (
 /turf/closed/wall/vampwall/metal/reinforced,
-/area/vtm/outside/penumbra)
-"ym" = (
-/obj/minespot,
-/obj/minespot,
-/turf/open/umbra,
 /area/vtm/outside/penumbra)
 "yn" = (
 /obj/effect/turf_decal/siding/wood/corner{
@@ -2712,12 +2661,6 @@
 /obj/structure/platform/lowwall/market,
 /turf/open/floor/plating/rough,
 /area/vtm/outside/penumbra)
-"Cz" = (
-/obj/machinery/light/small/red{
-	pixel_y = 32
-	},
-/turf/open/floor/city/toilet/large,
-/area/vtm/outside/penumbra)
 "CD" = (
 /obj/effect/decal/wallpaper/grey/low{
 	color = "#6d6d6d"
@@ -2804,17 +2747,6 @@
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate/large,
 /turf/open/floor/wood/old,
-/area/vtm/outside/penumbra)
-"DK" = (
-/obj/effect/decal/fakelattice{
-	density = 0
-	},
-/obj/machinery/light/broken{
-	dir = 1
-	},
-/turf/open/floor/plating/concrete{
-	color = "#9c8064"
-	},
 /area/vtm/outside/penumbra)
 "DM" = (
 /obj/structure/table,
@@ -3021,9 +2953,7 @@
 /turf/open/floor/plating/rough,
 /area/vtm/outside/penumbra)
 "Ga" = (
-/obj/structure/sign/city/chinese{
-	dir = 8
-	},
+/obj/structure/sign/city/chinese/directional/east,
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/penumbra)
 "Gm" = (
@@ -3074,12 +3004,6 @@
 	},
 /obj/item/fishing_rod,
 /turf/open/misc/dirt,
-/area/vtm/outside/penumbra)
-"GN" = (
-/obj/structure/sign/city/police_department{
-	dir = 4
-	},
-/turf/open/floor/plating/sidewalk,
 /area/vtm/outside/penumbra)
 "GT" = (
 /obj/effect/turf_decal/siding/wood{
@@ -3489,12 +3413,6 @@
 	dir = 4
 	},
 /turf/open/floor/city/toilet,
-/area/vtm/outside/penumbra)
-"Ls" = (
-/obj/structure/sign/city/police_department{
-	dir = 8
-	},
-/turf/open/floor/plating/sidewalk,
 /area/vtm/outside/penumbra)
 "Lt" = (
 /obj/structure/flora/tree/vamp{
@@ -4134,21 +4052,8 @@
 /obj/structure/hedge,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
-"So" = (
-/obj/structure/sign/city/chinese/alt2{
-	pixel_y = 32
-	},
-/turf/open/floor/plating/sidewalkalt,
-/area/vtm/outside/penumbra)
 "St" = (
 /obj/effect/turf_decal/siding/wideplating/dark/corner,
-/turf/open/floor/wood/smooth/old,
-/area/vtm/outside/penumbra)
-"Sw" = (
-/obj/machinery/light/broken{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/litter,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
 "Sy" = (
@@ -4258,9 +4163,6 @@
 /turf/open/floor/plating/canal,
 /area/vtm/outside/penumbra)
 "Ue" = (
-/obj/structure/sign/city/chinese/alt2{
-	pixel_y = 32
-	},
 /obj/effect/decal/cleanable/garbage{
 	pixel_y = 16;
 	pixel_x = -6
@@ -4582,10 +4484,6 @@
 "Xl" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
-	},
-/obj/structure/sign/city/chinese/alt2{
-	dir = 1;
-	pixel_y = 32
 	},
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/penumbra)
@@ -19093,7 +18991,7 @@ qF
 zu
 zu
 ON
-Cz
+qo
 qo
 ui
 in
@@ -28849,7 +28747,7 @@ zI
 hF
 rP
 gB
-wB
+qF
 qF
 qF
 qF
@@ -29106,7 +29004,7 @@ HN
 HN
 HN
 gB
-jP
+qF
 qF
 qF
 qF
@@ -29363,7 +29261,7 @@ HN
 mR
 HN
 gB
-GN
+Ur
 qF
 qF
 eC
@@ -29620,7 +29518,7 @@ QC
 FZ
 Cx
 gB
-Ls
+Ur
 qF
 qF
 qF
@@ -30928,7 +30826,7 @@ Ur
 Nt
 yh
 Zc
-Sw
+Cl
 HN
 HN
 HN
@@ -31955,10 +31853,10 @@ Ha
 Ur
 kY
 JQ
-vY
+si
 KO
 Qr
-DK
+Iy
 aw
 Iv
 Yq
@@ -32473,7 +32371,7 @@ gZ
 aR
 hh
 Ry
-sG
+Iy
 Ej
 LT
 Yq
@@ -37782,7 +37680,7 @@ qF
 qF
 qF
 cr
-ba
+fH
 mg
 qF
 qF
@@ -41125,7 +41023,7 @@ qF
 qF
 qF
 zu
-So
+vg
 vg
 Sf
 eC
@@ -52001,7 +51899,7 @@ qF
 qF
 qF
 QO
-ym
+eC
 eC
 qF
 eC
