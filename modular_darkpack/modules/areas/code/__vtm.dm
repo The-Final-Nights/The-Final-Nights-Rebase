@@ -5,6 +5,7 @@
 	outdoors = TRUE
 	requires_power = FALSE
 	default_gravity = STANDARD_GRAVITY
+	outdoors = TRUE
 	var/zone_type = ZONE_MASQUERADE
 
 /area/vtm/powered(chan)
