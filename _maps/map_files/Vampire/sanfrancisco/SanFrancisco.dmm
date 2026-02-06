@@ -4397,6 +4397,10 @@
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/water/vamp_sewer,
 /area/vtm/interior/sewer/nosferatu_warren)
+"beT" = (
+/obj/effect/spawner/random/stray_animal,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/pacificheights/industrial)
 "beX" = (
 /obj/structure/dresser,
 /obj/machinery/light/small/directional/north,
@@ -10679,7 +10683,7 @@
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
 "cJU" = (
@@ -20030,7 +20034,7 @@
 /area/vtm/interior/sewer/nosferatu_bar)
 "ffu" = (
 /obj/effect/turf_decal/bordur,
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/baywalk)
 "ffy" = (
@@ -21713,7 +21717,7 @@
 /turf/open/misc/grass/nosmooth,
 /area/vtm/outside/park)
 "fBs" = (
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/chinatown)
 "fBz" = (
@@ -26551,10 +26555,6 @@
 /obj/structure/platform/lowwall/city/window,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/laundromat)
-"gOH" = (
-/mob/living/basic/pet/cat/darkpack,
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/pacificheights/industrial)
 "gOL" = (
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
@@ -42464,7 +42464,7 @@
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic)
 "kOW" = (
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
 "kPf" = (
@@ -47547,6 +47547,10 @@
 	dir = 4
 	},
 /area/vtm/interior/museum)
+"meB" = (
+/obj/effect/spawner/random/stray_animal,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/financialdistrict)
 "meJ" = (
 /obj/effect/turf_decal/bordur,
 /turf/open/water,
@@ -51602,7 +51606,7 @@
 /turf/open/floor/city/plating_stone,
 /area/vtm/interior/bianchiBank)
 "ndL" = (
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/ghetto)
 "ndN" = (
@@ -65155,7 +65159,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
 "qxo" = (
@@ -71779,7 +71783,7 @@
 /area/vtm/interior/shop)
 "siO" = (
 /obj/effect/turf_decal/bordur,
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
 "siQ" = (
@@ -74299,7 +74303,7 @@
 /turf/open/floor/wood/old,
 /area/vtm/interior/apartment)
 "sQC" = (
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/financialdistrict)
 "sQJ" = (
@@ -78746,10 +78750,6 @@
 /obj/machinery/light/prince/directional/north,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/millennium_tower/f3)
-"tYi" = (
-/mob/living/basic/pet/cat/darkpack,
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/financialdistrict)
 "tYn" = (
 /obj/structure/table/wood/fancy/green,
 /obj/vampire_computer,
@@ -81529,7 +81529,7 @@
 /turf/open/floor/city/plating_stone,
 /area/vtm/interior/giovanni)
 "uJA" = (
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
 "uJE" = (
@@ -83710,9 +83710,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/ghetto)
 "vom" = (
-/mob/living/basic/pet/cat/darkpack{
-	name = "Caine"
-	},
+/mob/living/basic/pet/cat/darkpack/cain,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "vop" = (
@@ -91147,7 +91145,7 @@
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sabbat_lair)
 "xkW" = (
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/unionsquare)
 "xkX" = (
@@ -91718,7 +91716,7 @@
 /turf/open/floor/wood/herring,
 /area/vtm/interior/littleitaly)
 "xul" = (
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /obj/effect/landmark/npcbeacon,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/outside/baywalk)
@@ -93032,7 +93030,7 @@
 /area/vtm/outside/pacificheights)
 "xMe" = (
 /obj/effect/decal/graffiti,
-/mob/living/basic/pet/cat/darkpack,
+/obj/effect/spawner/random/stray_animal,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
 "xMy" = (
@@ -147599,7 +147597,7 @@ oyj
 tao
 gcp
 tao
-gOH
+beT
 tao
 tML
 tao
@@ -150486,7 +150484,7 @@ gjZ
 gjZ
 gjZ
 tow
-gOH
+beT
 tao
 ycd
 wsS
@@ -154149,7 +154147,7 @@ uDw
 uDw
 uDw
 tow
-gOH
+beT
 ajj
 bTW
 eWf
@@ -161379,7 +161377,7 @@ gwE
 aLn
 tHJ
 vtC
-tYi
+meB
 vtC
 fgG
 fgG
@@ -163436,7 +163434,7 @@ mWs
 qxS
 mdt
 fgG
-tYi
+meB
 vtC
 cMy
 kqw
@@ -174888,7 +174886,7 @@ vtC
 vtC
 oBK
 vtC
-tYi
+meB
 oBK
 vtC
 vtC
