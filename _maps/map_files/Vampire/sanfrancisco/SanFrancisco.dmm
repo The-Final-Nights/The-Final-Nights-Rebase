@@ -1813,6 +1813,11 @@
 /obj/item/storage/fancy/candle_box,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/church)
+"avX" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/effect/spawner/random/stray_animal,
+/turf/open/misc/grass,
+/area/vtm/outside/pacificheights/forest)
 "awd" = (
 /obj/structure/chair/greyscale{
 	dir = 4
@@ -15556,6 +15561,11 @@
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/carpet/royalblue,
 /area/vtm/interior/clinic/haven)
+"dYA" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/effect/spawner/random/stray_animal,
+/turf/open/misc/grass,
+/area/vtm/outside/forest)
 "dYC" = (
 /obj/effect/decal/rugs,
 /obj/machinery/light/directional/south,
@@ -17209,6 +17219,12 @@
 /mob/living/carbon/human/npc/guard,
 /turf/open/openspace,
 /area/vtm/interior)
+"evY" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/structure/flora/bush/sunny/style_random,
+/obj/effect/spawner/random/stray_animal,
+/turf/open/misc/grass,
+/area/vtm/outside/forest)
 "evZ" = (
 /obj/effect/turf_decal/siding/wood/light{
 	dir = 8
@@ -21555,6 +21571,12 @@
 /obj/effect/decal/wallpaper/papers/three,
 /turf/closed/wall/vampwall/junk/alt,
 /area/vtm/interior/nosferatu_office)
+"fyL" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/structure/flora/bush/pointy/style_random,
+/obj/effect/spawner/random/stray_animal,
+/turf/open/misc/grass,
+/area/vtm/outside/forest)
 "fyM" = (
 /obj/darkpack_car/track/volkswagen,
 /turf/open/floor/plating/rough,
@@ -57632,10 +57654,6 @@
 "oAD" = (
 /turf/closed/wall/vampwall/painted,
 /area/vtm/interior/bianchiBank)
-"oAE" = (
-/mob/living/basic/pet/cat/darkpack,
-/turf/open/floor/plating/sidewalk/old,
-/area/vtm/interior/millennium_tower/f3)
 "oAJ" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/flora/bush/fullgrass/style_random,
@@ -65087,9 +65105,7 @@
 /turf/open/floor/wood/rough,
 /area/vtm/interior/ranger)
 "qwa" = (
-/mob/living/basic/pet/cat/darkpack{
-	name = "Sproingus"
-	},
+/mob/living/basic/pet/cat/darkpack/sproingus,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/clinic)
 "qwf" = (
@@ -72593,10 +72609,6 @@
 /obj/effect/turf_decal/siding/grey,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic)
-"sux" = (
-/mob/living/basic/pet/cat/darkpack,
-/turf/open/misc/grass/nosmooth,
-/area/vtm/interior/millennium_tower/f3)
 "suI" = (
 /obj/structure/vampipe{
 	icon_state = "piping31"
@@ -79749,6 +79761,10 @@
 /obj/item/food/grown/harebell,
 /turf/open/misc/grass,
 /area/vtm/outside/forest)
+"ule" = (
+/obj/effect/spawner/random/stray_animal,
+/turf/open/misc/grass,
+/area/vtm/outside/forest)
 "ull" = (
 /obj/item/paper_bin{
 	pixel_y = 5
@@ -83236,9 +83252,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/shop)
 "vhO" = (
-/mob/living/basic/pet/cat/darkpack{
-	name = "Autun"
-	},
+/mob/living/basic/pet/cat/darkpack/autun,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
 "vhV" = (
@@ -84368,6 +84382,11 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/millennium_tower/f2)
+"vAv" = (
+/obj/effect/turf_decal/weather/dirt,
+/obj/effect/spawner/random/stray_animal,
+/turf/open/misc/grass,
+/area/vtm/outside/forest)
 "vAy" = (
 /obj/structure/hedge,
 /turf/open/floor/city/plating_mono,
@@ -90348,9 +90367,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "xbC" = (
-/mob/living/basic/pet/cat/darkpack{
-	name = "Don"
-	},
+/mob/living/basic/pet/cat/darkpack/don,
 /turf/open/floor/carpet/royalblack,
 /area/vtm/interior/giovanni)
 "xbH" = (
@@ -92955,9 +92972,7 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "xLl" = (
-/mob/living/basic/pet/cat/darkpack{
-	name = "Zleeby"
-	},
+/mob/living/basic/pet/cat/darkpack/zleeby,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/techshop)
 "xLn" = (
@@ -139552,7 +139567,7 @@ rIh
 cJF
 cJF
 sjM
-pDA
+dYA
 cJF
 vxG
 sWS
@@ -139571,7 +139586,7 @@ jTm
 nHw
 efN
 efN
-nqH
+avX
 aZK
 efN
 efN
@@ -139928,7 +139943,7 @@ pDA
 fZK
 pDA
 pDA
-yap
+fyL
 cJF
 cJF
 pDA
@@ -143617,7 +143632,7 @@ pDA
 gaJ
 cJF
 cJF
-vnH
+vAv
 sWS
 sWS
 ldL
@@ -144472,7 +144487,7 @@ efN
 xLf
 efN
 nqH
-nqH
+avX
 efN
 efN
 nqH
@@ -145438,7 +145453,7 @@ pDA
 pDA
 cJF
 pDA
-gGW
+evY
 cJF
 cJF
 pDA
@@ -145685,7 +145700,7 @@ nqH
 nqH
 nqH
 jHC
-nqH
+avX
 nqH
 nqH
 efN
@@ -147493,7 +147508,7 @@ pDA
 omq
 cJF
 cJF
-cJF
+ule
 cJF
 pDA
 cJF
@@ -148540,7 +148555,7 @@ efN
 nqH
 xLf
 efN
-nqH
+avX
 xYv
 efN
 rBH
@@ -149529,7 +149544,7 @@ pDA
 pDA
 pOt
 pDA
-pDA
+dYA
 cJF
 cJF
 cJF
@@ -150128,7 +150143,7 @@ bqB
 rIw
 cJF
 cJF
-cJF
+ule
 cJF
 cJF
 cJF
@@ -152173,7 +152188,7 @@ cJF
 pDA
 pDA
 pDA
-pDA
+dYA
 cJF
 pDA
 pDA
@@ -153402,7 +153417,7 @@ pDA
 pDA
 pDA
 pDA
-pDA
+dYA
 pDA
 pDA
 pDA
@@ -245262,7 +245277,7 @@ iMS
 iMS
 bLV
 cLX
-oAE
+qOr
 qOr
 qOr
 ekS
@@ -246083,7 +246098,7 @@ rEC
 hah
 thd
 vQG
-sux
+aJI
 foi
 uaZ
 lUG
