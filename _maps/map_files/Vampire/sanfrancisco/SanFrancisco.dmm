@@ -4250,7 +4250,9 @@
 	pixel_x = -14
 	},
 /obj/structure/flora/bush/flowers_pp/style_random,
-/obj/structure/railing,
+/obj/structure/railing/wooden_fence{
+	dir = 6
+	},
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
 "bgg" = (
@@ -5800,6 +5802,9 @@
 "bDc" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
+/obj/structure/railing/wooden_fence{
+	dir = 8
+	},
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
 "bDf" = (
@@ -26561,7 +26566,7 @@
 /obj/structure/flora/bush/flowers_yw/style_random{
 	pixel_y = 10
 	},
-/obj/structure/railing,
+/obj/structure/railing/wooden_fence,
 /turf/open/water/vamp_sewer,
 /area/vtm/interior/sewer/nosferatu_warren)
 "hkU" = (
@@ -32930,7 +32935,7 @@
 "iXO" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/flowers_yw/style_random,
-/obj/structure/railing{
+/obj/structure/railing/wooden_fence{
 	dir = 4
 	},
 /turf/open/misc/dirt,
@@ -43803,7 +43808,7 @@
 /area/vtm/interior)
 "lWc" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
-/obj/structure/railing,
+/obj/structure/railing/wooden_fence,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
 "lWi" = (
@@ -63176,7 +63181,7 @@
 /area/vtm/interior/shop)
 "rcN" = (
 /obj/structure/flora/bush/lavendergrass/style_random,
-/obj/structure/railing{
+/obj/structure/railing/wooden_fence{
 	dir = 4
 	},
 /turf/open/misc/dirt,
@@ -64799,11 +64804,6 @@
 	},
 /turf/open/floor/carpet/green,
 /area/vtm/interior/endron_facility/restricted)
-"rAm" = (
-/obj/structure/railing,
-/obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/dirt,
-/area/vtm/interior/sewer/nosferatu_warren)
 "rAn" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
@@ -69614,7 +69614,7 @@
 "sUA" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/style_random,
-/obj/structure/railing,
+/obj/structure/railing/wooden_fence,
 /obj/machinery/light/blacklight/directional/west,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
@@ -69720,7 +69720,7 @@
 /area/vtm/interior/sewer/nosferatu_bar)
 "sWt" = (
 /obj/structure/flora/bush/style_random,
-/obj/structure/railing,
+/obj/structure/railing/wooden_fence,
 /turf/open/water/vamp_sewer,
 /area/vtm/interior/sewer/nosferatu_warren)
 "sWE" = (
@@ -73730,11 +73730,10 @@
 /obj/structure/flora/bush/flowers_yw/style_random{
 	pixel_y = 2
 	},
-/obj/structure/railing,
-/obj/structure/railing{
-	dir = 4
-	},
 /obj/effect/decal/graffiti,
+/obj/structure/railing/wooden_fence{
+	dir = 6
+	},
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
 "uas" = (
@@ -78164,7 +78163,7 @@
 /area/vtm/interior/church)
 "vnj" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
-/obj/structure/railing{
+/obj/structure/railing/wooden_fence{
 	dir = 8
 	},
 /turf/open/misc/dirt,
@@ -82358,7 +82357,7 @@
 /obj/structure/flora/bush/flowers_yw/style_random{
 	pixel_y = 2
 	},
-/obj/structure/railing{
+/obj/structure/railing/wooden_fence{
 	dir = 8
 	},
 /turf/open/misc/dirt,
@@ -85145,7 +85144,7 @@
 /obj/structure/flora/bush/flowers_yw/style_random{
 	pixel_y = 2
 	},
-/obj/structure/railing,
+/obj/structure/railing/wooden_fence,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
 "xkd" = (
@@ -96019,7 +96018,7 @@ fUN
 cOH
 fUN
 tls
-rAm
+lWc
 nkb
 cUF
 hkR
@@ -96225,7 +96224,7 @@ tls
 tls
 lWc
 eCv
-eFR
+kSH
 bDc
 mBo
 tls
