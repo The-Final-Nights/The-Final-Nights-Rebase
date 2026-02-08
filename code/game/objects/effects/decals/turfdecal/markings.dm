@@ -404,6 +404,19 @@
 
 // DARKPACK EDIT ADD END
 
+// TFN EDIT ADD START - WOOD/ROUGH COLOUR
+
+/obj/effect/turf_decal/siding/wood/rough
+	color = "#665136"
+
+/obj/effect/turf_decal/siding/wood/rough/corner
+	icon_state = "siding_wood_corner"
+
+/obj/effect/turf_decal/siding/wood/rough/end
+	icon_state = "siding_wood_end"
+
+// TFN EDIT ADD END - WOOD/ROUGH COLOUR
+
 /obj/effect/turf_decal/siding/thinplating
 	icon_state = "siding_thinplating"
 	color = "#aaaaaa"
