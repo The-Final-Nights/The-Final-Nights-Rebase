@@ -84,8 +84,7 @@
 					disabled_any = TRUE
 
 		if(disabled_any)
-			var/datum/effect_system/spark_spread/spark_system = new
-			spark_system.set_up(5, 1, get_turf(human_target))
+			var/datum/effect_system/basic/spark_spread/spark_system = new(get_turf(human_target), 5, 1)
 			spark_system.start()
 			return TRUE
 
@@ -95,8 +94,7 @@
 		cargo_comp.locked = !cargo_comp.locked
 
 		// sparks
-		var/datum/effect_system/spark_spread/spark_system = new
-		spark_system.set_up(3, 1, get_turf(target))
+		var/datum/effect_system/basic/spark_spread/spark_system = new(get_turf(target), 3, 1)
 		spark_system.start()
 		playsound(target, 'sound/effects/sparks/sparks4.ogg', 50, TRUE)
 
@@ -111,8 +109,7 @@
 		fuse.damaged += 101
 		fuse.check_damage(owner, TRUE)
 
-		var/datum/effect_system/spark_spread/spark_system = new
-		spark_system.set_up(5, 1, get_turf(target))
+		var/datum/effect_system/basic/spark_spread/spark_system = new(get_turf(target), 5, 1)
 		spark_system.start()
 		playsound(target, 'sound/effects/sparks/sparks2.ogg', 75, TRUE)
 
@@ -180,7 +177,7 @@
 /datum/discipline_power/thaumaturgy/path/levinbolt/one/proc/spark_target_click(mob/source, atom/target, params)
 	SIGNAL_HANDLER
 
-	return levinbolt_target_click(source, target, params, FALSE)
+	INVOKE_ASYNC(src, PROC_REF(levinbolt_target_click), source, target, params, FALSE)
 
 //ILLUMINATE - Level 2
 /datum/discipline_power/thaumaturgy/path/levinbolt/two
@@ -273,8 +270,7 @@
 /datum/discipline_power/thaumaturgy/path/levinbolt/three/proc/powerarray_target_click(mob/source, atom/target, params)
 	SIGNAL_HANDLER
 
-	return levinbolt_target_click(source, target, params, TRUE)
-
+	INVOKE_ASYNC(src, PROC_REF(levinbolt_target_click), source, target, params, TRUE)
 
 //ZEUS' FURY - Level 4
 /datum/discipline_power/thaumaturgy/path/levinbolt/four
@@ -434,8 +430,7 @@
 	if(!owner)
 		return
 
-	var/datum/effect_system/spark_spread/spark_system = new
-	spark_system.set_up(rand(3,7), 1, get_turf(owner))
+	var/datum/effect_system/basic/spark_spread/spark_system = new(get_turf(owner), rand(3,7), 1)
 	spark_system.start()
 
 	if(prob(50))
@@ -467,8 +462,7 @@
 		target.Stun(1 SECONDS)
 		target.visible_message(span_warning("[target] convulses from the electrical shock!"))
 
-	var/datum/effect_system/spark_spread/spark_system = new
-	spark_system.set_up(8, 1, get_turf(target))
+	var/datum/effect_system/basic/spark_spread/spark_system = new(get_turf(target), 8, 1)
 	spark_system.start()
 
 	owner.visible_message(span_danger("Lightning arcs from [owner] to [target]!"))
@@ -486,15 +480,14 @@
 	addtimer(CALLBACK(attacker, TYPE_PROC_REF(/mob, emote), "scream"), 1)
 	attacker.Stun(4 SECONDS)
 	attacker.electrocute_act(rand(10,20), owner, siemens_coeff = 1, flags = NONE)
-	var/datum/effect_system/spark_spread/spark_system = new
-	spark_system.set_up(5, 1, get_turf(attacker))
+	var/datum/effect_system/basic/spark_spread/spark_system = new(get_turf(attacker), 5, 1)
 	spark_system.start()
 	playsound(attacker, 'sound/effects/sparks/sparks4.ogg', 60, TRUE)
 
 /datum/discipline_power/thaumaturgy/path/levinbolt/five/proc/storm_target_click(mob/source, atom/target, params)
 	SIGNAL_HANDLER
 
-	return levinbolt_target_click(source, target, params, TRUE)
+	INVOKE_ASYNC(src, PROC_REF(levinbolt_target_click), source, target, params, TRUE)
 
 /datum/discipline_power/thaumaturgy/path/levinbolt/five/deactivate()
 	if(!owner)

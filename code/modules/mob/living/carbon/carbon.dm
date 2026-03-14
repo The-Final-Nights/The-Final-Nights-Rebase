@@ -70,8 +70,8 @@
 			var/victim_stamathletics = victim_stamina + victim.st_get_stat(STAT_ATHLETICS)
 			var/victim_keephigher = max(victim_stambrawl, victim_stamathletics)
 
-			var/attacker_roll = SSroll.storyteller_roll(dice = attacker_keephigher, difficulty = 6, numerical = TRUE)
-			var/victim_roll = SSroll.storyteller_roll(dice = victim_keephigher, difficulty = 6, mobs_to_show_output = list(victim), alert_atom = victim, numerical = TRUE)
+			var/attacker_roll = SSroll.storyteller_roll(dice = attacker_keephigher, difficulty = 6, roller = thrower, numerical = TRUE)
+			var/victim_roll = SSroll.storyteller_roll(dice = victim_keephigher, difficulty = 6, roller = victim, numerical = TRUE)
 
 			if(victim_roll > attacker_roll)
 				blocked = TRUE
@@ -128,6 +128,22 @@
 		if(!weapon || weapon.loc != src) //no item, no limb, or item is not in limb or in the person anymore
 			return
 		weapon.get_embed().rip_out(usr)
+		return
+
+	if(href_list["remove_tourniquet"])
+		var/obj/item/bodypart/limb = locate(href_list["remove_tourniquet"]) in bodyparts
+		var/mob/living/patient = limb?.owner
+		var/obj/item/tourniquet = LAZYACCESS(limb?.applied_items, LIMB_ITEM_TOURNIQUET)
+		if(QDELETED(limb) || QDELETED(patient) || QDELETED(tourniquet))
+			return
+		balloon_alert_to_viewers("removing tourniquet...")
+		if(!do_after(usr, 4 SECONDS, target = src))
+			return
+		if(QDELETED(limb) || QDELETED(patient) || QDELETED(tourniquet) || limb.owner != patient || tourniquet.loc != limb)
+			return
+
+		balloon_alert_to_viewers("tourniquet removed")
+		usr.put_in_hands(tourniquet)
 		return
 
 	if(href_list["show_paper_note"])
@@ -509,6 +525,10 @@
 	if(HAS_TRAIT(src, TRAIT_XRAY_VISION))
 		new_sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 
+	if(HAS_TRAIT(src, TRAIT_ECHOLOCATOR))
+		new_sight |= SEE_MOBS|SEE_TURFS
+		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_FULLBRIGHT)
+
 	if(SSmapping.level_trait(z, ZTRAIT_NOXRAY))
 		new_sight = NONE
 
@@ -793,9 +813,8 @@
 	if(heal_flags & HEAL_TRAUMAS)
 		cure_all_traumas(TRAUMA_RESILIENCE_MAGIC)
 		// Addictions are like traumas
-		if(mind)
-			for(var/addiction_type in subtypesof(/datum/addiction))
-				mind.remove_addiction_points(addiction_type, MAX_ADDICTION_POINTS) //Remove the addiction!
+		for(var/addiction_type in GLOB.addictions)
+			mind?.remove_addiction_points(addiction_type, MAX_ADDICTION_POINTS) //Remove the addiction!
 
 	if(heal_flags & HEAL_RESTRAINTS)
 		QDEL_NULL(handcuffed)
@@ -815,6 +834,7 @@
 	return ..()
 
 /mob/living/carbon/proc/can_defib()
+	SHOULD_BE_PURE(TRUE)
 	if (HAS_TRAIT(src, TRAIT_SUICIDED))
 		return DEFIB_FAIL_SUICIDE
 
@@ -968,7 +988,7 @@
 ///Updates the bodypart speed modifier based on our bodyparts.
 /mob/living/carbon/proc/update_bodypart_speed_modifier()
 	var/final_modification = 0
-	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+	for(var/obj/item/bodypart/leg/bodypart in bodyparts)
 		final_modification += bodypart.speed_modifier
 	add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/bodypart, update = TRUE, multiplicative_slowdown = final_modification)
 
@@ -1360,3 +1380,18 @@
 	if(!CAN_HAVE_BLOOD(src))
 		return
 	return dna?.blood_type
+
+/mob/living/carbon/update_nutrition()
+	. = ..()
+	// Force a weight update in case we're stasis'd and don't tick
+	if (HAS_TRAIT_FROM(src, TRAIT_FAT, OBESITY))
+		if (overeatduration >= 200 SECONDS)
+			return
+
+		to_chat(src, span_notice("You feel fit again!"))
+		remove_traits(list(TRAIT_FAT, TRAIT_OFF_BALANCE_TACKLER), OBESITY)
+		return
+
+	if (overeatduration >= 200 SECONDS)
+		to_chat(src, span_danger("You suddenly feel blubbery!"))
+		add_traits(list(TRAIT_FAT, TRAIT_OFF_BALANCE_TACKLER), OBESITY)

@@ -677,7 +677,7 @@
 	. = ..()
 	if(!. || !usr.client.is_localhost() || !check_rights_for(usr.client, R_SERVER))
 		return
-	SEND_SOUND(hud.mymob, sound('sound/effects/cartoon_sfx/cartoon_splat.ogg', volume = 50))
+	SEND_SOUND(hud.mymob, sound('modular_darkpack/master_files/sounds/start_now.ogg', volume = 100)) // DARKPACK EDIT CHANGE
 	SSticker.start_immediately = TRUE
 	if(SSticker.current_state == GAME_STATE_STARTUP)
 		to_chat(usr, span_admin("The server is still setting up, but the round will be started as soon as possible."))
@@ -776,8 +776,10 @@
 	if(!hud || !show_static)
 		maptext = null
 		return
+
+	var/round_started = SSticker.HasRoundStarted()
 	if(!MC_RUNNING())
-		maptext = MAPTEXT("<span style='text-align: center; vertical-align: middle'>Loading...</span>")
+		maptext = MAPTEXT("<span style='text-align: center; vertical-align: middle'>[(round_started ? null : "Starting in [time_remaining_str()]<br />")]Loading...</span>")
 		return
 	if(SSticker.IsPostgame())
 		maptext = MAPTEXT("<span style='text-align: center; vertical-align: middle'>Game ended, <br /> \
@@ -785,31 +787,34 @@
 		return
 
 	var/new_maptext
-	var/round_started = SSticker.HasRoundStarted()
 	if(round_started)
 		new_maptext = "<span style='text-align: center; vertical-align: middle'>[SSmapping.current_map.map_name]<br /> \
 			[LAZYLEN(GLOB.clients)] player\s online<br /> \
 			[ROUND_TIME()] in<br />"
 		new_maptext += "</span>"
 	else
-		var/time_remaining = SSticker.GetTimeLeft()
-		if(time_remaining > 0)
-			time_remaining = "[round(time_remaining/10)]s"
-		else if(time_remaining == -10)
-			time_remaining = "DELAYED"
-		else
-			time_remaining = "SOON"
 
 		if(hud.mymob.client?.holder)
-			new_maptext = "<span style='text-align: center; vertical-align: middle'>Starting in [time_remaining]<br /> \
+			new_maptext = "<span style='text-align: center; vertical-align: middle'>Starting in [time_remaining_str()]<br /> \
 				[LAZYLEN(GLOB.clients)] player\s<br /> \
 				[SSticker.totalPlayersReady] players ready<br /> \
 				[SSticker.total_admins_ready] / [length(GLOB.admins)] admins ready</span>"
 		else
-			new_maptext = "<span style='text-align: center; vertical-align: middle; font-size: 18px'>[time_remaining]</span><br /> \
+			new_maptext = "<span style='text-align: center; vertical-align: middle; font-size: 18px'>[time_remaining_str()]</span><br /> \
 				<span style='text-align: center; vertical-align: middle'>[LAZYLEN(GLOB.clients)] player\s</span>"
 
 	maptext = MAPTEXT(new_maptext)
+
+/atom/movable/screen/lobby/new_player_info/proc/time_remaining_str()
+	var/time_remaining = SSticker.GetTimeLeft()
+	if(time_remaining > 0)
+		time_remaining = "[round(time_remaining/10)]s"
+	else if(time_remaining == -10)
+		time_remaining = "DELAYED"
+	else
+		time_remaining = "SOON"
+
+	return time_remaining
 
 #undef OVERLAY_X_DIFF
 #undef OVERLAY_Y_DIFF

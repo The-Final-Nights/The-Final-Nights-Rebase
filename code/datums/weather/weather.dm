@@ -149,10 +149,10 @@
 	else if(whitelist_weather_reagents)
 		reagent_id = pick_weight_recursive(whitelist_weather_reagents)
 	else if(blacklist_weather_reagents) // randomized
-		reagent_id = get_random_reagent_id(blacklist_weather_reagents)
+		reagent_id = get_random_reagent_id(blacklist = blacklist_weather_reagents)
 
 	if(reagent_id)
-		weather_reagent = find_reagent_object_from_type(reagent_id)
+		weather_reagent = GLOB.chemical_reagents_list[reagent_id]
 		weather_color = weather_reagent.color
 		weather_reagent_holder = new(null) // spawns in nullspace
 		weather_reagent_holder.create_reagents(WEATHER_REAGENT_VOLUME, NO_REACT)
@@ -525,7 +525,7 @@
 		// a bolt of lightning can reach temperatures of 30,000 Kelvin which is 5x hotter than the sun
 		hit_ore.fire_act(30000)
 
-	playsound(weather_turf, 'modular_darkpack/master_files/sounds/lightning.ogg', 100, extrarange = 50, falloff_distance = 50) // DARKPACK EDIT CHANGE
+	playsound(weather_turf, 'modular_darkpack/master_files/sounds/lightning.ogg', 50, extrarange = 50, falloff_distance = 10) // DARKPACK EDIT CHANGE
 	weather_turf.visible_message(span_danger("A thunderbolt strikes [weather_turf]!"))
 	new /obj/effect/hotspot(weather_turf)
 
