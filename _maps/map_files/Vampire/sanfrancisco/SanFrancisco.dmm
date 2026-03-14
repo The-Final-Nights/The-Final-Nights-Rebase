@@ -23946,11 +23946,6 @@
 "gwM" = (
 /obj/item/clothing/under/vampire/primogen_toreador,
 /obj/item/clothing/under/vampire/primogen_toreador/female,
-/obj/item/clothing/suit/vampire/trench/alt{
-	armor = list("melee"=50,"bullet"=50,"laser"=50,"energy"=10,"bomb"=40,"bio"=0,"rad"=0,"fire"=40,"acid"=10,"wound"=25);
-	max_integrity = 1000;
-	name = "armored trenchcoat"
-	},
 /obj/item/instrument/violin/golden,
 /obj/structure/closet/cabinet,
 /obj/item/toy/crayon/spraycan/infinite,
@@ -23962,6 +23957,7 @@
 	},
 /obj/structure/sign/clock/directional/north,
 /obj/item/pen/fountain,
+/obj/item/clothing/suit/vampire/trench/alt/armored,
 /turf/open/floor/carpet/royalblue,
 /area/vtm/interior/strip)
 "gwQ" = (
@@ -61322,6 +61318,10 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/ten,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility/restricted)
+"qrX" = (
+/obj/effect/landmark/start/darkpack/primogen/lasombra,
+/turf/open/floor/plating/roofwalk,
+/area/vtm)
 "qsn" = (
 /obj/structure/hedge{
 	pixel_y = 6
@@ -82150,7 +82150,6 @@
 /obj/structure/chair/comfy/black{
 	dir = 1
 	},
-/obj/effect/landmark/start/darkpack/primogen/lasombra,
 /turf/open/floor/city/church,
 /area/vtm/interior/church/haven)
 "wiZ" = (
@@ -253280,7 +253279,7 @@ xEp
 xEp
 xEp
 xEp
-xEp
+qrX
 xEp
 xEp
 vWf
