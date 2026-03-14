@@ -85,6 +85,13 @@
 		alist(NETWORK_ID = LASOMBRA_NETWORK, OUR_ROLE = "Church Caretaker", USE_JOB_TITLE = FALSE)
 		)
 
+// BRUJAH
+
+/obj/item/smartphone/brujah_primo
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Millenium Group Independent Advisor", USE_JOB_TITLE = FALSE)
+		)
+
 // BANU HAQIM
 
 /obj/item/smartphone/banu_primo

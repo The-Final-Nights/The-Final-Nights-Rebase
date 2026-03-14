@@ -30,7 +30,7 @@
 //Primogens
 #define JOB_PRIMOGEN_TOREADOR "Primogen Toreador"
 #define JOB_PRIMOGEN_BANU_HAQIM "Primogen Banu Haqim"
-#define JOB_PRIMOGEN_LASOMBRA "Primogen Lasombra"
+#define JOB_PRIMOGEN_BRUJAH "Primogen Brujah"
 #define JOB_PRIMOGEN_MALKAVIAN "Primogen Malkavian"
 #define JOB_PRIMOGEN_NOSFERATU "Primogen Nosferatu"
 #define JOB_PRIMOGEN_VENTRUE "Primogen Ventrue"
@@ -114,7 +114,7 @@
 #define JOB_DISPLAY_ORDER_HOUND 6
 #define JOB_DISPLAY_ORDER_TOWERWORK 7
 #define JOB_DISPLAY_ORDER_BANU 8
-#define JOB_DISPLAY_ORDER_LASOMBRA 9
+#define JOB_DISPLAY_ORDER_BRUJAH 9
 #define JOB_DISPLAY_ORDER_MALKAVIAN 10
 #define JOB_DISPLAY_ORDER_NOSFERATU 11
 #define JOB_DISPLAY_ORDER_TOREADOR 12
