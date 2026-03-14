@@ -15348,6 +15348,7 @@
 /obj/structure/chair/sofa/corp/left{
 	dir = 8
 	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/strip)
 "efZ" = (
@@ -16003,11 +16004,8 @@
 /turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/vtm/interior/strip)
 "epc" = (
-/obj/structure/sink{
-	pixel_y = 9;
-	dir = 1
-	},
 /obj/machinery/light/directional/south,
+/obj/structure/sink/directional/north,
 /turf/open/floor/city/factory,
 /area/vtm/interior/strip)
 "epp" = (
@@ -16555,6 +16553,16 @@
 /mob/living/carbon/human/npc/hobo,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/sewer)
+"eyr" = (
+/obj/effect/turf_decal/siding/wideplating/orange{
+	dir = 1
+	},
+/obj/structure/chair/stool/bar/darkpack/red,
+/obj/machinery/light/directional/east{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/strip)
 "eyK" = (
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
@@ -17295,6 +17303,12 @@
 	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/endron_facility/plant)
+"eIv" = (
+/obj/machinery/light/directional/west{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/strip)
 "eIx" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/wood/smooth/old,
@@ -38743,6 +38757,11 @@
 "kuI" = (
 /turf/closed/indestructible/the_matrix,
 /area/vtm/interior/sewer)
+"kuJ" = (
+/obj/structure/carving_block,
+/obj/machinery/light/directional/east,
+/turf/open/floor/city/plating_mono,
+/area/vtm/interior/strip)
 "kuR" = (
 /obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/bordur,
@@ -48734,6 +48753,10 @@
 	},
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
+"ndz" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/strip)
 "ndH" = (
 /obj/structure/stairs/south,
 /turf/open/floor/plating/sidewalk,
@@ -60485,6 +60508,11 @@
 	},
 /turf/open/floor/city/toilet,
 /area/vtm/interior/hotel)
+"qhj" = (
+/obj/structure/table/wood/fancy/orange,
+/obj/machinery/light/directional/south,
+/turf/open/floor/carpet/orange,
+/area/vtm/interior/strip)
 "qhn" = (
 /obj/effect/decal/cleanable/trash,
 /obj/machinery/light/small/directional/south,
@@ -61098,6 +61126,11 @@
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/clinic)
+"qpM" = (
+/obj/structure/table/wood/fancy/orange,
+/obj/machinery/light/directional/north,
+/turf/open/floor/carpet/orange,
+/area/vtm/interior/strip)
 "qpV" = (
 /obj/structure/chair/office/darkpack/red,
 /turf/open/floor/carpet/darkpack/old,
@@ -61543,6 +61576,13 @@
 	},
 /turf/open/floor/wood/ornate,
 /area/vtm/interior/jazzclub)
+"qxe" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 4
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/carpet/orange,
+/area/vtm/interior/strip)
 "qxn" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
@@ -67359,10 +67399,6 @@
 /obj/structure/fire_barrel,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer)
-"scX" = (
-/obj/structure/extinguisher_cabinet/directional/north,
-/turf/open/floor/plating/granite/black,
-/area/vtm/interior/strip)
 "scY" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
@@ -68461,10 +68497,7 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior/wyrm_corrupted)
 "stp" = (
-/obj/structure/sink{
-	pixel_y = 9;
-	dir = 1
-	},
+/obj/structure/sink/directional/north,
 /turf/open/floor/city/factory,
 /area/vtm/interior/strip)
 "stq" = (
@@ -72312,6 +72345,10 @@
 "tvm" = (
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/endron_facility/plant)
+"tvo" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/carpet/orange,
+/area/vtm/interior/strip)
 "tvq" = (
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate,
@@ -80002,6 +80039,10 @@
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/giovanni/basement)
+"vEl" = (
+/obj/structure/extinguisher_cabinet/directional/west,
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/strip)
 "vEp" = (
 /obj/structure/vampdoor{
 	dir = 4
@@ -120059,7 +120100,7 @@ gnp
 gnp
 sZR
 lWg
-kJg
+qxe
 lWg
 sZR
 mYN
@@ -120258,9 +120299,9 @@ kRM
 gMc
 lWg
 slk
-lWg
+tvo
 gAS
-mWO
+vEl
 sZR
 kvU
 lWg
@@ -120674,12 +120715,12 @@ bKM
 eei
 gAS
 sZR
-ejt
+qpM
 lWg
 gAS
 bKM
 lWg
-ejt
+qhj
 fWa
 aej
 vFf
@@ -121072,7 +121113,7 @@ aej
 vFf
 kRM
 sZR
-bTk
+ndz
 mWO
 mWO
 mWO
@@ -121276,7 +121317,7 @@ aej
 vFf
 kRM
 sZR
-scX
+bTk
 sPe
 mWO
 mWO
@@ -121289,7 +121330,7 @@ sZR
 svx
 mWO
 mWO
-mWO
+eIv
 mWO
 mWO
 fWa
@@ -122104,7 +122145,7 @@ xyw
 sZR
 pmY
 lWg
-fYf
+eyr
 kzp
 mWO
 mWO
@@ -122298,7 +122339,7 @@ kRM
 gnp
 sZR
 dFI
-dFI
+kuJ
 dFI
 gnp
 gnp
