@@ -50961,6 +50961,7 @@
 /area/vtm/outside/pacificheights)
 "nJy" = (
 /obj/structure/closet/crate/cardboard,
+/obj/machinery/light/small/dim/directional/north,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/strip)
 "nJG" = (
@@ -52785,6 +52786,10 @@
 	},
 /turf/open/floor/wood/herring,
 /area/vtm/interior/tzimisce_manor)
+"ogs" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/city/plating_mono,
+/area/vtm/interior/strip)
 "ogt" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 1
@@ -71130,6 +71135,10 @@
 /obj/item/multitool,
 /obj/item/crowbar,
 /obj/item/wirecutters,
+/obj/effect/decal/cleanable/cobweb/cobweb2{
+	pixel_y = 24
+	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/strip)
 "tgd" = (
@@ -164323,7 +164332,7 @@ cVG
 cVG
 gnp
 nSr
-cVG
+ogs
 gnp
 viR
 tra
@@ -164527,7 +164536,7 @@ cVG
 cVG
 gnp
 nJy
-cVG
+ogs
 gnp
 cSK
 tra
