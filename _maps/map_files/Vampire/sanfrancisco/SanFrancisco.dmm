@@ -22379,6 +22379,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
+/obj/structure/dresser,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/strip)
 "fZR" = (
@@ -42778,10 +42779,6 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
 "lzq" = (
-/obj/structure/dresser{
-	pixel_y = 21;
-	density = 0
-	},
 /obj/effect/turf_decal/siding/wideplating/blue{
 	dir = 1
 	},
@@ -87079,9 +87076,6 @@
 /turf/open/misc/grass/nosmooth,
 /area/vtm)
 "xzU" = (
-/obj/effect/turf_decal/siding/wideplating/orange/corner{
-	dir = 8
-	},
 /obj/structure/vampdoor/woodglass,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /obj/effect/mapping_helpers/door/access/strip,
