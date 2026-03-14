@@ -932,8 +932,9 @@
 		// DARKPACK EDIT CHANGE END
 
 /obj/item/reagent_containers/cup/glass/bottle/molotov/item_interaction(mob/living/user, obj/item/item, list/modifiers)
-	if(!item.get_temperature() || active)
+	if(item.get_temperature() < FIRE_MINIMUM_TEMPERATURE_TO_EXIST || active)
 		return NONE
+
 	active = TRUE
 	log_bomber(user, "has primed a", src, "for detonation")
 
@@ -1042,6 +1043,14 @@
 	icon_state = "orangejuice"
 	list_reagents = list(/datum/reagent/consumable/orangejuice = 100)
 	drink_type = FRUIT | BREAKFAST
+
+/obj/item/reagent_containers/cup/glass/bottle/juice/lemonjuice
+	name = "lemon juice"
+	desc = "Some like to pour a few drops of this over their fish."
+	icon = 'icons/obj/drinks/boxes.dmi'
+	icon_state = "lemonjuice"
+	list_reagents = list(/datum/reagent/consumable/lemonjuice = 100)
+	drink_type = FRUIT
 
 /obj/item/reagent_containers/cup/glass/bottle/juice/cream
 	name = "milk cream"

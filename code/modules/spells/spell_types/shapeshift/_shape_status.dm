@@ -178,6 +178,8 @@
 			// Only transfer blood if both mobs are supposed to have a blood volume
 			if (CAN_HAVE_BLOOD(owner) && CAN_HAVE_BLOOD(caster_mob))
 				owner.set_blood_volume(caster_mob.get_blood_volume())
+				owner.maxbloodpool = caster_mob.maxbloodpool // DARKPACK EDIT ADD
+				owner.set_blood_pool(caster_mob.bloodpool) // DARKPACK EDIT ADD
 
 	for(var/datum/action/bodybound_action as anything in caster_mob.actions)
 		if(bodybound_action.target != caster_mob)
@@ -218,6 +220,7 @@
 	// Only transfer blood if both mobs are supposed to have a blood volume
 	if (CAN_HAVE_BLOOD(owner) && CAN_HAVE_BLOOD(caster_mob))
 		caster_mob.set_blood_volume(owner.get_blood_volume())
+		caster_mob.set_blood_pool(owner.bloodpool) // DARKPACK EDIT ADD
 
 /datum/status_effect/shapechange_mob/from_spell/on_shape_death(datum/source, gibbed)
 	var/datum/action/cooldown/spell/shapeshift/source_spell = source_weakref.resolve()
@@ -243,7 +246,7 @@
 	name = "Shapeshifted"
 	desc = "Your form is not your own... you're shapeshifted into another creature! \
 		A wizard could turn you back - or maybe you're stuck like this for good?"
-	use_user_hud_icon = TRUE
+	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "shapeshifted"
 	clickable_glow = TRUE
 
