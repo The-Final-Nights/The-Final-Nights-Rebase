@@ -8,4 +8,6 @@
 	maximum = HIGHEST_GENERATION_LIMIT
 
 /datum/preference/numeric/generation/apply_to_human(mob/living/carbon/human/target, value)
+	var/min_generation = target.client?.prefs?.discipline_trusted ? MAX_TRUSTED_GENERATION : MAX_PUBLIC_GENERATION
+	value = clamp(value, min_generation, HIGHEST_GENERATION_LIMIT)
 	iskindred(target)?.set_generation(value)

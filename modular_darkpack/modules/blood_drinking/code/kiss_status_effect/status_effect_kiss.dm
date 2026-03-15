@@ -1,6 +1,6 @@
 /datum/status_effect/kissed
 	id = "kissed"
-	duration = -1
+	duration = 10 MINUTES
 	status_type = STATUS_EFFECT_REFRESH
 	alert_type = /atom/movable/screen/alert/status_effect/kissed
 

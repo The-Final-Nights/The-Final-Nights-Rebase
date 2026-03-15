@@ -238,16 +238,9 @@ Methuselah.”
 /datum/discipline_power/dementation/eyes_of_chaos/proc/open_chaos_eyes_window(mob/living/carbon/human/target)
 	var/exploitable_information = sanitize_text(target.client?.prefs.read_preference(/datum/preference/text/exploitable))
 	if(exploitable_information == EXPLOITABLE_DEFAULT_TEXT) //they havent set exploitable text
-		exploitable_information = "You do not detect any secrets."
-	eyes_of_chaos_window = new(owner.client, "eyes_of_chaos_window")
-	eyes_of_chaos_window.initialize( inline_html = "<div class='background'> \
-        <div><center><p class='whitetext' > [target]'s Mind </p></center></div> \
-        <div><p class='whitetext' >[exploitable_information]</p></div> \
-        <span></span><span></span><span></span><span></span><span></span> \
-        <span></span><span></span><span></span><span></span><span></span> \
-        </div>",
-	inline_css = file("modular_darkpack/modules/html/dementation/css/chaos.css")
-	)
+		exploitable_information = "You do not manage to uncover any secrets."
+	to_chat(owner, span_notice("You search [target]'s mind... [exploitable_information]"))
+
 
 /datum/discipline_power/dementation/eyes_of_chaos/proc/display_select_menu(mob/living/carbon/human/target)
 	update_choices()

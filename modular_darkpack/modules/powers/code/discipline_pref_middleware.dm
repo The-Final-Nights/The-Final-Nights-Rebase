@@ -10,6 +10,19 @@ var/global/list/RARE_DISCIPLINE_TYPES = list(
 	// daimonion, valeren, melpominee not yet implemented but will go here
 )
 
+// warns a player if they have no discipline dots assigned before joining
+// returns TRUE if they want to proceed, FALSE if they want to go back and fix their disciplines
+/mob/dead/new_player/proc/check_discipline_warning()
+	if(!client?.prefs)
+		return TRUE
+	var/splat = client.prefs.read_preference(/datum/preference/choiced/splats)
+	if(!ispath(splat, /datum/splat/vampire))
+		return TRUE
+	for(var/disc in client.prefs.discipline_levels)
+		if(client.prefs.discipline_levels[disc] > 0)
+			return TRUE
+	var/choice = tgui_alert(src, "You have not allocated any discipline dots! As a precaution, you will automatically be assigned 1 dot in each of your clan's common disciplines when you spawn.", "Disciplines Not Configured", list("I understand", "Go Back"))
+	return choice == "I understand"
 
 // discipline weights (trusted players arent affected by these)
 // 5 possible total disciplines
@@ -267,14 +280,17 @@ var/global/list/RARE_DISCIPLINE_TYPES = list(
 			break
 
 	if(!has_any)
-		for(var/datum/action/discipline/disc_action as anything in vampire_splat.powers)
-			var/datum/discipline/disc = disc_action.discipline
-			if(!disc?.selectable)
-				continue
-			if(ispath(disc.type, /datum/discipline/path))
-				continue
-			discipline_levels["[disc.type]"] = 1
-			character.change_st_power_level(disc.type, 1) // trying to spawn in with no disciplines? you get 1 dot in each clan disc, punk
+		var/datum/subsplat/vampire_clan/clan = character.get_clan()
+		if(clan)
+			for(var/disc_type in clan.clan_disciplines)
+				if(!ispath(disc_type, /datum/discipline))
+					continue
+				if(disc_type in RARE_DISCIPLINE_TYPES) // to avoid giving a dominate malkavian their 'clan default' of dementation
+					continue
+				discipline_levels["[disc_type]"] = 1
+				var/result = character.change_st_power_level(disc_type, 1)
+				if(!result)
+					character.give_st_power(disc_type, 1)
 		save_character()
 	else
 		for(var/disc_path in discipline_levels)
@@ -287,6 +303,11 @@ var/global/list/RARE_DISCIPLINE_TYPES = list(
 			var/result = character.change_st_power_level(discipline, level)
 			if(!result)
 				character.give_st_power(discipline, level) // load em up
+
+	// if they possess dementate, they get derangement. even if they have 0 dots in it. if an admin removes dementate for say, dominate, they will no longer have derangement
+	// dom malks get to be Not Crazy:tm:
+	if(vampire_splat.get_power(/datum/discipline/dementation))
+		character.add_quirk(/datum/quirk/derangement)
 
 	SSticker.OnRoundend(CALLBACK(src, PROC_REF(save_disciplines), character))
 
