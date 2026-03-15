@@ -26,8 +26,11 @@
 /mob/living/carbon/human/proc/name_override(datum/source, list/returned_name, obj/item/held_item, mob/living/carbon/human/hovered)
 	SIGNAL_HANDLER
 
-	if(!ishuman(hovered) || source == hovered)
+	if(!ishuman(hovered))
 		return NONE
+	if(source == hovered)
+		returned_name[1] = real_name
+		return SCREENTIP_NAME_SET
 
 	var/known_name = mind.guestbook.get_known_name(src, hovered, hovered.real_name)
 	returned_name[1] = known_name ? "[known_name]" : "[hovered.name]"
