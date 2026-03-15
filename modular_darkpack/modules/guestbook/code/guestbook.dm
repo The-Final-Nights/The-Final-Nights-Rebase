@@ -92,7 +92,7 @@
 		to_chat(user, span_notice("You memorize the face of [guest] as \"[given_name]\"."))
 	return TRUE
 
-/datum/guestbook/proc/rename_guest(mob/user, mob/living/carbon/guest, real_name, given_name, silent = TRUE)
+/datum/guestbook/proc/rename_guest(mob/living/user, mob/living/carbon/guest, real_name, given_name, silent = TRUE)
 	var/old_name = LAZYACCESS(known_names, real_name)
 	if(!old_name)
 		return FALSE
