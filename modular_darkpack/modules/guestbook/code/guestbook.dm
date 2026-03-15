@@ -96,7 +96,8 @@
 	var/old_name = LAZYACCESS(known_names, real_name)
 	if(!old_name)
 		return FALSE
-	known_names[real_name] = given_name
+	LAZYSET(known_names, real_name, given_name)
+	user.save_guestbook(known_names)
 	if(!silent)
 		to_chat(user, span_notice("You re-memorize the face of \"[old_name]\" as \"[given_name]\"."))
 	return TRUE
