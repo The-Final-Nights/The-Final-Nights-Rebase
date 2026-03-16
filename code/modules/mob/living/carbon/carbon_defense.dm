@@ -139,12 +139,12 @@
 			var/tissue_text = hit_bodypart.get_external_description()
 			extra_wound_details = ", [weapon.get_sharpness() == SHARP_EDGED ? "slicing" : "piercing"] at the remaining [tissue_text]"
 
-	var/attack_message_spectator = "[src] [message_verb_continuous][message_hit_area] with [weapon][extra_wound_details]!"
+	var/attack_message_spectator = "[GET_GUESTBOOK_NAME(src, src)] [message_verb_continuous][message_hit_area] with [weapon][extra_wound_details]!"
 	var/attack_message_victim = "You're [message_verb_continuous][message_hit_area] with [weapon][extra_wound_details]!"
-	var/attack_message_attacker = "You [message_verb_simple] [src][message_hit_area] with [weapon][extra_wound_details]!"
+	var/attack_message_attacker = "You [message_verb_simple] [GET_GUESTBOOK_NAME(user, src)][message_hit_area] with [weapon][extra_wound_details]!"
 	if(user in viewers(src, null))
-		attack_message_spectator = "[user] [message_verb_continuous] [src][message_hit_area] with [weapon][extra_wound_details]!"
-		attack_message_victim = "[user] [message_verb_continuous] you[message_hit_area] with [weapon][extra_wound_details]!"
+		attack_message_spectator = "[GET_GUESTBOOK_NAME(src, user)] [message_verb_continuous] [GET_GUESTBOOK_NAME(src, src)][message_hit_area] with [weapon][extra_wound_details]!"
+		attack_message_victim = "[GET_GUESTBOOK_NAME(src, user)] [message_verb_continuous] you[message_hit_area] with [weapon][extra_wound_details]!"
 	if(user == src)
 		attack_message_victim = "You [message_verb_simple] yourself[message_hit_area] with [weapon][extra_wound_details]!"
 	visible_message(span_danger("[attack_message_spectator]"),\
@@ -338,38 +338,38 @@
 
 	if(body_position == LYING_DOWN)
 		if(buckled)
-			to_chat(helper, span_warning("You need to unbuckle [src] first to do that!"))
+			to_chat(helper, span_warning("You need to unbuckle [GET_GUESTBOOK_NAME(helper, src)] first to do that!"))
 			return
-		helper.visible_message(span_notice("[helper] shakes [src] trying to get [p_them()] up!"), \
+		helper.visible_message(span_notice("[GET_GUESTBOOK_NAME(helper, helper)] shakes [GET_GUESTBOOK_NAME(helper, src)] trying to get [p_them()] up!"), \
 						null, span_hear("You hear the rustling of clothes."), DEFAULT_MESSAGE_RANGE, list(helper, src))
-		to_chat(helper, span_notice("You shake [src] trying to pick [p_them()] up!"))
-		to_chat(src, span_notice("[helper] shakes you to get you up!"))
+		to_chat(helper, span_notice("You shake [GET_GUESTBOOK_NAME(helper, src)] trying to pick [p_them()] up!"))
+		to_chat(src, span_notice("[GET_GUESTBOOK_NAME(src, helper)] shakes you to get you up!"))
 	else if(check_zone(helper.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD)) //Headpats!
-		helper.visible_message(span_notice("[helper] gives [src] a pat on the head to make [p_them()] feel better!"), \
+		helper.visible_message(span_notice("[GET_GUESTBOOK_NAME(helper, helper)] gives [GET_GUESTBOOK_NAME(helper, src)] a pat on the head to make [p_them()] feel better!"), \
 					null, span_hear("You hear a soft patter."), DEFAULT_MESSAGE_RANGE, list(helper, src))
-		to_chat(helper, span_notice("You give [src] a pat on the head to make [p_them()] feel better!"))
-		to_chat(src, span_notice("[helper] gives you a pat on the head to make you feel better! "))
+		to_chat(helper, span_notice("You give [GET_GUESTBOOK_NAME(helper, src)] a pat on the head to make [p_them()] feel better!"))
+		to_chat(src, span_notice("[GET_GUESTBOOK_NAME(src, helper)] gives you a pat on the head to make you feel better! "))
 
 		share_blood_on_touch(helper, ITEM_SLOT_HEAD|ITEM_SLOT_MASK)
 		if(HAS_TRAIT(src, TRAIT_BADTOUCH))
-			to_chat(helper, span_warning("[src] looks visibly upset as you pat [p_them()] on the head."))
+			to_chat(helper, span_warning("[GET_GUESTBOOK_NAME(helper, src)] looks visibly upset as you pat [p_them()] on the head."))
 
 	else if ((helper.zone_selected == BODY_ZONE_PRECISE_GROIN) && !isnull(src.get_organ_by_type(/obj/item/organ/tail)))
-		helper.visible_message(span_notice("[helper] pulls on [src]'s tail!"), \
+		helper.visible_message(span_notice("[GET_GUESTBOOK_NAME(helper, helper)] pulls on [GET_GUESTBOOK_NAME(helper, src)]'s tail!"), \
 					null, span_hear("You hear a soft patter."), DEFAULT_MESSAGE_RANGE, list(helper, src))
-		to_chat(helper, span_notice("You pull on [src]'s tail!"))
-		to_chat(src, span_notice("[helper] pulls on your tail!"))
+		to_chat(helper, span_notice("You pull on [GET_GUESTBOOK_NAME(helper, src)]'s tail!"))
+		to_chat(src, span_notice("[GET_GUESTBOOK_NAME(src, helper)] pulls on your tail!"))
 		if(HAS_TRAIT(src, TRAIT_BADTOUCH)) //How dare they!
-			to_chat(helper, span_warning("[src] makes a grumbling noise as you pull on [p_their()] tail."))
+			to_chat(helper, span_warning("[GET_GUESTBOOK_NAME(helper, src)] makes a grumbling noise as you pull on [p_their()] tail."))
 		else
 			add_mood_event("tailpulled", /datum/mood_event/tailpulled)
 
 	else if ((helper.zone_selected == BODY_ZONE_PRECISE_GROIN) && (istype(head, /obj/item/clothing/head/costume/kitty) || istype(head, /obj/item/clothing/head/collectable/kitty)))
 		var/obj/item/clothing/head/faketail = head
-		helper.visible_message(span_danger("[helper] pulls on [src]'s tail... and it rips off!"), \
+		helper.visible_message(span_danger("[GET_GUESTBOOK_NAME(helper, helper)] pulls on [GET_GUESTBOOK_NAME(helper, src)]'s tail... and it rips off!"), \
 					null, span_hear("You hear a ripping sound."), DEFAULT_MESSAGE_RANGE, list(helper, src))
-		to_chat(helper, span_danger("You pull on [src]'s tail... and it rips off!"))
-		to_chat(src, span_userdanger("[helper] pulls on your tail... and it rips off!"))
+		to_chat(helper, span_danger("You pull on [GET_GUESTBOOK_NAME(helper, src)]'s tail... and it rips off!"))
+		to_chat(src, span_userdanger("[GET_GUESTBOOK_NAME(src, helper)] pulls on your tail... and it rips off!"))
 		playsound(loc, 'sound/effects/cloth_rip.ogg', 75, TRUE)
 		dropItemToGround(faketail)
 		helper.put_in_hands(faketail)
@@ -377,15 +377,15 @@
 
 	else
 		if (helper.grab_state >= GRAB_AGGRESSIVE)
-			helper.visible_message(span_notice("[helper] embraces [src] in a tight bear hug!"), \
+			helper.visible_message(span_notice("[GET_GUESTBOOK_NAME(helper, helper)] embraces [GET_GUESTBOOK_NAME(helper, src)] in a tight bear hug!"), \
 						null, span_hear("You hear the rustling of clothes."), DEFAULT_MESSAGE_RANGE, list(helper, src))
-			to_chat(helper, span_notice("You wrap [src] into a tight bear hug!"))
-			to_chat(src, span_notice("[helper] squeezes you super tightly in a firm bear hug!"))
+			to_chat(helper, span_notice("You wrap [GET_GUESTBOOK_NAME(helper, src)] into a tight bear hug!"))
+			to_chat(src, span_notice("[GET_GUESTBOOK_NAME(src, helper)] squeezes you super tightly in a firm bear hug!"))
 		else
-			helper.visible_message(span_notice("[helper] hugs [src] to make [p_them()] feel better!"), \
+			helper.visible_message(span_notice("[GET_GUESTBOOK_NAME(helper, helper)] hugs [GET_GUESTBOOK_NAME(helper, src)] to make [p_them()] feel better!"), \
 						null, span_hear("You hear the rustling of clothes."), DEFAULT_MESSAGE_RANGE, list(helper, src))
-			to_chat(helper, span_notice("You hug [src] to make [p_them()] feel better!"))
-			to_chat(src, span_notice("[helper] hugs you to make you feel better!"))
+			to_chat(helper, span_notice("You hug [GET_GUESTBOOK_NAME(helper, src)] to make [p_them()] feel better!"))
+			to_chat(src, span_notice("[GET_GUESTBOOK_NAME(src, helper)] hugs you to make you feel better!"))
 
 		share_blood_on_touch(helper, ITEM_SLOT_HEAD|ITEM_SLOT_MASK|ITEM_SLOT_GLOVES)
 		// Warm them up with hugs
@@ -408,14 +408,14 @@
 
 		// Let people know if they hugged someone really warm or really cold
 		if(helper.bodytemperature > BODYTEMP_HEAT_DAMAGE_LIMIT)
-			to_chat(src, span_warning("It feels like [helper] is over heating as [helper.p_they()] hug[helper.p_s()] you."))
+			to_chat(src, span_warning("It feels like [GET_GUESTBOOK_NAME(src, helper)] is over heating as [helper.p_they()] hug[helper.p_s()] you."))
 		else if(helper.bodytemperature < BODYTEMP_COLD_DAMAGE_LIMIT)
-			to_chat(src, span_warning("It feels like [helper] is freezing as [helper.p_they()] hug[helper.p_s()] you."))
+			to_chat(src, span_warning("It feels like [GET_GUESTBOOK_NAME(src, helper)] is freezing as [helper.p_they()] hug[helper.p_s()] you."))
 
 		if(bodytemperature > BODYTEMP_HEAT_DAMAGE_LIMIT)
-			to_chat(helper, span_warning("It feels like [src] is over heating as you hug [p_them()]."))
+			to_chat(helper, span_warning("It feels like [GET_GUESTBOOK_NAME(helper, src)] is over heating as you hug [p_them()]."))
 		else if(bodytemperature < BODYTEMP_COLD_DAMAGE_LIMIT)
-			to_chat(helper, span_warning("It feels like [src] is freezing as you hug [p_them()]."))
+			to_chat(helper, span_warning("It feels like [GET_GUESTBOOK_NAME(helper, src)] is freezing as you hug [p_them()]."))
 
 		if(HAS_TRAIT(helper, TRAIT_FRIENDLY) || force_friendly)
 			if (helper.mob_mood.sanity >= SANITY_GREAT)
@@ -425,7 +425,7 @@
 				add_mood_event("friendly_hug", /datum/mood_event/betterhug, helper)
 
 		if(HAS_TRAIT(src, TRAIT_BADTOUCH))
-			to_chat(helper, span_warning("[src] looks visibly upset as you hug [p_them()]."))
+			to_chat(helper, span_warning("[GET_GUESTBOOK_NAME(helper, src)] looks visibly upset as you hug [p_them()]."))
 
 	SEND_SIGNAL(src, COMSIG_CARBON_HELP_ACT, helper)
 	SEND_SIGNAL(helper, COMSIG_CARBON_HELPED, src)
@@ -458,7 +458,7 @@
 			if(!embeds)
 				embeds = TRUE
 				// this way, we only visibly try to examine ourselves if we have something embedded, otherwise we'll still hug ourselves :)
-				visible_message(span_notice("[src] examines [p_them()]self."), \
+				visible_message(span_notice("[GET_GUESTBOOK_NAME(src, src)] examines [p_them()]self."), \
 					span_notice("You check yourself for shrapnel."), visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE)
 			var/harmless = weapon.get_embed().is_harmless()
 			var/stuck_wordage = harmless ? "stuck to" : "embedded in"
@@ -650,7 +650,7 @@
 
 	var/bleed_rate = grasped_part.cached_bleed_rate
 	var/bleeding_text = (bleed_rate ? ", trying to stop the bleeding" : "")
-	user.visible_message(span_danger("[user] grasps at [user.p_their()] [grasped_part.name][bleeding_text]."), span_notice("You grab hold of your [grasped_part.name] tightly."), vision_distance=COMBAT_MESSAGE_RANGE)
+	user.visible_message(span_danger("[GET_GUESTBOOK_NAME(user, user)] grasps at [user.p_their()] [grasped_part.name][bleeding_text]."), span_notice("You grab hold of your [grasped_part.name] tightly."), vision_distance=COMBAT_MESSAGE_RANGE)
 	playsound(get_turf(src), 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	return TRUE
 

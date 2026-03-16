@@ -42,8 +42,8 @@
 		user.Move_Pulled(source_obj)
 
 		if (user.pulling.loc == source_obj.loc)
-			user.visible_message(span_notice("[user] places [user.pulling] onto [source_obj]."),
-				span_notice("You place [user.pulling] onto [source_obj]."))
+			user.visible_message(span_notice("[GET_GUESTBOOK_NAME(user, user)] places [GET_GUESTBOOK_NAME(user, user.pulling)] onto [source_obj]."),
+				span_notice("You place [GET_GUESTBOOK_NAME(user, user.pulling)] onto [source_obj]."))
 			user.stop_pulling()
 
 		return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -54,7 +54,7 @@
 			//Already buckled to the object, you probably meant to unbuckle them
 			return
 
-		to_chat(user, span_warning("[pushed_mob] is buckled to [pushed_mob.buckled]!"))
+		to_chat(user, span_warning("[GET_GUESTBOOK_NAME(user, pushed_mob)] is buckled to [GET_GUESTBOOK_NAME(user, pushed_mob.buckled)]!"))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 	INVOKE_ASYNC(src, PROC_REF(perform_table_smash), source_obj, user)
@@ -76,8 +76,8 @@
 			if (GRAB_NECK to GRAB_KILL)
 				tablelimbsmash(user, pushed_mob, table)
 	else
-		pushed_mob.visible_message(span_notice("[user] begins to place [pushed_mob] onto [table]..."), \
-							span_userdanger("[user] begins to place [pushed_mob] onto [table]..."))
+		pushed_mob.visible_message(span_notice("[GET_GUESTBOOK_NAME(pushed_mob, user)] begins to place [GET_GUESTBOOK_NAME(pushed_mob, pushed_mob)] onto [table]..."), \
+							span_userdanger("[GET_GUESTBOOK_NAME(pushed_mob, user)] begins to place [GET_GUESTBOOK_NAME(pushed_mob, pushed_mob)] onto [table]..."))
 		if (do_after(user, 3.5 SECONDS, target = pushed_mob))
 			tableplace(user, pushed_mob, table)
 		else
@@ -120,8 +120,8 @@
 	if (istype(potential_spine))
 		tableplace_delay *= potential_spine.athletics_boost_multiplier
 
-	carried_mob.visible_message(span_notice("[user] begins to[skills_space] place [carried_mob] onto [table]..."),
-		span_userdanger("[user] begins to[skills_space] place [carried_mob] onto [table]..."))
+	carried_mob.visible_message(span_notice("[GET_GUESTBOOK_NAME(carried_mob, user)] begins to[skills_space] place [GET_GUESTBOOK_NAME(carried_mob, carried_mob)] onto [table]..."),
+		span_userdanger("[GET_GUESTBOOK_NAME(carried_mob, user)] begins to[skills_space] place [GET_GUESTBOOK_NAME(carried_mob, carried_mob)] onto [table]..."))
 	if (!do_after(user, tableplace_delay, target = carried_mob))
 		return ITEM_INTERACT_BLOCKING
 	user.unbuckle_mob(carried_mob)
@@ -132,8 +132,8 @@
 /datum/element/table_smash/proc/tableplace(mob/living/user, mob/living/pushed_mob, obj/structure/table/table)
 	pushed_mob.forceMove(table.loc)
 	pushed_mob.set_resting(TRUE, TRUE)
-	pushed_mob.visible_message(span_notice("[user] places [pushed_mob] onto [table]."), \
-		span_notice("[user] places [pushed_mob] onto [table]."))
+	pushed_mob.visible_message(span_notice("[GET_GUESTBOOK_NAME(pushed_mob, user)] places [GET_GUESTBOOK_NAME(pushed_mob, pushed_mob)] onto [table]."), \
+		span_notice("[GET_GUESTBOOK_NAME(pushed_mob, user)] places [GET_GUESTBOOK_NAME(pushed_mob, pushed_mob)] onto [table]."))
 	log_combat(user, pushed_mob, "placed", null, "onto [table]")
 
 /// Aggressively smash the mob onto the table
@@ -157,8 +157,8 @@
 	pushed_mob.apply_damage(10, BRUTE)
 	pushed_mob.apply_damage(40, STAMINA)
 	playsound(pushed_mob, 'sound/effects/tableslam.ogg', 90, TRUE)
-	pushed_mob.visible_message(span_danger("[user] slams [pushed_mob] onto \the [table]!"), \
-		span_userdanger("[user] slams you onto \the [table]!"))
+	pushed_mob.visible_message(span_danger("[GET_GUESTBOOK_NAME(pushed_mob, user)] slams [GET_GUESTBOOK_NAME(pushed_mob, pushed_mob)] onto \the [table]!"), \
+		span_userdanger("[GET_GUESTBOOK_NAME(pushed_mob, user)] slams you onto \the [table]!"))
 	log_combat(user, pushed_mob, "tabled", null, "onto [table]")
 	pushed_mob.add_mood_event("table", /datum/mood_event/table)
 	SEND_SIGNAL(user, COMSIG_LIVING_TABLE_SLAMMING, pushed_mob, table)
@@ -175,8 +175,8 @@
 	pushed_mob.apply_damage(30, BRUTE, banged_limb, wound_bonus = extra_wound)
 	pushed_mob.apply_damage(60, STAMINA)
 	playsound(pushed_mob, 'sound/effects/bang.ogg', 90, TRUE)
-	pushed_mob.visible_message(span_danger("[user] smashes [pushed_mob]'s [banged_limb.plaintext_zone] against \the [table]!"),
-		span_userdanger("[user] smashes your [banged_limb.plaintext_zone] against \the [table]"))
+	pushed_mob.visible_message(span_danger("[GET_GUESTBOOK_NAME(pushed_mob, user)] smashes [GET_GUESTBOOK_NAME(pushed_mob, pushed_mob)]'s [banged_limb.plaintext_zone] against \the [table]!"),
+		span_userdanger("[GET_GUESTBOOK_NAME(pushed_mob, user)] smashes your [banged_limb.plaintext_zone] against \the [table]"))
 	log_combat(user, pushed_mob, "head slammed", null, "against [table]")
 	pushed_mob.add_mood_event("table", /datum/mood_event/table_limbsmash, banged_limb)
 	table.take_damage(50)
@@ -190,9 +190,9 @@
 	if((shove_flags & SHOVE_KNOCKDOWN_BLOCKED) || !(shove_flags & SHOVE_BLOCKED))
 		return
 	target.Knockdown(SHOVE_KNOCKDOWN_TABLE, daze_amount = 3 SECONDS)
-	target.visible_message(span_danger("[shover.name] shoves [target.name] onto \the [src]!"),
-		span_userdanger("You're shoved onto \the [src] by [shover.name]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, shover)
-	to_chat(shover, span_danger("You shove [target.name] onto \the [src]!"))
+	target.visible_message(span_danger("[GET_GUESTBOOK_NAME(target, shover)] shoves [GET_GUESTBOOK_NAME(target, target)] onto \the [src]!"),
+		span_userdanger("You're shoved onto \the [src] by [GET_GUESTBOOK_NAME(target, shover)]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, shover)
+	to_chat(shover, span_danger("You shove [GET_GUESTBOOK_NAME(shover, target)] onto \the [src]!"))
 	target.throw_at(src, 1, 1, null, FALSE) //1 speed throws with no spin are basically just forcemoves with a hard collision check
 	log_combat(shover, target, "shoved", "onto [src] (table)[weapon ? " with [weapon]" : ""]")
 	after_smash(target)

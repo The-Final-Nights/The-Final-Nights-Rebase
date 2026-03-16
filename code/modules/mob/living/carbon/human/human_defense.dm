@@ -114,9 +114,9 @@
 		return
 	var/obj/item/bodypart/arm/active_arm = user.get_active_hand()
 	playsound(loc, active_arm.unarmed_attack_sound, 25, TRUE, -1)
-	visible_message(span_danger("[user] [hulk_verb]ed [src]!"), \
-					span_userdanger("[user] [hulk_verb]ed [src]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), null, user)
-	to_chat(user, span_danger("You [hulk_verb] [src]!"))
+	visible_message(span_danger("[GET_GUESTBOOK_NAME(src, user)] [hulk_verb]ed [GET_GUESTBOOK_NAME(user, src)]!"), \
+					span_userdanger("[GET_GUESTBOOK_NAME(src, user)] [hulk_verb]ed [GET_GUESTBOOK_NAME(user, src)]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), null, user)
+	to_chat(user, span_danger("You [hulk_verb] [GET_GUESTBOOK_NAME(user, src)]!"))
 	apply_damage(15, BRUTE, wound_bonus=10)
 
 /mob/living/carbon/human/attack_hand(mob/user, list/modifiers)
@@ -139,10 +139,10 @@
 		target.Knockdown(SHOVE_KNOCKDOWN_HUMAN, daze_amount = 3 SECONDS)
 	if(!HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
 		Knockdown(SHOVE_KNOCKDOWN_COLLATERAL, daze_amount = 3 SECONDS)
-	target.visible_message(span_danger("[shover] shoves [target.name] into [name]!"),
-		span_userdanger("You're shoved into [name] by [shover]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
-	to_chat(src, span_danger("You shove [target.name] into [name]!"))
-	log_combat(shover, target, "shoved", addition = "into [name][weapon ? " with [weapon]" : ""]")
+	target.visible_message(span_danger("[GET_GUESTBOOK_NAME(target, shover)] shoves [GET_GUESTBOOK_NAME(target, target)] into [GET_GUESTBOOK_NAME(target, src)]!"),
+		span_userdanger("You're shoved into [GET_GUESTBOOK_NAME(target, src)] by [GET_GUESTBOOK_NAME(target, shover)]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
+	to_chat(src, span_danger("You shove [GET_GUESTBOOK_NAME(src, target)] into [GET_GUESTBOOK_NAME(src, src)]!"))
+	log_combat(shover, target, "shoved", addition = "into [real_name][weapon ? " with [weapon]" : ""]")
 	return COMSIG_LIVING_SHOVE_HANDLED
 
 /mob/living/carbon/human/attack_paw(mob/living/carbon/human/user, list/modifiers)
@@ -153,23 +153,23 @@
 		var/obj/item/I = get_active_held_item()
 		if(I && !(I.item_flags & ABSTRACT) && dropItemToGround(I))
 			playsound(loc, 'sound/items/weapons/slash.ogg', 25, TRUE, -1)
-			visible_message(span_danger("[user] disarmed [src]!"), \
-							span_userdanger("[user] disarmed you!"), span_hear("You hear aggressive shuffling!"), null, user)
-			to_chat(user, span_danger("You disarm [src]!"))
+			visible_message(span_danger("[GET_GUESTBOOK_NAME(src, user)] disarmed [GET_GUESTBOOK_NAME(user, src)]!"), \
+							span_userdanger("[GET_GUESTBOOK_NAME(src, user)] disarmed you!"), span_hear("You hear aggressive shuffling!"), null, user)
+			to_chat(user, span_danger("You disarm [GET_GUESTBOOK_NAME(user, src)]!"))
 		else if(!user.client || prob(5)) // only natural monkeys get to stun reliably, (they only do it occasionaly)
 			playsound(loc, 'sound/items/weapons/pierce.ogg', 25, TRUE, -1)
 			if (src.IsKnockdown() && !src.IsParalyzed())
 				Paralyze(40)
 				log_combat(user, src, "pinned")
-				visible_message(span_danger("[user] pins [src] down!"), \
-								span_userdanger("[user] pins you down!"), span_hear("You hear shuffling and a muffled groan!"), null, user)
-				to_chat(user, span_danger("You pin [src] down!"))
+				visible_message(span_danger("[GET_GUESTBOOK_NAME(src, user)] pins [GET_GUESTBOOK_NAME(user, src)] down!"), \
+								span_userdanger("[GET_GUESTBOOK_NAME(src, user)] pins you down!"), span_hear("You hear shuffling and a muffled groan!"), null, user)
+				to_chat(user, span_danger("You pin [GET_GUESTBOOK_NAME(user, src)] down!"))
 			else
 				Knockdown(30)
 				log_combat(user, src, "tackled")
-				visible_message(span_danger("[user] tackles [src] down!"), \
-								span_userdanger("[user] tackles you down!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), null, user)
-				to_chat(user, span_danger("You tackle [src] down!"))
+				visible_message(span_danger("[GET_GUESTBOOK_NAME(src, user)] tackles [GET_GUESTBOOK_NAME(user, src)] down!"), \
+								span_userdanger("[GET_GUESTBOOK_NAME(src, user)] tackles you down!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), null, user)
+				to_chat(user, span_danger("You tackle [GET_GUESTBOOK_NAME(user, src)] down!"))
 		return TRUE
 
 	if(!user.combat_mode)
@@ -199,24 +199,24 @@
 		var/obj/item/I = get_active_held_item()
 		if(I && dropItemToGround(I))
 			playsound(loc, 'sound/items/weapons/slash.ogg', 25, TRUE, -1)
-			visible_message(span_danger("[user] disarms [src]!"), \
-							span_userdanger("[user] disarms you!"), span_hear("You hear aggressive shuffling!"), null, user)
-			to_chat(user, span_danger("You disarm [src]!"))
+			visible_message(span_danger("[GET_GUESTBOOK_NAME(src, user)] disarms [GET_GUESTBOOK_NAME(src, src)]!"), \
+							span_userdanger("[GET_GUESTBOOK_NAME(src, user)] disarms you!"), span_hear("You hear aggressive shuffling!"), null, user)
+			to_chat(user, span_danger("You disarm [GET_GUESTBOOK_NAME(user, src)]!"))
 		else if(!HAS_TRAIT(src, TRAIT_INCAPACITATED))
 			playsound(loc, 'sound/items/weapons/pierce.ogg', 25, TRUE, -1)
 			var/shovetarget = get_edge_target_turf(user, get_dir(user, get_step_away(src, user)))
 			adjust_stamina_loss(35)
 			throw_at(shovetarget, 4, 2, user, force = MOVE_FORCE_OVERPOWERING)
 			log_combat(user, src, "shoved")
-			visible_message(span_danger("[user] tackles [src] down!"), \
-							span_userdanger("[user] shoves you with great force!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), null, user)
-			to_chat(user, span_danger("You shove [src] with great force!"))
+			visible_message(span_danger("[GET_GUESTBOOK_NAME(src, user)] tackles [GET_GUESTBOOK_NAME(src, src)] down!"), \
+							span_userdanger("[GET_GUESTBOOK_NAME(src, user)] shoves you with great force!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), null, user)
+			to_chat(user, span_danger("You shove [GET_GUESTBOOK_NAME(user, src)] with great force!"))
 		else
 			Paralyze(5 SECONDS)
 			playsound(loc, 'sound/items/weapons/punch3.ogg', 25, TRUE, -1)
-			visible_message(span_danger("[user] slams [src] into the floor!"), \
-							span_userdanger("[user] slams you into the ground!"), span_hear("You hear something slam loudly onto the floor!"), null, user)
-			to_chat(user, span_danger("You slam [src] into the floor beneath you!"))
+			visible_message(span_danger("[GET_GUESTBOOK_NAME(src, user)] slams [GET_GUESTBOOK_NAME(src, src)] into the floor!"), \
+							span_userdanger("[GET_GUESTBOOK_NAME(src, user)] slams you into the ground!"), span_hear("You hear something slam loudly onto the floor!"), null, user)
+			to_chat(user, span_danger("You slam [GET_GUESTBOOK_NAME(user, src)] into the floor beneath you!"))
 			log_combat(user, src, "slammed into the ground")
 		return TRUE
 
@@ -226,17 +226,17 @@
 		var/damage = prob(90) ? rand(user.melee_damage_lower, user.melee_damage_upper) : 0
 		if(!damage)
 			playsound(loc, 'sound/items/weapons/slashmiss.ogg', 50, TRUE, -1)
-			visible_message(span_danger("[user] lunges at [src]!"), \
-							span_userdanger("[user] lunges at you!"), span_hear("You hear a swoosh!"), null, user)
-			to_chat(user, span_danger("You lunge at [src]!"))
+			visible_message(span_danger("[GET_GUESTBOOK_NAME(src, user)] lunges at [GET_GUESTBOOK_NAME(src, src)]!"), \
+							span_userdanger("[GET_GUESTBOOK_NAME(src, user)] lunges at you!"), span_hear("You hear a swoosh!"), null, user)
+			to_chat(user, span_danger("You lunge at [GET_GUESTBOOK_NAME(user, src)]!"))
 			return FALSE
 		var/obj/item/bodypart/affecting = get_bodypart(get_random_valid_zone(user.zone_selected))
 		var/armor_block = run_armor_check(affecting, MELEE,"","",10)
 
 		playsound(loc, 'sound/items/weapons/slice.ogg', 25, TRUE, -1)
-		visible_message(span_danger("[user] slashes at [src]!"), \
-						span_userdanger("[user] slashes at you!"), span_hear("You hear a sickening sound of a slice!"), null, user)
-		to_chat(user, span_danger("You slash at [src]!"))
+		visible_message(span_danger("[GET_GUESTBOOK_NAME(src, user)] slashes at [GET_GUESTBOOK_NAME(src, src)]!"), \
+						span_userdanger("[GET_GUESTBOOK_NAME(src, user)] slashes at you!"), span_hear("You hear a sickening sound of a slice!"), null, user)
+		to_chat(user, span_danger("You slash at [GET_GUESTBOOK_NAME(user, src)]!"))
 		if(dismembering_strike(user, user.zone_selected)) //Dismemberment successful
 			apply_damage(damage, BRUTE, affecting, armor_block)
 		log_combat(user, src, "attacked")
