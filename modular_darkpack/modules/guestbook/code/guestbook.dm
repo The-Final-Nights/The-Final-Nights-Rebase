@@ -127,10 +127,10 @@
 		to_chat(user, span_notice("You forget the face of \"[existing_name]\"."))
 	return TRUE
 
-/datum/guestbook/proc/get_known_name(mob/user, mob/living/carbon/guest, real_name)
+/datum/guestbook/proc/get_known_name(mob/user, mob/living/carbon/guest)
 	if(user == guest)
-		return real_name
-	return LAZYACCESS(known_names, real_name)
+		return guest.real_name
+	return LAZYACCESS(known_names, guest.real_name)
 
 /datum/guestbook/proc/visibility_checks(mob/user, mob/living/carbon/human/guest, silent = FALSE)
 	if(QDELETED(guest))
