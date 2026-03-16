@@ -523,7 +523,7 @@
 
 		if("keyboard_click")
 			if(ringer)
-				playsound(loc, 'modular_darkpack/modules/phones/sounds/keyboard_click.ogg', 25, TRUE)
+				playsound(loc, 'modular_darkpack/modules/phones/sounds/keyboard_click.ogg', 75, TRUE)
 			return TRUE
 
 		if("send_message")
@@ -533,7 +533,7 @@
 				return FALSE
 			send_text_message(contact_number, message_text)
 			if(ringer)
-				playsound(loc, 'modular_darkpack/modules/phones/sounds/text_send.ogg', 20, TRUE)
+				playsound(loc, 'modular_darkpack/modules/phones/sounds/text_send.ogg', 50, TRUE)
 			return TRUE
 
 	return FALSE
@@ -571,7 +571,7 @@
 //stuff to do after a text is received
 /obj/item/smartphone/proc/after_text_received()
 	if(ringer) //only play the receive sound if sounds are on
-		playsound(loc, 'modular_darkpack/modules/phones/sounds/text_receive.ogg', 20, TRUE)
+		playsound(loc, 'modular_darkpack/modules/phones/sounds/text_receive.ogg', 50, TRUE)
 		balloon_alert_to_viewers(message = "New Message!", vision_distance = SAMETILE_MESSAGE_RANGE)
 	return TRUE
 
