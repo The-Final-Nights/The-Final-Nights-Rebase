@@ -162,9 +162,10 @@
 
 /obj/effect/client_image_holder/hallucination/your_mother/malk/Initialize(mapload, list/mobs_which_see_us, datum/hallucination/parent)
 	var/mob/living/carbon/human/hallucinator = parent.hallucinator
+	var/outfits = subtypesof(/datum/outfit/mafia)
 	if (ishuman(hallucinator))
 		var/mob/living/carbon/dna_haver = hallucinator
-		image_icon = image(get_dynamic_human_appearance(/datum/outfit/yourmother, dna_haver.dna.species.type))
+		image_icon = image(get_dynamic_human_appearance(pick(outfits), dna_haver.dna.species.type))
 		return ..()
 
 	image_icon = hallucinator.icon
@@ -172,13 +173,6 @@
 	image_pixel_x = hallucinator.pixel_x
 	image_pixel_y = hallucinator.pixel_y
 	return ..()
-
-/datum/outfit/yourmother
-	name = "your mother"
-
-	uniform = /obj/item/clothing/under/dress/eveninggown
-	neck = /obj/item/clothing/neck/vampire/prayerbeads
-	shoes = /obj/item/clothing/shoes/sandal
 
 // the random hallucination type will store overrides and extensions of basegame hallucinations, as well as untouched basegame hallucinations like eyes_in_the_dark
 /datum/hallucination/malk/random
