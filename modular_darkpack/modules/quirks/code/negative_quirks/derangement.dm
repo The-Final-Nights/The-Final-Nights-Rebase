@@ -140,7 +140,7 @@
 		pick_list_replacements(malk_file, "get_reprimanded"),
 	)
 
-	if(age && age >= 50)
+	if(age >= 50)
 		scold_lines = list(
 			pick_list_replacements(malk_file, "do_something_old"),
 			pick_list_replacements(malk_file, "be_upset"),
