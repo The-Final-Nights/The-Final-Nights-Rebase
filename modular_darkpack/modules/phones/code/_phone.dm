@@ -565,7 +565,6 @@
 			receiving_phone.conversations += recv_conversation
 		recv_conversation.add_message(message_text, FALSE)
 		addtimer(CALLBACK(receiving_phone, PROC_REF(after_text_received)), rand(2 SECONDS, 6 SECONDS)) //simulate random delay before sending an audible/visible alert
-		receiving_phone.after_text_received()
 		log_phone("[key_name(usr)] sent a text to [contact_number]: [message_text]", list("sender" = contact_name, "receiver" = recv_contact_name, "message" = message_text))
 	return TRUE
 
