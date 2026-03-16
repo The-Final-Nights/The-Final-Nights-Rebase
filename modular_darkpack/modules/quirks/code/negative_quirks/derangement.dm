@@ -130,7 +130,7 @@
 	if(!length(spawn_locs))
 		return FALSE
 	var/turf/spawn_loc = pick(spawn_locs)
-	mother = new(spawn_loc, malk, src)
+	mother = new /obj/effect/client_image_holder/hallucination/your_mother/malk(spawn_loc, malk, src)
 	mother.AddComponent(/datum/component/leash, owner = malk, distance = get_dist(malk, mother)) //basically makes mother follow them
 	point_at(malk)
 	talk("[capitalize(malk.real_name)]!!") // Your mother won't be fooled by paltry disguises
@@ -140,7 +140,7 @@
 		pick_list_replacements(malk_file, "get_reprimanded"),
 	)
 
-	if(age >= 50)
+	if(age && age >= 50)
 		scold_lines = list(
 			pick_list_replacements(malk_file, "do_something_old"),
 			pick_list_replacements(malk_file, "be_upset"),
