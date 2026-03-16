@@ -1925,7 +1925,9 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/police/upstairs)
 "ayc" = (
-/obj/effect/turf_decal/siding/wideplating/red/corner,
+/obj/effect/turf_decal/siding/wideplating/red{
+	dir = 4
+	},
 /obj/structure/sign/painting/library{
 	pixel_y = 32
 	},
@@ -4186,11 +4188,6 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/sewer)
-"beb" = (
-/obj/machinery/griddle,
-/obj/machinery/light/small/directional/west,
-/turf/open/floor/city/church,
-/area/vtm/interior)
 "bee" = (
 /obj/effect/turf_decal/siding/wideplating/red{
 	dir = 1
@@ -5168,11 +5165,10 @@
 /turf/open/floor/plating/rough,
 /area/vtm/outside/supply)
 "bsZ" = (
-/obj/effect/turf_decal/siding/wideplating/red,
 /obj/structure/chair/sofa/corp/right{
 	color = "#CD5C5C"
 	},
-/turf/open/floor/wood/smooth,
+/turf/open/floor/carpet/red,
 /area/vtm/interior)
 "btm" = (
 /obj/structure/curtain,
@@ -6947,9 +6943,10 @@
 	},
 /area/vtm/interior/police)
 "bQd" = (
-/obj/effect/turf_decal/siding/wideplating/red,
-/obj/structure/table/wood/fancy,
-/turf/open/floor/wood/smooth,
+/obj/structure/chair/sofa/corp/corner{
+	color = "#CD5C5C"
+	},
+/turf/open/floor/carpet/red,
 /area/vtm/interior)
 "bQm" = (
 /obj/structure/rack,
@@ -7017,9 +7014,7 @@
 /turf/open/floor/city/toilet,
 /area/vtm/interior/shop)
 "bRv" = (
-/obj/structure/table/wood/billiard{
-	pixel_y = -7
-	},
+/obj/structure/table/wood/billiard,
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/anarch)
 "bRH" = (
@@ -7232,6 +7227,24 @@
 	},
 /turf/open/misc/grass,
 /area/vtm/interior/tzimisce_manor)
+"bUj" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/item/pool_cue,
+/obj/item/pool_cue{
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/obj/item/pool_cue{
+	pixel_y = 7;
+	pixel_x = 6
+	},
+/obj/structure/rack/fruit_stand{
+	name = "rack"
+	},
+/turf/open/floor/carpet/darkpack/old,
+/area/vtm/interior/anarch)
 "bUq" = (
 /turf/open/floor/carpet/green,
 /area/vtm/interior/banu)
@@ -8233,11 +8246,10 @@
 /turf/open/water/beach/vamp/deep,
 /area/vtm/outside/northbeach)
 "cih" = (
-/obj/effect/turf_decal/siding/wideplating/red,
-/obj/structure/chair/sofa/corp/left{
+/obj/structure/chair/sofa/corp{
 	color = "#CD5C5C"
 	},
-/turf/open/floor/wood/smooth,
+/turf/open/floor/carpet/red,
 /area/vtm/interior)
 "cij" = (
 /obj/effect/turf_decal/bordur{
@@ -10579,7 +10591,10 @@
 /turf/open/floor/city/factory,
 /area/vtm/interior/police/upstairs)
 "cNV" = (
-/obj/structure/bed/dogbed,
+/obj/structure/chair/sofa/corp/left{
+	color = "#CD5C5C";
+	dir = 8
+	},
 /turf/open/floor/carpet/red,
 /area/vtm/interior)
 "cNZ" = (
@@ -13110,10 +13125,6 @@
 /obj/item/rag{
 	pixel_y = 7;
 	pixel_x = 10
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/pint{
-	pixel_y = 4;
-	pixel_x = -10
 	},
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/wood/smooth/old,
@@ -17784,6 +17795,12 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/freezer/fridge/all_access,
+/obj/item/food/ready_donk/mac_n_cheese,
+/obj/item/food/ready_donk/salisbury_steak,
+/obj/item/food/sandwich/blt,
+/obj/item/food/sandwich/peanut_butter_jelly,
+/obj/item/reagent_containers/cup/glass/waterbottle,
+/obj/item/reagent_containers/cup/soda_cans/grey_bull,
 /turf/open/floor/city/factory,
 /area/vtm/interior/church/staff)
 "eOC" = (
@@ -21975,11 +21992,6 @@
 /obj/structure/platform/lowwall/market,
 /turf/open/floor/plating/rough,
 /area/vtm/outside/pacificheights)
-"fUa" = (
-/obj/machinery/griddle,
-/obj/machinery/light/small/directional/west,
-/turf/open/floor/city/circled,
-/area/vtm/interior)
 "fUc" = (
 /obj/item/clothing/under/vampire/guard,
 /obj/item/clothing/under/vampire/guard,
@@ -23724,10 +23736,6 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/hotel)
-"gsH" = (
-/obj/effect/turf_decal/siding/white,
-/turf/open/floor/city/circled,
-/area/vtm/interior)
 "gsK" = (
 /obj/transfer_point_vamp{
 	alpha = 0;
@@ -31068,7 +31076,7 @@
 /obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/effect/turf_decal/siding/grey,
 /obj/item/storage/box/ingredients/random,
-/turf/open/floor/city/church,
+/turf/open/floor/city/bacotell,
 /area/vtm/interior)
 "iqB" = (
 /obj/structure/curtain{
@@ -33271,10 +33279,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/chantry/basement)
-"iWu" = (
-/obj/machinery/oven/range,
-/turf/open/floor/city/church,
-/area/vtm/interior)
 "iWC" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /obj/effect/mapping_helpers/door/lock,
@@ -37443,14 +37447,6 @@
 	pixel_y = 7;
 	pixel_x = -11
 	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/whiskey_shot{
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/whiskey_shot{
-	pixel_y = 4;
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/whiskey_shot,
 /obj/item/reagent_containers/cup/glass/bottle/vodka/badminka{
 	pixel_y = 10;
 	pixel_x = 12
@@ -37916,7 +37912,7 @@
 	pixel_y = 9
 	},
 /obj/structure/table,
-/turf/open/floor/city/church,
+/turf/open/floor/city/bacotell,
 /area/vtm/interior)
 "kin" = (
 /obj/effect/turf_decal/bordur{
@@ -46832,9 +46828,6 @@
 /obj/structure/flora/bush/flowers_yw/style_random,
 /turf/open/floor/city/factory,
 /area/vtm/interior/giovanni)
-"mDT" = (
-/turf/open/floor/city/church,
-/area/vtm/interior)
 "mDZ" = (
 /obj/structure/table/wood/fancy,
 /obj/item/reagent_containers/cup/glass/bottle/wine{
@@ -48479,7 +48472,7 @@
 /obj/machinery/microwave{
 	pixel_y = 9
 	},
-/turf/open/floor/city/circled,
+/turf/open/floor/city/bacotell,
 /area/vtm/interior)
 "mYG" = (
 /obj/structure/chair/office/darkpack/green,
@@ -54846,10 +54839,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating/concrete,
 /area/vtm/graveyard/interior)
-"oDT" = (
-/obj/machinery/oven/range,
-/turf/open/floor/city/circled,
-/area/vtm/interior)
 "oDY" = (
 /obj/structure/bed/maint{
 	pixel_y = 2
@@ -55335,7 +55324,7 @@
 /area/vtm/interior/shop)
 "oKW" = (
 /obj/effect/turf_decal/siding/grey,
-/turf/open/floor/city/church,
+/turf/open/floor/city/bacotell,
 /area/vtm/interior)
 "oKY" = (
 /turf/open/floor/city/toilet,
@@ -55950,12 +55939,6 @@
 	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/supply)
-"oUI" = (
-/obj/structure/closet/secure_closet/freezer/fridge/all_access,
-/obj/effect/turf_decal/siding/white,
-/obj/item/storage/box/ingredients/random,
-/turf/open/floor/city/circled,
-/area/vtm/interior)
 "oUL" = (
 /obj/structure/sink/directional/south,
 /obj/effect/turf_decal/stock{
@@ -57432,6 +57415,10 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/vtm/interior/strip)
+"pnc" = (
+/obj/structure/table/wood/fancy/red,
+/turf/open/floor/carpet/red,
+/area/vtm/interior)
 "pne" = (
 /obj/structure/chair/sofa/corp{
 	color = "#5aa2fa";
@@ -69724,6 +69711,11 @@
 	},
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
+"sHY" = (
+/obj/machinery/light/small/directional/south,
+/obj/structure/bed/dogbed,
+/turf/open/floor/carpet/red,
+/area/vtm/interior)
 "sIb" = (
 /obj/structure/curtain/cloth{
 	color = "#525252";
@@ -136319,7 +136311,7 @@ bwx
 rvK
 ocQ
 pld
-dWd
+bUj
 sGz
 sGz
 kBM
@@ -161304,14 +161296,14 @@ jdO
 xEh
 vPz
 mYE
-fUa
-oUI
+iKo
+lAW
 vPz
 pVZ
 jhg
 smt
 kii
-beb
+iKo
 iqw
 smt
 hKW
@@ -161507,15 +161499,15 @@ pJF
 uGb
 vgI
 vPz
-oDT
-qVw
-gsH
+uzr
+hTl
+kjL
 pFa
 swO
 aSv
 smt
-iWu
-mDT
+uzr
+hTl
 oKW
 baE
 kVn
@@ -162324,7 +162316,7 @@ jdO
 vgI
 vPz
 bsZ
-hkv
+pnc
 hkv
 stf
 qVw
@@ -162528,7 +162520,7 @@ uGb
 xEh
 vPz
 cih
-hkv
+pnc
 hkv
 stf
 qVw
@@ -162733,7 +162725,7 @@ vgI
 vPz
 bQd
 cNV
-jhg
+sHY
 vPz
 wkk
 bMY
