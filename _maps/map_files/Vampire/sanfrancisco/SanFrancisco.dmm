@@ -8259,9 +8259,9 @@
 /obj/effect/turf_decal/siding/wideplating/red{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/jazz_club,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/primogen_ventrue,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "ciw" = (
@@ -14270,9 +14270,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/ghetto)
 "dQY" = (
-/obj/structure/hedge{
-	density = 0
-	},
+/obj/structure/hedge,
 /obj/effect/turf_decal/siding/grey{
 	dir = 4
 	},
@@ -20753,9 +20751,9 @@
 /obj/effect/turf_decal/siding/wideplating/purple{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/door/access/jazz_club,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/primogen_ventrue,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "fCJ" = (
@@ -23230,12 +23228,6 @@
 /obj/structure/sink/directional/west,
 /turf/open/floor/city/circled,
 /area/vtm/interior/endron_facility/restricted)
-"glR" = (
-/obj/structure/hedge{
-	density = 0
-	},
-/turf/open/floor/plating/granite/black,
-/area/vtm/interior/millennium_tower)
 "gmc" = (
 /obj/structure/lattice/grate,
 /obj/structure/railing{
@@ -38007,6 +37999,12 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/city/toilet,
 /area/vtm/interior)
+"kkB" = (
+/obj/effect/landmark/npcwall,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/vtm/interior/sewer/police)
 "kkI" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/chair/pew/right,
@@ -48234,6 +48232,15 @@
 	},
 /turf/open/floor/city/circled,
 /area/vtm/interior/endron_facility/restricted)
+"mWb" = (
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
+/obj/effect/landmark/npcwall,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/vtm/interior/sewer/police)
 "mWd" = (
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/siding/wideplating/red/corner{
@@ -67308,6 +67315,11 @@
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/cog/caern)
+"sae" = (
+/obj/structure/platform/lowwall/market,
+/obj/effect/landmark/npcwall,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/sewer/police)
 "sam" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
@@ -77535,9 +77547,7 @@
 /turf/open/floor/carpet/orange,
 /area/vtm/interior/church/haven)
 "uOO" = (
-/obj/machinery/jukebox{
-	plane = -2
-	},
+/obj/machinery/jukebox/no_access,
 /obj/effect/turf_decal/siding/grey/inner_corner,
 /obj/structure/railing{
 	dir = 6
@@ -87024,9 +87034,9 @@
 	},
 /area/vtm)
 "xyd" = (
-/obj/structure/bookcase/random{
+/obj/machinery/jukebox/no_access{
 	density = 0;
-	pixel_y = 20
+	pixel_y = 19
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/strip)
@@ -108586,8 +108596,8 @@ iXN
 iXN
 cqA
 cqA
-rjk
-hwO
+kkB
+mWb
 cqA
 oko
 wih
@@ -108791,7 +108801,7 @@ apJ
 apJ
 apJ
 rYf
-hwO
+mWb
 hwO
 ghF
 hLQ
@@ -108995,7 +109005,7 @@ apJ
 apJ
 apJ
 apJ
-efH
+sae
 xda
 ekL
 ewc
@@ -109404,8 +109414,8 @@ apJ
 apJ
 apJ
 cqA
-hwO
-efH
+mWb
+sae
 cqA
 cqA
 ewc
@@ -155125,8 +155135,8 @@ dda
 tLn
 tLn
 dQY
-glR
-glR
+tLn
+tLn
 git
 txY
 ifd
@@ -165717,7 +165727,7 @@ sJs
 meb
 fIE
 fIE
-fln
+iop
 jrD
 srz
 lqn
@@ -165921,7 +165931,7 @@ sJs
 ucp
 eMF
 vTf
-iop
+gmm
 jrD
 oPT
 wIl
