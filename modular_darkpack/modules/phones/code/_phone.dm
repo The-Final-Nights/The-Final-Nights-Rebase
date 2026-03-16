@@ -523,7 +523,7 @@
 
 		if("keyboard_click")
 			if(ringer)
-				playsound(loc, 'modular_darkpack/modules/phones/sounds/keyboard_click.ogg', 8, TRUE)
+				playsound(loc, 'modular_darkpack/modules/phones/sounds/keyboard_click.ogg', 25, TRUE)
 			return TRUE
 
 		if("send_message")
