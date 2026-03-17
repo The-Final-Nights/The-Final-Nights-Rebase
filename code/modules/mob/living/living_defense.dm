@@ -378,7 +378,7 @@
 		var/grab_upgrade_time = instant ? 0 : 30
 		visible_message(span_danger("[user] starts to tighten [user.p_their()] grip on [src]!"), \
 						span_userdanger("[user] starts to tighten [user.p_their()] grip on you!"), span_hear("You hear aggressive shuffling!"), null, user)
-		to_chat(user, span_danger("You start to tighten your grip on [GET_GUESTBOOK_NAME(user, src)]!"))
+		to_chat(user, span_danger("You start to tighten your grip on [src]!"))
 		switch(user.grab_state)
 			if(GRAB_AGGRESSIVE)
 				log_combat(user, src, "attempted to neck grab", addition="neck grab")
@@ -394,27 +394,27 @@
 			var/add_log = ""
 			if(HAS_TRAIT(user, TRAIT_PACIFISM))
 				visible_message(span_danger("[user] firmly grips [src]!"),
-								span_danger("[GET_GUESTBOOK_NAME(src, user)] firmly grips you!"), span_hear("You hear aggressive shuffling!"), null, user)
-				to_chat(user, span_danger("You firmly grip [GET_GUESTBOOK_NAME(user, src)]!"))
+								span_danger("[user] firmly grips you!"), span_hear("You hear aggressive shuffling!"), null, user)
+				to_chat(user, span_danger("You firmly grip [src]!"))
 				add_log = " (pacifist)"
 			else
 				visible_message(span_danger("[user] grabs [src] aggressively!"), \
-								span_userdanger("[GET_GUESTBOOK_NAME(src, user)] grabs you aggressively!"), span_hear("You hear aggressive shuffling!"), null, user)
-				to_chat(user, span_danger("You grab [GET_GUESTBOOK_NAME(user, src)] aggressively!"))
+								span_userdanger("[user] grabs you aggressively!"), span_hear("You hear aggressive shuffling!"), null, user)
+				to_chat(user, span_danger("You grab [src] aggressively!"))
 			stop_pulling()
 			log_combat(user, src, "grabbed", addition="aggressive grab[add_log]")
 		if(GRAB_NECK)
 			log_combat(user, src, "grabbed", addition="neck grab")
 			visible_message(span_danger("[user] grabs [src] by the neck!"),\
-							span_userdanger("[GET_GUESTBOOK_NAME(src, user)] grabs you by the neck!"), span_hear("You hear aggressive shuffling!"), null, user)
-			to_chat(user, span_danger("You grab [GET_GUESTBOOK_NAME(user, src)] by the neck!"))
+							span_userdanger("[user] grabs you by the neck!"), span_hear("You hear aggressive shuffling!"), null, user)
+			to_chat(user, span_danger("You grab [src] by the neck!"))
 			if(!buckled && !density)
 				Move(user.loc)
 		if(GRAB_KILL)
 			log_combat(user, src, "strangled", addition="kill grab")
 			visible_message(span_danger("[user] is strangling [src]!"), \
-							span_userdanger("[GET_GUESTBOOK_NAME(src, user)] is strangling you!"), span_hear("You hear aggressive shuffling!"), null, user)
-			to_chat(user, span_danger("You're strangling [GET_GUESTBOOK_NAME(user, src)]!"))
+							span_userdanger("[user] is strangling you!"), span_hear("You hear aggressive shuffling!"), null, user)
+			to_chat(user, span_danger("You're strangling [src]!"))
 			if(!buckled && !density)
 				Move(user.loc)
 	user.set_pull_offsets(src, user.grab_state)
@@ -450,7 +450,7 @@
 	user.do_attack_animation(src)
 	visible_message(
 		span_danger("[user] [user.attack_verb_continuous] [src]!"),
-		span_userdanger("[GET_GUESTBOOK_NAME(src, user)] [user.attack_verb_continuous] you!"),
+		span_userdanger("[user] [user.attack_verb_continuous] you!"),
 		null,
 		COMBAT_MESSAGE_RANGE,
 		user,
@@ -462,7 +462,7 @@
 
 	var/armor_block = run_armor_check(user.zone_selected, MELEE, armour_penetration = user.armour_penetration)
 
-	to_chat(user, span_danger("You [user.attack_verb_simple] [GET_GUESTBOOK_NAME(user, src)]!"))
+	to_chat(user, span_danger("You [user.attack_verb_simple] [src]!"))
 	var/damage_done = apply_damage(
 		damage = damage,
 		damagetype = user.melee_damage_type,
@@ -510,13 +510,13 @@
 		log_combat(user, src, "attacked")
 		playsound(loc, 'sound/items/weapons/bite.ogg', 50, TRUE, -1)
 		visible_message(span_danger("[user.name] bites [src]!"), \
-						span_userdanger("[GET_GUESTBOOK_NAME(src, user)] bites you!"), span_hear("You hear a chomp!"), COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, span_danger("You bite [GET_GUESTBOOK_NAME(user, src)]!"))
+						span_userdanger("[user.name] bites you!"), span_hear("You hear a chomp!"), COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, span_danger("You bite [src]!"))
 		return TRUE
 	else
 		visible_message(span_danger("[user.name]'s bite misses [src]!"), \
-						span_danger("You avoid [GET_GUESTBOOK_NAME(src, user)]'s bite!"), span_hear("You hear the sound of jaws snapping shut!"), COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, span_warning("Your bite misses [GET_GUESTBOOK_NAME(user, src)]!"))
+						span_danger("You avoid [user.name]'s bite!"), span_hear("You hear the sound of jaws snapping shut!"), COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, span_warning("Your bite misses [src]!"))
 
 	return FALSE
 
@@ -533,19 +533,19 @@
 		if(prob(90))
 			log_combat(L, src, "attacked")
 			visible_message(span_danger("[L.name] bites [src]!"), \
-							span_userdanger("[GET_GUESTBOOK_NAME(src, L)] bites you!"), span_hear("You hear a chomp!"), COMBAT_MESSAGE_RANGE, L)
-			to_chat(L, span_danger("You bite [GET_GUESTBOOK_NAME(L, src)]!"))
+							span_userdanger("[L.name] bites you!"), span_hear("You hear a chomp!"), COMBAT_MESSAGE_RANGE, L)
+			to_chat(L, span_danger("You bite [src]!"))
 			playsound(loc, 'sound/items/weapons/bite.ogg', 50, TRUE, -1)
 			return TRUE
 		else
 			visible_message(span_danger("[L.name]'s bite misses [src]!"), \
-							span_danger("You avoid [GET_GUESTBOOK_NAME(src, L)]'s bite!"), span_hear("You hear the sound of jaws snapping shut!"), COMBAT_MESSAGE_RANGE, L)
-			to_chat(L, span_warning("Your bite misses [GET_GUESTBOOK_NAME(L, src)]!"))
+							span_danger("You avoid [L.name]'s bite!"), span_hear("You hear the sound of jaws snapping shut!"), COMBAT_MESSAGE_RANGE, L)
+			to_chat(L, span_warning("Your bite misses [src]!"))
 			return FALSE
 
 	visible_message(span_notice("[L.name] rubs its head against [src]."), \
-					span_notice("[GET_GUESTBOOK_NAME(src, L)] rubs its head against you."), null, null, L)
-	to_chat(L, span_notice("You rub your head against [GET_GUESTBOOK_NAME(L, src)]."))
+					span_notice("[L.name] rubs its head against you."), null, null, L)
+	to_chat(L, span_notice("You rub your head against [src]."))
 	return FALSE
 
 /mob/living/attack_alien(mob/living/carbon/alien/adult/user, list/modifiers)
@@ -566,8 +566,8 @@
 		return TRUE
 
 	visible_message(span_notice("[user] caresses [src] with its scythe-like arm."), \
-					span_notice("[GET_GUESTBOOK_NAME(src, user)] caresses you with its scythe-like arm."), null, null, user)
-	to_chat(user, span_notice("You caress [GET_GUESTBOOK_NAME(user, src)] with your scythe-like arm."))
+					span_notice("[user] caresses you with its scythe-like arm."), null, null, user)
+	to_chat(user, span_notice("You caress [src] with your scythe-like arm."))
 	return FALSE
 
 /mob/living/attack_hulk(mob/living/carbon/human/user)
@@ -821,8 +821,8 @@
 		if((shove_flags & SHOVE_BLOCKED) && !(shove_flags & (SHOVE_KNOCKDOWN_BLOCKED|SHOVE_CAN_KICK_SIDE)))
 			var/knocked_down = target.Knockdown(SHOVE_KNOCKDOWN_SOLID, daze_amount = 3 SECONDS)
 			target.visible_message(span_danger("[name] shoves [target.name][knocked_down ? ", knocking [target.p_them()] down" : ""]!"),
-				span_userdanger("You[knocked_down ? "'re knocked down" : " resist falling down"] from a shove by [GET_GUESTBOOK_NAME(target, src)]!"), span_hear("You hear aggressive shuffling [knocked_down ? "followed by a loud thud!" : ""]"), COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, span_danger("You shove [GET_GUESTBOOK_NAME(src, target)][knocked_down ? ", knocking [target.p_them()] down" : ""]!"))
+				span_userdanger("You[knocked_down ? "'re knocked down" : " resist falling down"] from a shove by [name]!"), span_hear("You hear aggressive shuffling [knocked_down ? "followed by a loud thud!" : ""]"), COMBAT_MESSAGE_RANGE, src)
+			to_chat(src, span_danger("You shove [target.name][knocked_down ? ", knocking [target.p_them()] down" : ""]!"))
 			log_combat(src, target, "shoved", "[knocked_down ? "knocking them down[weapon ? " with [weapon]" : ""]" : ""]")
 			return
 
@@ -830,8 +830,8 @@
 		if(target.Paralyze(SHOVE_CHAIN_PARALYZE))
 			target.apply_status_effect(/datum/status_effect/no_side_kick)
 			target.visible_message(span_danger("[name] kicks [target.name] onto [target.p_their()] side!"),
-							span_userdanger("You're kicked onto your side by [GET_GUESTBOOK_NAME(target, src)]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, span_danger("You kick [GET_GUESTBOOK_NAME(src, target)] onto [target.p_their()] side!"))
+							span_userdanger("You're kicked onto your side by [name]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
+			to_chat(src, span_danger("You kick [target.name] onto [target.p_their()] side!"))
 			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living, SetKnockdown), 0), SHOVE_CHAIN_PARALYZE)
 			log_combat(src, target, "kicks", "onto their side (paralyzing)")
 			return
@@ -871,8 +871,8 @@
 ///Send the chat feedback message for shoving
 /mob/living/proc/get_shoving_message(mob/living/shover, obj/item/weapon, shove_flags)
 	visible_message(span_danger("[shover] shoves [name][weapon ? " with [weapon]" : ""]!"),
-		span_userdanger("You're shoved by [GET_GUESTBOOK_NAME(src, shover)][weapon ? " with [weapon]" : ""]!"), span_hear("You hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE, shover)
-	to_chat(shover, span_danger("You shove [GET_GUESTBOOK_NAME(shover, src)][weapon ? " with [weapon]" : ""]!"))
+		span_userdanger("You're shoved by [shover][weapon ? " with [weapon]" : ""]!"), span_hear("You hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE, shover)
+	to_chat(shover, span_danger("You shove [name][weapon ? " with [weapon]" : ""]!"))
 
 /mob/living/proc/check_block(atom/hit_by, damage, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0, damage_type = BRUTE)
 	if(SEND_SIGNAL(src, COMSIG_LIVING_CHECK_BLOCK, hit_by, damage, attack_text, attack_type, armour_penetration, damage_type) & SUCCESSFUL_BLOCK)
