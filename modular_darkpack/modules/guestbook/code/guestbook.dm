@@ -127,10 +127,18 @@
 		to_chat(user, span_notice("You forget the face of \"[existing_name]\"."))
 	return TRUE
 
-/datum/guestbook/proc/get_known_name(mob/user, mob/living/carbon/guest)
-	if(user == guest)
-		return guest.real_name
-	return LAZYACCESS(known_names, guest.real_name)
+/* Gets the requested name in reference to user.
+ * user - The user reference from who we are checking the name from
+ * guest - Optional arg, if set, uses the target reference to get a real_name for checking in reference to user.
+ * checked_name - Optional arg, if guest is unset, checks the direct real_name against user's known_names list.
+ */
+/datum/guestbook/proc/get_known_name(mob/user, mob/living/carbon/guest, checked_name)
+	if(guest)
+		if(user == guest)
+			return guest.real_name
+		else
+			checked_name = guest.real_name
+	return LAZYACCESS(known_names, checked_name)
 
 /datum/guestbook/proc/visibility_checks(mob/user, mob/living/carbon/human/guest, silent = FALSE)
 	if(QDELETED(guest))

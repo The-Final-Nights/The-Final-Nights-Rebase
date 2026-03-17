@@ -279,10 +279,15 @@
  * * ignored_mobs (optional) doesn't show any message to any mob in this list.
  * * visible_message_flags (optional) is the type of message being sent.
  */
-/atom/proc/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE)
+/atom/proc/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, list/real_names)
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
+
+	// DARKPACK EDIT START
+	if(!islist(real_names))
+		real_names = list(real_names)
+	// DARKPACK EDIT END
 
 	if(!islist(ignored_mobs))
 		ignored_mobs = list(ignored_mobs)
@@ -302,6 +307,12 @@
 
 		if(visible_message_flags & EMOTE_MESSAGE)
 			message = span_emote("<b>[GET_GUESTBOOK_NAME(hearing_mob, src)]</b>[space][message]") // DARKPACK EDIT CHANGE, ORIGINAL: message = span_emote("<b>[src]</b> [message]")
+
+		// DARKPACK EDIT START
+		for(name in real_names)
+			var/regex/needs_replacing = regex(name, "g")
+			message = needs_replacing.Replace(message, GET_GUESTBOOK_NAME(hearing_mob, null, name))
+		// DARKPACK EDIT END
 
 		//This entire if/else chain could be in two lines but isn't for readibilties sake.
 		var/msg = message
