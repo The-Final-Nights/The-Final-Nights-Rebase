@@ -165,15 +165,13 @@
 				target_prefs.discipline_levels[disc_path] = new_level
 			target_prefs.save_character()
 			var/client/target_client = GLOB.directory[target_ckey]
-			if(target_client && ishuman(target_client.mob))
+			if(target_client?.mob && ishuman(target_client.mob))
 				var/mob/living/carbon/human/target_mob = target_client.mob
-				var/discipline = text2path(disc_path)
+				var/discipline_path = text2path(disc_path)
 				if(new_level == 0)
-					target_mob.remove_st_power(discipline)
-				else
-					var/result = target_mob.change_st_power_level(discipline, new_level)
-					if(!result)
-						target_mob.give_st_power(discipline, new_level)
+					target_mob.remove_st_power(discipline_path) // so admins can remove disciplines immediately by setting them to 0
+				else if(!target_mob.change_st_power_level(discipline_path, new_level))
+					target_mob.give_st_power(discipline_path, new_level) // and add them immediately, too
 			var/character_name = target_prefs.read_preference(/datum/preference/name/real_name)
 			message_admins("[key_name_admin(ui.user)] set [disc_path] to level [new_level] for [ADMIN_LOOKUPFLW(target_ckey)]'s character [character_name]).")
 			log_admin("[key_name_admin(ui.user)] set [disc_path] to level [new_level] for [ADMIN_LOOKUPFLW(target_ckey)]'s character [character_name]).")
