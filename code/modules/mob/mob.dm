@@ -278,6 +278,7 @@
  * * vision_distance (optional) define how many tiles away the message can be seen.
  * * ignored_mobs (optional) doesn't show any message to any mob in this list.
  * * visible_message_flags (optional) is the type of message being sent.
+ * * real_names (optional) for replacing given names with their guestbook alternatives on a per client basis // DARKPACK EDIT ADDITION
  */
 /atom/proc/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, list/real_names)
 	var/turf/T = get_turf(src)
@@ -298,6 +299,10 @@
 	var/space = should_have_space_before_emote(html_decode(message)[1]) ? " " : "" // DARKPACK EDIT ADD
 	if(visible_message_flags & WITH_EMPHASIS_MESSAGE)
 		message = apply_message_emphasis(message)
+	/* // DARKPACK EDIT REMOVAL START
+	if(visible_message_flags & EMOTE_MESSAGE)
+		message = span_emote("<b>[src]</b> [message]")
+	*/ // DARKPACK EDIT REMOVAL END
 
 	for(var/mob/hearing_mob as anything in hearers)
 		if(!hearing_mob?.client)
@@ -309,9 +314,12 @@
 			message = span_emote("<b>[GET_GUESTBOOK_NAME(hearing_mob, src)]</b>[space][message]") // DARKPACK EDIT CHANGE, ORIGINAL: message = span_emote("<b>[src]</b> [message]")
 
 		// DARKPACK EDIT START
-		for(name in real_names)
-			var/regex/needs_replacing = regex(name, "g")
-			message = needs_replacing.Replace(message, GET_GUESTBOOK_NAME(hearing_mob, null, name))
+		for(var/mob/target_mob as anything in real_names)
+			var/real_name = target_mob.real_name
+			var/regex/needs_replacing = regex(real_name, "g")
+			message = needs_replacing.Replace(message, GET_GUESTBOOK_NAME(hearing_mob, null, real_name))
+			self_message = needs_replacing.Replace(self_message, GET_GUESTBOOK_NAME(hearing_mob, null, real_name))
+			blind_message = needs_replacing.Replace(blind_message, GET_GUESTBOOK_NAME(hearing_mob, null, real_name))
 		// DARKPACK EDIT END
 
 		//This entire if/else chain could be in two lines but isn't for readibilties sake.
