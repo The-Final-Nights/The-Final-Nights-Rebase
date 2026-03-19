@@ -106,13 +106,13 @@ For more information reference the [Issue Manager Guide](/.github/guides/ISSUE_M
 
 ### Lore Team
 
-The folks that make sure everything regarding code and lore matches the tabletop (and when it doesn't, that the homebrew we cook up isn't too crazy)
+The folks that make sure everything regarding code and lore matches the tabletop (and when it doesn't, that the homebrew we cook up isn't too crazy).
 
 You should always run your ideas past them before starting any work. They love to chat, so reach out in one of the public channels! :)
 
 ---
 
-Our team is entirely voluntary, as such we extend our thanks to maintainers, issue managers, and contributors alike for helping keep the project alive.
+Our team is entirely voluntary, as such we extend our thanks to maintainers, issue managers, the lore team staff, admins, mentors, and contributors alike for helping keep the project alive.
 
 ## Development Guides
 
