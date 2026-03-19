@@ -8,6 +8,7 @@
    1. [Headcoder](#headcoder)
    2. [Maintainers](#maintainers)
    3. [Issue Managers](#issue-managers)
+   4. [Lore Team](#lore-team)
 6. [Development Guides](#development-guides)
 7. [Pull Request Process](#pull-request-process)
 8. [Good Boy Points](#good-boy-points)
@@ -82,6 +83,13 @@ These are not steadfast rules as maintainers are expected to use their best judg
 ### Issue Managers
 
 Issue Managers help out the project by labelling bug reports and PRs and closing bug reports which are duplicates or are no longer applicable.
+
+### Lore Team
+
+The folks that make sure everything regarding code and lore matches the tabletop (and when it doesn't, that the homebrew we cook up isn't too crazy)
+
+You should always run your ideas past them before starting any work. They love to chat, so reach out in one of the public channels! :)
+
 
 <details>
 <summary>What You Can and Can't Do as an Issue Manager</summary>
