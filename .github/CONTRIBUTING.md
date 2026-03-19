@@ -16,9 +16,12 @@
 11. [A word on Git](#a-word-on-git)
 
 ## Lore Team Approval
-- You should always make sure there's a Vampire: The Masquerade 20th edition reference (with a page number, ideally!) to what you plan to submit. 
-- We may occasionally deviate from the book, but such things are carefully planned and documented.
-- You should always ping the lore team in one of the lore channels on the Discord before starting any work. That way, you avoid putting hours of effort in when your concept isn't compatible with the overall theme.
+
+You should always make sure there's a Vampire: The Masquerade 20th edition reference (with a page number, ideally!) to what you plan to submit. 
+
+We may occasionally deviate from the book, but such things are carefully planned and documented.
+
+You should always ping the lore team in one of the lore channels on the Discord before starting any work. That way, you avoid putting hours of effort in when your concept isn't compatible with the overall theme.
 
 ## Reporting Issues
 
