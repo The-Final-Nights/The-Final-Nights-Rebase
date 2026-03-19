@@ -198,12 +198,13 @@
 		CRASH("Emote [type] has no valid emote type set!")
 
 	if(!isnull(user.client))
+		// var/dchatmsg = "<b>[GET_GUESTBOOK_NAME(ghost, user)]</b>[space][msg]" // DARKPACK EDIT REMOVAL
 		for(var/mob/ghost as anything in GLOB.dead_mob_list - viewers(get_turf(user)))
 			if(isnull(ghost.client) || isnewplayer(ghost))
 				continue
 			if(!(get_chat_toggles(ghost.client) & CHAT_GHOSTSIGHT))
 				continue
-			var/dchatmsg = "<b>[GET_GUESTBOOK_NAME(ghost, user)]</b>[space][msg]"
+			var/dchatmsg = "<b>[GET_GUESTBOOK_NAME(ghost, user)]</b>[space][msg]" // DARKPACK EDIT ADDITION
 			to_chat(ghost, span_emote("[FOLLOW_LINK(ghost, user)][space][dchatmsg]"))
 	// DARKPACK EDIT CHANGE END
 
