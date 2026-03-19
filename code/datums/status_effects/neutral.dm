@@ -271,7 +271,7 @@
 	if(taker.IsReachableBy(owner) || ((owner.pulling == taker) || (taker.pulling == owner)) && !IS_DEAD_OR_INCAP(taker))
 		return
 
-	to_chat(taker, span_warning("You moved out of range of [owner.name]!"))
+	to_chat(taker, span_warning("You moved out of range of [owner]!"))
 	remove_candidate(taker)
 
 /// The offerer moved, see if anyone is out of range now
