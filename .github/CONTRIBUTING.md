@@ -21,7 +21,7 @@ You should always make sure there's a Vampire: The Masquerade 20th edition refer
 
 We may occasionally deviate from the book, but such things are carefully planned and documented.
 
-You should always ping the lore team in one of the lore channels on the Discord before starting any work. That way, you avoid putting hours of effort in when your concept isn't compatible with the overall theme.
+You should always ping the lore team in one of the lore channels on the Discord before starting any work. That way, you avoid putting hours of effort in if they deem your concept isn't compatible with the overall theme.
 
 ## Reporting Issues
 
