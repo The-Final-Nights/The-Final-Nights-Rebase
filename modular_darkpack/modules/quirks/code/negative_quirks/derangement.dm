@@ -114,6 +114,7 @@
 // override for the your_mother hallucination for malkavians
 /datum/hallucination/your_mother/malk
 	var/malk_file = "~darkpack/malk_mother_hallucination.json" //malkavian specific file
+	mother = /obj/effect/client_image_holder/hallucination/your_mother/malk
 
 /datum/hallucination/your_mother/malk/start()
 	var/mob/living/carbon/human/malk = hallucinator
@@ -152,6 +153,7 @@
 		delay += 5 SECONDS
 	addtimer(CALLBACK(src, PROC_REF(exit)), delay + 10 SECONDS)
 	return TRUE
+
 
 /obj/effect/client_image_holder/hallucination/your_mother/malk
 	gender = FEMALE
