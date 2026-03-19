@@ -84,13 +84,6 @@ These are not steadfast rules as maintainers are expected to use their best judg
 
 Issue Managers help out the project by labelling bug reports and PRs and closing bug reports which are duplicates or are no longer applicable.
 
-### Lore Team
-
-The folks that make sure everything regarding code and lore matches the tabletop (and when it doesn't, that the homebrew we cook up isn't too crazy)
-
-You should always run your ideas past them before starting any work. They love to chat, so reach out in one of the public channels! :)
-
-
 <details>
 <summary>What You Can and Can't Do as an Issue Manager</summary>
 
@@ -110,6 +103,12 @@ Things you **CAN'T** do:
 For more information reference the [Issue Manager Guide](/.github/guides/ISSUE_MANAGER.md)
 
 </details>
+
+### Lore Team
+
+The folks that make sure everything regarding code and lore matches the tabletop (and when it doesn't, that the homebrew we cook up isn't too crazy)
+
+You should always run your ideas past them before starting any work. They love to chat, so reach out in one of the public channels! :)
 
 ---
 
