@@ -284,11 +284,6 @@
 	if(!T)
 		return
 
-	// DARKPACK EDIT START
-	if(!islist(real_names))
-		real_names = list(real_names)
-	// DARKPACK EDIT END
-
 	if(!islist(ignored_mobs))
 		ignored_mobs = list(ignored_mobs)
 	var/list/hearers = mob_only_listeners(get_hearers_in_view(vision_distance, src)) //caches the hearers and then removes ignored mobs.
@@ -311,15 +306,6 @@
 
 		if(visible_message_flags & EMOTE_MESSAGE)
 			message = span_emote("<b>[GET_GUESTBOOK_NAME(hearing_mob, src)]</b>[space][message]") // DARKPACK EDIT CHANGE, ORIGINAL: message = span_emote("<b>[src]</b> [message]")
-
-		// DARKPACK EDIT START
-		for(var/mob/target_mob as anything in real_names)
-			var/real_name = target_mob.real_name
-			var/regex/needs_replacing = regex(real_name, "g")
-			message = needs_replacing.Replace(message, GET_GUESTBOOK_NAME(hearing_mob, null, real_name))
-			self_message = needs_replacing.Replace(self_message, GET_GUESTBOOK_NAME(hearing_mob, null, real_name))
-			blind_message = needs_replacing.Replace(blind_message, GET_GUESTBOOK_NAME(hearing_mob, null, real_name))
-		// DARKPACK EDIT END
 
 		//This entire if/else chain could be in two lines but isn't for readibilties sake.
 		var/msg = message
@@ -384,6 +370,10 @@
 	var/space = should_have_space_before_emote(html_decode(message)[1]) ? " " : "" // DARKPACK EDIT ADD
 	if(audible_message_flags & WITH_EMPHASIS_MESSAGE)
 		message = apply_message_emphasis(message)
+	/* // DARKPACK EDIT REMOVAL START
+	if(audible_message_flags & EMOTE_MESSAGE)
+		message = span_emote("<b>[src]</b> [message]")
+	*/ // DARKPACK EDIT REMOVAL END
 	for(var/mob/hearing_mob as anything in hearers)
 		if(!hearing_mob?.client)
 			continue
