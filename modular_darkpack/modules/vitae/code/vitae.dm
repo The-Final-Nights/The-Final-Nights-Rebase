@@ -14,7 +14,7 @@
 	var/datum/weakref/embracer_weakref = data["donor"]
 	var/mob/living/carbon/human/embracer = embracer_weakref?.resolve()
 
-	//if(isgarou(victim)) //Are we a garou species? DARKPACK TODO - GAROU
+	//if(isgarou(victim)) //Are we a garou species? DARKPACK TODO - WEREWOLF
 	//	attempt_abomination_embrace(childe)
 	//	victim.rollfrenzy()
 	//	return
@@ -34,15 +34,14 @@
 			victim.send_ghoul_vitae_consumption_message(embracer)
 		else
 			victim.ghoulificate(embracer)
-			//victim.prompt_permenant_ghouling()
+			victim.prompt_permanent_ghouling()
 			return
 
 	if(iskindred(victim)) //Are we a kindred species?
 		if(embracer && embracer != victim)
 			victim.blood_bond(embracer)
 
-
 /datum/reagent/blood/vitae/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
 	if(isghoul(affected_mob) || iskindred(affected_mob))
-		return
-	return ..()
+		affected_mob.adjust_blood_pool(metabolization_rate * 0.005 * seconds_per_tick)
