@@ -157,7 +157,7 @@ blood pool.
 
 	// on three successes, detect their bloodpool, if any exists
 	if(successes >= 3)
-		msg_blood = "[blood_read(target)] Blood pool: [target.bloodpool] / [target.maxbloodpool]."
+		msg_blood = "[blood_read(target)] Blood pool of [round(target.bloodpool / target.maxbloodpool * 100)]%"
 
 	// on four, display any diseases they might have
 	if(successes >= 4)
