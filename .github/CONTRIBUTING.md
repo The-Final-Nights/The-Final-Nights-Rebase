@@ -24,6 +24,8 @@ We may occasionally deviate from the book, but such things are carefully planned
 
 You should always ping the lore team in one of the lore channels on the Discord before starting any work. That way, you avoid putting hours of effort in if they deem your concept isn't compatible with the overall theme.
 
+All pull requests that pertain to lore changes/implementations require lore team approval, and a tag will be applied to your pull request upon review if it's found to be needing lore team approval. Once approval is given, the tag will be removed/switched to 'lore team approved'.
+
 ## Reporting Issues
 
 If you ever encounter a bug in-game, the best way to let a coder know about it is with our GitHub Issue Tracker. Please make sure you use the supplied issue template, and include the round ID for the server.
