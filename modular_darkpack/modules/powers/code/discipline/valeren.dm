@@ -40,7 +40,6 @@ blood pool.
 /datum/discipline_power/warrior_valeren
 	name = "Valeren power name"
 	desc = "Valeren power description"
-	activate_sound = 'modular_darkpack/modules/deprecated/sounds/valeren.ogg'
 
 /datum/discipline_power/warrior_valeren/sense_vitality
 	name = "Sense Vitality"
@@ -49,11 +48,17 @@ blood pool.
 	check_flags = DISC_CHECK_CAPABLE
 	target_type = TARGET_HUMAN | TARGET_SELF
 	range = 1
-	cooldown_length = 5 TURNS
+	activate_sound = 'modular_darkpack/modules/deprecated/sounds/valeren.ogg'
+	cooldown_length = 1 TURNS
 	duration_length = 1 TURNS
-	activate_sound = null // dont play a sound
-	vitae_cost = 5
+	activate_sound = null
+	vitae_cost = 0
 	var/successes = 0
+	var/msg_creature = "" // what kinda phreak they is
+	var/msg_damage = ""
+	var/msg_blood = ""
+	var/msg_disease = ""
+	var/msg_mental = ""
 
 /datum/discipline_power/warrior_valeren/sense_vitality/pre_activation_checks(mob/living/target)
 	. = ..()
@@ -77,11 +82,11 @@ blood pool.
 		if(BLOOD_VOLUME_RISKY to BLOOD_VOLUME_OKAY)
 			return "Their blood volume is dangerously low."
 		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_RISKY)
-			return "You can barely sense any blood left in them."
+			return "Dangerously low blood."
 		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 			return "They are nearly void of blood altogether. Death comes for them soon without immediate intervention."
 		else
-			return "They are completely drained of blood, and you sense very little life left."
+			return "They are completely exsanguinated."
 
 /datum/discipline_power/warrior_valeren/sense_vitality/proc/damage_severity(damage)
 	if(damage < 30)
@@ -90,15 +95,35 @@ blood pool.
 		return "moderate"
 	return "heavy"
 
+/datum/discipline_power/warrior_valeren/sense_vitality/ui_state(mob/user)
+	return GLOB.always_state
+
+/datum/discipline_power/warrior_valeren/sense_vitality/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	var/datum/asset/valeren_files = get_asset_datum(/datum/asset/simple/discipline_assets)
+	if(user.client)
+		valeren_files.send(user.client)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new /datum/tgui(user, src, "Valeren")
+		ui.open()
+
+/datum/discipline_power/warrior_valeren/sense_vitality/ui_data(mob/living/user)
+	var/list/data = list()
+	data["creature"] = msg_creature
+	data["damage"] = msg_damage
+	data["blood"] = msg_blood
+	data["disease"] = msg_disease
+	data["mental"] = msg_mental
+	return data
+
 /datum/discipline_power/warrior_valeren/sense_vitality/activate(mob/living/target)
 	. = ..()
-	var/list/message_lines = list()
-	var/list/emotes = list(
-		"You briefly touch them to sense their vitality.",
-		"Your third eye stirs.",
-		"The pulse beneath your fingertips speaks.",
-		"Their life force is plain to you.",
-	)
+	msg_creature = ""
+	msg_damage = ""
+	msg_blood = ""
+	msg_disease = ""
+	msg_mental = ""
 
 	// on one success, identify their splat
 	var/creature_type = "mortal"
@@ -108,7 +133,7 @@ blood pool.
 		creature_type = "ghoul"
 	else if(isavatar(target) || isobserver(target)) // because salubri spend all their time in the clinic anyway. they'll use this on ghosts
 		creature_type = "wraith"
-	message_lines += "[pick(emotes)] [target] is a [creature_type]."
+	msg_creature = "[target] is a [creature_type]."
 
 	// on two successes, identify their damage
 	if(successes >= 2)
@@ -128,11 +153,11 @@ blood pool.
 			damage_parts += "[damage_severity(oxy)] oxygen deprivation"
 		if(agg > 0)
 			damage_parts += "[damage_severity(agg)] supernatural wounds"
-		message_lines += length(damage_parts) ? "They bear [english_list(damage_parts)]." : "They appear uninjured."
+		msg_damage = length(damage_parts) ? "They bear [english_list(damage_parts)]." : "They appear uninjured."
 
 	// on three successes, detect their bloodpool, if any exists
 	if(successes >= 3)
-		message_lines += "[blood_read(target)] Blood pool: [target.bloodpool] / [target.maxbloodpool]."
+		msg_blood = "[blood_read(target)] Blood pool: [target.bloodpool] / [target.maxbloodpool]."
 
 	// on four, display any diseases they might have
 	if(successes >= 4)
@@ -141,18 +166,18 @@ blood pool.
 			var/list/disease_names = list()
 			for(var/datum/disease/D in diseases)
 				disease_names += D.name
-			message_lines += "You detect the following in their blood: [english_list(disease_names)]."
+			msg_disease = "Detected [english_list(disease_names)] in their blood."
 		else
-			message_lines += "You don't sense any diseases in their blood."
+			msg_disease = "Found no diseases in their blood."
 		var/list/mental_conditions = list()
 		if(target.has_quirk(/datum/quirk/insanity))
 			mental_conditions += "insanity"
 		if(target.has_quirk(/datum/quirk/derangement))
 			mental_conditions += "an incurable derangement"
 		if(length(mental_conditions))
-			message_lines += "You sense [english_list(mental_conditions)] clouds their mind."
+			msg_mental = "[english_list(mental_conditions)] clouds their mind."
 
-	to_chat(owner, span_notice(message_lines.Join("\n")))
+	ui_interact(owner)
 
 /datum/discipline_power/warrior_valeren/sense_vitality/deactivate()
 	. = ..()

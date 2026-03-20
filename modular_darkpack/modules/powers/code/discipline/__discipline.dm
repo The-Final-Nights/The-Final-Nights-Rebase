@@ -142,3 +142,10 @@
 
 	for (var/datum/discipline_power/power in known_powers)
 		power.post_gain()
+
+// Discipline assets. For when we need to send files to a ui
+/datum/asset/simple/discipline_assets
+	legacy = TRUE
+	assets = list(
+		"da_vinci_vitruve_luc_viatour.webp" = 'modular_darkpack/modules/powers/icons/images/da_vinci_vitruve_luc_viatour.webp',
+	)
