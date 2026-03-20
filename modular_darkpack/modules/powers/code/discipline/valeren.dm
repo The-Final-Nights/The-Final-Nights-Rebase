@@ -126,14 +126,14 @@ blood pool.
 	msg_mental = ""
 
 	// on one success, identify their splat
-	var/creature_type = "mortal"
+	var/creature_type = "a mortal"
 	if(iskindred(target))
 		creature_type = "kindred"
 	else if(isghoul(target))
-		creature_type = "ghoul"
+		creature_type = "a ghoul"
 	else if(isavatar(target) || isobserver(target)) // because salubri spend all their time in the clinic anyway. they'll use this on ghosts
-		creature_type = "wraith"
-	msg_creature = "[target] is a [creature_type]."
+		creature_type = "a wraith"
+	msg_creature = "[target] is [creature_type]."
 
 	// on two successes, identify their damage
 	if(successes >= 2)
