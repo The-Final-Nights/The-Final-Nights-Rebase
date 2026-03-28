@@ -1,14 +1,14 @@
 /datum/config_entry/string/wikiurl
-	default = ""
+	default = "https://thefinalnights.com/wiki"
 
 /datum/config_entry/string/forumurl
-	default = "https://discord.gg/2EYyEnuBcW"
+	default = "https://discord.gg/NMyRVQSnNE"
 
 /datum/config_entry/string/rulesurl
-	default = ""
+	default = "https://thefinalnights.com/wiki/index.php?title=Rules"
 
 /datum/config_entry/string/githuburl
-	default = "https://github.com/DarkPack13/SecondCity"
+	default = "https://github.com/The-Final-Nights/The-Final-Nights"
 
 /datum/config_entry/flag/disable_ghost_looc
 	default = TRUE
