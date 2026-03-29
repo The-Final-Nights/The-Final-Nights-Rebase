@@ -728,7 +728,7 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 		var/datum/db_query/query_add_player = SSdbcore.NewQuery({"
 			INSERT INTO [format_table_name("player")] (`ckey`, `byond_key`, `firstseen`, `firstseen_round_id`, `lastseen`, `lastseen_round_id`, `ip`, `computerid`, `lastadminrank`, `accountjoindate`, `age_verified`, `donator`)
 			VALUES (:ckey, :key, Now(), :round_id, Now(), :round_id, INET_ATON(:ip), :computerid, :adminrank, :account_join_date, :age_verified, :donator)
-		"}, list("ckey" = ckey, "key" = key, "round_id" = GLOB.round_id, "ip" = address, "computerid" = computer_id, "adminrank" = admin_rank, "account_join_date" = account_join_date || null)) // TFN EDIT - adds donator and age_verified
+		"}, list("ckey" = ckey, "key" = key, "round_id" = GLOB.round_id, "ip" = address, "computerid" = computer_id, "adminrank" = admin_rank, "account_join_date" = account_join_date || null, "age_verified" = 0, "donator" = "")) // TFN EDIT - adds donator and age_verified
 		if(!query_add_player.Execute())
 			qdel(query_client_in_db)
 			qdel(query_add_player)
