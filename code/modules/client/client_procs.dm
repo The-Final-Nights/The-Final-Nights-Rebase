@@ -794,7 +794,7 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 		var/forumurl = CONFIG_GET(string/forumurl)
 		to_chat_immediate(src, span_reallybig(span_danger(("Hi! This server requires age verification. <br><br>To join our community, apply here: [forumurl]"))))
 		qdel(query_get_player_age_verified)
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), 5 SECONDS)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), 1 SECONDS)
 		return
 	qdel(query_get_player_age_verified)
 	// donator stuff.
