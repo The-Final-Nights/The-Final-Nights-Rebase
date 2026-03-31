@@ -107,7 +107,7 @@
 	reverse_option_list = list("Mobs"=TRUE,"Objects"=FALSE,"Anchored"=FALSE,"Underfloor"=FALSE,"Wallmounted"=FALSE,"Floors"=FALSE,"Walls"=FALSE, "Mecha"=FALSE)
 
 /obj/structure/closet/supplypod/centcompod
-	style = /datum/pod_style/centcom
+	style = /datum/pod_style/coffin // TFN EDIT, ORIGINAL: style = /datum/pod_style/centcom
 	bluespace = TRUE
 	explosionSize = list(0,0,0,0)
 	delays = list(POD_TRANSIT = 20, POD_FALLING = 4, POD_OPENING = 30, POD_LEAVING = 30)
