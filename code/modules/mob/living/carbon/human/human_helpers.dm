@@ -78,12 +78,12 @@
  * * if_no_face - What to return if we have no face or our face is obscured/disfigured
  */
 /mob/living/carbon/proc/get_face_name(if_no_face = "Unknown")
-	return // DARKPACK EDIT, ORIGINAL: return real_name
+	return real_name // DARKPACK EDIT, ORIGINAL: return real_name
 
 /mob/living/carbon/human/get_face_name(if_no_face = "Unknown")
 	if(!real_name || is_face_obscured())
 		return if_no_face
-	return // DARKPACK EDIT, ORIGINAL: return real_name
+	return real_name // DARKPACK EDIT, ORIGINAL: return real_name
 
 /mob/living/carbon/human/proc/is_face_obscured()
 	if(HAS_TRAIT(src, TRAIT_UNKNOWN_APPEARANCE))
