@@ -70,7 +70,7 @@
 			return "[face_name] (as [id_name])"
 
 	// Just go down the list of stuff we recorded
-	return return face_name || id_name || "Unknown" // DARKPACK EDIT, ORIGINAL: return face_name || id_name || "Unknown"
+	return face_name || id_name || "Unknown" // DARKPACK EDIT, ORIGINAL: return face_name || id_name || "Unknown"
 
 /**
  * Gets what the face of this mob looks like
