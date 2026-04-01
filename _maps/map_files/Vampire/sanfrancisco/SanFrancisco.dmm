@@ -19518,6 +19518,10 @@
 /obj/item/toy/cards/deck,
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
+"feH" = (
+/obj/transfer_point_vamp/backrooms,
+/turf/open/floor/plating/stone,
+/area/vtm)
 "feK" = (
 /obj/structure/railing/wooden_fence,
 /obj/effect/turf_decal/siding/wood/dark,
@@ -24376,6 +24380,12 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
+"gsq" = (
+/obj/item/paper/fluff{
+	default_raw_text = "How did you get here? Nevermind that actually. Bomby wuz here."
+	},
+/turf/open/floor/plating/stone,
+/area/vtm)
 "gsr" = (
 /obj/effect/turf_decal/asphaltline/alt{
 	pixel_x = -14
@@ -63928,14 +63938,6 @@
 /obj/effect/landmark/start/darkpack/citizen/citizen,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/outside/park)
-"qBu" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/transfer_point_vamp/backrooms,
-/turf/open/openspace,
-/area/vtm)
 "qBx" = (
 /obj/effect/decal/cleanable/trash,
 /obj/structure/chair/plastic/darkpack{
@@ -196830,7 +196832,7 @@ ccn
 eiw
 eiw
 eiw
-qBu
+eiw
 eiw
 eiw
 eiw
@@ -216904,8 +216906,8 @@ bhB
 (3,1,4) = {"
 bhB
 uvs
-uvs
-uvs
+feH
+gsq
 uvs
 uvs
 uvs
