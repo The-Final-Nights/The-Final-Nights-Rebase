@@ -233,8 +233,7 @@
 /obj/item/smartphone/brujah_primo
 	important_contact_of = VAMPIRE_CLAN_BRUJAH
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = BRUJAH_NETWORK, OUR_ROLE = "Gym Manager", USE_JOB_TITLE = FALSE)
-		, alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Gym Manager", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Gym Manager", USE_JOB_TITLE = FALSE)
 		)
 //TFN EDIT ADD END
 #undef NETWORK_ID
