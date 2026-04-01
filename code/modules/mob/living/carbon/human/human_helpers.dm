@@ -69,12 +69,8 @@
 		if(add_id_name)
 			return "[face_name] (as [id_name])"
 
-	// DARKPACK EDIT ADD START
-	var/known_name = face_name ? null : (examiner ? GET_GUESTBOOK_NAME(examiner, src) : null)
-	// DARKPACK EDIT ADD END
-
 	// Just go down the list of stuff we recorded
-	return known_name || face_name || id_name || get_generic_name(prefixed = TRUE, lowercase = TRUE) // DARKPACK EDIT, ORIGINAL: return face_name || id_name || "Unknown"
+	return return face_name || id_name || "Unknown" // DARKPACK EDIT, ORIGINAL: return face_name || id_name || "Unknown"
 
 /**
  * Gets what the face of this mob looks like
