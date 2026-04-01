@@ -25,7 +25,6 @@ GLOBAL_LIST_EMPTY(brujah_network) //TFN EDIT ADD - Brujah Primogen
 #define SUPPLY_NETWORK 7
 #define VAMPIRE_LEADER_NETWORK 8
 #define ENDRON_NETWORK 9
-#define BRUJAH_NETWORK 10 // TFN EDIT ADD - Brujah Primogen
 
 // An indexed list of all the different phone networks that connect the phones that are part of them together.
 GLOBAL_LIST_INIT(contact_networks, alist(
@@ -38,5 +37,4 @@ GLOBAL_LIST_INIT(contact_networks, alist(
 		SUPPLY_NETWORK = GLOB.supply_network,
 		VAMPIRE_LEADER_NETWORK = GLOB.vampire_leader_network,
 		ENDRON_NETWORK = GLOB.endron_network,
-		BRUJAH_NETWORK = GLOB.brujah_network, //TFN EDIT ADD - Brujah Primogen
 	))
