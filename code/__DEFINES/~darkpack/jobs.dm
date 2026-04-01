@@ -30,7 +30,7 @@
 //Primogens
 #define JOB_PRIMOGEN_TOREADOR "Primogen Toreador"
 #define JOB_PRIMOGEN_BANU_HAQIM "Primogen Banu Haqim"
-//#define JOB_PRIMOGEN_LASOMBRA "Primogen Lasombra" //TFN EDIT REMOVAL - Disables Lasombra Primogen
+// #define JOB_PRIMOGEN_LASOMBRA "Primogen Lasombra" //TFN EDIT REMOVAL - Disables Lasombra Primogen
 #define JOB_PRIMOGEN_MALKAVIAN "Primogen Malkavian"
 #define JOB_PRIMOGEN_NOSFERATU "Primogen Nosferatu"
 #define JOB_PRIMOGEN_VENTRUE "Primogen Ventrue"
