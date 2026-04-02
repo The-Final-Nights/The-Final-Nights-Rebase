@@ -279,7 +279,7 @@
 	desc = "A comfy, flannel shirt. Unleash your inner hipster."
 	icon_state = "flannel"
 	LCU_UNDER_ICONS
-	inhand_icon_state = "black_coat"
+	inhand_icon_state = null
 	var/rolled = 0
 	var/tucked = 0
 	var/buttoned = 0
