@@ -69,6 +69,19 @@
 	src.discipline = discipline
 	src.owner = discipline.owner
 
+//TFN EDIT ADD - Harddels
+/datum/discipline_power/Destroy()
+	if(cooldown_timer)
+		deltimer(cooldown_timer)
+		cooldown_timer = null
+	for(var/timer in duration_timers)
+		deltimer(timer)
+	duration_timers = null
+	discipline = null
+	owner = null
+	return ..()
+//TFN EDITT END - Harddels
+
 /**
  * Returns the time left the cooldown timer, or
  * 0 if there is none. Returning 0 means not on

@@ -53,6 +53,16 @@
 		known_powers += new_power
 	current_power = known_powers[1]
 
+// TFN EDIT START - harddels
+/datum/discipline/Destroy()
+	current_power = null
+	if(owner)
+		UnregisterSignal(owner, COMSIG_QDELETING)
+		owner = null
+	QDEL_LIST(known_powers)
+	return ..()
+// TFN EDIT END - harddels
+
 /**
  * Modifies a Discipline's level, updating its available powers
  * to conform to the new level. This proc will be removed when
@@ -102,13 +112,13 @@
 	post_gain_applied = TRUE
 
 	// Destroy self and contained powers when owner is destroyed
-	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_owner_destroy))
+	//RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_owner_destroy))
 
 /**
  * When the Discipline's owner is destroyed, this deletes all
  * contained powers, clears out references to the destroyed owner,
  * and then deletes itself.
- */
+
 /datum/discipline/proc/on_owner_destroy(mob/living/source, force)
 	SIGNAL_HANDLER
 
@@ -119,7 +129,7 @@
 	// Destroy self when owner is destroyed
 	owner = null
 	qdel(src)
-
+*/
 /**
  * Returns a known Discipline power in this Discipline
  * searching by type.
