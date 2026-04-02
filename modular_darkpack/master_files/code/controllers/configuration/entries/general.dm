@@ -21,3 +21,13 @@
 // url for the alternate web_sound server. you can safely leave this alone if you want, vampire
 /// e.g. https://vampire-freaks.com/api
 /datum/config_entry/string/music_server_url
+
+// TFN EDITS BELOW THIS LINE
+/// Enables sending certain actions to a Discord webhook for review
+/datum/config_entry/flag/discord_overwatch
+
+/datum/config_entry/string/discord_overwatch_webhook
+	protection = CONFIG_ENTRY_LOCKED | CONFIG_ENTRY_HIDDEN
+
+/datum/config_entry/string/admin_overwatch_webhook
+	protection = CONFIG_ENTRY_LOCKED | CONFIG_ENTRY_HIDDEN
