@@ -212,10 +212,7 @@
 	name = "sexy keys"
 	accesslocks = list(
 		LOCKACCESS_TOREADOR,
-		"toreador1",
-		"toreador2",
-		"toreador3",
-		"toreador4"
+		LOCKACCESS_STRIP
 	)
 	color = "#ffa7e6"
 
@@ -239,6 +236,7 @@
 	name = "really sexy keys"
 	accesslocks = list(
 		LOCKACCESS_PRIMOGEN_TOREADOR,
+		LOCKACCESS_STRIP,
 		LOCKACCESS_TOREADOR,
 		LOCKACCESS_PRIMOGEN,
 		LOCKACCESS_JAZZ_CLUB,
