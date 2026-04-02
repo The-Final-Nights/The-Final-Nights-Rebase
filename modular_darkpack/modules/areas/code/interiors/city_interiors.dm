@@ -81,6 +81,9 @@
 	icon_state = "camarilla_interior"
 	fire_controled = TRUE
 
+/area/vtm/interior/apartment/pacific
+	name = "Pacific Apartments"
+
 /area/vtm/interior/glasswalker
 	name = "Glasswalker's Lab"
 	icon_state = "supply"

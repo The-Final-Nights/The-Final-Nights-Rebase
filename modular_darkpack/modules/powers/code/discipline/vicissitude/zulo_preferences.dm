@@ -10,6 +10,8 @@
 	. = ..()
 	if(!.) // Make sure we acctually can select clan in the first place
 		return FALSE
+	if(!ispath(preferences.read_preference(/datum/preference/choiced/splats), /datum/splat/vampire))
+		return FALSE
 	var/clan_type = preferences.read_preference(/datum/preference/choiced/subsplat/vampire_clan)
 	var/datum/subsplat/vampire_clan/clan = get_vampire_clan(clan_type)
 	if(!clan)

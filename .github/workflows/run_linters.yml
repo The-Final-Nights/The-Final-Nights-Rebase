@@ -66,6 +66,7 @@ jobs:
         run: |
           bash tools/ci/check_grep.sh
           bash modular_darkpack/tools/darkpack_check_grep.sh # DARKPACK EDIT ADDITION - checking modular_darkpack code
+          bash modular_tfn/tools/tfn_check_grep.sh # TFN EDIT ADDITION - checking modular_tfn code
       - name: Ticked File Enforcement
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: |
@@ -74,6 +75,9 @@ jobs:
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < modular_darkpack/tools/ticked_file_enforcement/modular_darkpack_master_files.json
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < modular_darkpack/tools/ticked_file_enforcement/modular_darkpack_modules.json
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < modular_darkpack/tools/ticked_file_enforcement/modular_darkpack_unit_tests.json
+          tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < modular_tfn/tools/ticked_file_enforcement/modular_tfn_master_files.json
+          tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < modular_tfn/tools/ticked_file_enforcement/modular_tfn_modules.json
+          tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < modular_tfn/tools/ticked_file_enforcement/modular_tfn_unit_tests.json
       - name: Check Define Sanity
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: tools/bootstrap/python -m define_sanity.check

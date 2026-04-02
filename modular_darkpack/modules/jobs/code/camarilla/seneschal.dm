@@ -37,7 +37,6 @@
 	name = "Seneschal"
 	jobtype = /datum/job/vampire/clerk
 
-	ears = /obj/item/radio/headset/darkpack
 	id = /obj/item/card/clerk
 	uniform = /obj/item/clothing/under/vampire/clerk
 	shoes = /obj/item/clothing/shoes/vampire/brown

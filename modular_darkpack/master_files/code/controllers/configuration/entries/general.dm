@@ -1,14 +1,23 @@
 /datum/config_entry/string/wikiurl
-	default = ""
+	default = "https://thefinalnights.com/wiki"
 
 /datum/config_entry/string/forumurl
-	default = "https://discord.gg/2EYyEnuBcW"
+	default = "https://discord.gg/NMyRVQSnNE"
 
 /datum/config_entry/string/rulesurl
-	default = ""
+	default = "https://thefinalnights.com/wiki/index.php?title=Rules"
 
 /datum/config_entry/string/githuburl
-	default = "https://github.com/DarkPack13/SecondCity"
+	default = "https://github.com/The-Final-Nights/The-Final-Nights-Rebase"
+
+// We have an upstream where we can be pretty confident often that its there instead. Makes it easier to report.
+/datum/config_entry/str_list/extra_issue_urls // Not an existing override, bite me.
+	default = list("https://github.com/DarkPack13/SecondCity")
+	dupes_allowed = FALSE
 
 /datum/config_entry/flag/disable_ghost_looc
 	default = TRUE
+
+// url for the alternate web_sound server. you can safely leave this alone if you want, vampire
+/// e.g. https://vampire-freaks.com/api
+/datum/config_entry/string/music_server_url

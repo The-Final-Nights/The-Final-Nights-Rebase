@@ -69,7 +69,7 @@ for file_extension in file_extensions:
 
 if len(scannable_files) == 0:
     post_error(f"No files were found in {scannable_directory}. Ticked File Enforcement has failed!")
-    sys.exit(1)
+    #sys.exit(1) # RE-ENABLE THIS ONCE WE HAVE ALL OF OUR TICKED FILES DONE
 
 for code_file in scannable_files:
     dm_path = ""

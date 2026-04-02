@@ -24,7 +24,7 @@
 	)
 
 	minimal_generation = 12
-	minimum_immortal_age = 5 // Actually Malkavian Primo is whoever showed for work that day. Crazy bunch.
+	minimum_immortal_age = 100 // TFN EDIT ADDITION
 	minimal_masquerade = 5
 	allowed_splats = list(SPLAT_KINDRED)
 	allowed_clans = list(VAMPIRE_CLAN_MALKAVIAN)
@@ -35,7 +35,6 @@
 	name = "Primogen Malkavian"
 	jobtype = /datum/job/vampire/primogen_malkavian
 
-	ears = /obj/item/radio/headset/darkpack
 	id = /obj/item/card/primogen
 	glasses = /obj/item/clothing/glasses/vampire/sun
 	uniform = /obj/item/clothing/under/vampire/primogen_malkavian

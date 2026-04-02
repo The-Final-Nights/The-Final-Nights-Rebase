@@ -75,7 +75,7 @@ export const RetailVendor = (props) => {
                             data.user.is_card === 0) ||
                           product.stock === 0
                         }
-                        content={`${product.price}$`}
+                        content={`$${product.price}`} // TFN EDIT - dollar sign goes on the left
                         onClick={() =>
                           act('purchase', {
                             ref: product.ref,

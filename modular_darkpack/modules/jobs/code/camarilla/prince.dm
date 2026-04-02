@@ -1,7 +1,6 @@
 /datum/outfit/job/vampire/prince
 	name = "Prince"
 
-	ears = /obj/item/radio/headset/darkpack
 	id = /obj/item/card/prince
 	glasses = /obj/item/clothing/glasses/vampire/sun
 	gloves = /obj/item/clothing/gloves/vampire/latex

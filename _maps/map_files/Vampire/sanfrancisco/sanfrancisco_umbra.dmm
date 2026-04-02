@@ -37,16 +37,6 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
-"ar" = (
-/obj/effect/decal/wallpaper/stone/low{
-	pixel_y = 24
-	},
-/obj/effect/decal/shadow,
-/obj/structure/chair/pew{
-	dir = 1
-	},
-/turf/open/floor/wood/smooth/old,
-/area/vtm/outside/penumbra)
 "aw" = (
 /obj/effect/decal/wallpaper/paper/rich,
 /turf/closed/wall/vampwall/city,
@@ -149,12 +139,8 @@
 /turf/open/umbra,
 /area/vtm/outside/penumbra)
 "bV" = (
-/obj/structure/chair/pew/left{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#004136"
-	},
+/obj/structure/bed,
+/obj/effect/spawner/random/bedsheet,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
 "cb" = (
@@ -230,6 +216,11 @@
 	color = "#636363"
 	},
 /turf/open/floor/circuit,
+/area/vtm/outside/penumbra)
+"cG" = (
+/obj/effect/decal/cleanable/litter,
+/obj/structure/closet/crate/dumpster,
+/turf/open/floor/plating/sidewalk,
 /area/vtm/outside/penumbra)
 "cI" = (
 /obj/structure/table/optable,
@@ -636,13 +627,6 @@
 	},
 /turf/open/floor/plating/canal,
 /area/vtm/outside/penumbra)
-"gH" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1;
-	color = "#574d46"
-	},
-/turf/open/floor/plating/concrete,
-/area/vtm/outside/penumbra)
 "gN" = (
 /obj/structure/vampipe{
 	icon_state = "piping31"
@@ -708,6 +692,10 @@
 	pixel_x = 7
 	},
 /turf/open/floor/plating/concrete,
+/area/vtm/outside/penumbra)
+"hq" = (
+/obj/machinery/griddle,
+/turf/open/floor/city/bacotell,
 /area/vtm/outside/penumbra)
 "hs" = (
 /obj/structure/table,
@@ -1044,9 +1032,6 @@
 /obj/effect/decal/cleanable/litter,
 /turf/open/misc/dirt,
 /area/vtm/outside/penumbra)
-"kI" = (
-/turf/open/floor/carpet/green,
-/area/vtm/outside/penumbra)
 "kJ" = (
 /obj/structure/flora/tree/vamp{
 	icon_state = "tree3"
@@ -1079,8 +1064,8 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/penumbra)
 "kZ" = (
-/obj/structure/hedge,
-/turf/open/floor/plating/concrete,
+/obj/effect/decal/wallpaper/red/low,
+/turf/closed/wall/vampwall/brick,
 /area/vtm/outside/penumbra)
 "lb" = (
 /turf/open/floor/city/saint,
@@ -1130,10 +1115,6 @@
 /turf/open/floor/plating/rough/cave{
 	icon_state = "stone8"
 	},
-/area/vtm/outside/penumbra)
-"lD" = (
-/obj/structure/table/wood,
-/turf/open/floor/plating/concrete,
 /area/vtm/outside/penumbra)
 "lG" = (
 /obj/machinery/vending/coffee,
@@ -1695,6 +1676,9 @@
 /obj/structure/platform/lowwall/bar,
 /turf/open/floor/plating/rough,
 /area/vtm/outside/penumbra)
+"rs" = (
+/turf/open/floor/city/bacotell,
+/area/vtm/outside/penumbra)
 "ru" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 9
@@ -1826,8 +1810,13 @@
 /turf/open/misc/grass/nosmooth,
 /area/vtm/outside/penumbra)
 "sv" = (
-/obj/effect/decal/wallpaper/light,
-/turf/closed/wall/vampwall/brick,
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 8
+	},
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
 "sw" = (
 /turf/open/floor/plating/canalplating,
@@ -2035,6 +2024,11 @@
 	pixel_y = -4
 	},
 /turf/closed/wall/vampwall/bar,
+/area/vtm/outside/penumbra)
+"un" = (
+/obj/effect/decal/cleanable/garbage,
+/obj/effect/decal/pallet,
+/turf/open/floor/plating/sidewalk,
 /area/vtm/outside/penumbra)
 "ut" = (
 /obj/structure/chair/sofa/right{
@@ -2422,18 +2416,12 @@
 /obj/structure/flora/bush/flowers_pp/style_random,
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/outside/penumbra)
-"zg" = (
-/obj/structure/chair/pew{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#004136"
+"zl" = (
+/obj/structure/closet/crate/bin,
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/vtm/outside/penumbra)
-"zl" = (
-/obj/structure/chair/darkpack/green,
-/turf/open/floor/plating/concrete,
 /area/vtm/outside/penumbra)
 "zn" = (
 /turf/closed/wall/vampwall/brick,
@@ -2548,9 +2536,7 @@
 /turf/open/floor/city/plating_mono,
 /area/vtm/outside/penumbra)
 "AB" = (
-/obj/effect/turf_decal/siding/wideplating/corner{
-	color = "#004136"
-	},
+/obj/structure/closet/cabinet,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
 "AF" = (
@@ -2704,16 +2690,6 @@
 	},
 /turf/open/floor/city/circled,
 /area/vtm/outside/penumbra)
-"Du" = (
-/obj/structure/railing/corner,
-/obj/structure/railing/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	color = "#574d46"
-	},
-/turf/open/floor/wood/smooth/old,
-/area/vtm/outside/penumbra)
 "Dx" = (
 /obj/structure/stone_tile/surrounding_tile{
 	dir = 4
@@ -2797,6 +2773,10 @@
 	dir = 1
 	},
 /turf/open/misc/grass,
+/area/vtm/outside/penumbra)
+"Ei" = (
+/obj/effect/decal/cleanable/litter,
+/turf/open/floor/city/bacotell,
 /area/vtm/outside/penumbra)
 "Ej" = (
 /obj/structure/sink{
@@ -3252,13 +3232,6 @@
 	},
 /turf/open/floor/city/church,
 /area/vtm/outside/penumbra)
-"JG" = (
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#004136";
-	dir = 4
-	},
-/turf/open/floor/wood/smooth/old,
-/area/vtm/outside/penumbra)
 "JL" = (
 /obj/effect/turf_decal/siding/white{
 	color = "#6e635a";
@@ -3443,13 +3416,6 @@
 /turf/open/floor/plating/concrete{
 	color = "#9c8064"
 	},
-/area/vtm/outside/penumbra)
-"LY" = (
-/obj/effect/turf_decal/siding/wideplating{
-	color = "#004136";
-	dir = 1
-	},
-/turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
 "Mb" = (
 /obj/structure/chair/sofa{
@@ -3940,13 +3906,6 @@
 /obj/structure/table,
 /turf/open/floor/circuit,
 /area/vtm/outside/penumbra)
-"RG" = (
-/obj/structure/railing,
-/obj/effect/turf_decal/siding/wood{
-	color = "#574d46"
-	},
-/turf/open/floor/wood/smooth/old,
-/area/vtm/outside/penumbra)
 "RI" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -3967,6 +3926,10 @@
 	dir = 1
 	},
 /turf/open/floor/city/plating,
+/area/vtm/outside/penumbra)
+"RP" = (
+/obj/machinery/oven/range,
+/turf/open/floor/city/bacotell,
 /area/vtm/outside/penumbra)
 "RT" = (
 /obj/effect/decal/wallpaper/stone/low{
@@ -4071,10 +4034,8 @@
 /turf/open/misc/grass/nosmooth,
 /area/vtm/outside/penumbra)
 "SB" = (
-/obj/effect/turf_decal/siding/wideplating/corner{
-	color = "#004136";
-	dir = 4
-	},
+/obj/effect/turf_decal/siding/wideplating/dark/corner,
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
 "SC" = (
@@ -4146,6 +4107,11 @@
 	dir = 1
 	},
 /turf/open/floor/plating/stone,
+/area/vtm/outside/penumbra)
+"TW" = (
+/obj/effect/decal/cleanable/trash,
+/obj/structure/closet/crate/dumpster,
+/turf/open/floor/plating/sidewalk,
 /area/vtm/outside/penumbra)
 "TY" = (
 /obj/structure/stone_tile/surrounding_tile{
@@ -4376,16 +4342,6 @@
 	dir = 5
 	},
 /turf/open/floor/plating/sidewalk/rich,
-/area/vtm/outside/penumbra)
-"Wv" = (
-/obj/effect/decal/wallpaper/stone/low{
-	pixel_y = 24
-	},
-/obj/effect/decal/shadow,
-/obj/structure/chair/pew/left{
-	dir = 1
-	},
-/turf/open/floor/wood/smooth/old,
 /area/vtm/outside/penumbra)
 "Ww" = (
 /obj/transfer_point_vamp/umbral{
@@ -25163,11 +25119,11 @@ qF
 qF
 sQ
 kY
+cG
+TW
+un
 Ur
-KF
-KF
-zn
-zn
+kY
 zn
 zn
 zn
@@ -25420,15 +25376,15 @@ qF
 qF
 zn
 zn
-eC
-eC
+zn
+zn
 zn
 sv
+zn
 kZ
-kZ
-qF
-qF
-qF
+RP
+Ei
+rs
 qF
 qF
 eC
@@ -25675,16 +25631,16 @@ qF
 qF
 qF
 qF
-Du
-YL
+qF
+qF
 AB
-JG
+zn
 SB
-sv
+KL
 zl
-lD
-qF
-qF
+kZ
+hq
+rs
 qF
 qF
 qF
@@ -25932,14 +25888,14 @@ qF
 qF
 qF
 qF
-RG
-Wv
+qF
+qF
 bV
-kI
-LY
-sv
-ud
-ud
+zn
+xl
+DU
+yz
+qF
 qF
 qF
 qF
@@ -26190,12 +26146,12 @@ qF
 qF
 qF
 qF
-ar
-zg
-kI
-LY
-gH
-ud
+qF
+HN
+zn
+xl
+DU
+yz
 qF
 qF
 qF
@@ -26451,8 +26407,8 @@ qF
 eC
 eC
 eC
-qF
-qF
+eC
+eC
 qF
 qF
 qF
@@ -26707,10 +26663,10 @@ eC
 qF
 Sf
 eC
+Sf
 eC
 eC
 eC
-qF
 qF
 qF
 qF
@@ -26965,8 +26921,8 @@ eC
 eC
 eC
 eC
-qF
-qF
+eC
+eC
 qF
 qF
 qF

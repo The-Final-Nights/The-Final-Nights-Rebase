@@ -23,7 +23,7 @@
 	)
 
 	minimal_generation = 12
-	minimum_immortal_age = 50
+	minimum_immortal_age = 100 // TFN EDIT ADDITION
 	minimal_masquerade = 5
 	allowed_splats = list(SPLAT_KINDRED)
 	allowed_clans = list(VAMPIRE_CLAN_VENTRUE)
@@ -34,7 +34,6 @@
 	name = "Primogen Ventrue"
 	jobtype = /datum/job/vampire/primogen_ventrue
 
-	ears = /obj/item/radio/headset/darkpack
 	id = /obj/item/card/primogen
 	glasses = /obj/item/clothing/glasses/vampire/sun
 	uniform = /obj/item/clothing/under/vampire/suit

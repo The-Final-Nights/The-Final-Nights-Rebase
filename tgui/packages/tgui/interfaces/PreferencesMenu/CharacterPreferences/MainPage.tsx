@@ -9,6 +9,7 @@ import {
   Floating,
   Input,
   LabeledList,
+  NumberInput, // DARKPACK EDIT
   Section,
   Stack,
 } from 'tgui-core/components';
@@ -16,6 +17,7 @@ import { exhaustiveCheck } from 'tgui-core/exhaustive'; // DARKPACK EDIT ADDITIO
 import { classes } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
 import { CharacterPreview } from '../../common/CharacterPreview';
+import { ConfirmModal } from '../components/ConfirmModal'; // TFN EDIT ADD
 import { PageButton } from '../components/PageButton'; // DARKPACK EDIT ADDITION
 import { RandomizationButton } from '../components/RandomizationButton';
 import { features } from '../preferences/features';
@@ -352,11 +354,12 @@ type PreferenceListProps = {
   randomizations: Record<string, RandomSetting>;
   maxHeight: string;
   children?: ReactNode;
+  overrides?: Record<string, ReactNode>; // DARKPACK EDIT ADDITION
 };
 
 export function PreferenceList(props: PreferenceListProps) {
   const { act } = useBackend<PreferencesMenuData>();
-  const { preferences, randomizations, maxHeight, children } = props;
+  const { preferences, randomizations, maxHeight, children, overrides } = props;
 
   return (
     <Stack.Item
@@ -401,13 +404,16 @@ export function PreferenceList(props: PreferenceListProps) {
                       />
                     </Stack.Item>
                   )}
-
+                  {/* DARKPACK EDIT START - Overrides so we can capture input. For use in detecting if a player has changed their clan, immortal age, etc*/}
                   <Stack.Item grow>
-                    <FeatureValueInput
-                      feature={feature}
-                      featureId={featureId}
-                      value={value}
-                    />
+                    {overrides?.[featureId] ?? (
+                      <FeatureValueInput
+                        feature={feature}
+                        featureId={featureId}
+                        value={value}
+                      />
+                    )}
+                  {/*DARKPACK EDIT END */}
                   </Stack.Item>
                 </Stack>
               </LabeledList.Item>
@@ -456,7 +462,7 @@ export function MainPage(props: MainPageProps) {
     useState(false);
   const [multiNameInputOpen, setMultiNameInputOpen] = useState(false);
   const [randomToggleEnabled] = useRandomToggleState();
-  const [pendingClanValue, setPendingClanValue] = useState<string | null>(null);
+  const [pendingConfirm, setPendingConfirm] = useState<(() => void) | null>(null); // TFN EDIT ADD - for popups
 
   const serverData = useServerPrefs();
 
@@ -484,6 +490,10 @@ export function MainPage(props: MainPageProps) {
   const nonContextualPreferences = {
     ...data.character_preferences.non_contextual,
   };
+  // DARKPACK EDIT ADD START - tracking age changes
+  const immortalAgeValue = nonContextualPreferences.immortal_age as number | undefined;
+  const immortalAgeServerData = serverData?.immortal_age as { minimum: number; maximum: number; step: number } | undefined;
+  // DARKPACK EDIT ADD END
 
   if (randomBodyEnabled) {
     nonContextualPreferences.random_splats = // DARKPACK EDIT CHANGE - SPLATS
@@ -527,6 +537,22 @@ export function MainPage(props: MainPageProps) {
           )}
           preferences={nonContextualPreferences}
           maxHeight="auto"
+          // DARKPACK EDIT ADD START
+          overrides={{
+            immortal_age: immortalAgeValue !== undefined ? (
+              <NumberInput
+                value={immortalAgeValue}
+                minValue={immortalAgeServerData?.minimum ?? 0}
+                maxValue={immortalAgeServerData?.maximum ?? 1000}
+                step={immortalAgeServerData?.step ?? 1}
+                onChange={(value) => setPendingConfirm(() => () => {
+                  createSetPreference(act, 'immortal_age')(value);
+                  act('clear_discipline_levels');
+                })}
+              />
+            ) : undefined,
+          }}
+          // DARKPACK EDIT ADD END
         />
       );
       break;
@@ -560,65 +586,17 @@ export function MainPage(props: MainPageProps) {
           close={() => setDeleteCharacterPopupOpen(false)}
         />
       )}
-      {/* DARKPACK EDIT START - Clan Change Disciplines reset popup*/}
-      {pendingClanValue !== null && (
-        <Box
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0,0,0,0.75)',
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+      {/* TFN EDIT START - popup for clan, age, etc. changes */}
+      {pendingConfirm !== null && (
+        <ConfirmModal
+          onConfirm={() => {
+            pendingConfirm?.();
+            setPendingConfirm(null);
           }}
-        >
-          <Box
-            style={{
-              background: '#1b1b1b',
-              border: '1px solid #555',
-              padding: '20px',
-              maxWidth: '380px',
-              width: '90%',
-            }}
-          >
-            <Box bold textAlign="center" fontSize={1.1} mb={1} mt={-1}>
-              Change Clan?
-            </Box>
-            <Box color="label" mb={2}>
-              Changing your clan will wipe ALL of your existing disciplines.
-              This cannot be undone. Are you sure?
-            </Box>
-            <Stack textAlign="center" justify="center">
-              <Stack.Item>
-                <Button
-                  textAlign="center"
-                  onClick={() => setPendingClanValue(null)}
-                >
-                  Cancel
-                </Button>
-              </Stack.Item>
-              <Stack.Item>
-                <Button
-                  textAlign="center"
-                  color="bad"
-                  onClick={() => {
-                    createSetPreference(act, 'vampire_clan')(pendingClanValue);
-                    act('clear_discipline_levels');
-                    setPendingClanValue(null);
-                  }}
-                >
-                  Proceed
-                </Button>
-              </Stack.Item>
-            </Stack>
-          </Box>
-        </Box>
+          onCancel={() => setPendingConfirm(null)}
+        />
       )}
-      {/* DARKPACK EDIT END*/}
+      {/* TFN EDIT END*/}
 
       <Stack height={`${CLOTHING_SIDEBAR_ROWS * CLOTHING_CELL_SIZE}px`}>
         <Stack.Item>
@@ -678,7 +656,10 @@ export function MainPage(props: MainPageProps) {
                 clothingKey === 'vampire_clan'
                   ? (newValue: string) => {
                       if (newValue !== clothing) {
-                        setPendingClanValue(newValue);
+                        setPendingConfirm(() => () => {
+                          createSetPreference(act, 'vampire_clan')(newValue);
+                          act('clear_discipline_levels');
+                        });
                       } else {
                         baseSelect(newValue);
                       }
