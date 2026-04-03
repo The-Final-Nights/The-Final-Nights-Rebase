@@ -18,4 +18,4 @@
 	. = ..()
 	if (new_splat)
 		return
-	blood.can_dry = FALSE
+	blood.can_dry = TRUE
