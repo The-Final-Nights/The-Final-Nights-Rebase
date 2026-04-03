@@ -87,12 +87,12 @@
 #define JOB_DEALER "Dealer"
 #define JOB_SUPPLY_TECH "Supply Technician"
 
-//TFN ADDITION START - Setite Jobs
+//TFN ADDITION START - Setite Faction
 #define JOB_ASSOCIATE "Associate"
 #define JOB_FAITHFUL "Faithful"
 #define JOB_HIGH_PRIEST "High Priest"
 #define JOB_WARD "Ward"
-//TFN ADDITION END - Setite Jobs
+//TFN ADDITION END - Setite Faction
 
 // Forest Wolves
 #define JOB_GAROU_COUNCIL "Councillor" // Elder, Athro
@@ -136,7 +136,7 @@
 #define JOB_DISPLAY_ORDER_TAXI 19
 #define JOB_DISPLAY_ORDER_PRIEST 20
 
- //TFN EDIT ADDITION START - Setite Jobs
+//TFN EDIT ADDITION START - Setite Faction
 #define JOB_DISPLAY_ORDER_HIGH_PRIEST 21
 #define JOB_DISPLAY_ORDER_FAITHFUL 22
 #define JOB_DISPLAY_ORDER_WARD 23
@@ -180,7 +180,7 @@
 #define JOB_DISPLAY_ORDER_SECCHIEF 53
 #define JOB_DISPLAY_ORDER_PENTEX_SEC 54
 #define JOB_DISPLAY_ORDER_EMPLOYEE 55
-//TFN EDIT ADDITION END - Setite Jobs
+//TFN EDIT ADDITION END - Setite Faction
 //////////////////////////////////////////////////
 
 #define DEPARTMENT_BITFLAG_CITIZEN (1<<0)
