@@ -48,7 +48,7 @@
 /datum/job_department/supply
 	department_name = DEPARTMENT_SUPPLY
 	department_bitflags = DEPARTMENT_BITFLAG_SUPPLY
-	department_head = /datum/job/vampire/setite/faithful/high_priest //TFN EDIT
+	department_head = /datum/job/vampire/setite/faithful/high_priest //TFN EDIT - Setite Faction - Original : department_head = /datum/job/vampire/dealer
 	department_experience_type = EXP_TYPE_WAREHOUSE
 	display_order = 1
 	label_class = "supply"

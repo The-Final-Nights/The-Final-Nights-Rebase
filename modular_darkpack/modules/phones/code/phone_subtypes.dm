@@ -191,7 +191,8 @@
 		alist(NETWORK_ID = SUPPLY_NETWORK, OUR_ROLE = "Supply Technician", USE_JOB_TITLE = FALSE)
 		)
 
-/obj/item/smartphone/supply_tech/associate //TFN ADDITION START - Setite Faction
+//TFN ADDITION START - Setite Faction
+/obj/item/smartphone/supply_tech/associate
 	contact_networks_pre_init = list(
 		alist(NETWORK_ID = SUPPLY_NETWORK, OUR_ROLE = "Junior Supply Technician", USE_JOB_TITLE = FALSE)
 		)
@@ -199,7 +200,8 @@
 /obj/item/smartphone/supply_tech/faithful
 	contact_networks_pre_init = list(
 		alist(NETWORK_ID = SUPPLY_NETWORK, OUR_ROLE = "Senior Supply Technician", USE_JOB_TITLE = FALSE)
-		)  //TFN ADDITION END - Setite Faction
+		)
+//TFN ADDITION END - Setite Faction
 
 /obj/item/smartphone/dealer
 	contact_networks_pre_init = list(
@@ -207,8 +209,10 @@
 		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Warehouse Manager", USE_JOB_TITLE = FALSE)
 	)
 
-/obj/item/smartphone/dealer/high_priest //TFN ADDITION START - Setite Faction
-	important_contact_of = VAMPIRE_CLAN_SETITE //TFN ADDITION END - Setite Faction
+//TFN ADDITION START - Setite Faction
+/obj/item/smartphone/dealer/high_priest
+	important_contact_of = VAMPIRE_CLAN_SETITE
+//TFN ADDITION END - Setite Faction
 
 // ENDRON
 
