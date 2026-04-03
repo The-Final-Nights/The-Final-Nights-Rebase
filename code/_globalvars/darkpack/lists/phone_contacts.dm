@@ -14,7 +14,6 @@ GLOBAL_LIST_EMPTY(anarch_network)
 GLOBAL_LIST_EMPTY(supply_network)
 GLOBAL_LIST_EMPTY(vampire_leader_network)
 GLOBAL_LIST_EMPTY(endron_network)
-GLOBAL_LIST_EMPTY(brujah_network) //TFN EDIT ADD - Brujah Primogen
 
 #define MILLENIUM_TOWER_NETWORK 1
 #define LASOMBRA_NETWORK 2
