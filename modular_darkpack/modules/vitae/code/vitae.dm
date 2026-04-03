@@ -1,4 +1,5 @@
 /datum/reagent/blood/vitae
+	name = "Vitae"
 	description = "This blood seems oddly viscous."
 	color = "#c80000"
 	self_consuming = TRUE
