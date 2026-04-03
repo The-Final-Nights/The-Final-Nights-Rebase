@@ -15,3 +15,4 @@
 	)
 	male_clothes = /obj/item/clothing/under/vampire/slickback
 	female_clothes = /obj/item/clothing/under/vampire/burlesque
+	subsplat_keys = /obj/item/vamp/keys/setite // TFN EDIT ADD
