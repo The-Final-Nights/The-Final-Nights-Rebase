@@ -41014,6 +41014,7 @@
 	pixel_x = 11;
 	pixel_y = 8
 	},
+/obj/machinery/light/dim/directional/north,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "kIH" = (
@@ -52172,6 +52173,11 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
+"nDp" = (
+/obj/structure/bath/sabbatbath,
+/obj/machinery/light/dim/directional/south,
+/turf/open/floor/plating/canal,
+/area/vtm/interior/sabbat_lair)
 "nDs" = (
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate,
@@ -65414,6 +65420,9 @@
 	pixel_x = 9;
 	pixel_y = -7
 	},
+/obj/machinery/light/dim/directional/west{
+	pixel_y = 16
+	},
 /turf/open/misc/dirt,
 /area/vtm/interior/sabbat_lair)
 "qSX" = (
@@ -66560,7 +66569,6 @@
 /area/vtm/outside/supply)
 "rjC" = (
 /obj/structure/bonfire/prelit,
-/obj/machinery/light/dim/directional/east,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "rjF" = (
@@ -103709,7 +103717,7 @@ kID
 mTX
 mTX
 mTX
-ibW
+nDp
 hYX
 uvs
 uvs
