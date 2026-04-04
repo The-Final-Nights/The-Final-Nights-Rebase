@@ -15,7 +15,3 @@
 
 
 /datum/blood_type/kindred/set_up_blood(obj/effect/decal/cleanable/blood/blood, new_splat = FALSE)
-	. = ..()
-	if (new_splat)
-		return
-	blood.can_dry = TRUE

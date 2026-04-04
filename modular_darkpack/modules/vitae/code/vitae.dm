@@ -1,7 +1,6 @@
 /datum/reagent/blood/vitae
-	name = "Vitae"
+	name = "Blood"
 	description = "This blood seems oddly viscous."
-	color = "#c80000"
 	self_consuming = TRUE
 	metabolization_rate = 100 * REAGENTS_METABOLISM // Vitae is supposed to instantly be consumed by the organism.
 
