@@ -21134,6 +21134,9 @@
 "fzo" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/brick_old,
+/obj/machinery/door/poddoor/shutters{
+	id = 45
+	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/supply)
 "fzr" = (
@@ -25038,14 +25041,6 @@
 /obj/item/kirbyplants/darkpack/plant2{
 	pixel_y = 12;
 	pixel_x = 9
-	},
-/obj/item/paper_bin{
-	pixel_y = 5;
-	pixel_x = -5
-	},
-/obj/item/pen{
-	pixel_y = 7;
-	pixel_x = -5
 	},
 /obj/structure/fluff/tv{
 	pixel_y = 39
@@ -37710,7 +37705,20 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer)
 "jQD" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/button/door{
+	id = 45;
+	pixel_y = 5;
+	pixel_x = 8
+	},
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 5;
+	pixel_x = -5
+	},
+/obj/item/pen{
+	pixel_y = 7;
+	pixel_x = -5
+	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "jQM" = (
@@ -45477,7 +45485,7 @@
 /turf/closed/wall/vampwall/rich/old,
 /area/vtm/interior/endron_facility)
 "lSx" = (
-/obj/machinery/light/small/red/directional/north,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/city/factory,
 /area/vtm/interior/anarch)
 "lSE" = (
