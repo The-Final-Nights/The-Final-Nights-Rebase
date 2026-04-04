@@ -1,5 +1,4 @@
 /datum/reagent/blood/vitae
-<<<<<<< HEAD
 	name = "Blood"
 	description = "This blood seems oddly viscous."
 	self_consuming = TRUE
