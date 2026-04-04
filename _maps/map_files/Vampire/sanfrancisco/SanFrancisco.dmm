@@ -4262,6 +4262,9 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/darkpack/sabbat/pack,
+/obj/machinery/light/dim/directional/west{
+	pixel_y = 16
+	},
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "bdF" = (
@@ -17879,6 +17882,7 @@
 "eKn" = (
 /obj/structure/table/wood,
 /obj/item/knife/vamp,
+/obj/machinery/light/dim/directional/east,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "eKo" = (
@@ -26121,6 +26125,7 @@
 	anchored = 1;
 	pixel_x = -6
 	},
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/sabbat_lair)
 "gRk" = (
@@ -27756,6 +27761,10 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/millennium_tower)
+"hlq" = (
+/obj/machinery/light/dim/directional/south,
+/turf/open/water/vamp_sewer,
+/area/vtm/interior/sabbat_lair)
 "hlH" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/coffee/vampire/robust,
@@ -30408,6 +30417,7 @@
 /area/vtm/interior/techshop)
 "hWz" = (
 /obj/item/vampirebook/noddist,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "hWA" = (
@@ -43432,6 +43442,10 @@
 /obj/machinery/light/prince/directional/south,
 /turf/open/floor/carpet/purple,
 /area/vtm/interior/jazzclub)
+"lpz" = (
+/obj/machinery/light/dim/directional/east,
+/turf/open/water/vamp_sewer,
+/area/vtm/interior/sabbat_lair)
 "lpA" = (
 /obj/structure/bookcase/random/nonfiction{
 	pixel_y = 20;
@@ -45639,6 +45653,7 @@
 	pixel_x = 7
 	},
 /obj/effect/landmark/start/darkpack/sabbat/sabbatist,
+/obj/machinery/light/dim/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/sabbat_lair)
 "lVm" = (
@@ -58288,6 +58303,14 @@
 /obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/littleitaly/apartments)
+"pcz" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/obj/machinery/light/dim/directional/north,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/sewer)
 "pcC" = (
 /obj/structure/vampdoor/glass,
 /obj/effect/turf_decal/bordur{
@@ -62574,6 +62597,16 @@
 	},
 /turf/open/floor/wood/old,
 /area/vtm/interior/ghetto)
+"qhF" = (
+/obj/structure/chair/pew/right{
+	dir = 1
+	},
+/obj/effect/landmark/start/darkpack/sabbat/pack,
+/obj/machinery/light/dim/directional/east{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/canal,
+/area/vtm/interior/sabbat_lair)
 "qhI" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -65690,6 +65723,7 @@
 /obj/item/ammo_box/magazine/darkpack45acp,
 /obj/item/ammo_box/magazine/darkpack45acp,
 /obj/item/ammo_box/magazine/darkpack45acp,
+/obj/machinery/light/dim/directional/north,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "qWR" = (
@@ -66518,6 +66552,7 @@
 /area/vtm/outside/supply)
 "rjC" = (
 /obj/structure/bonfire/prelit,
+/obj/machinery/light/dim/directional/east,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "rjF" = (
@@ -79411,6 +79446,9 @@
 /obj/structure/table/wood,
 /obj/item/vamp/keys/sabbat,
 /obj/item/masquerade_contract,
+/obj/machinery/light/dim/directional/west{
+	pixel_y = 16
+	},
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sabbat_lair)
 "uGa" = (
@@ -102238,7 +102276,7 @@ gxf
 qwJ
 fyn
 fyn
-fyn
+hlq
 hYX
 uCR
 bEG
@@ -102444,7 +102482,7 @@ fyn
 fyn
 fyn
 hYX
-kpB
+pcz
 rqY
 rqY
 bEG
@@ -103039,14 +103077,14 @@ hYX
 hYX
 hYX
 aIq
-yev
+qhF
 mTX
 oWy
 pQq
 hYX
 qwJ
 fyn
-fyn
+lpz
 fyn
 mry
 mTX
