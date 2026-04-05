@@ -893,6 +893,13 @@
 
 	user.regenerate_icons()
 	user.name = user.get_visible_name()
+	// TFN EDIT ADDITION START
+	user.blooper = null
+	user.blooper_id = chosen_profile.blooper_id
+	user.blooper_pitch = chosen_profile.blooper_pitch
+	user.blooper_speed = chosen_profile.blooper_speed
+	user.blooper_pitch_range = chosen_profile.blooper_pitch_range
+	// TFN EDIT ADDITION END
 	current_profile = chosen_profile
 
 // Changeling profile themselves. Store a data to store what every DNA instance looked like.

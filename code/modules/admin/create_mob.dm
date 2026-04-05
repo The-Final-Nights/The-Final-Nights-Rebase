@@ -15,6 +15,12 @@
 	human.dna.species.randomize_active_underwear_only(human)
 	// Needs to be called towards the end to update all the UIs just set above
 	human.dna.initialize_dna(newblood_type = random_human_blood_type(), create_mutation_blocks = randomize_mutations, randomize_features = TRUE)
+	// TFN EDIT ADDITION START
+	human.set_blooper(pick(GLOB.blooper_list))
+	human.blooper_pitch = BLOOPER_PITCH_RAND(human.gender)
+	human.blooper_pitch_range = BLOOPER_VARIANCE_RAND
+	human.blooper_speed = rand(BLOOPER_DEFAULT_MINSPEED, BLOOPER_DEFAULT_MAXSPEED)
+	// TFN EDIT ADDITION END
 	// Snowflake for Ethereals
 	human.updatehealth()
 	human.updateappearance(mutcolor_update = TRUE)
