@@ -163,7 +163,7 @@
 				target_prefs.discipline_levels -= disc_path
 			else
 				target_prefs.discipline_levels[disc_path] = new_level
-			//target_prefs.save_character() // TFN EDIT REMOVE
+			//target_prefs.save_character() // TFN EDIT REMOVAL
 			var/client/target_client = GLOB.directory[target_ckey]
 			if(target_client?.mob && ishuman(target_client.mob))
 				var/mob/living/carbon/human/target_mob = target_client.mob
