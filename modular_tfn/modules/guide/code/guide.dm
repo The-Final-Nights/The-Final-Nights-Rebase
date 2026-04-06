@@ -67,6 +67,7 @@ var/datum/guide_manager/guide_datum
 
 /datum/guide_manager/ui_data(mob/user)
 	var/is_admin = user.client && check_rights_for(user.client, R_ADMIN)
+	var/show_on_spawn = user.client && user.client.prefs && user.client.prefs.show_new_player_guide
 	var/list/tab_data = list()
 	for(var/datum/guide_tab/tab as anything in tabs)
 		tab_data += list(list(
@@ -76,12 +77,22 @@ var/datum/guide_manager/guide_datum
 	return list(
 		"tabs" = tab_data,
 		"is_admin" = is_admin,
+		"show_on_spawn" = show_on_spawn,
 	)
 
 /datum/guide_manager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
+
+	if(action == "toggle_show_on_spawn")
+		if(ui.user.client && ui.user.client.prefs)
+			ui.user.client.prefs.show_new_player_guide = !ui.user.client.prefs.show_new_player_guide
+			ui.user.client.prefs.save_preferences()
+		var/status = ui.user.client.prefs.show_new_player_guide ? "now see" : "no longer see"
+		var/additional_text = !ui.user.client.prefs.show_new_player_guide ? "You can view it at any time via the Guide verb in the OOC tab." : ""
+		to_chat(ui.user, span_notice("You will [status] the new player guide on login. [additional_text]"))
+		return TRUE
 
 	if(!ui.user.client || !check_rights_for(ui.user.client, R_ADMIN))
 		return FALSE
@@ -171,5 +182,22 @@ var/datum/guide_manager/guide_datum
 ADMIN_VERB(edit_guide, R_ADMIN, "Edit Guide", "Edit the server guide window", ADMIN_CATEGORY_SERVER)
 	var/datum/guide_manager/guide = get_guide()
 	guide.ui_interact(user.mob)
+
+/mob/living/Login()
+	. = ..()
+	if(client?.prefs?.show_new_player_guide)
+		var/datum/guide_manager/guide = get_guide()
+		guide.ui_interact(src)
+
+/datum/preferences
+	var/show_new_player_guide = TRUE
+
+/datum/preferences/load_preferences()
+	. = ..()
+	show_new_player_guide = savefile.get_entry("show_new_player_guide")
+
+/datum/preferences/save_preferences()
+	. = ..()
+	savefile.set_entry("show_new_player_guide", show_new_player_guide)
 
 #undef GUIDE_DATA_FILE

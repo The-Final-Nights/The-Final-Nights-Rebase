@@ -14,11 +14,12 @@ type GuideTab = {
 type GuideMenuData = {
   tabs: GuideTab[];
   is_admin: boolean;
+  show_on_spawn: boolean;
 };
 
 export const GuideMenu = () => {
   const { act, data } = useBackend<GuideMenuData>();
-  const { tabs = [], is_admin } = data;
+  const { tabs = [], is_admin, show_on_spawn } = data;
 
   const [selectedTab, setSelectedTab] = useState(0);
   const [editingContent, setEditingContent] = useState(false);
@@ -359,6 +360,34 @@ export const GuideMenu = () => {
                 }}
               />
             )}
+          </div>
+
+          <div
+            style={{
+              padding: '6px 14px',
+              borderTop: '1px solid #3a3a3a',
+              background: '#1a1a1a',
+              flexShrink: 0,
+            }}
+          >
+            <label
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                cursor: 'pointer',
+                color: '#aaa',
+                fontSize: '12px',
+                userSelect: 'none',
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={!!show_on_spawn}
+                onChange={() => act('toggle_show_on_spawn')}
+              />
+              Don't show again
+            </label>
           </div>
         </div>
       </Window.Content>
