@@ -261,6 +261,7 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 	if(!isnewplayer(user) && ("[user.client.prefs.default_slot]" in user.persistent_client.joined_as_slots))
 		to_chat(user, span_warning("You may not adjust discipline dots of characters that have played in the current round."))
 		return FALSE
+	// preferences.discipline_levels = list() // TFN EDIT REMOVAL
 	// TFN EDIT START
 	var/clan_value = preferences.read_preference(/datum/preference/choiced/subsplat/vampire_clan)
 	if(!clan_value)
