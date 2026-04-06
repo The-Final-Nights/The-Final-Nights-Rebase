@@ -40,7 +40,7 @@
 		to_chat(user, "You cannot send IC messages (muted).")
 		return FALSE
 	else if(!params)
-		subtle_emote = tgui_input_text(user, "Choose an emote to display.", "Subtle", null, max_length = 10240, multiline = TRUE)//TFN EDIT CHANGE EDIT - ORIGINAL : subtle_emote = tgui_input_text(user, "Choose an emote to display.", "Subtle", null, max_length = MAX_MESSAGE_LEN, multiline = TRUE)
+		subtle_emote = tgui_input_text(user, "Choose an emote to display.", "Subtle", null, max_length = (MAX_MESSAGE_LEN * 10), multiline = TRUE)//TFN EDIT CHANGE EDIT - ORIGINAL : subtle_emote = tgui_input_text(user, "Choose an emote to display.", "Subtle", null, max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 		if(!subtle_emote)
 			return FALSE
 		subtle_message = subtle_emote
