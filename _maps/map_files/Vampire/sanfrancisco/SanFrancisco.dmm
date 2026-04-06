@@ -3613,6 +3613,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small/directional/south,
+/obj/item/storage/box/ingredients/random,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior)
 "aUQ" = (
@@ -4261,6 +4262,9 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/darkpack/sabbat/pack,
+/obj/machinery/light/dim/directional/west{
+	pixel_y = 16
+	},
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "bdF" = (
@@ -10918,7 +10922,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/theatre)
 "cOT" = (
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/shop)
 "cOZ" = (
@@ -11874,7 +11878,7 @@
 /turf/open/floor/wood/herring,
 /area/vtm/outside/giovanni/courtyard)
 "deZ" = (
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/storage/box/ingredients/random,
 /obj/machinery/light/directional/north,
 /turf/open/floor/city/factory,
@@ -17878,6 +17882,7 @@
 "eKn" = (
 /obj/structure/table/wood,
 /obj/item/knife/vamp,
+/obj/machinery/light/dim/directional/east,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "eKo" = (
@@ -19518,6 +19523,10 @@
 /obj/item/toy/cards/deck,
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
+"feH" = (
+/obj/transfer_point_vamp/backrooms,
+/turf/open/floor/plating/stone,
+/area/vtm)
 "feK" = (
 /obj/structure/railing/wooden_fence,
 /obj/effect/turf_decal/siding/wood/dark,
@@ -20994,6 +21003,7 @@
 /obj/item/reagent_containers/cup/glass/bottle/beer/vampire/blue_stripe,
 /obj/item/reagent_containers/cup/glass/bottle/beer/vampire/blue_stripe,
 /obj/structure/coclock,
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/endron_facility)
 "fxs" = (
@@ -21124,6 +21134,9 @@
 "fzo" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/brick_old,
+/obj/machinery/door/poddoor/shutters{
+	id = 45
+	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/supply)
 "fzr" = (
@@ -24376,6 +24389,12 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
+"gsq" = (
+/obj/item/paper/fluff{
+	default_raw_text = "How did you get here? Nevermind that actually. Bomby wuz here."
+	},
+/turf/open/floor/plating/stone,
+/area/vtm)
 "gsr" = (
 /obj/effect/turf_decal/asphaltline/alt{
 	pixel_x = -14
@@ -25022,14 +25041,6 @@
 /obj/item/kirbyplants/darkpack/plant2{
 	pixel_y = 12;
 	pixel_x = 9
-	},
-/obj/item/paper_bin{
-	pixel_y = 5;
-	pixel_x = -5
-	},
-/obj/item/pen{
-	pixel_y = 7;
-	pixel_x = -5
 	},
 /obj/structure/fluff/tv{
 	pixel_y = 39
@@ -26109,6 +26120,7 @@
 	anchored = 1;
 	pixel_x = -6
 	},
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/sabbat_lair)
 "gRk" = (
@@ -27744,6 +27756,10 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/millennium_tower)
+"hlq" = (
+/obj/machinery/light/dim/directional/south,
+/turf/open/water/vamp_sewer,
+/area/vtm/interior/sabbat_lair)
 "hlH" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/coffee/vampire/robust,
@@ -29274,7 +29290,7 @@
 /turf/open/floor/city/toilet,
 /area/vtm/interior/setite)
 "hHX" = (
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/storage/box/ingredients/random,
 /obj/machinery/light/directional/north,
 /turf/open/floor/city/clinic,
@@ -30396,6 +30412,7 @@
 /area/vtm/interior/techshop)
 "hWz" = (
 /obj/item/vampirebook/noddist,
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "hWA" = (
@@ -32693,6 +32710,7 @@
 /obj/item/food/grown/carrot,
 /obj/item/food/grown/carrot,
 /obj/item/food/grown/carrot,
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/setite/basement)
 "ixt" = (
@@ -36986,11 +37004,6 @@
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/bianchiBank)
-"jFj" = (
-/obj/structure/closet/secure_closet/freezer/fridge/all_access,
-/obj/effect/turf_decal/siding/white,
-/turf/open/floor/city/bacotell,
-/area/vtm/interior)
 "jFm" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 140;
@@ -37692,7 +37705,20 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer)
 "jQD" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/button/door{
+	id = 45;
+	pixel_y = 5;
+	pixel_x = 8
+	},
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 5;
+	pixel_x = -5
+	},
+/obj/item/pen{
+	pixel_y = 7;
+	pixel_x = -5
+	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "jQM" = (
@@ -38799,7 +38825,7 @@
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/culture)
 "kgq" = (
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/food/meat/slab/chicken,
 /obj/item/food/meat/slab/chicken,
 /obj/item/food/meat/slab/chicken,
@@ -40924,6 +40950,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior)
 "kIi" = (
@@ -40987,6 +41014,7 @@
 	pixel_x = 11;
 	pixel_y = 8
 	},
+/obj/machinery/light/dim/directional/north,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "kIH" = (
@@ -43423,6 +43451,10 @@
 /obj/machinery/light/prince/directional/south,
 /turf/open/floor/carpet/purple,
 /area/vtm/interior/jazzclub)
+"lpz" = (
+/obj/machinery/light/dim/directional/east,
+/turf/open/water/vamp_sewer,
+/area/vtm/interior/sabbat_lair)
 "lpA" = (
 /obj/structure/bookcase/random/nonfiction{
 	pixel_y = 20;
@@ -45454,7 +45486,7 @@
 /turf/closed/wall/vampwall/rich/old,
 /area/vtm/interior/endron_facility)
 "lSx" = (
-/obj/machinery/light/small/red/directional/north,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/city/factory,
 /area/vtm/interior/anarch)
 "lSE" = (
@@ -45630,6 +45662,7 @@
 	pixel_x = 7
 	},
 /obj/effect/landmark/start/darkpack/sabbat/sabbatist,
+/obj/machinery/light/dim/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/sabbat_lair)
 "lVm" = (
@@ -46262,9 +46295,8 @@
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "mdt" = (
-/obj/structure/closet/secure_closet/freezer{
-	locked = 0
-	},
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
+/obj/item/storage/box/ingredients/random,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/apartment)
 "mdz" = (
@@ -47230,7 +47262,7 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "moG" = (
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/storage/fancy/egg_box,
 /obj/item/storage/fancy/egg_box,
 /obj/item/storage/fancy/egg_box,
@@ -48409,6 +48441,7 @@
 /obj/item/food/raw_meatball,
 /obj/item/food/grown/tomato,
 /obj/item/food/grown/tomato,
+/obj/item/storage/box/ingredients/random,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/littleitaly/apartments)
 "mGg" = (
@@ -52140,6 +52173,11 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
+"nDp" = (
+/obj/structure/bath/sabbatbath,
+/obj/machinery/light/dim/directional/south,
+/turf/open/floor/plating/canal,
+/area/vtm/interior/sabbat_lair)
 "nDs" = (
 /obj/effect/decal/pallet,
 /obj/structure/closet/crate,
@@ -53637,9 +53675,8 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/sewer/police)
 "nVT" = (
-/obj/structure/closet/secure_closet/freezer{
-	locked = 0
-	},
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
+/obj/item/storage/box/ingredients/random,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "nWe" = (
@@ -55435,6 +55472,7 @@
 /obj/item/reagent_containers/blood/random,
 /obj/item/reagent_containers/blood/random,
 /obj/item/reagent_containers/blood/random,
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch/basement)
 "oqx" = (
@@ -57391,9 +57429,8 @@
 /obj/effect/turf_decal/siding/white/inner_corner{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/freezer{
-	locked = 0
-	},
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
+/obj/item/storage/box/ingredients/random,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/apartment)
 "oPQ" = (
@@ -58280,6 +58317,14 @@
 /obj/effect/mapping_helpers/door/unlock,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/littleitaly/apartments)
+"pcz" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/obj/machinery/light/dim/directional/north,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/sewer)
 "pcC" = (
 /obj/structure/vampdoor/glass,
 /obj/effect/turf_decal/bordur{
@@ -58598,6 +58643,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior)
 "pgj" = (
@@ -59005,6 +59051,7 @@
 /obj/item/food/sandwich,
 /obj/item/food/icecreamsandwich,
 /obj/item/food/icecreamsandwich,
+/obj/structure/closet/secure_closet/freezer,
 /turf/open/floor/city/factory,
 /area/vtm/interior/strip)
 "pkI" = (
@@ -59161,7 +59208,7 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /turf/open/floor/city/plating,
 /area/vtm/interior/shop)
 "plW" = (
@@ -59568,6 +59615,7 @@
 /obj/item/food/burger/plain,
 /obj/item/reagent_containers/blood/random,
 /obj/item/reagent_containers/blood/random,
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/bianchiBank)
 "prU" = (
@@ -60025,6 +60073,7 @@
 /obj/effect/turf_decal/siding/white/inner_corner{
 	dir = 4
 	},
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/city/bacotell,
 /area/vtm/graveyard/interior)
 "pyo" = (
@@ -61449,7 +61498,7 @@
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "pSl" = (
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/storage/box/ingredients/random,
 /obj/effect/turf_decal/siding/grey{
 	dir = 4
@@ -62562,6 +62611,16 @@
 	},
 /turf/open/floor/wood/old,
 /area/vtm/interior/ghetto)
+"qhF" = (
+/obj/structure/chair/pew/right{
+	dir = 1
+	},
+/obj/effect/landmark/start/darkpack/sabbat/pack,
+/obj/machinery/light/dim/directional/east{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/canal,
+/area/vtm/interior/sabbat_lair)
 "qhI" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -63306,10 +63365,6 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/ten,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility)
-"qrX" = (
-/obj/effect/landmark/start/darkpack/primogen/lasombra,
-/turf/open/floor/plating/roofwalk,
-/area/vtm)
 "qsn" = (
 /obj/structure/hedge{
 	pixel_y = 6
@@ -63928,14 +63983,6 @@
 /obj/effect/landmark/start/darkpack/citizen/citizen,
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/outside/park)
-"qBu" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/transfer_point_vamp/backrooms,
-/turf/open/openspace,
-/area/vtm)
 "qBx" = (
 /obj/effect/decal/cleanable/trash,
 /obj/structure/chair/plastic/darkpack{
@@ -65131,6 +65178,7 @@
 /obj/item/food/grown/cabbage,
 /obj/item/food/grown/cabbage,
 /obj/item/food/grown/cabbage,
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/setite/basement)
 "qQc" = (
@@ -65367,6 +65415,9 @@
 /obj/item/shovel/vamp{
 	pixel_x = 9;
 	pixel_y = -7
+	},
+/obj/machinery/light/dim/directional/west{
+	pixel_y = 16
 	},
 /turf/open/misc/dirt,
 /area/vtm/interior/sabbat_lair)
@@ -65638,7 +65689,7 @@
 /obj/item/food/butter,
 /obj/item/food/butter,
 /obj/item/food/butter,
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/food/baguette,
 /obj/item/food/baguette,
 /obj/item/food/dough,
@@ -65685,6 +65736,7 @@
 /obj/item/ammo_box/magazine/darkpack45acp,
 /obj/item/ammo_box/magazine/darkpack45acp,
 /obj/item/ammo_box/magazine/darkpack45acp,
+/obj/machinery/light/dim/directional/north,
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "qWR" = (
@@ -69306,6 +69358,7 @@
 /area/vtm/interior/sewer)
 "rVZ" = (
 /obj/structure/chair/stool/bar/darkpack/red,
+/obj/effect/landmark/start/darkpack/primogen/brujah,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "rWb" = (
@@ -71898,6 +71951,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/shop)
 "sIh" = (
@@ -75653,6 +75707,7 @@
 /obj/item/food/raw_meatball,
 /obj/item/food/grown/tomato,
 /obj/item/food/grown/tomato,
+/obj/item/storage/box/ingredients/random,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/littleitaly/apartments)
 "tGG" = (
@@ -75677,7 +75732,7 @@
 /turf/open/floor/carpet/red,
 /area/vtm/interior)
 "tGL" = (
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/food/raw_meatball,
 /obj/item/food/raw_meatball,
 /obj/item/food/salami,
@@ -75781,6 +75836,7 @@
 /obj/item/reagent_containers/condiment/flour,
 /obj/item/reagent_containers/condiment/flour,
 /obj/item/reagent_containers/condiment/flour,
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/shop)
 "tHS" = (
@@ -79403,6 +79459,9 @@
 /obj/structure/table/wood,
 /obj/item/vamp/keys/sabbat,
 /obj/item/masquerade_contract,
+/obj/machinery/light/dim/directional/west{
+	pixel_y = 16
+	},
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sabbat_lair)
 "uGa" = (
@@ -83574,6 +83633,7 @@
 /obj/item/reagent_containers/cup/glass/bottle/beer/vampire,
 /obj/item/reagent_containers/cup/glass/bottle/beer/vampire,
 /obj/item/reagent_containers/cup/glass/bottle/beer/vampire,
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "vPP" = (
@@ -88035,7 +88095,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
 "wWX" = (
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/food/raw_sausage,
 /obj/item/food/raw_sausage,
 /obj/item/food/raw_patty,
@@ -92030,7 +92090,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/baywalk)
 "ybA" = (
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/item/reagent_containers/condiment/rice,
 /obj/item/reagent_containers/condiment/rice,
 /obj/item/reagent_containers/condiment/rice,
@@ -102229,7 +102289,7 @@ gxf
 qwJ
 fyn
 fyn
-fyn
+hlq
 hYX
 uCR
 bEG
@@ -102435,7 +102495,7 @@ fyn
 fyn
 fyn
 hYX
-kpB
+pcz
 rqY
 rqY
 bEG
@@ -103030,14 +103090,14 @@ hYX
 hYX
 hYX
 aIq
-yev
+qhF
 mTX
 oWy
 pQq
 hYX
 qwJ
 fyn
-fyn
+lpz
 fyn
 mry
 mTX
@@ -103654,7 +103714,7 @@ kID
 mTX
 mTX
 mTX
-ibW
+nDp
 hYX
 uvs
 uvs
@@ -196830,7 +196890,7 @@ ccn
 eiw
 eiw
 eiw
-qBu
+eiw
 eiw
 eiw
 eiw
@@ -214027,7 +214087,7 @@ mjT
 mjT
 gce
 gHH
-jFj
+lAW
 eQi
 qdY
 lrP
@@ -216067,7 +216127,7 @@ mjT
 mjT
 tYJ
 gHH
-jFj
+lAW
 oTB
 qdY
 lrP
@@ -216904,8 +216964,8 @@ bhB
 (3,1,4) = {"
 bhB
 uvs
-uvs
-uvs
+feH
+gsq
 uvs
 uvs
 uvs
@@ -256259,7 +256319,7 @@ xEp
 xEp
 xEp
 xEp
-qrX
+xEp
 xEp
 xEp
 vWf
