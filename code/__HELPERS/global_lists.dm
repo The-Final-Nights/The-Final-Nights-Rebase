@@ -9,7 +9,6 @@
 	GLOB.emote_list = init_emote_list() // WHY DOES THIS NEED TO GO HERE? IT JUST INITS DATUMS
 	init_crafting_recipes()
 	init_crafting_recipes_atoms()
-	init_bloopers() // TFN EDIT ADDITION
 
 /// Inits crafting recipe lists
 /proc/init_crafting_recipes()

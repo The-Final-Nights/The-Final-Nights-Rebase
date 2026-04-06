@@ -512,12 +512,6 @@
 		if(NAMEOF(src, glide_size))
 			set_glide_size(var_value)
 			. = TRUE
-		// TFN EDIT ADDITION START
-		if(NAMEOF(src, blooper))
-			if(isfile(var_value))
-				blooper = sound(var_value) //bark() expects vocal_bark to already be a sound datum, for performance reasons. adminbus QoL!
-			. = TRUE
-		// TFN EDIT ADDITION END
 
 	if(!isnull(.))
 		datum_flags |= DF_VAR_EDITED
