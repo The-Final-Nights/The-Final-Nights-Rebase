@@ -1,4 +1,5 @@
 /datum/preference/numeric/voice_pitch
+	savefile_key = "voice_pitch"
 	category = PREFERENCE_CATEGORY_VOCALS // Originally PREFERENCE_CATEGORY_VOCALS, we are relocating it to the voice menu
 
 /datum/preference/numeric/voice_pitch/is_accessible(datum/preferences/preferences)
