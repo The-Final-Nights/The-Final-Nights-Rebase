@@ -85,9 +85,8 @@ export function VocalsInput(props: VocalsProps) {
         >
           <Stack vertical>
             {vocalFeatures.map((feature) => {
+              if (vocals === undefined) return null;
               const value = vocals[feature.id];
-              if (value === undefined) return null;
-
               return (
                 <Stack.Item key={feature.id} verticalAlign="top">
                   <FeatureValueInput feature={feature} value={value} />
