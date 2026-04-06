@@ -11,7 +11,7 @@
 	COOLDOWN_DECLARE(headshot_cooldown)
 	///Assoc list of ckeys and their links, used to cut down on chat spam
 	var/static/list/stored_links = list()
-	var/static/link_regex = regex("files.catbox.moe|images2.imgbox.com|i.gyazo.com")
+	var/static/link_regex = regex("files.catbox.moe|images2.imgbox.com|i.gyazo.com|img.thefinalnights.com") // TFN EDIT - added buffybox
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
 
 /datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value)
@@ -39,7 +39,7 @@
 
 	find_index = findtext(value, link_regex)
 	if(find_index != 9)
-		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Catbox (catbox.moe), Imgbox (images2.imgbox.com)'"))
+		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Catbox (catbox.moe), Imgbox (images2.imgbox.com), Buffybox (buffybox.thefinalnights.com)'")) // TFN EDIT - added buffybox
 		return
 
 	if(stored_links[usr.ckey] && stored_links[usr.ckey][type] != value && COOLDOWN_FINISHED(src, headshot_cooldown))
