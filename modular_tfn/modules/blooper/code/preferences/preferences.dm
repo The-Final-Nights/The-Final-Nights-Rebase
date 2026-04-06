@@ -91,7 +91,7 @@
 
 /datum/preference/numeric/blooper_sound_volume
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
-	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_identifier = PREFERENCE_PLAYER
 	savefile_key = "sound_blooper_volume"
 	minimum = 0
 	maximum = 100
