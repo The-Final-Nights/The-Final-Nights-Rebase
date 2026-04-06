@@ -1,4 +1,4 @@
-#define BLOOPER_CONFIG_PATH "[global.config.directory]/bloopers"
+#define BLOOPER_CONFIG_PATH "[global.config.directory]/tfn_config/bloopers"
 
 SUBSYSTEM_DEF(blooper)
 	name = "Blooper"
@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(blooper)
 		new_blooper.name = entry["name"]
 		new_blooper.id = entry["id"]
 		for(var/file in entry["files"])
-			new_blooper.soundpath_list += sound("[BLOOPER_CONFIG_PATH]/[file]")
+			new_blooper.soundpath_list += sound("[BLOOPER_CONFIG_PATH]/sounds/[file]")
 		new_blooper.min_pitch = entry["min_pitch"] || BLOOPER_DEFAULT_MINPITCH
 		new_blooper.max_pitch = entry["max_pitch"] || BLOOPER_DEFAULT_MAXPITCH
 		new_blooper.min_vary = entry["min_vary"] || BLOOPER_DEFAULT_MINVARY
