@@ -386,7 +386,7 @@ export const GuideMenu = () => {
                 checked={!!show_on_spawn}
                 onChange={() => act('toggle_show_on_spawn')}
               />
-              Don't show again
+              Show this window on login
             </label>
           </div>
         </div>
