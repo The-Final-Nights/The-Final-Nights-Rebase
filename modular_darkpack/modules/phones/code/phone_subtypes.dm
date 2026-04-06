@@ -229,6 +229,13 @@
 		alist(NETWORK_ID = ENDRON_NETWORK, OUR_ROLE = "Endron Employee", USE_JOB_TITLE = TRUE)
 		)
 
+//TFN EDIT ADD START - Brujah Primogen
+/obj/item/smartphone/brujah_primo
+	important_contact_of = VAMPIRE_CLAN_BRUJAH
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Gym Manager", USE_JOB_TITLE = FALSE)
+		)
+//TFN EDIT ADD END
 #undef NETWORK_ID
 #undef OUR_ROLE
 #undef USE_JOB_TITLE
