@@ -145,14 +145,9 @@
 		/datum/reagent/water = 15,
 	)
 	//We can't spawn the abstract food/grown path
-	unit_test_spawn_extras = list(/obj/item/food/grown/banana = 4, // TFN EDIT, ORIGINAL: unit_test_spawn_extras = list(/obj/item/food/grown/banana = 4)
-	// TFN EDIT START
-		/obj/item/reagent_containers/condiment = 1,
-		/obj/item/reagent_containers/cup/bottle = 4,
-		/obj/item/food/grown/banana = 4,
-	)
-	// TFN EDIT END
+	unit_test_spawn_extras = list(/obj/item/food/grown/banana = 4)
 	category = CAT_DRINK
+	non_craftable = TRUE // TFN EDIT ADDITION
 
 /datum/crafting_recipe/lean
 	name = "lean"
