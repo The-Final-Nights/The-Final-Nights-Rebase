@@ -122,14 +122,13 @@
 	speed = 0
 	maxHealth = 80
 	health = 80
-	harm_intent_damage = 15
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
 	attack_sound = 'modular_darkpack/modules/deprecated/sounds/zombuzi.ogg'
 	speak_emote = list("rattle")
-	deathmessage = "bones turn into a pile of dust!"
+	death_message = "bones turn into a pile of dust!"
 
 /mob/living/basic/beastmaster/giovanni_zombie/level5 // Tanky, but slowed bruiser
 	name = "verme"
