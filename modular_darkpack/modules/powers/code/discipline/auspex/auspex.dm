@@ -353,7 +353,7 @@
 
 /datum/discipline_power/auspex/telepathy/proc/sanitize_input_message(input_message)
 	//sanitisation!
-	input_message = CAN_BYPASS_FILTER(owner) ? strip_html_full(input_message, 10240) : input_message
+	input_message = CAN_BYPASS_FILTER(owner) ? strip_html_full(input_message, (MAX_MESSAGE_LEN * 10)) : input_message
 	var/list/filter_result = CAN_BYPASS_FILTER(owner) ? null : is_ooc_filtered(input_message)
 	if(filter_result)
 		REPORT_CHAT_FILTER_TO_USER(owner, filter_result)
