@@ -107,7 +107,31 @@
 	speak_emote = list("borks")
 	death_message = "falls apart in a pile of fur and bones!"
 
-/mob/living/basic/beastmaster/giovanni_zombie/level4 // Tanky, but slowed bruiser
+/mob/living/basic/beastmaster/giovanni_zombie/level4 //weaker health and fast skeleton. Maxhealth to summon: 70 to 150
+	name = "Osso"
+	desc = "Bones puppeted by the forces of necrotic energies."
+	icon = 'modular_darkpack/modules/npc/icons/necromancy_zombies.dmi'
+	icon_state = "skeleton"
+	icon_living = "skeleton"
+	response_help_continuous = "shakes hands with"
+	response_help_simple = "shake hands with"
+	response_disarm_continuous = "pushes away"
+	response_disarm_simple = "push away"
+	response_harm_continuous = "punches"
+	response_harm_simple = "punch"
+	speed = 0
+	maxHealth = 80
+	health = 80
+	harm_intent_damage = 15
+	melee_damage_lower = 20
+	melee_damage_upper = 30
+	attack_verb_continuous = "slashes"
+	attack_verb_simple = "slash"
+	attack_sound = 'modular_darkpack/modules/deprecated/sounds/zombuzi.ogg'
+	speak_emote = list("rattle")
+	deathmessage = "bones turn into a pile of dust!"
+
+/mob/living/basic/beastmaster/giovanni_zombie/level5 // Tanky, but slowed bruiser
 	name = "verme"
 	desc = "Husk of a man, puppeteered by some sadistic force."
 	icon = 'modular_darkpack/modules/npc/icons/necromancy_zombies.dmi'
@@ -130,7 +154,7 @@
 	speak_emote = list("rasps")
 	death_message = "decays away into fine paste!"
 
-/mob/living/basic/beastmaster/giovanni_zombie/level5 // Chonkmaster, only really Tzimisce mobs can provide material
+/mob/living/basic/beastmaster/giovanni_zombie/level6 // Chonkmaster, only really Tzimisce mobs can provide material
 	name = "patrigno"
 	desc = "A nauseating mountain of putrid flesh. On its face - a jolly smirk immortalized with rigor mortis."
 	icon = 'modular_darkpack/modules/npc/icons/necromancy_zombies.dmi'

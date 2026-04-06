@@ -288,21 +288,24 @@
 		owner.visible_message(span_warning("[owner] gestures over [target]'s carcass."))
 		target.visible_message(span_danger("[target] twitches and rises, puppeteered by an invisible force."))
 		if(iscarbon(target))
-			owner.add_beastmaster_minion(/mob/living/basic/beastmaster/giovanni_zombie/level4)
+			owner.add_beastmaster_minion(/mob/living/basic/beastmaster/giovanni_zombie/level5)
 			qdel(target)
 		else
 			switch(target.maxHealth)
 				if (-INFINITY to 20) //rats and whatnot
 					owner.add_beastmaster_minion(/mob/living/basic/beastmaster/giovanni_zombie/level2)
 					qdel(target)
-				if (20 to 70) //cats and whatnot
+				if (20 to 40) //cats and whatnot
 					owner.add_beastmaster_minion(/mob/living/basic/beastmaster/giovanni_zombie/level3)
 					qdel(target)
-				if (70 to 150) //dogs/biters and whatnot
+				if (40 to 60) //piles of bones
 					owner.add_beastmaster_minion(/mob/living/basic/beastmaster/giovanni_zombie/level4)
 					qdel(target)
-				if (150 to INFINITY) //szlachta and whatnot
+				if (60 to 150) //humans and what not
 					owner.add_beastmaster_minion(/mob/living/basic/beastmaster/giovanni_zombie/level5)
+					qdel(target)
+				if (150 to INFINITY) //szlachta and whatnot
+					owner.add_beastmaster_minion(/mob/living/basic/beastmaster/giovanni_zombie/level6)
 					qdel(target)
 
 	else if(iszombie(target))
