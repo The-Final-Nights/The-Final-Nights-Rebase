@@ -1,4 +1,4 @@
-/mob/living/simple_animal/corpsestore
+/mob/living/basic/corpsestore
 	name = "corpsestore"
 	icon = 'modular_darkpack/modules/npc/icons/necromancy_zombies.dmi'
 	icon_state = "bat_dead"
@@ -6,7 +6,7 @@
 	maxHealth = 1
 	health = 1
 
-/mob/living/simple_animal/corpsestore/corpse1
+/mob/living/basic/corpsestore/corpse1
 	name = "bat corpse"
 	icon = 'modular_darkpack/modules/npc/icons/necromancy_zombies.dmi'
 	icon_state = "bat_dead"
@@ -14,7 +14,7 @@
 	health = 1
 	stat = DEAD
 
-/mob/living/simple_animal/corpsestore/corpse2
+/mob/living/basic/corpsestore/corpse2
 	name = "dog corpse"
 	icon = 'modular_darkpack/modules/npc/icons/necromancy_zombies.dmi'
 	icon_state = "dog_dead"
@@ -22,7 +22,7 @@
 	health = 1
 	stat = DEAD
 
-/mob/living/simple_animal/corpsestore/corpse3
+/mob/living/basic/corpsestore/corpse3
 	name = "bone pile"
 	icon = 'modular_darkpack/modules/npc/icons/necromancy_zombies.dmi'
 	icon_state = "skeleton_dead"
@@ -30,7 +30,7 @@
 	health = 1
 	stat = DEAD
 
-/mob/living/simple_animal/corpsestore/corpse4
+/mob/living/basic/corpsestore/corpse4
 	name = "bear corpse"
 	icon = 'modular_darkpack/modules/npc/icons/bear.dmi'
 	icon_state = "bear_dead"
@@ -40,6 +40,7 @@
 
 /obj/item/corpsestore
 	name = "corpsestore"
+	icon = 'icons/obj/mining_zones/artefacts.dmi'
 	icon_state = "legion_skull"
 
 /obj/item/corspestore/skull
