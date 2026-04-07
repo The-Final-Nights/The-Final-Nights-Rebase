@@ -239,6 +239,10 @@ SUBSYSTEM_DEF(housing)
 				escorted.forceMove(destination)
 			return TRUE
 		if("go_home")
+			var/donator_tier = ui.user.client?.prefs?.donator_rank
+			if(donator_tier != "Antediluvian" && donator_tier != "Caine")
+				to_chat(ui.user, span_warning("Anyone can visit houses, but you must be an Antediluvian tier donator or above to claim yours."))
+				return FALSE
 			var/datum/housing_instance/inst = assign_instance(ui.user)
 			if(!inst.loaded)
 				if(!load_instance(inst, ui.user))
