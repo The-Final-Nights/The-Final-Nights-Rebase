@@ -316,7 +316,7 @@ SUBSYSTEM_DEF(housing)
 			if(is_in_housing(ui.user))
 				to_chat(ui.user, span_warning("You must leave the house you are in first."))
 				return FALSE
-			user.balloon_alert_to_viewers("traveling...")
+			ui.user.balloon_alert_to_viewers("traveling...")
 			if(!do_after(ui.user, 10 SECONDS))
 				return
 			var/mob/living/escorted = isliving(ui.user.pulling) ? ui.user.pulling : null
