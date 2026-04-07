@@ -44,6 +44,25 @@
 	body_parts_covered = HANDS
 	armor_type = /datum/armor/gloves_combat
 
+//------------MASK------------
+/obj/item/clothing/mask/gas/darkpack_ert
+	icon_state = "gas_tactical"
+	icon = 'modular_darkpack/modules/ert/icons/clothing.dmi'
+	inhand_icon_state = null
+	worn_icon = 'modular_darkpack/modules/ert/icons/worn.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ert/icons/onfloor.dmi')
+	flags_inv = HIDEFACIALHAIR | HIDEFACE | HIDEEYES | HIDEEARS | HIDEHAIR | HIDESNOUT
+	visor_flags_inv = 0
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	fishing_modifier = 2
+	pepper_tint = FALSE
+
+/obj/item/clothing/mask/gas/darkpack_ert/pentex
+	name = "\improper Corporate Gas Mask"
+	desc = "Provides protection from smoke, smog, and whatever biological horror is rampaging through your clandestine laboratory."
+	icon_state = "gas_pentex"
+
 //------------HELMET------------
 
 /obj/item/clothing/head/vampire/darkpack_ert
