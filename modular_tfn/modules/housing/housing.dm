@@ -294,7 +294,7 @@ SUBSYSTEM_DEF(housing)
 			var/datum/housing_instance/inst = instances[ui.user.mind]
 			if(!inst?.loaded)
 				return FALSE
-			var/new_name = tgui_input_text(user, "Rename your house in the listing:", "Rename House", max_length = MAX_NAME_LEN)
+			var/new_name = tgui_input_text(ui.user, "Rename your house in the listing:", "Rename House", max_length = MAX_NAME_LEN)
 			if(isnull(new_name) || new_name == " ")
 				return FALSE
 			inst.house_name = new_name
@@ -309,6 +309,42 @@ SUBSYSTEM_DEF(housing)
 				return FALSE
 			inst.guests -= guest
 			return TRUE
+		if("break_in")
+			var/datum/housing_instance/inst = locate(params["ref"])
+			var/mob/living/carbon/human/lockpicker = ui.user
+			var/mob/living/carbon/human/owner_mob = inst.owner_mind.current
+			if(!istype(inst, /datum/housing_instance) || !inst.loaded)
+				return FALSE
+			if(inst.can_enter(lockpicker) || !lockpicker.mind)
+				to_chat(lockpicker, span_warning("Can't break into a house you already have access to!"))
+				return FALSE
+			if(is_in_housing(lockpicker))
+				to_chat(lockpicker, span_warning("You must leave the house you are in first."))
+				return FALSE
+			if(CONFIG_GET(flag/punishing_zero_dots) && lockpicker.st_get_stat(STAT_LARCENY) < 1)
+				to_chat(lockpicker, span_warning("You have no idea how to pick a lock."))
+				return FALSE
+			if(inst.owner_is_home())
+				var/datum/storyteller_roll/perception_roll = new()
+				perception_roll.applicable_stats = list(STAT_PERCEPTION)
+				perception_roll.difficulty = 7
+				switch(perception_roll.st_roll(owner_mob))
+					if(ROLL_SUCCESS)
+						to_chat(owner_mob, span_userdanger("Someone is trying to break into your home!"))
+			lockpicker.balloon_alert_to_viewers("breaking in...")
+			if(!do_after(lockpicker, 3 TURNS))
+				return FALSE
+			var/datum/storyteller_roll/lockpick/lockpick_roll = new()
+			lockpick_roll.difficulty = owner_mob.st_get_stat(STAT_INTELLIGENCE) + owner_mob.st_get_stat(STAT_SURVIVAL)
+			switch(lockpick_roll.st_roll(lockpicker))
+				if(ROLL_SUCCESS)
+					to_chat(lockpicker, span_notice("You pick the lock and slip inside."))
+					inst.enter(lockpicker)
+					return TRUE
+				if(ROLL_BOTCH || ROLL_FAILURE)
+					to_chat(owner_mob, span_userdanger("Someone tried and failed to break into your home!"))
+					to_chat(lockpicker, span_warning("You fail to pick the lock."))
+			return FALSE
 		if("teleport")
 			var/datum/housing_instance/inst = locate(params["ref"])
 			if(!istype(inst, /datum/housing_instance))

@@ -110,12 +110,21 @@ export const HousingBrowser = () => {
                       Enter
                     </Button>
                   ) : (
-                    <Button
-                      icon="hand-fist"
-                      onClick={() => act('knock', { ref: inst.ref })}
-                    >
-                      Knock
-                    </Button>
+                    <>
+                      <Button
+                        icon="hand-fist"
+                        onClick={() => act('knock', { ref: inst.ref })}
+                      >
+                        Knock
+                      </Button>
+                      <Button
+                        icon="lock-open"
+                        color="bad"
+                        onClick={() => act('break_in', { ref: inst.ref })}
+                      >
+                        Break In
+                      </Button>
+                    </>
                   )}
                 </Stack.Item>
               </Stack>
