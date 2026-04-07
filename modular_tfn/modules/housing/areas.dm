@@ -1,11 +1,26 @@
 // housing areas
+/turf/open/misc/dirt/housing
+	name = "dirt"
+	desc = "Something bad happened here."
+	baseturfs = /turf/open/misc/dirt/housing
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+
+/obj/effect/baseturf_helper/housing/ground_floor
+	name = "firstfloor baseturf editor"
+	baseturf = /turf/open/misc/dirt/housing
+
+/obj/effect/baseturf_helper/housing/second_floor
+	name = "secondfloor baseturf editor"
+	baseturf = /turf/open/openspace
+
 /area/housing/townhouse
 	name = "Town House"
 	icon = 'icons/area/areas_away_missions.dmi'
 	icon_state = "away"
 	default_gravity = STANDARD_GRAVITY
 	ambience_index = AMBIENCE_AWAY
-	sound_environment = SOUND_ENVIRONMENT_ROOM
+	sound_environment = SOUND_ENVIRONMENT_PARKING_LOT
 
 /area/housing/townhouse/first_floor
 	name = "First floor"
@@ -62,6 +77,7 @@
 	icon_state = "away"
 	default_gravity = STANDARD_GRAVITY
 	ambience_index = AMBIENCE_AWAY
+	sound_environment = SOUND_ENVIRONMENT_PARKING_LOT
 
 /area/housing/bighouse/first_floor
 	name = "First floor"
