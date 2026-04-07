@@ -4,7 +4,6 @@
 
 #define HOUSING_SIZE_MEDIUM 1
 #define HOUSING_SIZE_LARGE 2
-#define HOUSING_MIN_LEVEL_SIZE 202
 
 /datum/map_template/housing/townhouse/one
 	name = "Townhouse"
@@ -91,12 +90,10 @@ SUBSYSTEM_DEF(housing)
 	var/datum/map_template/housing/townhouse/one/townhouse_template_one
 	var/datum/map_template/housing/townhouse/two/townhouse_template_two
 	var/datum/map_template/housing/bighouse/bighouse_template
-	var/list/available_slots = list() // list of list(x, y, z) coordinate triples
+	var/list/available_slots = list() // list of list(x, y, z). the missile knows where it is etc
 	var/list/instances = list()
 
 /datum/controller/subsystem/housing/Initialize()
-	world.maxx = max(world.maxx, HOUSING_MIN_LEVEL_SIZE)
-	world.maxy = max(world.maxy, HOUSING_MIN_LEVEL_SIZE)
 	housing_level_1 = SSmapping.add_new_zlevel("Housing Floor 1", list(
 		ZTRAIT_AWAY = TRUE,
 		ZTRAIT_SECRET = TRUE,
@@ -115,6 +112,7 @@ SUBSYSTEM_DEF(housing)
 	generate_slots()
 	return SS_INIT_SUCCESS
 
+// this happens at init time once, and in my tests it took less than a second to complete
 /datum/controller/subsystem/housing/proc/generate_slots()
 	var/slot_w = 25
 	var/slot_h = 25
@@ -314,4 +312,3 @@ SUBSYSTEM_DEF(housing)
 #undef HOUSING_BIGHOME_MAP_1
 #undef HOUSING_SIZE_MEDIUM
 #undef HOUSING_SIZE_LARGE
-#undef HOUSING_MIN_LEVEL_SIZE
