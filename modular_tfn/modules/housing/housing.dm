@@ -130,6 +130,19 @@ SUBSYSTEM_DEF(housing)
 /datum/controller/subsystem/housing/proc/get_instance(mob/living/user)
 	return instances[user.mind]
 
+// checks if the specified mob is in an instanced housing plot
+/datum/controller/subsystem/housing/proc/is_in_housing(mob/user)
+	for(var/datum/mind/M in instances)
+		var/datum/housing_instance/inst = instances[M]
+		if(!inst.loaded || !inst.slot_origin)
+			continue
+		var/datum/map_template/tmpl = inst.size == HOUSING_SIZE_LARGE ? bighouse_template : townhouse_template_one
+		if((user.z == inst.slot_origin.z || user.z == inst.slot_origin.z + 1) \
+			&& user.x >= inst.slot_origin.x && user.x < inst.slot_origin.x + tmpl.width \
+			&& user.y >= inst.slot_origin.y && user.y < inst.slot_origin.y + tmpl.height)
+			return TRUE
+	return FALSE
+
 /datum/controller/subsystem/housing/proc/assign_instance(mob/living/user)
 	if(instances[user.mind])
 		return instances[user.mind]
@@ -243,6 +256,9 @@ SUBSYSTEM_DEF(housing)
 			if(donator_tier != "Antediluvian" && donator_tier != "Caine")
 				to_chat(ui.user, span_warning("Anyone can visit houses, but you must be an Antediluvian tier donator or above to claim yours."))
 				return FALSE
+			if(is_in_housing(ui.user))
+				to_chat(ui.user, span_warning("You must leave the house you are in first."))
+				return FALSE
 			var/datum/housing_instance/inst = assign_instance(ui.user)
 			if(!inst.loaded)
 				if(!load_instance(inst, ui.user))
@@ -278,10 +294,10 @@ SUBSYSTEM_DEF(housing)
 			var/datum/housing_instance/inst = instances[ui.user.mind]
 			if(!inst?.loaded)
 				return FALSE
-			var/new_name = input(ui.user, "Rename your house in the listings:", "Rename House", inst.house_name) as text|null
-			if(isnull(new_name))
-				return TRUE
-			inst.house_name = copytext(sanitize(new_name), 1, 65)
+			var/new_name = tgui_input_text(user, "Rename your house in the listing:", "Rename House", max_length = MAX_NAME_LEN)
+			if(isnull(new_name) || new_name == " ")
+				return FALSE
+			inst.house_name = new_name
 			return TRUE
 		if("remove_guest")
 			var/datum/housing_instance/inst = instances[ui.user.mind]
@@ -297,6 +313,17 @@ SUBSYSTEM_DEF(housing)
 			var/datum/housing_instance/inst = locate(params["ref"])
 			if(!istype(inst, /datum/housing_instance))
 				return FALSE
+			if(is_in_housing(ui.user))
+				to_chat(ui.user, span_warning("You must leave the house you are in first."))
+				return FALSE
+			user.balloon_alert_to_viewers("traveling...")
+			if(!do_after(ui.user, 10 SECONDS))
+				return
+			var/mob/living/escorted = isliving(ui.user.pulling) ? ui.user.pulling : null
+			if(escorted)
+				inst.enter(escorted)
+				to_chat(ui.user, span_notice("You're taken to [inst.house_name]."))
+			to_chat(ui.user, span_notice("You travel to [inst.house_name]."))
 			inst.enter(ui.user)
 			return TRUE
 	return FALSE
