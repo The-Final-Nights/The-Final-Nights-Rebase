@@ -1,20 +1,28 @@
 #define HOUSING_TOWNHOUSE_MAP_1 "_maps/map_files/Vampire/instanced_housing/townhomes/townhome1.dmm"
 #define HOUSING_TOWNHOUSE_MAP_2 "_maps/map_files/Vampire/instanced_housing/townhomes/townhome2.dmm"
+#define HOUSING_BIGHOME_MAP_1 "_maps/map_files/Vampire/instanced_housing/bighomes/big_home1.dmm"
 
+#define HOUSING_SIZE_MEDIUM 1
+#define HOUSING_SIZE_LARGE 2
+#define HOUSING_MIN_LEVEL_SIZE 202
 
-/datum/map_template/housing/townhouse
+/datum/map_template/housing/townhouse/one
 	name = "Townhouse"
-	mappath = HOUSING_TOWNHOUSE_MAP
+	mappath = HOUSING_TOWNHOUSE_MAP_1
 	keep_cached_map = TRUE
 	should_place_on_top = FALSE
 
-/area/housing/townhouse
-	name = "Town House"
-	icon = 'icons/area/areas_away_missions.dmi'
-	icon_state = "away"
-	default_gravity = STANDARD_GRAVITY
-	ambience_index = AMBIENCE_AWAY
-	sound_environment = SOUND_ENVIRONMENT_ROOM
+/datum/map_template/housing/townhouse/two
+	name = "Townhouse"
+	mappath = HOUSING_TOWNHOUSE_MAP_2
+	keep_cached_map = TRUE
+	should_place_on_top = FALSE
+
+/datum/map_template/housing/bighouse
+	name = "Big House"
+	mappath = HOUSING_BIGHOME_MAP_1
+	keep_cached_map = TRUE
+	should_place_on_top = FALSE
 
 /turf/closed/housing/border
 	name = " "
@@ -28,24 +36,25 @@
 /datum/housing_instance
 	var/datum/mind/owner_mind
 	var/turf/spawn_turf
+	var/turf/slot_origin
 	var/loaded = FALSE
+	var/locked = TRUE
 	var/list/guests = list()
+	var/size = HOUSING_SIZE_MEDIUM
+	var/house_name = ""
 
 /datum/housing_instance/proc/owner_is_home()
 	var/mob/M = owner_mind?.current
-	if(!M || !spawn_turf)
+	if(!M || !slot_origin)
 		return FALSE
 
-	// instead of a for loop checking each turf's contents to find if the owner's there
-	// just check their coordinates compared to their house's coordinates
-	var/w = SShousing.townhouse_template.width
-	var/h = SShousing.townhouse_template.height
-	return (M.z == spawn_turf.z || M.z == spawn_turf.z + 1) \
-		&& M.x >= spawn_turf.x && M.x < spawn_turf.x + w \
-		&& M.y >= spawn_turf.y && M.y < spawn_turf.y + h
+	var/datum/map_template/tmpl = size == HOUSING_SIZE_LARGE ? SShousing.bighouse_template : SShousing.townhouse_template_one
+	return (M.z == slot_origin.z || M.z == slot_origin.z + 1) \
+		&& M.x >= slot_origin.x && M.x < slot_origin.x + tmpl.width \
+		&& M.y >= slot_origin.y && M.y < slot_origin.y + tmpl.height
 
 /datum/housing_instance/proc/can_enter(mob/user)
-	return (user.mind == owner_mind) || (user.mind in guests)
+	return !locked || (user.mind == owner_mind) || (user.mind in guests)
 
 /datum/housing_instance/proc/enter(mob/living/user)
 	if(!can_enter(user))
@@ -79,11 +88,15 @@ SUBSYSTEM_DEF(housing)
 
 	var/datum/space_level/housing_level_1
 	var/datum/space_level/housing_level_2
-	var/datum/map_template/housing/townhouse/townhouse_template
-	var/list/turf/available_slots = list()
+	var/datum/map_template/housing/townhouse/one/townhouse_template_one
+	var/datum/map_template/housing/townhouse/two/townhouse_template_two
+	var/datum/map_template/housing/bighouse/bighouse_template
+	var/list/available_slots = list() // list of list(x, y, z) coordinate triples
 	var/list/instances = list()
 
 /datum/controller/subsystem/housing/Initialize()
+	world.maxx = max(world.maxx, HOUSING_MIN_LEVEL_SIZE)
+	world.maxy = max(world.maxy, HOUSING_MIN_LEVEL_SIZE)
 	housing_level_1 = SSmapping.add_new_zlevel("Housing Floor 1", list(
 		ZTRAIT_AWAY = TRUE,
 		ZTRAIT_SECRET = TRUE,
@@ -96,22 +109,25 @@ SUBSYSTEM_DEF(housing)
 		ZTRAIT_NOPHASE = TRUE,
 		ZTRAIT_DOWN = TRUE,
 	))
-	townhouse_template = new /datum/map_template/housing/townhouse()
+	townhouse_template_one = new /datum/map_template/housing/townhouse/one()
+	townhouse_template_two = new /datum/map_template/housing/townhouse/two()
+	bighouse_template = new /datum/map_template/housing/bighouse()
 	generate_slots()
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/housing/proc/generate_slots()
-	var/slot_w = townhouse_template.width
-	var/slot_h = townhouse_template.height
+	var/slot_w = 25
+	var/slot_h = 25
 	var/z = housing_level_1.z_value
 
 	var/col = 0
-	while((col * slot_w + townhouse_template.width) <= world.maxx)
+	while((col * slot_w + slot_w) <= world.maxx)
 		var/row = 0
-		while((row * slot_h + townhouse_template.height) <= world.maxy)
-			available_slots += locate(col * slot_w + 2, row * slot_h + 2, z)
+		while((row * slot_h + slot_h) <= world.maxy)
+			available_slots += list(list(col * slot_w + 2, row * slot_h + 2, z))
 			row++
 		col++
+	message_admins("Housing: generated [available_slots.len] slots (world: [world.maxx]x[world.maxy], z=[z])")
 
 /datum/controller/subsystem/housing/proc/get_instance(mob/living/user)
 	return instances[user.mind]
@@ -124,26 +140,47 @@ SUBSYSTEM_DEF(housing)
 	instances[user.mind] = inst
 	return inst
 
-/datum/controller/subsystem/housing/proc/load_instance(datum/housing_instance/inst)
+/datum/controller/subsystem/housing/proc/load_instance(datum/housing_instance/inst, mob/living/carbon/human/user)
 	if(!available_slots.len)
+		message_admins("Housing: load_instance failed - no slots remaining")
 		return FALSE
-	var/turf/slot = available_slots[1]
-	available_slots.Remove(slot)
+	var/list/coords = available_slots[1]
+	available_slots.Cut(1, 2)
+	var/turf/slot = locate(coords[1], coords[2], coords[3])
+	if(!slot)
+		message_admins("Housing: locate() returned null for coords ([coords[1]], [coords[2]], [coords[3]]) - [available_slots.len] slots remaining")
+		return FALSE
+	message_admins("Housing: loading instance at ([coords[1]], [coords[2]], [coords[3]]) - [available_slots.len] slots remaining")
+	inst.slot_origin = slot
 
-	townhouse_template.load(slot)
-
-	var/list/loaded_turfs = block(
+	var/list/loaded_turfs
+	inst.size = user.st_get_stat(STAT_FINANCE) == 5 ? 2 : 1
+	if(inst.size == 1) // randomly picks between the townhouses. just different colors
+		var/datum/map_template/housing/townhouse/chosen = pick(townhouse_template_one, townhouse_template_two)
+		chosen.load(slot)
+		loaded_turfs = block(
 		slot.x, slot.y, slot.z,
-		slot.x + townhouse_template.width - 1,
-		slot.y + townhouse_template.height - 1,
+		slot.x + chosen.width - 1,
+		slot.y + chosen.height - 1,
 		slot.z,
-	)
+		)
+	else
+		bighouse_template.load(slot)
+		loaded_turfs = block(
+		slot.x, slot.y, slot.z,
+		slot.x + bighouse_template.width - 1,
+		slot.y + bighouse_template.height - 1,
+		slot.z,
+		)
+
+
 	for(var/turf/T in loaded_turfs)
 		if(locate(/obj/effect/landmark/housing/spawnpoint) in T)
 			inst.spawn_turf = T
 			break
 
 	if(!inst.spawn_turf)
+		message_admins("Housing: no spawnpoint landmark found in loaded turfs, falling back to slot origin ([slot.x], [slot.y], [slot.z])")
 		inst.spawn_turf = slot
 
 	inst.loaded = TRUE
@@ -166,9 +203,11 @@ SUBSYSTEM_DEF(housing)
 			continue
 		entries += list(list(
 			"owner_name" = M.name,
+			"house_name" = inst.house_name,
 			"ref" = REF(inst),
 			"can_enter" = inst.can_enter(user),
 			"is_own" = (M == user.mind),
+			"locked" = inst.locked,
 		))
 
 	var/datum/housing_instance/my_inst = instances[user.mind]
@@ -196,15 +235,22 @@ SUBSYSTEM_DEF(housing)
 			var/atom/destination = ui.user.mind?.assigned_role?.get_latejoin_spawn_point() // a subway spawnpoint
 			if(!destination)
 				return FALSE
+			var/mob/living/escorted = isliving(ui.user.pulling) ? ui.user.pulling : null
 			ui.user.forceMove(destination)
+			if(escorted)
+				escorted.forceMove(destination)
 			return TRUE
 		if("go_home")
 			var/datum/housing_instance/inst = assign_instance(ui.user)
 			if(!inst.loaded)
-				if(!load_instance(inst))
-					to_chat(ui.user, span_warning("No housing plots are currently available."))
+				if(!load_instance(inst, ui.user))
+					to_chat(ui.user, span_warning("No housing slots are currently available."))
 					return FALSE
+			var/mob/living/dragged_guest = isliving(ui.user.pulling) ? ui.user.pulling : null
 			ui.user.forceMove(inst.spawn_turf)
+			if(dragged_guest?.mind)
+				inst.guests |= dragged_guest.mind
+				dragged_guest.forceMove(inst.spawn_turf)
 			return TRUE
 		if("knock")
 			var/datum/housing_instance/inst = locate(params["ref"])
@@ -213,18 +259,34 @@ SUBSYSTEM_DEF(housing)
 			if(inst.can_enter(ui.user) || !ui.user.mind)
 				return FALSE
 			if(!inst.owner_is_home())
-				to_chat(ui.user, span_warning("Nobody appears to be home."))
+				to_chat(ui.user, span_warning("Nobody appears to be home. Try again in a little while."))
 				return FALSE
 			var/mob/owner_mob = inst.owner_mind.current
 			var/approve_link = "<a href='?src=[REF(inst)];approve=[REF(ui.user.mind)]'>Allow entry</a>"
 			to_chat(owner_mob, span_notice("[ui.user.mind.name] is knocking on your door! [approve_link]"))
 			to_chat(ui.user, span_notice("You knock on [inst.owner_mind.name]'s door."))
 			return TRUE
+		if("toggle_lock")
+			var/datum/housing_instance/inst = instances[ui.user.mind]
+			if(!inst?.loaded)
+				return FALSE
+			inst.locked = !inst.locked
+			return TRUE
+		if("rename")
+			var/datum/housing_instance/inst = instances[ui.user.mind]
+			if(!inst?.loaded)
+				return FALSE
+			var/new_name = input(ui.user, "Rename your house in the listings:", "Rename House", inst.house_name) as text|null
+			if(isnull(new_name))
+				return TRUE
+			inst.house_name = copytext(sanitize(new_name), 1, 65)
+			return TRUE
 		if("remove_guest")
 			var/datum/housing_instance/inst = instances[ui.user.mind]
 			if(!inst?.loaded)
 				return FALSE
 			var/datum/mind/guest = locate(params["ref"])
+			to_chat(inst.owner_mind.current, span_warning("[guest.name] will no longer be able to return, but still needs to be escorted out or to leave on their own if they are still present."))
 			if(!istype(guest, /datum/mind))
 				return FALSE
 			inst.guests -= guest
@@ -249,3 +311,7 @@ SUBSYSTEM_DEF(housing)
 
 #undef HOUSING_TOWNHOUSE_MAP_1
 #undef HOUSING_TOWNHOUSE_MAP_2
+#undef HOUSING_BIGHOME_MAP_1
+#undef HOUSING_SIZE_MEDIUM
+#undef HOUSING_SIZE_LARGE
+#undef HOUSING_MIN_LEVEL_SIZE
