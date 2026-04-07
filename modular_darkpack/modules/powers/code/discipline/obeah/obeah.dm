@@ -226,9 +226,9 @@
 	var/mob/living/living_target = target
 	if(living_target.get_agg_loss() && (owner.bloodpool >= 1))
 		owner.adjust_blood_pool(-1)
-		living_target.heal_storyteller_health(dots_to_heal = 1, heal_aggravated = TRUE, heal_scars = TRUE, heal_blood = TRUE)
+		living_target.heal_storyteller_health(dots_to_heal = 4, heal_aggravated = TRUE, heal_scars = TRUE, heal_blood = TRUE)  //TFN EDIT CHANGE - Original : living_target.heal_storyteller_health(dots_to_heal = 1, heal_aggravated = TRUE, heal_scars = TRUE, heal_blood = TRUE)
 	else
-		living_target.heal_storyteller_health(dots_to_heal = 1, heal_aggravated = FALSE, heal_scars = TRUE, heal_blood = TRUE)
+		living_target.heal_storyteller_health(dots_to_heal = 4, heal_aggravated = FALSE, heal_scars = TRUE, heal_blood = TRUE) //TFN EDIT CHANGE - Original : living_target.heal_storyteller_health(dots_to_heal = 1, heal aggravated = FALSE, heal_scars = TRUE, heal_blood = TRUE)
 
 // Radius - the length of the line you draw from the central point of a circle towards any point of the outer boundary, which in geometry is called the circumference.
 #define SHEPHERDS_WATCH_RADIUS 3
