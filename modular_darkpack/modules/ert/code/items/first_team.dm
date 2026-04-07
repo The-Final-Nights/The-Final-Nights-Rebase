@@ -58,6 +58,11 @@
 	fishing_modifier = 2
 	pepper_tint = FALSE
 
+/obj/item/clothing/mask/gas/darkpack_ert/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands)
+		. += emissive_appearance(icon_file, "gasmask_emissive", src, effect_type = EMISSIVE_NO_BLOOM)
+
 /obj/item/clothing/mask/gas/darkpack_ert/pentex
 	name = "\improper Corporate Gas Mask"
 	desc = "Provides protection from smoke, smog, and whatever biological horror is rampaging through your clandestine laboratory."
