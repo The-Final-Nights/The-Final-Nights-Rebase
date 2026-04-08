@@ -341,7 +341,7 @@ SUBSYSTEM_DEF(housing)
 					to_chat(lockpicker, span_notice("You pick the lock and slip inside."))
 					inst.enter(lockpicker)
 					return TRUE
-				if(ROLL_BOTCH || ROLL_FAILURE)
+				if(ROLL_BOTCH, ROLL_FAILURE)
 					to_chat(owner_mob, span_userdanger("Someone tried and failed to break into your home!"))
 					to_chat(lockpicker, span_warning("You fail to pick the lock."))
 			return FALSE
