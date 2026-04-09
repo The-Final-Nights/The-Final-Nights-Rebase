@@ -355,7 +355,13 @@ export function TFNAdminDisciplineEditor() {
                           </Stack.Item>
                           <Stack.Item ml={2}>
                             {is_trusted ? (
-                              <Box color="green"><Icon name="shield-halved" mr={0.5} /> Trusted Whitelist</Box>
+                        <Button
+                          color={is_trusted ? 'green' : 'transparent'}
+                          icon={is_trusted ? 'shield-halved' : 'shield'}
+                          onClick={() => act('toggle_trusted')}
+                        >
+                          {is_trusted ? 'Trusted' : 'Untrusted'}
+                        </Button>
                             ) : discipline_validation.valid ? (
                               <Box color="green"><Icon name="check" mr={0.5} /> In compliance</Box>
                             ) : (
