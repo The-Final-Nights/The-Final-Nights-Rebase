@@ -354,23 +354,22 @@ export function TFNAdminDisciplineEditor() {
                             </Box>
                           </Stack.Item>
                           <Stack.Item ml={2}>
-                            {is_trusted ? (
-                        <Button
-                          color={is_trusted ? 'green' : 'transparent'}
-                          icon={is_trusted ? 'shield-halved' : 'shield'}
-                          onClick={() => act('toggle_trusted')}
-                        >
-                          {is_trusted ? 'Trusted' : 'Untrusted'}
-                        </Button>
-                            ) : discipline_validation.valid ? (
-                              <Box color="green"><Icon name="check" mr={0.5} /> In compliance</Box>
-                            ) : (
-                              <Tooltip content={discipline_validation.violations.join('\n')}>
-                                <Box color="red" style={{ cursor: 'help' }}>
-                                  <Icon name="triangle-exclamation" mr={0.5} /> Invalid Configuration
-                                </Box>
-                              </Tooltip>
-                            )}
+                            <Button
+                            color={is_trusted ? 'green' : 'transparent'}
+                            icon={is_trusted ? 'shield-halved' : 'shield'}
+                            onClick={() => act('toggle_trusted')}
+                          >
+                            {is_trusted ? 'Trusted' : 'Untrusted'}
+                          </Button>
+                          {!is_trusted && (discipline_validation.valid ? (
+                            <Box color="green"><Icon name="check" mr={0.5} /> In compliance</Box>
+                          ) : (
+                            <Tooltip content={discipline_validation.violations.join('\n')}>
+                              <Box color="red" style={{ cursor: 'help' }}>
+                                <Icon name="triangle-exclamation" mr={0.5} /> Invalid Configuration
+                              </Box>
+                            </Tooltip>
+                          ))}
                           </Stack.Item>
                         </Stack>
                       </Section>
