@@ -18,10 +18,6 @@
 	icon_state = "dog"
 	icon_living = "dog"
 	icon_dead = "dog_dead"
-	speak = list("Woof!","Woof?","Woof.","Woof woof!","Ruff!","Grrr!","Woof woof?","Ruff?","Grrr?")
-	speak_emote = list("woofs")
-	emote_hear = list("woofs.")
-	emote_see = list("wags its tail happily.","looks up at you with adoring eyes.","hops around excitedly.","lets out a happy bark.","rolls over playfully.")
 
 /mob/living/basic/pet/dog/darkpack/fox
 	name = "\improper fox"
@@ -30,10 +26,6 @@
 	icon_state = "fox"
 	icon_living = "fox"
 	icon_dead = "fox_dead"
-	speak = list("Yip!","Yip?","Yip.","Yip yip!","Arf!","Grrr!","Yip yip?","Arf?","Grrr?")
-	speak_emote = list("yips")
-	emote_hear = list("yips.")
-	emote_see = list("wags its tail happily.","looks up with adoring eyes.","hops around excitedly.","lets out a happy bark!","rolls over playfully.")
 
 // Birds
 /mob/living/basic/pet/bird
@@ -43,29 +35,8 @@
 	icon_state = "black"
 	icon_living = "black"
 	icon_dead = "spiralblack_rest"
-	gender = PLURAL
-	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	speak = list("Cherp.","Cherp?","Chirrup.","Cheep!","Chirp!","Cheeps!","Brrr!","Chirrup?","Cheep?","Chirp?","Cheeps?","Brrr?")
-	speak_emote = list("cheeps")
-	emote_hear = list("cheeps.")
-	emote_see = list("pecks at the ground.","flaps its wings.","tilts its head curiously.","hops around.","chirps loudly.","looks around.","hops around in a small circle.")
-	density = FALSE
-	speak_chance = 2
-	turns_per_move = 2
 	butcher_results = list(/obj/item/food/meat/slab/chicken = 1) //taaaahstts liiiike chiiiickun... -roi
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
-	health = 3
-	maxHealth = 3
-	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB
-	mob_size = MOB_SIZE_TINY
-	footstep_type = FOOTSTEP_MOB_CLAW
+
 
 /mob/living/basic/pet/bird/white
 	name = "\improper white bird"
