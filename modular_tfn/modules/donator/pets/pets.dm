@@ -1,8 +1,3 @@
-// Donator pets!
-/mob/living/simple_animal/pet
-	can_be_held = TRUE
-
-// Rabbits - subtypes with fixed colors instead of random pick
 /mob/living/basic/rabbit/pet/brown/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/animal_variety, icon_prefix, "brown", TRUE)
@@ -16,7 +11,7 @@
 	AddElement(/datum/element/animal_variety, icon_prefix, "white", TRUE)
 
 // Dogs
-/mob/living/simple_animal/pet/dog
+/mob/living/basic/pet/dog/darkpack
 	name = "\improper dog"
 	desc = "A loyal companion! They need lots of attention, but will love you unconditionally."
 	icon = 'modular_darkpack/master_files/icons/mobs/simple/pets.dmi'
@@ -28,7 +23,7 @@
 	emote_hear = list("woofs.")
 	emote_see = list("wags its tail happily.","looks up at you with adoring eyes.","hops around excitedly.","lets out a happy bark.","rolls over playfully.")
 
-/mob/living/simple_animal/pet/dog/fox
+/mob/living/basic/pet/dog/darkpack/fox
 	name = "\improper fox"
 	desc = "A sly little fox! They can be a bit mischievous, but they sure are cute."
 	icon = 'icons/mob/simple/pets.dmi'
@@ -41,7 +36,7 @@
 	emote_see = list("wags its tail happily.","looks up with adoring eyes.","hops around excitedly.","lets out a happy bark!","rolls over playfully.")
 
 // Birds
-/mob/living/simple_animal/pet/bird
+/mob/living/basic/pet/bird
 	name = "\improper black bird"
 	desc = "Adorable! They make such a racket though."
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi'
@@ -72,42 +67,42 @@
 	mob_size = MOB_SIZE_TINY
 	footstep_type = FOOTSTEP_MOB_CLAW
 
-/mob/living/simple_animal/pet/bird/white
+/mob/living/basic/pet/bird/white
 	name = "\improper white bird"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi'
 	icon_state = "white"
 	icon_living = "white"
 	icon_dead = "spiralwhite_rest"
 
-/mob/living/simple_animal/pet/bird/gray
+/mob/living/basic/pet/bird/gray
 	name = "\improper gray bird"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi'
 	icon_state = "gray"
 	icon_living = "gray"
 	icon_dead = "spiralgray_rest"
 
-/mob/living/simple_animal/pet/bird/red
+/mob/living/basic/pet/bird/red
 	name = "\improper red bird"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi'
 	icon_state = "red"
 	icon_living = "red"
 	icon_dead = "spiralred_rest"
 
-/mob/living/simple_animal/pet/bird/green
+/mob/living/basic/pet/bird/green
 	name = "\improper green bird"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi'
 	icon_state = "green"
 	icon_living = "green"
 	icon_dead = "spiralgreen_rest"
 
-/mob/living/simple_animal/pet/bird/brown
+/mob/living/basic/pet/bird/brown
 	name = "\improper brown bird"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi'
 	icon_state = "brown"
 	icon_living = "brown"
 	icon_dead = "spiralbrown_rest"
 
-/mob/living/simple_animal/pet/bird/bat
+/mob/living/basic/pet/bird/bat
 	name = "\improper bat"
 	desc = "A cute little bat! It looks like it could be a pet, but it might be a little high maintenance."
 	icon = 'modular_darkpack/master_files/icons/mobs/simple/pets.dmi'
@@ -190,37 +185,67 @@
 
 	var/list/dogs = list()
 	dogs += list(list(
-		"type" = "/mob/living/simple_animal/pet/dog",
+		"type" = "/mob/living/basic/pet/dog/darkpack",
 		"name" = "Dog",
 		"desc" = "A loyal companion! They need lots of attention, but will love you unconditionally.",
 		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "dog"), user, sourceonly = TRUE)
 	))
 	dogs += list(list(
-		"type" = "/mob/living/simple_animal/pet/dog/corgi",
+		"type" = "/mob/living/basic/pet/dog/corgi",
 		"name" = "Corgi",
 		"desc" = "A small herding dog breed known for its short legs and long body. Friendly and intelligent.",
 		"icon" = icon2html(icon('icons/mob/simple/pets.dmi', "corgi"), user, sourceonly = TRUE)
 	))
 	dogs += list(list(
-		"type" = "/mob/living/simple_animal/pet/dog/bullterrier",
+		"type" = "/mob/living/basic/pet/dog/bullterrier",
 		"name" = "Bull Terrier",
 		"desc" = "A strong and sturdy dog breed. Loyal and protective.",
 		"icon" = icon2html(icon('icons/mob/simple/pets.dmi', "bullterrier"), user, sourceonly = TRUE)
 	))
 	dogs += list(list(
-		"type" = "/mob/living/simple_animal/pet/dog/pug",
+		"type" = "/mob/living/basic/pet/dog/pug",
 		"name" = "Pug",
 		"desc" = "An affront to God and her creations. Still cute though.",
 		"icon" = icon2html(icon('icons/mob/simple/pets.dmi', "pug"), user, sourceonly = TRUE)
 	))
 	dogs += list(list(
-		"type" = "/mob/living/simple_animal/pet/dog/corgi/puppy",
+		"type" = "/mob/living/basic/pet/dog/corgi/puppy",
 		"name" = "Corgi Puppy",
 		"desc" = "Tiny corgi! So much fluff! Such little legs!",
 		"icon" = icon2html(icon('icons/mob/simple/pets.dmi', "puppy"), user, sourceonly = TRUE)
 	))
 	dogs += list(list(
-		"type" = "/mob/living/simple_animal/pet/dog/fox",
+		"type" = "/mob/living/basic/pet/dog/darkpack/ginger",
+		"name" = "Ginger Dog",
+		"desc" = "A loyal companion! They need lots of attention, but will love you unconditionally.",
+		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "dog1"), user, sourceonly = TRUE)
+	))
+	dogs += list(list(
+		"type" = "/mob/living/basic/pet/dog/darkpack/white",
+		"name" = "White Dog",
+		"desc" = "A loyal companion! They need lots of attention, but will love you unconditionally.",
+		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "dog2"), user, sourceonly = TRUE)
+	))
+	dogs += list(list(
+		"type" = "/mob/living/basic/pet/dog/darkpack/black",
+		"name" = "Black Dog",
+		"desc" = "A loyal companion! They need lots of attention, but will love you unconditionally.",
+		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "dog3"), user, sourceonly = TRUE)
+	))
+	dogs += list(list(
+		"type" = "/mob/living/basic/pet/dog/darkpack/gray",
+		"name" = "Gray Dog",
+		"desc" = "A loyal companion! They need lots of attention, but will love you unconditionally.",
+		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "dog4"), user, sourceonly = TRUE)
+	))
+	dogs += list(list(
+		"type" = "/mob/living/basic/pet/dog/darkpack/red",
+		"name" = "Red Dog",
+		"desc" = "A loyal companion! They need lots of attention, but will love you unconditionally.",
+		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "dog5"), user, sourceonly = TRUE)
+	))
+	dogs += list(list(
+		"type" = "/mob/living/basic/pet/dog/darkpack/fox",
 		"name" = "Fox",
 		"desc" = "Foxes are dogs... Right?",
 		"icon" = icon2html(icon('icons/mob/simple/pets.dmi', "fox"), user, sourceonly = TRUE)
@@ -277,43 +302,43 @@
 
 	var/list/birds = list()
 	birds += list(list(
-		"type" = "/mob/living/simple_animal/pet/bird",
+		"type" = "/mob/living/basic/pet/bird",
 		"name" = "Black Bird",
 		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "black"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
-		"type" = "/mob/living/simple_animal/pet/bird/white",
+		"type" = "/mob/living/basic/pet/bird/white",
 		"name" = "White Bird",
 		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "white"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
-		"type" = "/mob/living/simple_animal/pet/bird/gray",
+		"type" = "/mob/living/basic/pet/bird/gray",
 		"name" = "Gray Bird",
 		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "gray"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
-		"type" = "/mob/living/simple_animal/pet/bird/red",
+		"type" = "/mob/living/basic/pet/bird/red",
 		"name" = "Red Bird",
 		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "red"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
-		"type" = "/mob/living/simple_animal/pet/bird/green",
+		"type" = "/mob/living/basic/pet/bird/green",
 		"name" = "Green Bird",
 		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "green"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
-		"type" = "/mob/living/simple_animal/pet/bird/brown",
+		"type" = "/mob/living/basic/pet/bird/brown",
 		"name" = "Brown Bird",
 		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "brown"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
-		"type" = "/mob/living/simple_animal/pet/bird/bat",
+		"type" = "/mob/living/basic/pet/bird/bat",
 		"name" = "Bat",
 		"desc" = "It's a bat!",
 		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "bat"), user, sourceonly = TRUE)
