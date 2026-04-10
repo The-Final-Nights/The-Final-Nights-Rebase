@@ -65,6 +65,7 @@
 
 /datum/element/wears_collar/on_content_enter(mob/living/source, obj/item/clothing/neck/petcollar/new_collar)
 	. = ..()
-	if(new_collar.tagdesc)
-		source.desc = "[new_collar.tagdesc]"
+	if(!istype(new_collar) || !new_collar.tagdesc)
+		return
+	source.desc = "[new_collar.tagdesc]"
 
