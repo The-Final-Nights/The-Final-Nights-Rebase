@@ -83,15 +83,17 @@
 		else
 			to_chat(artifact_identifier, span_warning("You stop examining [src]."))
 
+//parent type - meant for guaranteed occult artifact spawns
 /obj/effect/spawner/random/occult
-	name = "occult spawner"
+	name = "random occult artifact spawner"
 	icon = 'modular_darkpack/modules/occult_artifacts/icons/artifacts.dmi'
 	icon_state = "art_rand"
-
-/obj/effect/spawner/random/occult/artifact
-	name = "random occult fetish"
-	//spawn_loot_chance = CONFIG_GET(number/artifact_random_probability)
 	loot_subtype_path = /obj/item/vtm_artifact
+
+// meant for placing on the map for hidden artifact spawns
+/obj/effect/spawner/random/occult/artifact
+	name = "random chance occult fetish"
+	//spawn_loot_chance = CONFIG_GET(number/artifact_random_probability)
 
 /obj/effect/spawner/random/occult/artifact/Initialize(mapload)
 	spawn_loot_chance = CONFIG_GET(number/artifact_random_probability)

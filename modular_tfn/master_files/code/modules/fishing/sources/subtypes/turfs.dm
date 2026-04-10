@@ -33,6 +33,7 @@
 		/obj/item/fish/darkpack/mastodon = 2,
 		/obj/item/fish/darkpack/sacabambaspis = 1,
 		/obj/structure/mystery_box/fishing = 1,
+		/obj/effect/spawner/random/occult = 2,
 	)
 	fish_counts = list(
 		/obj/item/fish/darkpack/holo_clownfish = 2,
@@ -40,6 +41,7 @@
 		/obj/item/fish/darkpack/mastodon = 2,
 		/obj/item/fish/darkpack/sacabambaspis = 3,
 		/obj/structure/mystery_box/fishing = 1,
+		/obj/effect/spawner/random/occult = 2,
 	)
 	fish_count_regen = list(
 		/obj/item/fish/darkpack/holo_clownfish = 6 MINUTES,
@@ -47,6 +49,7 @@
 		/obj/item/fish/darkpack/mastodon = 8 MINUTES,
 		/obj/item/fish/darkpack/sacabambaspis = 4 MINUTES,
 		/obj/structure/mystery_box/fishing = 32 MINUTES,
+		/obj/effect/spawner/random/occult = 20 MINUTES,
 	)
 
 // for things like the little fishing pond left of the tzi manor, or the water in the nossie haven
@@ -74,16 +77,19 @@
 		/obj/item/fish/darkpack/pike = 2,
 		/obj/item/fish/darkpack/armored_pike = 2,
 		/obj/item/fish/darkpack/nessiefish = 1,
+		/obj/effect/spawner/random/occult = 2,
 	)
 	fish_counts = list(
 		/obj/item/fish/darkpack/pike = 4,
 		/obj/item/fish/darkpack/armored_pike = 3,
 		/obj/item/fish/darkpack/nessiefish = 1,
+		/obj/effect/spawner/random/occult = 1,
 	)
 	fish_count_regen = list(
 		/obj/item/fish/darkpack/pike = 4 MINUTES,
 		/obj/item/fish/darkpack/armored_pike = 5 MINUTES,
 		/obj/item/fish/darkpack/nessiefish = 10 MINUTES,
+		/obj/effect/spawner/random/occult = 40 MINUTES,
 	)
 
 /datum/fish_source/sand
@@ -93,4 +99,5 @@
 		/obj/item/fish/darkpack/crab = 10,
 		/obj/item/fish/darkpack/sand_surfer = 15,
 		/obj/item/fish/darkpack/bumpy = 15,
+		/obj/effect/spawner/random/occult = 1,
 	)
