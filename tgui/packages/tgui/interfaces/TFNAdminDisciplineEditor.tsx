@@ -330,7 +330,7 @@ export function TFNAdminDisciplineEditor() {
                       </Stack.Item>
                       <Stack.Item>
                         <Box italic color="label">
-                          <center>For safety, you cannot make changes to {target_ckey}'s sheet while they have the character setup menu open. <br></br>
+                          <center>For safety, you cannot make changes to {target_ckey}'s sheet while they have the character setup menu open. <br />
                           You should probably ask {target_ckey} to spawn in, just to be safe.</center>
                         </Box>
                       </Stack.Item>
