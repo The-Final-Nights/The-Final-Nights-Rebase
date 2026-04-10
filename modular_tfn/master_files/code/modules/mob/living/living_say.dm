@@ -6,7 +6,7 @@
 		return
 	if(HAS_TRAIT(src, TRAIT_SIGN_LANG) && !HAS_TRAIT(src, TRAIT_MUTE)) //if you can speak and you sign, your hands don't make a bark. Unless you are completely mute, you can have some hand bark.
 		return
-	var/pref_volume = (client.prefs.read_preference(/datum/preference/numeric/blooper_sound_volume) / 100)
+	var/pref_volume = client ? (client?.prefs?.read_preference(/datum/preference/numeric/blooper_sound_volume) / 100) : 1
 	var/volume = BLOOPER_TRANSMIT_VOLUME * pref_volume
 	if(message_mods[WHISPER_MODE])
 		volume = BLOOPER_TRANSMIT_VOLUME * 0.5
