@@ -209,7 +209,7 @@ SUBSYSTEM_DEF(housing)
 			inst_area.power_equip = shared_area.power_equip
 			inst_area.power_environ = shared_area.power_environ
 			area_by_type[area_type] = inst_area
-		T.change_area(shared_area, area_by_type[area_type])
+		set_turf_to_area(T, area_by_type[area_type])
 
 	for(var/turf/T in loaded_turfs)
 		for(var/obj/machinery/light_switch/switchy in T)
@@ -288,7 +288,7 @@ SUBSYSTEM_DEF(housing)
 				if(!load_instance(inst, ui.user))
 					to_chat(ui.user, span_warning("No housing slots are currently available."))
 					return FALSE
-			var/mob/living/dragged_guest = isliving(ui.user.pulling) ? ui.user.pulling : null
+			var/mob/living/dragged_guest = isliving(ui.user?.pulling) ? ui.user?.pulling : null
 			ui.user.forceMove(inst.spawn_turf)
 			if(dragged_guest?.mind)
 				inst.guests |= dragged_guest.mind

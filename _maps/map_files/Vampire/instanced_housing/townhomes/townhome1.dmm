@@ -14,7 +14,7 @@
 "eJ" = (/obj/effect/turf_decal/siding/beige,/obj/structure/vampdoor/wood,/turf/open/floor/city/industrial,/area/housing/townhouse/second_floor/bathroom)
 "eU" = (/obj/effect/baseturf_helper/housing/ground_floor,/turf/closed/wall/vampwall/junk,/area/housing/townhouse/first_floor/kitchen)
 "fC" = (/obj/item/kirbyplants/darkpack/random,/turf/open/floor/wood/smooth,/area/housing/townhouse/second_floor/bedroom)
-"fQ" = (/obj/structure/table/wood,/obj/structure/platform/lowwall/junk,/turf/open/floor/plating/rough,/area/housing/townhouse/first_floor/kitchen)
+"fQ" = (/obj/structure/table/wood,/obj/structure/platform/lowwall/junk,/obj/machinery/light_switch{pixel_y = 29; pixel_x = 12},/turf/open/floor/plating/rough,/area/housing/townhouse/first_floor/kitchen)
 "fR" = (/turf/closed/housing/border,/area/housing/townhouse)
 "ig" = (/obj/structure/curtain/bounty{pixel_y = 15},/obj/structure/platform/lowwall/junk/window,/turf/open/floor/plating/rough,/area/housing/townhouse/first_floor/den)
 "io" = (/obj/effect/turf_decal/siding/wood/light/corner{dir = 1},/turf/open/floor/wood/smooth,/area/housing/townhouse/second_floor/landing)
@@ -93,16 +93,16 @@
 "YE" = (/turf/open/openspace,/area/housing/townhouse/second_floor/landing)
 "YN" = (/obj/machinery/light/small/directional/south,/turf/open/floor/wood/smooth,/area/housing/townhouse/second_floor/bedroom)
 "YP" = (/turf/closed/wall/vampwall/junk,/area/housing/townhouse/second_floor/bedroom)
-"YW" = (/obj/effect/decal/wallpaper/paper/darkgreen/low,/turf/closed/wall/vampwall/junk,/area/housing/townhouse/second_floor/bedroom)
+"YW" = (/obj/structure/chair/stool/bar/darkpack/green,/obj/machinery/light_switch{pixel_y = 29; pixel_x = -12},/turf/open/floor/wood/smooth,/area/housing/townhouse/first_floor)
 "Zl" = (/obj/structure/vampdoor/wood{dir = 4},/obj/effect/baseturf_helper/housing/second_floor,/turf/open/floor/wood/smooth,/area/housing/townhouse/second_floor/bedroom)
 "Zm" = (/obj/structure/rack/clothing_hanger,/obj/machinery/light/small/directional/south,/turf/open/floor/city/industrial,/area/housing/townhouse/first_floor)
-"Zt" = (/obj/structure/table/wood,/obj/structure/noticeboard{pixel_y = 32},/obj/item/paper_bin,/obj/effect/turf_decal/siding/wood/light{dir = 1},/turf/open/floor/carpet/green,/area/housing/townhouse/first_floor/den)
+"Zt" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/effect/turf_decal/siding/wood/light{dir = 1},/obj/machinery/light_switch{pixel_y = 29; pixel_x = -12},/turf/open/floor/carpet/green,/area/housing/townhouse/first_floor/den)
 "Zx" = (/obj/machinery/sprinkler{pixel_y = 62},/turf/open/floor/carpet/green,/area/housing/townhouse/second_floor/landing)
 
 (1,1,1) = {"
 fRfRfRfRfRfRfRfRfRfRfRfR
 fRMARZRZRZUeUeUeUeUesUfR
-fRMAVuQJfQNGtoTaaRBRORfR
+fRMAVuQJfQYWtoTaaRBRORfR
 fRMAbInjARNGswMNMNoOORfR
 fReUoBkuQpNGRGodHnPeORfR
 fRbzsSdtdteqUenKnKUedCfR
@@ -113,7 +113,7 @@ LcfRfRfRfRfRfRfRfRfRfRfR
 "}
 (1,1,2) = {"
 nlnlnlnlnlnlnlnlnlnlnlnl
-nlctctctctctYWYWYWYWYWnl
+nlctctctctctzGzGzGzGYPnl
 nlctQdvbNmctjCYeEXEvOpnl
 nlctcNVJQIctapdRdRnWOpnl
 nlbneJvOHsvOzGXMBqXMOpnl
