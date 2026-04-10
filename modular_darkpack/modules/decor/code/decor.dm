@@ -156,6 +156,10 @@
 			new /obj/effect/spawner/random/maintenance(src)
 	if(prob(external_trash_chance))
 		new /obj/effect/spawner/random/trash/grime(loc)
+	// TFN EDIT START - more occult artifact sources
+	if(prob(CONFIG_GET(number/artifact_crate_probability)))
+		new /obj/effect/spawner/random/occult(src)
+	// TFN EDIT END - more occult artifact sources
 
 /obj/structure/closet/crate/dumpster/empty
 	internal_trash_chance = 0
