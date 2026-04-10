@@ -44,7 +44,7 @@
 /obj/item/smartphone/ventrue_primo
 	important_contact_of = VAMPIRE_CLAN_VENTRUE
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Crown Blue Jazz Club Owner", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Crown Blue Jazz Club Manager", USE_JOB_TITLE = FALSE) // TFN EDIT CHANGE - ORIGINAL: alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Crown Blue Jazz Club OWNER", USE_JOB_TITLE = FALSE)
 		)
 
 // TOREADOR
@@ -52,7 +52,7 @@
 /obj/item/smartphone/toreador_primo
 	important_contact_of = VAMPIRE_CLAN_TOREADOR
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Rosebud Night Club Owner", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Rosebud Night Club Manager", USE_JOB_TITLE = FALSE) // TFN EDIT CHANGE - ORIGINAL: alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Rosebud Night Club Owner", USE_JOB_TITLE = FALSE)
 		)
 
 // NOSFERATU
@@ -68,8 +68,8 @@
 /obj/item/smartphone/malkavian_primo
 	important_contact_of = VAMPIRE_CLAN_MALKAVIAN
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Hospital Administrator", USE_JOB_TITLE = FALSE)
-		)
+		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Psychiatrist", USE_JOB_TITLE = FALSE)
+		) // TFN EDIT CHANGE - ORIGINAL: alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Hospital Administrator", USE_JOB_TITLE = FALSE)
 
 // LASOMBRA
 
