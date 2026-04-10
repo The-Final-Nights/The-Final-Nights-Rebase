@@ -5,5 +5,8 @@
 		new /datum/data/vending_product("rapier", /obj/item/storage/belt/sheath/vamp/rapier),
 		new /datum/data/vending_product("spear", /obj/item/darkpack/spear),
 		new /datum/data/vending_product("sabre", /obj/item/storage/belt/sheath/vamp/sabre),
-		new /datum/data/vending_product("longsword", /obj/item/storage/belt/sheath/vamp/sword)
+		new /datum/data/vending_product("longsword", /obj/item/storage/belt/sheath/vamp/sword),
+		new /datum/data/vending_product("knuckledusters", /obj/item/book/granter/martial/boxing, 500), // TFN EDIT MARTIAL ARTS
+		new /datum/data/vending_product("knuckledusters", /obj/item/book/granter/martial/cqb, 500), // TFN EDIT MARTIAL ARTS
+		new /datum/data/vending_product("knuckledusters", /obj/item/book/granter/martial/kungfu, 500), // TFN EDIT MARTIAL ARTS
 	)
