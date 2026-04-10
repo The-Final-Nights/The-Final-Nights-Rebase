@@ -196,6 +196,7 @@ SUBSYSTEM_DEF(housing)
 
 	inst.loaded = TRUE
 
+	// makes 'unique' areas and ties the lightswitches to them, so one property's switches dont control others of the same type
 	var/list/area_by_type = list()
 	for(var/turf/T in loaded_turfs)
 		var/area/shared_area = T.loc
