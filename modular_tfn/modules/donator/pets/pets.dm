@@ -192,7 +192,7 @@
 	dogs += list(list(
 		"type" = "/mob/living/simple_animal/pet/dog",
 		"name" = "Dog",
-		"desc" = initial(/mob/living/simple_animal/pet/dog::desc),
+		"desc" = "A loyal companion! They need lots of attention, but will love you unconditionally.",
 		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "dog"), user, sourceonly = TRUE)
 	))
 	dogs += list(list(
@@ -229,49 +229,49 @@
 	cats += list(list(
 		"type" = "/mob/living/basic/pet/cat/darkpack/bw",
 		"name" = "B&W Cat",
-		"desc" = initial(/mob/living/basic/pet/cat/darkpack/bw::desc),
+		"desc" = "Kitty!!",
 		"icon" = icon2html(icon('icons/mob/simple/pets.dmi', "cat"), user, sourceonly = TRUE)
 	))
 	cats += list(list(
 		"type" = "/mob/living/basic/pet/cat/darkpack/black",
 		"name" = "Black Cat",
-		"desc" = initial(/mob/living/basic/pet/cat/darkpack/black::desc),
+		"desc" = "Kitty!!",
 		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "cat1"), user, sourceonly = TRUE)
 	))
 	cats += list(list(
 		"type" = "/mob/living/basic/pet/cat/darkpack/gray",
 		"name" = "Gray Cat",
-		"desc" = initial(/mob/living/basic/pet/cat/darkpack/gray::desc),
+		"desc" = "Kitty!!",
 		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "cat2"), user, sourceonly = TRUE)
 	))
 	cats += list(list(
 		"type" = "/mob/living/basic/pet/cat/darkpack/brown",
 		"name" = "Brown Cat",
-		"desc" = initial(/mob/living/basic/pet/cat/darkpack/brown::desc),
+		"desc" = "Kitty!!",
 		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "cat3"), user, sourceonly = TRUE)
 	))
 	cats += list(list(
 		"type" = "/mob/living/basic/pet/cat/darkpack/white",
 		"name" = "White Cat",
-		"desc" = initial(/mob/living/basic/pet/cat/darkpack/white::desc),
+		"desc" = "Kitty!!",
 		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "cat4"), user, sourceonly = TRUE)
 	))
 	cats += list(list(
 		"type" = "/mob/living/basic/pet/cat/darkpack/tabby",
 		"name" = "Tabby Cat",
-		"desc" = initial(/mob/living/basic/pet/cat/darkpack/tabby::desc),
+		"desc" = "Kitty!!",
 		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "cat5"), user, sourceonly = TRUE)
 	))
 	cats += list(list(
 		"type" = "/mob/living/basic/pet/cat/",
 		"name" = "Calico Cat",
-		"desc" = initial(/mob/living/basic/pet/cat/::desc),
+		"desc" = "Kitty!!",
 		"icon" = icon2html(icon('icons/mob/simple/pets.dmi', "cat2"), user, sourceonly = TRUE)
 	))
 	cats += list(list(
 		"type" = "/mob/living/basic/pet/cat/kitten",
 		"name" = "Calico Kitten",
-		"desc" = initial(/mob/living/basic/pet/cat/kitten::desc),
+		"desc" = "D'aaawwww.",
 		"icon" = icon2html(icon('icons/mob/simple/pets.dmi', "kitten"), user, sourceonly = TRUE)
 	))
 
@@ -279,37 +279,37 @@
 	birds += list(list(
 		"type" = "/mob/living/simple_animal/pet/bird",
 		"name" = "Black Bird",
-		"desc" = initial(/mob/living/simple_animal/pet/bird::desc),
+		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "black"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
 		"type" = "/mob/living/simple_animal/pet/bird/white",
 		"name" = "White Bird",
-		"desc" = initial(/mob/living/simple_animal/pet/bird::desc),
+		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "white"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
 		"type" = "/mob/living/simple_animal/pet/bird/gray",
 		"name" = "Gray Bird",
-		"desc" = initial(/mob/living/simple_animal/pet/bird::desc),
+		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "gray"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
 		"type" = "/mob/living/simple_animal/pet/bird/red",
 		"name" = "Red Bird",
-		"desc" = initial(/mob/living/simple_animal/pet/bird::desc),
+		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "red"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
 		"type" = "/mob/living/simple_animal/pet/bird/green",
 		"name" = "Green Bird",
-		"desc" = initial(/mob/living/simple_animal/pet/bird::desc),
+		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "green"), user, sourceonly = TRUE)
 	))
 	birds += list(list(
 		"type" = "/mob/living/simple_animal/pet/bird/brown",
 		"name" = "Brown Bird",
-		"desc" = initial(/mob/living/simple_animal/pet/bird::desc),
+		"desc" = "Adorable! They make such a racket though.",
 		"icon" = icon2html(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi', "brown"), user, sourceonly = TRUE)
 	))
 	birds += list(list(

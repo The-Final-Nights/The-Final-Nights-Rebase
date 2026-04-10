@@ -1,6 +1,6 @@
 // DONATOR LOADOUT
 /datum/loadout_category/donator
-	VAR_PRIVATE/max_allowed = 6
+	var/max_allowed = 6
 
 /datum/loadout_category/donator/handle_duplicate_entires(
 	datum/preference_middleware/loadout/manager,
