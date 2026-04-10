@@ -108,16 +108,20 @@
 	item_path = /obj/item/toy/plush/shark
 
 // ancilla
-/datum/loadout_category/donator/pets
+/datum/loadout_category/donator/ancilla
 	category_name = "Ancilla"
 	category_ui_icon = FA_ICON_CAT
 	category_info = "For Ancilla tier donators and above! Thanks for your support!"
-	type_to_generate = /datum/loadout_item/donator/pets
+	type_to_generate = /datum/loadout_item/donator/ancilla
 	tab_order = /datum/loadout_category/head::tab_order
 	max_allowed = 3
 	donator_tier_required = DONATOR_ANCILLA
 
-/datum/loadout_item/donator/pets/pet_crate
+/datum/loadout_item/donator/ancilla
+	abstract_type = /datum/loadout_item/donator/ancilla
+	donator_tier_required = DONATOR_ANCILLA
+
+/datum/loadout_item/donator/ancilla/pet_crate
 	name = "Pet Crate"
 	item_path = /obj/item/donator/pet_crate
 	donator_tier_required = DONATOR_ANCILLA
