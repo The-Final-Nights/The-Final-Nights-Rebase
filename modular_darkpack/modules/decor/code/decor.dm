@@ -6,7 +6,6 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
-	pass_flags_self = PASSDOORS // TFN Edit - Obtenebration 5 Fix
 
 /obj/structure/vampfence/corner
 	icon_state = "fence_corner"
@@ -44,7 +43,6 @@
 	anchored = TRUE
 	density = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
-	pass_flags_self = PASSMACHINE // TFN Edit - Obtenebration 5 Fix
 	var/number_of_lamps
 	var/list/my_lights = list()
 
@@ -137,7 +135,6 @@
 	icon_state = "garbage"
 	base_icon_state = "garbage"
 	drag_slowdown = 3
-	pass_flags_self = PASSMACHINE // TFN Edit - Obtenebration 5 Fix
 	var/internal_trash_chance = 75
 	var/external_trash_chance = 10
 
@@ -319,7 +316,6 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 	density = TRUE
-	pass_flags_self = PASSMACHINE // TFN Edit - Obtenebration 5 Fix
 
 /obj/structure/barrels/rand
 	icon_state = "barrel2"

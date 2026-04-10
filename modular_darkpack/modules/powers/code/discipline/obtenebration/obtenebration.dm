@@ -282,7 +282,7 @@
 	ADD_TRAIT(owner, TRAIT_NOBLOOD, MAGIC_TRAIT)
 	ADD_TRAIT(owner, TRAIT_PACIFISM, MAGIC_TRAIT) // Can't physically attack while in this form
 	//ADD_TRAIT(owner, TRAIT_MOVE_FLYING, MAGIC_TRAIT) // Flying to simulate being unaffected by gravity
-	owner.pass_flags |= (PASSDOORS | PASSTABLE | PASSMACHINE) // TFN Edit - Obtenebration 5 Fix: Phase through doors & fences / tables / machines, dumpsters, barrels, lampposts
+	owner.pass_flags |= (PASSDOORS | PASSTABLE | PASSSTRUCTURE) // TFN Edit - Obtenebration 5 Fix: Phase through doors & fences / tables / machines, dumpsters, barrels, lampposts
 
 
 	saved_density = owner.density
@@ -303,7 +303,7 @@
 	REMOVE_TRAIT(owner, TRAIT_NOBLOOD, MAGIC_TRAIT)
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, MAGIC_TRAIT)
 	//REMOVE_TRAIT(owner, TRAIT_MOVE_FLYING, MAGIC_TRAIT)
-	owner.pass_flags &= ~(PASSDOORS | PASSTABLE | PASSMACHINE) // TFN Edit - Obtenebration 5 Fix
+	owner.pass_flags &= ~(PASSDOORS | PASSTABLE | PASSSTRUCTURE) // TFN Edit - Obtenebration 5 Fix
 
 	owner.density = saved_density
 
