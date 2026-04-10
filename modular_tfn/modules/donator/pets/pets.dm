@@ -315,7 +315,7 @@
 	birds += list(list(
 		"type" = "/mob/living/simple_animal/pet/bird/bat",
 		"name" = "Bat",
-		"desc" = initial(/mob/living/simple_animal/pet/bird/bat::desc),
+		"desc" = "It's a bat!",
 		"icon" = icon2html(icon('modular_darkpack/master_files/icons/mobs/simple/pets.dmi', "bat"), user, sourceonly = TRUE)
 	))
 
@@ -323,19 +323,19 @@
 	other += list(list(
 		"type" = "/mob/living/basic/rabbit/pet/brown",
 		"name" = "Brown Rabbit",
-		"desc" = initial(/mob/living/basic/rabbit::desc),
+		"desc" = "An adorable little rabbit.",
 		"icon" = icon2html(icon('icons/mob/simple/rabbit.dmi', "rabbit_brown"), user, sourceonly = TRUE)
 	))
 	other += list(list(
 		"type" = "/mob/living/basic/rabbit/pet/black",
 		"name" = "Black Rabbit",
-		"desc" = initial(/mob/living/basic/rabbit::desc),
+		"desc" = "An adorable little rabbit.",
 		"icon" = icon2html(icon('icons/mob/simple/rabbit.dmi', "rabbit_black"), user, sourceonly = TRUE)
 	))
 	other += list(list(
 		"type" = "/mob/living/basic/rabbit/pet/white",
 		"name" = "White Rabbit",
-		"desc" = initial(/mob/living/basic/rabbit::desc),
+		"desc" = "An adorable little rabbit.",
 		"icon" = icon2html(icon('icons/mob/simple/rabbit.dmi', "rabbit_white"), user, sourceonly = TRUE)
 	))
 	other += list(list(
