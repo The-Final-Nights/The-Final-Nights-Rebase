@@ -73,9 +73,9 @@
 		if(!istype(guest, /datum/mind))
 			return
 		guests |= guest
-		to_chat(usr, span_notice("You've allowed [guest.name] to enter your home."))
+		to_chat(usr, span_notice("You've allowed [guest.name] to enter your property."))
 		if(guest.current)
-			to_chat(guest.current, span_notice("[owner_mind.name] has allowed you to enter their home."))
+			to_chat(guest.current, span_notice("The owner has allowed you to enter their property."))
 
 SUBSYSTEM_DEF(housing)
 	name = "Housing"
@@ -195,6 +195,30 @@ SUBSYSTEM_DEF(housing)
 		inst.spawn_turf = slot
 
 	inst.loaded = TRUE
+
+	var/list/area_by_type = list()
+	for(var/turf/T in loaded_turfs)
+		var/area/shared_area = T.loc
+		if(!istype(shared_area, /area/housing))
+			continue
+		var/area_type = "[shared_area.type]"
+		if(!area_by_type[area_type])
+			var/area/inst_area = new shared_area.type(null)
+			inst_area.name = "[inst.house_name] - [shared_area.name]"
+			inst_area.power_light = shared_area.power_light
+			inst_area.power_equip = shared_area.power_equip
+			inst_area.power_environ = shared_area.power_environ
+			area_by_type[area_type] = inst_area
+		T.change_area(shared_area, area_by_type[area_type])
+
+	for(var/turf/T in loaded_turfs)
+		for(var/obj/machinery/light_switch/switchy in T)
+			if(!switchy.area || !istype(switchy.area, /area/housing))
+				continue
+			var/area/inst_area = area_by_type["[switchy.area.type]"]
+			if(inst_area)
+				switchy.area = inst_area
+
 	return TRUE
 
 /datum/controller/subsystem/housing/ui_state(mob/user)
@@ -254,7 +278,7 @@ SUBSYSTEM_DEF(housing)
 		if("go_home")
 			var/donator_tier = ui.user.client?.prefs?.donator_rank
 			if(donator_tier != "Antediluvian" && donator_tier != "Caine")
-				to_chat(ui.user, span_warning("Anyone can visit houses, but you must be an Antediluvian tier donator or above to claim yours."))
+				to_chat(ui.user, span_warning("Anyone can visit properties, but you must be an Antediluvian tier donator or above to claim yours."))
 				return FALSE
 			if(is_in_housing(ui.user))
 				to_chat(ui.user, span_warning("You must leave the house you are in first."))
@@ -277,12 +301,12 @@ SUBSYSTEM_DEF(housing)
 			if(inst.can_enter(ui.user) || !ui.user.mind)
 				return FALSE
 			if(!inst.owner_is_home())
-				to_chat(ui.user, span_warning("Nobody appears to be home. Try again in a little while."))
+				to_chat(ui.user, span_warning("Nobody answered when you knocked. Try again in a little while."))
 				return FALSE
 			var/mob/owner_mob = inst.owner_mind.current
 			var/approve_link = "<a href='?src=[REF(inst)];approve=[REF(ui.user.mind)]'>Allow entry</a>"
-			to_chat(owner_mob, span_notice("[ui.user.mind.name] is knocking on your door! [approve_link]"))
-			to_chat(ui.user, span_notice("You knock on [inst.owner_mind.name]'s door."))
+			to_chat(owner_mob, span_notice("Someone is knocking on your door! [approve_link]"))
+			to_chat(ui.user, span_notice("You knock on the door of [inst.house_name]."))
 			return TRUE
 		if("toggle_lock")
 			var/datum/housing_instance/inst = instances[ui.user.mind]
