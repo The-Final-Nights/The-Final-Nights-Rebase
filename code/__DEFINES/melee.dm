@@ -13,5 +13,10 @@
 #define MARTIALART_JUNGLEARTS "jungle arts"
 #define MARTIALART_SPIDERSBITE "spider's bite"
 
+#define MARTIALART_DARKPACK_KUNGFU "kungfu" //TFN ADDITION
+#define MARTIALART_DARKPACK_CQB "cqb" //TFN ADDITION
+#define MARTIALART_DARKPACK_BOXING "streetboxing" //TFN ADDITION
+
+
 /// The number of hits required to crit a target
 #define HITS_TO_CRIT(damage) round(100 / (damage), 0.1)
