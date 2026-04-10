@@ -416,10 +416,13 @@ export function AdminDisciplineEditor() {
                   </Stack.Item>
                   <Stack.Item ml={2}>
                     {is_trusted ? (
-                      <Box color="green">
-                        <Icon name="shield-halved" mr={0.5} />
+                      <Button
+                        color="green"
+                        icon="shield-halved"
+                        onClick={() => act('toggle_trusted')}
+                      >
                         Trusted
-                      </Box>
+                      </Button>
                     ) : discipline_validation.valid ? (
                       <Box color="green">
                         <Icon name="check" mr={0.5} />
