@@ -8,5 +8,5 @@
 		new /datum/data/vending_product("longsword", /obj/item/storage/belt/sheath/vamp/sword),
 		new /datum/data/vending_product("Boxing Guide", /obj/item/book/granter/martial/boxing, 500), // TFN EDIT MARTIAL ARTS
 		new /datum/data/vending_product("Declassified Manuel", /obj/item/book/granter/martial/cqb, 500), // TFN EDIT MARTIAL ARTS
-		new /datum/data/vending_product("Kung Fu Scroll", /obj/item/book/granter/martial/kungfu, 500), // TFN EDIT MARTIAL ARTS
+		new /datum/data/vending_product("Kung Fu Scroll", /obj/item/book/granter/martial/kungfu, 500) // TFN EDIT MARTIAL ARTS
 	)
