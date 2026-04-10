@@ -13,6 +13,7 @@
 			donator_rank = DONATOR_ANTEDILUVIAN
 		if("Caine")
 			donator_rank = DONATOR_CAINE
+		save_preferences()
 
 /datum/preferences/proc/donator_rank_to_string(rank)
 	switch(rank)
