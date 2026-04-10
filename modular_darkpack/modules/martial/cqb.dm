@@ -6,7 +6,7 @@
 /datum/martial_art/darkpack_cqb
 	name = "CQB"
 	id = MARTIALART_DARKPACK_CQB
-	help_verb = /mob/living/proc/CQC_help
+	help_verb = /mob/living/proc/CQB_help
 	smashes_tables = TRUE
 	display_combos = TRUE
 	/// Weakref to a mob we're currently restraining (with grab-grab combo)
