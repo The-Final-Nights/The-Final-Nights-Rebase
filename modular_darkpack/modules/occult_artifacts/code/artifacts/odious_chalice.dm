@@ -2,7 +2,7 @@
 	true_name = "Odious Chalice"
 	true_desc = "Stores blood from every attack."
 	icon_state = "o_chalice"
-	var/stored_blood = 0
+	var/stored_blood = 5 // TFN EDIT CHANGE - ORIGINAL: var/stored_blood = 0
 	research_value = 30
 
 /obj/item/vtm_artifact/odious_chalice/examine(mob/user)
