@@ -497,7 +497,7 @@
 /obj/item/clothing/under/vampire/dress/darkred
 	name = "dark red dress"
 	desc = "A dark red dress."
-	icon_state = "darkred"
+	icon_state = "darkreddress"
 
 /obj/item/clothing/under/vampire/dress/plaid/purple
 	name = "purple plaid dress"
