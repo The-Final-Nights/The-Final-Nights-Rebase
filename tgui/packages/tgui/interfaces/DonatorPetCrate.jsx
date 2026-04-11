@@ -55,7 +55,7 @@ const [selected, setSelected] = useLocalState('category', null);
 const current = categories.find((c) => c.key === selected);
 
 return (
-    <Window title="Choose Your Pet" width={720} height={300}>
+    <Window title="Choose Your Pet" width={1000} height={300}>
     <Window.Content>
         {!current ? (
         <Section title="What kind of companion?">
