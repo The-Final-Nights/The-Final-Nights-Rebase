@@ -1,6 +1,11 @@
 /datum/discipline/dementation
 	name = "Dementation"
-	desc = "Makes all humans in radius mentally ill for a moment, supressing their defending ability."
+	desc = {"Makes all humans in radius mentally ill for a moment, supressing their defending ability.
+● Passion: Charisma + Empathy
+●● The Haunting: Manipulation + Subterfuge
+●●● Eyes of Chaos: Perception + Occult
+●●●● Voice of Madness: Manipulation + Empathy
+●●●●● Total Insanity: Manipulation + Intimidation"} // TFN EDIT CHANGE - ORIGINAL: desc = "Makes all humans in radius mentally ill for a moment, supressing their defending ability."
 	icon_state = "dementation"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/dementation
