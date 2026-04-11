@@ -43,11 +43,10 @@
 	icon_state = "detective"
 	LCU_SUIT_ICONS
 
-/obj/item/clothing/suit/vampire/detective2
+/obj/item/clothing/suit/vampire/detective/jacket
 	name = "detective jacket"
 	desc = "A detective's jacket."
 	icon_state = "detective2"
-	LCU_SUIT_ICONS
 
 /obj/item/clothing/suit/vampire/letterman
 	name = "letterman jacket"
@@ -138,13 +137,12 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon)
 
-/obj/item/clothing/suit/vampire/retro_bomber
+/obj/item/clothing/suit/vampire/bomber/retro
 	name = "retro bomber jacket"
 	desc = "A retro-style bomber jacket."
 	icon_state = "retro_bomber"
-	LCU_SUIT_ICONS
 
-/obj/item/clothing/suit/vampire/retro_bomber/Initialize(mapload)
+/obj/item/clothing/suit/vampire/bomber/retro/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_icon)
 
@@ -188,17 +186,16 @@
 	icon_state = "pink_hoodie"
 
 // Puffer
-/obj/item/clothing/suit/vampire/pufferjacket
+/obj/item/clothing/suit/vampire/puffer
 	name = "puffer jacket"
 	desc = "A puffer jacket."
 	icon_state = "pufferjacket"
 	LCU_SUIT_ICONS
 
-/obj/item/clothing/suit/vampire/puffervest
+/obj/item/clothing/suit/vampire/puffer/vest
 	name = "puffer vest"
 	desc = "A puffer vest."
 	icon_state = "puffervest"
-	LCU_SUIT_ICONS
 
 // Varsity
 /obj/item/clothing/suit/vampire/varsity
@@ -387,7 +384,7 @@
 	desc = "A blue suit jacket."
 	icon_state = "suitjacket_blue"
 
-/obj/item/clothing/suit/vampire/suitjacket/purp
+/obj/item/clothing/suit/vampire/suitjacket/purple
 	name = "purple suit jacket"
 	desc = "A purple suit jacket."
 	icon_state = "suitjacket_purp"
@@ -423,16 +420,15 @@
 	icon_state = "suitjacket_checkered"
 
 // Shawls
-/obj/item/clothing/suit/vampire/shawl_black
+/obj/item/clothing/suit/vampire/shawl
 	name = "black shawl"
 	desc = "A long silk shawl, to be draped over the arms."
 	icon_state = "shawl_black"
 	LCU_SUIT_ICONS
 
-/obj/item/clothing/suit/vampire/shawl_white
+/obj/item/clothing/suit/vampire/shawl/white
 	name = "white shawl"
 	desc = "A long silk shawl, to be draped over the arms."
 	icon_state = "shawl_white"
-	LCU_SUIT_ICONS
 
 #undef LCU_SUIT_ICONS
