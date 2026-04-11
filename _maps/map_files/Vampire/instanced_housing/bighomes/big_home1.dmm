@@ -1,358 +1,3237 @@
-"af" = (/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/staircase)
-"al" = (/obj/structure/chair/wood/darkpack{dir = 8},/obj/machinery/light_switch{pixel_y = 29},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/staircase)
-"aw" = (/obj/structure/chair/sofa/right/brown{color = "#525252"},/obj/structure/bookcase/random{pixel_y = 20; density = 0},/turf/open/floor/carpet/red,/area/housing/bighouse/second_floor/library)
-"aZ" = (/turf/closed/wall/vampwall/junk,/area/housing/bighouse/second_floor/right_bedroom)
-"bt" = (/obj/structure/extinguisher_cabinet/directional/north,/obj/structure/sink/directional/east,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"bI" = (/obj/structure/railing/wooden_fence{dir = 8},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/staircase)
-"bK" = (/obj/structure/table,/obj/machinery/light/prince/directional/south,/obj/item/knife/butcher,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"cc" = (/obj/structure/table,/obj/item/kitchen/rollingpin{pixel_y = 11; pixel_x = -7},/obj/item/knife/kitchen{pixel_y = 5; pixel_x = 7},/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"ce" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor/bedroom)
-"cf" = (/turf/open/floor/plating/roofwalk/cobblestones,/area/housing/bighouse/first_floor)
-"cp" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 4},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"cy" = (/obj/structure/table/wood/fancy/royalblack,/obj/vampire_computer{pixel_y = 5},/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"cR" = (/obj/structure/sink/directional/south,/obj/structure/mirror{pixel_y = 32},/obj/machinery/light_switch{pixel_y = 29; pixel_x = -12},/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/right_bedroom)
-"cT" = (/obj/machinery/sprinkler,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"dh" = (/obj/effect/turf_decal/siding/beige{dir = 1},/obj/structure/closet{plane = -3.9},/obj/structure/railing/wooden_fence{dir = 8},/obj/structure/railing/wooden_fence{dir = 1; layer = 2.09},/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/spa)
-"dj" = (/turf/closed/wall/vampwall/junk,/area/housing/bighouse/second_floor/library)
-"ds" = (/obj/effect/turf_decal/bordur/corner,/obj/effect/turf_decal/bordur{dir = 1},/obj/structure/hedge,/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor)
-"dt" = (/obj/structure/table/wood,/obj/structure/curtain/bounty{pixel_y = -24},/obj/item/storage/dice{pixel_x = 10},/obj/item/storage/dice{pixel_x = -8; pixel_y = 13},/turf/open/floor/carpet/red,/area/housing/bighouse/second_floor/library)
-"dD" = (/obj/structure/table/wood,/obj/effect/decal/wallpaper/paper/green/low,/obj/structure/platform/lowwall/junk,/obj/machinery/chem_dispenser/drinks/beer/fullupgrade{dir = 8; pixel_y = 10; plane = -3.9},/turf/open/floor/plating/rough,/area/housing/bighouse/second_floor/foyer)
-"dR" = (/obj/structure/vampfence/corner/rich{dir = 4; icon_state = "fence_end"},/turf/open/misc/grass,/area/housing/bighouse)
-"dS" = (/obj/structure/stairs/north,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"dU" = (/obj/machinery/light/prince/directional/west,/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"dY" = (/obj/structure/extinguisher_cabinet/directional/north,/turf/open/floor/wood/herring,/area/housing/bighouse/first_floor/dining_hall)
-"es" = (/obj/effect/baseturf_helper/housing/ground_floor,/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor/entryway)
-"et" = (/obj/structure/railing/wooden_fence{dir = 8},/obj/structure/railing/wooden_fence{dir = 4},/turf/open/floor/iron/stairs,/area/housing/bighouse/first_floor/den)
-"fk" = (/turf/closed/wall/vampwall/junk,/area/housing/bighouse/second_floor/left_bedroom)
-"gb" = (/obj/structure/bookcase/random{pixel_y = 20; density = 0},/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"ge" = (/obj/structure/vampdoor/woodglass{dir = 4},/turf/open/floor/plating/roofwalk/cobblestones,/area/housing/bighouse/first_floor)
-"gg" = (/obj/structure/table/wood,/obj/item/newspaper,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"gi" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"gq" = (/obj/effect/turf_decal/bordur/corner{dir = 4},/obj/effect/turf_decal/bordur{dir = 1},/obj/structure/hedge,/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor)
-"gs" = (/turf/open/water/river,/area/housing/bighouse/first_floor)
-"gv" = (/obj/structure/vampfence/rich{dir = 4; name = "bars"},/turf/open/misc/grass/random/grass,/area/housing/bighouse)
-"gx" = (/obj/structure/table/wood,/obj/item/paper_bin{pixel_y = 6},/obj/item/pen{pixel_y = 8},/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/bedroom)
-"gB" = (/obj/structure/chair/sofa/corp/right{dir = 4},/obj/effect/turf_decal/siding/wideplating/dark{dir = 10},/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/den)
-"gE" = (/obj/machinery/light/prince/directional/west,/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"gK" = (/obj/structure/closet/cabinet,/obj/item/clothing/under/costume/maid,/obj/item/clothing/under/costume/maid,/obj/item/clothing/under/vampire/prince,/obj/item/clothing/under/vampire/prince,/obj/item/clothing/gloves/vampire/latex,/obj/item/clothing/gloves/vampire/latex,/obj/item/clothing/gloves/vampire/latex,/obj/item/clothing/gloves/vampire/latex,/obj/item/clothing/shoes/vampire/heels,/obj/item/clothing/shoes/vampire/heels,/obj/item/clothing/shoes/vampire,/obj/item/clothing/shoes/vampire,/obj/item/clothing/accessory/maidapron,/obj/item/clothing/accessory/maidapron,/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/bedroom)
-"hb" = (/obj/machinery/light_switch{pixel_y = 29},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"hn" = (/obj/structure/table/wood,/obj/effect/decal/wallpaper/paper/green/low,/obj/structure/platform/lowwall/junk,/obj/machinery/light/prince/directional/east,/obj/item/storage/box/drinkingglasses{pixel_y = 8},/turf/open/floor/plating/rough,/area/housing/bighouse/second_floor/foyer)
-"hr" = (/obj/structure/vampfence/corner/rich{dir = 8},/turf/open/misc/grass,/area/housing/bighouse)
-"hv" = (/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/right_bedroom)
-"hD" = (/obj/machinery/light/prince/directional/west{pixel_y = 24},/obj/machinery/light_switch{pixel_x = 18; layer = 4.11; pixel_y = -9},/turf/open/floor/iron/stairs{dir = 1},/area/housing/bighouse/second_floor/spa)
-"hI" = (/obj/structure/vampdoor/wood,/turf/open/floor/wood/herring,/area/housing/bighouse/first_floor/den)
-"hN" = (/obj/structure/vampfence/corner/rich{dir = 4; icon_state = "fence_end"},/obj/structure/vampfence/rich{layer = 4.8; pixel_y = -10},/turf/open/misc/grass,/area/housing/bighouse)
-"hY" = (/obj/machinery/shower/directional/south{pixel_x = 13},/obj/effect/turf_decal/stock{dir = 4; pixel_x = -10},/obj/effect/turf_decal/stock{dir = 8; pixel_x = 10; pixel_y = -1},/obj/structure/curtain/bounty{pixel_y = 1; pixel_x = -32},/turf/open/floor/plating/concrete{icon_state = "canal_concrete"},/area/housing/bighouse/second_floor/large_restroom)
-"ib" = (/obj/structure/table/wood/fancy/royalblack,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"iu" = (/obj/effect/turf_decal/bordur{layer = 2.1},/obj/structure/flora/bush/fullgrass/style_random,/obj/machinery/hydroponics/soil,/obj/machinery/light/prince/directional/north,/obj/item/seeds/poppy/lily,/obj/machinery/light_switch{pixel_y = 29; pixel_x = -12},/turf/open/misc/grass/nosmooth,/area/housing/bighouse/first_floor)
-"iA" = (/obj/effect/turf_decal/siding/beige,/obj/structure/curtain/bounty{pixel_y = 1},/turf/open/floor/plating/concrete{icon_state = "canal_concrete"},/area/housing/bighouse/second_floor/large_restroom)
-"iD" = (/obj/structure/chair/wood/darkpack,/turf/open/floor/wood/herring,/area/housing/bighouse/first_floor/dining_hall)
-"iG" = (/obj/item/kirbyplants/darkpack/random,/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/large_restroom)
-"iM" = (/obj/machinery/jukebox/no_access{pixel_y = 23; density = 0},/turf/open/floor/carpet/red,/area/housing/bighouse/second_floor/library)
-"iT" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 10},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"iV" = (/obj/structure/aquarium/prefilled,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"ja" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"jm" = (/obj/machinery/light/prince/directional/east,/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"jn" = (/obj/structure/closet/crate/large,/obj/structure/rack/tall/metal_shelf{dir = 1; density = 0},/turf/open/floor/plating/sidewalk/rich,/area/housing/bighouse)
-"ka" = (/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 1},/obj/machinery/light/prince/directional/east,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"kd" = (/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/bedroom)
-"kw" = (/obj/structure/chair/comfy/darkpack/dark{dir = 1},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/left_bedroom)
-"kH" = (/obj/effect/turf_decal/bordur{dir = 4},/obj/structure/flora/bush/reed/style_random{pixel_x = -10},/turf/open/water/river,/area/housing/bighouse/first_floor)
-"le" = (/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"lo" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/second_floor/spa)
-"lO" = (/obj/effect/turf_decal/bordur/corner,/obj/structure/flora/bush/reed/style_random{pixel_x = 13},/turf/open/water/river,/area/housing/bighouse/first_floor)
-"md" = (/obj/structure/table,/obj/item/rag{pixel_y = 10},/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"mg" = (/obj/structure/chair/sofa/corp/left,/obj/effect/turf_decal/siding/wideplating/dark{dir = 5},/obj/machinery/light_switch{pixel_y = 29},/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/den)
-"mj" = (/obj/structure/vampdoor/wood{dir = 4},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"mm" = (/obj/structure/vampfence/rich{pixel_y = 4},/turf/open/misc/grass,/area/housing/bighouse)
-"mv" = (/turf/closed/housing/border,/area/housing/bighouse)
-"mz" = (/obj/machinery/light/prince/directional/north,/turf/open/floor/plating/roofwalk/cobblestones,/area/housing/bighouse/first_floor)
-"mW" = (/obj/structure/bookcase/random{pixel_y = 20; density = 0},/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"nj" = (/obj/effect/turf_decal/siding/thinplating/dark,/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"nm" = (/turf/open/openspace,/area/housing/bighouse/second_floor)
-"nB" = (/obj/structure/dresser,/obj/item/flashlight/lamp/green{pixel_x = 2; pixel_y = 9},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/left_bedroom)
-"nG" = (/obj/structure/vampfence/rich{pixel_y = 4},/turf/closed/housing/border,/area/housing/bighouse)
-"oh" = (/obj/machinery/light/small/directional/south,/obj/effect/turf_decal/siding/beige{dir = 4},/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/right_bedroom)
-"om" = (/obj/structure/coclock/grandpa{density = 0; pixel_y = 16},/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"or" = (/obj/structure/sign/painting/library,/turf/closed/wall/vampwall/junk,/area/housing/bighouse/second_floor/left_bedroom)
-"oy" = (/obj/structure/table,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"oF" = (/obj/effect/turf_decal/bordur/corner{dir = 4},/obj/structure/hedge,/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor)
-"oI" = (/obj/structure/dresser,/obj/item/flashlight/lamp/green{pixel_x = 2; pixel_y = 9},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/right_bedroom)
-"oO" = (/obj/structure/vampdoor/wood,/obj/machinery/light_switch{pixel_x = -22},/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/bedroom)
-"pc" = (/obj/structure/hedge,/obj/structure/flora/bush/flowers_yw/style_random,/obj/effect/turf_decal/siding/wood/dark{dir = 1},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"pe" = (/obj/effect/turf_decal/bordur{dir = 1},/obj/structure/flora/bush/reed/style_random{pixel_x = 1; pixel_y = 10},/turf/open/water/river,/area/housing/bighouse/first_floor)
-"pf" = (/obj/effect/turf_decal/siding/white{dir = 1},/obj/structure/vampdoor/wood,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"pg" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"pl" = (/obj/structure/hedge,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"pI" = (/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/second_floor/left_bedroom)
-"pJ" = (/obj/structure/chair/wood/darkpack{dir = 4},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/staircase)
-"pY" = (/obj/machinery/light/prince/directional/north,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"qb" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse)
-"qp" = (/obj/fusebox,/obj/structure/table/wood,/obj/item/melee/vamp/handsickle,/obj/item/reagent_containers/cup/bucket/wooden,/obj/item/cultivator/rake,/obj/item/clothing/gloves/botanic_leather,/turf/open/floor/plating/roofwalk/cobblestones,/area/housing/bighouse/first_floor)
-"qt" = (/obj/machinery/light_switch{pixel_y = 29},/turf/open/floor/wood/herring,/area/housing/bighouse/first_floor/dining_hall)
-"qz" = (/obj/structure/toilet{dir = 4},/obj/machinery/light/prince/directional/west,/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/large_restroom)
-"rc" = (/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 4},/obj/machinery/light/prince/directional/west,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"rp" = (/obj/structure/table/wood/fancy/royalblack,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"ru" = (/obj/structure/extinguisher_cabinet/directional/north,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"rv" = (/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/spa)
-"rA" = (/obj/structure/platform/lowwall/rich/old/window,/turf/open/floor/plating/rough,/area/housing/bighouse/first_floor)
-"rD" = (/obj/machinery/vending/boozeomat{density = 0; pixel_y = 24},/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"rF" = (/obj/structure/platform/lowwall/junk/window,/turf/open/floor/plating/rough,/area/housing/bighouse/second_floor/right_bedroom)
-"rI" = (/obj/effect/baseturf_helper/housing/ground_floor,/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor/bedroom)
-"rM" = (/obj/structure/vampfence/rich{pixel_y = 4},/obj/structure/flora/bush/sparsegrass/style_random,/turf/open/misc/grass,/area/housing/bighouse)
-"rO" = (/obj/effect/decal/shadow,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/first_floor/entryway)
-"rS" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/second_floor/staircase)
-"sr" = (/obj/structure/vampfence/rich{dir = 8},/turf/open/misc/grass,/area/housing/bighouse)
-"st" = (/obj/structure/dresser{pixel_y = 12},/obj/machinery/sprinkler,/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/spa)
-"sG" = (/obj/structure/railing/wooden_fence,/obj/item/binoculars,/obj/structure/table/wood/fancy/royalblack,/turf/open/floor/wood/herring,/area/housing/bighouse/first_floor/dining_hall)
-"sS" = (/turf/open/floor/plating/roofwalk/cobblestones,/area/housing/bighouse)
-"tj" = (/obj/structure/closet/secure_closet/freezer/fridge/all_access,/obj/item/storage/box/ingredients/vegetarian,/obj/item/storage/box/ingredients/carnivore,/obj/item/reagent_containers/condiment/milk{name = "full cream milk"},/obj/item/storage/box/ingredients/american,/obj/item/storage/fancy/egg_box,/obj/item/reagent_containers/condiment/milk{name = "full cream milk"},/obj/item/storage/box/ingredients/vegetarian,/obj/item/storage/box/ingredients/exotic,/obj/item/food/dough,/obj/item/food/dough,/obj/item/food/cheese/wheel,/obj/item/food/grown/tomato,/obj/item/food/grown/tomato,/obj/machinery/light/prince/directional/south,/obj/item/reagent_containers/blood/random,/obj/item/reagent_containers/condiment/flour,/obj/item/reagent_containers/condiment/sugar,/obj/item/reagent_containers/condiment/sugar,/obj/item/reagent_containers/condiment/flour,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"tp" = (/obj/effect/decal/wallpaper/stone/low{pixel_y = 24},/obj/effect/decal/shadow,/obj/structure/roadsign/housing_sign,/turf/open/floor/plating/roofwalk/cobblestones,/area/housing/bighouse/first_floor)
-"tz" = (/obj/effect/spawner/random/maintenance/dumpster,/obj/structure/rack/tall/metal_shelf{dir = 1; density = 0},/turf/open/floor/plating/sidewalk/rich,/area/housing/bighouse)
-"tF" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor/entryway)
-"tU" = (/obj/structure/vampstatue,/obj/effect/turf_decal/bordur/corner{dir = 1},/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor/entryway)
-"ue" = (/obj/structure/curtain/bounty{pixel_y = -24},/obj/structure/chair/wood/darkpack{dir = 8},/turf/open/floor/carpet/red,/area/housing/bighouse/second_floor/library)
-"um" = (/turf/open/water/hot_spring,/area/housing/bighouse/second_floor/spa)
-"uK" = (/obj/machinery/grill/unwrenched,/turf/open/misc/grass/random/grass,/area/housing/bighouse)
-"vh" = (/obj/machinery/shower/directional/south,/obj/item/soap/deluxe,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/second_floor/right_bedroom)
-"vk" = (/obj/structure/hedge,/obj/structure/flora/bush/flowers_pp/style_random,/obj/effect/turf_decal/siding/wood/dark{dir = 1},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"vt" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"vS" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor/den)
-"vW" = (/obj/structure/bookcase/random{pixel_y = 20; density = 0},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/staircase)
-"wf" = (/obj/machinery/sprinkler,/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/large_restroom)
-"wk" = (/obj/structure/kitchenspike,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"wo" = (/obj/structure/table/wood/fancy/royalblack,/obj/item/storage/fancy/candle_box,/obj/effect/spawner/random/special_lighter,/obj/structure/extinguisher_cabinet/directional/north,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/staircase)
-"wv" = (/obj/structure/chair/wood/darkpack{dir = 1},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"wJ" = (/obj/machinery/light/prince/directional/east,/turf/open/floor/wood/herring,/area/housing/bighouse/first_floor/dining_hall)
-"wX" = (/obj/machinery/light_switch{pixel_y = 29},/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"xa" = (/obj/machinery/light_switch{pixel_x = -19},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"xq" = (/obj/effect/turf_decal/bordur{dir = 1},/obj/structure/vampdoor/wood,/turf/open/floor/plating/roofwalk/cobblestones,/area/housing/bighouse/first_floor/entryway)
-"xv" = (/turf/open/misc/grass/random/grass,/area/housing/bighouse)
-"xy" = (/obj/structure/vampdoor/wood{dir = 4},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/right_bedroom)
-"xD" = (/obj/structure/vampdoor/wood,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/staircase)
-"xL" = (/obj/effect/turf_decal/siding/beige{dir = 1},/obj/structure/vampdoor/wood,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/large_restroom)
-"yd" = (/obj/structure/table,/obj/machinery/microwave{pixel_y = 9},/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"yl" = (/obj/structure/sign/painting/library,/turf/closed/wall/vampwall/junk,/area/housing/bighouse/second_floor/right_bedroom)
-"yC" = (/obj/structure/chair/wood/darkpack{dir = 4},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"yD" = (/obj/structure/vampdoor/wood,/obj/effect/turf_decal/siding/thinplating/dark/corner,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"yF" = (/turf/closed/housing/border,/area/housing/bighouse/second_floor)
-"yS" = (/obj/effect/turf_decal/siding/wideplating/dark,/obj/structure/table/wood/fancy/royalblack,/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/den)
-"zl" = (/obj/structure/hedge,/obj/effect/turf_decal/bordur/corner{dir = 4},/obj/machinery/light/prince/directional/north,/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor)
-"zp" = (/obj/effect/baseturf_helper/housing/ground_floor,/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor/kitchen)
-"zr" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor/dining_hall)
-"zw" = (/obj/structure/chair/wood/darkpack,/obj/structure/sign/painting/library{pixel_y = 32},/turf/open/floor/wood/herring,/area/housing/bighouse/first_floor/dining_hall)
-"zD" = (/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/entryway)
-"zE" = (/obj/structure/hedge,/obj/structure/flora/bush/flowers_pp/style_random,/obj/effect/turf_decal/siding/wood/dark{dir = 1},/obj/effect/baseturf_helper/housing/second_floor,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"zH" = (/turf/open/misc/grass/random/grass,/area/housing/bighouse/first_floor)
-"zL" = (/obj/structure/vampstatue,/obj/effect/turf_decal/bordur/corner{dir = 1},/obj/machinery/light/prince/directional/south,/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor/den)
-"zP" = (/obj/structure/platform/lowwall/rich/old/window,/turf/open/floor/plating/rough,/area/housing/bighouse/second_floor/large_restroom)
-"Ac" = (/obj/structure/railing/wooden_fence{dir = 8},/obj/structure/railing/wooden_fence{dir = 4},/turf/open/floor/iron/stairs/black,/area/housing/bighouse/first_floor/dining_hall)
-"Aj" = (/obj/machinery/light/small/directional/south,/obj/effect/turf_decal/siding/beige{dir = 4},/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/left_bedroom)
-"Ar" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 1},/turf/open/openspace,/area/housing/bighouse/second_floor/staircase)
-"Aw" = (/obj/effect/turf_decal/bordur{layer = 2.1},/obj/structure/vampstatue{pixel_y = 8},/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor)
-"AI" = (/obj/structure/curtain/bounty{pixel_y = 15},/obj/structure/platform/lowwall/rich/old/window,/turf/open/floor/plating/rough,/area/housing/bighouse/first_floor/den)
-"AK" = (/obj/structure/railing/wooden_fence,/obj/structure/table/wood/fancy/royalblack,/turf/open/floor/wood/herring,/area/housing/bighouse/first_floor/dining_hall)
-"Ba" = (/obj/effect/turf_decal/bordur{dir = 1},/obj/structure/flora/bush/sparsegrass/style_random,/obj/machinery/hydroponics/soil,/obj/item/seeds/poppy/lily,/turf/open/misc/grass/nosmooth,/area/housing/bighouse/first_floor)
-"BC" = (/obj/effect/decal/carpet{pixel_y = -13},/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"BD" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/obj/structure/bed/double,/obj/item/bedsheet/black/double,/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/bedroom)
-"BI" = (/obj/effect/turf_decal/bordur/corner{dir = 4},/turf/open/water/river,/area/housing/bighouse/first_floor)
-"BP" = (/obj/machinery/light/prince/directional/west,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"BS" = (/obj/structure/vampdoor/wood,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"Ci" = (/obj/effect/turf_decal/bordur{layer = 2.1},/obj/structure/flora/bush/reed/style_random{pixel_x = 13; pixel_y = 25},/turf/open/water/river,/area/housing/bighouse/first_floor)
-"Co" = (/obj/effect/turf_decal/bordur{layer = 2.1},/obj/structure/flora/tree/vamp/pine,/turf/open/misc/grass,/area/housing/bighouse)
-"Cv" = (/obj/machinery/light/prince/directional/north,/turf/open/floor/plating/sidewalk/rich,/area/housing/bighouse)
-"Cy" = (/obj/structure/vampdoor/wood,/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 8},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"CH" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 6},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"CJ" = (/obj/effect/baseturf_helper/housing/second_floor,/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/second_floor/right_bedroom)
-"CK" = (/obj/structure/rack/tall/metal_shelf{dir = 1; density = 0},/turf/open/floor/plating/sidewalk/rich,/area/housing/bighouse)
-"CO" = (/obj/structure/bookcase/random{pixel_y = 20; density = 0},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"CW" = (/obj/structure/sink/directional/south,/obj/structure/mirror{pixel_y = 32},/obj/machinery/light_switch{pixel_y = 29; pixel_x = -12},/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/large_restroom)
-"CX" = (/obj/effect/turf_decal/siding/wideplating/dark/corner,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"De" = (/obj/machinery/light/prince/directional/east,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/staircase)
-"Dz" = (/obj/structure/platform/lowwall/junk/window,/turf/open/floor/plating/rough,/area/housing/bighouse/second_floor/left_bedroom)
-"DJ" = (/obj/machinery/light/prince/directional/north,/turf/open/misc/grass/random/grass,/area/housing/bighouse/first_floor)
-"DL" = (/turf/closed/housing/border,/area/housing/bighouse/first_floor)
-"DN" = (/obj/structure/table/wood,/obj/item/flashlight/lamp/green{pixel_y = 15; pixel_x = 7},/obj/item/paper_bin{pixel_y = 8; pixel_x = -1},/obj/item/pen{pixel_y = 4; pixel_x = 8},/turf/open/floor/carpet/red,/area/housing/bighouse/second_floor/library)
-"DT" = (/obj/machinery/sprinkler,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor)
-"DU" = (/obj/structure/flora/bush/sparsegrass/style_random,/obj/structure/reagent_dispensers/watertank/high,/turf/open/misc/grass,/area/housing/bighouse/first_floor)
-"Ei" = (/obj/effect/turf_decal/siding/beige,/obj/structure/vampdoor/wood,/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/right_bedroom)
-"Ej" = (/obj/effect/decal/wallpaper/stone/low{pixel_y = 24},/obj/effect/decal/shadow,/obj/structure/hedge,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"Eu" = (/obj/structure/chair/sofa/left/brown{color = "#525252"},/obj/structure/bookcase/random{pixel_y = 20; density = 0},/turf/open/floor/carpet/red,/area/housing/bighouse/second_floor/library)
-"EI" = (/obj/structure/hedge,/obj/effect/turf_decal/siding/thinplating/dark{dir = 8},/obj/structure/flora/bush/flowers_br/style_random,/obj/effect/turf_decal/siding/wood/dark{dir = 9},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"ET" = (/obj/machinery/shower/directional/south,/obj/item/soap/deluxe,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/second_floor/left_bedroom)
-"EY" = (/obj/machinery/light/prince/directional/east,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"Fi" = (/obj/structure/curtain/cloth/fancy/mechanical/luxurious{id = 993; pixel_y = 15},/obj/structure/platform/lowwall/rich/old/window,/turf/open/floor/plating/rough,/area/housing/bighouse/second_floor)
-"Fl" = (/obj/structure/hedge,/obj/effect/baseturf_helper/housing/second_floor,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"FB" = (/obj/effect/turf_decal/bordur{dir = 8},/obj/structure/flora/bush/reed/style_random{pixel_x = 15; pixel_y = 11},/turf/open/water/river,/area/housing/bighouse/first_floor)
-"FM" = (/obj/structure/closet/crate/bin,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"FQ" = (/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"FZ" = (/obj/structure/vampdoor/wood{dir = 4},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"Gc" = (/turf/open/floor/plating/sidewalk/rich,/area/housing/bighouse)
-"Gd" = (/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/den)
-"Gf" = (/obj/structure/vampdoor/wood,/obj/effect/baseturf_helper/housing/second_floor,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/staircase)
-"Gn" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/second_floor/large_restroom)
-"Gu" = (/obj/effect/baseturf_helper/housing/second_floor,/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/second_floor/large_restroom)
-"GA" = (/obj/structure/closet/secure_closet/freezer/fridge/all_access,/obj/item/storage/box/ingredients/vegetarian,/obj/item/storage/box/ingredients/carnivore,/obj/item/reagent_containers/condiment/milk{name = "full cream milk"},/obj/item/storage/box/ingredients/american,/obj/item/storage/fancy/egg_box,/obj/item/reagent_containers/condiment/milk{name = "full cream milk"},/obj/item/storage/box/ingredients/vegetarian,/obj/item/storage/box/ingredients/exotic,/obj/item/food/dough,/obj/item/food/dough,/obj/item/food/cheese/wheel,/obj/item/food/grown/tomato,/obj/item/food/grown/tomato,/obj/item/reagent_containers/blood/random,/obj/structure/extinguisher_cabinet/directional/north,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"GI" = (/obj/structure/vampfence/rich{dir = 4},/turf/open/misc/grass,/area/housing/bighouse)
-"GW" = (/obj/structure/chair/wood/darkpack{dir = 4},/obj/machinery/light_switch{pixel_y = 29},/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"Hm" = (/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"Hv" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 9},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"Hw" = (/obj/structure/closet/cabinet,/obj/item/mop,/obj/item/reagent_containers/cup/bucket/wooden,/obj/item/reagent_containers/spray/cleaner,/obj/machinery/light/prince/directional/north,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor)
-"HA" = (/obj/structure/chair/wood/darkpack{dir = 4},/obj/structure/curtain/bounty{pixel_y = -24},/turf/open/floor/carpet/red,/area/housing/bighouse/second_floor/library)
-"HE" = (/obj/effect/decal/wallpaper/stone/low{pixel_y = 24},/obj/effect/decal/shadow,/turf/open/floor/plating/roofwalk/cobblestones,/area/housing/bighouse/first_floor)
-"HR" = (/obj/structure/chair/comfy/darkpack/dark{dir = 1},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/right_bedroom)
-"Ij" = (/obj/effect/decal/wallpaper/stone/low{pixel_y = 24},/obj/effect/decal/shadow,/obj/effect/decal/wallpaper/stone/low{pixel_y = 24},/obj/structure/coclock/grandpa,/obj/effect/decal/shadow,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/den)
-"Im" = (/obj/effect/decal/pallet,/obj/structure/closet/crate/large,/turf/open/misc/grass/random/grass,/area/housing/bighouse)
-"Iv" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/second_floor/left_bedroom)
-"Ix" = (/obj/effect/baseturf_helper/housing/second_floor,/turf/open/openspace,/area/housing/bighouse/second_floor)
-"Iy" = (/obj/effect/turf_decal/siding/beige{dir = 1},/obj/structure/table/wood,/obj/machinery/light/prince/directional/east{pixel_y = 24},/obj/item/soap/deluxe{pixel_x = -9; pixel_y = 7},/obj/item/soap/deluxe{pixel_x = 3; pixel_y = -1},/obj/item/storage/fancy/candle_box,/obj/effect/spawner/random/special_lighter,/obj/structure/railing/wooden_fence{dir = 1; layer = 2.09},/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/spa)
-"IO" = (/obj/structure/toilet{dir = 4; pixel_y = 17},/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/right_bedroom)
-"IP" = (/obj/structure/chair/wood/darkpack{dir = 8},/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"IV" = (/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/large_restroom)
-"IZ" = (/obj/item/reagent_containers/cup/glass/bottle/champagne{pixel_y = 11},/obj/machinery/sprinkler,/obj/structure/table/wood/fancy/royalblack,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"Jd" = (/turf/open/floor/carpet/red,/area/housing/bighouse/second_floor/library)
-"Jg" = (/obj/structure/chair/wood/darkpack{dir = 1},/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"Jp" = (/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 8},/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"JO" = (/obj/effect/turf_decal/darkpack/dirt{dir = 4; plane = -5.5},/turf/open/misc/grass,/area/housing/bighouse)
-"JS" = (/obj/structure/vampstatue,/obj/effect/turf_decal/bordur/corner{dir = 8},/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor/entryway)
-"Ka" = (/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor)
-"Ke" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"Km" = (/obj/structure/vampfence/corner/rich{dir = 8; icon_state = "fence_end"},/turf/open/misc/grass,/area/housing/bighouse)
-"Kn" = (/obj/effect/turf_decal/siding/thinplating/dark/corner,/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"Kr" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 6},/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/den)
-"Kz" = (/obj/effect/turf_decal/siding/beige{dir = 1},/obj/structure/railing/wooden_fence{dir = 1; layer = 2.09},/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/spa)
-"KH" = (/obj/effect/turf_decal/bordur{dir = 1},/obj/structure/flora/bush/fullgrass/style_random,/obj/machinery/hydroponics/soil,/obj/item/seeds/sunflower,/turf/open/misc/grass/nosmooth,/area/housing/bighouse/first_floor)
-"KL" = (/obj/structure/hedge,/obj/effect/turf_decal/bordur/corner,/obj/machinery/light/prince/directional/north,/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor)
-"Ld" = (/obj/machinery/sprinkler,/obj/structure/chair/stool/bar/darkpack/green,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"Lz" = (/obj/structure/chair/wood/darkpack{dir = 4},/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"LB" = (/obj/structure/platform/lowwall/rich/old/window,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor)
-"LL" = (/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/second_floor/right_bedroom)
-"LN" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor/kitchen)
-"Mq" = (/turf/open/openspace,/area/housing/bighouse/second_floor/staircase)
-"MF" = (/obj/structure/chair/wood/darkpack{dir = 8},/turf/open/floor/carpet/red,/area/housing/bighouse/second_floor/library)
-"MZ" = (/obj/structure/bed/double,/obj/effect/spawner/random/bedsheet/any/double,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/right_bedroom)
-"Nd" = (/obj/structure/railing/wooden_fence{dir = 4},/obj/structure/bookcase/random{pixel_y = 20; density = 0},/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 8},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"Ne" = (/obj/machinery/sprinkler,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/den)
-"No" = (/obj/structure/vampfence/rich{layer = 4.8},/turf/open/misc/grass,/area/housing/bighouse)
-"Nq" = (/obj/effect/turf_decal/bordur{layer = 2.1},/obj/structure/flora/bush/fullgrass/style_random,/obj/machinery/hydroponics/soil,/obj/item/seeds/sunflower,/turf/open/misc/grass/nosmooth,/area/housing/bighouse/first_floor)
-"Ns" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/machinery/light_switch{pixel_x = -19},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"NY" = (/obj/machinery/shower/directional/south{pixel_x = -12},/obj/effect/turf_decal/stock{dir = 4; pixel_x = -10},/obj/effect/turf_decal/stock{dir = 8; pixel_x = 10; pixel_y = -1},/turf/open/floor/plating/concrete{icon_state = "canal_concrete"},/area/housing/bighouse/second_floor/large_restroom)
-"Oe" = (/obj/structure/vampstatue{pixel_y = 8},/obj/effect/turf_decal/bordur{layer = 2.1},/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor)
-"Oh" = (/obj/structure/railing/wooden_fence{dir = 4},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/staircase)
-"OC" = (/obj/structure/table/wood,/obj/effect/decal/wallpaper/paper/green/low,/obj/structure/platform/lowwall/junk,/obj/machinery/chem_dispenser/drinks/fullupgrade{dir = 8; pixel_y = 0},/turf/open/floor/plating/rough,/area/housing/bighouse/second_floor/foyer)
-"OF" = (/obj/structure/vampfence/rich{dir = 1},/turf/open/misc/grass,/area/housing/bighouse)
-"OH" = (/obj/structure/bed/double,/obj/effect/spawner/random/bedsheet/any/double,/obj/effect/baseturf_helper/housing/second_floor,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/left_bedroom)
-"OW" = (/obj/structure/chair/wood/darkpack{dir = 8},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"Pk" = (/obj/structure/vampdoor/wood{dir = 4},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/left_bedroom)
-"Pr" = (/obj/structure/flora/bush/sparsegrass/style_random,/obj/effect/baseturf_helper/housing/ground_floor,/turf/open/misc/grass/random/grass,/area/housing/bighouse/first_floor)
-"PY" = (/obj/effect/turf_decal/siding/beige,/obj/structure/curtain/bounty{pixel_y = 1; pixel_x = -32},/obj/structure/curtain/bounty{pixel_y = 1},/turf/open/floor/plating/concrete{icon_state = "canal_concrete"},/area/housing/bighouse/second_floor/large_restroom)
-"Qb" = (/obj/machinery/light/prince/directional/north,/obj/structure/chair/sofa/corp,/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/den)
-"Qf" = (/obj/structure/vampfence/rich{pixel_y = 4},/turf/open/misc/grass/random/grass,/area/housing/bighouse)
-"Qk" = (/obj/structure/bath,/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/large_restroom)
-"QL" = (/obj/machinery/griddle,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"QM" = (/obj/structure/table,/obj/machinery/light/prince/directional/north,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"QN" = (/obj/structure/table/wood/fancy/royalblack,/obj/machinery/light/prince/directional/north,/obj/item/kirbyplants/darkpack/plant3{pixel_y = 14; pixel_x = 1},/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"Rs" = (/obj/structure/table,/obj/machinery/processor{pixel_y = 12},/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"Rz" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/obj/structure/rack/clothing_hanger{density = 0; pixel_x = 3; pixel_z = 20; pixel_y = -15},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"RA" = (/obj/structure/chair/wood/darkpack{dir = 8},/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/bedroom)
-"RD" = (/obj/structure/chair/stool/bar/darkpack/green,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/foyer)
-"Sn" = (/obj/effect/turf_decal/siding/white{dir = 4},/obj/structure/vampdoor/wood{dir = 4},/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"So" = (/turf/closed/housing/border,/area/housing/bighouse/first_floor/entryway)
-"St" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"Su" = (/obj/structure/vampdoor/wood{dir = 4},/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor)
-"Sv" = (/obj/machinery/light/prince/directional/east,/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/large_restroom)
-"SK" = (/obj/effect/baseturf_helper/housing/second_floor,/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/second_floor/spa)
-"SN" = (/obj/machinery/oven/range,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"SQ" = (/obj/effect/turf_decal/siding/beige{dir = 1},/obj/structure/vampdoor/wood,/turf/open/floor/wood/herring,/area/housing/bighouse/second_floor/spa)
-"SX" = (/obj/effect/baseturf_helper/housing/ground_floor,/turf/open/misc/grass/random/grass,/area/housing/bighouse)
-"Tf" = (/obj/effect/turf_decal/bordur/corner{dir = 8},/obj/structure/vampstatue,/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor/den)
-"Ti" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 5},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"Tq" = (/obj/structure/flora/tree/vamp/pine,/turf/open/misc/grass/random/grass,/area/housing/bighouse)
-"TF" = (/obj/effect/baseturf_helper/housing/ground_floor,/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor/den)
-"TJ" = (/obj/structure/railing/wooden_fence{dir = 8},/obj/structure/bookcase/random{pixel_y = 20; density = 0},/obj/effect/turf_decal/siding/wideplating/dark/corner,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"TP" = (/obj/structure/hedge,/obj/structure/flora/bush/flowers_yw/style_random,/obj/effect/turf_decal/siding/thinplating/dark{dir = 4},/obj/effect/turf_decal/siding/wood/dark{dir = 5},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"Ua" = (/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/left_bedroom)
-"Ue" = (/obj/structure/toilet{dir = 4; pixel_y = 17},/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/left_bedroom)
-"Uv" = (/obj/structure/table/wood,/obj/effect/decal/wallpaper/paper/green/low,/obj/structure/platform/lowwall/junk,/obj/item/rag{pixel_y = 7; pixel_x = 10},/turf/open/floor/plating/rough,/area/housing/bighouse/second_floor/foyer)
-"Vc" = (/obj/effect/turf_decal/bordur/corner{dir = 8},/obj/structure/flora/bush/reed/style_random{pixel_x = -2; pixel_y = -4},/turf/open/water/river,/area/housing/bighouse/first_floor)
-"Vq" = (/obj/structure/chair/sofa/corp/corner{dir = 4},/obj/effect/turf_decal/siding/wideplating/dark{dir = 9},/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/den)
-"Vy" = (/obj/structure/hedge,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/den)
-"VE" = (/obj/structure/railing/wooden_fence{dir = 8},/obj/structure/railing/wooden_fence{dir = 4},/turf/open/floor/iron/stairs{dir = 1},/area/housing/bighouse/first_floor/den)
-"VO" = (/obj/effect/turf_decal/bordur/corner,/obj/structure/hedge,/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor)
-"Wa" = (/obj/structure/chair/wood/darkpack{dir = 4},/obj/machinery/sprinkler/area_managed,/turf/open/floor/carpet/red,/area/housing/bighouse/second_floor/library)
-"Wq" = (/obj/effect/turf_decal/bordur{layer = 2.1},/obj/effect/turf_decal/bordur{dir = 1},/obj/structure/hedge,/turf/open/floor/plating/concrete{color = "#bfbfbf"},/area/housing/bighouse/first_floor)
-"WH" = (/obj/machinery/sprinkler,/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/entryway)
-"WI" = (/obj/structure/sink/directional/south,/obj/structure/mirror{pixel_y = 32},/obj/machinery/light_switch{pixel_y = 29; pixel_x = -12},/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/left_bedroom)
-"WU" = (/obj/structure/table/wood,/obj/effect/decal/wallpaper/paper/green/low,/obj/structure/platform/lowwall/junk,/turf/open/floor/plating/rough,/area/housing/bighouse/second_floor/foyer)
-"WX" = (/obj/effect/baseturf_helper/housing/ground_floor,/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor/dining_hall)
-"Xb" = (/obj/structure/railing/wooden_fence,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/staircase)
-"Xc" = (/obj/structure/curtain/cloth/fancy/mechanical/luxurious{id = 993; pixel_y = 15},/obj/structure/platform/lowwall/rich/old/window,/turf/open/floor/plating/rough,/area/housing/bighouse/first_floor/dining_hall)
-"XD" = (/obj/machinery/light/prince/directional/west,/turf/open/floor/wood/herring,/area/housing/bighouse/first_floor/dining_hall)
-"XN" = (/obj/machinery/sprinkler,/turf/open/openspace,/area/housing/bighouse/second_floor/staircase)
-"XT" = (/obj/effect/turf_decal/siding/beige,/obj/structure/vampdoor/wood,/turf/open/floor/city/industrial,/area/housing/bighouse/second_floor/left_bedroom)
-"Ye" = (/obj/machinery/light/prince/directional/north,/turf/open/floor/carpet/darkpack/old,/area/housing/bighouse/first_floor/bedroom)
-"YA" = (/obj/machinery/sprinkler,/turf/open/floor/city/toilet,/area/housing/bighouse/first_floor/kitchen)
-"YC" = (/obj/structure/hedge,/obj/structure/flora/bush/flowers_br/style_random,/obj/effect/turf_decal/siding/wood/dark{dir = 1},/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"YI" = (/obj/item/reagent_containers/cup/glass/bottle/wine{pixel_y = 10; pixel_x = -8},/obj/item/reagent_containers/cup/glass/bottle/wine{pixel_y = 10; pixel_x = 8},/obj/structure/table/wood/fancy/royalblack,/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/dining_hall)
-"YK" = (/obj/machinery/light/prince/directional/east,/obj/effect/turf_decal/siding/wideplating/dark{dir = 8},/turf/open/floor/plating/sidewalk/old,/area/housing/bighouse/first_floor/entryway)
-"YN" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/second_floor)
-"YU" = (/obj/structure/curtain/cloth/fancy/mechanical/luxurious{id = 993; pixel_y = 15},/obj/structure/platform/lowwall/rich/old/window,/turf/open/floor/plating/rough,/area/housing/bighouse/first_floor/kitchen)
-"YY" = (/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/library)
-"Zc" = (/obj/effect/turf_decal/bordur/corner{dir = 1},/obj/structure/flora/bush/reed/style_random{pixel_x = 1; pixel_y = 10},/turf/open/water/river,/area/housing/bighouse/first_floor)
-"Zm" = (/turf/closed/wall/vampwall/rich/old,/area/housing/bighouse/first_floor)
-"ZB" = (/obj/machinery/light/prince/directional/west,/turf/open/floor/wood/smooth/old,/area/housing/bighouse/second_floor/staircase)
-"ZN" = (/obj/effect/landmark/housing/spawnpoint,/turf/open/floor/plating/roofwalk/cobblestones,/area/housing/bighouse/first_floor)
-"ZS" = (/obj/structure/vampfence/corner/rich{dir = 4},/turf/open/misc/grass,/area/housing/bighouse)
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"af" = (
+/obj/effect/turf_decal/siding/wood/dark,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"al" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"aw" = (
+/obj/structure/chair/sofa/right/brown{
+	color = "#525252"
+	},
+/obj/structure/bookcase/random{
+	pixel_y = 20;
+	density = 0
+	},
+/turf/open/floor/carpet/red,
+/area/housing/bighouse/second_floor/library)
+"ba" = (
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"bt" = (
+/obj/structure/extinguisher_cabinet/directional/north,
+/obj/structure/sink/directional/east,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"bI" = (
+/obj/structure/railing/wooden_fence{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 10
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"bK" = (
+/obj/structure/table/countertop/black,
+/obj/machinery/light/prince/directional/south,
+/obj/item/knife/butcher,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"cc" = (
+/obj/structure/table/countertop/black,
+/obj/item/kitchen/rollingpin{
+	pixel_y = 11;
+	pixel_x = -7
+	},
+/obj/item/knife/kitchen{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"ce" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/bedroom)
+"cf" = (
+/turf/open/floor/plating/roofwalk/cobblestones,
+/area/housing/bighouse/first_floor)
+"cp" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"cy" = (
+/obj/structure/table/wood/fancy/royalblack,
+/obj/vampire_computer{
+	pixel_y = 5
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"cR" = (
+/obj/structure/sink/directional/south,
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/machinery/light_switch{
+	pixel_y = 29;
+	pixel_x = -12
+	},
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/right_bedroom)
+"cT" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"cY" = (
+/obj/machinery/light/prince/directional/south,
+/turf/open/floor/plating/sidewalk/rich,
+/area/housing/bighouse)
+"dh" = (
+/obj/effect/turf_decal/siding/beige{
+	dir = 1
+	},
+/obj/structure/closet{
+	plane = -3.9
+	},
+/obj/structure/railing/wooden_fence{
+	dir = 8
+	},
+/obj/structure/railing/wooden_fence{
+	dir = 1;
+	layer = 2.09
+	},
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/spa)
+"dj" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/library)
+"ds" = (
+/obj/effect/turf_decal/bordur/corner,
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/structure/hedge,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor)
+"dt" = (
+/obj/structure/table/wood,
+/obj/structure/curtain/bounty{
+	pixel_y = -24
+	},
+/obj/item/storage/dice{
+	pixel_x = 10
+	},
+/obj/item/storage/dice{
+	pixel_x = -8;
+	pixel_y = 13
+	},
+/turf/open/floor/carpet/red,
+/area/housing/bighouse/second_floor/library)
+"dD" = (
+/obj/structure/table/wood,
+/obj/effect/decal/wallpaper/paper/green/low,
+/obj/structure/platform/lowwall/junk,
+/obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
+	dir = 8;
+	pixel_y = 10;
+	plane = -3.9
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/foyer)
+"dR" = (
+/obj/structure/vampfence/corner/rich{
+	dir = 4;
+	icon_state = "fence_end"
+	},
+/turf/open/misc/grass,
+/area/housing/bighouse)
+"dS" = (
+/obj/structure/stairs/north,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"dU" = (
+/obj/machinery/light/prince/directional/west,
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"dY" = (
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/first_floor/dining_hall)
+"es" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/entryway)
+"fC" = (
+/obj/structure/railing/wooden_fence{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"gb" = (
+/obj/structure/bookcase/random{
+	pixel_y = 20;
+	density = 0
+	},
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"ge" = (
+/obj/structure/vampdoor/woodglass{
+	dir = 4
+	},
+/turf/open/floor/plating/roofwalk/cobblestones,
+/area/housing/bighouse/first_floor)
+"gg" = (
+/obj/structure/table/wood,
+/obj/item/newspaper,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"gi" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"gq" = (
+/obj/effect/turf_decal/bordur/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/structure/hedge,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor)
+"gs" = (
+/turf/open/water/river,
+/area/housing/bighouse/first_floor)
+"gx" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_y = 8
+	},
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/bedroom)
+"gB" = (
+/obj/structure/chair/sofa/corp/right{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/den)
+"gE" = (
+/obj/machinery/light/prince/directional/west,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"gK" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/costume/maid,
+/obj/item/clothing/under/costume/maid,
+/obj/item/clothing/under/vampire/prince,
+/obj/item/clothing/under/vampire/prince,
+/obj/item/clothing/gloves/vampire/latex,
+/obj/item/clothing/gloves/vampire/latex,
+/obj/item/clothing/gloves/vampire/latex,
+/obj/item/clothing/gloves/vampire/latex,
+/obj/item/clothing/shoes/vampire/heels,
+/obj/item/clothing/shoes/vampire/heels,
+/obj/item/clothing/shoes/vampire,
+/obj/item/clothing/shoes/vampire,
+/obj/item/clothing/accessory/maidapron,
+/obj/item/clothing/accessory/maidapron,
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/bedroom)
+"hb" = (
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"hn" = (
+/obj/structure/table/wood,
+/obj/effect/decal/wallpaper/paper/green/low,
+/obj/structure/platform/lowwall/junk,
+/obj/machinery/light/prince/directional/east,
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = 8
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/foyer)
+"hr" = (
+/obj/structure/vampfence/corner/rich{
+	dir = 8
+	},
+/turf/open/misc/grass,
+/area/housing/bighouse)
+"hv" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"hD" = (
+/obj/machinery/light/prince/directional/west{
+	pixel_y = 24
+	},
+/obj/machinery/light_switch{
+	pixel_x = 18;
+	layer = 4.11;
+	pixel_y = -9
+	},
+/turf/open/floor/iron/stairs{
+	dir = 1
+	},
+/area/housing/bighouse/second_floor/spa)
+"hI" = (
+/obj/structure/vampdoor/wood,
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/den)
+"hY" = (
+/obj/machinery/shower/directional/south{
+	pixel_x = 13
+	},
+/obj/effect/turf_decal/stock{
+	dir = 4;
+	pixel_x = -10
+	},
+/obj/effect/turf_decal/stock{
+	dir = 8;
+	pixel_x = 10;
+	pixel_y = -1
+	},
+/turf/open/floor/plating/concrete{
+	icon_state = "canal_concrete"
+	},
+/area/housing/bighouse/second_floor/large_restroom)
+"ib" = (
+/obj/structure/table/wood/fancy/royalblack,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"ij" = (
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"iu" = (
+/obj/effect/turf_decal/bordur{
+	layer = 2.1
+	},
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/machinery/hydroponics/soil,
+/obj/machinery/light/prince/directional/north,
+/obj/item/seeds/poppy/lily,
+/obj/machinery/light_switch{
+	pixel_y = 29;
+	pixel_x = -12
+	},
+/turf/open/misc/grass/nosmooth,
+/area/housing/bighouse/first_floor)
+"iD" = (
+/obj/structure/chair/wood/darkpack,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/first_floor/dining_hall)
+"iG" = (
+/obj/item/kirbyplants/darkpack/random,
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/large_restroom)
+"iM" = (
+/obj/machinery/jukebox/no_access{
+	pixel_y = 23;
+	density = 0
+	},
+/turf/open/floor/carpet/red,
+/area/housing/bighouse/second_floor/library)
+"iT" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"iV" = (
+/obj/structure/aquarium/prefilled,
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"ja" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"jm" = (
+/obj/machinery/light/prince/directional/east,
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"ka" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
+	dir = 1
+	},
+/obj/machinery/light/prince/directional/east,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"kd" = (
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/bedroom)
+"kw" = (
+/obj/effect/decal/carpet{
+	pixel_y = -13
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"kH" = (
+/obj/effect/turf_decal/bordur{
+	dir = 4
+	},
+/obj/structure/flora/bush/reed/style_random{
+	pixel_x = -10
+	},
+/turf/open/water/river,
+/area/housing/bighouse/first_floor)
+"le" = (
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"lo" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/spa)
+"lO" = (
+/obj/effect/turf_decal/bordur/corner,
+/obj/structure/flora/bush/reed/style_random{
+	pixel_x = 13
+	},
+/turf/open/water/river,
+/area/housing/bighouse/first_floor)
+"lU" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"md" = (
+/obj/structure/table/countertop/black,
+/obj/item/rag{
+	pixel_y = 10
+	},
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"mg" = (
+/obj/structure/chair/sofa/corp/left,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/den)
+"mj" = (
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"mm" = (
+/obj/structure/vampfence/rich{
+	pixel_y = 4
+	},
+/turf/open/misc/grass,
+/area/housing/bighouse)
+"mp" = (
+/obj/structure/table/wood,
+/obj/machinery/light/prince/directional/east,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"mv" = (
+/turf/closed/housing/border,
+/area/housing/bighouse)
+"mz" = (
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/plating/roofwalk/cobblestones,
+/area/housing/bighouse/first_floor)
+"mW" = (
+/obj/structure/bookcase/random{
+	pixel_y = 20;
+	density = 0
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"nj" = (
+/obj/effect/turf_decal/siding/thinplating/dark,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"nm" = (
+/turf/open/openspace,
+/area/housing/bighouse/second_floor)
+"nB" = (
+/obj/structure/dresser,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 2;
+	pixel_y = 9
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"nG" = (
+/obj/structure/vampfence/rich{
+	pixel_y = 4
+	},
+/turf/closed/housing/border,
+/area/housing/bighouse)
+"oh" = (
+/obj/machinery/light/small/directional/south,
+/obj/effect/turf_decal/siding/beige{
+	dir = 4
+	},
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/right_bedroom)
+"om" = (
+/obj/structure/coclock/grandpa{
+	density = 0;
+	pixel_y = 16
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"or" = (
+/obj/structure/sign/painting/library,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"oy" = (
+/obj/structure/table/countertop/black,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"oF" = (
+/obj/effect/turf_decal/bordur/corner{
+	dir = 4
+	},
+/obj/structure/hedge,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor)
+"oI" = (
+/obj/structure/dresser,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 2;
+	pixel_y = 9
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"oO" = (
+/obj/structure/vampdoor/wood,
+/obj/machinery/light_switch{
+	pixel_x = -22
+	},
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/bedroom)
+"pc" = (
+/obj/structure/hedge,
+/obj/structure/flora/bush/flowers_yw/style_random,
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 1
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"pe" = (
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/structure/flora/bush/reed/style_random{
+	pixel_x = 1;
+	pixel_y = 10
+	},
+/turf/open/water/river,
+/area/housing/bighouse/first_floor)
+"pf" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/obj/structure/vampdoor/wood,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"pg" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"pl" = (
+/obj/structure/hedge,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"pI" = (
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"pJ" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"pY" = (
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"qb" = (
+/obj/machinery/grill/unwrenched,
+/turf/open/floor/plating/sidewalk/rich,
+/area/housing/bighouse)
+"qp" = (
+/obj/fusebox,
+/obj/structure/table/wood,
+/obj/item/melee/vamp/handsickle,
+/obj/item/reagent_containers/cup/bucket/wooden,
+/obj/item/cultivator/rake,
+/obj/item/clothing/gloves/botanic_leather,
+/turf/open/floor/plating/roofwalk/cobblestones,
+/area/housing/bighouse/first_floor)
+"qt" = (
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/first_floor/dining_hall)
+"qz" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/machinery/light/prince/directional/west,
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/large_restroom)
+"qK" = (
+/obj/structure/chair/office/darkpack/red{
+	dir = 8
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"rc" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
+	dir = 4
+	},
+/obj/machinery/light/prince/directional/west,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"rh" = (
+/obj/structure/table/wood,
+/obj/machinery/light/prince/directional/west,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"rp" = (
+/obj/structure/table/wood/fancy/royalblack,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"ru" = (
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"rv" = (
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/spa)
+"rA" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/first_floor)
+"rD" = (
+/obj/machinery/vending/boozeomat{
+	density = 0;
+	pixel_y = 24
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"rF" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/right_bedroom)
+"rI" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/bedroom)
+"rM" = (
+/obj/structure/vampfence/rich{
+	pixel_y = 4
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/grass,
+/area/housing/bighouse)
+"rS" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/staircase)
+"sr" = (
+/obj/structure/vampfence/rich{
+	dir = 8
+	},
+/turf/open/misc/grass,
+/area/housing/bighouse)
+"st" = (
+/obj/structure/dresser{
+	pixel_y = 12
+	},
+/obj/machinery/sprinkler,
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/spa)
+"sG" = (
+/obj/structure/railing/wooden_fence,
+/obj/item/binoculars,
+/obj/structure/table/wood/fancy/royalblack,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/first_floor/dining_hall)
+"sS" = (
+/turf/open/floor/plating/roofwalk/cobblestones,
+/area/housing/bighouse)
+"tj" = (
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
+/obj/item/storage/box/ingredients/vegetarian,
+/obj/item/storage/box/ingredients/carnivore,
+/obj/item/reagent_containers/condiment/milk{
+	name = "full cream milk"
+	},
+/obj/item/storage/box/ingredients/american,
+/obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/condiment/milk{
+	name = "full cream milk"
+	},
+/obj/item/storage/box/ingredients/vegetarian,
+/obj/item/storage/box/ingredients/exotic,
+/obj/item/food/dough,
+/obj/item/food/dough,
+/obj/item/food/cheese/wheel,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/tomato,
+/obj/machinery/light/prince/directional/south,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/sugar,
+/obj/item/reagent_containers/condiment/sugar,
+/obj/item/reagent_containers/condiment/flour,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"tp" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/obj/structure/roadsign/housing_sign,
+/turf/open/floor/plating/roofwalk/cobblestones,
+/area/housing/bighouse/first_floor)
+"ty" = (
+/obj/structure/bed/double,
+/obj/effect/spawner/random/bedsheet/any/double,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"tF" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/entryway)
+"tU" = (
+/obj/structure/vampstatue,
+/obj/effect/turf_decal/bordur/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor/entryway)
+"ue" = (
+/obj/structure/curtain/bounty{
+	pixel_y = -24
+	},
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/housing/bighouse/second_floor/library)
+"um" = (
+/turf/open/water/hot_spring,
+/area/housing/bighouse/second_floor/spa)
+"vh" = (
+/obj/machinery/shower/directional/south,
+/obj/item/soap/deluxe,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"vt" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 8
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"vS" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/den)
+"vW" = (
+/obj/structure/bookcase/random{
+	pixel_y = 20;
+	density = 0
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"wf" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/large_restroom)
+"wk" = (
+/obj/structure/kitchenspike,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"wo" = (
+/obj/structure/table/wood/fancy/royalblack,
+/obj/item/storage/fancy/candle_box,
+/obj/effect/spawner/random/special_lighter,
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"wv" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 1
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"wJ" = (
+/obj/machinery/light/prince/directional/east,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/first_floor/dining_hall)
+"wX" = (
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"xa" = (
+/obj/machinery/light_switch{
+	pixel_x = -19
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"xq" = (
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/structure/vampdoor/wood,
+/turf/open/floor/plating/roofwalk/cobblestones,
+/area/housing/bighouse/first_floor/entryway)
+"xv" = (
+/turf/open/misc/grass/random/grass,
+/area/housing/bighouse)
+"xD" = (
+/obj/structure/vampdoor/wood,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/staircase)
+"xL" = (
+/obj/effect/turf_decal/siding/beige{
+	dir = 1
+	},
+/obj/structure/vampdoor/wood,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/large_restroom)
+"yd" = (
+/obj/structure/table/countertop/black,
+/obj/machinery/microwave,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"yl" = (
+/obj/structure/sign/painting/library,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"yC" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"yD" = (
+/obj/structure/vampdoor/wood,
+/obj/effect/turf_decal/siding/thinplating/dark/corner,
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 1
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"yF" = (
+/turf/closed/housing/border,
+/area/housing/bighouse/second_floor)
+"yS" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/structure/table/wood/fancy/royalblack,
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/den)
+"zl" = (
+/obj/structure/hedge,
+/obj/effect/turf_decal/bordur/corner{
+	dir = 4
+	},
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor)
+"zp" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/kitchen)
+"zr" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"zw" = (
+/obj/structure/chair/wood/darkpack,
+/obj/structure/sign/painting/library{
+	pixel_y = 32
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/first_floor/dining_hall)
+"zD" = (
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/entryway)
+"zE" = (
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/library)
+"zH" = (
+/turf/open/misc/grass/random/grass,
+/area/housing/bighouse/first_floor)
+"zL" = (
+/obj/structure/vampstatue,
+/obj/effect/turf_decal/bordur/corner{
+	dir = 1
+	},
+/obj/machinery/light/prince/directional/south,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor/den)
+"zN" = (
+/obj/structure/aquarium/prefilled,
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/bedroom)
+"zP" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/obj/structure/curtain/bounty{
+	pixel_y = 8
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/large_restroom)
+"Ac" = (
+/obj/structure/railing/wooden_fence{
+	dir = 8
+	},
+/obj/structure/railing/wooden_fence{
+	dir = 4
+	},
+/turf/open/floor/iron/stairs/black,
+/area/housing/bighouse/first_floor/dining_hall)
+"Aj" = (
+/obj/machinery/light/small/directional/south,
+/obj/effect/turf_decal/siding/beige{
+	dir = 8
+	},
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/left_bedroom)
+"Ap" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/staircase)
+"Ar" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/housing/bighouse/second_floor/staircase)
+"Av" = (
+/obj/structure/chair/plastic/darkpack{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/housing/bighouse)
+"Aw" = (
+/obj/effect/turf_decal/bordur{
+	layer = 2.1
+	},
+/obj/structure/vampstatue{
+	pixel_y = 8
+	},
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor)
+"AI" = (
+/obj/structure/curtain/bounty{
+	pixel_y = 15
+	},
+/obj/structure/platform/lowwall/rich/old/window,
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/first_floor/den)
+"AK" = (
+/obj/structure/railing/wooden_fence,
+/obj/structure/table/wood/fancy/royalblack,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/first_floor/dining_hall)
+"Ba" = (
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/machinery/hydroponics/soil,
+/obj/item/seeds/poppy/lily,
+/turf/open/misc/grass/nosmooth,
+/area/housing/bighouse/first_floor)
+"BC" = (
+/obj/effect/decal/carpet{
+	pixel_y = -13
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"BD" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/bed/double,
+/obj/item/bedsheet/black/double,
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/bedroom)
+"BI" = (
+/obj/effect/turf_decal/bordur/corner{
+	dir = 4
+	},
+/turf/open/water/river,
+/area/housing/bighouse/first_floor)
+"BP" = (
+/obj/machinery/light/prince/directional/west,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"BS" = (
+/obj/structure/vampdoor/wood,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"Ci" = (
+/obj/effect/turf_decal/bordur{
+	layer = 2.1
+	},
+/obj/structure/flora/bush/reed/style_random{
+	pixel_x = 13;
+	pixel_y = 25
+	},
+/turf/open/water/river,
+/area/housing/bighouse/first_floor)
+"Co" = (
+/obj/effect/turf_decal/bordur{
+	layer = 2.1
+	},
+/obj/structure/flora/tree/vamp/pine,
+/turf/open/misc/grass,
+/area/housing/bighouse)
+"Cv" = (
+/obj/structure/table/wood,
+/turf/open/floor/plating/sidewalk/rich,
+/area/housing/bighouse)
+"Cy" = (
+/obj/structure/vampdoor/wood,
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 1
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"CH" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 6
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"CK" = (
+/obj/structure/chair/plastic/darkpack{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk/rich,
+/area/housing/bighouse)
+"CW" = (
+/obj/structure/sink/directional/south,
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/machinery/light_switch{
+	pixel_y = 29;
+	pixel_x = -12
+	},
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/large_restroom)
+"CX" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"De" = (
+/obj/machinery/light/prince/directional/east,
+/obj/effect/turf_decal/siding/wood/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"Dz" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/left_bedroom)
+"DJ" = (
+/obj/machinery/light/prince/directional/north,
+/turf/open/misc/grass/random/grass,
+/area/housing/bighouse/first_floor)
+"DL" = (
+/turf/closed/housing/border,
+/area/housing/bighouse/first_floor)
+"DN" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 15;
+	pixel_x = 7
+	},
+/obj/item/paper_bin{
+	pixel_y = 8;
+	pixel_x = -1
+	},
+/obj/item/pen{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/turf/open/floor/carpet/red,
+/area/housing/bighouse/second_floor/library)
+"DT" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor)
+"DU" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/grass,
+/area/housing/bighouse/first_floor)
+"Ei" = (
+/obj/effect/turf_decal/siding/beige,
+/obj/structure/vampdoor/wood,
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/right_bedroom)
+"Ej" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/obj/structure/hedge,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"En" = (
+/obj/machinery/light/prince/directional/south,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"Eu" = (
+/obj/structure/chair/sofa/left/brown{
+	color = "#525252"
+	},
+/obj/structure/bookcase/random{
+	pixel_y = 20;
+	density = 0
+	},
+/turf/open/floor/carpet/red,
+/area/housing/bighouse/second_floor/library)
+"EI" = (
+/obj/structure/hedge,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 8
+	},
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 9
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"ET" = (
+/obj/machinery/shower/directional/south,
+/obj/item/soap/deluxe,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"EY" = (
+/obj/machinery/light/prince/directional/east,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"Fd" = (
+/obj/structure/reagent_dispensers/watertank/high,
+/turf/open/misc/grass/random/grass,
+/area/housing/bighouse/first_floor)
+"Fi" = (
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = 993;
+	pixel_y = 15
+	},
+/obj/structure/platform/lowwall/rich/old/window,
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor)
+"Fl" = (
+/obj/structure/hedge,
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"FB" = (
+/obj/effect/turf_decal/bordur{
+	dir = 8
+	},
+/obj/structure/flora/bush/reed/style_random{
+	pixel_x = 15;
+	pixel_y = 11
+	},
+/turf/open/water/river,
+/area/housing/bighouse/first_floor)
+"FM" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"FQ" = (
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"FZ" = (
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"Gc" = (
+/turf/open/floor/plating/sidewalk/rich,
+/area/housing/bighouse)
+"Gd" = (
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/den)
+"Gf" = (
+/obj/structure/vampdoor/wood,
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/staircase)
+"Gn" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/large_restroom)
+"Gu" = (
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/large_restroom)
+"GA" = (
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
+/obj/item/storage/box/ingredients/vegetarian,
+/obj/item/storage/box/ingredients/carnivore,
+/obj/item/reagent_containers/condiment/milk{
+	name = "full cream milk"
+	},
+/obj/item/storage/box/ingredients/american,
+/obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/condiment/milk{
+	name = "full cream milk"
+	},
+/obj/item/storage/box/ingredients/vegetarian,
+/obj/item/storage/box/ingredients/exotic,
+/obj/item/food/dough,
+/obj/item/food/dough,
+/obj/item/food/cheese/wheel,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/tomato,
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"GI" = (
+/obj/structure/vampfence/rich{
+	dir = 4
+	},
+/turf/open/misc/grass,
+/area/housing/bighouse)
+"Hm" = (
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"Hv" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"HA" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 4
+	},
+/obj/structure/curtain/bounty{
+	pixel_y = -24
+	},
+/turf/open/floor/carpet/red,
+/area/housing/bighouse/second_floor/library)
+"HE" = (
+/obj/effect/decal/wallpaper/stone/low{
+	pixel_y = 24
+	},
+/obj/effect/decal/shadow,
+/turf/open/floor/plating/roofwalk/cobblestones,
+/area/housing/bighouse/first_floor)
+"HR" = (
+/obj/effect/decal/carpet{
+	pixel_y = -13
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"Ij" = (
+/obj/structure/coclock/grandpa,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/den)
+"Iv" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"Ix" = (
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/open/openspace,
+/area/housing/bighouse/second_floor)
+"Iy" = (
+/obj/effect/turf_decal/siding/beige{
+	dir = 1
+	},
+/obj/structure/table/wood,
+/obj/machinery/light/prince/directional/east{
+	pixel_y = 24
+	},
+/obj/item/soap/deluxe{
+	pixel_x = -9;
+	pixel_y = 7
+	},
+/obj/item/soap/deluxe{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/obj/item/storage/fancy/candle_box,
+/obj/effect/spawner/random/special_lighter,
+/obj/structure/railing/wooden_fence{
+	dir = 1;
+	layer = 2.09
+	},
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/spa)
+"IG" = (
+/obj/structure/toilet{
+	dir = 8;
+	pixel_y = 6
+	},
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/left_bedroom)
+"IO" = (
+/obj/structure/toilet{
+	dir = 4;
+	pixel_y = 17
+	},
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/right_bedroom)
+"IP" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"IV" = (
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/large_restroom)
+"IZ" = (
+/obj/item/reagent_containers/cup/glass/bottle/champagne{
+	pixel_y = 11
+	},
+/obj/machinery/sprinkler,
+/obj/structure/table/wood/fancy/royalblack,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"Jd" = (
+/turf/open/floor/carpet/red,
+/area/housing/bighouse/second_floor/library)
+"Jg" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 1
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"Jp" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"JQ" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"JS" = (
+/obj/structure/vampstatue,
+/obj/effect/turf_decal/bordur/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor/entryway)
+"Ka" = (
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor)
+"Kd" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"Ke" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"Km" = (
+/obj/structure/vampfence/corner/rich{
+	dir = 8;
+	icon_state = "fence_end"
+	},
+/turf/open/misc/grass,
+/area/housing/bighouse)
+"Kn" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"Kr" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 6
+	},
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/den)
+"Kz" = (
+/obj/effect/turf_decal/siding/beige{
+	dir = 1
+	},
+/obj/structure/railing/wooden_fence{
+	dir = 1;
+	layer = 2.09
+	},
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/spa)
+"KH" = (
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/machinery/hydroponics/soil,
+/obj/item/seeds/sunflower,
+/turf/open/misc/grass/nosmooth,
+/area/housing/bighouse/first_floor)
+"KL" = (
+/obj/structure/hedge,
+/obj/effect/turf_decal/bordur/corner,
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor)
+"Ld" = (
+/obj/machinery/sprinkler,
+/obj/structure/chair/stool/bar/darkpack/green,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"Lz" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 4
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"LB" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor)
+"LL" = (
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"LN" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/kitchen)
+"Mq" = (
+/turf/open/openspace,
+/area/housing/bighouse/second_floor/staircase)
+"MF" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/housing/bighouse/second_floor/library)
+"MI" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_y = 8
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"MZ" = (
+/obj/structure/bed/double,
+/obj/effect/spawner/random/bedsheet/any/double,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"Nd" = (
+/obj/structure/railing/wooden_fence{
+	dir = 4
+	},
+/obj/structure/bookcase/random{
+	pixel_y = 20;
+	density = 0
+	},
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"Ne" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/den)
+"Nh" = (
+/obj/structure/chair/office/darkpack/red{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"No" = (
+/obj/structure/vampfence/rich{
+	layer = 4.8
+	},
+/turf/open/misc/grass,
+/area/housing/bighouse)
+"Nq" = (
+/obj/effect/turf_decal/bordur{
+	layer = 2.1
+	},
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/machinery/hydroponics/soil,
+/obj/item/seeds/sunflower,
+/turf/open/misc/grass/nosmooth,
+/area/housing/bighouse/first_floor)
+"Ns" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_x = -19
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"NY" = (
+/obj/machinery/shower/directional/south{
+	pixel_x = -12
+	},
+/obj/effect/turf_decal/stock{
+	dir = 4;
+	pixel_x = -10
+	},
+/obj/effect/turf_decal/stock{
+	dir = 8;
+	pixel_x = 10;
+	pixel_y = -1
+	},
+/turf/open/floor/plating/concrete{
+	icon_state = "canal_concrete"
+	},
+/area/housing/bighouse/second_floor/large_restroom)
+"Ob" = (
+/obj/structure/table/wood,
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/bedroom)
+"Oe" = (
+/obj/structure/vampstatue{
+	pixel_y = 8
+	},
+/obj/effect/turf_decal/bordur{
+	layer = 2.1
+	},
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor)
+"Oh" = (
+/obj/structure/railing/wooden_fence{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 6
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"OC" = (
+/obj/structure/table/wood,
+/obj/effect/decal/wallpaper/paper/green/low,
+/obj/structure/platform/lowwall/junk,
+/obj/machinery/chem_dispenser/drinks/fullupgrade{
+	dir = 8;
+	pixel_y = 0
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/foyer)
+"OF" = (
+/obj/structure/vampfence/rich{
+	dir = 1
+	},
+/turf/open/misc/grass,
+/area/housing/bighouse)
+"OH" = (
+/obj/effect/baseturf_helper/housing/second_floor,
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_y = 8
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"OW" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"Pr" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/open/misc/grass/random/grass,
+/area/housing/bighouse/first_floor)
+"PY" = (
+/obj/effect/turf_decal/siding/beige,
+/obj/structure/curtain/bounty{
+	pixel_y = 8
+	},
+/turf/open/floor/plating/concrete{
+	icon_state = "canal_concrete"
+	},
+/area/housing/bighouse/second_floor/large_restroom)
+"Qb" = (
+/obj/machinery/light/prince/directional/north,
+/obj/structure/chair/sofa/corp,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/den)
+"Qf" = (
+/obj/structure/vampfence/rich{
+	pixel_y = 4
+	},
+/turf/open/misc/grass/random/grass,
+/area/housing/bighouse)
+"Qk" = (
+/obj/structure/bath,
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/large_restroom)
+"QL" = (
+/obj/machinery/griddle,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"QM" = (
+/obj/structure/table/countertop/black,
+/obj/machinery/light/prince/directional/north,
+/obj/machinery/processor,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"QN" = (
+/obj/structure/table/wood/fancy/royalblack,
+/obj/item/kirbyplants/darkpack/plant3{
+	pixel_y = 14;
+	pixel_x = 1
+	},
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"Rc" = (
+/obj/structure/dresser,
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/bedroom)
+"Rz" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/structure/rack/clothing_hanger/rand,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"RA" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/bedroom)
+"RD" = (
+/obj/structure/chair/stool/bar/darkpack/green,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/foyer)
+"Sn" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"So" = (
+/turf/closed/housing/border,
+/area/housing/bighouse/first_floor/entryway)
+"St" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"Sv" = (
+/obj/machinery/light/prince/directional/east,
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/large_restroom)
+"SK" = (
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/spa)
+"SN" = (
+/obj/machinery/oven/range,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"SQ" = (
+/obj/effect/turf_decal/siding/beige{
+	dir = 1
+	},
+/obj/structure/vampdoor/wood,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/second_floor/spa)
+"SX" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/open/misc/grass/random/grass,
+/area/housing/bighouse)
+"Te" = (
+/obj/structure/railing/wooden_fence{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 8
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"Tf" = (
+/obj/effect/turf_decal/bordur/corner{
+	dir = 8
+	},
+/obj/structure/vampstatue,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor/den)
+"Ti" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"Tq" = (
+/obj/structure/flora/tree/vamp/pine,
+/turf/open/misc/grass/random/grass,
+/area/housing/bighouse)
+"TF" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/den)
+"TJ" = (
+/obj/structure/railing/wooden_fence{
+	dir = 8
+	},
+/obj/structure/bookcase/random{
+	pixel_y = 20;
+	density = 0
+	},
+/obj/effect/turf_decal/siding/wideplating/dark/corner,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"TP" = (
+/obj/structure/hedge,
+/obj/structure/flora/bush/flowers_yw/style_random,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 5
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"Ua" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"Uv" = (
+/obj/structure/table/wood,
+/obj/effect/decal/wallpaper/paper/green/low,
+/obj/structure/platform/lowwall/junk,
+/obj/item/rag{
+	pixel_y = 7;
+	pixel_x = 10
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/foyer)
+"Vc" = (
+/obj/effect/turf_decal/bordur/corner{
+	dir = 8
+	},
+/obj/structure/flora/bush/reed/style_random{
+	pixel_x = -2;
+	pixel_y = -4
+	},
+/turf/open/water/river,
+/area/housing/bighouse/first_floor)
+"Vq" = (
+/obj/structure/chair/sofa/corp/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/den)
+"Vy" = (
+/obj/structure/hedge,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/den)
+"VE" = (
+/obj/structure/railing/wooden_fence{
+	dir = 8
+	},
+/obj/structure/railing/wooden_fence{
+	dir = 4
+	},
+/turf/open/floor/iron/stairs{
+	dir = 1
+	},
+/area/housing/bighouse/first_floor/den)
+"VO" = (
+/obj/effect/turf_decal/bordur/corner,
+/obj/structure/hedge,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor)
+"Wa" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 4
+	},
+/obj/machinery/sprinkler/area_managed,
+/turf/open/floor/carpet/red,
+/area/housing/bighouse/second_floor/library)
+"Wq" = (
+/obj/effect/turf_decal/bordur{
+	layer = 2.1
+	},
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/structure/hedge,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/housing/bighouse/first_floor)
+"WH" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/entryway)
+"WI" = (
+/obj/structure/sink/directional/south,
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/machinery/light_switch{
+	pixel_y = 29;
+	pixel_x = -12
+	},
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/left_bedroom)
+"WU" = (
+/obj/structure/table/wood,
+/obj/effect/decal/wallpaper/paper/green/low,
+/obj/structure/platform/lowwall/junk,
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/foyer)
+"WX" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"Xb" = (
+/obj/structure/railing/wooden_fence,
+/obj/effect/turf_decal/siding/wood/dark,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"Xc" = (
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = 993;
+	pixel_y = 15
+	},
+/obj/structure/platform/lowwall/rich/old/window,
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/first_floor/dining_hall)
+"XD" = (
+/obj/machinery/light/prince/directional/west,
+/turf/open/floor/wood/herring,
+/area/housing/bighouse/first_floor/dining_hall)
+"XN" = (
+/obj/machinery/sprinkler,
+/turf/open/openspace,
+/area/housing/bighouse/second_floor/staircase)
+"XT" = (
+/obj/effect/turf_decal/siding/beige,
+/obj/structure/vampdoor/wood,
+/turf/open/floor/city/industrial,
+/area/housing/bighouse/second_floor/left_bedroom)
+"Ye" = (
+/obj/machinery/light/prince/directional/north,
+/turf/open/floor/carpet/darkpack/old,
+/area/housing/bighouse/first_floor/bedroom)
+"YA" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/city/toilet,
+/area/housing/bighouse/first_floor/kitchen)
+"YC" = (
+/obj/structure/hedge,
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 1
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"YI" = (
+/obj/item/reagent_containers/cup/glass/bottle/wine{
+	pixel_y = 10;
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/cup/glass/bottle/wine{
+	pixel_y = 10;
+	pixel_x = 8
+	},
+/obj/structure/table/wood/fancy/royalblack,
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"YK" = (
+/obj/machinery/light/prince/directional/east,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/plating/sidewalk/old,
+/area/housing/bighouse/first_floor/entryway)
+"YN" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor)
+"YU" = (
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = 993;
+	pixel_y = 15
+	},
+/obj/structure/platform/lowwall/rich/old/window,
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/first_floor/kitchen)
+"YY" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/library)
+"Zc" = (
+/obj/effect/turf_decal/bordur/corner{
+	dir = 1
+	},
+/obj/structure/flora/bush/reed/style_random{
+	pixel_x = 1;
+	pixel_y = 10
+	},
+/turf/open/water/river,
+/area/housing/bighouse/first_floor)
+"Zm" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor)
+"ZB" = (
+/obj/machinery/light/prince/directional/west,
+/obj/effect/turf_decal/siding/wood/dark/corner,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"ZN" = (
+/obj/effect/landmark/housing/spawnpoint,
+/turf/open/floor/plating/roofwalk/cobblestones,
+/area/housing/bighouse/first_floor)
+"ZS" = (
+/obj/structure/vampfence/corner/rich{
+	dir = 4
+	},
+/turf/open/misc/grass,
+/area/housing/bighouse)
 
 (1,1,1) = {"
-mvmvmvmvmvmvmvmvmvmvmvmvmvmvmvzrzrzrzrzrzrzrnGmv
-mvCouKqbqbqbqbqbqbtFSoSoSoSoSozrqtiDzwiDdYzrrMmv
-mvJOGcGcCvCKtztzjntFrOrOrOrOrOzrXDAKsGAKwJzrmmmv
-mvImImGcGcGcGcGcGctFdSTJgbNddSzrAcEjEjEjAcXcOFmv
-mvgvhNvSvSvSvShIvStFCXCHzDiTgizrleyCIZOWleXcrMmv
-mvxvNovSVqQbmgetIjtFgEzDzDzDYKzrBPyCYIOWleXcrMmv
-mvxvmmAIgBySKrGdGdtFNszDzDzDKezrxayCibOWleXcrMmv
-mvxvOFAIGdGdNeGdGdFZpgzDWHzDKemjlelewvlelezrOFmv
-mvxvmmAIGdGdGdGdVytFpgzDzDzDKeWXBPleleleEYzrrMmv
-mvxvmmTFzLVEVyVyTftFdUTizDHvjmtFLNpfLNLNLNLNrMmv
-mvxvmmceceoOceceZmtFtUStRzjaJStFbtHmwXSNQMLNmmmv
-mvxvOFcegKkdYeceHwestFxqtFxqtFtFFMHmYAHmRsYUOFmv
-mvTqmmcekdkdBDceKaZmzlcfcfcfKLZmoyHmHmHmccYUrMmv
-mvxvmmcegxRAkdceKaSucfcfcfcfcfZmbKmdHmQLydLNrMmv
-mvxvmmrIcecececeZmZmcfcfcfcfcfZmLNLNBSLNLNLNrMmv
-mvTqOFqpZmNqiuNqZmDUcfdsWqgqcfzHLNGAHmwkLNsSOFDL
-mvxvmmcfgeKaDTKagecfcfVcpeZccfcfLNHmYAHmSnsSQfDL
-mvxvmmcfZmBaKHBaZmzHcfFBgskHcfcfLNtjtjtjLNsSQfDL
-mvxvmmcfZmrArArAZmzHcflOCiBIcfcfzpLNLNLNLNsSmmDL
-mvxvOFcfmzVOOeoFmzcfcfdsWqgqcfcfDJVOAwoFmzsSOFDL
-mvTqmmcfcfHEHEHEcfcfcfHEtpHEcfcfcfHEHEHEcfsSQfDL
-mvxvmmPrcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfxvQfDL
-mvSXhrGIGIGIsrGIGIGIdRcfZNcfKmGIGIGIsrGIGIGIZSDL
-mvmvmvmvmvmvmvmvmvmvmvmvmvmvmvmvmvmvmvmvmvmvmvDL
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
 "}
+(2,1,1) = {"
+mv
+Co
+xv
+xv
+xv
+xv
+xv
+xv
+xv
+xv
+xv
+xv
+Tq
+xv
+xv
+Tq
+xv
+xv
+xv
+xv
+Tq
+xv
+SX
+mv
+"}
+(3,1,1) = {"
+mv
+OF
+No
+mm
+OF
+No
+mm
+OF
+mm
+mm
+mm
+OF
+mm
+mm
+mm
+OF
+mm
+mm
+mm
+OF
+mm
+mm
+hr
+mv
+"}
+(4,1,1) = {"
+mv
+Av
+Av
+Gc
+vS
+vS
+AI
+AI
+AI
+TF
+ce
+ce
+ce
+ce
+rI
+qp
+cf
+cf
+cf
+cf
+cf
+Pr
+GI
+mv
+"}
+(5,1,1) = {"
+mv
+Cv
+Cv
+Gc
+vS
+Vq
+gB
+Gd
+Gd
+zL
+ce
+gK
+Ob
+gx
+ce
+Zm
+ge
+Zm
+Zm
+mz
+cf
+cf
+GI
+mv
+"}
+(6,1,1) = {"
+mv
+CK
+CK
+cY
+vS
+Qb
+yS
+Gd
+Gd
+VE
+oO
+kd
+kd
+RA
+ce
+Nq
+Ka
+Ba
+rA
+VO
+HE
+cf
+GI
+mv
+"}
+(7,1,1) = {"
+mv
+Gc
+Gc
+Gc
+vS
+mg
+Kr
+Ne
+Gd
+Vy
+ce
+Ye
+kd
+kd
+ce
+iu
+DT
+KH
+rA
+Oe
+HE
+cf
+sr
+mv
+"}
+(8,1,1) = {"
+mv
+qb
+Gc
+Gc
+hI
+Gd
+Gd
+Gd
+Gd
+Vy
+ce
+Rc
+kd
+kd
+ce
+Nq
+Ka
+Ba
+rA
+oF
+HE
+cf
+GI
+mv
+"}
+(9,1,1) = {"
+mv
+Gc
+Gc
+Gc
+vS
+Ij
+Gd
+Gd
+Vy
+Tf
+ce
+BD
+kd
+zN
+ce
+Zm
+ge
+Zm
+Zm
+mz
+cf
+cf
+GI
+mv
+"}
+(10,1,1) = {"
+mv
+tF
+tF
+tF
+tF
+tF
+tF
+FZ
+tF
+tF
+tF
+es
+ce
+ce
+ce
+DU
+cf
+zH
+zH
+cf
+cf
+cf
+GI
+mv
+"}
+(11,1,1) = {"
+mv
+So
+tF
+dS
+CX
+gE
+Ns
+pg
+pg
+dU
+tU
+tF
+zl
+cf
+cf
+cf
+cf
+cf
+cf
+cf
+cf
+cf
+dR
+mv
+"}
+(12,1,1) = {"
+mv
+So
+tF
+TJ
+CH
+zD
+zD
+zD
+zD
+Ti
+St
+xq
+cf
+cf
+cf
+ds
+Vc
+FB
+lO
+ds
+HE
+cf
+cf
+mv
+"}
+(13,1,1) = {"
+mv
+So
+tF
+gb
+zD
+zD
+zD
+WH
+zD
+zD
+Rz
+tF
+cf
+cf
+cf
+Wq
+pe
+gs
+Ci
+Wq
+tp
+cf
+ZN
+mv
+"}
+(14,1,1) = {"
+mv
+So
+tF
+Nd
+iT
+zD
+zD
+zD
+zD
+Hv
+ja
+xq
+cf
+cf
+cf
+gq
+Zc
+kH
+BI
+gq
+HE
+cf
+cf
+mv
+"}
+(15,1,1) = {"
+mv
+So
+tF
+dS
+gi
+YK
+Ke
+Ke
+Ke
+jm
+JS
+tF
+KL
+cf
+cf
+cf
+cf
+cf
+cf
+cf
+cf
+cf
+Km
+mv
+"}
+(16,1,1) = {"
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+mj
+WX
+tF
+tF
+tF
+Zm
+Zm
+Zm
+Fd
+cf
+cf
+cf
+cf
+cf
+cf
+GI
+mv
+"}
+(17,1,1) = {"
+zr
+qt
+XD
+Ac
+le
+BP
+xa
+le
+BP
+LN
+bt
+FM
+oy
+bK
+LN
+LN
+LN
+LN
+zp
+DJ
+cf
+cf
+GI
+mv
+"}
+(18,1,1) = {"
+zr
+iD
+AK
+Ej
+yC
+yC
+yC
+le
+le
+pf
+Hm
+Hm
+Hm
+md
+LN
+GA
+Hm
+tj
+LN
+VO
+HE
+cf
+GI
+mv
+"}
+(19,1,1) = {"
+zr
+zw
+sG
+Ej
+IZ
+YI
+ib
+wv
+le
+LN
+wX
+YA
+Hm
+Hm
+BS
+Hm
+YA
+tj
+LN
+Aw
+HE
+cf
+sr
+mv
+"}
+(20,1,1) = {"
+zr
+iD
+AK
+Ej
+OW
+OW
+OW
+le
+le
+LN
+SN
+Hm
+Hm
+QL
+LN
+wk
+Hm
+tj
+LN
+oF
+HE
+cf
+GI
+mv
+"}
+(21,1,1) = {"
+zr
+dY
+wJ
+Ac
+le
+le
+le
+le
+EY
+LN
+QM
+oy
+cc
+yd
+LN
+LN
+Sn
+LN
+LN
+mz
+cf
+cf
+GI
+mv
+"}
+(22,1,1) = {"
+zr
+zr
+zr
+Xc
+Xc
+Xc
+Xc
+zr
+zr
+LN
+LN
+YU
+YU
+LN
+LN
+sS
+sS
+sS
+sS
+sS
+sS
+xv
+GI
+mv
+"}
+(23,1,1) = {"
+nG
+rM
+mm
+OF
+rM
+rM
+rM
+OF
+rM
+rM
+mm
+OF
+rM
+rM
+rM
+OF
+Qf
+Qf
+mm
+OF
+Qf
+Qf
+ZS
+mv
+"}
+(24,1,1) = {"
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+mv
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+DL
+"}
+
 (1,1,2) = {"
-yFnmyFyFyFyFyFyFYNrSrSrSrSrSrSrSYNyFyFyFyFyFyFyF
-yFnmnmlolololololovWvWpJwoalvWvWGnGnGnGnGnGnYNyF
-yFnmnmloumumumumloZBafXbXbXbafDeGnQkCWzPhYNYYNyF
-yFnmnmloumumumumloOhMqMqXNMqMqbIGnIVIVzPPYiAYNyF
-yFnmnmlohDdhKzIyloOhMqMqArMqMqbIGnqzIVwfIVSvYNyF
-yFnmnmlorvrvrvstloGfrSrSrSrSrSxDGniGIVIVIVIVYNyF
-yFnmnmSKloloSQloloFQmWGWQNIPmWFQGuGnxLGnGnGnYNyF
-yFnmnmFiplpYFQrumWFQFQLzrpIPFQFQomruFQpYrDOCYNyF
-yFnmnmFiplcycTFQFQFQFQFQBCFQFQFQFQFQLdUvFQhnYNyF
-yFnmnmFiFlJgFQFQFQFQFQFQFQFQFQFQFQFQRDWUFQdDYNyF
-yFnmnmYNfkfkfkfkdjyDdjdjdjdjdjCydjaZaZaZaZYNYNyF
-yFnmnmYNWIDzETfkCOcpawEudjawEuvtiVaZcRrFvhYNnmyF
-yFnmnmYNUeAjpIfkggcpJdJdiMJdJdvtYYaZIOohLLYNnmyF
-yFnmnmYNXTorfkfkdjrcKnnjnjnjJpkadjaZEiaZylYNnmyF
-yFnmnmYNUaUaUaPkhbYYcpWaDNMFvtYYhbxyhvhvoIYNnmyF
-yFnmnmYNOHnBkwIvzEYCTPHAdtueEIpcvkCJHRhvMZYNnmyF
-yFnmnmYNYNYNYNYNYNYNYNLBLBLBYNYNYNYNYNYNYNYNnmyF
-yFnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmyF
-yFnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmyF
-yFnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmyF
-yFnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmyF
-yFnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmyF
-yFIxnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmyF
-yFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyFyF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+"}
+(2,1,2) = {"
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+Ix
+yF
+"}
+(3,1,2) = {"
+yF
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(4,1,2) = {"
+yF
+lo
+lo
+lo
+lo
+lo
+SK
+Fi
+Fi
+Fi
+Iv
+Iv
+Iv
+Iv
+Iv
+Iv
+Iv
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(5,1,2) = {"
+yF
+lo
+um
+um
+hD
+rv
+lo
+pl
+pl
+Fl
+Iv
+ET
+pI
+Iv
+rh
+OH
+Iv
+Iv
+Iv
+nm
+nm
+nm
+nm
+yF
+"}
+(6,1,2) = {"
+yF
+lo
+um
+um
+dh
+rv
+lo
+pY
+cy
+Jg
+Iv
+Dz
+Aj
+or
+qK
+Ua
+Ua
+Kd
+Iv
+nm
+nm
+nm
+nm
+yF
+"}
+(7,1,2) = {"
+yF
+lo
+um
+um
+Kz
+rv
+SQ
+FQ
+cT
+FQ
+Iv
+WI
+IG
+XT
+Ua
+kw
+Ua
+ty
+Iv
+nm
+nm
+nm
+nm
+yF
+"}
+(8,1,2) = {"
+yF
+lo
+um
+um
+Iy
+st
+lo
+ru
+FQ
+FQ
+Iv
+Iv
+Iv
+Iv
+Ua
+Ua
+Ua
+nB
+Iv
+nm
+nm
+nm
+nm
+yF
+"}
+(9,1,2) = {"
+YN
+lo
+lo
+lo
+lo
+lo
+lo
+ba
+FQ
+FQ
+dj
+hb
+gg
+dj
+ij
+zE
+Iv
+Iv
+Iv
+nm
+nm
+nm
+nm
+yF
+"}
+(10,1,2) = {"
+rS
+vW
+ZB
+fC
+Oh
+Gf
+FQ
+FQ
+FQ
+FQ
+yD
+cp
+cp
+rc
+YY
+YC
+YN
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(11,1,2) = {"
+rS
+vW
+af
+Mq
+Mq
+rS
+mW
+FQ
+FQ
+FQ
+dj
+aw
+Jd
+Kn
+cp
+TP
+YN
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(12,1,2) = {"
+rS
+pJ
+Xb
+Mq
+Mq
+Ap
+Lz
+Lz
+FQ
+FQ
+dj
+Eu
+Jd
+nj
+Wa
+HA
+LB
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(13,1,2) = {"
+rS
+wo
+Xb
+XN
+Ar
+Ap
+QN
+rp
+BC
+En
+dj
+dj
+iM
+nj
+DN
+dt
+LB
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(14,1,2) = {"
+rS
+al
+Xb
+Mq
+Mq
+Ap
+IP
+IP
+FQ
+FQ
+dj
+aw
+Jd
+nj
+MF
+ue
+LB
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(15,1,2) = {"
+rS
+vW
+af
+Mq
+Mq
+rS
+mW
+FQ
+FQ
+FQ
+dj
+Eu
+Jd
+Jp
+vt
+EI
+YN
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(16,1,2) = {"
+rS
+vW
+De
+Te
+bI
+xD
+FQ
+FQ
+FQ
+FQ
+Cy
+vt
+vt
+ka
+YY
+pc
+YN
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(17,1,2) = {"
+YN
+Gn
+Gn
+Gn
+Gn
+Gn
+Gu
+om
+FQ
+FQ
+dj
+iV
+YY
+dj
+ij
+zE
+lU
+lU
+lU
+nm
+nm
+nm
+nm
+yF
+"}
+(18,1,2) = {"
+yF
+Gn
+Qk
+IV
+qz
+iG
+Gn
+ru
+FQ
+FQ
+lU
+lU
+lU
+lU
+hv
+hv
+hv
+JQ
+lU
+nm
+nm
+nm
+nm
+yF
+"}
+(19,1,2) = {"
+yF
+Gn
+CW
+IV
+IV
+IV
+xL
+FQ
+Ld
+RD
+lU
+cR
+IO
+Ei
+hv
+HR
+hv
+MZ
+lU
+nm
+nm
+nm
+nm
+yF
+"}
+(20,1,2) = {"
+yF
+Gn
+zP
+zP
+wf
+IV
+Gn
+pY
+Uv
+WU
+lU
+rF
+oh
+lU
+Nh
+hv
+hv
+oI
+lU
+nm
+nm
+nm
+nm
+yF
+"}
+(21,1,2) = {"
+yF
+Gn
+hY
+PY
+IV
+IV
+Gn
+rD
+FQ
+FQ
+lU
+vh
+LL
+yl
+mp
+MI
+lU
+lU
+lU
+nm
+nm
+nm
+nm
+yF
+"}
+(22,1,2) = {"
+yF
+Gn
+NY
+PY
+Sv
+IV
+Gn
+OC
+hn
+dD
+lU
+lU
+lU
+lU
+lU
+lU
+lU
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(23,1,2) = {"
+yF
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+yF
+"}
+(24,1,2) = {"
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
+yF
 "}
