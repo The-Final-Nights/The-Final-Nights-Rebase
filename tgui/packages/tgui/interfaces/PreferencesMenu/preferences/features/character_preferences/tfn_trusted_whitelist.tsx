@@ -10,7 +10,6 @@ const TRUSTED_ONLY_CLAN_NAMES = [
   'Healer Salubri',
   'Warrior Salubri',
   'True Brujah',
-  'Nagaraja',
   'Cappdocian',
   'Harbinger of Skulls',
 ];
