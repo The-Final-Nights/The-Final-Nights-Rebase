@@ -2956,6 +2956,7 @@
 /area/vtm/interior/caves)
 "aMv" = (
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/effect/landmark/start/darkpack/setite,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "aMy" = (
@@ -9024,6 +9025,7 @@
 /area/vtm/interior/millennium_tower)
 "coP" = (
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/effect/landmark/start/darkpack/setite/high_priest,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/supply)
 "coW" = (
@@ -31573,6 +31575,11 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/clinic)
+"ilA" = (
+/obj/effect/decal/cleanable/cardboard,
+/obj/effect/landmark/start/darkpack/setite/ward,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/supply)
 "ilB" = (
 /obj/structure/platform/lowwall/junk,
 /obj/structure/table/wood,
@@ -32797,6 +32804,7 @@
 	},
 /obj/machinery/light/directional/north,
 /obj/effect/landmark/start/darkpack/axe/gang,
+/obj/effect/landmark/start/darkpack/setite/faithful,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "iAe" = (
@@ -56599,6 +56607,7 @@
 	color = "#525252"
 	},
 /obj/effect/landmark/start/darkpack/axe/gang,
+/obj/effect/landmark/start/darkpack/setite/faithful,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "oEF" = (
@@ -61937,6 +61946,10 @@
 	},
 /turf/open/floor/carpet/red,
 /area/vtm/interior/shop)
+"pXW" = (
+/obj/effect/landmark/start/darkpack/setite,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/supply)
 "pYa" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
@@ -135131,7 +135144,7 @@ ycd
 tyI
 oYt
 ngt
-evn
+ilA
 tNl
 tNl
 krL
@@ -135947,7 +135960,7 @@ tow
 tao
 oYt
 eKN
-evn
+ilA
 tNl
 tNl
 lFj
@@ -140028,7 +140041,7 @@ tML
 oYt
 aMv
 tNl
-tNl
+pXW
 jQD
 iKl
 fzo
