@@ -251,3 +251,20 @@
 /datum/loadout_item/suit/shawl/white
     name = "Shawl (White)"
     item_path = /obj/item/clothing/suit/vampire/shawl/white
+
+//FLANNELS
+/datum/loadout_item/suit/jacket/flannel_grey
+    name = "Flannel (Grey)"
+    item_path = /obj/item/clothing/suit/vampire/flannel
+
+/datum/loadout_item/suit/jacket/flannel_red
+    name = "Flannel (Red)"
+    item_path = /obj/item/clothing/suit/vampire/flannel/red
+
+/datum/loadout_item/suit/jacket/flannel_aqua
+    name = "Flannel (Aqua)"
+    item_path = /obj/item/clothing/suit/vampire/flannel/aqua
+
+/datum/loadout_item/suit/jacket/flannel_brown
+    name = "Flannel (Brown)"
+    item_path = /obj/item/clothing/suit/vampire/flannel/brown

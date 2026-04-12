@@ -396,28 +396,6 @@
     name = "Dress (Pentagram)"
     item_path = /obj/item/clothing/under/vampire/dress/pentagram
 
-// Tops & Misc
-/datum/loadout_item/uniform/top
-	group = "Tops"
-	abstract_type = /datum/loadout_item/uniform/top
-
-// Flannel Shirts
-/datum/loadout_item/uniform/top/flannel_grey
-    name = "Flannel (Grey)"
-    item_path = /obj/item/clothing/under/vampire/flannel
-
-/datum/loadout_item/uniform/top/flannel_red
-    name = "Flannel (Red)"
-    item_path = /obj/item/clothing/under/vampire/flannel/red
-
-/datum/loadout_item/uniform/top/flannel_aqua
-    name = "Flannel (Aqua)"
-    item_path = /obj/item/clothing/under/vampire/flannel/aqua
-
-/datum/loadout_item/uniform/top/flannel_brown
-    name = "Flannel (Brown)"
-    item_path = /obj/item/clothing/under/vampire/flannel/brown
-
 //Misc
 /datum/loadout_item/uniform/skater_boy
     name = "Skater Outfit"
