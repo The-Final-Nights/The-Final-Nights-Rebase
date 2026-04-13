@@ -2,7 +2,7 @@
 // TFN EDIT START
 import { useState } from 'react';
 import { Button, Slider, Stack } from 'tgui-core/components';
-import { type FeatureNumeric, type FeatureValueProps, type FeatureNumericData } from '../base';
+import type { FeatureNumeric, FeatureValueProps, FeatureNumericData } from '../base';
 // TFN EDIT END
 type HeightServerData = FeatureNumericData & {
   height_labels: Record<string, string>;
