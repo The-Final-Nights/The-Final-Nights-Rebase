@@ -101,16 +101,18 @@
 		objects[object] = weight
 	if(!length(objects))
 		return
-
+// TFN EDIT START
 	var/obj/speaker = pick_weight(objects)
-	var/speech = spooky_font_replace(pick(audible_hallucinations))
+	var/raw_speech = pick(audible_hallucinations)
+	var/sound_file = audible_hallucinations[raw_speech]
+	var/speech = spooky_font_replace(raw_speech)
 	var/language = hallucinator.get_random_understood_language()
 	var/message = hallucinator.compose_message(speaker, language, speech)
-	hallucinator.playsound_local(hallucinator, audible_hallucinations[speech], vol = 20, vary = TRUE)
+	hallucinator.playsound_local(hallucinator, sound_file, vol = 20, vary = TRUE)
 	if(hallucinator.client.prefs.read_preference(/datum/preference/toggle/see_rc_emotes))
 		hallucinator.create_chat_message(speaker, language, speech, spans = list("italics"))
 	to_chat(hallucinator, span_cult_italic(message))
-
+// TFN EDIT END
 	return TRUE
 
 // override for the your_mother hallucination for malkavians
@@ -165,27 +167,34 @@
 	image_state = ""
 
 /obj/effect/client_image_holder/hallucination/your_mother/malk/Initialize(mapload, list/mobs_which_see_us, datum/hallucination/parent)
-	var/mob/living/carbon/human/hallucinator = parent.hallucinator
-	var/outfits = subtypesof(/datum/outfit/mafia)
-	if (ishuman(hallucinator))
+	. = ..()
+	// TFN EDIT START
+	var/mob/living/hallucinator = parent.hallucinator
+	var/static/list/outfits = subtypesof(/datum/outfit/mafia)
+	if(ishuman(hallucinator))
 		var/mob/living/carbon/dna_haver = hallucinator
 		image_icon = image(get_dynamic_human_appearance(pick(outfits), dna_haver.dna.species.type))
-		return ..()
-
+		return
 	image_icon = hallucinator.icon
 	image_state = hallucinator.icon_state
 	image_pixel_x = hallucinator.pixel_x
 	image_pixel_y = hallucinator.pixel_y
-	return ..()
+	// TFN EDIT END
 
 // the random hallucination type will store overrides and extensions of basegame hallucinations, as well as untouched basegame hallucinations like eyes_in_the_dark
 /datum/hallucination/malk/random
-	var/list/hallucinations = list(/datum/hallucination/eyes_in_dark, /datum/hallucination/your_mother/malk, /datum/hallucination/blood_flow/malk)
+
+// TFN EDIT START
+
+/datum/hallucination/malk/random/proc/get_random_malk_hallucination()
+	var/static/list/uncommon_hallucinations = list(/datum/hallucination/your_mother/malk, /datum/hallucination/blood_flow/malk)
+	var/static/list/common_hallucinations = list(/datum/hallucination/eyes_in_dark) + subtypesof(/datum/hallucination/body)
+	return prob(5) ? pick(uncommon_hallucinations) : pick(common_hallucinations)
 
 /datum/hallucination/malk/random/start()
-	hallucinator.cause_hallucination(pick(hallucinations), "malkavian derangement")
+	hallucinator.cause_hallucination(get_random_malk_hallucination(), "malkavian derangement",)
 	return TRUE
-
+//TFN EDIT END
 // 'Blood Flow'
 /datum/hallucination/blood_flow/malk
 	random_hallucination_weight = 0
@@ -196,4 +205,9 @@
 
 	to_chat(hallucinator, span_warning("The blood doesn't stop flowing from my injury, yet it doesn't seem to hurt..."))
 
+// TFN EDIT START - override this to stop turning people into ice cubes
+/datum/hallucination/body/weird/freezer/freeze_player()
+	if(QDELETED(src))
+		return
+// TFN EDIT END
 #undef FLOOR_DISAPPEAR
