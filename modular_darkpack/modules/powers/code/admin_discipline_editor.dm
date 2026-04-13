@@ -15,7 +15,7 @@
 /datum/admin_discipline_editor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AdminDisciplineEditor")
+		ui = new(user, src, "TFNAdminDisciplineEditor") // TFN EDIT, ORIGINAL: ui = new(user, src, "AdminDisciplineEditor")
 		ui.open()
 
 /datum/admin_discipline_editor/ui_state(mob/user)
@@ -163,7 +163,7 @@
 				target_prefs.discipline_levels -= disc_path
 			else
 				target_prefs.discipline_levels[disc_path] = new_level
-			target_prefs.save_character()
+			//target_prefs.save_character() // TFN EDIT REMOVAL
 			var/client/target_client = GLOB.directory[target_ckey]
 			if(target_client?.mob && ishuman(target_client.mob))
 				var/mob/living/carbon/human/target_mob = target_client.mob
@@ -173,6 +173,7 @@
 				else if(!target_mob.change_st_power_level(discipline_path, new_level))
 					target_mob.give_st_power(discipline_path, new_level) // and add them immediately, too
 			var/character_name = target_prefs.read_preference(/datum/preference/name/real_name)
+			target_client.prefs?.save_character() // TFN EDIT ADD
 			message_admins("[key_name_admin(ui.user)] set [disc_path] to level [new_level] for [ADMIN_LOOKUPFLW(target_ckey)]'s character [character_name]).")
 			log_admin("[key_name_admin(ui.user)] set [disc_path] to level [new_level] for [ADMIN_LOOKUPFLW(target_ckey)]'s character [character_name]).")
 			return TRUE
