@@ -1,4 +1,3 @@
-// THIS IS A TFN FILE
 SUBSYSTEM_DEF(overwatch)
 	name = "Overwatch"
 	ss_flags = SS_NO_FIRE|SS_NO_INIT
