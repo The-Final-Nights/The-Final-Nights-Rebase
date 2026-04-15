@@ -18,11 +18,11 @@
 
 	display_order = JOB_DISPLAY_ORDER_MALKAVIAN
 	department_for_prefs = /datum/job_department/camarilla
+	// TFN EDIT START - removes primogen malkavian from the clinic because why were they ever in it officially
 	departments_list = list(
 		/datum/job_department/camarilla,
-		/datum/job_department/clinic,
 	)
-
+	// TFN EDIT END
 	minimal_generation = 12
 	minimum_immortal_age = 100 // TFN EDIT ADDITION
 	minimal_masquerade = 5
