@@ -1,5 +1,9 @@
 // Loadout stuff
 // Pants
+/datum/loadout_item/uniform/pants
+	group = "Pants"
+	abstract_type = /datum/loadout_item/uniform/pants
+
 /datum/loadout_item/uniform/pants/mustangjeans
 	name = "Jeans (Stonewashed)"
 	item_path = /obj/item/clothing/under/vampire/pants/mustangjeans
@@ -114,6 +118,10 @@
 
 // Shorts
 /datum/loadout_item/uniform/shorts
+	group = "Shorts and Skirts"
+	abstract_type = /datum/loadout_item/uniform/shorts
+
+/datum/loadout_item/uniform/shorts
 	abstract_type = /datum/loadout_item/uniform/shorts
 
 /datum/loadout_item/uniform/shorts/black_denim
@@ -144,10 +152,6 @@
 	name = "Shorts (Khaki)"
 	item_path = /obj/item/clothing/under/vampire/shorts/khaki
 
-/datum/loadout_item/uniform/shorts/leather_skirt
-	name = "Skirt (Black Leather)"
-	item_path = /obj/item/clothing/under/vampire/shorts/skirt
-
 /datum/loadout_item/uniform/shorts/denim_skirt
 	name = "Skirt (Short Denim)"
 	item_path = /obj/item/clothing/under/vampire/shorts/skirtdenim
@@ -156,107 +160,114 @@
 	name = "Skirt (Short Black)"
 	item_path = /obj/item/clothing/under/vampire/shorts/skirtblack
 
-// Flannel Shirts
-/datum/loadout_item/uniform/flannel_grey
-    name = "Flannel (Grey)"
-    item_path = /obj/item/clothing/under/vampire/flannel
-
-/datum/loadout_item/uniform/flannel_red
-    name = "Flannel (Red)"
-    item_path = /obj/item/clothing/under/vampire/flannel/red
-
-/datum/loadout_item/uniform/flannel_aqua
-    name = "Flannel (Aqua)"
-    item_path = /obj/item/clothing/under/vampire/flannel/aqua
-
-/datum/loadout_item/uniform/flannel_brown
-    name = "Flannel (Brown)"
-    item_path = /obj/item/clothing/under/vampire/flannel/brown
-
 // Formal Wear
-/datum/loadout_item/uniform/greysuit
+/datum/loadout_item/uniform/formalwear
+	group = "Formalwear"
+	abstract_type = /datum/loadout_item/uniform/formalwear
+
+/datum/loadout_item/uniform/formalwear/greysuit
     name = "Suit (Grey)"
     item_path = /obj/item/clothing/under/vampire/formalwear/greysuit
 
-/datum/loadout_item/uniform/greysuit_waistcoat
+/datum/loadout_item/uniform/formalwear/greysuit_waistcoat
     name = "Suit (Grey, Waistcoat)"
     item_path = /obj/item/clothing/under/vampire/formalwear/greysuit_waistcoat
 
-/datum/loadout_item/uniform/greyskirt
+/datum/loadout_item/uniform/formalwear/greyskirt
     name = "Suit Skirt (Grey)"
     item_path = /obj/item/clothing/under/vampire/formalwear/greyskirt
 
-/datum/loadout_item/uniform/tanshirtsuit
+/datum/loadout_item/uniform/formalwear/tanshirtsuit
     name = "Shirt Suit (Tan)"
     item_path = /obj/item/clothing/under/vampire/formalwear/tanshirtsuit
 
-/datum/loadout_item/uniform/tanshirt_waistcoat
+/datum/loadout_item/uniform/formalwear/tanshirt_waistcoat
     name = "Shirt Suit (Tan, Waistcoat)"
     item_path = /obj/item/clothing/under/vampire/formalwear/tanshirt_waistcoat
 
-/datum/loadout_item/uniform/blacksuit
+/datum/loadout_item/uniform/formalwear/blacksuit
     name = "Suit (Black)"
     item_path = /obj/item/clothing/under/vampire/formalwear/blacksuit
 
-/datum/loadout_item/uniform/charcoalsuit
+/datum/loadout_item/uniform/formalwear/blackskirt
+	name = "Suit Skirt (Black)"
+	item_path = /obj/item/clothing/under/vampire/formalwear/blackskirt
+
+/datum/loadout_item/uniform/formalwear/charcoalsuit
     name = "Suit (Charcoal)"
     item_path = /obj/item/clothing/under/vampire/formalwear/charcoalsuit
 
-/datum/loadout_item/uniform/charcoalskirt
+/datum/loadout_item/uniform/formalwear/charcoalskirt
     name = "Suit Skirt (Charcoal)"
     item_path = /obj/item/clothing/under/vampire/formalwear/charcoalskirt
 
-/datum/loadout_item/uniform/navysuit
+/datum/loadout_item/uniform/formalwear/navysuit
     name = "Suit (Navy)"
     item_path = /obj/item/clothing/under/vampire/formalwear/navysuit
 
-/datum/loadout_item/uniform/navyskirt
+/datum/loadout_item/uniform/formalwear/navyskirt
     name = "Suit Skirt (Navy)"
     item_path = /obj/item/clothing/under/vampire/formalwear/navyskirt
 
-/datum/loadout_item/uniform/burgundysuit
+/datum/loadout_item/uniform/formalwear/burgundysuit
     name = "Suit (Burgundy)"
     item_path = /obj/item/clothing/under/vampire/formalwear/burgundysuit
 
-/datum/loadout_item/uniform/burgundyskirt
+/datum/loadout_item/uniform/formalwear/burgundyskirt
     name = "Suit Skirt (Burgundy)"
     item_path = /obj/item/clothing/under/vampire/formalwear/burgundyskirt
 
-/datum/loadout_item/uniform/bluesuit
+/datum/loadout_item/uniform/formalwear/bluesuit
     name = "Suit (Blue)"
     item_path = /obj/item/clothing/under/vampire/formalwear/bluesuit
 
-/datum/loadout_item/uniform/blueskirt
+/datum/loadout_item/uniform/formalwear/blueskirt
     name = "Suit Skirt (Blue)"
     item_path = /obj/item/clothing/under/vampire/formalwear/blueskirt
 
-/datum/loadout_item/uniform/checkeredsuit
+/datum/loadout_item/uniform/formalwear/checkeredsuit
     name = "Suit (Checkered)"
     item_path = /obj/item/clothing/under/vampire/formalwear/checkeredsuit
 
-/datum/loadout_item/uniform/checkeredskirt
+/datum/loadout_item/uniform/formalwear/checkeredskirt
     name = "Suit Skirt (Checkered)"
     item_path = /obj/item/clothing/under/vampire/formalwear/checkeredskirt
 
-/datum/loadout_item/uniform/tansuit
+/datum/loadout_item/uniform/formalwear/tansuit
     name = "Suit (Tan)"
     item_path = /obj/item/clothing/under/vampire/formalwear/tansuit
 
-/datum/loadout_item/uniform/tanskirt
+/datum/loadout_item/uniform/formalwear/tanskirt
     name = "Suit Skirt (Tan)"
     item_path = /obj/item/clothing/under/vampire/formalwear/tanskirt
 
-/datum/loadout_item/uniform/royalredsuit
+/datum/loadout_item/uniform/formalwear/royalredsuit
     name = "Suit (Royal Red)"
     item_path = /obj/item/clothing/under/vampire/formalwear/royalredsuit
 
-/datum/loadout_item/uniform/lawyer_purp
+/datum/loadout_item/uniform/formalwear/lawyer_purp
     name = "Suit (Purple Lawyer)"
     item_path = /obj/item/clothing/under/vampire/formalwear/lawyer_purp
 
-/datum/loadout_item/uniform/lawyer_purp_skirt
+/datum/loadout_item/uniform/formalwear/lawyer_purp_skirt
     name = "Suit Skirt (Purple Lawyer)"
     item_path = /obj/item/clothing/under/vampire/formalwear/lawyer_purp_skirt
+
+/datum/loadout_item/uniform/formalwear/redskirt_jacket
+    name = "Red Skirt & Jacket"
+    item_path = /obj/item/clothing/under/vampire/formalwear/redskirt_jacket
+
+/datum/loadout_item/uniform/formalwear/novella
+    name = "Shirt (Novella)"
+    item_path = /obj/item/clothing/under/vampire/formalwear/novella
+
+/datum/loadout_item/uniform/formalwear/suspenders
+    name = "Shirt & Suspenders"
+    item_path = /obj/item/clothing/under/vampire/formalwear/suspenders
+
+/datum/loadout_item/uniform/formalwear/suspenders_fancy
+    name = "Shirt & Suspenders (Fancy)"
+    item_path = /obj/item/clothing/under/vampire/formalwear/suspenders_fancy
 
 /datum/loadout_item/uniform/nun
     name = "Nun's Habit"
@@ -268,163 +279,152 @@
     item_path = /obj/item/clothing/under/vampire/pinup
 
 // Dresses
-/datum/loadout_item/uniform/matron_white
+/datum/loadout_item/uniform/dress
+	group = "Dresses"
+	abstract_type = /datum/loadout_item/uniform/dress
+
+/datum/loadout_item/uniform/dress/matron_white
     name = "Dress (White Widow)"
     item_path = /obj/item/clothing/under/vampire/dress/matron_white
 
-/datum/loadout_item/uniform/matron_black
+/datum/loadout_item/uniform/dress/matron_black
     name = "Dress (Black Widow)"
     item_path = /obj/item/clothing/under/vampire/dress/matron_black
 
-/datum/loadout_item/uniform/maid
+/datum/loadout_item/uniform/dress/maid
     name = "Maid Outfit"
     item_path = /obj/item/clothing/under/vampire/dress/maid
 
-/datum/loadout_item/uniform/gayvampire
-    name = "high waisted outfit"
-    item_path = /obj/item/clothing/under/vampire/dress/gayvampire
-
-/datum/loadout_item/uniform/gayvampireskirt
-    name = "high waisted outfit"
-    item_path = /obj/item/clothing/under/vampire/dress/gayvampireskirt
-
-/datum/loadout_item/uniform/littleblackdress
+/datum/loadout_item/uniform/dress/littleblackdress
     name = "Dress (Little Black)"
     item_path = /obj/item/clothing/under/vampire/dress/littleblackdress
 
-/datum/loadout_item/uniform/rippedpunk
-    name = "Fishnet Outfit"
-    item_path = /obj/item/clothing/under/vampire/dress/rippedpunk
-
-/datum/loadout_item/uniform/yellowswoop
+/datum/loadout_item/uniform/dress/yellowswoop
     name = "Dress (Yellow Swoop)"
     item_path = /obj/item/clothing/under/vampire/dress/yellowswoop
 
-/datum/loadout_item/uniform/black_tango
+/datum/loadout_item/uniform/dress/black_tango
     name = "Dress (Black Tango)"
     item_path = /obj/item/clothing/under/vampire/dress/black_tango
 
-/datum/loadout_item/uniform/qipao
+/datum/loadout_item/uniform/dress/qipao
     name = "Qipao"
     item_path = /obj/item/clothing/under/vampire/dress/qipao
 
-/datum/loadout_item/uniform/striped_dress
+/datum/loadout_item/uniform/dress/striped_dress
     name = "Dress (Striped)"
     item_path = /obj/item/clothing/under/vampire/dress/striped_dress
 
-/datum/loadout_item/uniform/black_corset
+/datum/loadout_item/uniform/dress/black_corset
     name = "Dress (Black Corset)"
     item_path = /obj/item/clothing/under/vampire/dress/black_corset
 
-/datum/loadout_item/uniform/darkreddress
+/datum/loadout_item/uniform/dress/darkred
     name = "Dress (Dark Red)"
-    item_path = /obj/item/clothing/under/vampire/dress/darkreddress
+    item_path = /obj/item/clothing/under/vampire/dress/darkred
 
-/datum/loadout_item/uniform/plaid_blue
-    name = "Dress (Blue Plaid)"
-    item_path = /obj/item/clothing/under/vampire/dress/plaid_blue
-
-/datum/loadout_item/uniform/plaid_purple
+/datum/loadout_item/uniform/dress/plaid/purple
     name = "Dress (Purple Plaid)"
-    item_path = /obj/item/clothing/under/vampire/dress/plaid_purple
+    item_path = /obj/item/clothing/under/vampire/dress/plaid/purple
 
-/datum/loadout_item/uniform/plaid_red
+/datum/loadout_item/uniform/dress/plaid/blue
+    name = "Dress (Blue Plaid)"
+    item_path = /obj/item/clothing/under/vampire/dress/plaid/blue
+
+/datum/loadout_item/uniform/dress/plaid/blue
     name = "Dress (Red Plaid)"
-    item_path = /obj/item/clothing/under/vampire/dress/plaid_red
+    item_path = /obj/item/clothing/under/vampire/dress/plaid/red
 
-/datum/loadout_item/uniform/redskirt_jacket
-    name = "Red Skirt & Jacket"
-    item_path = /obj/item/clothing/under/vampire/dress/redskirt_jacket
 
-/datum/loadout_item/uniform/sailor_dress
+/datum/loadout_item/uniform/dress/sailor
     name = "Dress (Sailor)"
-    item_path = /obj/item/clothing/under/vampire/dress/sailor_dress
+    item_path = /obj/item/clothing/under/vampire/dress/sailor
 
-/datum/loadout_item/uniform/blackfrills
+/datum/loadout_item/uniform/dress/blackfrills
     name = "Dress (Black Frilly)"
     item_path = /obj/item/clothing/under/vampire/dress/blackfrills
 
-/datum/loadout_item/uniform/wedding_gothic
+/datum/loadout_item/uniform/dress/wedding_gothic
     name = "Dress (Gothic Wedding)"
     item_path = /obj/item/clothing/under/vampire/dress/wedding_gothic
 
-/datum/loadout_item/uniform/old_wench_dress
+/datum/loadout_item/uniform/dress/old_wench_dress
     name = "Dress (German)"
     item_path = /obj/item/clothing/under/vampire/dress/old_wench_dress
 
-/datum/loadout_item/uniform/countess
+/datum/loadout_item/uniform/dress/countess
     name = "Gown (Countess)"
     item_path = /obj/item/clothing/under/vampire/dress/countess
 
-/datum/loadout_item/uniform/goddess
+/datum/loadout_item/uniform/dress/goddess
     name = "Gown (Goddess)"
     item_path = /obj/item/clothing/under/vampire/dress/goddess
 
-/datum/loadout_item/uniform/white_dress
+/datum/loadout_item/uniform/dress/white
     name = "Dress (White)"
-    item_path = /obj/item/clothing/under/vampire/dress/white_dress
+    item_path = /obj/item/clothing/under/vampire/dress/white
 
-/datum/loadout_item/uniform/sermon
-    name = "Sermon Robes"
+/datum/loadout_item/uniform/dress/sermon
+    name = "Dress (Gold Embroidered)"
     item_path = /obj/item/clothing/under/vampire/dress/sermon
 
-/datum/loadout_item/uniform/skater_boy
-    name = "Skater Outfit"
-    item_path = /obj/item/clothing/under/vampire/dress/skater_boy
-
-/datum/loadout_item/uniform/skater_skirt
-    name = "Skater Skirt Outfit"
-    item_path = /obj/item/clothing/under/vampire/dress/skater_skirt
-
-/datum/loadout_item/uniform/strawberrylolita
+/datum/loadout_item/uniform/dress/strawberrylolita
     name = "Dress (Strawberry Lolita)"
     item_path = /obj/item/clothing/under/vampire/dress/strawberrylolita
 
-/datum/loadout_item/uniform/novella
-    name = "Dress (Novella)"
-    item_path = /obj/item/clothing/under/vampire/dress/novella
-
-/datum/loadout_item/uniform/laceblack
+/datum/loadout_item/uniform/dress/laceblack
     name = "Dress (Black Lace)"
     item_path = /obj/item/clothing/under/vampire/dress/laceblack
 
-/datum/loadout_item/uniform/chain_dress
+/datum/loadout_item/uniform/dress/chain
     name = "Dress (Chain)"
-    item_path = /obj/item/clothing/under/vampire/dress/chain_dress
+    item_path = /obj/item/clothing/under/vampire/dress/chain
 
-/datum/loadout_item/uniform/dress_modest
+/datum/loadout_item/uniform/dress/modest
     name = "Dress (Modest)"
-    item_path = /obj/item/clothing/under/vampire/dress/dress_modest
+    item_path = /obj/item/clothing/under/vampire/dress/modest
 
-/datum/loadout_item/uniform/maiden
+/datum/loadout_item/uniform/dress/maiden
     name = "Dress (Maiden)"
     item_path = /obj/item/clothing/under/vampire/dress/maiden
 
-/datum/loadout_item/uniform/matron
+/datum/loadout_item/uniform/dress/matron
     name = "Dress (Matron)"
     item_path = /obj/item/clothing/under/vampire/dress/matron
 
-// Tops & Misc
-/datum/loadout_item/uniform/top_pentagram
-    name = "Shirt (Pentagram)"
-    item_path = /obj/item/clothing/under/vampire/top/pentagram
+/datum/loadout_item/uniform/dress/pentagram
+    name = "Dress (Pentagram)"
+    item_path = /obj/item/clothing/under/vampire/dress/pentagram
+
+//Misc
+/datum/loadout_item/uniform/skater_boy
+    name = "Skater Outfit"
+    item_path = /obj/item/clothing/under/vampire/misc/skater_boy
+
+/datum/loadout_item/uniform/skater_skirt
+    name = "Skater Skirt Outfit"
+    item_path = /obj/item/clothing/under/vampire/misc/skater_skirt
 
 /datum/loadout_item/uniform/bandshirt_dark
     name = "Shirt (Dark Band)"
-    item_path = /obj/item/clothing/under/vampire/top/bandshirt_dark
+    item_path = /obj/item/clothing/under/vampire/misc/bandshirt_dark
 
 /datum/loadout_item/uniform/bandshirt_light
     name = "Shirt (Light Band)"
-    item_path = /obj/item/clothing/under/vampire/top/bandshirt_light
-
-/datum/loadout_item/uniform/suspenders
-    name = "Shirt & Suspenders"
-    item_path = /obj/item/clothing/under/vampire/top/suspenders
-
-/datum/loadout_item/uniform/suspenders_fancy
-    name = "Shirt & Suspenders (Fancy)"
-    item_path = /obj/item/clothing/under/vampire/top/suspenders_fancy
+    item_path = /obj/item/clothing/under/vampire/misc/bandshirt_light
 
 /datum/loadout_item/uniform/redbutton
     name = "Shirt (Red Button-up)"
-    item_path = /obj/item/clothing/under/vampire/top/redbutton
+    item_path = /obj/item/clothing/under/vampire/misc/redbutton
+
+/datum/loadout_item/uniform/rippedpunk
+    name = "Fishnet Outfit"
+    item_path = /obj/item/clothing/under/vampire/misc/rippedpunk
+
+/datum/loadout_item/uniform/gayvampire
+    name = "High Waisted Outfit (Trousers)"
+    item_path = /obj/item/clothing/under/vampire/misc/gayvampire
+
+/datum/loadout_item/uniform/gayvampireskirt
+    name = "High Waisted Outfit (Skirt)"
+    item_path = /obj/item/clothing/under/vampire/misc/gayvampireskirt

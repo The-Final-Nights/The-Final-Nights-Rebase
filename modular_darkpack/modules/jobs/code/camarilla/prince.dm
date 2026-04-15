@@ -1,3 +1,4 @@
+/* // TFN EDIT REMOVAL START
 /datum/job/vampire/prince
 	title = JOB_PRINCE
 	description = "You are the top dog of this city. You hold Praxis over " + CITY_NAME + ", and your word is law. Make sure the Masquerade is upheld, and your status is respected."
@@ -40,10 +41,11 @@
 
 /datum/job/vampire/prince/get_captaincy_announcement(mob/living/captain)
 	return "Prince [captain.real_name] is in the city!"
+*/ // TFN EDIT REMOVAL END
 
 /datum/outfit/job/vampire/prince
 	name = "Prince"
-	jobtype = /datum/job/vampire/prince
+	// jobtype = /datum/job/vampire/prince // TFN EDIT REMOVAL
 
 	id = /obj/item/card/prince
 	glasses = /obj/item/clothing/glasses/vampire/sun

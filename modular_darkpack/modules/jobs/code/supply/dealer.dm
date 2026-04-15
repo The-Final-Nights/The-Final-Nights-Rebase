@@ -1,3 +1,4 @@
+/* //TFN EDIT REMOVAL START
 /datum/job/vampire/dealer
 	title = "Dealer"
 	faction = FACTION_CITY
@@ -31,3 +32,4 @@
 	l_pocket = /obj/item/smartphone/dealer
 	r_pocket = /obj/item/vamp/keys/supply
 	backpack_contents = list(/obj/item/card/credit/rich=1, /obj/item/hatchet)
+*/ //TFN EDIT REMOVAL END

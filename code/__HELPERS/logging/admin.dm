@@ -8,6 +8,7 @@
 	GLOB.admin_activities.Add(text)
 	logger.Log(LOG_CATEGORY_ADMIN, text, data)
 	logger.Log(LOG_CATEGORY_COMPAT_GAME, "ADMIN: [text]")
+	SSoverwatch.record_action(source = null, message = "ADMIN: [text]") // TFN EDIT ADD - OVERWATCH
 
 /// Logging for admin actions on or with circuits
 /proc/log_admin_circuit(text, list/data)
@@ -20,17 +21,20 @@
 	GLOB.admin_activities.Add(text)
 	logger.Log(LOG_CATEGORY_ADMIN_PRIVATE, text, data)
 	logger.Log(LOG_CATEGORY_COMPAT_GAME, "ADMINPRIVATE: [text]")
+	SSoverwatch.record_action(source = null, message = "ADMINPRIVATE: [text]") // TFN EDIT ADD
 
 /// Logging for AdminSay (ASAY) messages
 /proc/log_adminsay(text, list/data)
 	GLOB.admin_activities.Add(text)
 	logger.Log(LOG_CATEGORY_ADMIN_PRIVATE_ASAY, text, data)
 	logger.Log(LOG_CATEGORY_COMPAT_GAME, "ADMINPRIVATE: ASAY: [text]")
+	SSoverwatch.record_action(source = null, message = "ADMINSAY: [text]") // TFN EDIT ADD
 
 /// Logging for DeachatSay (DSAY) messages
 /proc/log_dsay(text, list/data)
 	logger.Log(LOG_CATEGORY_ADMIN_DSAY, text, data)
 	logger.Log(LOG_CATEGORY_COMPAT_GAME, "ADMIN: DSAY: [text]")
+	SSoverwatch.record_action(source = null, message = "ADMIN DSAY: [text]") // TFN EDIT ADD
 
 /**
  * Writes to a special log file if the log_suspicious_login config flag is set,
