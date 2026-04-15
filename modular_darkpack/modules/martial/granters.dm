@@ -5,7 +5,7 @@
 	martial = /datum/martial_art/darkpack_kungfu
 	name = "old scroll"
 	martial_name = "Kung Fu"
-	desc = "An aged and frayed scrap of paper written in shifting runes. There are hand-drawn illustrations of pugilism."
+	desc = "An aged and frayed scrap of paper written in a foreign language. There is elaborate illustrations of forms and stances"
 	greet = span_bolddanger("You have learned the techniques of Kung-Fo")
 	icon = 'icons/obj/scrolls.dmi'
 	icon_state ="plasmafist"
