@@ -49,7 +49,9 @@
 		/datum/job/vampire/archivist,
 		/datum/job/vampire/hound,
 		/datum/job/vampire/sheriff,
-		/datum/job/vampire/clerk)
+		/datum/job/vampire/clerk,
+		// /datum/job/vampire/prince, // TFN EDIT REMOVAL
+		)
 	)
 
 // find the regent

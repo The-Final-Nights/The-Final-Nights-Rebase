@@ -1,5 +1,51 @@
+/* // TFN EDIT REMOVAL START
+/datum/job/vampire/prince
+	title = JOB_PRINCE
+	description = "You are the top dog of this city. You hold Praxis over " + CITY_NAME + ", and your word is law. Make sure the Masquerade is upheld, and your status is respected."
+	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
+	faction = FACTION_CITY
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = SUPERVISOR_TRADITIONS
+	req_admin_notify = 1
+	minimal_player_age = 14
+	exp_requirements = 180
+	exp_required_type = EXP_TYPE_CAMARILLA
+	exp_required_type_department = EXP_TYPE_CAMARILLA
+	exp_granted_type = EXP_TYPE_CAMARILLA
+	config_tag = "PRINCE"
+	job_flags = CITY_JOB_FLAGS
+	outfit = /datum/outfit/job/vampire/prince
+
+	display_order = JOB_DISPLAY_ORDER_PRINCE
+	department_for_prefs = /datum/job_department/prince
+	departments_list = list(
+		/datum/job_department/camarilla,
+	)
+
+	minimal_generation = 10
+	minimum_immortal_age = 75
+	minimal_masquerade = 5
+	allowed_splats = list(SPLAT_KINDRED)
+	allowed_clans = list(VAMPIRE_CLAN_TREMERE, VAMPIRE_CLAN_VENTRUE, VAMPIRE_CLAN_NOSFERATU, VAMPIRE_CLAN_TOREADOR, VAMPIRE_CLAN_MALKAVIAN, VAMPIRE_CLAN_LASOMBRA, VAMPIRE_CLAN_BANU_HAQIM)
+
+	known_contacts = list(
+		"Sheriff",
+		"Seneschal",
+		"Dealer",
+		"Tremere Regent",
+		"Primogens",
+		"Baron",
+		"Voivode"
+	)
+
+/datum/job/vampire/prince/get_captaincy_announcement(mob/living/captain)
+	return "Prince [captain.real_name] is in the city!"
+*/ // TFN EDIT REMOVAL END
+
 /datum/outfit/job/vampire/prince
 	name = "Prince"
+	// jobtype = /datum/job/vampire/prince // TFN EDIT REMOVAL
 
 	id = /obj/item/card/prince
 	glasses = /obj/item/clothing/glasses/vampire/sun

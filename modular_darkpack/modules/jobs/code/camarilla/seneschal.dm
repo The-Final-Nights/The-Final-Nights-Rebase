@@ -17,9 +17,9 @@
 	outfit = /datum/outfit/job/vampire/clerk
 
 	display_order = JOB_DISPLAY_ORDER_CLERK
-	department_for_prefs = /datum/job_department/prince
+	department_for_prefs = /datum/job_department/prince // TFN EDIT, ORIGINAL: department_for_prefs = /datum/job_department/camarilla
 	departments_list = list(
-		/datum/job_department/prince,
+		/datum/job_department/prince, // TFN EDIT ADD
 		/datum/job_department/camarilla,
 	)
 
@@ -30,8 +30,10 @@
 
 	known_contacts = list("Prince","Sheriff","Tremere Regent","Dealer","Primogens")
 
+// TFN EDIT ADD START
 /datum/job/vampire/clerk/get_captaincy_announcement(mob/living/captain)
 	return "Seneschal [captain.real_name] is in the city!"
+// TFN EDIT ADD END
 
 /datum/outfit/job/vampire/clerk
 	name = "Seneschal"
