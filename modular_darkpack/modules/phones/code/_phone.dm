@@ -303,8 +303,24 @@
 		data["current_conversation_messages"] = format_conversation(current_viewed_conversation)
 	else
 		data["current_conversation_messages"] = list()
-
-	data["posts"] = SSphones.endpost_posts
+	// TFN EDIT START - judge your friends
+	var/list/posts_data = list()
+	var/my_number = sim_card?.phone_number
+	for(var/list/post in SSphones.endpost_posts)
+		var/list/up_voters = post["thumbsup_voters"] || list()
+		var/list/down_voters = post["thumbsdown_voters"] || list()
+		UNTYPED_LIST_ADD(posts_data, list(
+			"body" = post["body"],
+			"date" = post["date"],
+			"time" = post["time"],
+			"author" = post["author"],
+			"thumbsup" = length(up_voters),
+			"thumbsdown" = length(down_voters),
+			"user_voted_up" = (my_number && (my_number in up_voters)),
+			"user_voted_down" = (my_number && (my_number in down_voters)),
+		))
+	data["posts"] = posts_data
+	// TFN EDIT END
 	data["endpost_username"] = endpost_username
 	data["show_endpost_registration"] = !endpost_username || user.st_get_stat(STAT_TECHNOLOGY) >= 3 //only let big brains change their usernames
 	data["is_admin"] = is_admin(user)
@@ -510,6 +526,17 @@
 			endpost_registration()
 			return TRUE
 
+		// TFN EDIT START
+		if("vote_post")
+			var/post_index = text2num(params["post_index"])
+			if(!post_index)
+				to_chat(usr, "Invalid post index.")
+				return FALSE
+			var/direction = params["direction"]
+			vote_post(post_index, direction)
+			return TRUE
+		// TFN EDIT END
+
 		if("remove_endpost")
 			var/post_index = text2num(params["post_index"])
 			if(!post_index)
@@ -613,7 +640,11 @@
 		"body" = trim(body),
 		"date" = station_time_timestamp("Day, Month DD, ") + "[CURRENT_STATION_YEAR]",
 		"time" = station_time_timestamp("hh:mm"),
-		"author" = endpost_username
+		"author" = endpost_username,
+		// TFN EDIT START
+		"thumbsup_voters" = list(),
+		"thumbsdown_voters" = list(),
+		// TFN EDIT END
 	)
 
 	UNTYPED_LIST_ADD(SSphones.endpost_posts, new_post)
@@ -626,6 +657,27 @@
 	log_phone("[key_name(usr)] [endpost_username ? "updated" : "registered"] their username as [new_username]")
 	endpost_username = new_username
 	return TRUE
+
+// TFN EDIT START
+/obj/item/smartphone/proc/vote_post(post_index, direction)
+	var/list/post = SSphones.endpost_posts[post_index]
+	var/phone_number = sim_card?.phone_number
+	if(!phone_number)
+		return FALSE
+	if(direction == "up")
+		if(phone_number in post["thumbsup_voters"]) // so they can click like to unlike, too. just like a real app :D
+			post["thumbsup_voters"] -= phone_number
+		else
+			post["thumbsup_voters"] |= phone_number
+			post["thumbsdown_voters"] -= phone_number
+	else if(direction == "down")
+		if(phone_number in post["thumbsdown_voters"])
+			post["thumbsdown_voters"] -= phone_number
+		else
+			post["thumbsdown_voters"] |= phone_number
+			post["thumbsup_voters"] -= phone_number
+	return TRUE
+// TFN EDIT END
 
 /proc/log_phone(text, list/data)
 	logger.Log(LOG_CATEGORY_PDA_CHAT, text, data)
