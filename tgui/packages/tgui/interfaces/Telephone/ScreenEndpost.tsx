@@ -12,6 +12,12 @@ posts?: Array<{
     date: string;
     author: string;
     time: string;
+    // TFN EDIT START - judge your friends
+    thumbsup: number;
+    thumbsdown: number;
+    user_voted_up: boolean;
+    user_voted_down: boolean;
+    // TFN EDIT END
 }>;
 is_admin?: boolean;
 }
@@ -212,6 +218,36 @@ return (
                                 <Box style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
                                     {post_content.body}
                                 </Box>
+                                {/* TFN EDIT START */}
+                                <Stack mt={0.5} align="center">
+                                    <Button
+                                        onClick={() => act('vote_post', { post_index: posts.length - index, direction: 'up' })}
+                                        color="transparent"
+                                        style={{ fontSize: '0.85em', padding: '0.1em 0.4em' }}
+                                    >
+                                        <Icon
+                                            name="thumbs-up"
+                                            color={post_content.user_voted_up ? '#219727' : '#aaa'}
+                                        />
+                                    </Button>
+                                    <Box fontSize="0.8em" color="#555" mr={1}>
+                                        {post_content.thumbsup ?? 0}
+                                    </Box>
+                                    <Button
+                                        onClick={() => act('vote_post', { post_index: posts.length - index, direction: 'down' })}
+                                        color="transparent"
+                                        style={{ fontSize: '0.85em', padding: '0.1em 0.4em' }}
+                                    >
+                                        <Icon
+                                            name="thumbs-down"
+                                            color={post_content.user_voted_down ? '#aa0000' : '#aaa'}
+                                        />
+                                    </Button>
+                                    <Box fontSize="0.8em" color="#555">
+                                        {post_content.thumbsdown ?? 0}
+                                    </Box>
+                                </Stack>
+                                {/* TFN EDIT END */}
                             </Stack>
                         </Stack.Item>
                     ))}
