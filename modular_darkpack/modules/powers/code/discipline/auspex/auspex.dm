@@ -8,7 +8,12 @@
 
 /datum/discipline/auspex
 	name = "Auspex"
-	desc = "Allows to see entities, auras and their health through walls."
+	desc = {"Allows to see entities, auras and their health through walls.
+● Heightened Senses: Passive
+●● Aura Perception: Passive
+●●● The Spirit's Touch: Passive
+●●●● Telepathy: Intelligence + Subterfuge vs. target's Willpower
+●●●●● Psychic Projection: Perception + Awareness (difficulty 7)"} // TFN EDIT CHANGE - ORIGINAL: desc = "Allows to see entities, auras and their health through walls."
 	icon_state = "auspex"
 	power_type = /datum/discipline_power/auspex
 
@@ -316,7 +321,7 @@
 			var/flavor_text_telepathy = "Someone nearby reads your mind without your knowing..." + get_flavor_text(successes)
 			var/mind_reading_search = tgui_input_list(owner, "Are you searching their mind for specific information? Deeper secrets and long-past memories require more successes.", "Mind Reading Specifics", list("Yes", "No"), "No")
 			if(mind_reading_search == "Yes")
-				specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = MAX_MESSAGE_LEN)
+				specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = (MAX_MESSAGE_LEN * 10)) //TFN EDIT CHANGE - Original : specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = MAX_MESSAGE_LEN)
 				if(!specific_search)
 					specific_search = "something specific"
 
@@ -353,7 +358,7 @@
 
 /datum/discipline_power/auspex/telepathy/proc/sanitize_input_message(input_message)
 	//sanitisation!
-	input_message = CAN_BYPASS_FILTER(owner) ? strip_html_full(input_message, MAX_MESSAGE_LEN) : input_message
+	input_message = CAN_BYPASS_FILTER(owner) ? strip_html_full(input_message, (MAX_MESSAGE_LEN * 10)) : input_message
 	var/list/filter_result = CAN_BYPASS_FILTER(owner) ? null : is_ooc_filtered(input_message)
 	if(filter_result)
 		REPORT_CHAT_FILTER_TO_USER(owner, filter_result)
