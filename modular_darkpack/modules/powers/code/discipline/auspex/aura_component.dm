@@ -23,7 +23,7 @@
 /datum/component/aura
 	// A list of currently selected emotions by the player
 	var/current_aura = AURA_INNOCENT
-	var/current_emotion_name = "Innocent"
+	var/current_emotion_name = "" // TFN EDIT
 	var/obj/effect/abstract/shared_particle_holder/aura_smoke
 	var/examine_message = ""
 	var/obj/effect/aura_overlay/aura_glow_image
@@ -83,11 +83,14 @@
 
 /datum/component/aura/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	if(!examine_message)
-		return
 	var/datum/atom_hud/data/auspex_aura/auspex_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	if(!(user in auspex_hud.hud_users_all_z_levels))
 		return
+	// TFN EDIT START - avoid stale aura examine messages
+	update_examine_message(null)
+	if(!examine_message)
+		return
+	// TFN EDIT END
 	examine_list += examine_message
 
 /datum/component/aura/proc/update_examine_message(mutable_appearance/aura_appearance)
@@ -160,8 +163,8 @@
 		examine_message += "Pale blotches mark [parent_mob.p_their()] aura."
 	if(get_kindred_splat(parent_mob))
 		var/mob/living/carbon/human/lick = parent_mob
-		var/datum/st_stat/morality_path/morality/stat_morality = lick.storyteller_stats[STAT_MORALITY]
-		if(!stat_morality.morality_path.alignment == MORALITY_HUMANITY) // non-humanity licks have standard kindred auras that give them away
+		var/datum/st_stat/morality_path/morality/stat_morality = lick?.storyteller_stats[STAT_MORALITY]
+		if((stat_morality?.morality_path?.alignment != MORALITY_HUMANITY || stat_morality?.get_score() < 5) && !HAS_TRAIT(parent_mob, TRAIT_BLUSH_OF_HEALTH)) // TFN EDIT - blush of health, high humanity stuff
 			examine_message += "[parent_mob.p_Their()] aura colors appear pale."
 	if(isavatar(parent_mob) || isobserver(parent_mob))
 		examine_message += "[parent_mob.p_Their()] aura is weak and intermittent, fading in and out."
@@ -179,6 +182,16 @@
 		aura_smoke.blend_mode = 2
 		aura_smoke.add_filter("particle_blur", 1, gauss_blur_filter(8))
 	var/mutable_appearance/aura_appearance = mutable_appearance('modular_darkpack/modules/powers/icons/auras.dmi', "aura", ABOVE_MOB_LAYER, parent_mob, ABOVE_GAME_PLANE)
+	// TFN EDIT START - blush of health, humanity
+	// high humanity kindred OR kindred with blush of health avoid getting the still heart. in auspex, their hearts will instead show like humans; beating!
+	if(get_kindred_splat(parent_mob))
+		var/mob/living/carbon/human/lick = parent_mob
+		var/datum/st_stat/morality_path/morality/stat_morality = lick?.storyteller_stats[STAT_MORALITY]
+		if((stat_morality?.morality_path?.alignment != MORALITY_HUMANITY || stat_morality?.get_score() < 5) && !HAS_TRAIT(parent_mob, TRAIT_BLUSH_OF_HEALTH))
+			aura_appearance = mutable_appearance('modular_darkpack/modules/powers/icons/auras.dmi', "aura_dead", ABOVE_MOB_LAYER, parent_mob, ABOVE_GAME_PLANE)
+	if(parent_mob.stat == DEAD)
+		aura_appearance = mutable_appearance('modular_darkpack/modules/powers/icons/auras.dmi', "aura_dead", ABOVE_MOB_LAYER, parent_mob, ABOVE_GAME_PLANE)
+	// TFN EDIT END
 	update_aura_colors(aura_appearance, holder)
 	update_aura_overlays(aura_appearance, holder)
 	update_aura_filters(aura_appearance, holder)
@@ -208,8 +221,10 @@
 	var/mob/parent_mob = parent
 	if(get_kindred_splat(parent_mob) && output_color)
 		var/mob/living/carbon/human/lick = parent_mob
-		var/datum/st_stat/morality_path/morality/stat_morality = lick.storyteller_stats[STAT_MORALITY]
-		if(!stat_morality?.morality_path.alignment == MORALITY_HUMANITY) // non-humanity licks have standard kindred auras that give them away
+		// TFN EDIT START - non-humanity/low humanity licks have desaturated auras
+		var/datum/st_stat/morality_path/morality/stat_morality = lick?.storyteller_stats[STAT_MORALITY]
+		if((stat_morality?.morality_path?.alignment != MORALITY_HUMANITY || stat_morality?.get_score() < 5) && !HAS_TRAIT(parent_mob, TRAIT_BLUSH_OF_HEALTH))
+		// TFN EDIT END
 			var/list/hsv_color_value = rgb2hsv(output_color)
 			hsv_color_value[2] = hsv_color_value[2] * 0.7 // Reduce saturation for kindred
 			aura_appearance.color = hsv2rgb(hsv_color_value)
@@ -232,6 +247,7 @@
 		aura_glow_image.plane = ABOVE_LIGHTING_PLANE
 		aura_glow_image.add_filter("ambient_blur", 1, gauss_blur_filter(12))
 	aura_glow_image.color = aura_appearance.color
+	aura_glow_image.icon_state = aura_appearance.icon_state || "aura" // TFN EDIT - still vs beating hearts
 	aura_glow_image.alpha = 20
 	holder.vis_contents += aura_glow_image
 
@@ -242,7 +258,7 @@
 		aura_base_image.layer = ABOVE_MOB_LAYER
 		aura_base_image.plane = ABOVE_LIGHTING_PLANE
 	aura_base_image.color = aura_appearance.color
-	aura_base_image.icon_state = aura_appearance.icon_state || "aura"
+	aura_base_image.icon_state = aura_appearance.icon_state || "aura" // TFN EDIT
 	aura_base_image.transform = matrix(0.8, MATRIX_SCALE)
 	aura_base_image.alpha = 175
 	holder.vis_contents += aura_base_image

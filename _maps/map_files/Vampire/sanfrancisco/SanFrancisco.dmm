@@ -562,6 +562,13 @@
 /mob/living/carbon/human/npc/guard,
 /turf/open/floor/carpet,
 /area/vtm/interior/bianchiBank)
+"ahi" = (
+/obj/effect/turf_decal/siding/grey/inner_corner,
+/obj/structure/railing{
+	dir = 6
+	},
+/turf/open/floor/city/plating_stone,
+/area/vtm/interior/strip)
 "ahm" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
@@ -2966,6 +2973,7 @@
 /area/vtm/interior/caves)
 "aMv" = (
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/effect/landmark/start/darkpack/setite,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "aMy" = (
@@ -4929,6 +4937,11 @@
 /obj/structure/flora/bush/sunny/style_random,
 /turf/open/misc/grass/nosmooth,
 /area/vtm)
+"boy" = (
+/obj/structure/railing/corner,
+/obj/effect/turf_decal/siding/grey/corner,
+/turf/open/floor/city/plating_stone,
+/area/vtm/interior/strip)
 "boB" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plating/sidewalk/poor,
@@ -9040,6 +9053,7 @@
 /area/vtm/interior/millennium_tower)
 "coP" = (
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/effect/landmark/start/darkpack/setite/high_priest,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/supply)
 "coW" = (
@@ -31636,6 +31650,11 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/clinic)
+"ilA" = (
+/obj/effect/decal/cleanable/cardboard,
+/obj/effect/landmark/start/darkpack/setite/ward,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/supply)
 "ilB" = (
 /obj/structure/platform/lowwall/junk,
 /obj/structure/table/wood,
@@ -32874,6 +32893,7 @@
 	},
 /obj/machinery/light/directional/north,
 /obj/effect/landmark/start/darkpack/axe/gang,
+/obj/effect/landmark/start/darkpack/setite/faithful,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "iAe" = (
@@ -41160,6 +41180,10 @@
 	},
 /turf/open/floor/carpet/purple,
 /area/vtm/interior/clinic/haven)
+"kJd" = (
+/obj/effect/landmark/gangster_defend_area,
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm/outside/ghetto)
 "kJk" = (
 /obj/structure/table/wood,
 /obj/item/fireaxe/vamp,
@@ -49622,6 +49646,12 @@
 	},
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
+"mTf" = (
+/obj/structure/pole{
+	pixel_w = -16
+	},
+/turf/open/floor/city/plating_stone,
+/area/vtm/interior/strip)
 "mTg" = (
 /turf/open/floor/plating/concrete,
 /area/vtm)
@@ -56703,6 +56733,7 @@
 	color = "#525252"
 	},
 /obj/effect/landmark/start/darkpack/axe/gang,
+/obj/effect/landmark/start/darkpack/setite/faithful,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/supply)
 "oEF" = (
@@ -62058,6 +62089,10 @@
 	},
 /turf/open/floor/carpet/red,
 /area/vtm/interior/shop)
+"pXW" = (
+/obj/effect/landmark/start/darkpack/setite,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/supply)
 "pYa" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
@@ -63747,6 +63782,17 @@
 	},
 /turf/open/floor/wood/rough,
 /area/vtm/interior/ranger)
+"qvT" = (
+/obj/effect/decal/cleanable/trash,
+/obj/effect/landmark/gangster_spawn/b,
+/turf/open/floor/plating/sidewalk/poor,
+/area/vtm/outside/ghetto)
+"qvV" = (
+/obj/effect/turf_decal/bordur{
+	dir = 6
+	},
+/turf/closed/wall/vampwall/rustbad,
+/area/vtm/outside/ghetto)
 "qwa" = (
 /mob/living/basic/pet/cat/darkpack/sproingus,
 /turf/open/floor/wood/smooth,
@@ -66515,6 +66561,15 @@
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/city/circled,
 /area/vtm/interior)
+"rgX" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/grey/corner{
+	dir = 8
+	},
+/turf/open/floor/city/plating_stone,
+/area/vtm/interior/strip)
 "rhc" = (
 /obj/effect/decal/cleanable/litter,
 /turf/open/misc/dirt,
@@ -71139,6 +71194,10 @@
 "svd" = (
 /turf/closed/wall/vampwall/brick_old,
 /area/vtm/interior/ghetto)
+"svl" = (
+/obj/effect/landmark/gangster_spawn/a,
+/turf/open/floor/plating/asphalt,
+/area/vtm/interior)
 "svm" = (
 /obj/effect/turf_decal/siding/grey{
 	dir = 1
@@ -135299,7 +135358,7 @@ ycd
 tyI
 oYt
 ngt
-evn
+ilA
 tNl
 tNl
 krL
@@ -136115,7 +136174,7 @@ tow
 tao
 oYt
 eKN
-evn
+ilA
 tNl
 tNl
 lFj
@@ -140196,7 +140255,7 @@ tML
 oYt
 aMv
 tNl
-tNl
+pXW
 jQD
 iKl
 fzo
@@ -163484,7 +163543,7 @@ rEt
 veZ
 veZ
 veZ
-veZ
+svl
 pJF
 pJF
 pJF
@@ -165380,7 +165439,7 @@ gsS
 gnp
 xZE
 bGT
-nlY
+eTp
 tra
 vmn
 vmn
@@ -165525,7 +165584,7 @@ gmC
 vIe
 dnd
 qqZ
-agC
+kJd
 agC
 agC
 agC
@@ -165583,9 +165642,9 @@ gnp
 gnp
 gnp
 oSE
-tOC
+rgX
+bGT
 eTp
-tra
 ibi
 uue
 uue
@@ -165787,9 +165846,9 @@ dhH
 eob
 rsd
 svm
+mTf
 tOC
 nlY
-tra
 vmn
 uue
 vmn
@@ -165991,9 +166050,9 @@ dhH
 eob
 tra
 hqW
-tOC
+boy
+ahi
 eTp
-tra
 vmn
 uue
 uue
@@ -166196,7 +166255,7 @@ hli
 tra
 kuz
 uOO
-nlY
+eTp
 tra
 vmn
 vmn
@@ -167153,7 +167212,7 @@ eOC
 dsh
 hYu
 hYu
-jpZ
+qvT
 eIo
 pJF
 pJF
@@ -167355,7 +167414,7 @@ bhB
 bhB
 eOC
 jpZ
-nJq
+qvV
 wlh
 wlh
 bSR
