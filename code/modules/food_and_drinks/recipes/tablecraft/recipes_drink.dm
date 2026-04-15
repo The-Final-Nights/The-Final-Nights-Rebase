@@ -145,7 +145,7 @@
 		/datum/reagent/water = 15,
 	)
 	//We can't spawn the abstract food/grown path
-	//unit_test_spawn_extras = list(/obj/item/food/grown/banana = 4) I do not know why this is here, but its making my linters explode so begone
+	unit_test_spawn_extras = list(/obj/item/food/grown/banana = 4)
 	category = CAT_DRINK
 	non_craftable = TRUE // TFN EDIT ADDITION
 
