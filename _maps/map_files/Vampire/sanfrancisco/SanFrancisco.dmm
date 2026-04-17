@@ -23061,6 +23061,10 @@
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
+"fUI" = (
+/obj/machinery/light/directional/east,
+/turf/open/openspace,
+/area/vtm/interior/endron_facility)
 "fUK" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "splatter2-old"
@@ -24764,6 +24768,10 @@
 /obj/item/kirbyplants/darkpack/random,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/littleitaly)
+"gqy" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/city/plating,
+/area/vtm/interior/endron_facility)
 "gqA" = (
 /obj/effect/turf_decal/asphaltline/alt{
 	pixel_x = -14
@@ -29731,8 +29739,8 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/cleaning,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/pentex,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/substation)
 "hGs" = (
@@ -31542,6 +31550,7 @@
 /obj/effect/turf_decal/siding/wideplating/green{
 	dir = 4
 	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/city/plating,
 /area/vtm/interior/endron_facility)
 "idn" = (
@@ -36116,6 +36125,13 @@
 /obj/structure/roofstuff/alt1,
 /turf/open/floor/plating/roofwalk,
 /area/vtm)
+"jlW" = (
+/obj/effect/turf_decal/asphaltline/alt{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/door/access/pentex,
+/turf/open/floor/plating/asphalt,
+/area/vtm/outside/pacificheights)
 "jmb" = (
 /obj/effect/decal/pallet,
 /obj/effect/landmark/npcwall,
@@ -54351,9 +54367,9 @@
 	dir = 1
 	},
 /obj/structure/vampdoor/simple,
-/obj/effect/mapping_helpers/door/access/pentex,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/ten,
+/obj/effect/mapping_helpers/door/access/pentex_leader,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/endron_facility)
 "nRC" = (
@@ -67476,9 +67492,9 @@
 /obj/structure/vampdoor/woodglass{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/pentex,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/pentex_leader,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/endron_facility)
 "rex" = (
@@ -152392,7 +152408,7 @@ pUu
 qYl
 dSH
 dSH
-iQQ
+jlW
 dSH
 dSH
 rQf
@@ -249476,7 +249492,7 @@ mjT
 mjT
 kIU
 jsf
-jsf
+fUI
 kEr
 pij
 pij
@@ -249889,7 +249905,7 @@ idk
 mSI
 pij
 pij
-pij
+gqy
 ojg
 kIU
 uwo
