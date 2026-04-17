@@ -7144,6 +7144,13 @@
 /obj/machinery/sprinkler,
 /turf/open/floor/carpet/blue,
 /area/vtm/interior/shop)
+"bRg" = (
+/obj/vampgrave,
+/obj/item/bouquet{
+	pixel_y = -18
+	},
+/turf/open/misc/dirt,
+/area/vtm/graveyard)
 "bRi" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood/smooth/old,
@@ -9575,6 +9582,13 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/vtm/interior/clinic/haven)
+"cvZ" = (
+/obj/vampgrave,
+/obj/item/bouquet{
+	pixel_y = -20
+	},
+/turf/open/misc/dirt,
+/area/vtm/graveyard)
 "cwc" = (
 /obj/structure/hedge,
 /obj/effect/turf_decal/siding/grey{
@@ -24744,6 +24758,13 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
+"gsb" = (
+/obj/vampgrave,
+/obj/item/bouquet/sunflower{
+	pixel_y = -17
+	},
+/turf/open/misc/dirt,
+/area/vtm/graveyard)
 "gsq" = (
 /obj/item/paper/fluff{
 	default_raw_text = "How did you get here? Nevermind that actually. Bomby wuz here."
@@ -31593,6 +31614,13 @@
 /obj/machinery/light/warm/directional/south,
 /turf/open/water/vamp_sewer,
 /area/vtm/interior/sewer/nosferatu_warren)
+"ifl" = (
+/obj/vampgrave,
+/obj/item/food/grown/poppy/lily{
+	pixel_y = -18
+	},
+/turf/open/misc/dirt,
+/area/vtm/graveyard)
 "ifm" = (
 /obj/item/supplypod_beacon{
 	anchored = 1
@@ -42849,14 +42877,6 @@
 /obj/machinery/light/prince/directional/south,
 /turf/open/floor/wood/ornate,
 /area/vtm/interior/giovanni)
-"laI" = (
-/obj/structure/closet/crate/grave/fresh{
-	name = "grave"
-	},
-/obj/item/food/grown/poppy,
-/obj/effect/mob_spawn/corpse/human/skeleton,
-/turf/open/misc/dirt,
-/area/vtm/graveyard)
 "laJ" = (
 /obj/structure/hedge,
 /obj/structure/railing,
@@ -45612,6 +45632,13 @@
 /obj/effect/turf_decal/asphaltline,
 /turf/open/floor/plating/asphalt,
 /area/vtm/outside/financialdistrict)
+"lLk" = (
+/obj/vampgrave,
+/obj/item/food/grown/harebell{
+	pixel_y = -18
+	},
+/turf/open/misc/dirt,
+/area/vtm/graveyard)
 "lLl" = (
 /obj/effect/turf_decal/bordur,
 /turf/open/floor/plating/concrete,
@@ -46670,14 +46697,6 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/sewer/police)
-"lXL" = (
-/obj/structure/closet/crate/grave/fresh{
-	name = "grave"
-	},
-/obj/item/bouquet/sunflower,
-/obj/effect/mob_spawn/corpse/human/skeleton,
-/turf/open/misc/dirt,
-/area/vtm/graveyard)
 "lYh" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/vampdoor/woodglass,
@@ -54137,14 +54156,6 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
-"nQL" = (
-/obj/structure/closet/crate/grave/fresh{
-	name = "grave"
-	},
-/obj/item/bouquet/poppy,
-/obj/effect/mob_spawn/corpse/human/skeleton,
-/turf/open/misc/dirt,
-/area/vtm/graveyard)
 "nQN" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
@@ -54554,6 +54565,13 @@
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass,
 /area/vtm/outside/pacificheights/community)
+"nVF" = (
+/obj/vampgrave,
+/obj/item/bouquet/poppy{
+	pixel_y = -20
+	},
+/turf/open/misc/dirt,
+/area/vtm/graveyard)
 "nVJ" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
@@ -69825,7 +69843,7 @@
 /area/vtm/interior/tzimisce_manor)
 "rLv" = (
 /turf/open/genturf,
-/area/vtm/planetgeneration)
+/area/vtm/planetgeneration/woodland)
 "rLw" = (
 /obj/structure/closet,
 /obj/item/clothing/under/vampire/pentex_janitor,
@@ -79967,6 +79985,14 @@
 "utv" = (
 /obj/vampgrave,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/head/vampire/police{
+	pixel_y = -15;
+	pixel_x = -11
+	},
+/obj/item/storage/fancy/nugget_box{
+	pixel_y = -21;
+	pixel_x = 12
+	},
 /turf/open/misc/dirt,
 /area/vtm/graveyard)
 "utx" = (
@@ -83728,14 +83754,6 @@
 	},
 /turf/open/floor/city/factory,
 /area/vtm/interior/endron_facility/restricted)
-"vuf" = (
-/obj/structure/closet/crate/grave/fresh{
-	name = "grave"
-	},
-/obj/item/food/grown/poppy/lily,
-/obj/effect/mob_spawn/corpse/human/skeleton,
-/turf/open/misc/dirt,
-/area/vtm/graveyard)
 "vuq" = (
 /obj/structure/rack/clothing_hanger{
 	density = 0;
@@ -90193,6 +90211,13 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/sewer/police)
+"xde" = (
+/obj/vampgrave,
+/obj/item/food/grown/poppy{
+	pixel_y = -18
+	},
+/turf/open/misc/dirt,
+/area/vtm/graveyard)
 "xds" = (
 /obj/effect/turf_decal/bordur{
 	dir = 9
@@ -142044,17 +142069,17 @@ lWD
 mWD
 lWD
 oWx
-iRN
-cIn
+lLk
+exN
 btD
-iRN
-fam
+bRg
+exN
 oWx
 iRN
 izj
 oWx
-iRN
-fam
+bRg
+exN
 btD
 bJD
 pUu
@@ -142248,14 +142273,14 @@ mWD
 lWD
 mWD
 btD
-iRN
-nQL
+nVF
+exN
 oWx
-iRN
-vuf
+ifl
+exN
 oWx
-iRN
-nQL
+nVF
+exN
 oWx
 iRN
 sLH
@@ -142458,11 +142483,11 @@ oWx
 iRN
 dig
 oWx
-iRN
-vuf
+ifl
+exN
 oWx
-iRN
-lXL
+gsb
+exN
 oWx
 vxa
 pUu
@@ -142656,17 +142681,17 @@ utv
 wwX
 btD
 oWx
-iRN
-fam
+cvZ
+exN
 oWx
-iRN
-cIn
+lLk
+exN
 oWx
 iRN
 lOu
 oWx
-iRN
-cIn
+xde
+exN
 oWx
 bfS
 pUu
@@ -143272,12 +143297,12 @@ iRN
 exN
 oWx
 iRN
-cIn
+exN
 oWx
 iRN
 mJI
 oWx
-iRN
+lLk
 cIn
 oWx
 dDZ
@@ -143475,14 +143500,14 @@ btD
 iRN
 kLx
 oWx
-iRN
+lLk
 izj
 oWx
-iRN
-fam
+bRg
+exN
 oWx
-iRN
-vuf
+ifl
+exN
 oWx
 xnW
 pUu
@@ -143676,14 +143701,14 @@ whz
 apv
 whz
 whz
-iRN
-laI
+xde
+exN
 oWx
-iRN
-nQL
+nVF
+exN
 oWx
-iRN
-laI
+xde
+exN
 oWx
 iRN
 iOp
@@ -144084,11 +144109,11 @@ fXs
 fHX
 qax
 whz
-iRN
-vuf
+ifl
+exN
 oWx
-iRN
-fam
+gsb
+exN
 oWx
 iRN
 tJP
@@ -144288,17 +144313,17 @@ hOa
 fHX
 qax
 whz
-iRN
-lXL
+gsb
+exN
 btD
 iRN
 oiR
 oWx
-iRN
-lXL
+bRg
+exN
 oWx
-iRN
-nQL
+nVF
+exN
 oWx
 bJD
 pUu
@@ -144492,17 +144517,17 @@ qfw
 smf
 fXs
 whz
-iRN
-cIn
+lLk
+exN
+oWx
+xde
+exN
 oWx
 iRN
-laI
-oWx
-iRN
-cIn
+exN
 btD
-iRN
-laI
+xde
+exN
 oWx
 vxa
 lLR
