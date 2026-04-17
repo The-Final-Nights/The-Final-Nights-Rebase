@@ -1,6 +1,11 @@
 /datum/discipline/fortitude
 	name = "Fortitude"
-	desc = "Boosts armor."
+	desc = {"Boosts armor.
+● Fortitude 1: Passive
+●● Fortitude 2: Passive
+●●● Fortitude 3: Passive
+●●●● Fortitude 4: Passive
+●●●●● Fortitude 5: Passive"} // TFN EDIT CHANGE - ORIGINAL: desc = "Boosts armor."
 	icon_state = "fortitude"
 	power_type = /datum/discipline_power/fortitude
 

@@ -44,7 +44,7 @@
 /obj/item/smartphone/ventrue_primo
 	important_contact_of = VAMPIRE_CLAN_VENTRUE
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Crown Blue Jazz Club Owner", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Crown Blue Jazz Club Manager", USE_JOB_TITLE = FALSE) // TFN EDIT CHANGE - ORIGINAL: alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Crown Blue Jazz Club OWNER", USE_JOB_TITLE = FALSE)
 		)
 
 // TOREADOR
@@ -52,7 +52,7 @@
 /obj/item/smartphone/toreador_primo
 	important_contact_of = VAMPIRE_CLAN_TOREADOR
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Rosebud Night Club Owner", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Rosebud Night Club Manager", USE_JOB_TITLE = FALSE) // TFN EDIT CHANGE - ORIGINAL: alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Rosebud Night Club Owner", USE_JOB_TITLE = FALSE)
 		)
 
 // NOSFERATU
@@ -68,8 +68,8 @@
 /obj/item/smartphone/malkavian_primo
 	important_contact_of = VAMPIRE_CLAN_MALKAVIAN
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Hospital Administrator", USE_JOB_TITLE = FALSE)
-		)
+		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Psychiatrist", USE_JOB_TITLE = FALSE)
+		) // TFN EDIT CHANGE - ORIGINAL: alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Hospital Administrator", USE_JOB_TITLE = FALSE)
 
 // LASOMBRA
 
@@ -191,11 +191,28 @@
 		alist(NETWORK_ID = SUPPLY_NETWORK, OUR_ROLE = "Supply Technician", USE_JOB_TITLE = FALSE)
 		)
 
+//TFN ADDITION START - Setite Faction
+/obj/item/smartphone/supply_tech/associate
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = SUPPLY_NETWORK, OUR_ROLE = "Junior Supply Technician", USE_JOB_TITLE = FALSE)
+		)
+
+/obj/item/smartphone/supply_tech/faithful
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = SUPPLY_NETWORK, OUR_ROLE = "Senior Supply Technician", USE_JOB_TITLE = FALSE)
+		)
+//TFN ADDITION END - Setite Faction
+
 /obj/item/smartphone/dealer
 	contact_networks_pre_init = list(
 		alist(NETWORK_ID = SUPPLY_NETWORK, OUR_ROLE = "Supply Manager", USE_JOB_TITLE = FALSE),
 		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Warehouse Manager", USE_JOB_TITLE = FALSE)
 	)
+
+//TFN ADDITION START - Setite Faction
+/obj/item/smartphone/dealer/high_priest
+	important_contact_of = VAMPIRE_CLAN_SETITE
+//TFN ADDITION END - Setite Faction
 
 // ENDRON
 
@@ -234,6 +251,17 @@
 	important_contact_of = VAMPIRE_CLAN_BRUJAH
 	contact_networks_pre_init = list(
 		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Gym Manager", USE_JOB_TITLE = FALSE)
+		)
+//TFN EDIT ADD END
+//TFN EDIT ADD START - Clinic Phones
+/obj/item/smartphone/doctor
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = CLINIC_NETWORK, OUR_ROLE = "Doctor", USE_JOB_TITLE = TRUE)
+		)
+
+/obj/item/smartphone/doctor/director
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = CLINIC_NETWORK, OUR_ROLE = "Clinic Director", USE_JOB_TITLE = TRUE)
 		)
 //TFN EDIT ADD END
 #undef NETWORK_ID
