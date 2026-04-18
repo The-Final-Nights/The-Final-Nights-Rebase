@@ -7630,11 +7630,6 @@
 /obj/effect/decal/cleanable/trash,
 /turf/open/floor/city/circled,
 /area/vtm/interior/sewer/police)
-"cac" = (
-/mob/living/carbon/human/npc/shop,
-/obj/structure/chair/office/darkpack/green,
-/turf/open/floor/city/gummaguts,
-/area/vtm/interior/shop)
 "cak" = (
 /obj/structure/table/countertop/green,
 /obj/structure/sink/basin/directional/east,
@@ -27733,6 +27728,7 @@
 /area/vtm/interior/millennium_tower)
 "hkO" = (
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/structure/chair/darkpack/green,
 /turf/open/floor/city/gummaguts,
 /area/vtm/interior/shop)
 "hkR" = (
@@ -34480,6 +34476,13 @@
 	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
+"iYJ" = (
+/obj/machinery/light/directional/east{
+	pixel_y = 16
+	},
+/mob/living/carbon/human/npc/guard,
+/turf/open/floor/city/gummaguts,
+/area/vtm/interior/shop)
 "iYU" = (
 /turf/open/floor/city/industrial,
 /area/vtm)
@@ -43408,10 +43411,6 @@
 "lqx" = (
 /turf/closed/wall/vampwall/painted,
 /area/vtm/interior/banu)
-"lqJ" = (
-/obj/effect/landmark/start/darkpack/citizen/citizen,
-/turf/open/floor/city/industrial,
-/area/vtm/interior/shop)
 "lqP" = (
 /obj/structure/table/wood,
 /obj/item/gun/ballistic/automatic/pistol/darkpack/glock19,
@@ -48111,15 +48110,6 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/apartment/pacific)
-"mCG" = (
-/obj/structure/table,
-/obj/structure/rack/clothing/rand{
-	dir = 8;
-	pixel_y = 9;
-	plane = -3.9
-	},
-/turf/open/floor/city/gummaguts,
-/area/vtm/interior/shop)
 "mCN" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 8
@@ -55054,9 +55044,7 @@
 /obj/machinery/light/directional/east{
 	pixel_y = 16
 	},
-/obj/structure/table,
-/obj/structure/retail/costume_store{
-	pixel_y = 7;
+/obj/structure/chair/darkpack/green{
 	dir = 1
 	},
 /turf/open/floor/city/gummaguts,
@@ -170637,8 +170625,8 @@ xSj
 qJv
 fil
 fil
-mCG
-lqJ
+fil
+blS
 blS
 fil
 vkv
@@ -170840,11 +170828,11 @@ nAv
 eDO
 wOw
 hkO
-cac
+xeg
 omT
 blS
 blS
-vAu
+iYJ
 xeg
 xeg
 oPE
