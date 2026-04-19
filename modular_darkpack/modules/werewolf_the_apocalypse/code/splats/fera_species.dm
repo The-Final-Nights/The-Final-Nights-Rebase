@@ -294,7 +294,7 @@
 // Verify these nums are ttrpg accurate.
 /datum/movespeed_modifier/shifter/war
 	multiplicative_slowdown = -0.8
-// In the TTRPG Crinos has cel4, this -1 here is a good representation of how this looks like without it being too fast
+// In the TTRPG Crinos has cel4, this -0.8 here is a good representation of how this looks like without it being too fast
 /datum/movespeed_modifier/shifter/dire
 	multiplicative_slowdown = -0.3
 
