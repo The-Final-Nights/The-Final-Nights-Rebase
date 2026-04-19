@@ -142,9 +142,9 @@
 	zone_type = ZONE_ELYSIUM
 
 /area/vtm/interior/supply
-	name = "Supply"
+	name = "Casino Warehouse" // TFN EDIT - [LORE TEAM REQUESTED] map changes
 	icon_state = "supply"
-	ambience_index = AMBIENCE_OFFICE
+	ambience_index = AMBIENCE_SEWER // TFN EDIT - [LORE TEAM REQUESTED] map changes
 
 /area/vtm/interior/hotel
 	name = "Hotel"
@@ -243,12 +243,12 @@
 	zone_type = ZONE_ELYSIUM
 
 /area/vtm/interior/setite
-	name = "Community Center"
+	name = "Casino" // TFN EDIT - [LORE TEAM REQUESTED] map changes
 	icon_state = "hotel"
 	fire_controled = TRUE
 
 /area/vtm/interior/setite/basement
-	name = "Community Center Basement"
+	name = "Temple of Set" // TFN EDIT - [LORE TEAM REQUESTED] map changes
 	zone_type = ZONE_ELYSIUM
 
 /area/vtm/interior/ghetto
@@ -281,15 +281,6 @@
 	icon_state = "financialdistrict"
 	fire_controled = TRUE
 
-/area/vtm/interior/setite
-	name = "Community Center"
-	icon_state = "hotel"
-	fire_controled = TRUE
-
-/area/vtm/interior/setite/basement
-	name = "Community Center Basement"
-	zone_type = "elysium"
-
 /area/vtm/interior/substation
 	name = "Grid Substation"
 	icon_state = "hotel"
@@ -297,3 +288,17 @@
 	music_index = MUSIC_CITY
 	ambience_index = AMBIENCE_OFFICE
 	fire_controled = TRUE
+
+// TFN EDIT START - [LORE TEAM REQUESTED] map changes
+
+/area/vtm/interior/trainyard
+	name = "Old Trainyard"
+	icon_state = "supply"
+	ambience_index = AMBIENCE_OFFICE
+
+/area/vtm/interior/mall
+	name = "Union Square Mall"
+	icon_state = "shop"
+	fire_controled = TRUE
+
+// TFN EDIT END - [LORE TEAM REQUESTED] map changes
