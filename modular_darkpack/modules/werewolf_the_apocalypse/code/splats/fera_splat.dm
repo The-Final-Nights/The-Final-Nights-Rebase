@@ -142,7 +142,7 @@
 		if(is_breed_form() && (get_breed_form_species() != /datum/species/human/shifter/war))
 			return
 		owner.heal_storyteller_health(1, heal_scars = TRUE, heal_blood = TRUE)
-		COOLDOWN_START(src, passive_healing_cd, 0.1 TURNS)
+		COOLDOWN_START(src, passive_healing_cd, 0.05 TURNS)
 	var/datum/species/human/shifter/shifter_species = owner.dna.species
 	if(istype(shifter_species))
 		if(shifter_species.veil_breaching_form && !shifter_species.causes_delerium)
