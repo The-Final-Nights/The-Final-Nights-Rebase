@@ -17,8 +17,9 @@
 	outfit = /datum/outfit/job/vampire/clerk
 
 	display_order = JOB_DISPLAY_ORDER_CLERK
-	department_for_prefs = /datum/job_department/camarilla
+	department_for_prefs = /datum/job_department/prince // TFN EDIT, ORIGINAL: department_for_prefs = /datum/job_department/camarilla
 	departments_list = list(
+		/datum/job_department/prince, // TFN EDIT ADD
 		/datum/job_department/camarilla,
 	)
 
@@ -28,6 +29,11 @@
 	allowed_clans = list(VAMPIRE_CLAN_DAUGHTERS_OF_CACOPHONY, VAMPIRE_CLAN_TRUE_BRUJAH, VAMPIRE_CLAN_BRUJAH, VAMPIRE_CLAN_TREMERE, VAMPIRE_CLAN_VENTRUE, VAMPIRE_CLAN_NOSFERATU, VAMPIRE_CLAN_GANGREL, VAMPIRE_CLAN_CITY_GANGREL, VAMPIRE_CLAN_TOREADOR, VAMPIRE_CLAN_MALKAVIAN, VAMPIRE_CLAN_BANU_HAQIM, VAMPIRE_CLAN_SETITE, VAMPIRE_CLAN_LASOMBRA, VAMPIRE_CLAN_GARGOYLE, VAMPIRE_CLAN_KIASYD)
 
 	known_contacts = list("Prince","Sheriff","Tremere Regent","Dealer","Primogens")
+
+// TFN EDIT ADD START
+/datum/job/vampire/clerk/get_captaincy_announcement(mob/living/captain)
+	return "Seneschal [captain.real_name] is in the city!"
+// TFN EDIT ADD END
 
 /datum/outfit/job/vampire/clerk
 	name = "Seneschal"

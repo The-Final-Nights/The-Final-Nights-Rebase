@@ -32,6 +32,12 @@ JOB_START_HELPER(axe/gang, JOB_AXE_GANG)
 
 JOB_START_HELPER(supply/dealer, JOB_DEALER)
 JOB_START_HELPER(supply/tech, JOB_SUPPLY_TECH)
+ //TFN ADDITION START - Setite Faction
+JOB_START_HELPER(setite, JOB_ASSOCIATE)
+JOB_START_HELPER(setite/faithful, JOB_FAITHFUL)
+JOB_START_HELPER(setite/high_priest, JOB_HIGH_PRIEST)
+JOB_START_HELPER(setite/ward, JOB_WARD)
+//TFN ADDITION END - Setite Faction
 
 /* Camarilla */
 /obj/effect/landmark/start/darkpack/camarilla

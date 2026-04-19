@@ -43,11 +43,10 @@
 	icon_state = "detective"
 	LCU_SUIT_ICONS
 
-/obj/item/clothing/suit/vampire/detective2
+/obj/item/clothing/suit/vampire/detective/jacket
 	name = "detective jacket"
 	desc = "A detective's jacket."
 	icon_state = "detective2"
-	LCU_SUIT_ICONS
 
 /obj/item/clothing/suit/vampire/letterman
 	name = "letterman jacket"
@@ -138,13 +137,12 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon)
 
-/obj/item/clothing/suit/vampire/retro_bomber
+/obj/item/clothing/suit/vampire/bomber/retro
 	name = "retro bomber jacket"
 	desc = "A retro-style bomber jacket."
 	icon_state = "retro_bomber"
-	LCU_SUIT_ICONS
 
-/obj/item/clothing/suit/vampire/retro_bomber/Initialize(mapload)
+/obj/item/clothing/suit/vampire/bomber/retro/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_icon)
 
@@ -188,17 +186,16 @@
 	icon_state = "pink_hoodie"
 
 // Puffer
-/obj/item/clothing/suit/vampire/pufferjacket
+/obj/item/clothing/suit/vampire/puffer
 	name = "puffer jacket"
 	desc = "A puffer jacket."
 	icon_state = "pufferjacket"
 	LCU_SUIT_ICONS
 
-/obj/item/clothing/suit/vampire/puffervest
+/obj/item/clothing/suit/vampire/puffer/vest
 	name = "puffer vest"
 	desc = "A puffer vest."
 	icon_state = "puffervest"
-	LCU_SUIT_ICONS
 
 // Varsity
 /obj/item/clothing/suit/vampire/varsity
@@ -387,7 +384,7 @@
 	desc = "A blue suit jacket."
 	icon_state = "suitjacket_blue"
 
-/obj/item/clothing/suit/vampire/suitjacket/purp
+/obj/item/clothing/suit/vampire/suitjacket/purple
 	name = "purple suit jacket"
 	desc = "A purple suit jacket."
 	icon_state = "suitjacket_purp"
@@ -422,17 +419,102 @@
 	desc = "A checkered suit jacket."
 	icon_state = "suitjacket_checkered"
 
+// Flannel Shirts
+/obj/item/clothing/suit/vampire/flannel
+	abstract_type = /obj/item/clothing/suit/vampire/flannel
+	LCU_SUIT_ICONS
+
+//FLANNELS
+//these use a different system from other toggles bc they have three different things you can toggle
+/obj/item/clothing/suit/vampire/flannel
+	name = "flannel shirt"
+	desc = "A comfy, flannel shirt. Unleash your inner hipster."
+	icon_state = "flannel"
+	LCU_SUIT_ICONS
+	inhand_icon_state = null
+	var/rolled = 0
+	var/tucked = 0
+	var/buttoned = 0
+
+/obj/item/clothing/suit/vampire/flannel/verb/roll_sleeves()
+	set name = "Roll Sleeves"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living))
+		return
+	if(usr.stat)
+		return
+
+	if(rolled == 0)
+		rolled = 1
+		body_parts_covered &= ~(ARMS)
+		to_chat(usr, "<span class='notice'>You roll up the sleeves of your [src].</span>")
+	else
+		rolled = 0
+		body_parts_covered = initial(body_parts_covered)
+		to_chat(usr, "<span class='notice'>You roll down the sleeves of your [src].</span>")
+	update_icon_state()
+	usr.update_worn_oversuit()
+
+/obj/item/clothing/suit/vampire/flannel/verb/tuck()
+	set name = "Toggle Shirt Tucking"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living)||usr.stat)
+		return
+
+	if(tucked == 0)
+		tucked = 1
+		to_chat(usr, "<span class='notice'>You tuck in your your [src].</span>")
+	else
+		tucked = 0
+		to_chat(usr, "<span class='notice'>You untuck your [src].</span>")
+	update_icon_state()
+	usr.update_worn_oversuit()
+
+/obj/item/clothing/suit/vampire/flannel/verb/button()
+	set name = "Toggle Shirt Buttons"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living)||usr.stat)
+		return
+
+	if(buttoned == 0)
+		buttoned = 1
+		to_chat(usr, "<span class='notice'>You button your [src].</span>")
+	else
+		buttoned = 0
+		to_chat(usr, "<span class='notice'>You unbutton your [src].</span>")
+	update_icon_state()
+	usr.update_worn_oversuit()
+
+
+/obj/item/clothing/suit/vampire/flannel/red
+	name = "red flannel"
+	desc = "A comfy, red flannel shirt.  Unleash your inner hipster."
+	icon_state = "flannel_red"
+
+/obj/item/clothing/suit/vampire/flannel/aqua
+	name = "aqua flannel"
+	desc = "A comfy, aqua flannel shirt.  Unleash your inner hipster."
+	icon_state = "flannel_aqua"
+
+/obj/item/clothing/suit/vampire/flannel/brown
+	name = "brown flannel"
+	desc = "A comfy, brown flannel shirt.  Unleash your inner hipster."
+	icon_state = "flannel_brown"
+
+
 // Shawls
-/obj/item/clothing/suit/vampire/shawl_black
+/obj/item/clothing/suit/vampire/shawl
 	name = "black shawl"
 	desc = "A long silk shawl, to be draped over the arms."
 	icon_state = "shawl_black"
 	LCU_SUIT_ICONS
 
-/obj/item/clothing/suit/vampire/shawl_white
+/obj/item/clothing/suit/vampire/shawl/white
 	name = "white shawl"
 	desc = "A long silk shawl, to be draped over the arms."
 	icon_state = "shawl_white"
-	LCU_SUIT_ICONS
 
 #undef LCU_SUIT_ICONS

@@ -12,6 +12,7 @@
 	var/category_info
 	/// Order which they appear in the tabs, ties go alphabetically
 	var/tab_order = -1
+	var/donator_tier_required = 0 // TFN EDIT - donator stuff
 	/// What type of loadout items should be generated for this category?
 	var/type_to_generate
 	/// List of all loadout items in this category
