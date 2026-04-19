@@ -36,7 +36,7 @@
 	flap_sound_loop()
 
 /obj/item/organ/wings/functional/gargoyle/proc/flap_sound_loop()
-	if(!wings_open || QDELETED(src))
+	if(!wings_open || QDELETED(src)) // a little weird here but since garg wings can be tucked/untucked/flapping we're using parent type's wings_open and wings_closed for flapping and 'hidden' for tucked/untucked...
 		return
 	playsound(owner, 'modular_darkpack/modules/external_organs/sounds/wing_flap_flying.ogg', 50, TRUE)
 	addtimer(CALLBACK(src, PROC_REF(flap_sound_loop)), 2 SECONDS)
@@ -69,20 +69,20 @@
 	if(!wings)
 		return
 
-	if(wings.wings_open)
+	if(wings.wings_open) // if flying
 		to_chat(human, span_warning("You can't fold your wings while flying!"))
 		return
 
 	var/datum/bodypart_overlay/mutant/wings/functional/gargoyle/overlay = wings.bodypart_overlay
 
-	if(overlay.hidden)
+	if(overlay.hidden) // if tucked
 		to_chat(human, span_notice("You slowly unfurl your wings..."))
 		if(!do_after(human, 4 SECONDS, human))
 			return
 		playsound(human, 'modular_darkpack/modules/external_organs/sounds/wing_close_open_wings.ogg', 50, TRUE)
 		overlay.hidden = FALSE
 		to_chat(human, span_notice("Your wings spread open!"))
-	else
+	else // if untucked
 		to_chat(human, span_notice("You slowly fold your wings away..."))
 		if(!do_after(human, 4 SECONDS, human))
 			return
