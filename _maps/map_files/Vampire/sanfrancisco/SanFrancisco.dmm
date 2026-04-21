@@ -26767,6 +26767,11 @@
 /obj/vampire_computer,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/cog/caern)
+"gTt" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/effect/landmark/spider_spawn,
+/turf/open/misc/grass/nosmooth,
+/area/vtm/outside/park)
 "gTB" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
@@ -49511,6 +49516,10 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/shop)
+"mHY" = (
+/obj/effect/landmark/spider_spawn,
+/turf/open/floor/plating/canalplating,
+/area/vtm/interior/sewer)
 "mIa" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/wood/herring,
@@ -61346,6 +61355,7 @@
 /area/vtm/outside/pacificheights)
 "pAy" = (
 /obj/structure/table,
+/obj/effect/landmark/spider_spawn,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/setite)
 "pAB" = (
@@ -65950,6 +65960,22 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/techshop)
+"qJS" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack/robusta,
+/obj/item/storage/box/coffeepack/robusta,
+/obj/item/storage/box/coffeepack/robusta,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/effect/landmark/spider_spawn,
+/turf/open/floor/city/factory,
+/area/vtm/interior/banu)
 "qJW" = (
 /obj/structure/vampipe{
 	icon_state = "piping31"
@@ -79104,6 +79130,10 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/openspace,
 /area/vtm/interior)
+"uet" = (
+/obj/effect/landmark/spider_spawn,
+/turf/open/misc/dirt,
+/area/vtm/interior/sewer)
 "ueu" = (
 /obj/structure/chair/plastic/darkpack,
 /turf/open/floor/plating/sidewalk/poor,
@@ -91185,6 +91215,7 @@
 /obj/effect/decal/fakelattice{
 	density = 0
 	},
+/obj/effect/landmark/spider_spawn,
 /turf/open/water/vamp_sewer/border,
 /area/vtm/interior/millennium_tower)
 "xpI" = (
@@ -108380,7 +108411,7 @@ xyw
 qAn
 bEG
 cBs
-rLP
+uet
 rLP
 mkX
 xyw
@@ -122117,7 +122148,7 @@ uvs
 uvs
 tuX
 rUJ
-kOa
+mHY
 kOa
 ePc
 vFf
@@ -160786,7 +160817,7 @@ guM
 guM
 guM
 uCU
-cka
+gTt
 cka
 hhw
 hhw
@@ -162447,7 +162478,7 @@ nOJ
 ioK
 irC
 awe
-hGV
+qJS
 hGV
 vQO
 hle
