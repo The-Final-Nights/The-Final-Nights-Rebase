@@ -28,8 +28,10 @@
 	..()
 	for(var/i in 1 to 3)
 		new /obj/item/tank/internals/anesthetic(src)
+// TFN EDIT ADDITION START
 	for(var/i in 1 to 3)
 		new /obj/item/tank/internals/oxygen(src)
+// TFN EDIT ADDITION END
 	for(var/i in 1 to 3)
 		new /obj/item/clothing/mask/breath/muzzle(src)
 
