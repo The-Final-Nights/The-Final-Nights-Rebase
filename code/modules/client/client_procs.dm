@@ -802,18 +802,8 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 		list("ckey" = ckey)
 	)
 	if(query_get_donator_rank.Execute() && query_get_donator_rank.NextRow())
-		var/rank = query_get_donator_rank.item[1]
-		if(rank in list("Fledgling", "Ancilla", "Elder", "Antediluvian", "Caine"))
-			prefs?.donator_rank = rank
+		prefs?.set_donator_rank(query_get_donator_rank.item[1])
 	qdel(query_get_donator_rank)
-	if(isnull(prefs?.discipline_trusted))
-		var/datum/db_query/query_get_whitelist = SSdbcore.NewQuery(
-			"SELECT whitelist FROM [format_table_name("whitelist")] WHERE ckey = :ckey",
-			list("ckey" = ckey)
-		)
-		if(query_get_whitelist.Execute() && query_get_whitelist.NextRow())
-			prefs?.discipline_trusted = TRUE // they had a whitelist for something, so give them the discipline_trusted whitelist which acts as our new trusted_player whitelist
-		qdel(query_get_whitelist)
 	// TFN EDIT END
 
 	SSserver_maint.UpdateHubStatus()

@@ -3,6 +3,7 @@
 
 ADMIN_VERB_ONLY_CONTEXT_MENU(debug_variables, R_NONE, "View Variables", datum/thing in world)
 	user.debug_variables(thing)
+	SSoverwatch.record_action(null, "[key_name(user)] viewed variables on [thing].")
 // This is kept as a separate proc because admins are able to show VV to non-admins
 
 /client/proc/debug_variables(datum/thing)

@@ -7,12 +7,12 @@
 /datum/job_department/prince
 	department_name = DEPARTMENT_PRINCE
 	department_bitflags = DEPARTMENT_BITFLAG_PRINCE
-	department_head = /datum/job/vampire/prince
+	department_head = /datum/job/vampire/clerk // TFN EDIT, ORIGINAL: department_head = /datum/job/vampire/prince
 
 /datum/job_department/camarilla
 	department_name = DEPARTMENT_CAMARILLA
 	department_bitflags = DEPARTMENT_BITFLAG_CAMARILLA
-	department_head = /datum/job/vampire/prince
+	department_head = /datum/job/vampire/clerk // TFN EDIT, ORIGINAL: department_head = /datum/job/vampire/prince
 	department_experience_type = EXP_TYPE_CAMARILLA
 	display_order = 1
 	label_class = "camarilla"
@@ -21,7 +21,7 @@
 /datum/job_department/church
 	department_name = DEPARTMENT_CHURCH
 	department_bitflags = DEPARTMENT_BITFLAG_CHURCH
-	department_head = /datum/job/vampire/prince
+	department_head = /datum/job/vampire/clerk // TFN EDIT, ORIGINAL: department_head = /datum/job/vampire/prince
 	department_experience_type = EXP_TYPE_CHURCH
 	display_order = 1
 	label_class = "church"
@@ -48,7 +48,7 @@
 /datum/job_department/supply
 	department_name = DEPARTMENT_SUPPLY
 	department_bitflags = DEPARTMENT_BITFLAG_SUPPLY
-	department_head = /datum/job/vampire/dealer
+	department_head = /datum/job/vampire/setite/faithful/high_priest //TFN EDIT - Setite Faction - Original : department_head = /datum/job/vampire/dealer
 	department_experience_type = EXP_TYPE_WAREHOUSE
 	display_order = 1
 	label_class = "supply"

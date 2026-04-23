@@ -12,6 +12,7 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 	/datum/discipline/valeren,
 	/datum/discipline/obeah,
 	/datum/discipline/melpominee,
+	/datum/discipline/protean
 ))
 
 // warns a player if they have no discipline dots assigned before joining
@@ -315,7 +316,8 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 			var/discipline = text2path(disc_path)
 			if(!discipline)
 				continue
-			var/level = discipline_levels[disc_path]
+			var/level = character.get_splat(/datum/splat/vampire/ghoul) ? 1 : discipline_levels[disc_path] // TFN EDIT - cap ghouls at level 1 even if an admin gives them level 5
+
 			if(!level)
 				continue // prevent removing the disc by stopping here if they put 0 in it
 			var/result = character.change_st_power_level(discipline, level)
