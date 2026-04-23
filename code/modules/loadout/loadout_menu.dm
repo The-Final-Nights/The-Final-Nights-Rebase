@@ -21,7 +21,11 @@
 	if(!istype(interacted_item))
 		stack_trace("Failed to locate desired loadout item (path: [params["path"]]) in the global list of loadout datums!")
 		return TRUE // update
-
+	// TFN EDIT START - donator tier gatekeep girlbossing
+	if(interacted_item.donator_tier_required && user.client?.prefs?.donator_rank < interacted_item.donator_tier_required)
+		to_chat(user, span_warning("You must be a [user.client.prefs.donator_rank_to_string(interacted_item.donator_tier_required)] tier donator or higher to select this item."))
+		return TRUE
+	//TFN EDIT END
 	if(params["deselect"])
 		deselect_item(interacted_item)
 	else if(!interacted_item.is_disabled())
@@ -110,6 +114,7 @@
 			"category_icon" = category.category_ui_icon,
 			"category_info" = category.category_info,
 			"contents" = category.items_to_ui_data(),
+			"donator_tier_required" = category.donator_tier_required, // TFN EDIT
 		)
 		UNTYPED_LIST_ADD(loadout_tabs, cat_data)
 
