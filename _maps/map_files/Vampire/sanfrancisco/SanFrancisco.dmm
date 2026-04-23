@@ -21616,10 +21616,6 @@
 	},
 /turf/open/misc/grass,
 /area/vtm/outside/pacificheights/community)
-"fDE" = (
-/obj/structure/flora/tree/vamp/pine,
-/turf/open/genturf,
-/area/vtm/planetgeneration/woodland)
 "fDY" = (
 /obj/machinery/sprinkler,
 /turf/open/floor/carpet/blue,
@@ -41757,16 +41753,6 @@
 	icon_state = "carpet_black"
 	},
 /area/vtm/interior/sewer/nosferatu_warren)
-"kPX" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/flora/bush/sparsegrass/style_random,
-/obj/structure/flora/tree/vamp/pine,
-/turf/open/genturf,
-/area/vtm/planetgeneration/woodland)
 "kQl" = (
 /obj/structure/bed/maint{
 	pixel_y = 2
@@ -42873,6 +42859,9 @@
 /obj/structure/table/wood/poker,
 /turf/open/floor/carpet/royalblack,
 /area/vtm/interior/giovanni)
+"lff" = (
+/turf/open/water/beach/vamp/deep,
+/area/vtm/interior/caves)
 "lfj" = (
 /turf/closed/wall/vampwall/rich/old,
 /area/vtm/interior/tzimisce_manor)
@@ -80104,6 +80093,9 @@
 	},
 /turf/open/floor/city/circled,
 /area/vtm/interior/endron_facility/restricted)
+"uwX" = (
+/turf/open/water/beach/vamp,
+/area/vtm/interior/caves)
 "uxi" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -135973,13 +135965,13 @@ uvs
 uvs
 uvs
 uvs
-bal
-bal
-bal
-bal
-bal
-bal
-bal
+aqb
+aqb
+aqb
+aqb
+aqb
+aqb
+aqb
 aqb
 aqb
 aqb
@@ -136175,15 +136167,15 @@ uvs
 uvs
 uvs
 uvs
-bal
-bal
-bal
-iqO
-rIp
-rIp
-rIp
-rIp
-rIp
+aqb
+aqb
+aqb
+uwX
+lff
+lff
+lff
+lff
+lff
 lin
 pvq
 nRI
@@ -136378,16 +136370,16 @@ uvs
 bal
 bal
 bal
-bal
-bal
-iqO
-iqO
-iqO
-rIp
-rIp
-rIp
-rIp
-rIp
+aqb
+aqb
+uwX
+uwX
+uwX
+lff
+lff
+lff
+lff
+lff
 aqb
 aqb
 cOy
@@ -136582,17 +136574,17 @@ bal
 bal
 pDA
 pOt
-bal
-iqO
-iqO
-iqO
-iqO
-iqO
-rIp
-rIp
-bal
-bal
-bal
+aqb
+uwX
+uwX
+uwX
+uwX
+uwX
+lff
+lff
+aqb
+aqb
+aqb
 aqb
 aqb
 aqb
@@ -136786,15 +136778,15 @@ cJF
 cJF
 pDA
 cJF
-bal
-bal
-iqO
-iqO
-iqO
-iqO
-bal
-bal
-bal
+aqb
+aqb
+uwX
+uwX
+uwX
+uwX
+aqb
+aqb
+aqb
 jFt
 jFt
 jFt
@@ -136991,18 +136983,18 @@ pDA
 cJF
 gGW
 sWS
+aqb
+uwX
+uwX
+uwX
+uwX
+aqb
+jFt
+jFt
+jFt
+jFt
+jFt
 bal
-iqO
-iqO
-iqO
-iqO
-bal
-jFt
-jFt
-jFt
-jFt
-jFt
-jFt
 aqb
 nij
 nij
@@ -137199,14 +137191,14 @@ tyN
 iqO
 iqO
 iqO
+aqb
+aqb
+jFt
+jFt
+jFt
+jFt
+jFt
 bal
-bal
-jFt
-jFt
-jFt
-jFt
-jFt
-jFt
 aqb
 nij
 nij
@@ -137410,7 +137402,7 @@ jFt
 jFt
 jFt
 jFt
-jFt
+bal
 aqb
 aqb
 nij
@@ -137614,8 +137606,8 @@ sWS
 jFt
 jFt
 jFt
-jFt
-jFt
+bal
+bal
 aqb
 aqb
 aqb
@@ -137818,9 +137810,9 @@ sWS
 jFt
 jFt
 jFt
-kPX
 jFt
-jFt
+bal
+bal
 bal
 uvs
 uvs
@@ -138024,7 +138016,7 @@ jFt
 jFt
 jFt
 jFt
-kPX
+jFt
 bal
 bal
 uvs
@@ -138225,7 +138217,7 @@ sWS
 sWS
 jFt
 jFt
-fDE
+jFt
 jFt
 jFt
 jFt
@@ -178006,7 +177998,7 @@ vCe
 oyz
 mjT
 oyz
-uvs
+oyz
 uvs
 uvs
 uvs
@@ -178211,7 +178203,7 @@ mjT
 mjT
 mjT
 mjT
-uvs
+oyz
 uvs
 uvs
 uvs
@@ -178415,7 +178407,7 @@ mjT
 mjT
 mjT
 mjT
-uvs
+oyz
 uvs
 uvs
 uvs
@@ -178619,7 +178611,7 @@ mjT
 mjT
 mjT
 mjT
-uvs
+oyz
 oyz
 uvs
 uvs
@@ -178823,8 +178815,8 @@ mjT
 mjT
 mjT
 mjT
-uvs
-uvs
+oyz
+oyz
 oyz
 uvs
 uvs
@@ -179028,8 +179020,8 @@ mjT
 mjT
 mjT
 mjT
-uvs
-uvs
+oyz
+oyz
 uvs
 uvs
 uvs
