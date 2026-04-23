@@ -1,10 +1,10 @@
 /obj/item/clothing/mask/gas/darkpack_ert/guard_mask
-	name = "\improper Military Gas Mask"
+	name = "\improper military gas mask"
 	desc = "A close-fitting tactical gas mask designed to protect against biological hazards and public accountability."
 	icon_state = "gas_tactical"
 
 /obj/item/clothing/head/vampire/darkpack_ert/guard_helmet
-	name = "\improper National Guard Helmet"
+	name = "\improper National Guard helmet"
 	desc = "Standard issue C.A.N.G helmet modified for riot supression. Provides superior protection against blunt force." //California Army National Guard
 	icon_state = "tactical"
 	flags_inv = HIDEEARS|HIDEHAIR
@@ -12,7 +12,7 @@
 	masquerade_violating = TRUE
 
 /obj/item/clothing/suit/vampire/darkpack_ert/guard_vest
-	name = "\improper National Guard Vest"
+	name = "\improper National Guard vest"
 	desc = "Standard issue C.A.N.G vest modified for riot supression. Provides great protection against blunt force."
 	icon_state = "tactical_vest"
 	inhand_icon_state = null

@@ -64,7 +64,7 @@
 		. += emissive_appearance('modular_darkpack/modules/ert/icons/worn.dmi', "gasmask_emissive", src, effect_type = EMISSIVE_BLOOM)
 
 /obj/item/clothing/mask/gas/darkpack_ert/pentex
-	name = "\improper Corporate Gas Mask"
+	name = "\improper corporate gas mask"
 	desc = "Provides protection from smoke, smog, and whatever biological horror is rampaging through your clandestine laboratory."
 	icon_state = "gas_pentex"
 
