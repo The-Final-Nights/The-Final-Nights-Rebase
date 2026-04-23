@@ -26,7 +26,10 @@ import { LoadoutModifyDimmer } from './ModifyPanel';
 export function LoadoutPage(props) {
   const serverData = useServerPrefs();
   const loadout_tabs = serverData?.loadout.loadout_tabs || [];
-
+  // TFN EDIT START - donator stuff
+  const regular_tabs = loadout_tabs.filter((t) => !t.donator_tier_required);
+  const donator_tabs = loadout_tabs.filter((t) => t.donator_tier_required > 0);
+  // TFN EDIT END
   const [searchLoadout, setSearchLoadout] = useState('');
   const [selectedTabName, setSelectedTab] = useState(
     loadout_tabs?.[0].name || '',
@@ -61,7 +64,7 @@ export function LoadoutPage(props) {
           }
         >
           <Tabs fluid align="center">
-            {loadout_tabs.map((curTab) => (
+            {regular_tabs.map((curTab) => ( // TFN EDIT - regular vs donator tabs
               <Tabs.Tab
                 key={curTab.name}
                 selected={
@@ -81,6 +84,31 @@ export function LoadoutPage(props) {
               </Tabs.Tab>
             ))}
           </Tabs>
+          {/* TFN EDIT START - donator stuff */}
+          {donator_tabs.length > 0 && (
+            <Tabs fluid align="center">
+              {donator_tabs.map((curTab) => (
+                <Tabs.Tab
+                  key={curTab.name}
+                  selected={
+                    searchLoadout.length <= 1 && curTab.name === selectedTabName
+                  }
+                  onClick={() => {
+                    setSelectedTab(curTab.name);
+                    setSearchLoadout('');
+                  }}
+                >
+                  <Box>
+                    {curTab.category_icon && (
+                      <Icon name={curTab.category_icon} mr={1} />
+                    )}
+                    {curTab.name}
+                  </Box>
+                </Tabs.Tab>
+              ))}
+            </Tabs>
+          )}
+          {/* TFN EDIT END */}
         </Section>
       </Stack.Item>
       <Stack.Item grow>
