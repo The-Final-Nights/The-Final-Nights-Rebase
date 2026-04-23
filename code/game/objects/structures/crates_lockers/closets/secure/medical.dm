@@ -22,7 +22,7 @@
 	name = "anesthetic closet"
 	desc = "Used to knock people out."
 	icon_state = "med_secure"
-	req_one_access = list(ACCESS_SURGERY)
+	req_one_access = list(ACCESS_SURGERY) // TFN EDIT CHANGE - Original : req_access = list(ACCESS_SURGERY)
 
 /obj/structure/closet/secure_closet/medical2/PopulateContents()
 	..()
