@@ -272,7 +272,7 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 	if(clan_datum)
 		for(var/disc_type in clan_datum.clan_disciplines)
 			if(ispath(disc_type, /datum/discipline))
-				preferences.discipline_levels += disc_type
+				preferences.discipline_levels["[disc_type]"] = 1
 	// TFN EDIT END
 	preferences.save_character()
 	return TRUE
