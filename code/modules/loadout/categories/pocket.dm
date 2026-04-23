@@ -36,7 +36,7 @@
 		return NONE
 
 	return ..()
-
+/* TFN REMOVAL START - plushies are donator items
 /datum/loadout_item/pocket_items/plush
 	group = "Plushies"
 	abstract_type = /datum/loadout_item/pocket_items/plush
@@ -92,7 +92,7 @@
 /datum/loadout_item/pocket_items/plush/horse
 	name = "Plush (Horse)"
 	item_path = /obj/item/toy/plush/horse
-
+*/
 /datum/loadout_item/pocket_items/dice
 	group = "Dice"
 	abstract_type = /datum/loadout_item/pocket_items/dice

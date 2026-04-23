@@ -25,6 +25,7 @@
 
 /datum/splat/vampire/ghoul/on_gain()
 	owner.give_st_power(/datum/discipline/bloodheal, 1)
+	owner.give_st_power(/datum/discipline/potence, 1) // TFN EDIT ADD - ghoul fix
 
 	// the below only runs if they have just been ghouled and domitor isnt null
 	// ghouls who join from the menu have their discs handled by the disc pref middleware
