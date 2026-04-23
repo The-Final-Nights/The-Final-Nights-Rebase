@@ -144,7 +144,7 @@
 /area/vtm/interior/supply
 	name = "Casino Warehouse" // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
 	icon_state = "supply"
-	ambience_index = AMBIENCE_SEWER // TFN EDIT CHANGE - [LORE TEAM REQUESTED] map changes
+	ambience_index = AMBIENCE_SEWER // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
 
 /area/vtm/interior/hotel
 	name = "Hotel"
@@ -243,12 +243,12 @@
 	zone_type = ZONE_ELYSIUM
 
 /area/vtm/interior/setite
-	name = "Casino" // TFN EDIT CHANGE - [LORE TEAM REQUESTED] map changes
+	name = "Casino" // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
 	icon_state = "hotel"
 	fire_controled = TRUE
 
 /area/vtm/interior/setite/basement
-	name = "Temple of Set" // TFN EDIT CHANGE - [LORE TEAM REQUESTED] map changes
+	name = "Temple of Set" // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
 	zone_type = ZONE_ELYSIUM
 
 /area/vtm/interior/ghetto
