@@ -3,11 +3,11 @@
 
 #define NEWSPAPER_COMPANY "Angel Times"
 
-#define SEPT_NAME "Sept of the Western Eye"
+#define SEPT_NAME "Sept of the Evergreen Heart" //TFN EDIT CHANGE - Sept of the Evergeen Heart - Original: #define SEPT_NAME "Sept of the Western Eye"
 
 #define EVIL_COMPANY "Pentex"
 
-#define MAIN_EVIL_COMPANY EVIL_OIL_COMPANY // Only effects Pentex job slots
+#define MAIN_EVIL_COMPANY EVIL_COMPANY // Only effects Pentex job slots //TFN EDIT CHANGE - Pentex - Original: #define MAIN_EVIL_COMPANY EVIL_OIL_COMPANY
 
 // Treated as subsidary of EVIL_COMPANY
 /* MAJOR COMPANIES - Currently or at one time held the Top 21 Company title */
