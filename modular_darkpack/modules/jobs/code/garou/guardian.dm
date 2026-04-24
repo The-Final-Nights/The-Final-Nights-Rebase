@@ -29,7 +29,7 @@
 		"Councillor",
 		"Truthcatcher",
 		"Warder",
-		"Wyrmfoe"
+		"Keeper" //TFN EDIT CHANGE - Keeper - Original: "Wyrmfoe"
 	)
 
 /datum/outfit/job/vampire/guardian
