@@ -1,5 +1,5 @@
 /// No Tribe.
-#define TRIBE_FORSWORN "Forsworn" //TFN EDIT CHANGE - Forsworn - Original: #define TRIBE_FORSWORN "Forsworn"
+#define TRIBE_FORSWORN "Forsworn" //TFN EDIT CHANGE - Forsworn - Original: #define TRIBE_RONIN "Ronin"
 
 #define TRIBE_BLACK_FURIES "Black Furies"
 #define TRIBE_BONE_GNAWERS "Bone Gnawers"
