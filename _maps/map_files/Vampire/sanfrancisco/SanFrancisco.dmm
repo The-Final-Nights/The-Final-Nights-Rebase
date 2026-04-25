@@ -1532,6 +1532,13 @@
 	},
 /turf/open/floor/plating/stone,
 /area/vtm/interior/tzimisce_manor)
+"atl" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/obj/effect/landmark/start/darkpack/voivode/zadruga,
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/vtm/interior/tzimisce_manor)
 "atn" = (
 /obj/structure/table/wood,
 /obj/item/pet_carrier{
@@ -11495,7 +11502,9 @@
 /obj/structure/spacevine{
 	can_spread = 0
 	},
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm)
 "cZn" = (
@@ -12006,7 +12015,9 @@
 /obj/structure/spacevine{
 	can_spread = 0
 	},
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/plating/sidewalkalt{
 	color = "#b5b5b5"
 	},
@@ -23158,6 +23169,14 @@
 /obj/machinery/sprinkler/area_managed,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
+"fYv" = (
+/obj/item/kirbyplants/darkpack/random{
+	pixel_y = 8;
+	pixel_x = 7
+	},
+/mob/living/basic/pet/cat/darkpack/tzi,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/tzimisce_manor)
 "fYA" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/wood/old,
@@ -23747,6 +23766,13 @@
 /obj/item/gas_can/full,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/apartment/pacific)
+"ggm" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/obj/effect/landmark/start/darkpack/voivode/bogatyr,
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/vtm/interior/tzimisce_manor)
 "ggt" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
@@ -24966,6 +24992,13 @@
 	},
 /turf/open/floor/wood/herring,
 /area/vtm/interior/clinic/haven)
+"gwZ" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 4
+	},
+/obj/effect/landmark/start/darkpack/voivode/bogatyr,
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/vtm/interior/tzimisce_manor)
 "gxf" = (
 /obj/structure/railing,
 /turf/open/floor/plating/canal,
@@ -26941,7 +26974,9 @@
 /obj/structure/spacevine{
 	can_spread = 0
 	},
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/plating/sidewalkalt{
 	color = "#b5b5b5"
 	},
@@ -27210,7 +27245,9 @@
 	},
 /obj/effect/decal/shadow,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/tzimisce_manor)
 "hca" = (
@@ -29350,6 +29387,17 @@
 "hDH" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/table/wood/fancy/black,
+/obj/item/food/grown/berries{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/cup/glass/bottle/wine{
+	pixel_y = 10;
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/cup/glass/bottle/wine{
+	pixel_y = 10;
+	pixel_x = -8
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/tzimisce_manor)
 "hDV" = (
@@ -31306,6 +31354,7 @@
 	pixel_y = 14
 	},
 /obj/machinery/sprinkler,
+/obj/effect/landmark/start/darkpack/voivode/voivode,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/tzimisce_manor)
 "icW" = (
@@ -32076,6 +32125,21 @@
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/unionsquare)
+"imp" = (
+/obj/structure/table/wood,
+/obj/structure/platform/lowwall/rich/old,
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab/human{
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/obj/item/food/meat/slab{
+	pixel_y = 7;
+	pixel_x = -8
+	},
+/obj/item/food/meat/slab/chicken,
+/turf/open/floor/iron/freezer,
+/area/vtm/interior/tzimisce_manor)
 "imt" = (
 /obj/structure/vampipe{
 	icon_state = "piping3";
@@ -36446,6 +36510,16 @@
 "jru" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/rich/old,
+/obj/item/food/meat/slab/human{
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab{
+	pixel_y = 7;
+	pixel_x = -8
+	},
+/obj/item/food/meat/slab/chicken,
 /turf/open/floor/iron/freezer,
 /area/vtm/interior/tzimisce_manor)
 "jrv" = (
@@ -43416,6 +43490,7 @@
 /obj/structure/chair/wood/darkpack{
 	dir = 4
 	},
+/obj/effect/landmark/start/darkpack/voivode/zadruga,
 /turf/open/floor/carpet/darkpack/blackgold,
 /area/vtm/interior/tzimisce_manor)
 "lgJ" = (
@@ -45545,7 +45620,9 @@
 /obj/structure/spacevine{
 	can_spread = 0
 	},
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm)
 "lJc" = (
@@ -47675,7 +47752,9 @@
 	pixel_y = 24
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
 	pixel_x = 6;
@@ -50241,7 +50320,9 @@
 /obj/effect/decal/cleanable/cobweb{
 	pixel_y = 24
 	},
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
@@ -57685,7 +57766,9 @@
 	pixel_y = 24
 	},
 /obj/effect/decal/shadow,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/tzimisce_manor)
 "oFh" = (
@@ -58168,11 +58251,12 @@
 /turf/open/floor/wood/smooth,
 /area/vtm/interior)
 "oLO" = (
-/obj/structure/closet/crate/coffin,
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
 	},
 /obj/machinery/light/prince/directional/south,
+/obj/structure/bed,
+/obj/item/bedsheet/black,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/tzimisce_manor)
 "oLQ" = (
@@ -58197,7 +58281,9 @@
 	icon_state = "shadow-alt"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
 	pixel_x = 12;
@@ -58494,6 +58580,16 @@
 /obj/machinery/light/prince/directional/west{
 	pixel_y = 14
 	},
+/obj/item/food/meat/slab/human{
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/obj/item/food/meat/slab/human,
+/obj/item/food/meat/slab{
+	pixel_y = 7;
+	pixel_x = -8
+	},
+/obj/item/food/meat/slab/chicken,
 /turf/open/floor/iron/freezer,
 /area/vtm/interior/tzimisce_manor)
 "oPt" = (
@@ -59411,6 +59507,13 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
+"paY" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/obj/structure/curtain/bounty/start_closed{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/rough,
+/area/vtm/interior/tzimisce_manor)
 "pbg" = (
 /obj/structure/chair/wood/darkpack{
 	dir = 8
@@ -61240,7 +61343,9 @@
 /obj/structure/spacevine{
 	can_spread = 0
 	},
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm)
 "pxk" = (
@@ -68421,7 +68526,6 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/littleitaly)
 "rpU" = (
-/obj/structure/closet/crate/coffin,
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/noticeboard{
 	pixel_y = 32
@@ -68429,6 +68533,8 @@
 /obj/item/gun/ballistic/shotgun/toy/crossbow/vampire{
 	pixel_y = 30
 	},
+/obj/structure/bed,
+/obj/item/bedsheet/black,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/tzimisce_manor)
 "rpV" = (
@@ -69635,8 +69741,9 @@
 	pixel_y = 24
 	},
 /obj/effect/decal/shadow,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/cobweb/cobweb2{
 	pixel_y = 24
 	},
@@ -69694,7 +69801,9 @@
 /area/vtm/interior/anarch)
 "rGl" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/tzimisce_manor)
 "rGo" = (
@@ -83604,7 +83713,9 @@
 /obj/structure/spacevine{
 	can_spread = 0
 	},
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /turf/open/floor/plating/sidewalkalt{
 	color = "#8a8a8a"
 	},
@@ -92851,6 +92962,17 @@
 	dir = 1
 	},
 /obj/structure/table/wood/fancy/black,
+/obj/item/food/grown/berries{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/cup/glass/bottle/wine{
+	pixel_y = 10;
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/cup/glass/bottle/wine{
+	pixel_y = 10;
+	pixel_x = 8
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/tzimisce_manor)
 "xGP" = (
@@ -93750,7 +93872,9 @@
 	pixel_y = 24
 	},
 /obj/effect/decal/shadow,
-/obj/effect/decal/fakelattice,
+/obj/effect/decal/fakelattice{
+	density = 0
+	},
 /obj/effect/decal/cleanable/cobweb{
 	pixel_y = 24
 	},
@@ -140013,7 +140137,7 @@ cAx
 cAx
 xbF
 cuw
-jru
+imp
 owm
 owm
 owm
@@ -141226,9 +141350,9 @@ hfw
 tJW
 ePa
 mKO
-lgF
-lgF
-lgF
+gwZ
+gwZ
+gwZ
 lgF
 lgF
 xYu
@@ -142042,11 +142166,11 @@ hfw
 emY
 lex
 mKO
-waV
-waV
-waV
-waV
-waV
+ggm
+ggm
+atl
+atl
+atl
 xYu
 xYu
 swn
@@ -180803,9 +180927,9 @@ lfj
 lfj
 lfj
 lfj
-gqj
-gqj
-gqj
+paY
+paY
+paY
 lfj
 lfj
 gqj
@@ -181415,7 +181539,7 @@ qga
 tBa
 pFN
 rkU
-jRM
+fYv
 hfw
 hfw
 qga
