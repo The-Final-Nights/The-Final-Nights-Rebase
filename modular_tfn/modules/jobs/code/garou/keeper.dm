@@ -1,11 +1,11 @@
 /datum/job/vampire/keeper
 	title = JOB_GAROU_KEEPER
-	description = "You are a Keeper, finding yourself at the bottom of the Sept's hierarchy. Help out your fellow kin as best you can and follow orders."
+	description = "You are a Keeper, finding yourself at the bottom of the Sept's hierarchy doing the dirty work. Help out your fellow kin as best you can and follow orders."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_CITY
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = /datum/job/vampire/warder
+	supervisors = "everyone else in the Sept"
 	req_admin_notify = 1
 	minimal_player_age = 25
 	exp_requirements = 50
