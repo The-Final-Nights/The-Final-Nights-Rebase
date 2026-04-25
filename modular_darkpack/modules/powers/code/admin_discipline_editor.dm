@@ -173,7 +173,7 @@
 				else if(!target_mob.change_st_power_level(discipline_path, new_level))
 					target_mob.give_st_power(discipline_path, new_level) // and add them immediately, too
 			var/character_name = target_prefs.read_preference(/datum/preference/name/real_name)
-			target_client.prefs?.save_character() // TFN EDIT ADD
+			target_prefs.save_character() // TFN EDIT ADD
 			message_admins("[key_name_admin(ui.user)] set [disc_path] to level [new_level] for [ADMIN_LOOKUPFLW(target_ckey)]'s character [character_name]).")
 			log_admin("[key_name_admin(ui.user)] set [disc_path] to level [new_level] for [ADMIN_LOOKUPFLW(target_ckey)]'s character [character_name]).")
 			SSoverwatch.record_action(null, "[key_name_admin(ui.user)] set [disc_path] to level [new_level] for [ADMIN_LOOKUPFLW(target_ckey)]'s character [character_name]).")
