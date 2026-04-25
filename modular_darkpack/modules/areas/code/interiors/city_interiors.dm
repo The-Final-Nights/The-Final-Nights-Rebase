@@ -142,7 +142,7 @@
 	zone_type = ZONE_ELYSIUM
 
 /area/vtm/interior/supply
-	name = "Casino Warehouse" // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
+	name = "Warehouse" // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
 	icon_state = "supply"
 	ambience_index = AMBIENCE_SEWER // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
 
