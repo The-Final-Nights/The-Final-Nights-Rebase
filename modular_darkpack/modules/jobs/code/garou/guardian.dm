@@ -5,7 +5,7 @@
 	faction = FACTION_CITY
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Warder"
+	supervisors = "the Warder" //TFN EDIT CHANGE - Warder - Original: supervisors = /datum/job/vampire/warder
 	req_admin_notify = 1
 	minimal_player_age = 25
 	exp_requirements = 50
