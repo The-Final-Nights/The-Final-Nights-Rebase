@@ -40,7 +40,6 @@
 	uniform =  /obj/item/clothing/under/vampire/biker
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	head = /obj/item/clothing/head/vampire/baseballcap
-	belt = /obj/item/melee/baton/vamp
 	gloves = /obj/item/clothing/gloves/vampire/leather
 	suit = /obj/item/clothing/suit/vampire/jacket
 	l_pocket = /obj/item/smartphone
