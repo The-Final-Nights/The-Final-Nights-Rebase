@@ -172,8 +172,8 @@
 
 /obj/projectile/flames/baali/on_hit(target)
 	. = ..()
-	var/obj/effect/fire/created_fire = new(get_turf(target)) // Creates fire object on the hit if successfully landed
-	created_fire.color = src.color
+	var/turf/open/target_turf = new(get_turf(target)) // Creates fire object on the hit if successfully landed
+	target_turf.ignite_turf(20, "#1c1f1d")
 
 /datum/discipline_power/daimoinon/conflagration/activate(mob/living/target)
 	. = ..()
