@@ -3,7 +3,7 @@
 
 #define NEWSPAPER_COMPANY "Angel Times"
 
-#define SEPT_NAME "Sept of the Evergreen Heart" //TFN EDIT CHANGE - Sept of the Evergeen Heart - Original: #define SEPT_NAME "Sept of the Western Eye"
+#define SEPT_NAME "Sept of the Western Eye"
 
 #define EVIL_COMPANY "Pentex"
 
