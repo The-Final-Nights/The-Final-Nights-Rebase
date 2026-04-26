@@ -158,7 +158,7 @@
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
-	target_type = TARGET_LIVING
+	target_type = TARGET_MOB | TARGET_OBJ | TARGET_TURF
 	range = 7
 	activate_sound = 'modular_darkpack/modules/powers/sounds/daimonion_fireball.ogg'
 	aggravating = TRUE
@@ -170,12 +170,14 @@
 	damage = 25
 	damage_type = AGGRAVATED
 
-/obj/projectile/flames/baali/on_hit(target)
+/obj/projectile/flames/baali/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	var/turf/open/target_turf = new(get_turf(target)) // Creates fire object on the hit if successfully landed
-	target_turf.ignite_turf(20, "#1c1f1d")
+	if(isliving(target))
+		var/turf/open/target_turf = get_turf(target) // Creates fire object on the hit if successfully landed
+		target_turf.ignite_turf(35, "#1c1f1d") //Equal to a molotov's 30 + fuel bonus of 5, but doesn't spread fuel around, so it'll spread less.
+	
 
-/datum/discipline_power/daimoinon/conflagration/activate(mob/living/target)
+/datum/discipline_power/daimoinon/conflagration/activate(atom/target)
 	. = ..()
 	var/turf/start = get_turf(owner)
 	var/obj/projectile/flames/baali/created_fireball = new(start)
