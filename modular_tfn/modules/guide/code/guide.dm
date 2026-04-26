@@ -192,9 +192,10 @@ ADMIN_VERB(edit_guide, R_ADMIN, "Edit Guide", "Edit the server guide window", AD
 /datum/preferences
 	var/show_new_player_guide = TRUE
 
-/datum/preferences/load_preferences()
+/datum/preferences/load_savefile()
 	. = ..()
-	show_new_player_guide = savefile.get_entry("show_new_player_guide")
+	var/saved = savefile.get_entry("show_new_player_guide")
+	show_new_player_guide = isnull(saved) ? TRUE : saved
 
 /datum/preferences/save_preferences()
 	. = ..()

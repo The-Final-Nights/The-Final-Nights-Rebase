@@ -272,7 +272,7 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 	if(clan_datum)
 		for(var/disc_type in clan_datum.clan_disciplines)
 			if(ispath(disc_type, /datum/discipline))
-				preferences.discipline_levels += disc_type
+				preferences.discipline_levels["[disc_type]"] = 1
 	// TFN EDIT END
 	preferences.save_character()
 	return TRUE
@@ -316,7 +316,8 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 			var/discipline = text2path(disc_path)
 			if(!discipline)
 				continue
-			var/level = discipline_levels[disc_path]
+			var/level = character.get_splat(/datum/splat/vampire/ghoul) ? 1 : discipline_levels[disc_path] // TFN EDIT - cap ghouls at level 1 even if an admin gives them level 5
+
 			if(!level)
 				continue // prevent removing the disc by stopping here if they put 0 in it
 			var/result = character.change_st_power_level(discipline, level)
