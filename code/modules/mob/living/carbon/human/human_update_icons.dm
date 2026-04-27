@@ -390,6 +390,12 @@ There are several things that need to be remembered:
 			return
 
 		var/icon_file = 'icons/mob/clothing/belt.dmi'
+		// TFN EDIT ADD - removes the missing belt icon sprite
+		var/worn_state = worn_item.icon_state
+
+		if(!icon_exists(icon_file, worn_state))
+			icon_file = 'modular_tfn/master_files/icons/mob/clothing/back/belt.dmi'
+		// TFN EDIT ADD END - removes the missing belt icon sprite
 
 		var/mutable_appearance/belt_overlay = belt.build_worn_icon(default_layer = BELT_LAYER, default_icon_file = icon_file)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
