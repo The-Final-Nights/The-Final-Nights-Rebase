@@ -41,4 +41,5 @@
 	suit = /obj/item/clothing/suit/vampire/coat/winter/alt
 	shoes = /obj/item/clothing/shoes/vampire/jackboots/work
 	l_pocket = /obj/item/smartphone // DARKPACK TODO - Garou phone network. Glasswalkers only?
+	r_pocket = /obj/item/vamp/keys/evergreen // TFN EDIT ADD - ([LORE TEAM REQUESTED] map changes)
 	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/phone_book=1, /obj/item/card/credit/rich=1)
