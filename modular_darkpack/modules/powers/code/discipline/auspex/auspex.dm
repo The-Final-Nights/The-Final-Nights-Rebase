@@ -103,6 +103,13 @@
 	INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "shiver", forced = TRUE)
 	owner.Stun(0.5 SECONDS)
 
+
+/datum/storyteller_roll/aura_perception
+	bumper_text = "aura reading"
+	difficulty = 8
+	applicable_stats = list(STAT_PERCEPTION, STAT_EMPATHY)
+	roll_output_type = ROLL_PRIVATE
+
 //AURA PERCEPTION
 /datum/discipline_power/auspex/aura_perception
 	name = "Aura Perception"
@@ -114,7 +121,19 @@
 	cooldown_length = 1 SCENES
 	vitae_cost = 0
 
-	toggled = TRUE
+	cancelable = TRUE
+	var/datum/storyteller_roll/aura_perception/aura_roll
+
+/datum/discipline_power/auspex/aura_perception/pre_activation_checks(mob/living/target)
+	. = ..()
+	if(!aura_roll)
+		aura_roll = new()
+	switch(aura_roll.st_roll(owner, target))
+		if(ROLL_SUCCESS)
+			return TRUE
+		else
+			to_chat(owner, span_danger("You fail to read into anything at all..."))
+			return FALSE
 
 /datum/discipline_power/auspex/aura_perception/activate()
 	. = ..()
@@ -292,9 +311,9 @@
 								disguised_voice = tgui_input_text(owner, "What will be the 'voice' of this implanted thought?", "Implanted Voice Selection")
 							if(ROLL_FAILURE, ROLL_BOTCH)
 								to_chat(span_danger("You fail to disguise your voice - the subject hears your voice in their head!"))
-								disguised_voice = owner.name
+								disguised_voice = owner.real_name
 					if("No")
-						disguised_voice = owner.name
+						disguised_voice = owner.real_name
 		telepathy_type_selected = telepathy_type
 		return TRUE
 	return FALSE
@@ -314,8 +333,8 @@
 				return
 
 			log_directed_talk(owner, target, input_message, LOG_SAY, "Telepathy")
-			to_chat(owner, span_notice("You project your thoughts into [target]'s mind: \"[input_message]\""))
-			to_chat(target, span_boldannounce("You hear the voice of [disguised_voice] in your thoughts: \"[input_message]\""))
+			to_chat(owner, span_notice("You project your thoughts into [GET_GUESTBOOK_NAME(owner, target)]'s mind: \"[input_message]\""))
+			to_chat(target, span_boldannounce("You hear the voice of [target?.mind?.guestbook?.get_known_name(target, disguised_voice) ? target?.mind?.guestbook?.get_known_name(target, disguised_voice) : disguised_voice] in your thoughts: \"[input_message]\""))
 
 		if(TELEPATHY_MIND_READING)
 			var/flavor_text_telepathy = "Someone nearby reads your mind without your knowing..." + get_flavor_text(successes)
@@ -339,7 +358,7 @@
 				return
 
 			log_directed_talk(target, owner, input_message, LOG_SAY, "Telepathy (Mind Reading)")
-			to_chat(owner, span_notice("You read [target]'s thoughts with [successes] successes: [input_message]"))
+			to_chat(owner, span_notice("You read [GET_GUESTBOOK_NAME(owner, target)]'s thoughts with [successes] successes: [input_message]"))
 
 /datum/discipline_power/auspex/telepathy/proc/get_flavor_text(successes)
 	var/message = "As your mind is read with [successes] successes, "

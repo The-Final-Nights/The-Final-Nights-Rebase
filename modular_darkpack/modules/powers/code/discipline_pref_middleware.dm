@@ -187,15 +187,10 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 /datum/preference_middleware/disciplines/get_constant_data()
 	var/list/data = list()
 
-	for(var/discipline_type in subtypesof(/datum/discipline))
+	for(var/discipline_type in (subtypesof(/datum/discipline) - typesof(/datum/discipline/path)))
 		var/datum/discipline/discipline = new discipline_type
 
 		if(!discipline.selectable) // default disciplines like bloodheal arent selectable, and dont belong here
-			qdel(discipline)
-			continue
-
-		if(ispath(discipline_type, /datum/discipline/path)) // avoids giving tremere 50 different discs because thaum has like 50 subtypes
-			qdel(discipline)
 			continue
 
 		var/list/disc_data = list()
@@ -324,10 +319,11 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 			if(!result)
 				character.give_st_power(discipline, level) // load em up
 
-	SSticker.OnRoundend(CALLBACK(src, PROC_REF(save_disciplines), character))
+	SSticker.OnRoundend(CALLBACK(src, PROC_REF(save_disciplines), WEAKREF(character)))
 
-/datum/preferences/proc/save_disciplines(mob/living/carbon/human/character)
-	if(QDELETED(character))
+/datum/preferences/proc/save_disciplines(datum/weakref/character_weakref)
+	var/mob/living/carbon/human/character = character_weakref.resolve()
+	if(!character)
 		return
 
 	var/datum/splat/vampire/vampire_splat = get_splat_with_discipline(character)
