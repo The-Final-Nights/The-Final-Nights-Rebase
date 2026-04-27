@@ -11179,6 +11179,12 @@
 /obj/effect/landmark/npcwall,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
+"cRc" = (
+/obj/effect/landmark/start/darkpack/forest_wolves/keeper,
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm)
 "cRg" = (
 /obj/effect/decal/wallpaper/paper/darkgreen/low,
 /obj/structure/vampfence/rich{
@@ -24121,6 +24127,7 @@
 /area/vtm/interior/sewer/police)
 "geB" = (
 /obj/structure/flora/rock/pile/darkpack,
+/obj/effect/landmark/start/darkpack/forest_wolves/keeper,
 /turf/open/floor/plating/rough/cave{
 	icon_state = "stone8"
 	},
@@ -53194,16 +53201,10 @@
 	pixel_y = 2
 	},
 /obj/effect/decal/pallet,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/bed/maint{
 	pixel_y = 2
 	},
 /obj/effect/decal/pallet,
-/obj/effect/landmark/start/darkpack/forest_wolves/keeper,
 /turf/open/misc/grass,
 /area/vtm/outside/forest)
 "nwX" = (
@@ -71888,16 +71889,10 @@
 /obj/structure/bed/maint{
 	pixel_y = 2
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/effect/decal/pallet,
 /obj/structure/bed/maint{
 	pixel_y = 2
 	},
-/obj/effect/landmark/start/darkpack/forest_wolves/keeper,
 /turf/open/misc/grass,
 /area/vtm/outside/forest)
 "seN" = (
@@ -80876,7 +80871,6 @@
 /obj/effect/turf_decal/darkpack/cave/corner{
 	dir = 4
 	},
-/obj/effect/landmark/start/darkpack/forest_wolves/wyrmfoe,
 /turf/open/floor/plating/rough,
 /area/vtm)
 "utQ" = (
@@ -122807,8 +122801,8 @@ uvs
 uvs
 oKN
 geB
-aOb
-aOb
+cRc
+cRc
 fqk
 mAe
 uvs
