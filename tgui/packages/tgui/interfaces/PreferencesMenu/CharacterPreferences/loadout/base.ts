@@ -47,6 +47,7 @@ export type LoadoutCategory = {
   category_icon: FAIcon | null;
   category_info: string | null;
   contents: LoadoutItem[];
+  donator_tier_required: number; // TFN EDIT ADD - donator stuff
 };
 
 export type LoadoutManagerData = PreferencesMenuData & {

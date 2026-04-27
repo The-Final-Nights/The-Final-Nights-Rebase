@@ -19517,6 +19517,7 @@
 /obj/effect/turf_decal/siding/wideplating/green{
 	dir = 4
 	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/city/plating,
 /area/vtm/interior/endron_facility)
 "far" = (
@@ -23061,6 +23062,10 @@
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
+"fUI" = (
+/obj/machinery/light/directional/east,
+/turf/open/openspace,
+/area/vtm/interior/endron_facility)
 "fUK" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "splatter2-old"
@@ -24764,6 +24769,10 @@
 /obj/item/kirbyplants/darkpack/random,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/littleitaly)
+"gqy" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/city/plating,
+/area/vtm/interior/endron_facility)
 "gqA" = (
 /obj/effect/turf_decal/asphaltline/alt{
 	pixel_x = -14
@@ -29731,8 +29740,8 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/cleaning,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/cleaning,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/substation)
 "hGs" = (
@@ -49511,6 +49520,10 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/shop)
+"mHY" = (
+/obj/effect/landmark/spider_spawn,
+/turf/open/floor/plating/canalplating,
+/area/vtm/interior/sewer)
 "mIa" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/wood/herring,
@@ -54351,9 +54364,9 @@
 	dir = 1
 	},
 /obj/structure/vampdoor/simple,
-/obj/effect/mapping_helpers/door/access/pentex,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/ten,
+/obj/effect/mapping_helpers/door/access/pentex_leader,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/endron_facility)
 "nRC" = (
@@ -61954,6 +61967,14 @@
 /obj/effect/spawner/random/food_or_drink/seed_flowers,
 /obj/effect/spawner/random/food_or_drink/seed_flowers,
 /obj/effect/spawner/random/food_or_drink/seed_flowers,
+/obj/item/reagent_containers/cup/jerrycan/robustharvest{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/cup/jerrycan/eznutriment{
+	pixel_y = 2;
+	pixel_x = -5
+	},
 /turf/open/misc/dirt,
 /area/vtm/interior/caves)
 "pKA" = (
@@ -64533,6 +64554,9 @@
 /obj/item/card/bahari,
 /obj/item/clothing/head/vampire/bahari_mask,
 /obj/structure/glowshroom/single,
+/obj/item/clothing/suit/vampire/bahari,
+/obj/item/clothing/head/vampire/bahari_mask,
+/obj/item/card/bahari,
 /turf/open/misc/grass,
 /area/vtm/interior/caves)
 "qsn" = (
@@ -65950,6 +65974,22 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/techshop)
+"qJS" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack/robusta,
+/obj/item/storage/box/coffeepack/robusta,
+/obj/item/storage/box/coffeepack/robusta,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/effect/landmark/spider_spawn,
+/turf/open/floor/city/factory,
+/area/vtm/interior/banu)
 "qJW" = (
 /obj/structure/vampipe{
 	icon_state = "piping31"
@@ -67476,9 +67516,9 @@
 /obj/structure/vampdoor/woodglass{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/pentex,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/pentex_leader,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/endron_facility)
 "rex" = (
@@ -79104,6 +79144,10 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/openspace,
 /area/vtm/interior)
+"uet" = (
+/obj/effect/landmark/spider_spawn,
+/turf/open/misc/dirt,
+/area/vtm/interior/sewer)
 "ueu" = (
 /obj/structure/chair/plastic/darkpack,
 /turf/open/floor/plating/sidewalk/poor,
@@ -85229,6 +85273,11 @@
 	},
 /turf/open/floor/carpet/royalblue,
 /area/vtm/interior/clinic/haven)
+"vPk" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/structure/glowshroom/single,
+/turf/open/misc/grass,
+/area/vtm/interior/caves)
 "vPv" = (
 /obj/structure/railing{
 	dir = 5
@@ -89195,6 +89244,25 @@
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
+"wOn" = (
+/obj/effect/turf_decal/darkpack/dirt{
+	dir = 6
+	},
+/obj/structure/water_source/puddle,
+/obj/item/flashlight/flare/candle/infinite{
+	anchored = 1;
+	pixel_x = 11;
+	pixel_y = 8
+	},
+/obj/item/flashlight/flare/candle/infinite{
+	anchored = 1;
+	pixel_y = 15;
+	pixel_x = 7
+	},
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/caves)
 "wOr" = (
 /obj/structure/fire_barrel,
 /turf/open/floor/plating/sidewalkalt,
@@ -91185,6 +91253,7 @@
 /obj/effect/decal/fakelattice{
 	density = 0
 	},
+/obj/effect/landmark/spider_spawn,
 /turf/open/water/vamp_sewer/border,
 /area/vtm/interior/millennium_tower)
 "xpI" = (
@@ -108380,7 +108449,7 @@ xyw
 qAn
 bEG
 cBs
-rLP
+uet
 rLP
 mkX
 xyw
@@ -122117,7 +122186,7 @@ uvs
 uvs
 tuX
 rUJ
-kOa
+mHY
 kOa
 ePc
 vFf
@@ -136653,7 +136722,7 @@ dIO
 dIO
 aqb
 aqb
-hiQ
+wOn
 gDP
 kiH
 qqR
@@ -137059,8 +137128,8 @@ vIp
 vIp
 vIp
 nqH
-nqH
-nqH
+vIp
+vIp
 vIp
 aqb
 nij
@@ -137265,12 +137334,12 @@ efN
 efN
 efN
 hSP
-efN
+vIp
 aqb
 nij
 nij
-cDR
-goJ
+vPk
+lJP
 lJP
 uJh
 ojq
@@ -137469,7 +137538,7 @@ efN
 efN
 nqH
 efN
-efN
+vIp
 aqb
 nij
 nij
@@ -137673,7 +137742,7 @@ xYv
 lap
 wEr
 nqH
-nqH
+vIp
 aqb
 aqb
 nij
@@ -137877,8 +137946,8 @@ jTm
 nqH
 efN
 efN
-efN
-efN
+vIp
+vIp
 aqb
 aqb
 aqb
@@ -138081,9 +138150,9 @@ jTm
 nqH
 nqH
 efN
-nqH
-nqH
 gWg
+vIp
+vIp
 vIp
 uvs
 uvs
@@ -138285,9 +138354,9 @@ jTm
 efN
 nqH
 efN
-jHC
+efN
 nqH
-nqH
+gWg
 vIp
 vIp
 uvs
@@ -138488,7 +138557,7 @@ jTm
 jTm
 efN
 efN
-efN
+jHC
 efN
 nqH
 aZK
@@ -162447,7 +162516,7 @@ nOJ
 ioK
 irC
 awe
-hGV
+qJS
 hGV
 vQO
 hle
@@ -178268,8 +178337,8 @@ wUD
 vCe
 oyz
 mjT
-mjT
-mjT
+oyz
+uvs
 uvs
 uvs
 uvs
@@ -178474,7 +178543,7 @@ mjT
 mjT
 mjT
 mjT
-mjT
+uvs
 uvs
 uvs
 uvs
@@ -178678,7 +178747,7 @@ mjT
 mjT
 mjT
 mjT
-mjT
+uvs
 uvs
 uvs
 uvs
@@ -178882,8 +178951,8 @@ mjT
 mjT
 mjT
 mjT
-mjT
-mjT
+uvs
+uvs
 uvs
 uvs
 uvs
@@ -179086,9 +179155,9 @@ mjT
 mjT
 mjT
 mjT
-mjT
-mjT
-mjT
+uvs
+uvs
+uvs
 uvs
 uvs
 uvs
@@ -179291,8 +179360,8 @@ mjT
 mjT
 mjT
 mjT
-mjT
-mjT
+uvs
+uvs
 uvs
 uvs
 uvs
@@ -249476,7 +249545,7 @@ mjT
 mjT
 kIU
 jsf
-jsf
+fUI
 kEr
 pij
 pij
@@ -249889,7 +249958,7 @@ idk
 mSI
 pij
 pij
-pij
+gqy
 ojg
 kIU
 uwo
