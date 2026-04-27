@@ -10,8 +10,8 @@
 
 /datum/proximity_monitor/advanced/violation_check_aoe/Destroy()
 	violation_observer_callback = null
-	for(var/mob as anything in tracking_mobs)
-		UnregisterSignal(mob, COMSIG_MASQUERADE_VIOLATION)
+	for(var/datum/weakref/mob_weakref as anything in tracking_mobs)
+		UnregisterSignal(mob_weakref.resolve(), COMSIG_MASQUERADE_VIOLATION)
 	tracking_mobs = null
 	return ..()
 
@@ -25,9 +25,10 @@
 		return
 	if(entered == host)
 		return
-	if(entered in tracking_mobs)
-		return
-	tracking_mobs |= entered
+	for(var/datum/weakref/mob_weakref as anything in tracking_mobs)
+		if(mob_weakref.resolve() == entered)
+			return
+	tracking_mobs |= WEAKREF(entered)
 	RegisterSignal(entered, COMSIG_MASQUERADE_VIOLATION, PROC_REF(violation_observer_breach_callback))
 	if(iscarbon(entered))
 		var/mob/living/carbon/entered_mob = entered
@@ -46,24 +47,24 @@
 		return
 	if(gone == host)
 		return
-	if(!(gone in tracking_mobs))
-		return
-	tracking_mobs -= gone
+	for(var/datum/weakref/mob_weakref as anything in tracking_mobs)
+		if(mob_weakref.resolve() == gone)
+			tracking_mobs -= mob_weakref
 	UnregisterSignal(gone, COMSIG_MASQUERADE_VIOLATION)
 
 /datum/proximity_monitor/advanced/violation_check_aoe/on_z_change()
 	if(QDELETED(src))
 		return
-	for(var/mob as anything in tracking_mobs)
-		UnregisterSignal(mob, COMSIG_MASQUERADE_VIOLATION)
-		tracking_mobs -= mob
+	for(var/datum/weakref/mob_weakref as anything in tracking_mobs)
+		UnregisterSignal(mob_weakref.resolve(), COMSIG_MASQUERADE_VIOLATION)
+		tracking_mobs -= mob_weakref
 
 /datum/proximity_monitor/advanced/violation_check_aoe/cleanup_field_turf(turf/target)
 	if(QDELETED(src))
 		return
-	for(var/mob/living/living_mob in target.contents)
-		UnregisterSignal(living_mob, COMSIG_MASQUERADE_VIOLATION)
-		tracking_mobs -= living_mob
+	for(var/datum/weakref/mob_weakref in target.contents)
+		UnregisterSignal(mob_weakref.resolve(), COMSIG_MASQUERADE_VIOLATION)
+		tracking_mobs -= mob_weakref
 
 /datum/proximity_monitor/advanced/violation_check_aoe/proc/violation_observer_breach_callback(mob/living/source)
 	SIGNAL_HANDLER

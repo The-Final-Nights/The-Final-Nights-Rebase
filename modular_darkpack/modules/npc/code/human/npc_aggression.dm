@@ -1,7 +1,7 @@
 /mob/living/carbon/human/npc/proc/Aggro(mob/living/victim, attacked = FALSE)
 	if (stat == DEAD)
 		return
-	if (attacked && danger_source != victim)
+	if (attacked && ((danger_source?.resolve()) != victim))
 		GLOB.move_manager.stop_looping(src)
 	if (victim == src)
 		return
@@ -15,12 +15,12 @@
 		if (move_intent == MOVE_INTENT_WALK)
 			toggle_move_intent()
 
-		danger_source = victim
+		danger_source = WEAKREF(victim)
 		if(attacked)
-			last_attacker = victim
+			last_attacker = WEAKREF(victim)
 			if(health != last_health)
 				last_health = health
-				last_damager = victim
+				last_damager = WEAKREF(victim)
 
 	if (!can_npc_move())
 		return
