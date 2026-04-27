@@ -26,6 +26,7 @@ SUBSYSTEM_DEF(tfnevents)
 	var/list/events = list(
 		PROC_REF(run_power_outage_event),
 		PROC_REF(run_turfwar_event),
+		PROC_REF(run_spider_event),
 	)
 	call(src, pick(events))()
 	reschedule()
@@ -113,3 +114,32 @@ SUBSYSTEM_DEF(tfnevents)
 		SSpoints_of_interest.make_point_of_interest(rival_spawned)
 	message_admins("EVENT: The turfwar event triggered.")
 	endpost_announce("[pick(warning)], [gang_a_name] [pick(random_description)] [gang_b_name].", pick("friedman1990", "mel0nman","y3ll0wgl0v3s","d3bofn1ght"))
+
+// currently uncapped
+/datum/controller/subsystem/tfnevents/proc/run_spider_event()
+	var/list/warning = list("peeps...", "YOOOOO", "wtf", "Holy shit", "Wow")
+	var/list/random_description = list("I just saw a HUGE spider",
+	"there are like a TON of spiders",
+	"a million fucking spiders",
+	"like [pick("seventeen","twenty","three","eighty four","nine","eleven","a dozen")] spiders",
+	"absolute nightmare fuel")
+
+	var/list/spawns = list()
+	for(var/obj/effect/landmark/L in GLOB.landmarks_list)
+		if(istype(L, /obj/effect/landmark/spider_spawn))
+			spawns += L
+
+	if(!length(spawns))
+		message_admins("ERROR: Spider event called but spider spawn landmarks are missing. Tell Nimi.")
+		return
+
+	var/obj/effect/landmark/spider_spawn/entry_point = pick(spawns)
+	var/area/spawn_area = get_area(entry_point)
+
+	var/spider_count = rand(3, 6)
+	for(var/i in 1 to spider_count)
+		var/mob/living/basic/spider/growing/young/event/spawned = new(entry_point.loc)
+		SSpoints_of_interest.make_point_of_interest(spawned)
+
+	message_admins("EVENT: The spider infestation triggered in [ADMIN_VERBOSEJMP(entry_point.loc)][spawn_area?.name].")
+	endpost_announce("[pick(warning)], [pick(random_description)] near the [spawn_area?.name][pick(".","..."," ")]", pick("friedman1990", "mel0nman","y3ll0wgl0v3s","d3bofn1ght"))
