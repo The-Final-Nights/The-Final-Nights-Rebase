@@ -18,7 +18,6 @@
 
 	allowed_splats = list(SPLAT_GAROU, SPLAT_KINDRED)
 //	allowed_tribes = list(TRIBE_WYRM, TRIBE_RONIN)
-	allowed_clans = VAMPIRE_CLAN_ALL
 	minimal_masquerade = 4
 
 	display_order = JOB_DISPLAY_ORDER_SECCHIEF
@@ -53,5 +52,5 @@
 	belt = /obj/item/storage/belt/holster/detective/darkpack/endron
 	glasses = /obj/item/clothing/glasses/vampire/sun
 	l_pocket = /obj/item/smartphone // /secchief - todo subtype
-	r_pocket = /obj/item/vamp/keys/pentex
+	r_pocket = /obj/item/vamp/keys/pentex/leader
 	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/phone_book=1, /obj/item/veil_contract, /obj/item/card/credit/rich=1)

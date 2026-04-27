@@ -19517,6 +19517,7 @@
 /obj/effect/turf_decal/siding/wideplating/green{
 	dir = 4
 	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/city/plating,
 /area/vtm/interior/endron_facility)
 "far" = (
@@ -19928,10 +19929,6 @@
 /obj/item/toy/cards/deck,
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
-"feH" = (
-/obj/transfer_point_vamp/backrooms,
-/turf/open/floor/plating/stone,
-/area/vtm)
 "feK" = (
 /obj/structure/railing/wooden_fence,
 /obj/effect/turf_decal/siding/wood/dark,
@@ -23061,6 +23058,10 @@
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
+"fUI" = (
+/obj/machinery/light/directional/east,
+/turf/open/openspace,
+/area/vtm/interior/endron_facility)
 "fUK" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "splatter2-old"
@@ -24764,6 +24765,10 @@
 /obj/item/kirbyplants/darkpack/random,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/littleitaly)
+"gqy" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/city/plating,
+/area/vtm/interior/endron_facility)
 "gqA" = (
 /obj/effect/turf_decal/asphaltline/alt{
 	pixel_x = -14
@@ -29731,8 +29736,8 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/cleaning,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/cleaning,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/substation)
 "hGs" = (
@@ -49511,6 +49516,10 @@
 	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/shop)
+"mHY" = (
+/obj/effect/landmark/spider_spawn,
+/turf/open/floor/plating/canalplating,
+/area/vtm/interior/sewer)
 "mIa" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
 /turf/open/floor/wood/herring,
@@ -54351,9 +54360,9 @@
 	dir = 1
 	},
 /obj/structure/vampdoor/simple,
-/obj/effect/mapping_helpers/door/access/pentex,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/ten,
+/obj/effect/mapping_helpers/door/access/pentex_leader,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/endron_facility)
 "nRC" = (
@@ -65961,6 +65970,22 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/techshop)
+"qJS" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack/robusta,
+/obj/item/storage/box/coffeepack/robusta,
+/obj/item/storage/box/coffeepack/robusta,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/effect/landmark/spider_spawn,
+/turf/open/floor/city/factory,
+/area/vtm/interior/banu)
 "qJW" = (
 /obj/structure/vampipe{
 	icon_state = "piping31"
@@ -67487,9 +67512,9 @@
 /obj/structure/vampdoor/woodglass{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/pentex,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/pentex_leader,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/endron_facility)
 "rex" = (
@@ -79115,6 +79140,10 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/openspace,
 /area/vtm/interior)
+"uet" = (
+/obj/effect/landmark/spider_spawn,
+/turf/open/misc/dirt,
+/area/vtm/interior/sewer)
 "ueu" = (
 /obj/structure/chair/plastic/darkpack,
 /turf/open/floor/plating/sidewalk/poor,
@@ -91220,6 +91249,7 @@
 /obj/effect/decal/fakelattice{
 	density = 0
 	},
+/obj/effect/landmark/spider_spawn,
 /turf/open/water/vamp_sewer/border,
 /area/vtm/interior/millennium_tower)
 "xpI" = (
@@ -108415,7 +108445,7 @@ xyw
 qAn
 bEG
 cBs
-rLP
+uet
 rLP
 mkX
 xyw
@@ -122152,7 +122182,7 @@ uvs
 uvs
 tuX
 rUJ
-kOa
+mHY
 kOa
 ePc
 vFf
@@ -162482,7 +162512,7 @@ nOJ
 ioK
 irC
 awe
-hGV
+qJS
 hGV
 vQO
 hle
@@ -218810,7 +218840,7 @@ bhB
 (3,1,4) = {"
 bhB
 uvs
-feH
+wUD
 gsq
 uvs
 uvs
@@ -249511,7 +249541,7 @@ mjT
 mjT
 kIU
 jsf
-jsf
+fUI
 kEr
 pij
 pij
@@ -249924,7 +249954,7 @@ idk
 mSI
 pij
 pij
-pij
+gqy
 ojg
 kIU
 uwo

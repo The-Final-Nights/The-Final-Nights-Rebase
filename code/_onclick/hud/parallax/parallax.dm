@@ -268,9 +268,15 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 				return new SSparallax.random_layer.type(null, null, owner, FALSE, SSparallax.random_layer)
 			else
 				return new /atom/movable/screen/parallax_layer/layer_3(null, null, owner)
+		/* // TFN EDIT REMOVAL START
 		if(5)
 			if(SSparallax.random_layer)
 				return new /atom/movable/screen/parallax_layer/layer_3(null, null, owner)
+		*/ // TFN EDIT REMOVAL START
+		// TFN EDIT ADD START - parallax runtime fix
+		else
+			return new /atom/movable/screen/parallax_layer/layer_3(null, null, owner)
+		// TFN EDIT ADD END
 
 /atom/movable/screen/parallax_home/proc/regenerate_layers()
 	clear_layers()
