@@ -164,7 +164,7 @@
 /datum/species/human/shifter/bestial/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	human_who_gained_species.update_mob_height()
-	human_who_gained_species.update_transform(1.25)
+	human_who_gained_species.update_transform(1.1) // TFN EDIT - ORIGINAL: human_who_gained_species.update_transform(1.25)
 
 	if(!HAS_TRAIT(human_who_gained_species, TRAIT_FAIR_GLABRO))
 		human_who_gained_species.remove_overlay(BODY_ADJ_LAYER)
