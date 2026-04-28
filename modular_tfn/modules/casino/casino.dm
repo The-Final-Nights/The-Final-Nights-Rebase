@@ -364,7 +364,7 @@
 	var/chip_amount = sold.amount > 1 ? " for [sold.amount] chips" : ""
 	if(!is_donator)
 		sold_sc.cost -= fee
-		to_chat(user, span_notice("The casino deducts a $[fee] fee per chip. You receive $[amount][chip_amount]."))
+		to_chat(user, span_notice("The casino deducts a $[fee] fee. You receive $[amount][chip_amount]."))
 	else
 		to_chat(user, span_notice("The casino waives the $[fee] fee. You receive $[amount][chip_amount]. (( Thank you for donating! ))"))
 	spawn_money(amount, src.loc)
