@@ -26194,7 +26194,7 @@
 /obj/structure/vampdoor/wood{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/smooth/old,
@@ -28626,6 +28626,10 @@
 /obj/structure/stairs/east,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/trainyard)
+"hlw" = (
+/obj/effect/landmark/start/darkpack/sabbat/bishop,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/tzimisce_manor)
 "hlx" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
@@ -33151,7 +33155,7 @@
 /obj/structure/chair/wood/darkpack{
 	dir = 4
 	},
-/obj/effect/landmark/start/darkpack/voivode/zadruga,
+/obj/effect/landmark/start/darkpack/sabbat/revenant,
 /turf/open/floor/carpet/darkpack/blackgold,
 /area/vtm/interior/tzimisce_manor)
 "itc" = (
@@ -33588,7 +33592,7 @@
 	},
 /obj/structure/vampdoor/wood,
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/interior/tzimisce_manor)
@@ -34658,7 +34662,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/unlock,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/tzimisce_manor)
@@ -40942,7 +40946,7 @@
 /obj/structure/chair/wood/darkpack{
 	dir = 4
 	},
-/obj/effect/landmark/start/darkpack/voivode/bogatyr,
+/obj/effect/landmark/start/darkpack/sabbat/paladin,
 /turf/open/floor/carpet/darkpack/blackgold,
 /area/vtm/interior/tzimisce_manor)
 "ktv" = (
@@ -43988,7 +43992,7 @@
 	pixel_y = 14
 	},
 /obj/machinery/sprinkler,
-/obj/effect/landmark/start/darkpack/voivode/voivode,
+/obj/effect/landmark/start/darkpack/sabbat/bishop,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/tzimisce_manor)
 "lhm" = (
@@ -45575,7 +45579,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/tzimisce_manor)
@@ -45667,6 +45671,13 @@
 /obj/structure/stairs/north,
 /turf/open/floor/city/plating,
 /area/vtm/interior/endron_facility)
+"lDA" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 4
+	},
+/obj/effect/landmark/start/darkpack/sabbat/true_sabbat,
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/vtm/interior/tzimisce_manor)
 "lDM" = (
 /obj/structure/vampipe{
 	icon_state = "piping35"
@@ -47125,7 +47136,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/structure/vampdoor/woodglass,
@@ -51894,7 +51905,7 @@
 "ner" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/vampdoor/wood,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/smooth/old,
@@ -52729,7 +52740,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/unlock,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/tzimisce_manor)
@@ -55061,7 +55072,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower)
 "nTo" = (
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/turf_decal/bordur{
@@ -61168,7 +61179,7 @@
 /obj/structure/chair/wood/darkpack{
 	dir = 8
 	},
-/obj/effect/landmark/start/darkpack/voivode/zadruga,
+/obj/effect/landmark/start/darkpack/sabbat/revenant,
 /turf/open/floor/carpet/darkpack/blackgold,
 /area/vtm/interior/tzimisce_manor)
 "pqX" = (
@@ -62607,6 +62618,13 @@
 "pLS" = (
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/ghetto)
+"pLT" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/obj/effect/landmark/start/darkpack/sabbat/paladin,
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/vtm/interior/tzimisce_manor)
 "pLV" = (
 /obj/structure/chair/wood/darkpack{
 	dir = 1
@@ -71517,7 +71535,7 @@
 /area/vtm/interior/banu/haven)
 "rYW" = (
 /obj/structure/vampdoor/prison,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /obj/effect/mapping_helpers/door/bash_difficulty/eight,
 /obj/effect/mapping_helpers/door/lock,
@@ -73144,7 +73162,7 @@
 "suX" = (
 /obj/structure/vampdoor/prison,
 /obj/effect/mapping_helpers/door/lock_difficulty/nine,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/bash_difficulty/nine,
 /turf/open/floor/plating/rough/cave,
@@ -74249,7 +74267,7 @@
 /obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/bordur,
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
@@ -78702,6 +78720,12 @@
 	icon_state = "canal_concrete"
 	},
 /area/vtm/interior/sewer/nosferatu_warren)
+"tOT" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 4
+	},
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/vtm/interior/tzimisce_manor)
 "tPa" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "floor4-old"
@@ -84912,7 +84936,7 @@
 /area/vtm/interior/laundromat)
 "vxw" = (
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/structure/vampdoor/oldwood{
 	dir = 4
 	},
@@ -85982,7 +86006,7 @@
 	},
 /obj/structure/vampdoor/woodglass,
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
@@ -91458,7 +91482,7 @@
 	dir = 1
 	},
 /obj/structure/vampdoor/wood,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/wood/smooth/old,
@@ -95272,7 +95296,7 @@
 /obj/structure/chair/wood/darkpack{
 	dir = 8
 	},
-/obj/effect/landmark/start/darkpack/voivode/bogatyr,
+/obj/effect/landmark/start/darkpack/sabbat/true_sabbat,
 /turf/open/floor/carpet/darkpack/blackgold,
 /area/vtm/interior/tzimisce_manor)
 "ygm" = (
@@ -95436,7 +95460,7 @@
 	dir = 1
 	},
 /obj/structure/vampdoor/wood,
-/obj/effect/mapping_helpers/door/access/old_clan_tzimisce,
+/obj/effect/mapping_helpers/door/access/sabbat,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /obj/effect/mapping_helpers/door/bash_difficulty/eight,
@@ -141943,8 +141967,8 @@ rkS
 uxY
 ktt
 ktt
-ktt
-isZ
+lDA
+tOT
 isZ
 gPe
 gPe
@@ -142142,7 +142166,7 @@ bhB
 lfj
 lfj
 mVR
-rta
+hlw
 uOc
 uxY
 nFL
@@ -142550,7 +142574,7 @@ bhB
 lfj
 lfj
 mVR
-rta
+hlw
 sst
 uxY
 aut
@@ -142757,9 +142781,9 @@ rta
 sQU
 ike
 uxY
+pLT
 ygf
 ygf
-pqW
 pqW
 pqW
 gPe
