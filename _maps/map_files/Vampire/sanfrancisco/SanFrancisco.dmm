@@ -3320,18 +3320,6 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
-"aTc" = (
-/obj/structure/platform/lowwall/market,
-/obj/structure/table,
-/obj/machinery/door/poddoor/shutters{
-	id = 4771
-	},
-/obj/effect/decal/wallpaper/stone/low,
-/obj/structure/retail/casino/cashier{
-	pixel_y = 10
-	},
-/turf/open/floor/city/plating_mono,
-/area/vtm/interior/setite)
 "aTe" = (
 /obj/item/kirbyplants/darkpack/random,
 /turf/open/floor/wood/smooth/old,
@@ -42663,7 +42651,8 @@
 /obj/structure/table,
 /obj/effect/decal/wallpaper/stone/low,
 /obj/machinery/door/poddoor/shutters{
-	id = 4771
+	id = 4771;
+	icon_state = "open"
 	},
 /obj/lombard/casino{
 	pixel_y = 14
@@ -74571,6 +74560,19 @@
 /obj/effect/mapping_helpers/door/access/npc,
 /turf/open/floor/city/circled,
 /area/vtm/interior/shop)
+"sMp" = (
+/obj/structure/platform/lowwall/market,
+/obj/structure/table,
+/obj/machinery/door/poddoor/shutters{
+	id = 4771;
+	icon_state = "open"
+	},
+/obj/effect/decal/wallpaper/stone/low,
+/obj/structure/retail/casino/cashier{
+	pixel_y = 10
+	},
+/turf/open/floor/city/plating_mono,
+/area/vtm/interior/setite)
 "sMq" = (
 /obj/item/reagent_containers/cup/glass/bottle/beer/vampire,
 /turf/open/floor/plating/rough/cave,
@@ -177081,7 +177083,7 @@ nts
 udG
 udG
 aZY
-aTc
+sMp
 dFm
 dFm
 wbw
