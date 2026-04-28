@@ -42638,7 +42638,8 @@
 /obj/structure/table,
 /obj/effect/decal/wallpaper/stone/low,
 /obj/lombard/casino{
-	pixel_y = 14
+	pixel_y = 14;
+	plane = -3
 	},
 /obj/machinery/door/poddoor/shutters/preopen/topless{
 	id = 4771
@@ -74607,7 +74608,8 @@
 /obj/structure/table,
 /obj/effect/decal/wallpaper/stone/low,
 /obj/structure/retail/casino/cashier{
-	pixel_y = 10
+	pixel_y = 10;
+	plane = -3
 	},
 /obj/machinery/door/poddoor/shutters/preopen/topless{
 	id = 4771
