@@ -34311,6 +34311,10 @@
 	},
 /turf/open/floor/carpet/red,
 /area/vtm/interior/library)
+"iIE" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/city/plating_mono,
+/area/vtm/interior/setite)
 "iIL" = (
 /obj/effect/decal/cleanable/litter,
 /obj/effect/decal/cleanable/dirt,
@@ -38448,6 +38452,10 @@
 	},
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer/nosferatu_warren)
+"jMb" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/wood/smooth,
+/area/vtm/interior/setite)
 "jMh" = (
 /obj/effect/turf_decal/stock{
 	dir = 1
@@ -42643,7 +42651,8 @@
 	plane = -3
 	},
 /obj/machinery/door/poddoor/shutters/preopen/topless{
-	id = 4771
+	id = 4771;
+	plane = -2.9
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/setite)
@@ -74454,10 +74463,6 @@
 /obj/effect/turf_decal/darkpack/grass,
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/park)
-"sJX" = (
-/obj/machinery/sprinkler,
-/turf/open/floor/city/plating_mono,
-/area/vtm/interior/setite)
 "sJZ" = (
 /obj/structure/chair/comfy/darkpack/dark{
 	dir = 1
@@ -74619,7 +74624,8 @@
 	plane = -3
 	},
 /obj/machinery/door/poddoor/shutters/preopen/topless{
-	id = 4771
+	id = 4771;
+	plane = -2.9
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/setite)
@@ -85435,10 +85441,6 @@
 	},
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
-"vEL" = (
-/obj/machinery/sprinkler,
-/turf/open/floor/wood/smooth,
-/area/vtm/interior/setite)
 "vEP" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /turf/open/floor/wood/smooth/old,
@@ -176990,7 +176992,7 @@ xjv
 kcN
 rQQ
 udG
-vEL
+jMb
 vMQ
 gAF
 gAF
@@ -218204,12 +218206,12 @@ qvB
 qvB
 qvB
 abK
-vEL
+jMb
 vcf
 npX
 tAy
 ksk
-sJX
+iIE
 hsK
 ucj
 xEp
