@@ -26842,6 +26842,7 @@
 	pixel_y = 24;
 	density = 0
 	},
+/obj/machinery/sprinkler,
 /turf/open/floor/city/plating,
 /area/vtm/interior/setite)
 "gPe" = (
@@ -47632,6 +47633,10 @@
 	},
 /turf/open/floor/city/plating,
 /area/vtm/interior)
+"mdc" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/wood/smooth,
+/area/vtm/interior/setite)
 "mdg" = (
 /obj/effect/turf_decal/siding/grey{
 	dir = 4
@@ -50116,6 +50121,7 @@
 	pixel_x = -4
 	},
 /obj/machinery/light/prince/directional/north,
+/obj/machinery/sprinkler,
 /turf/open/floor/city/factory,
 /area/vtm/interior/setite)
 "mJc" = (
@@ -68688,6 +68694,7 @@
 	pixel_y = 24
 	},
 /obj/structure/rack/clothing_hanger/rand,
+/obj/machinery/sprinkler,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/setite)
 "rlR" = (
@@ -74490,6 +74497,10 @@
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/city/circled,
 /area/vtm/interior/endron_facility/restricted)
+"sKI" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/city/plating_mono,
+/area/vtm/interior/setite)
 "sKV" = (
 /obj/effect/turf_decal/siding/grey/inner_corner{
 	dir = 1
@@ -82430,6 +82441,7 @@
 	dir = 1
 	},
 /obj/structure/hedge,
+/obj/machinery/sprinkler,
 /turf/open/floor/wood/ornate,
 /area/vtm/interior/setite)
 "uKw" = (
@@ -88729,6 +88741,7 @@
 /area/vtm/interior/apartment/pacific)
 "www" = (
 /obj/effect/landmark/start/darkpack/setite/faithful,
+/obj/machinery/sprinkler,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/setite)
 "wwz" = (
@@ -176977,7 +176990,7 @@ xjv
 kcN
 rQQ
 udG
-udG
+mdc
 vMQ
 gAF
 gAF
@@ -218191,12 +218204,12 @@ qvB
 qvB
 qvB
 abK
-udG
+mdc
 vcf
 npX
 tAy
 ksk
-ksk
+sKI
 hsK
 ucj
 xEp
