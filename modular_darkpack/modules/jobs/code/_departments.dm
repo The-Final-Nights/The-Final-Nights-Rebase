@@ -90,6 +90,17 @@
 	label_class = "sabbat"
 	ui_color = "#4e4e4eff"
 
+// TFN EDIT ADD START - More Sabbat Roles
+/datum/job_department/true_sabbat
+	department_name = DEPARTMENT_TRUE_SABBAT
+	department_bitflags = DEPARTMENT_BITFLAG_TRUE_SABBAT
+	department_head = /datum/job/vampire/bishop
+	department_experience_type = EXP_TYPE_SABBAT
+	display_order = 1
+	label_class = "true_sabbat"
+	ui_color = "#3d0404ff"
+// TFN EDIT ADD END - More Sabbat Roles
+
 /datum/job_department/chantry
 	department_name = DEPARTMENT_CHANTRY
 	department_bitflags = DEPARTMENT_BITFLAG_CHANTRY
@@ -99,6 +110,7 @@
 	label_class = "chantry"
 	ui_color = "#a56666ff"
 
+/* TFN EDIT REMOVAL - More Sabbat Jobs
 /datum/job_department/manor
 	department_name = DEPARTMENT_MANOR
 	department_bitflags = DEPARTMENT_BITFLAG_MANOR
@@ -107,6 +119,7 @@
 	display_order = 1
 	label_class = "manor"
 	ui_color = "#a066a5ff"
+*/
 
 /datum/job_department/city_services
 	department_name = DEPARTMENT_CITY_SERVICES

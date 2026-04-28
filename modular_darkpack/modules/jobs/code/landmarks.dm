@@ -109,6 +109,11 @@ JOB_START_HELPER(sabbat/pack, JOB_SABBAT_PACK)
 JOB_START_HELPER(sabbat/priest, JOB_SABBAT_PRIEST)
 JOB_START_HELPER(sabbat/sabbatist, JOB_SABBAT_SABBATIST)
 
+JOB_START_HELPER(sabbat/bishop, JOB_SABBAT_BISHOP)
+JOB_START_HELPER(sabbat/paladin, JOB_SABBAT_PALADIN)
+JOB_START_HELPER(sabbat/true_sabbat, JOB_TRUE_SABBAT)
+JOB_START_HELPER(sabbat/revenant, JOB_SABBAT_REVENANT)
+
 /* Chantry */
 /obj/effect/landmark/start/darkpack/chantry
 	name = "generic chantry start"
