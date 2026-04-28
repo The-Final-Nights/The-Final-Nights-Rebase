@@ -16696,6 +16696,7 @@
 /obj/machinery/light/prince/directional/west{
 	pixel_y = 14
 	},
+/obj/item/storage/dice,
 /turf/open/floor/wood/ornate,
 /area/vtm/interior/setite)
 "ekJ" = (
@@ -19654,13 +19655,13 @@
 /obj/structure/vampdoor/prison{
 	opacity = 0
 	},
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = 4772
-	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/access/supply,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /obj/effect/mapping_helpers/door/bash_difficulty/eight,
+/obj/machinery/door/poddoor/shutters/preopen/topless{
+	id = 4772
+	},
 /turf/open/floor/city/plating,
 /area/vtm/interior/setite)
 "eZz" = (
@@ -38127,6 +38128,12 @@
 /obj/machinery/light/floor,
 /turf/open/floor/city/saint,
 /area/vtm/interior/fightclub)
+"jFY" = (
+/obj/machinery/atm{
+	pixel_y = 25
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/unionsquare)
 "jGn" = (
 /obj/effect/decal/wallpaper,
 /obj/effect/decal/wallpaper/papers/six,
@@ -42654,12 +42661,11 @@
 /obj/structure/platform/lowwall/market,
 /obj/structure/table,
 /obj/effect/decal/wallpaper/stone/low,
-/obj/machinery/door/poddoor/shutters{
-	id = 4771;
-	icon_state = "open"
-	},
 /obj/lombard/casino{
 	pixel_y = 14
+	},
+/obj/machinery/door/poddoor/shutters/preopen/topless{
+	id = 4771
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/setite)
@@ -48158,6 +48164,13 @@
 /obj/structure/platform/lowwall/market/window,
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
+"mit" = (
+/obj/effect/decal/cleanable/trash,
+/obj/machinery/atm{
+	pixel_y = 25
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/financialdistrict)
 "miu" = (
 /obj/structure/table/wood,
 /obj/item/melee/vamp/tire,
@@ -74581,13 +74594,12 @@
 "sMp" = (
 /obj/structure/platform/lowwall/market,
 /obj/structure/table,
-/obj/machinery/door/poddoor/shutters{
-	id = 4771;
-	icon_state = "open"
-	},
 /obj/effect/decal/wallpaper/stone/low,
 /obj/structure/retail/casino/cashier{
 	pixel_y = 10
+	},
+/obj/machinery/door/poddoor/shutters/preopen/topless{
+	id = 4771
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/setite)
@@ -84235,6 +84247,11 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/church)
+"vlt" = (
+/obj/structure/table/wood/poker,
+/obj/item/toy/cards/deck,
+/turf/open/floor/wood/ornate,
+/area/vtm/interior/setite)
 "vlw" = (
 /obj/structure/table/wood/fancy/red,
 /obj/item/flashlight/lamp/green{
@@ -176286,7 +176303,7 @@ xWk
 gyg
 tcj
 eqI
-eqI
+vlt
 xTy
 tAy
 ksk
@@ -176720,7 +176737,7 @@ nSc
 jCu
 nSc
 nSc
-ije
+mit
 vtC
 pWd
 mdb
@@ -176891,7 +176908,7 @@ geY
 veZ
 dPI
 ycd
-keR
+jFY
 khf
 hsK
 xjv
