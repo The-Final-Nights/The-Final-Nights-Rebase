@@ -17,6 +17,7 @@
 		owner_splat.clan.accessories = list("baali_full", "baali_left", "baali_right", "baali_broken", "baali_round", "baali_oni", "baali_devil", "baali_legs_and_tail", "baali_claws")
 		owner_splat.clan.accessories_layers = list("baali_full" = BODY_FRONT_LAYER, "baali_left" = BODY_FRONT_LAYER, "baali_right" = BODY_FRONT_LAYER, "baali_broken" = BODY_FRONT_LAYER, "baali_round" = BODY_FRONT_LAYER, "baali_devil" = BODY_FRONT_LAYER, "baali_oni" = BODY_FRONT_LAYER, "baali_legs_and_tail" = BODY_FRONT_LAYER, "baali_claws" = BODY_FRONT_LAYER, "none" = BODY_FRONT_LAYER)
 		owner_splat.clan.default_accessory = "baali_full"
+		ADD_TRAIT(new_holder, TRAIT_MASQUERADE_VIOLATING_FACE, "Devil's Mark")
 
 /datum/quirk/darkpack/devil_mark/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder 
@@ -24,3 +25,4 @@
 	owner_splat.clan.accessories = "none"
 	owner_splat.clan.accessories_layers = null
 	owner_splat.clan.default_accessory = "none"
+	REMOVE_TRAIT(human_holder, TRAIT_MASQUERADE_VIOLATING_FACE, "Devil's Mark")
