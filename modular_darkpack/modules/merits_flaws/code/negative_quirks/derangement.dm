@@ -8,12 +8,12 @@
 	gain_text = span_hypnophrase("You feel off...")
 	lose_text = span_notice("You start to feel normal again...")
 	medical_record_text = "Patient suffers from a treatment-resistant mental illness."
-	value = -3
+	value = 0
 	hardcore_value = 6
 	quirk_flags = QUIRK_PROCESSES
 	mob_trait = TRAIT_SHIFTY_EYES // they're deranged, so give them the trait that tells people around them about their crazy eyes
 	mail_goodies = list(/obj/effect/spawner/random/contraband/narcotics) // happy pills! :)
-	excluded_clans = list(VAMPIRE_CLAN_MALKAVIAN)
+	//excluded_clans = list(VAMPIRE_CLAN_MALKAVIAN) // TFN EDIT - please dont exclude the clan the quirk is meant for from using the quirk
 	var/process_interval = 3 SECONDS
 	var/list/derangements
 	COOLDOWN_DECLARE(next_process)
