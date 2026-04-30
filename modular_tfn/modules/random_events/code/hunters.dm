@@ -142,12 +142,12 @@ GLOBAL_LIST_EMPTY(living_hunters)
 			continue
 		if(!get_vampire_splat(nearby))
 			continue
-		if(known_kindred.Find(nearby))
+		if(!isnull(known_kindred) && known_kindred.Find(nearby))
 			face_atom(nearby)
 			last_antagonised = world.time
 			Aggro(nearby)
 			return
-		if(cleared_kindred.Find(nearby))
+		if(!isnull(cleared_kindred) && cleared_kindred.Find(nearby))
 			continue
 		hunter_begin_approach(nearby)
 		return
