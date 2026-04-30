@@ -203,6 +203,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 			addtimer(CALLBACK(src, PROC_REF(hunter_detection_confirmed)), 3 SECONDS)
 		else
 			hunter_reset()
+			hunter_add_cleared(investigation_target)
 	else
 		hunter_add_cleared(investigation_target)
 
