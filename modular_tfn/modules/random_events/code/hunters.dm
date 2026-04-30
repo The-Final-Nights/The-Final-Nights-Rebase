@@ -219,7 +219,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	addtimer(CALLBACK(src, PROC_REF(hunter_delayed_aggro), confirmed_target), 8 SECONDS)
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_handle_combat()
-	cleared_kindred = null // something aggro'd the hunter, so he should be suspicious of everyone now
+	cleared_kindred = null // something aggro'd the hunter, so it should be suspicious of everyone now
 	if(QDELETED(danger_source))
 		end_combat()
 		return
@@ -229,10 +229,8 @@ GLOBAL_LIST_EMPTY(living_hunters)
 		end_combat()
 		hunter_post_kill(body_turf)
 		return
-	if(!spawned_weapon && has_weapon)
-		npc_draw_weapon()
-	if(spawned_weapon && get_active_held_item() != my_weapon)
-		has_weapon = FALSE
+	var/obj/item/vampire_stake/spawned_stake = new()
+	put_in_active_hand(spawned_stake)
 	ClickOn(danger_source)
 	face_atom(danger_source)
 	GLOB.move_manager.move_to(src, danger_source, 1, cached_multiplicative_slowdown)
@@ -278,6 +276,8 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	if(!investigation_target || QDELETED(investigation_target))
 		return FALSE
 	if(investigation_target.stat == DEAD)
+		return FALSE
+	if(cleared_kindred.Find(investigation_target))
 		return FALSE
 	return TRUE
 
