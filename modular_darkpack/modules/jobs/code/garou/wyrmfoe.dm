@@ -1,3 +1,4 @@
+/* //TFN EDIT REMOVAL START
 /datum/job/vampire/wyrmfoe
 	title = JOB_GAROU_WYRMFOE
 	description = "You are the Warder's right hand, a promising tactician in your own right, granted the honor of coordinating the Sept's more offensive actions. "
@@ -43,3 +44,4 @@
 	shoes = /obj/item/clothing/shoes/vampire/jackboots/work
 	l_pocket = /obj/item/smartphone
 	backpack_contents = list(/obj/item/phone_book=1, /obj/item/card/credit/rich=1)
+*/ // TFN EDIT REMOVAL END

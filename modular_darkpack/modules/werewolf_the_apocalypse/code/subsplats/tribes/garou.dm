@@ -14,18 +14,17 @@
 	subsplat_keys = /obj/item/vamp/keys/nps
 
 /datum/subsplat/werewolf/tribe/garou/ghostcouncil
-	name = TRIBE_UKTENA
-	desc = "Seekers of mystery and highly secretive, the Uktena is one of the most misunderstood tribes. Their ranks include guides, academics and the religious."
-	gifts_provided = list(
-		/datum/action/cooldown/power/gift/spirit_speech,
-	// 	/datum/action/cooldown/power/gift/shroud,
-	// 	/datum/action/cooldown/power/gift/coils_of_the_serpent,
-	// 	/datum/action/cooldown/power/gift/banish_totem
-	)
+	name = TRIBE_GHOST_COUNCIL //TFN EDIT CHANGE - Ghost Council - Original: name = TRIBE_UKTENA
+	desc = "Seekers of mystery and highly secretive, the Ghost Council is one of the most misunderstood tribes. Their ranks include guides, academics and the religious."
+	// gifts_provided = list(
+	// 	/datum/action/gift/shroud = 1,
+	// 	/datum/action/gift/coils_of_the_serpent = 2,
+	// 	/datum/action/gift/banish_totem = 3
+	// )
 	subsplat_keys = /obj/item/vamp/keys/nps
 
 /datum/subsplat/werewolf/tribe/garou/hartwardens
-	name = TRIBE_FIANNA
+	name = TRIBE_HART_WARDENS //TFN EDIT CHANGE - Hart Wardens - Original: name = TRIBE_FIANNA
 	desc = "Growing, creating, cultivating and maintaining the most natural of Gaia's creations, the Wardens are some of the closest to nature. Wherever they are, they coax Gaia's blessing out of whatever they can."
 	gifts_provided = list(
 		/datum/action/cooldown/power/gift/faerie_light,
@@ -153,7 +152,7 @@
 	target.Paralyze(5 SECONDS)
 
 /datum/subsplat/werewolf/tribe/garou/ronin
-	name = TRIBE_RONIN
+	name = TRIBE_FORSWORN //TFN EDIT CHANGE - Forsworn - Original: name = TRIBE_RONIN
 	desc = "Garou who, for one reason or another, find themselves as outcasts of the Nation."
 	// gifts_provided = list(
 	// 	/datum/action/cooldown/power/gift/guise_of_the_hound,
