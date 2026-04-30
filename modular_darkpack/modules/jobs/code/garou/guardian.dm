@@ -1,11 +1,11 @@
 /datum/job/vampire/guardian
 	title = JOB_GAROU_GUARDIAN
-	description = "You are the bottom of the Sept's pecking order, but also the frontline offense and defense, serving directly under the Warder and Wyrmfoe to ensure the caern's safety and well-being."
+	description = "You are the bottom of the Sept's pecking order, but also the frontline offense and defense, serving directly under the Warder to ensure the caern's safety and well-being."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_CITY
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = /datum/job/vampire/warder
+	supervisors = "the Warder" //TFN EDIT CHANGE - Warder - Original: supervisors = /datum/job/vampire/warder
 	req_admin_notify = 1
 	minimal_player_age = 25
 	exp_requirements = 50
@@ -29,7 +29,7 @@
 		"Councillor",
 		"Truthcatcher",
 		"Warder",
-		"Wyrmfoe"
+		"Keeper" //TFN EDIT CHANGE - Keeper - Original: "Wyrmfoe"
 	)
 
 /datum/outfit/job/vampire/guardian
