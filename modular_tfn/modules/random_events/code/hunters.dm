@@ -29,8 +29,19 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	var/mob/living/investigation_target = null
 	var/testing_started = FALSE
 	var/list/known_kindred = null
+	var/list/cleared_kindred = null
+	var/chosen_tool = null
 	var/turf/guard_turf = null
 	var/datum/storyteller_roll/HUNTER_perception/perception_roll
+	var/static/list/hunter_tool_templates = list(
+		"reaches into their jacket and draws out a flashlight with strange sigils carved into the lens housing, slowly sweeping the beam across",
+		"pulls a compass with an iron needle and hand-etched symbols along the rim from their coat pocket, holding it out flat toward",
+		"takes a handheld thermal camera with a small cross soldered to the grip from their bag and points it at",
+		"produces a small silver-framed mirror with geometric symbols etched into the back from a coat pocket and angles it toward",
+		"draws a modified EMF reader with handwritten symbols along the casing from their belt and passes it slowly around",
+		"pulls a glass vial of salted water strung on a length of paracord from a shirt pocket and holds it out toward",
+		"opens their bag, produces a worn field notebook with pressed herbs tucked between the pages, and holds it open toward",
+	)
 	var/static/list/hunter_greetings = list(
 		"Hey, hold on a second. Can I ask you something?",
 		"You look familiar. Do I know you from around here?",
@@ -80,6 +91,8 @@ GLOBAL_LIST_EMPTY(living_hunters)
 /mob/living/carbon/human/npc/walkby/hunter/Initialize(mapload)
 	. = ..()
 	known_kindred = list()
+	cleared_kindred = list()
+	chosen_tool = pick(hunter_tool_templates)
 	GLOB.living_hunters += src
 	storyteller_stats = create_new_stat_prefs(storyteller_stats)
 	st_set_stat(STAT_BRAWL, 5)
@@ -94,6 +107,8 @@ GLOBAL_LIST_EMPTY(living_hunters)
 /mob/living/carbon/human/npc/walkby/hunter/Destroy()
 	GLOB.living_hunters -= src
 	known_kindred = null
+	cleared_kindred = null
+	chosen_tool = null
 	investigation_target = null
 	guard_turf = null
 	return ..()
@@ -118,6 +133,8 @@ GLOBAL_LIST_EMPTY(living_hunters)
 			hunter_handle_testing()
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_idle_scan()
+	if(!prob(25))
+		return
 	for(var/mob/living/carbon/human/nearby in view(HUNTER_SCAN_RANGE, src))
 		if(!nearby.client)
 			continue
@@ -130,6 +147,8 @@ GLOBAL_LIST_EMPTY(living_hunters)
 			last_antagonised = world.time
 			Aggro(nearby)
 			return
+		if(cleared_kindred.Find(nearby))
+			continue
 		hunter_begin_approach(nearby)
 		return
 
@@ -171,27 +190,21 @@ GLOBAL_LIST_EMPTY(living_hunters)
 		hunter_reset()
 		return
 	var/mob/living/carbon/human/test_subject = investigation_target
-	var/action = pick(
-		"reaches into their jacket and draws out a flashlight with strange sigils carved into the lens housing, slowly sweeping the beam across [test_subject]",
-		"pulls a compass with an iron needle and hand-etched symbols along the rim from their coat pocket, holding it out flat toward [test_subject] and watching the needle",
-		"takes a handheld thermal camera with a small cross soldered to the grip from their bag and points it at [test_subject], studying the readout in silence",
-		"produces a small silver-framed mirror with geometric symbols etched into the back from a coat pocket and angles it toward [test_subject], checking the glass carefully",
-		"draws a modified EMF reader with handwritten symbols along the casing from their belt and passes it slowly around [test_subject], watching the needle flicker",
-		"pulls a glass vial of salted water strung on a length of paracord from a shirt pocket and holds it near [test_subject], watching the surface of the liquid",
-		"opens their bag, retrieves a worn field notebook with pressed herbs tucked between the pages, and holds it open toward [test_subject], watching for any reaction",
-	)
 	SetStun(2 SECONDS)
-	manual_emote("[action].")
+	manual_emote("[chosen_tool].")
 	if(!perception_roll)
 		perception_roll = new()
-	var/subterfuge = investigation_target.st_get_stat(STAT_SUBTERFUGE) || 0
-	perception_roll.difficulty = clamp(HUNTER_BASE_DIFFICULTY + subterfuge, 4, 10)
-	var/successes = perception_roll.st_roll(src, test_subject)
-	if(successes > 0)
-		test_subject.emote("twitch_s")
-		addtimer(CALLBACK(src, PROC_REF(hunter_detection_confirmed)), 3 SECONDS)
+	if(get_kindred_splat(test_subject) || get_ghoul_splat(test_subject))
+		var/subterfuge = investigation_target.st_get_stat(STAT_SUBTERFUGE) || 0
+		perception_roll.difficulty = clamp(HUNTER_BASE_DIFFICULTY + subterfuge, 4, 10)
+		var/successes = perception_roll.st_roll(src, test_subject)
+		if(successes > 0)
+			test_subject.emote("twitch_s")
+			addtimer(CALLBACK(src, PROC_REF(hunter_detection_confirmed)), 3 SECONDS)
+		else
+			hunter_reset()
 	else
-		hunter_reset()
+		hunter_add_cleared(investigation_target)
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_detection_confirmed()
 	if(!hunter_target_valid())
@@ -206,6 +219,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	addtimer(CALLBACK(src, PROC_REF(hunter_delayed_aggro), confirmed_target), 8 SECONDS)
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_handle_combat()
+	cleared_kindred = null // something aggro'd the hunter, so he should be suspicious of everyone now
 	if(QDELETED(danger_source))
 		end_combat()
 		return
@@ -237,7 +251,16 @@ GLOBAL_LIST_EMPTY(living_hunters)
 /mob/living/carbon/human/npc/walkby/hunter/ChoosePath()
 	if(!guard_turf)
 		return ..()
-	return get_step(guard_turf, pick(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST))
+	var/list/nearby = list()
+	for(var/turf/T in view(guard_turf))
+		if(!T.density)
+			nearby += T
+	if(length(nearby))
+		if(!has_status_effect(/datum/status_effect/incapacitating/stun))
+			SetStun(5 SECONDS)
+		return pick(nearby)
+	return ..()
+
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_delayed_aggro(mob/living/target)
 	if(danger_source || stat == DEAD)
@@ -262,10 +285,16 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	if(target && !known_kindred.Find(target))
 		known_kindred += target
 
+/mob/living/carbon/human/npc/walkby/hunter/proc/hunter_add_cleared(mob/living/target)
+	if(target && !cleared_kindred.Find(target))
+		cleared_kindred += target
+
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_reset()
 	investigation_target = null
 	investigation_state = HUNTER_STATE_IDLE
 	testing_started = FALSE
+	if(is_talking && !has_status_effect(/datum/status_effect/incapacitating/stun))
+		SetStun(5 SECONDS)
 	walktarget = ChoosePath()
 
 #undef HUNTER_STATE_IDLE
