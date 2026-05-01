@@ -216,25 +216,27 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	hunter_reset()
 	realistic_say(pick(hunter_detection_phrases))
 	SetStun(2 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(hunter_point_at), confirmed_target), pick(4 SECONDS, 7 SECONDS))
-	addtimer(CALLBACK(src, PROC_REF(hunter_delayed_aggro), confirmed_target), 8 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(hunter_point_at), confirmed_target), pick(2 SECONDS, 4 SECONDS))
+	addtimer(CALLBACK(src, PROC_REF(hunter_delayed_aggro), confirmed_target), 5 SECONDS)
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_handle_combat()
 	cleared_kindred = null // something aggro'd the hunter, so it should be suspicious of everyone now
-	if(QDELETED(danger_source))
+	var/mob/living/target = danger_source?.resolve()
+	if(!target || QDELETED(target))
 		end_combat()
 		return
 	last_antagonised = world.time
-	if(HAS_TRAIT(danger_source, TRAIT_DEATHCOMA))
-		var/turf/body_turf = get_turf(danger_source)
+	if(HAS_TRAIT(target, TRAIT_DEATHCOMA) || target.stat == DEAD)
+		var/turf/body_turf = get_turf(target)
 		end_combat()
 		hunter_post_kill(body_turf)
 		return
-	var/obj/item/vampire_stake/spawned_stake = new()
-	put_in_active_hand(spawned_stake)
-	ClickOn(danger_source)
-	face_atom(danger_source)
-	GLOB.move_manager.move_to(src, danger_source, 1, cached_multiplicative_slowdown)
+	if(!istype(get_active_held_item(), /obj/item/vampire_stake))
+		var/obj/item/vampire_stake/spawned_stake = new()
+		put_in_active_hand(spawned_stake)
+	ClickOn(target)
+	face_atom(target)
+	GLOB.move_manager.move_to(src, target, 1, cached_multiplicative_slowdown)
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_post_kill(turf/body_turf)
 	guard_turf = body_turf
