@@ -164,6 +164,8 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 			continue
 		if(nearby.stat >= UNCONSCIOUS)
 			continue
+		if(HAS_TRAIT(nearby, TRAIT_OBFUSCATED))
+			continue
 		if(!get_vampire_splat(nearby))
 			continue
 		if(!isnull(known_kindred) && known_kindred.Find(nearby))
@@ -258,6 +260,9 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 	if(!target || QDELETED(target))
 		end_combat()
 		return
+	if(HAS_TRAIT(target, TRAIT_OBFUSCATED))
+		end_combat()
+		return
 	last_antagonised = world.time
 	if(HAS_TRAIT(target, TRAIT_DEATHCOMA) || target.stat == DEAD)
 		var/turf/body_turf = get_turf(target)
@@ -299,6 +304,8 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_delayed_aggro(mob/living/target)
 	if(danger_source || stat == DEAD)
 		return
+	if(HAS_TRAIT(target, TRAIT_OBFUSCATED))
+		return
 	last_antagonised = world.time
 	realistic_say("...")
 	Aggro(target)
@@ -312,6 +319,8 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 	if(!investigation_target || QDELETED(investigation_target))
 		return FALSE
 	if(investigation_target.stat == DEAD)
+		return FALSE
+	if(HAS_TRAIT(investigation_target, TRAIT_OBFUSCATED))
 		return FALSE
 	if(!isnull(cleared_targets) && cleared_targets.Find(investigation_target))
 		return FALSE
