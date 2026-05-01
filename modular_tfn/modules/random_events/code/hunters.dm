@@ -6,14 +6,18 @@
 #define HUNTER_FLEE_RANGE 10
 #define HUNTER_BASE_DIFFICULTY 4
 GLOBAL_LIST_EMPTY(living_hunters)
+/*
+Hunters!
 
-/obj/effect/landmark/HUNTER_spawn
+These are basic walkby subtypes that patrol the map. Every tick, the hunter rolls against a base scan chance that scales from scan_chance_min at full masquerade to scan_chance_max at 0 masquerade. if it hits that chance, it will look for a nearby player and interact with them. if the player is not choc full of vitae, they will get added to the hunter's ignore list so they wont be scanned twice by that same hunter in the future. if they are an undead, and they fail their subterfuge check, the hunter will attack them and try to stake them. once the player is either dead or staked, the hunter will guard their 'kill' for the rest of the night (or until another player comes by or attacks them)
+*/
+/obj/effect/landmark/hunter_spawn
 	name = "hunter spawn"
 
-/obj/effect/landmark/HUNTER_spawn/hunter
+/obj/effect/landmark/hunter_spawn/hunter
 	name = "hunter spawn"
 
-/datum/storyteller_roll/HUNTER_perception
+/datum/storyteller_roll/hunter_perception
 	bumper_text = "hunter perception"
 	applicable_stats = list(STAT_PERCEPTION)
 	difficulty = 6
@@ -32,7 +36,14 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	var/list/cleared_targets = null
 	var/chosen_tool = null
 	var/turf/guard_turf = null
-	var/datum/storyteller_roll/HUNTER_perception/perception_roll
+	var/datum/storyteller_roll/hunter_perception/perception_roll
+	var/scan_chance_min = 10 // base scan chance at full masquerade
+	var/scan_chance_max = 85 // scan chance at zero masquerade
+	var/scan_penalty_blush = 30 // scan reduction for having Blush of Health
+	var/scan_penalty_humanity_per_dot = 5 // scan reduction per point of humanity above the threshold
+	var/scan_humanity_threshold = 4 // humanity at or below which no scan penalty applies
+	var/scan_humanity_max_dots = 6 // max dots above threshold that contribute
+
 	var/static/list/hunter_tool_templates = list(
 		"reaches into their jacket and draws out a flashlight with strange sigils carved into the lens housing, slowly sweeping the beam across",
 		"pulls a compass with an iron needle and hand-etched symbols along the rim from their coat pocket, holding it out flat toward",
@@ -110,7 +121,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	st_set_stat(STAT_DEXTERITY, 5)
 	st_set_stat(STAT_STRENGTH, 5)
 	st_set_stat(STAT_MELEE, 5)
-	st_set_stat(STAT_PERCEPTION, 2)
+	st_set_stat(STAT_PERCEPTION, pick(2, 5))
 	st_set_stat(STAT_PERMANENT_WILLPOWER, 10)
 	st_set_stat(STAT_TEMPORARY_WILLPOWER, 10)
 
@@ -143,7 +154,10 @@ GLOBAL_LIST_EMPTY(living_hunters)
 			hunter_handle_testing()
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_idle_scan()
-	if(!prob(25))
+	var/masq_level = MASQUERADE_MAX_LEVEL - SSmasquerade.masquerade_level
+	var/theat_chance = (scan_chance_max - scan_chance_min) / MASQUERADE_MAX_LEVEL
+	var/base_chance = clamp(scan_chance_min + (masq_level * theat_chance), scan_chance_min, scan_chance_max)
+	if(!prob(base_chance))
 		return
 	for(var/mob/living/carbon/human/nearby in view(HUNTER_SCAN_RANGE, src))
 		if(!nearby.client)
@@ -158,6 +172,14 @@ GLOBAL_LIST_EMPTY(living_hunters)
 			Aggro(nearby)
 			return
 		if(!isnull(cleared_targets) && cleared_targets.Find(nearby))
+			continue
+		var/scan_chance = base_chance
+		if(HAS_TRAIT(nearby, TRAIT_BLUSH_OF_HEALTH))
+			scan_chance -= scan_penalty_blush
+		var/datum/st_stat/morality_path/morality/path = nearby.storyteller_stats?[STAT_MORALITY]
+		if(path?.morality_path?.alignment == MORALITY_HUMANITY)
+			scan_chance -= clamp(path.get_score() - scan_humanity_threshold, 0, scan_humanity_max_dots) * scan_penalty_humanity_per_dot
+		if(!prob(scan_chance))
 			continue
 		hunter_begin_approach(nearby)
 		return
