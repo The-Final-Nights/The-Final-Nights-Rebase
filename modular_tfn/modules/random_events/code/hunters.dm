@@ -38,7 +38,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 		"pulls a compass with an iron needle and hand-etched symbols along the rim from their coat pocket, holding it out flat toward",
 		"takes a handheld thermal camera with a small cross soldered to the grip from their bag and points it at",
 		"produces a small silver-framed mirror with geometric symbols etched into the back from a coat pocket and angles it toward",
-		"draws a modified EMF reader with handwritten symbols along the casing from their belt and passes it slowly around",
+		"draws a modified EMF reader with handwritten symbols carved into it from their belt. They point it at",
 		"pulls a glass vial of salted water strung on a length of paracord from a shirt pocket and holds it out toward",
 		"opens their bag, produces a worn field notebook with pressed herbs tucked between the pages, and holds it open toward",
 	)
@@ -200,7 +200,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 		hunter_reset()
 		return
 	var/mob/living/carbon/human/test_subject = investigation_target
-	manual_emote("[chosen_tool].")
+	manual_emote("[chosen_tool] [test_subject].")
 	if(!perception_roll)
 		perception_roll = new()
 	if(get_kindred_splat(test_subject) || get_ghoul_splat(test_subject))
