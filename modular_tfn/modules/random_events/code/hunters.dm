@@ -280,7 +280,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 		return FALSE
 	if(investigation_target.stat == DEAD)
 		return FALSE
-	if(cleared_kindred.Find(investigation_target))
+	if(!isnull(cleared_kindred) && cleared_kindred.Find(investigation_target))
 		return FALSE
 	return TRUE
 
