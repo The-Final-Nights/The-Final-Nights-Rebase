@@ -156,8 +156,9 @@
 
 /datum/chemical_reaction/drink/threemileisland
 	results = list(/datum/reagent/consumable/ethanol/threemileisland = 10)
-	required_reagents = list(/datum/reagent/consumable/ethanol/longislandicedtea = 10, /datum/reagent/uranium = 1)
+	required_reagents = list(/datum/reagent/consumable/ethanol/longislandicedtea = 10, /datum/reagent/consumable/ethanol/atomicbomb = 1)
 	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_OTHER
+	mix_message = "Is that a geiger counter going off?"
 
 /datum/chemical_reaction/drink/whiskeysoda
 	results = list(/datum/reagent/consumable/ethanol/whiskeysoda = 3)
@@ -181,7 +182,9 @@
 
 /datum/chemical_reaction/drink/manhattan_proj
 	results = list(/datum/reagent/consumable/ethanol/manhattan_proj = 10)
-	required_reagents = list(/datum/reagent/consumable/ethanol/manhattan = 10, /datum/reagent/uranium = 1)
+	required_reagents = list(/datum/reagent/consumable/ethanol/manhattan = 10, /datum/reagent/consumable/ethanol/atomicbomb = 1)
+	mix_message = "Smells like Death, the Destroyer of Worlds."
+
 
 /datum/chemical_reaction/drink/vodka_tonic
 	results = list(/datum/reagent/consumable/ethanol/vodkatonic = 3)
@@ -197,7 +200,7 @@
 
 /datum/chemical_reaction/drink/singulo
 	results = list(/datum/reagent/consumable/ethanol/singulo = 10)
-	required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 5, /datum/reagent/liquid_dark_matter = 1, /datum/reagent/consumable/ethanol/wine = 5)
+	required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 5, /datum/reagent/toxin/mindbreaker = 1, /datum/reagent/consumable/ethanol/wine = 5)
 
 /datum/chemical_reaction/drink/alliescocktail
 	results = list(/datum/reagent/consumable/ethanol/alliescocktail = 2)
@@ -680,11 +683,11 @@
 	results = list(/datum/reagent/consumable/ethanol/amaretto_sour = 15)
 	required_reagents = list(/datum/reagent/consumable/ethanol/amaretto = 10, /datum/reagent/consumable/lemonjuice = 5, /datum/reagent/consumable/eggwhite = 2)
 	mix_message = "A frothy head forms over the mixture."
-	
+
 /datum/chemical_reaction/drink/ramos_gin_fizz
 	results = list(/datum/reagent/consumable/ethanol/ramos_gin_fizz = 25)
 	//yes, this is intentionally a pain in the ass
-	required_reagents = list(/datum/reagent/consumable/ethanol/ginfizz = 12, /datum/reagent/consumable/lemonjuice = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/eggwhite = 3, /datum/reagent/consumable/cream = 3, /datum/reagent/consumable/ethanol/triple_sec = 1) 
+	required_reagents = list(/datum/reagent/consumable/ethanol/ginfizz = 12, /datum/reagent/consumable/lemonjuice = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/eggwhite = 3, /datum/reagent/consumable/cream = 3, /datum/reagent/consumable/ethanol/triple_sec = 1)
 	mix_message = "The drink forms a rising head of foam that begins to creep out of the top of the glass."
 
 /datum/chemical_reaction/drink/french_75
@@ -707,7 +710,7 @@
 
 /datum/chemical_reaction/drink/tizirian_sour
 	results = list(/datum/reagent/consumable/ethanol/tizirian_sour = 8)
-	required_reagents = list(/datum/reagent/consumable/ethanol/bitters = 3, /datum/reagent/consumable/lemonjuice = 2, /datum/reagent/consumable/korta_nectar = 2, /datum/reagent/consumable/sugar = 1)	
+	required_reagents = list(/datum/reagent/consumable/ethanol/bitters = 3, /datum/reagent/consumable/lemonjuice = 2, /datum/reagent/consumable/korta_nectar = 2, /datum/reagent/consumable/sugar = 1)
 
 /datum/chemical_reaction/drink/daiquiri
 	results = list(/datum/reagent/consumable/ethanol/daiquiri = 6)
