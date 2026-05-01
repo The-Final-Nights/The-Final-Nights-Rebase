@@ -4864,6 +4864,13 @@
 /obj/machinery/light/prince/directional/west,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
+"bok" = (
+/obj/effect/turf_decal/siding/grey{
+	dir = 8
+	},
+/obj/machinery/sprinkler/area_managed,
+/turf/open/floor/city/plating,
+/area/vtm/interior/setite)
 "bol" = (
 /obj/structure/table/wood,
 /obj/item/kirbyplants/darkpack/plant2{
@@ -8967,6 +8974,11 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/culture)
+"clW" = (
+/obj/effect/decal/rugs,
+/obj/machinery/sprinkler/area_managed,
+/turf/open/floor/city/plating,
+/area/vtm/interior/mall)
 "clX" = (
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 4
@@ -11628,6 +11640,10 @@
 /obj/structure/flora/tree/vamp/pine,
 /turf/open/misc/grass/nosmooth,
 /area/vtm/outside/pacificheights)
+"cXD" = (
+/obj/machinery/sprinkler/area_managed,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/shop)
 "cXH" = (
 /obj/effect/turf_decal/darkpack/grass,
 /obj/effect/turf_decal/darkpack/dirt/corner{
@@ -15512,6 +15528,10 @@
 /obj/effect/spawner/random/occult/artifact,
 /turf/open/floor/wood/old,
 /area/vtm/outside/fishermanswharf/industrial)
+"dWv" = (
+/obj/machinery/sprinkler/area_managed,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/evergreen)
 "dWw" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -30238,6 +30258,13 @@
 	},
 /turf/open/floor/iron/stairs/black,
 /area/vtm/interior/millennium_tower/f3)
+"hJL" = (
+/obj/structure/brazier,
+/obj/machinery/sprinkler/area_managed,
+/turf/open/floor/plating/granite{
+	color = "#3e423f"
+	},
+/area/vtm/interior/setite/basement)
 "hJW" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
@@ -62912,6 +62939,7 @@
 	pixel_y = 6
 	},
 /obj/structure/table/wood/fancy/royalblack,
+/obj/machinery/sprinkler/area_managed,
 /turf/open/floor/plating/granite{
 	color = "#3e423f"
 	},
@@ -69364,6 +69392,10 @@
 	},
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/museum)
+"rvj" = (
+/obj/machinery/sprinkler/area_managed,
+/turf/open/floor/city/plating_mono,
+/area/vtm/interior/setite)
 "rvl" = (
 /obj/effect/turf_decal/siding/wideplating/blue{
 	dir = 1
@@ -69990,6 +70022,10 @@
 /obj/structure/flora/bush/sunny/style_random,
 /turf/open/misc/grass,
 /area/vtm/outside/pacificheights/forest)
+"rBI" = (
+/obj/machinery/sprinkler/area_managed,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/evergreen/caern)
 "rBO" = (
 /obj/structure/chair/sofa/corp/left{
 	color = "#5aa2fa"
@@ -86237,6 +86273,7 @@
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 10
 	},
+/obj/machinery/sprinkler/area_managed,
 /turf/open/floor/carpet/darkpack/blacksilver,
 /area/vtm/interior/mall)
 "vPP" = (
@@ -88038,6 +88075,10 @@
 "woq" = (
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/pacificheights)
+"wor" = (
+/obj/machinery/sprinkler/area_managed,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/evergreen)
 "wot" = (
 /obj/structure/chair/sofa/right/brown{
 	color = "#525252";
@@ -122239,7 +122280,7 @@ wmC
 bhR
 tGB
 tGB
-tGB
+rBI
 tOE
 kVz
 emV
@@ -135182,7 +135223,7 @@ ksk
 ksk
 ksk
 ksk
-ksk
+rvj
 ksk
 hRn
 ksk
@@ -135350,7 +135391,7 @@ rAN
 fFO
 vVD
 itc
-cbU
+hJL
 itc
 vVD
 rAN
@@ -163238,7 +163279,7 @@ xjj
 ugc
 vNy
 vNy
-vNy
+wor
 vNy
 nSH
 uqT
@@ -164464,7 +164505,7 @@ vNy
 nbz
 cVa
 xGy
-xGy
+dWv
 xGy
 xGy
 xGy
@@ -173500,7 +173541,7 @@ wAf
 wmH
 fGU
 rWZ
-wmH
+clW
 pKu
 sYD
 uEW
@@ -176390,7 +176431,7 @@ nPK
 mew
 ksk
 ksk
-ksk
+rvj
 qrS
 nSc
 wrH
@@ -176639,7 +176680,7 @@ aoH
 aoH
 aoH
 tuh
-aoH
+cXD
 tuh
 nSc
 vtC
@@ -177614,7 +177655,7 @@ dFm
 dFm
 dFm
 tpD
-shX
+bok
 shX
 nSc
 kiV
