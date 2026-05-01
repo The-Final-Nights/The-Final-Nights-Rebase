@@ -200,7 +200,6 @@ GLOBAL_LIST_EMPTY(living_hunters)
 		hunter_reset()
 		return
 	var/mob/living/carbon/human/test_subject = investigation_target
-	SetStun(2 SECONDS)
 	manual_emote("[chosen_tool].")
 	if(!perception_roll)
 		perception_roll = new()
@@ -232,6 +231,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_handle_combat()
 	cleared_targets = null // something aggro'd the hunter, so it should be suspicious of everyone now
+	guard_turf = null
 	var/mob/living/target = danger_source?.resolve()
 	if(!target || QDELETED(target))
 		end_combat()
@@ -278,7 +278,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	if(danger_source || stat == DEAD)
 		return
 	last_antagonised = world.time
-	SetStun(2 SECONDS)
+	realistic_say("...")
 	Aggro(target)
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_point_at(mob/living/target)
