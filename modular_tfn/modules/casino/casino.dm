@@ -235,6 +235,10 @@
 	spinning = FALSE
 	update_appearance(UPDATE_OVERLAYS)
 
+/obj/item/stack/casino
+	abstract_type = /obj/item/stack/casino
+	singular_name = "ahelp debug code issue maintainer"
+
 /obj/item/stack/casino/chip
 	icon = 'modular_tfn/modules/casino/icons/casino.dmi'
 	name = "casino chip"
