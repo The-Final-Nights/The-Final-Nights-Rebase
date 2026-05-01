@@ -490,6 +490,7 @@
 #include "code\__DEFINES\~darkpack\traits\sources.dm"
 #include "code\__DEFINES\~tfn\blooper.dm"
 #include "code\__DEFINES\~tfn\is_helpers.dm"
+#include "code\__DEFINES\~tfn\whitelist.dm"
 #include "code\__DEFINES\~tfn\traits\declarations.dm"
 #include "code\__DEFINES\~tfn\traits\macros.dm"
 #include "code\__DEFINES\~tfn\traits\sources.dm"
@@ -7912,4 +7913,7 @@
 #include "modular_tfn\modules\vampire_the_masquerade\code\splats\ghoul_splat\ghoul_splat.dm"
 #include "modular_tfn\modules\vampire_the_masquerade\code\vampire_clan\trusted_whitelist.dm"
 #include "modular_tfn\modules\vampire_the_masquerade\code\vampire_clan\clans\lasombra\lasombra.dm"
+#include "modular_tfn\modules\whitelist\code\whitelist_enforcement.dm"
+#include "modular_tfn\modules\whitelist\code\whitelist_prefs.dm"
+#include "modular_tfn\modules\whitelist\code\whitelist_savefile.dm"
 // END_INCLUDE
