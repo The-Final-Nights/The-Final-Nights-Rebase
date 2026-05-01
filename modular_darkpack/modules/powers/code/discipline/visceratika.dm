@@ -71,7 +71,7 @@
 	willpower_cost = 1
 
 	level = 2
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_SEE
+	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE  // TFN EDIT - Original :  check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_SEE
 	toggled = TRUE
 	var/area/starting_area
 	var/datum/storyteller_roll/scry_the_hearthstone/scry_roll

@@ -99,7 +99,8 @@
 #define JOB_GAROU_COUNCIL "Councillor" // Elder, Athro
 #define JOB_GAROU_TRUTHCATCHER "Truthcatcher" // Adren+
 #define JOB_GAROU_WARDER "Warder" // Adren+
-#define JOB_GAROU_WYRMFOE "Wyrmfoe" // Fostern
+// #define JOB_GAROU_WYRMFOE "Wyrmfoe" // TFN EDIT REMOVAL - Wyrmfoe
+#define JOB_GAROU_KEEPER "Keeper" // TFN EDIT ADD - Keeper
 #define JOB_GAROU_GUARDIAN "Guardian"
 
 // Pentex
@@ -172,7 +173,7 @@
 #define JOB_DISPLAY_ORDER_COUNCIL 45
 #define JOB_DISPLAY_ORDER_TRUTHCATCHER 46
 #define JOB_DISPLAY_ORDER_WARDER 47
-#define JOB_DISPLAY_ORDER_WYRMFOE 48
+#define JOB_DISPLAY_ORDER_KEEPER 48 // TFN EDIT CHANGE - Wyrmfoe - Original: #define JOB_DISPLAY_ORDER_WYRMFOE 48
 #define JOB_DISPLAY_ORDER_GUARDIAN 49
 
 #define JOB_DISPLAY_ORDER_BRANCH_LEAD 50
