@@ -238,6 +238,7 @@
 /obj/item/stack/casino
 	abstract_type = /obj/item/stack/casino
 	singular_name = "ahelp debug code issue maintainer"
+	merge_type = /obj/item/stack/casino
 
 /obj/item/stack/casino/chip
 	icon = 'modular_tfn/modules/casino/icons/casino.dmi'
@@ -252,6 +253,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	custom_materials = list(/datum/material/bronze = 1)
 	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
+	merge_type = /obj/item/stack/casino/chip
 	var/string_attached
 	var/list/sideslist = list("heads","tails")
 	var/cooldown = 0
@@ -304,6 +306,7 @@
 	singular_name = "$100 casino chip"
 	custom_materials = list(/datum/material/gold = 1)
 	value = 100
+	merge_type = /obj/item/stack/casino/chip/onehundred
 
 /obj/item/stack/casino/chip/onehundred/Initialize()
 	. = ..()
@@ -315,6 +318,7 @@
 	singular_name = "$1,000 casino chip"
 	custom_materials = list(/datum/material/diamond = 1)
 	value = 1000
+	merge_type = /obj/item/stack/casino/chip/onethousand
 
 /obj/item/stack/casino/chip/onethousand/Initialize()
 	. = ..()
