@@ -157,7 +157,7 @@
 /datum/chemical_reaction/drink/threemileisland
 	results = list(/datum/reagent/consumable/ethanol/threemileisland = 10)
 	required_reagents = list(/datum/reagent/consumable/ethanol/longislandicedtea = 10, /datum/reagent/consumable/ethanol/atomicbomb = 1) // TFN EDIT CHANGE - Original: required_reagents = list(/datum/reagent/consumable/ethanol/longislandicedtea = 10, /datum/reagent/uranium = 1)
-reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_OTHER
+	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_OTHER
 	mix_message = "Is that a geiger counter going off?" // TFN EDIT ADD
 
 /datum/chemical_reaction/drink/whiskeysoda
