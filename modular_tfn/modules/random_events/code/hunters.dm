@@ -29,7 +29,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	var/mob/living/investigation_target = null
 	var/testing_started = FALSE
 	var/list/known_kindred = null
-	var/list/cleared_kindred = null
+	var/list/cleared_targets = null
 	var/chosen_tool = null
 	var/turf/guard_turf = null
 	var/datum/storyteller_roll/HUNTER_perception/perception_roll
@@ -87,11 +87,21 @@ GLOBAL_LIST_EMPTY(living_hunters)
 		"I've been carrying your picture in my notebook for a while.",
 	)
 
+	var/static/list/hunter_goodbye_phrases = list(
+		"My mistake. Have a good night.",
+		"I think I mistook you for someone else. Nevermind.",
+		"Oh, my bad. I thought I recognized you from somewhere. Seeya'.",
+		"Sorry, a case of mistaken identity. Have a nice night.",
+		"I apologize for bothering you. Have a good one.",
+		"I'm off my meds, forgive me. Take care.",
+		"Oh, I was wrong. Sorry for bothering you, I'll go now.",
+	)
+
 
 /mob/living/carbon/human/npc/walkby/hunter/Initialize(mapload)
 	. = ..()
 	known_kindred = list()
-	cleared_kindred = list()
+	cleared_targets = list()
 	chosen_tool = pick(hunter_tool_templates)
 	GLOB.living_hunters += src
 	storyteller_stats = create_new_stat_prefs(storyteller_stats)
@@ -107,7 +117,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 /mob/living/carbon/human/npc/walkby/hunter/Destroy()
 	GLOB.living_hunters -= src
 	known_kindred = null
-	cleared_kindred = null
+	cleared_targets = null
 	chosen_tool = null
 	investigation_target = null
 	guard_turf = null
@@ -147,7 +157,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 			last_antagonised = world.time
 			Aggro(nearby)
 			return
-		if(!isnull(cleared_kindred) && cleared_kindred.Find(nearby))
+		if(!isnull(cleared_targets) && cleared_targets.Find(nearby))
 			continue
 		hunter_begin_approach(nearby)
 		return
@@ -202,10 +212,11 @@ GLOBAL_LIST_EMPTY(living_hunters)
 			test_subject.emote("twitch_s")
 			addtimer(CALLBACK(src, PROC_REF(hunter_detection_confirmed)), 3 SECONDS)
 		else
+			hunter_add_cleared(test_subject)
 			hunter_reset()
-			hunter_add_cleared(investigation_target)
 	else
-		hunter_add_cleared(investigation_target)
+		hunter_add_cleared(test_subject)
+		hunter_reset()
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_detection_confirmed()
 	if(!hunter_target_valid())
@@ -220,7 +231,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 	addtimer(CALLBACK(src, PROC_REF(hunter_delayed_aggro), confirmed_target), 5 SECONDS)
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_handle_combat()
-	cleared_kindred = null // something aggro'd the hunter, so it should be suspicious of everyone now
+	cleared_targets = null // something aggro'd the hunter, so it should be suspicious of everyone now
 	var/mob/living/target = danger_source?.resolve()
 	if(!target || QDELETED(target))
 		end_combat()
@@ -280,7 +291,7 @@ GLOBAL_LIST_EMPTY(living_hunters)
 		return FALSE
 	if(investigation_target.stat == DEAD)
 		return FALSE
-	if(!isnull(cleared_kindred) && cleared_kindred.Find(investigation_target))
+	if(!isnull(cleared_targets) && cleared_targets.Find(investigation_target))
 		return FALSE
 	return TRUE
 
@@ -289,8 +300,9 @@ GLOBAL_LIST_EMPTY(living_hunters)
 		known_kindred += target
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_add_cleared(mob/living/target)
-	if(target && !cleared_kindred.Find(target))
-		cleared_kindred += target
+	if(target && !cleared_targets.Find(target))
+		cleared_targets += target
+		realistic_say(pick(hunter_goodbye_phrases))
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_reset()
 	investigation_target = null
