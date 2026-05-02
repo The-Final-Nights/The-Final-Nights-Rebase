@@ -135,7 +135,6 @@
 	duration_length = 5 TURNS // TFN EDIT
 	cooldown_length = 1 SCENES
 	vitae_cost = 0
-	toggled = TRUE // TFN EDIT
 	cancelable = TRUE
 	var/datum/storyteller_roll/aura_perception/aura_roll
 	// TFN EDIT START
