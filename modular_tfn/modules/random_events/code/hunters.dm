@@ -159,7 +159,7 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 	var/base_chance = clamp(scan_chance_min + (masq_level * theat_chance), scan_chance_min, scan_chance_max)
 	if(!prob(base_chance))
 		return
-	for(var/mob/living/carbon/human/nearby in view(HUNTER_SCAN_RANGE, src))
+	for(var/mob/living/carbon/human/nearby in oview(HUNTER_SCAN_RANGE, src))
 		if(!nearby.client)
 			continue
 		if(nearby.stat >= UNCONSCIOUS)
