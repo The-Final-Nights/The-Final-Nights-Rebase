@@ -211,7 +211,10 @@
 
 /obj/effect/mapping_helpers/door/access/pentex_leader
 	lock_id = LOCKACCESS_PENTEX_LEADER
-
+// TFN EDIT ADD START - ([LORE TEAM REQUESTED] map changes)
+/obj/effect/mapping_helpers/door/access/evergreen
+	lock_id = LOCKACCESS_EVERGREEN
+// TFN EDIT ADD END - ([LORE TEAM REQUESTED] map changes)
 /obj/effect/mapping_helpers/door/access/npc
 	icon_state = "access_helper_rand"
 
