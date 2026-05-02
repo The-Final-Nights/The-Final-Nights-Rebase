@@ -150,7 +150,7 @@
 		var/list/mental_conditions = list()
 		if(target.has_quirk(/datum/quirk/insanity))
 			mental_conditions += "insanity"
-		if(target.has_quirk(/datum/quirk/derangement))
+		if(target.has_quirk(/datum/quirk/darkpack/derangement))
 			mental_conditions += "an incurable derangement"
 		if(length(mental_conditions))
 			msg_mental = "[english_list(mental_conditions)] clouds their mind."
@@ -270,9 +270,9 @@
 
 #undef SHEPHERDS_WATCH_RADIUS
 
-/datum/discipline_power/obeah/unburden_the_bestial_soul
-	name = "Unburden The Bestial Soul"
-	desc = "Draw out a Kindred's soul and heal it of impurities."
+/datum/discipline_power/obeah/mens_sana
+	name = "Mens Sana"
+	desc = "With this power, the Salubri can heal madness, quieting inner demons and bringing a soul to peace."
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
@@ -281,34 +281,34 @@
 	vitae_cost = 2
 	target_type = TARGET_LIVING
 	range = 1
-	var/datum/storyteller_roll/unburden_the_bestial_soul/discipline_roll
+	var/datum/storyteller_roll/mens_sana/discipline_roll
 
-/datum/storyteller_roll/unburden_the_bestial_soul
-	bumper_text = "unburden the bestial soul"
+/datum/storyteller_roll/mens_sana
+	bumper_text = "mens sana"
 	applicable_stats = list(STAT_INTELLIGENCE, STAT_EMPATHY)
 	difficulty = 8
 	roll_output_type = ROLL_PRIVATE_AND_TARGET
 
-/datum/discipline_power/obeah/unburden_the_bestial_soul/activate(atom/target)
+/datum/discipline_power/obeah/mens_sana/activate(atom/target)
 	. = ..()
 	var/mob/living/carbon/carbon_target = target
 	if(!carbon_target)
 		return
 	var/obj/item/organ/brain/target_brain = carbon_target.get_organ_by_type(/obj/item/organ/brain)
 	var/list/gotten_traumas = target_brain.traumas
-	if(carbon_target.has_quirk(/datum/quirk/derangement))
+	if(carbon_target.has_quirk(/datum/quirk/darkpack/derangement))
 		gotten_traumas += "Derangement"
 	var/chosen_derangement = tgui_input_list(owner, "Choose a trauma to cure", "Traumas", gotten_traumas)
 	if(!chosen_derangement)
 		to_chat(owner, span_notice("You fail to find any traumas."))
 		return
-	var/datum/storyteller_roll/unburden_the_bestial_soul/discipline_roll = new()
+	var/datum/storyteller_roll/mens_sana/discipline_roll = new()
 	var/success = discipline_roll.st_roll(owner, target)
 	switch(success)
 		if(ROLL_BOTCH)
 			var/obj/item/organ/brain/owner_brain = owner.get_organ_by_type(/obj/item/organ/brain)
 			if(chosen_derangement == "Derangement")
-				owner.add_quirk(/datum/quirk/derangement)
+				owner.add_quirk(/datum/quirk/darkpack/derangement)
 			else
 				owner_brain.gain_trauma_type(chosen_derangement, TRAUMA_RESILIENCE_MAGIC)
 			to_chat(owner, span_bolddanger("You fail to alleviate [target]'s [chosen_derangement] as your own brain inherits it!"))
@@ -316,7 +316,7 @@
 			to_chat(owner, span_danger("You fail to alleviate [target]'s [chosen_derangement]."))
 		if(ROLL_SUCCESS)
 			if(chosen_derangement == "Derangement")
-				carbon_target.remove_quirk(/datum/quirk/derangement)
+				carbon_target.remove_quirk(/datum/quirk/darkpack/derangement)
 			else
 				target_brain.cure_trauma_type(chosen_derangement, TRAUMA_RESILIENCE_MAGIC)
 			to_chat(owner, span_notice("You succesfully alleviate [target]'s [chosen_derangement]."))

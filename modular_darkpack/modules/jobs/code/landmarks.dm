@@ -32,6 +32,27 @@ JOB_START_HELPER(axe/gang, JOB_AXE_GANG)
 
 JOB_START_HELPER(supply/dealer, JOB_DEALER)
 JOB_START_HELPER(supply/tech, JOB_SUPPLY_TECH)
+//TFN ADDITION START - Setite Faction
+/obj/effect/landmark/start/darkpack/setite
+	name = JOB_ASSOCIATE
+	icon_state = JOB_ASSOCIATE
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+
+/obj/effect/landmark/start/darkpack/setite/faithful
+	name = JOB_FAITHFUL
+	icon_state = JOB_FAITHFUL
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+
+/obj/effect/landmark/start/darkpack/setite/high_priest
+	name = JOB_HIGH_PRIEST
+	icon_state = JOB_HIGH_PRIEST
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+
+/obj/effect/landmark/start/darkpack/setite/ward
+	name = JOB_WARD
+	icon_state = JOB_WARD
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+//TFN ADDITION END - Setite Faction
 
 /* Camarilla */
 /obj/effect/landmark/start/darkpack/camarilla
@@ -103,6 +124,28 @@ JOB_START_HELPER(sabbat/pack, JOB_SABBAT_PACK)
 JOB_START_HELPER(sabbat/priest, JOB_SABBAT_PRIEST)
 JOB_START_HELPER(sabbat/sabbatist, JOB_SABBAT_SABBATIST)
 
+// TFN EDIT START - Sabbat landmarks and modularization of the sprites
+/obj/effect/landmark/start/darkpack/sabbat/bishop
+	name = JOB_SABBAT_BISHOP
+	icon_state = JOB_SABBAT_BISHOP
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+
+/obj/effect/landmark/start/darkpack/sabbat/paladin
+	name = JOB_SABBAT_PALADIN
+	icon_state = JOB_SABBAT_PALADIN
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+
+/obj/effect/landmark/start/darkpack/sabbat/true_sabbat
+	name = JOB_TRUE_SABBAT
+	icon_state = JOB_TRUE_SABBAT
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+
+/obj/effect/landmark/start/darkpack/sabbat/revenant
+	name = JOB_SABBAT_REVENANT
+	icon_state = JOB_SABBAT_REVENANT
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+// TFN EDIT END
+
 /* Chantry */
 /obj/effect/landmark/start/darkpack/chantry
 	name = "generic chantry start"
@@ -118,7 +161,13 @@ JOB_START_HELPER(chantry/gargoyle, JOB_CHANTRY_GARGOYLE)
 JOB_START_HELPER(forest_wolves/council, JOB_GAROU_COUNCIL)
 JOB_START_HELPER(forest_wolves/warder, JOB_GAROU_WARDER)
 JOB_START_HELPER(forest_wolves/catcher, JOB_GAROU_TRUTHCATCHER)
-JOB_START_HELPER(forest_wolves/wyrmfoe, JOB_GAROU_WYRMFOE)
+// JOB_START_HELPER(forest_wolves/wyrmfoe, JOB_GAROU_WYRMFOE) //TFN EDIT REMOVAL - Wyrmfoe
+// TFN EDIT ADD - Keeper
+/obj/effect/landmark/start/darkpack/forest_wolves/keeper
+	name = JOB_GAROU_KEEPER
+	icon_state = JOB_GAROU_KEEPER
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+// TFN EDIT END - Keeper
 JOB_START_HELPER(forest_wolves/guardian, JOB_GAROU_GUARDIAN)
 
 /* Pentex */

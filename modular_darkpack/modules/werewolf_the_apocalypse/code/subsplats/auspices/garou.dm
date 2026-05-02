@@ -143,8 +143,10 @@
 		return RANK_CLIATH
 	return RANK_CUB
 
+/* //TFN EDIT REMOVAL START
 /datum/subsplat/werewolf/auspice/garou/stolen_moon
 	name = AUSPICE_NONE
 	// DARKPACK TODO - WEREWOLF - (len lore)
 	desc = "Your not a dog are you."
 	// Stolen moon get no gifts
+*/ // TFN EDIT REMOVAL END

@@ -2,17 +2,18 @@
 	special_networks = list(
 		nanotrasen = list(fax_name = "NT HR Department", fax_id = "central_command", color = "teal", emag_needed = TRUE),
 		syndicate = list(fax_name = "Sabotage Department", fax_id = "syndicate", color = "red", emag_needed = TRUE),
-		camarillaadmin = list(fax_name = "High Council", fax_id = "camarillaadmin", color = "teal", emag_needed = TRUE),
+		camarillaadmin = list(fax_name = "Prince", fax_id = "camarillaadmin", color = "teal", emag_needed = TRUE), // TFN EDIT, ORIGINAL: camarillaadmin = list(fax_name = "High Council", fax_id = "camarillaadmin", color = "teal", emag_needed = TRUE),
 		anarchsadmin = list(fax_name = "Free State Movement", fax_id = "anarchsadmin", color = "red", emag_needed = TRUE),
 		policeadmin = list(fax_name = "Federal Government", fax_id = "policeadmin", color = "blue", emag_needed = TRUE),
 		fbiadmin = list(fax_name = "FBI National Headquarters", fax_id = "fbiadmin", color = "blue", emag_needed = TRUE),
 		endronadmin = list(fax_name = EVIL_COMPANY + " Corporate", fax_id = "endronadmin", color = "green", emag_needed = TRUE),
 		aasimitesadmin = list(fax_name = "Element Relay", fax_id = "aasimitesadmin", color = "purple", emag_needed = TRUE),
 		glasswalkeradmin = list(fax_name = "Nightwolf Corporate", fax_id = "glasswalkeradmin", color = "grey", emag_needed = TRUE),
+		tremereadmin = list(fax_name = "Tremere Council", fax_id = "tremereadmin", color = "green", emag_needed = FALSE), // TFN EDIT ADD
 	)
 
 /obj/machinery/fax/admin/camarilla
-	fax_name = "High Council"
+	fax_name = "Prince" // TFN EDIT, ORIGINAL: fax_name = "High Council"
 	fax_id = "camarillaadmin"
 
 /obj/machinery/fax/admin/anarch
@@ -35,7 +36,12 @@
 	fax_name = "Element Relay"
 	fax_id = "aasimitesadmin"
 
-//The tremere dont get a fax machine because of what happened in Vienna
+//The tremere dont get a fax machine because of what happened in Vienna - TFN: NO LONGER APPLICABLE
+// TFN EDIT ADD START
+/obj/machinery/fax/admin/tremere
+	fax_name = "Tremere Council"
+	fax_id = "tremereadmin"
+// TFN EDIT ADD END
 
 /obj/machinery/fax/admin/glasswalker
 	fax_name = "Nightwolf Corporate"
@@ -46,7 +52,7 @@
 /obj/machinery/fax/camarilla
 	fax_name = "Millenium Tower"
 	fax_id = "camarilla"
-	special_networks = list(camarillaadmin = list(fax_name = "High Council", fax_id = "camarillaadmin", color = "teal", emag_needed = FALSE))
+	special_networks = list(camarillaadmin = list(fax_name = "Prince", fax_id = "camarillaadmin", color = "teal", emag_needed = FALSE)) // TFN EDIt, ORIGINAL: special_networks = list(camarillaadmin = list(fax_name = "High Council", fax_id = "camarillaadmin", color = "teal", emag_needed = FALSE))
 
 /obj/machinery/fax/anarch
 	fax_name = "Anarchy Rose Bar"
@@ -77,7 +83,7 @@
 /obj/machinery/fax/tremere
 	fax_name = "Library"
 	fax_id = "library"
-	special_networks = list()
+	special_networks = list(tremereadmin = list(fax_name = "Tremere Council", fax_id = "tremereadmin", color = "green", emag_needed = FALSE)) // TFN EDIT, ORIGINAL: special_networks = list()
 
 /obj/machinery/fax/glasswalker
 	fax_name = "Nightwolf Tech Shop"

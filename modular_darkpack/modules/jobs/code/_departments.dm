@@ -7,12 +7,12 @@
 /datum/job_department/prince
 	department_name = DEPARTMENT_PRINCE
 	department_bitflags = DEPARTMENT_BITFLAG_PRINCE
-	department_head = /datum/job/vampire/prince
+	department_head = /datum/job/vampire/clerk // TFN EDIT, ORIGINAL: department_head = /datum/job/vampire/prince
 
 /datum/job_department/camarilla
 	department_name = DEPARTMENT_CAMARILLA
 	department_bitflags = DEPARTMENT_BITFLAG_CAMARILLA
-	department_head = /datum/job/vampire/prince
+	department_head = /datum/job/vampire/clerk // TFN EDIT, ORIGINAL: department_head = /datum/job/vampire/prince
 	department_experience_type = EXP_TYPE_CAMARILLA
 	display_order = 1
 	label_class = "camarilla"
@@ -21,7 +21,7 @@
 /datum/job_department/church
 	department_name = DEPARTMENT_CHURCH
 	department_bitflags = DEPARTMENT_BITFLAG_CHURCH
-	department_head = /datum/job/vampire/prince
+	department_head = /datum/job/vampire/clerk // TFN EDIT, ORIGINAL: department_head = /datum/job/vampire/prince
 	department_experience_type = EXP_TYPE_CHURCH
 	display_order = 1
 	label_class = "church"
@@ -30,7 +30,7 @@
 /datum/job_department/clinic
 	department_name = DEPARTMENT_CLINIC
 	department_bitflags = DEPARTMENT_BITFLAG_CLINIC
-	department_head = /datum/job/vampire/primogen_malkavian
+	department_head = /datum/job/vampire/clinic_director // TFN EDIT CHANGE - ORIGINAL: department_head = /datum/job/vampire/primogen_malkavian
 	department_experience_type = EXP_TYPE_CLINIC
 	display_order = 1
 	label_class = "clinic"
@@ -48,7 +48,7 @@
 /datum/job_department/supply
 	department_name = DEPARTMENT_SUPPLY
 	department_bitflags = DEPARTMENT_BITFLAG_SUPPLY
-	department_head = /datum/job/vampire/dealer
+	department_head = /datum/job/vampire/setite/faithful/high_priest //TFN EDIT - Setite Faction - Original : department_head = /datum/job/vampire/dealer
 	department_experience_type = EXP_TYPE_WAREHOUSE
 	display_order = 1
 	label_class = "supply"
@@ -90,6 +90,17 @@
 	label_class = "sabbat"
 	ui_color = "#4e4e4eff"
 
+// TFN EDIT ADD START - More Sabbat Roles
+/datum/job_department/true_sabbat
+	department_name = DEPARTMENT_TRUE_SABBAT
+	department_bitflags = DEPARTMENT_BITFLAG_TRUE_SABBAT
+	department_head = /datum/job/vampire/bishop
+	department_experience_type = EXP_TYPE_SABBAT
+	display_order = 1
+	label_class = "true_sabbat"
+	ui_color = "#3d0404ff"
+// TFN EDIT ADD END - More Sabbat Roles
+
 /datum/job_department/chantry
 	department_name = DEPARTMENT_CHANTRY
 	department_bitflags = DEPARTMENT_BITFLAG_CHANTRY
@@ -99,6 +110,7 @@
 	label_class = "chantry"
 	ui_color = "#a56666ff"
 
+/* TFN EDIT REMOVAL - More Sabbat Jobs
 /datum/job_department/manor
 	department_name = DEPARTMENT_MANOR
 	department_bitflags = DEPARTMENT_BITFLAG_MANOR
@@ -107,6 +119,7 @@
 	display_order = 1
 	label_class = "manor"
 	ui_color = "#a066a5ff"
+*/
 
 /datum/job_department/city_services
 	department_name = DEPARTMENT_CITY_SERVICES

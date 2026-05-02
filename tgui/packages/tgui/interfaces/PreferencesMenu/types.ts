@@ -190,6 +190,7 @@ export type CharacterPreferencesData = {
   manually_rendered_features: Record<string, string>;
 
   names: Record<string, string>;
+  vocals: Record<string, string | number | boolean>; // TFN EDIT ADDITION
 
   misc: {
     gender: Gender;
@@ -240,6 +241,7 @@ export type PreferencesMenuData = {
   discipline_tier: string;
   discipline_tier_details: string;
   is_trusted: BooleanLike;
+  player_whitelists: string[]; // TFN EDIT ADD - WHITELIST
   max_trusted_generation: number;
   max_public_generation: number;
   highest_generation_limit: number;

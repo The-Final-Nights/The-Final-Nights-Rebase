@@ -412,6 +412,14 @@
 	)
 	color = "#339933"
 
+// TFN EDIT ADD START - ([LORE TEAM REQUESTED] map changes)
+/obj/item/vamp/keys/evergreen
+	name = "nature's bounty shop keys"
+	accesslocks = list(
+		LOCKACCESS_EVERGREEN
+	)
+	color = "#339933"
+// TFN EDIT ADD END - ([LORE TEAM REQUESTED] map changes)
 //===========================MISC KEYS===========================
 
 /obj/item/vamp/keys/triads

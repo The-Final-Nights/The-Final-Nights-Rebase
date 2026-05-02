@@ -1,3 +1,4 @@
+/* //TFN EDIT REMOVAL START
 /datum/job/vampire/dealer
 	title = "Dealer"
 	faction = FACTION_CITY
@@ -18,7 +19,6 @@
 	known_contacts = list("Prince", "Seneschal", "Sheriff", "Baron")
 	allowed_splats = list(SPLAT_KINDRED, SPLAT_GHOUL, SPLAT_GAROU, SPLAT_NONE)
 	splat_slots = list(SPLAT_NONE = 1)
-	allowed_clans = VAMPIRE_CLAN_ALL
 	description = "You provide both legal and illegal supplies to those that get busy during the night. You are your own person yet you know people are out for you. Time to buckle in..."
 	minimal_masquerade = 0
 
@@ -31,3 +31,4 @@
 	l_pocket = /obj/item/smartphone/dealer
 	r_pocket = /obj/item/vamp/keys/supply
 	backpack_contents = list(/obj/item/card/credit/rich=1, /obj/item/hatchet)
+*/ //TFN EDIT REMOVAL END

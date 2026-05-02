@@ -56,6 +56,7 @@
 	vamp.adjust_blood_pool(-1)
 	target.reagents.add_reagent(/datum/reagent/blood/vitae, 100, list("donor" = WEAKREF(owner)))
 	target.reagents.expose(target, INGEST, 1, FALSE)
+	SSoverwatch.record_action(owner, "[key_name(owner)] fed vitae to [key_name(target)].")
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/give_vitae/proc/teach_discipline(mob/living/carbon/human/student)
@@ -133,4 +134,5 @@
 
 	owner.log_message("taught [chosen] to [key_name(student)].", LOG_STATS)
 	message_admins("[ADMIN_LOOKUPFLW(owner)] taught [chosen] to [ADMIN_LOOKUPFLW(student)].")
+	SSoverwatch.record_action(owner, "[key_name(owner)] taught [key_name(student)] the Discipline [chosen].")
 	return TRUE
