@@ -25,4 +25,4 @@
 		var/mob/living/living_user = user
 		force = (living_user.st_get_stat(STAT_STRENGTH) + 1) TTRPG_DAMAGE
 	*/
-	force = ((user.st_get_stat (STAT_STRENGTH) + 1) * 5)
+	force = ((user.st_get_stat (STAT_STRENGTH) + 1) * 5) // TFN EDIT ADD - Protean 2 Damage Fix
