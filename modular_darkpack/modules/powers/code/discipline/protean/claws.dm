@@ -20,6 +20,4 @@
 /obj/item/gangrel_claws/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	// Based on V20
-	if(isliving(user))
-		var/mob/living/living_user = user
-		force = (living_user.st_get_stat(STAT_STRENGTH) + 1) TTRPG_DAMAGE
+	force = ((user.st_get_stat (STAT_STRENGTH) + 1) * 5)
