@@ -135,6 +135,7 @@
 	duration_length = 1 SCENES
 	cooldown_length = 1 SCENES
 	vitae_cost = 0
+
 	cancelable = TRUE
 	var/datum/storyteller_roll/aura_perception/aura_roll
 	// TFN EDIT START
