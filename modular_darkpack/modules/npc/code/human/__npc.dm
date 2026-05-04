@@ -270,3 +270,12 @@
 
 /mob/living/carbon/human/npc/proc/ghoul_player_controlled(mob/owner)
 	message_admins("[key_name_admin(src)] has became a ghoul by [key_name_admin(owner)].")
+
+// TFN EDIT START
+/mob/living/carbon/human/npc/create_typing_indicator()
+	if(active_typing_indicator || active_thinking_indicator || stat != CONSCIOUS)
+		return FALSE
+	active_typing_indicator = mutable_appearance('icons/mob/effects/talk.dmi', "default0", TYPING_LAYER)
+	add_overlay(active_typing_indicator)
+	play_fov_effect(src, 6, "talk", ignore_self = TRUE)
+// TFN EDIT END
