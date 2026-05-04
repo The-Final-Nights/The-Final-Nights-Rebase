@@ -46,7 +46,7 @@ once the player is either dead or staked, the hunter will guard their 'kill' for
 
 	var/static/list/hunter_weapon_types = list(
 		/obj/item/knife/hunting,
-		/obj/item/knife/combat,
+		/obj/item/knife/combat/hunter,
 		/obj/item/vampire_stake,
 	)
 
@@ -364,6 +364,9 @@ once the player is either dead or staked, the hunter will guard their 'kill' for
 	if(is_talking && !has_status_effect(/datum/status_effect/incapacitating/stun))
 		SetStun(5 SECONDS) // this stun() is silly and needs a refactor
 	walktarget = ChoosePath()
+
+/obj/item/knife/combat/hunter
+	slot_flags = ITEM_SLOT_BELT
 
 #undef HUNTER_STATE_IDLE
 #undef HUNTER_STATE_APPROACHING
