@@ -8,8 +8,15 @@
 GLOBAL_LIST_EMPTY(living_hunters)
 /*
 Hunters!
-
-These are basic walkby subtypes that patrol the map. Every tick, the hunter rolls against a base scan chance that scales from scan_chance_min at full masquerade to scan_chance_max at 0 masquerade. if it hits that chance, it will look for a nearby player and interact with them. if the player is not choc full of vitae, they will get added to the hunter's ignore list so they wont be scanned twice by that same hunter in the future. if they are an undead, and they fail their subterfuge check, the hunter will attack them and try to stake them. once the player is either dead or staked, the hunter will guard their 'kill' for the rest of the night (or until another player comes by or attacks them)
+These are basic walkby subtypes that patrol the map.
+Every tick, the hunter rolls against a base scan chance that scales from
+scan_chance_min at full masquerade to scan_chance_max at 0 masquerade.
+if it hits that chance, it will look for a nearby player and interact with them.
+if the player is not choc full of vitae, they will get added to the hunter's ignore list
+so they wont be scanned twice by that same hunter in the future. if they are an undead,
+and they fail their subterfuge check, the hunter will attack them and try to stake them.
+once the player is either dead or staked, the hunter will guard their 'kill' for the rest of the night
+(or until another player comes by or attacks them)
 */
 /obj/effect/landmark/hunter_spawn
 	name = "hunter spawn"
@@ -20,8 +27,6 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 /datum/storyteller_roll/hunter_perception
 	bumper_text = "hunter perception"
 	applicable_stats = list(STAT_PERCEPTION)
-	difficulty = 6
-	numerical = TRUE
 
 /mob/living/carbon/human/npc/walkby/hunter
 	name = "Investigator"
@@ -32,8 +37,8 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 	var/investigation_state = HUNTER_STATE_IDLE
 	var/mob/living/investigation_target = null
 	var/testing_started = FALSE
-	var/list/known_kindred = null
-	var/list/cleared_targets = null
+	var/list/known_kindred = list()
+	var/list/cleared_targets = list()
 	var/chosen_tool = null
 	var/turf/guard_turf = null
 	var/datum/storyteller_roll/hunter_perception/perception_roll
@@ -43,6 +48,13 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 	var/scan_penalty_humanity_per_dot = 5 // scan reduction per point of humanity above the threshold
 	var/scan_humanity_threshold = 4 // humanity at or below which no scan penalty applies
 	var/scan_humanity_max_dots = 6 // max dots above threshold that contribute
+	var/chosen_weapon // the reference to a weapon this particular hunter will use
+
+	var/static/list/hunter_weapon_types = list(
+		/obj/item/knife/hunting,
+		/obj/item/knife/combat,
+		/obj/item/vampire_stake,
+	)
 
 	var/static/list/hunter_tool_templates = list(
 		"reaches into their jacket and draws out a flashlight with strange sigils carved into the lens housing, slowly sweeping the beam across",
@@ -115,6 +127,10 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 	cleared_targets = list()
 	chosen_tool = pick(hunter_tool_templates)
 	GLOB.living_hunters += src
+	chosen_weapon = pick(hunter_weapon_types)
+	my_weapon = new chosen_weapon(src)
+	equip_to_appropriate_slot(my_weapon)
+	ADD_TRAIT(my_weapon, TRAIT_NODROP, NPC_ITEM_TRAIT)
 	storyteller_stats = create_new_stat_prefs(storyteller_stats)
 	st_set_stat(STAT_BRAWL, 5)
 	st_set_stat(STAT_STAMINA, 5)
@@ -133,6 +149,10 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 	investigation_target = null
 	guard_turf = null
 	return ..()
+
+/mob/living/carbon/human/npc/walkby/hunter/revive(full_heal_flags, excess_healing, force_grab_ghost)
+	. = ..()
+	GLOB.living_hunters += src
 
 /mob/living/carbon/human/npc/walkby/hunter/death(gibbed)
 	. = ..()
@@ -173,7 +193,7 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 			last_antagonised = world.time
 			Aggro(nearby)
 			return
-		if(!isnull(cleared_targets) && cleared_targets.Find(nearby))
+		if(!isnull(cleared_targets) && (length(cleared_targets) >= 1) && cleared_targets.Find(nearby))
 			continue
 		var/scan_chance = base_chance
 		if(HAS_TRAIT(nearby, TRAIT_BLUSH_OF_HEALTH))
@@ -264,14 +284,22 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 		end_combat()
 		return
 	last_antagonised = world.time
-	if(HAS_TRAIT(target, TRAIT_DEATHCOMA) || target.stat == DEAD)
+	if(HAS_TRAIT(target, TRAIT_STAKED))
+		end_combat()
+		hunter_post_kill(get_turf(target))
+		return
+	if(!HAS_TRAIT(target, TRAIT_STAKED) && (HAS_TRAIT(target, TRAIT_DEATHCOMA) || target.stat == DEAD))
 		var/turf/body_turf = get_turf(target)
+		if(!istype(get_active_held_item(), /obj/item/vampire_stake))
+			npc_stow_weapon()
+			var/obj/item/vampire_stake/spawned_stake = new()
+			put_in_active_hand(spawned_stake)
+			ClickOn(target)
 		end_combat()
 		hunter_post_kill(body_turf)
 		return
-	if(!istype(get_active_held_item(), /obj/item/vampire_stake))
-		var/obj/item/vampire_stake/spawned_stake = new()
-		put_in_active_hand(spawned_stake)
+	if(get_active_held_item() != my_weapon)
+		npc_draw_weapon()
 	ClickOn(target)
 	face_atom(target)
 	GLOB.move_manager.move_to(src, target, 1, cached_multiplicative_slowdown)
@@ -327,11 +355,11 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 	return TRUE
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_add_known(mob/living/target)
-	if(target && !known_kindred.Find(target))
+	if(!isnull(target) && !isnull(known_kindred) && !known_kindred.Find(target))
 		known_kindred += target
 
 /mob/living/carbon/human/npc/walkby/hunter/proc/hunter_add_cleared(mob/living/target)
-	if(target && !cleared_targets.Find(target))
+	if(!isnull(target) && !isnull(cleared_targets) && !cleared_targets.Find(target))
 		cleared_targets += target
 		realistic_say(pick(hunter_goodbye_phrases))
 
@@ -340,7 +368,7 @@ These are basic walkby subtypes that patrol the map. Every tick, the hunter roll
 	investigation_state = HUNTER_STATE_IDLE
 	testing_started = FALSE
 	if(is_talking && !has_status_effect(/datum/status_effect/incapacitating/stun))
-		SetStun(5 SECONDS)
+		SetStun(5 SECONDS) // this stun() is silly and needs a refactor
 	walktarget = ChoosePath()
 
 #undef HUNTER_STATE_IDLE
