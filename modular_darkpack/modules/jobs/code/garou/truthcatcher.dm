@@ -43,5 +43,6 @@
 	gloves = /obj/item/clothing/gloves/vampire/work
 	shoes = /obj/item/clothing/shoes/vampire/jackboots/work
 	l_pocket = /obj/item/smartphone
+	r_pocket = /obj/item/vamp/keys/evergreen // TFN EDIT ADD - ([LORE TEAM REQUESTED] map changes)
 	backpack_contents = list(/obj/item/phone_book=1, /obj/item/veil_contract, /obj/item/card/credit/rich=1)
 

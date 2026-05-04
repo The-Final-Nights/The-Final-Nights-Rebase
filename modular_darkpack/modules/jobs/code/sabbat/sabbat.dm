@@ -20,7 +20,7 @@
 
 /datum/antagonist/sabbatist
 	name = "Sabbatist"
-	roundend_category = "sabbattites"
+	roundend_category = "sabbatites"
 	antagpanel_category = FACTION_SABBAT
 	pref_flag = ROLE_SABBAT
 	antag_moodlet = /datum/mood_event/revolution

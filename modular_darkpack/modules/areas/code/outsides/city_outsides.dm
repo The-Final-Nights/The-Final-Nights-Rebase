@@ -105,3 +105,13 @@
 	icon_state = "giovanni"
 	zone_type = ZONE_ELYSIUM
 	fire_controled = FALSE
+
+// TFN EDIT START - [LORE TEAM REQUESTED] map changes
+
+/area/vtm/outside/trainyard
+	name = "Old Trainyard"
+	icon_state = "supply"
+	ambience_index = AMBIENCE_CITY
+	music_index = MUSIC_CITY
+
+// TFN EDIT END - [LORE TEAM REQUESTED] map changes
