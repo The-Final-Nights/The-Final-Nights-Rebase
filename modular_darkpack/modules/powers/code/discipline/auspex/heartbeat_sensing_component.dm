@@ -58,6 +58,10 @@
 	if(isnull(receivers[parent_mob]))
 		receivers[parent_mob] = list()
 	for(var/mob/living/carbon/living_carbon in orange(parent_mob.client?.view, get_turf(parent_mob)))
+		// TFN EDIT START
+		if(HAS_TRAIT(living_carbon, TRAIT_OBFUSCATED))
+			continue
+		// TFN EDIT END
 		var/obj/item/organ/heart/beating_heart = living_carbon.get_organ_slot(ORGAN_SLOT_HEART)
 		if(!istype(beating_heart) && !(beating_heart.is_beating()))
 			continue

@@ -41,6 +41,10 @@
 	RegisterSignal(parent_mob, COMSIG_MOB_EMOTION_CHANGED, PROC_REF(update_emotions))
 	RegisterSignal(parent_mob, COMSIG_MOB_UPDATE_AURA, PROC_REF(update_aura))
 	RegisterSignal(parent_mob, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+	// TFN EDIT START - obfuscation
+	RegisterSignal(parent_mob, SIGNAL_ADDTRAIT(TRAIT_OBFUSCATED), PROC_REF(on_obfuscate))
+	RegisterSignal(parent_mob, SIGNAL_REMOVETRAIT(TRAIT_OBFUSCATED), PROC_REF(on_reveal))
+	// TFN EDIT END
 	if(isnpc(parent_mob))
 		RegisterSignal(parent_mob, COMSIG_COMBAT_MODE_TOGGLED, PROC_REF(on_combat_mode_toggled))
 
@@ -51,7 +55,7 @@
 	var/datum/atom_hud/data/auspex_aura/target_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	target_hud.remove_atom_from_hud(parent_mob)
 	examine_message = ""
-	UnregisterSignal(parent_mob, list(COMSIG_MOB_EMOTION_CHANGED, COMSIG_MOB_UPDATE_AURA, COMSIG_ATOM_EXAMINE))
+	UnregisterSignal(parent_mob, list(COMSIG_MOB_EMOTION_CHANGED, COMSIG_MOB_UPDATE_AURA, COMSIG_ATOM_EXAMINE, SIGNAL_ADDTRAIT(TRAIT_OBFUSCATED), SIGNAL_REMOVETRAIT(TRAIT_OBFUSCATED))) // TFN EDIT - obfuscation
 	if(isnpc(parent_mob))
 		UnregisterSignal(parent_mob, list(COMSIG_COMBAT_MODE_TOGGLED))
 	QDEL_NULL(aura_smoke)
@@ -83,6 +87,10 @@
 
 /datum/component/aura/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
+	// TFN EDIT START
+	if(HAS_TRAIT(parent, TRAIT_OBFUSCATED))
+		return
+	// TFN EDIT END
 	var/datum/atom_hud/data/auspex_aura/auspex_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	if(!(user in auspex_hud.hud_users_all_z_levels))
 		return
@@ -159,7 +167,7 @@
 		examine_message += "Black veins pulse through [parent_mob.p_their()] aura."
 	if(HAS_TRAIT(parent_mob, TRAIT_FRENETIC_AURA))
 		examine_message += "[parent_mob.p_Their()] aura appears especially energetic."
-	if(get_ghoul_splat(parent_mob))
+	if(!HAS_TRAIT(parent, TRAIT_PALE_AURA) && get_ghoul_splat(parent_mob))
 		examine_message += "Pale blotches mark [parent_mob.p_their()] aura."
 	if(get_kindred_splat(parent_mob))
 		var/mob/living/carbon/human/lick = parent_mob
@@ -219,7 +227,7 @@
 	holder.color = null
 
 	var/mob/parent_mob = parent
-	if(get_kindred_splat(parent_mob) && output_color)
+	if(HAS_TRAIT(parent, TRAIT_PALE_AURA) && !HAS_TRAIT(parent, TRAIT_DECEPTIVE_AURA) && output_color)
 		var/mob/living/carbon/human/lick = parent_mob
 		// TFN EDIT START - non-humanity/low humanity licks have desaturated auras
 		var/datum/st_stat/morality_path/morality/stat_morality = lick?.storyteller_stats[STAT_MORALITY]
@@ -300,7 +308,7 @@
 		static_image.alpha = 150
 		holder.vis_contents += static_image
 
-	if(get_ghoul_splat(parent_mob))
+	if(!HAS_TRAIT(parent, TRAIT_PALE_AURA) && get_ghoul_splat(parent_mob))
 		var/list/hsv_color_value = rgb2hsv(aura_appearance.color)
 		hsv_color_value[2] = hsv_color_value[2] * 0.7 // Reduce saturation for ghouls
 		aura_smoke_image.color = hsv2rgb(hsv_color_value)
@@ -325,3 +333,15 @@
 	remove_wibbly_filters(holder)
 	apply_wibbly_filters(holder)
 	holder.add_filter("aura_glow", 1, gauss_blur_filter(2))
+
+// TFN EDIT START
+/datum/component/aura/proc/on_obfuscate(datum/source)
+	SIGNAL_HANDLER
+	var/mob/parent_mob = parent
+	parent_mob.set_hud_image_inactive(AUSPEX_AURA_HUD)
+
+/datum/component/aura/proc/on_reveal(datum/source)
+	SIGNAL_HANDLER
+	var/mob/parent_mob = parent
+	parent_mob.set_hud_image_active(AUSPEX_AURA_HUD)
+// TFN EDIT END

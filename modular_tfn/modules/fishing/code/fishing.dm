@@ -1,4 +1,7 @@
 
+/obj/item/fishing_rod
+	w_class = WEIGHT_CLASS_NORMAL // so they can fit in backpacks
+
 /datum/fish_source/on_challenge_completed(mob/user, datum/fishing_challenge/challenge, success)
 	SHOULD_CALL_PARENT(FALSE)
 	UnregisterSignal(user, COMSIG_MOB_COMPLETE_FISHING)

@@ -69,6 +69,17 @@
 	src.discipline = discipline
 	src.owner = discipline.owner
 
+/datum/discipline_power/Destroy(force)
+	for(var/i in length(duration_timers))
+		deltimer(duration_timers[i])
+	if(cooldown_timer)
+		deltimer(cooldown_timer)
+		cooldown_timer = null
+	QDEL_LIST(duration_timers)
+	grouped_powers = null
+	owner = null
+	return ..()
+
 /**
  * Returns the time left the cooldown timer, or
  * 0 if there is none. Returning 0 means not on
@@ -249,6 +260,9 @@
  */
 /datum/discipline_power/proc/can_activate(atom/target, alert = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
+
+	if (!owner)
+		return FALSE
 
 	var/signal_return = SEND_SIGNAL(src, COMSIG_POWER_TRY_ACTIVATE, src, target) | SEND_SIGNAL(owner, COMSIG_POWER_TRY_ACTIVATE, src, target)
 	if (target)
@@ -679,6 +693,13 @@
 	return
 
 /**
+* Overridable proc that allows for code to affect the power's owner
+* when it is lost / deleted. Triggered by parent /datum/discipline/post_loss().
+*/
+/datum/discipline_power/proc/post_loss()
+	return
+
+/**
  * Handles refreshing toggled powers on a loop, spending necessary
  * resources and restarting the duration timer if it can proceed. If
  * it can't proceed, it directly deactivates the power.
@@ -727,9 +748,11 @@
 
 	if (toggled && (duration_length == 0))
 		return
-
-	deltimer(duration_timers[to_clear])
-	duration_timers.Cut(to_clear, to_clear + 1)
+	// TFN EDIT START
+	if(!isnull(duration_timers[to_clear]))
+		deltimer(duration_timers[to_clear])
+		duration_timers.Cut(to_clear, to_clear + 1)
+	// TFN EDIT END
 
 
 // For certain discipline alerts, for example auspex 5 requiring willpower instead of blood points.

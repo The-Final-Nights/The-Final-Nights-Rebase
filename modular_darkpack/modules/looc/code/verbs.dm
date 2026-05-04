@@ -82,12 +82,12 @@
 		if(isobserver(hearing))
 			continue //Also handled later.
 
-		to_chat(hearing_client, span_looc(span_prefix("LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.mob.name]:</EM> <span class='message'>[msg]")))
+		to_chat(hearing_client, span_looc(span_prefix("LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[GET_GUESTBOOK_NAME(hearing, mob)]:</EM> <span class='message'>[msg]"))) // TFN EDIT, ORIGINAL: to_chat(hearing_client, span_looc(span_prefix("LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.mob.name]:</EM> <span class='message'>[msg]")))
 
 	for(var/client/admin_client in GLOB.admins)
 		if(admin_seen[admin_client])
-			to_chat(admin_client, span_looc("[ADMIN_FLW(usr)] <span class='prefix'>LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.key]/[src.mob.name]:</EM> <span class='message'>[msg]</span>"))
+			to_chat(admin_client, span_looc("[ADMIN_FLW(usr)] <span class='prefix'>LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.key]/[GET_GUESTBOOK_NAME(admin_client.mob, mob)]:</EM> <span class='message'>[msg]</span>")) // TFN EDIt, ORIGINAL: to_chat(admin_client, span_looc("[ADMIN_FLW(usr)] <span class='prefix'>LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.key]/[src.mob.name]:</EM> <span class='message'>[msg]</span>"))
 		else if(admin_client.prefs.read_preference(/datum/preference/toggle/see_looc))
-			to_chat(admin_client, span_rlooc("[ADMIN_FLW(usr)] <span class='prefix'>(R)LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.key]/[src.mob.name]:</EM> <span class='message'>[msg]</span>"))
+			to_chat(admin_client, span_rlooc("[ADMIN_FLW(usr)] <span class='prefix'>(R)LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.key]/[GET_GUESTBOOK_NAME(admin_client.mob, mob)]:</EM> <span class='message'>[msg]</span>")) // TFN EDIT, ORIGINAL: to_chat(admin_client, span_rlooc("[ADMIN_FLW(usr)] <span class='prefix'>(R)LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.key]/[src.mob.name]:</EM> <span class='message'>[msg]</span>"))
 
 #undef LOOC_RANGE

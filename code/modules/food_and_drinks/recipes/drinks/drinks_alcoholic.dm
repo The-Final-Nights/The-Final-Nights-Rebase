@@ -156,8 +156,9 @@
 
 /datum/chemical_reaction/drink/threemileisland
 	results = list(/datum/reagent/consumable/ethanol/threemileisland = 10)
-	required_reagents = list(/datum/reagent/consumable/ethanol/longislandicedtea = 10, /datum/reagent/uranium = 1)
+	required_reagents = list(/datum/reagent/consumable/ethanol/longislandicedtea = 10, /datum/reagent/consumable/ethanol/atomicbomb = 1) // TFN EDIT CHANGE - Original: required_reagents = list(/datum/reagent/consumable/ethanol/longislandicedtea = 10, /datum/reagent/uranium = 1)
 	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_OTHER
+	mix_message = "Is that a geiger counter going off?" // TFN EDIT ADD
 
 /datum/chemical_reaction/drink/whiskeysoda
 	results = list(/datum/reagent/consumable/ethanol/whiskeysoda = 3)
@@ -181,7 +182,9 @@
 
 /datum/chemical_reaction/drink/manhattan_proj
 	results = list(/datum/reagent/consumable/ethanol/manhattan_proj = 10)
-	required_reagents = list(/datum/reagent/consumable/ethanol/manhattan = 10, /datum/reagent/uranium = 1)
+	required_reagents = list(/datum/reagent/consumable/ethanol/manhattan = 10, /datum/reagent/consumable/ethanol/atomicbomb = 1) // TFN EDIT CHANGE - Original: required_reagents = list(/datum/reagent/consumable/ethanol/manhattan = 10, /datum/reagent/uranium = 1)
+	mix_message = "Smells like Death, the Destroyer of Worlds."
+
 
 /datum/chemical_reaction/drink/vodka_tonic
 	results = list(/datum/reagent/consumable/ethanol/vodkatonic = 3)
@@ -197,7 +200,7 @@
 
 /datum/chemical_reaction/drink/singulo
 	results = list(/datum/reagent/consumable/ethanol/singulo = 10)
-	required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 5, /datum/reagent/liquid_dark_matter = 1, /datum/reagent/consumable/ethanol/wine = 5)
+	required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 5, /datum/reagent/toxin/mindbreaker = 1, /datum/reagent/consumable/ethanol/wine = 5) // TFN EDIT CHANGE - Original: required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 5, /datum/reagent/liquid_dark_matter = 1, /datum/reagent/consumable/ethanol/wine = 5)
 
 /datum/chemical_reaction/drink/alliescocktail
 	results = list(/datum/reagent/consumable/ethanol/alliescocktail = 2)

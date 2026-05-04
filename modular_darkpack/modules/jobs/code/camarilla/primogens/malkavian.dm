@@ -27,7 +27,7 @@
 	minimum_immortal_age = 100 // TFN EDIT ADDITION
 	minimal_masquerade = 5
 	allowed_splats = list(SPLAT_KINDRED)
-	allowed_clans = list(VAMPIRE_CLAN_MALKAVIAN)
+	allowed_clans = list(VAMPIRE_CLAN_MALKAVIAN, VAMPIRE_CLAN_DOMINATE_MALKAVIAN)
 
 	known_contacts = list("Prince")
 

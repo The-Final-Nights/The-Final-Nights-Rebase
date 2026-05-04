@@ -26,6 +26,7 @@
 	applicable_stats = list(STAT_PERCEPTION, STAT_EMPATHY)
 	difficulty = 7
 	numerical = TRUE
+	roll_output_type = ROLL_PRIVATE_ADMIN
 
 /datum/discipline_power/valeren/sense_vitality
 	name = "Sense Vitality"
@@ -161,7 +162,7 @@
 		var/list/mental_conditions = list()
 		if(target.has_quirk(/datum/quirk/insanity))
 			mental_conditions += "insanity"
-		if(target.has_quirk(/datum/quirk/derangement))
+		if(target.has_quirk(/datum/quirk/darkpack/derangement))
 			mental_conditions += "an incurable derangement"
 		if(length(mental_conditions))
 			msg_mental = "[english_list(mental_conditions)] clouds their mind."
@@ -176,6 +177,7 @@
 	bumper_text = "anesthetic touch"
 	applicable_stats = list(STAT_TEMPORARY_WILLPOWER)
 	numerical = TRUE
+	roll_output_type = ROLL_PRIVATE_AND_TARGET
 
 /datum/storyteller_roll/anesthetic_touch/unwilling
 	bumper_text = "anesthetic touch (unwilling)"
@@ -256,11 +258,13 @@
 /datum/storyteller_roll/burning_touch_resist
 	bumper_text = "resist burning pain"
 	applicable_stats = list(STAT_TEMPORARY_WILLPOWER)
+	roll_output_type = ROLL_PRIVATE_AND_TARGET
 
 /datum/storyteller_roll/burning_touch_focus
 	bumper_text = "focus through burning pain"
 	applicable_stats = list(STAT_TEMPORARY_WILLPOWER)
 	spammy_roll = TRUE
+	roll_output_type = ROLL_PRIVATE_AND_TARGET
 
 /datum/status_effect/burning_touch
 	id = "burning_touch"
@@ -327,6 +331,7 @@
 	applicable_stats = list(STAT_STAMINA, STAT_MELEE)
 	difficulty = 7
 	numerical = TRUE
+	roll_output_type = ROLL_PRIVATE_AND_TARGET
 
 /datum/discipline_power/valeren/armor_of_caines_fury
 	name = "Armor of Caine's Fury"

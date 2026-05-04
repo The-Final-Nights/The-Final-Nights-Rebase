@@ -80,6 +80,13 @@
 #define JOB_SABBAT_PACK "Sabbat Pack"
 #define JOB_SABBAT_SABBATIST "Sabbatist"
 
+// TFN EDIT ADD START - More Sabbat Roles
+#define JOB_SABBAT_BISHOP "Bishop"
+#define JOB_SABBAT_PALADIN "Paladin"
+#define JOB_TRUE_SABBAT "True Sabbat"
+#define JOB_SABBAT_REVENANT "Revenant"
+// TFN EDIT ADD END - More Sabbat Roles
+
 // Axe Gang
 #define JOB_AXE_LEADER "Screentender"
 #define JOB_AXE_GANG "Axe Gang"
@@ -99,7 +106,8 @@
 #define JOB_GAROU_COUNCIL "Councillor" // Elder, Athro
 #define JOB_GAROU_TRUTHCATCHER "Truthcatcher" // Adren+
 #define JOB_GAROU_WARDER "Warder" // Adren+
-#define JOB_GAROU_WYRMFOE "Wyrmfoe" // Fostern
+// #define JOB_GAROU_WYRMFOE "Wyrmfoe" // TFN EDIT REMOVAL - Wyrmfoe
+#define JOB_GAROU_KEEPER "Keeper" // TFN EDIT ADD - Keeper
 #define JOB_GAROU_GUARDIAN "Guardian"
 
 // Pentex
@@ -172,7 +180,7 @@
 #define JOB_DISPLAY_ORDER_COUNCIL 45
 #define JOB_DISPLAY_ORDER_TRUTHCATCHER 46
 #define JOB_DISPLAY_ORDER_WARDER 47
-#define JOB_DISPLAY_ORDER_WYRMFOE 48
+#define JOB_DISPLAY_ORDER_KEEPER 48 // TFN EDIT CHANGE - Wyrmfoe - Original: #define JOB_DISPLAY_ORDER_WYRMFOE 48
 #define JOB_DISPLAY_ORDER_GUARDIAN 49
 
 #define JOB_DISPLAY_ORDER_BRANCH_LEAD 50
@@ -181,6 +189,12 @@
 #define JOB_DISPLAY_ORDER_SECCHIEF 53
 #define JOB_DISPLAY_ORDER_PENTEX_SEC 54
 #define JOB_DISPLAY_ORDER_EMPLOYEE 55
+
+#define JOB_DISPLAY_ORDER_SABBAT_BISHOP 56
+#define JOB_DISPLAY_ORDER_SABBAT_PALADIN 57
+#define JOB_DISPLAY_ORDER_TRUE_SABBAT 58
+#define JOB_DISPLAY_ORDER_REVENANT 59
+
 //TFN EDIT ADDITION END - Setite Faction
 //////////////////////////////////////////////////
 
@@ -216,6 +230,10 @@
 #define DEPARTMENT_PENTEX "Pentex"
 #define DEPARTMENT_BITFLAG_GAIA (1<<15)
 #define DEPARTMENT_GAIA "Garou_Nation"
+// TFN EDIT ADD - More Sabbat Jobs
+#define DEPARTMENT_BITFLAG_TRUE_SABBAT (1<<16)
+#define DEPARTMENT_TRUE_SABBAT "True_Sabbat"
+// TFN EDIT ADD END - More Sabbat Jobs
 
 DEFINE_BITFIELD(departments_bitflags, list(
 	"CITIZEN" = DEPARTMENT_BITFLAG_CITIZEN,
@@ -234,6 +252,7 @@ DEFINE_BITFIELD(departments_bitflags, list(
 	"CHANTRY" = DEPARTMENT_BITFLAG_CHANTRY,
 	"MANOR" = DEPARTMENT_BITFLAG_MANOR,
 	"CITY_SERVICES" = DEPARTMENT_BITFLAG_CITY_SERVICES,
+	"TRUE_SABBAT" = DEPARTMENT_BITFLAG_TRUE_SABBAT, // TFN EDIT ADD - More Sabbat Jobs
 ))
 
 /// Combination flag for jobs which are considered regular crew members of the station.
@@ -254,6 +273,10 @@ DEFINE_BITFIELD(departments_bitflags, list(
 #define SUPERVISOR_REGENT "the Regent"
 #define SUPERVISOR_SENESCHAL_PUBLIC "the COO"
 #define SUPERVISOR_BARON_PUBLIC "the Bar's Owner"
+// TFN EDIT ADD START - More Sabbat Roles
+#define SUPERVISOR_SABBAT "The Regent, the Code of Milan, and Caine"
+#define SUPERVISOR_SABBAT_BISHOP "The Bishops"
+// TFN EDIT ADD END - More Sabbat Roles
 
 // Playtime tracking system, see jobs_exp.dm
 #define EXP_TYPE_KINDRED "Kindred"
