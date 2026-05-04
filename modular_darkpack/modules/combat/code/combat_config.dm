@@ -1,7 +1,6 @@
 /datum/config_entry/flag/directional_combat
 
 /datum/config_entry/flag/swing_combat
-	default = TRUE // ! Only for TM
 
 /datum/preference/toggle/ranged_click_to_melee
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
