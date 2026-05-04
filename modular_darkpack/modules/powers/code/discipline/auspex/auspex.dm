@@ -132,7 +132,7 @@
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS
-	duration_length = 5 TURNS // TFN EDIT
+	duration_length = 1 SCENES
 	cooldown_length = 1 SCENES
 	vitae_cost = 0
 	cancelable = TRUE
