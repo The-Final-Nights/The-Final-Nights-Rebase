@@ -18,12 +18,6 @@ and they fail their subterfuge check, the hunter will attack them and try to sta
 once the player is either dead or staked, the hunter will guard their 'kill' for the rest of the night
 (or until another player comes by or attacks them)
 */
-/obj/effect/landmark/hunter_spawn
-	name = "hunter spawn"
-
-/obj/effect/landmark/hunter_spawn/hunter
-	name = "hunter spawn"
-
 /datum/storyteller_roll/hunter_perception
 	bumper_text = "hunter perception"
 	applicable_stats = list(STAT_PERCEPTION)
