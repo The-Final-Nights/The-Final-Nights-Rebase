@@ -3098,15 +3098,6 @@
 /area/vtm/interior/clinic)
 "aPN" = (
 /obj/structure/closet,
-/obj/item/clothing/under/vampire/magadon_suit,
-/obj/item/clothing/under/vampire/magadon_suit,
-/obj/item/clothing/under/vampire/magadon_suit,
-/obj/item/clothing/under/vampire/magadon_suitskirt,
-/obj/item/clothing/under/vampire/magadon_suitskirt,
-/obj/item/clothing/under/vampire/magadon_suitskirt,
-/obj/item/clothing/under/vampire/magadon_turtleneck,
-/obj/item/clothing/under/vampire/magadon_turtleneck,
-/obj/item/clothing/under/vampire/magadon_turtleneck,
 /obj/item/clothing/mask/vampire/gas/magadon,
 /obj/item/clothing/mask/vampire/gas/magadon,
 /obj/item/clothing/suit/vampire/tfn/magadon_labcoat,
@@ -8840,6 +8831,10 @@
 	},
 /turf/open/indestructible/meat,
 /area/vtm/interior/tzimisce_sanctum)
+"ckP" = (
+/obj/machinery/smartfridge/chemistry,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "ckQ" = (
 /obj/structure/sign/painting/library{
 	pixel_y = 32
@@ -24579,15 +24574,6 @@
 "gmw" = (
 /obj/machinery/light/directional/north,
 /obj/structure/closet,
-/obj/item/clothing/under/vampire/magadon_suit,
-/obj/item/clothing/under/vampire/magadon_suit,
-/obj/item/clothing/under/vampire/magadon_suit,
-/obj/item/clothing/under/vampire/magadon_suitskirt,
-/obj/item/clothing/under/vampire/magadon_suitskirt,
-/obj/item/clothing/under/vampire/magadon_suitskirt,
-/obj/item/clothing/under/vampire/magadon_turtleneck,
-/obj/item/clothing/under/vampire/magadon_turtleneck,
-/obj/item/clothing/under/vampire/magadon_turtleneck,
 /obj/item/clothing/mask/vampire/gas/magadon,
 /obj/item/clothing/mask/vampire/gas/magadon,
 /obj/item/clothing/mask/vampire/gas/magadon,
@@ -33649,6 +33635,12 @@
 	color = "#bfbfbf"
 	},
 /area/vtm/interior/anarch/basement)
+"iCc" = (
+/obj/structure/table/greyscale,
+/obj/item/storage/box/beakers/variety,
+/obj/item/storage/box/beakers/variety,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "iCi" = (
 /obj/effect/landmark/npcactivity,
 /turf/open/floor/plating/sidewalk/poor,
@@ -39309,6 +39301,13 @@
 /obj/machinery/fax/aasimites,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/banu/haven)
+"jZY" = (
+/obj/structure/table/greyscale,
+/obj/machinery/chem_dispenser{
+	pixel_y = 31
+	},
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "kaf" = (
 /obj/structure/statue/bone/rib,
 /turf/open/water/bloodwave,
@@ -63146,11 +63145,7 @@
 /turf/open/floor/glass/reinforced,
 /area/vtm)
 "pVs" = (
-/obj/structure/table/greyscale,
-/obj/structure/microscope{
-	pixel_y = 4
-	},
-/obj/machinery/light/directional/north,
+/obj/machinery/chem_heater,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior/endron_facility)
 "pVu" = (
@@ -80236,6 +80231,11 @@
 	},
 /turf/open/floor/city/circled/large,
 /area/vtm/interior/subway)
+"ulO" = (
+/obj/machinery/light/directional/north,
+/obj/machinery/chem_master,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "ulT" = (
 /obj/effect/decal/cleanable/trash,
 /obj/effect/decal/graffiti,
@@ -91946,7 +91946,10 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/autoname,
-/turf/open/floor/mineral/titanium/tiled/white,
+/obj/effect/turf_decal/siding/grey{
+	dir = 4
+	},
+/turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility)
 "xpS" = (
 /obj/effect/turf_decal/siding/wood/dark{
@@ -94902,6 +94905,12 @@
 /obj/item/stack/dollar/hundred,
 /turf/open/misc/dirt,
 /area/vtm/graveyard)
+"ydS" = (
+/obj/effect/turf_decal/siding/grey{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "ydT" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/grey,
@@ -127348,9 +127357,9 @@ hil
 hil
 hil
 geD
-khK
-uwi
-lqK
+ckP
+nGD
+nGD
 nGD
 lqK
 uwi
@@ -127552,8 +127561,8 @@ hil
 geD
 geD
 geD
-pVs
-qXd
+kYv
+nGD
 nGD
 nGD
 nGD
@@ -127960,9 +127969,9 @@ hil
 geD
 geD
 geD
-kYv
+ulO
 nGD
-nGD
+iCc
 nGD
 nGD
 nGD
@@ -128164,9 +128173,9 @@ hil
 hil
 hil
 geD
-nVO
 nGD
-nGD
+jZY
+pVs
 nGD
 nGD
 nGD
@@ -131633,9 +131642,9 @@ uOd
 sgb
 lqK
 wcN
-nGD
-nGD
-nGD
+ydS
+ydS
+ydS
 crr
 rKI
 rKI
