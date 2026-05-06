@@ -14,7 +14,7 @@
 	.=..()
 	AddComponent(/datum/component/selling, 15, "mask", FALSE)
 
-/obj/item/clothing/mask/gas/vampire/magadon
+/obj/item/clothing/mask/vampire/gas/magadon
 	name = "magadon gas mask"
 	desc = "A high-tech gas mask branded belonging to Magadon Incorporated."
 	icon_state = "gas_magadon"

@@ -6,7 +6,7 @@
 
 #define SEPT_NAME "Sept of the Western Eye"
 
-#define EVIL_COMPANY "Magadon"
+#define EVIL_COMPANY "Magadon, Incorporated"
 
 #define MAIN_EVIL_COMPANY EVIL_COMPANY // Only effects Pentex job slots //TFN EDIT CHANGE - Pentex - Original: #define MAIN_EVIL_COMPANY EVIL_OIL_COMPANY
 

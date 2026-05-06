@@ -1,4 +1,4 @@
-/datum/socialrole/endronlabsecurity
+/datum/socialrole/magadonlabsecurity
 	s_tones = list(
 		"albino",
 		"caucasian1",
@@ -65,13 +65,13 @@
 	)
 
 	shoes = list(/obj/item/clothing/shoes/vampire/jackboots)
-	uniforms = list(/obj/item/clothing/under/vampire/pentex_janitor)
+	uniforms = list(/obj/item/clothing/under/vampire/tfn/magadon_turtleneck)
 	pockets = list(/obj/item/vamp/keys/npc, /obj/item/stack/dollar/rand)
 	gloves = list(/obj/item/clothing/gloves/vampire/latex)
 	suits = list(/obj/item/clothing/suit/vampire/vest)
 	glasses = list(/obj/item/clothing/glasses/vampire/sun)
 	hats = list(/obj/item/clothing/head/beret/black)
-	masks = list(/obj/item/clothing/mask/gas/explorer)
+	masks = list(/obj/item/clothing/mask/vampire/gas/magadon)
 
 	neutral_phrases = list(
 		"No loitering.",
@@ -93,7 +93,7 @@
 		"Not just a mall cop, you know!"
 	)
 
-/datum/socialrole/endronexecsecurity
+/datum/socialrole/magadonexecsecurity
 	s_tones = list(
 		"albino",
 		"caucasian1",
@@ -160,7 +160,7 @@
 	)
 
 	shoes = list(/obj/item/clothing/shoes/vampire/jackboots)
-	uniforms = list(/obj/item/clothing/under/vampire/pentex_suit)
+	uniforms = list(/obj/item/clothing/under/vampire/tfn/magadon_suit)
 	pockets = list(/obj/item/vamp/keys/npc, /obj/item/stack/dollar/rand)
 	gloves = list(/obj/item/clothing/gloves/vampire/work)
 	suits = list(/obj/item/clothing/suit/vampire/vest)
@@ -188,7 +188,7 @@
 		"Not just a mall cop, you know!"
 	)
 
-/datum/socialrole/endronsecurity
+/datum/socialrole/magadonsecurity
 	s_tones = list(
 		"albino",
 		"caucasian1",
@@ -255,13 +255,13 @@
 	)
 
 	shoes = list(/obj/item/clothing/shoes/vampire/jackboots)
-	uniforms = list(/obj/item/clothing/under/vampire/pentex_turtleneck)
+	uniforms = list(/obj/item/clothing/under/vampire/tfn/magadon_turtleneck)
 	pockets = list(/obj/item/vamp/keys/npc, /obj/item/stack/dollar/rand)
 	gloves = list(/obj/item/clothing/gloves/vampire/work)
 	suits = list(/obj/item/clothing/suit/vampire/vest)
 	glasses = list(/obj/item/clothing/glasses/vampire/sun)
 	hats = list(/obj/item/clothing/head/beret/black)
-	masks = list(/obj/item/clothing/mask/gas/sechailer)
+	masks = list(/obj/item/clothing/mask/vampire/gas/magadon)
 
 	neutral_phrases = list(
 		"No loitering.",

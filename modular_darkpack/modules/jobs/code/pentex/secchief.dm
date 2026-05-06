@@ -1,6 +1,6 @@
 /datum/job/vampire/secchief
 	title = JOB_PENTEX_SEC_CHIEF
-	description = "You are an acting chief of security for the Endron Oil Refinery, operating out of San Francisco. With discretion to the Branch Leader, your job is to keep the complex and it's proprietary information with the help of your security team, and to turn over contract violators to internal affairs or the executives."
+	description = "You are an acting chief of security for the Magadon, Incorporated branch, operating out of San Francisco. With discretion to the Branch Leader, your job is to keep the complex and it's proprietary information with the help of your security team, and to turn over contract violators to internal affairs or the executives."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 1
@@ -39,12 +39,12 @@
 	liver_traits = list(TRAIT_ROYAL_METABOLISM)
 
 /datum/outfit/job/vampire/secchief
-	name = "Endron Chief of Security"
+	name = "Magadon Chief of Security"
 	jobtype = /datum/job/vampire/secchief
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex/secchief
-	uniform =  /obj/item/clothing/under/vampire/pentex_turtleneck
+	uniform = /obj/item/clothing/under/vampire/tfn/magadon_turtleneck
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	gloves = /obj/item/clothing/gloves/vampire/work
 	head = /obj/item/clothing/head/vampire/pentex_beret
@@ -53,4 +53,4 @@
 	glasses = /obj/item/clothing/glasses/vampire/sun
 	l_pocket = /obj/item/smartphone // /secchief - todo subtype
 	r_pocket = /obj/item/vamp/keys/pentex/leader
-	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/phone_book=1, /obj/item/veil_contract, /obj/item/card/credit/rich=1)
+	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/phone_book=1, /obj/item/veil_contract, /obj/item/card/credit/rich=1, /obj/item/clothing/mask/vampire/gas/magadon=1)

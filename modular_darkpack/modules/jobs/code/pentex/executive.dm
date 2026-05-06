@@ -17,15 +17,15 @@
 	outfit = /datum/outfit/job/vampire/executive
 
 	alt_titles = list(
-		"Endron Executive",
-		"Endron Regional Manager",
-		"Endron Manager",
-		"Endron Marketing Director",
-		"Endron Public Relations Manager",
-		"Endron Deputy Branch Director",
-		"Endron Chief Innovation Officer",
-		"Endron Chief Science Officer",
-		"Endron Chief Financial Officer"
+		"Magadon Executive",
+		"Magadon Regional Manager",
+		"Magadon Manager",
+		"Magadon Marketing Director",
+		"Magadon Public Relations Manager",
+		"Magadon Deputy Branch Director",
+		"Magadon Chief Innovation Officer",
+		"Magadon Chief Science Officer",
+		"Magadon Chief Financial Officer"
 	)
 
 	allowed_splats = list(SPLAT_GAROU, SPLAT_KINDRED)
@@ -55,7 +55,7 @@
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex/executive
-	uniform =  /obj/item/clothing/under/vampire/pentex_executive_suit
+	uniform = /obj/item/clothing/under/vampire/tfn/magadon_executivesuit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
 	l_pocket = /obj/item/smartphone // /pentex_exec - todo: subtype
 	r_pocket = /obj/item/vamp/keys/pentex/leader

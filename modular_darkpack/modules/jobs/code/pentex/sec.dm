@@ -42,11 +42,11 @@
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex/sec
-	uniform =  /obj/item/clothing/under/vampire/pentex_shortsleeve
+	uniform = /obj/item/clothing/under/vampire/tfn/magadon_turtleneck
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	gloves = /obj/item/clothing/gloves/vampire/work
 	suit = /obj/item/clothing/suit/vampire/vest
 	belt = /obj/item/storage/belt/holster/detective/darkpack/endron
 	l_pocket = /obj/item/smartphone // /sec - todo subtype
 	r_pocket = /obj/item/vamp/keys/pentex
-	backpack_contents = list(/obj/item/phone_book=1, /obj/item/card/credit=1)
+	backpack_contents = list(/obj/item/phone_book=1, /obj/item/card/credit=1, /obj/item/clothing/mask/vampire/gas/magadon=1)
