@@ -5,14 +5,10 @@
 	has_sensor = NO_SENSORS
 	random_sensor = FALSE
 	can_adjust = FALSE
-	icon = 'modular_darkpack/modules/clothes/icons/clothing.dmi'
-	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
-	ONFLOOR_ICON_HELPER('modular_darkpack/modules/clothes/icons/clothing_onfloor.dmi')
+	icon = 'modular_tfn/modules/clothes/icons/clothing.dmi'
+	worn_icon = 'modular_tfn/modules/clothes/icons/worn.dmi'
+	ONFLOOR_ICON_HELPER('modular_tfn/modules/clothes/icons/clothing_onfloor.dmi')
 	female_sprite_flags = NO_FEMALE_UNIFORM
-
-/obj/item/clothing/under/vampire/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/selling, 10, "undersuit", FALSE)
 
 /obj/item/clothing/under/vampire/magadon_suit
 	name = "Magadon Incorporated suit"
