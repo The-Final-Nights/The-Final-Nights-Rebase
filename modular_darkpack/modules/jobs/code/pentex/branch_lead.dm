@@ -17,10 +17,10 @@
 	outfit = /datum/outfit/job/vampire/branch_lead
 
 	alt_titles = list(
-		"Magadon Branch Lead",
-		"Magadon Branch Director",
-		"Magadon Regional Director",
-		"Magadon Operations Director"
+		"Endron Branch Lead",
+		"Endron Branch Director",
+		"Endron Regional Director",
+		"Endron Operations Director"
 	)
 
 	minimal_masquerade = 5
@@ -49,9 +49,9 @@
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex/branch_lead
-	uniform = /obj/item/clothing/under/vampire/tfn/magadon_executivesuit
+	uniform =  /obj/item/clothing/under/vampire/pentex_executive_suit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
-	suit = /obj/item/clothing/suit/vampire/tfn/magadon_labcoat
+	suit = /obj/item/clothing/suit/vampire/pentex_labcoat_alt
 	l_pocket = /obj/item/smartphone // /branch_lead - TODO: phone subtype
 	r_pocket = /obj/item/vamp/keys/pentex/leader
 	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/phone_book=1, /obj/item/card/credit/prince=1)

@@ -17,10 +17,11 @@
 	outfit = /datum/outfit/job/vampire/employee
 
 	alt_titles = list(
-		"Magadon Employee",
-		"Magadon Janitor",
-		"Magadon Secretary",
-		"Magadon Researcher"
+		"Endron Employee",
+		"Endron Janitor",
+		"Endron Secretary",
+		"Endron Researcher",
+		"Endron Labourer"
 	)
 
 	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)	minimal_masquerade = 3
@@ -48,7 +49,7 @@
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex
-	uniform = /obj/item/clothing/under/vampire/tfn/magadon_turtleneck
+	uniform = /obj/item/clothing/under/vampire/pentex_longleeve
 	gloves = /obj/item/clothing/gloves/vampire/work
 	shoes = /obj/item/clothing/shoes/vampire
 	r_pocket = /obj/item/vamp/keys/pentex
