@@ -2431,7 +2431,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "aGh" = (
-/mob/living/carbon/human/npc/shop,
+/mob/living/carbon/human/npc/gunstore,
 /obj/effect/decal/rugs,
 /turf/open/floor/city/plating,
 /area/vtm/interior/mall)
@@ -20245,9 +20245,7 @@
 /obj/structure/chair/office/darkpack/green{
 	dir = 8
 	},
-/mob/living/carbon/human/npc/shop{
-	resistant_to_disciplines = 1
-	},
+/mob/living/carbon/human/npc/pharmacystore,
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior)
 "fgi" = (
@@ -28813,10 +28811,10 @@
 "hpj" = (
 /obj/structure/table/wood,
 /obj/item/clothing/head/vampire/blackbag,
-/obj/item/wirecutters/pliers/bad_pliers,
 /obj/item/vampire_stake{
 	pixel_y = -11
 	},
+/obj/item/wirecutters/pliers/bad,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "hpt" = (
@@ -29468,7 +29466,6 @@
 	pixel_x = 11;
 	pixel_y = -1
 	},
-/obj/item/wirecutters/pliers/bad_pliers,
 /turf/open/floor/wood/rough,
 /area/vtm/interior/police/fed)
 "hxP" = (
@@ -37157,7 +37154,7 @@
 /turf/open/misc/grass/nosmooth,
 /area/vtm/interior/bianchiBank)
 "juz" = (
-/mob/living/carbon/human/npc/shop,
+/mob/living/carbon/human/npc/hardwarestore,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/shop)
 "juE" = (
@@ -41807,6 +41804,7 @@
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
 	},
+/obj/item/wirecutters/pliers,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/sewer)
 "kEU" = (
@@ -49061,7 +49059,7 @@
 /turf/open/floor/city/circled,
 /area/vtm/interior)
 "mtT" = (
-/mob/living/carbon/human/npc/shop,
+/mob/living/carbon/human/npc/campingstore,
 /obj/structure/chair/office/darkpack/green,
 /obj/effect/mapping_helpers/mob_buckler,
 /turf/open/floor/wood/smooth/old,
@@ -50763,7 +50761,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/culture)
 "mQW" = (
-/mob/living/carbon/human/npc/shop,
+/mob/living/carbon/human/npc/pharmacystore,
 /obj/structure/chair/office/darkpack/blue{
 	dir = 1
 	},
@@ -60342,6 +60340,7 @@
 	pixel_y = 32
 	},
 /obj/item/storage/box/handcuffs,
+/obj/item/wirecutters/pliers/bad,
 /turf/open/misc/dirt,
 /area/vtm/interior/police/fed)
 "phQ" = (
@@ -64206,12 +64205,12 @@
 /obj/item/clothing/suit/vampire/vest/police/fbivest,
 /obj/item/clothing/mask/vampire/balaclava,
 /obj/item/clothing/mask/vampire/balaclava,
-/obj/item/ammo_box/darkpack/c45acp/HP,
 /obj/item/ammo_box/darkpack/c9mm/plus,
-/obj/item/ammo_box/darkpack/c45acp/HP,
 /obj/item/ammo_box/darkpack/c9mm/plus,
 /obj/item/binoculars,
 /obj/item/binoculars,
+/obj/item/ammo_box/darkpack/c45acp/hp,
+/obj/item/ammo_box/darkpack/c45acp/hp,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/police/fed)
 "qhn" = (

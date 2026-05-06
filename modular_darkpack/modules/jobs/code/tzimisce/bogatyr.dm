@@ -2,7 +2,7 @@
 /* TFN EDIT REMOVAL - More Sabbat Roles
 /datum/job/vampire/bogatyr
 	title = JOB_BOGATYR
-	faction = FACTION_CITY
+	faction = FACTION_SABBAT
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = " the Laws of Hospitality"

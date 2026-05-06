@@ -168,15 +168,17 @@
 		return
 	is_talking = TRUE
 
-	addtimer(CALLBACK(src, PROC_REF(start_talking), message), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(start_talking), message), 1 SECONDS)
 
 /mob/living/carbon/human/npc/proc/start_talking(message)
+	ADD_TRAIT(src, TRAIT_THINKING_IN_CHARACTER, CURRENTLY_TYPING_TRAIT)
 	create_typing_indicator()
 	var/typing_delay = round(length_char(message) * 0.5)
 	addtimer(CALLBACK(src, PROC_REF(finish_talking), message), max(3 SECONDS, typing_delay))
 
 /mob/living/carbon/human/npc/proc/finish_talking(message)
 	remove_typing_indicator()
+	REMOVE_TRAIT(src, TRAIT_THINKING_IN_CHARACTER, CURRENTLY_TYPING_TRAIT)
 	say(message)
 	is_talking = FALSE
 
@@ -195,14 +197,14 @@
 	if(source)
 		addtimer(CALLBACK(src, PROC_REF(face_atom), source), rand(0.3 SECONDS, 0.7 SECONDS))
 
-	var/phrase = "Wow." // TFN EDIT - found an edgecase where an npc might not have a socialrole, so this shouldnt be null
+	var/phrase = "Wow."
 	if (prob(50))
-		phrase = pick(socialrole?.neutral_phrases) // TFN EDIT
+		phrase = pick(socialrole?.neutral_phrases)
 	else
 		if (gender == MALE)
-			phrase = pick(socialrole?.male_phrases) // TFN EDIT
+			phrase = pick(socialrole?.male_phrases)
 		else
-			phrase = pick(socialrole?.female_phrases) // TFN EDIT
+			phrase = pick(socialrole?.female_phrases)
 	realistic_say(phrase)
 
 /mob/living/carbon/human/npc/proc/handle_attacked(datum/source, atom/attacker, attack_flags)
@@ -216,7 +218,7 @@
 /mob/living/carbon/human/npc/proc/handle_bumped(mob/living/carbon/human/npc/source, mob/living/bumping)
 	SIGNAL_HANDLER
 
-	if (bumping.can_mobswap_with(source) && prob(25)) // TFN EDIT - npcs should stop and react more often
+	if (bumping.can_mobswap_with(source) && prob(25))
 		return
 
 	source.Annoy(bumping)

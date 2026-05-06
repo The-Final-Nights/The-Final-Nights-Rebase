@@ -748,9 +748,11 @@
 
 	if (toggled && (duration_length == 0))
 		return
-
-	deltimer(duration_timers[to_clear])
-	duration_timers.Cut(to_clear, to_clear + 1)
+	// TFN EDIT START
+	if(!isnull(duration_timers[to_clear]))
+		deltimer(duration_timers[to_clear])
+		duration_timers.Cut(to_clear, to_clear + 1)
+	// TFN EDIT END
 
 
 // For certain discipline alerts, for example auspex 5 requiring willpower instead of blood points.
