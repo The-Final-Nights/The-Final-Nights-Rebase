@@ -1,8 +1,3 @@
-#define TFN_CLOTHING_ADDITION \
-	icon = 'modular_tfn/modules/clothes/icons/clothing.dmi'; \
-	worn_icon = 'modular_tfn/modules/clothes/icons/worn.dmi'; \
-	ONFLOOR_ICON_HELPER('modular_tfn/modules/clothes/icons/clothing_onfloor.dmi')
-
 /obj/item/clothing/gloves/vampire/brassknuckles
 	name = "brass knuckles"
 	desc = "A set of tarnished brass rings fused together to create a cruel weapon for back-alley brawls. Illegal in most places."
