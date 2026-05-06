@@ -65,7 +65,7 @@
 	)
 
 	shoes = list(/obj/item/clothing/shoes/vampire/jackboots)
-	uniforms = list(/obj/item/clothing/under/vampire/tfn/magadon_turtleneck)
+	uniforms = list(/obj/item/clothing/under/vampire/magadon_turtleneck)
 	pockets = list(/obj/item/vamp/keys/npc, /obj/item/stack/dollar/rand)
 	gloves = list(/obj/item/clothing/gloves/vampire/latex)
 	suits = list(/obj/item/clothing/suit/vampire/vest)
@@ -160,7 +160,7 @@
 	)
 
 	shoes = list(/obj/item/clothing/shoes/vampire/jackboots)
-	uniforms = list(/obj/item/clothing/under/vampire/tfn/magadon_suit)
+	uniforms = list(/obj/item/clothing/under/vampire/magadon_suit)
 	pockets = list(/obj/item/vamp/keys/npc, /obj/item/stack/dollar/rand)
 	gloves = list(/obj/item/clothing/gloves/vampire/work)
 	suits = list(/obj/item/clothing/suit/vampire/vest)
@@ -255,7 +255,7 @@
 	)
 
 	shoes = list(/obj/item/clothing/shoes/vampire/jackboots)
-	uniforms = list(/obj/item/clothing/under/vampire/tfn/magadon_turtleneck)
+	uniforms = list(/obj/item/clothing/under/vampire/magadon_turtleneck)
 	pockets = list(/obj/item/vamp/keys/npc, /obj/item/stack/dollar/rand)
 	gloves = list(/obj/item/clothing/gloves/vampire/work)
 	suits = list(/obj/item/clothing/suit/vampire/vest)
