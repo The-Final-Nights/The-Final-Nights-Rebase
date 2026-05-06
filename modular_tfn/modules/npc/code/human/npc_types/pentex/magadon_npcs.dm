@@ -29,3 +29,22 @@
 /mob/living/carbon/human/npc/magadonexecsecurity/Initialize()
 	. = ..()
 	AssignSocialRole(/datum/socialrole/magadonexecsecurity)
+
+/mob/living/carbon/human/npc/bouncer/magadon
+	our_role = /datum/socialrole/bouncer/magadon
+	protected_zone_id = "endron"
+
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_2
+	our_role = /datum/socialrole/bouncer/magadon/magadon_2
+	protected_zone_id = "endron_2"
+
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_backdoor
+	protected_zone_id = "endron_backdoor"
+
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_lab
+	our_role = /datum/socialrole/bouncer/magadon/magadon_lab
+	protected_zone_id = "endron_lab"
+
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_lab_2
+	our_role = /datum/socialrole/bouncer/magadon/magadon_lab_2
+	protected_zone_id = "endron_lab_2"

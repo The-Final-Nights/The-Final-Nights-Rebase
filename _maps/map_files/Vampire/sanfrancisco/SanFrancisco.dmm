@@ -3100,9 +3100,9 @@
 /obj/structure/closet,
 /obj/item/clothing/mask/vampire/gas/magadon,
 /obj/item/clothing/mask/vampire/gas/magadon,
-/obj/item/clothing/suit/vampire/tfn/magadon_labcoat,
-/obj/item/clothing/suit/vampire/tfn/magadon_labcoat,
-/obj/item/clothing/suit/vampire/tfn/magadon_labcoat,
+/obj/item/clothing/suit/vampire/magadon_labcoat,
+/obj/item/clothing/suit/vampire/magadon_labcoat,
+/obj/item/clothing/suit/vampire/magadon_labcoat,
 /obj/item/clothing/shoes/vampire/jackboots,
 /obj/item/clothing/shoes/vampire/jackboots,
 /obj/item/clothing/shoes/vampire/jackboots,
@@ -11795,18 +11795,18 @@
 /obj/structure/rack/wide/med_shelf{
 	dir = 8
 	},
-/obj/item/clothing/gloves/vampire/tfn/brassknuckles{
+/obj/item/clothing/gloves/vampire/brassknuckles{
 	pixel_x = 9
 	},
-/obj/item/clothing/gloves/vampire/tfn/brassknuckles{
+/obj/item/clothing/gloves/vampire/brassknuckles{
 	pixel_x = 9;
 	pixel_y = 8
 	},
-/obj/item/clothing/gloves/vampire/tfn/brassknuckles{
+/obj/item/clothing/gloves/vampire/brassknuckles{
 	pixel_x = 9;
 	pixel_y = 4
 	},
-/obj/item/clothing/gloves/vampire/tfn/brassknuckles{
+/obj/item/clothing/gloves/vampire/brassknuckles{
 	pixel_x = 9;
 	pixel_y = -4
 	},
@@ -14160,7 +14160,7 @@
 /obj/item/clothing/head/vampire/blackbag,
 /obj/item/clothing/glasses/blindfold,
 /obj/item/restraints/handcuffs/cable/zipties,
-/obj/item/clothing/gloves/vampire/tfn/brassknuckles{
+/obj/item/clothing/gloves/vampire/brassknuckles{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -22156,7 +22156,7 @@
 /obj/effect/turf_decal/bordur/corner{
 	dir = 1
 	},
-/mob/living/carbon/human/npc/endronsecurity,
+/mob/living/carbon/human/npc/magadonsecurity,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "fGf" = (
@@ -22413,7 +22413,7 @@
 /turf/open/misc/grass,
 /area/vtm/outside/giovanni/courtyard)
 "fIP" = (
-/mob/living/carbon/human/npc/endronsecurity,
+/mob/living/carbon/human/npc/magadonsecurity,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/endron_facility/plant)
 "fIS" = (
@@ -24578,9 +24578,9 @@
 /obj/item/clothing/mask/vampire/gas/magadon,
 /obj/item/clothing/mask/vampire/gas/magadon,
 /obj/item/clothing/mask/vampire/gas/magadon,
-/obj/item/clothing/suit/vampire/tfn/magadon_labcoat,
-/obj/item/clothing/suit/vampire/tfn/magadon_labcoat,
-/obj/item/clothing/suit/vampire/tfn/magadon_labcoat,
+/obj/item/clothing/suit/vampire/magadon_labcoat,
+/obj/item/clothing/suit/vampire/magadon_labcoat,
+/obj/item/clothing/suit/vampire/magadon_labcoat,
 /obj/item/clothing/shoes/vampire/jackboots,
 /obj/item/clothing/shoes/vampire/jackboots,
 /obj/item/clothing/shoes/vampire/jackboots,
@@ -34288,7 +34288,7 @@
 /obj/effect/turf_decal/bordur/corner{
 	dir = 8
 	},
-/mob/living/carbon/human/npc/endronsecurity,
+/mob/living/carbon/human/npc/magadonsecurity,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "iKJ" = (
@@ -59347,7 +59347,7 @@
 /obj/structure/railing{
 	dir = 5
 	},
-/mob/living/carbon/human/npc/bouncer/endron/endron_backdoor,
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_backdoor,
 /obj/effect/turf_decal/bordur/corner{
 	dir = 1
 	},
@@ -70145,7 +70145,7 @@
 /obj/item/vamp/keys/brujah,
 /obj/item/vamp/keys/brujah,
 /obj/item/clothing/gloves/boxing/golden,
-/obj/item/clothing/gloves/vampire/tfn/brassknuckles/spiked,
+/obj/item/clothing/gloves/vampire/brassknuckles/spiked,
 /obj/item/clothing/suit/vampire/trench,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/fightclub)
@@ -73684,7 +73684,7 @@
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/police/upstairs)
 "sEc" = (
-/mob/living/carbon/human/npc/endronsecurity,
+/mob/living/carbon/human/npc/magadonsecurity,
 /obj/structure/railing{
 	dir = 1
 	},
@@ -80950,7 +80950,7 @@
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
-/mob/living/carbon/human/npc/bouncer/endron/endron_2,
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_2,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/endron_facility)
 "uwI" = (
@@ -95425,7 +95425,7 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
 "yjZ" = (
-/mob/living/carbon/human/npc/bouncer/endron,
+/mob/living/carbon/human/npc/bouncer/magadon,
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/white,
 /area/vtm/interior/endron_facility)
