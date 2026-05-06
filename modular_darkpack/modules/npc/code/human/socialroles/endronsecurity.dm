@@ -261,7 +261,7 @@
 	suits = list(/obj/item/clothing/suit/vampire/vest)
 	glasses = list(/obj/item/clothing/glasses/vampire/sun)
 	hats = list(/obj/item/clothing/head/beret/black)
-	masks = list(/obj/item/clothing/mask/gas/sechailer)
+	masks = list(/obj/item/clothing/mask/vampire/balaclava)
 
 	neutral_phrases = list(
 		"No loitering.",
