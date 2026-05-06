@@ -20,3 +20,8 @@
 	desc = "A slightly more skimpy version of the classic punk-wear. Provides some kind of protection."
 	icon_state = "jacket3_cut"
 	armor_type = /datum/armor/vampire_jacket
+
+/obj/item/clothing/suit/vampire/tfn/magadon_labcoat
+	name = "magadon incorporated labcoat"
+	desc = "A Magadon Incorporated labcoat worn by smarter people than you."
+	icon_state = "magadon_labcoat"

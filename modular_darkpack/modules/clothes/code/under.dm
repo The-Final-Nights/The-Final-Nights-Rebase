@@ -465,47 +465,36 @@
 	icon_state = "pentex_janitor"
 
 /obj/item/clothing/under/vampire/pentex_shortsleeve
-	name = "\improper " + MAIN_EVIL_COMPANY + " polo-shirt"
-	desc = "An " + MAIN_EVIL_COMPANY + " International employee uniform. This one is a nice polo!"
+	name = "endron polo-shirt"
+	desc = "An Endron International employee uniform. This one is a nice polo!"
 	icon_state = "pentex_shortsleeve"
 
 /obj/item/clothing/under/vampire/pentex_longleeve
-	name = "\improper " + MAIN_EVIL_COMPANY + " shirt"
-	desc = "An " + MAIN_EVIL_COMPANY + " International employee uniform. This one has sleeves!"
+	name = "endron shirt"
+	desc = "An EndronInternational employee uniform. This one has sleeves!"
 	icon_state = "pentex_longsleeve"
 
 /obj/item/clothing/under/vampire/pentex_turtleneck
-	name = "\improper " + MAIN_EVIL_COMPANY + " turtleneck"
-	desc = "An " + MAIN_EVIL_COMPANY + " International employee uniform. This one is a nice turtleneck!"
+	name = "endron turtleneck"
+	desc = "An Endron International employee uniform. This one is a nice turtleneck!"
 	icon_state = "pentex_turtleneck"
 
 /obj/item/clothing/under/vampire/pentex_suit
-	name = "\improper " + MAIN_EVIL_COMPANY + " suit"
-	desc = "A nice suit with a green dress-shirt. This one has an " + MAIN_EVIL_COMPANY + " International tag on it!"
+	name = "endron suit"
+	desc = "A nice suit with a green dress-shirt. This one has an Endron International tag on it!"
 	icon_state = "pentex_suit"
 
 /obj/item/clothing/under/vampire/pentex_suitskirt
-	name = "\improper " + MAIN_EVIL_COMPANY + " suitskirt"
-	desc = "A nice suitskirt with a green dress-shirt. This one has an " + MAIN_EVIL_COMPANY + " International tag on it!"
+	name = "endron suitskirt"
+	desc = "A nice suitskirt with a green dress-shirt. This one has an Endron International tag on it!"
 	icon_state = "pentex_suitskirt"
 
 /obj/item/clothing/under/vampire/pentex_executive_suit
-	name = "\improper " + MAIN_EVIL_COMPANY + " executive suit"
-	desc = "A  white designer suit with a green dress shirt. This one has an " + MAIN_EVIL_COMPANY + " International tag on it!"
-	icon_state = "pentex_executivesuit"
-
-/obj/item/clothing/under/vampire/pentex_executiveskirt
-	name = "\improper " + MAIN_EVIL_COMPANY + " executive suitskirt"
-	desc = "A white designer suitskirt with a green dress shirt. This one has an " + MAIN_EVIL_COMPANY + " International tag on it!"
-	icon_state = "pentex_executiveskirt"
-
-/obj/item/clothing/under/vampire/pentex_executive_suit
-	name = "Endron executive suit"
+	name = "endron executive suit"
 	desc = "A  white designer suit with a green dress shirt. This one has an Endron International tag on it!"
 	icon_state = "pentex_executivesuit"
 
 /obj/item/clothing/under/vampire/pentex_executiveskirt
-	name = "Endron executive suitskirt"
+	name = "endron executive suitskirt"
 	desc = "A white designer suitskirt with a green dress shirt. This one has an Endron International tag on it!"
 	icon_state = "pentex_executiveskirt"
-
