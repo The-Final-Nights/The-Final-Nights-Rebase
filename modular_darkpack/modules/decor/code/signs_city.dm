@@ -197,10 +197,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/store/reddragon, 32)
 	icon_state = "otolleys"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/store/otolleys, 32)
-
+//TFN EDIT ADDITION - The Great Magadonification
 /obj/structure/sign/city/store/magadon
 	name = "Magadon, Incorporated"
 	desc = "Magadon: Building a better you."
 	icon_state = "magadon"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/store/magadon, 32)
+// TFN EDIT ADDITION END - The Great Magadonification
