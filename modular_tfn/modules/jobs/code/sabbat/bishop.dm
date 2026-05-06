@@ -1,6 +1,7 @@
 /datum/job/vampire/bishop
 	title = JOB_SABBAT_BISHOP
 	description = "You are a Bishop of the Sabbat. Whilst your domain does not have an Archbishop, you and your fellow Bishops rule this place in a council. You must maintain the Sabbat's presence and interests without risking the end of its presence in San Francisco."
+	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_CITY
 	total_positions = 3
 	spawn_positions = 3

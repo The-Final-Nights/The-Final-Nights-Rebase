@@ -98,9 +98,10 @@
 	SIGNAL_HANDLER
 
 	// TFN EDIT START - avoid offmap locations sending crime alerts
-	var/area/crime_area = get_area(location)
-	if(!istype(crime_area, /area/vtm))
+	var/area/crime_area_test = astype(get_area(location))
+	if(!istype(crime_area_test, /area/vtm))
 		return
+	var/area/vtm/crime_area = crime_area_test
 	// TFN EDIT END
 
 	if(crime == CRIME_EMERGENCY) // Bypasses cooldown because of gameplay reasons.
@@ -112,6 +113,9 @@
 		return
 
 	if(!COOLDOWN_FINISHED(src, crime_reporting_cooldown))
+		return
+	//var/area/vtm/crime_area = astype(get_area(location)) TFN EDIT REMOVAL - already defined on line 101 & 104
+	if(!crime_area || crime_area.zone_type != ZONE_MASQUERADE) // prevents sewer rats from reporting crime
 		return
 	COOLDOWN_START(src, crime_reporting_cooldown, 10 SECONDS)
 	switch(crime)

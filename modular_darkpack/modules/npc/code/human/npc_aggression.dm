@@ -7,6 +7,10 @@
 		return
 	if (isnpc(victim))
 		return
+	// TFN EDIT START
+	if (HAS_TRAIT(victim, TRAIT_OBFUSCATED))
+		return
+	// TFN EDIT END
 
 	// If the victim doesn't appear dead, enter combat mode and set
 	// them as the NPC's danger source.
