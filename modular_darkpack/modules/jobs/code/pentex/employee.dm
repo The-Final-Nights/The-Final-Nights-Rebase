@@ -2,7 +2,7 @@
 	title = JOB_PENTEX_EMPLOYEE
 	description = "You are an employee for " + MAIN_EVIL_COMPANY + ", operating out of San Francisco. Your bosses can be a little strange; give credence to the security team and executives for tasks on the night shift, and avoid getting negative attention from the branch manager or internal affairs."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	faction = FACTION_CITY
+	faction = FACTION_PENTEX
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Board and the Branch Lead"
@@ -24,10 +24,7 @@
 		"Endron Labourer"
 	)
 
-	allowed_splats = SPLAT_ALL
-//	allowed_tribes = list(TRIBE_WYRM, TRIBE_RONIN)
-	allowed_clans = VAMPIRE_CLAN_ALL
-	minimal_masquerade = 3
+	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)	minimal_masquerade = 3
 
 	display_order = JOB_DISPLAY_ORDER_EMPLOYEE
 	department_for_prefs = /datum/job_department/pentex

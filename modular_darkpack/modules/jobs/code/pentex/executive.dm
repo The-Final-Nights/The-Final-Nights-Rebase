@@ -2,7 +2,7 @@
 	title = JOB_PENTEX_EXEC
 	description = "You are an acting executive for " + MAIN_EVIL_COMPANY + " operating out of San Francisco. With discretion to the Branch Leader, a position you may aim for, your job is to fuel production and expand operations."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	faction = FACTION_CITY
+	faction = FACTION_PENTEX
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Board and the Branch Lead"
@@ -29,10 +29,9 @@
 	)
 
 	allowed_splats = list(SPLAT_GAROU, SPLAT_KINDRED)
-//	allowed_tribes = list(TRIBE_WYRM, TRIBE_RONIN)
-	allowed_clans = VAMPIRE_CLAN_ALL
 	minimal_masquerade = 4
-
+	// minimal_renown_rank = 3
+	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)
 	display_order = JOB_DISPLAY_ORDER_EXECUTIVE
 	department_for_prefs = /datum/job_department/pentex
 	departments_list = list(
@@ -45,7 +44,6 @@
 		JOB_PENTEX_SEC_CHIEF
 	)
 
-//	minimal_renownrank = 3
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_SEC
 
@@ -60,5 +58,5 @@
 	uniform =  /obj/item/clothing/under/vampire/pentex_executive_suit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
 	l_pocket = /obj/item/smartphone // /pentex_exec - todo: subtype
-	r_pocket = /obj/item/vamp/keys/pentex
+	r_pocket = /obj/item/vamp/keys/pentex/leader
 	backpack_contents = list(/obj/item/phone_book=1, /obj/item/card/credit/seneschal=1)

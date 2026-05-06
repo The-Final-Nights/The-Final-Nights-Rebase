@@ -164,7 +164,7 @@ GLOBAL_VAR(restart_counter)
 	SetupLogs()
 
 	load_admins(initial = TRUE)
-
+	load_mentors(initial = TRUE) // TFN EDIT ADD - Mentors
 	load_poll_data()
 
 	// Initialize RETA system - code/modules/reta/reta_system.dm
@@ -405,10 +405,17 @@ GLOBAL_VAR_INIT(last_maptick_time, 0)
 
 	var/new_status = ""
 	var/hostedby
+	var/tfn_status = "" // TFN EDIT ADD
 	if(config)
 		var/server_name = CONFIG_GET(string/servername)
 		if (server_name)
-			new_status += "<b>[server_name]</b> "
+			// new_status += "<b>[server_name]</b> " // TFN EDIT REMOVAL
+		// TFN EDIT ADD START
+			tfn_status += "<a href=\"https://TheFinalNights.com\"><b>[server_name] \[18+\] &#8212; Apply on Discord!</b></a>"
+
+		tfn_status += "<br>Persistent 18+ Heavy-RP immersive roleplay set in the World of Darkness, now on modern /tg/ code! <br>Hosted by <b>The Regime</b>"
+		status = new_status
+		// TFN EDIT ADD END
 		if(CONFIG_GET(flag/allow_respawn))
 			features += "respawn" // show "respawn" regardless of "respawn as char" or "free respawn"
 		if(!CONFIG_GET(flag/allow_ai))
@@ -446,7 +453,7 @@ GLOBAL_VAR_INIT(last_maptick_time, 0)
 	if(SSmap_vote.next_map_config)
 		new_status += "[SSmapping.current_map ? " | " : "<br>"]Next: <b>[SSmap_vote.next_map_config.map_path == CUSTOM_MAP_PATH ? "Uncharted Territory" : SSmap_vote.next_map_config.map_name]</b>"
 
-	status = new_status
+	status = tfn_status // TFN EDIT, ORIGINAL: status = new_status
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)

@@ -2,9 +2,9 @@
 	title = JOB_PENTEX_SEC
 	description = "You are an acting security for " + MAIN_EVIL_COMPANY + ", operating out of San Francisco. Under the chief of security's direction, your job is to keep the complex free of nosy meddlers, pick up contract violators, and to assist the chief in tackling threats to corporate assets."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	faction = FACTION_CITY
-	total_positions = 2
-	spawn_positions = 2
+	faction = FACTION_PENTEX
+	total_positions = 4 // TFN EDIT CHANGE
+	spawn_positions = 4 // TFN EDIT CHANGE
 	supervisors = "the Board, Branch Lead, and Chief of Security"
 	req_admin_notify = 1
 	minimal_player_age = 25
@@ -16,10 +16,7 @@
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/pentex_sec
 
-	allowed_splats = SPLAT_ALL
-//	allowed_tribes = list(TRIBE_WYRM, TRIBE_RONIN)
-	allowed_clans = VAMPIRE_CLAN_ALL
-	minimal_masquerade = 3
+	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)	minimal_masquerade = 3
 
 	display_order = JOB_DISPLAY_ORDER_PENTEX_SEC
 	department_for_prefs = /datum/job_department/pentex

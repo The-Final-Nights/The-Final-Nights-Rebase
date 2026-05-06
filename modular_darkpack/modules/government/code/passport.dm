@@ -39,7 +39,7 @@
 	if(ishuman(loc)) // In pockets
 		user = loc
 	else if(ishuman(loc?.loc)) // In backpack
-		user = loc
+		user = loc.loc
 	if(user)
 		// Init and equiping via loadout are both too soon to be able to catch the illegal identity quirk
 		link_human(user)

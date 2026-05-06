@@ -1,6 +1,11 @@
 /datum/discipline/valeren
 	name = "Healer Valeren"
-	desc = "Use your third eye in healing or protecting needs."
+	desc = {"Use your third eye in healing or protecting needs.
+● Sense Vitality: Passive
+●● Anesthetic Touch: Passive
+●●● Corpore Sano: Passive
+●●●● Shepherd's Watch: Passive
+●●●●● Unburden the Bestial Soul: Passive"} // TFN EDIT CHANGE - ORIGINAL: desc = "Use your third eye in healing or protecting needs."
 	icon_state = "valeren"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/valeren
@@ -20,6 +25,7 @@
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_FREE_HAND
 	target_type = TARGET_MOB
 	range = 1
+	vitae_cost = 0
 
 	cooldown_length = 5 SECONDS
 
@@ -88,6 +94,7 @@
 	desc = "Create a supernatural barrier to protect yourself from harm."
 
 	level = 4
+	vitae_cost = 0
 
 	cooldown_length = 40 SECONDS
 

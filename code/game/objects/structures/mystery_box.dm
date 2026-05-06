@@ -77,6 +77,7 @@ GLOBAL_LIST_INIT(mystery_magic, list(
 	/obj/item/gun/magic/wand/door,
 	/obj/item/gun/magic/wand/nothing,
 	/obj/item/storage/belt/wands/full,
+	/obj/item/storage/belt/wands/full/discount,
 	/obj/item/gun/magic/staff/healing,
 	/obj/item/gun/magic/staff/chaos,
 	/obj/item/gun/magic/staff/door,
@@ -282,7 +283,7 @@ GLOBAL_LIST_INIT(mystery_fishing, list(
 	name = "treasure chest"
 	desc = "A piratey coffer equally magical and mysterious, capable of granting different pieces of gear to whoever opens it."
 	icon_state = "treasure"
-	uses_left = 18
+	uses_left = 0 // TFN EDIT - ORIGINAL: 18
 	max_integrity = 100
 	damage_deflection = 30
 	grant_extra_mag = FALSE

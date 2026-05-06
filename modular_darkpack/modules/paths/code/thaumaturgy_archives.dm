@@ -1,4 +1,5 @@
 /obj/structure/retail/occult
+	icon_state = "menu"
 	owner_needed = FALSE
 	desc = "Use your occult research to reap the benefits of safeguarded knowledge and artifacts."
 
@@ -50,7 +51,8 @@
 		/datum/job/vampire/hound,
 		/datum/job/vampire/sheriff,
 		/datum/job/vampire/clerk,
-		/datum/job/vampire/prince)
+		// /datum/job/vampire/prince, // TFN EDIT REMOVAL
+		)
 	)
 
 // find the regent

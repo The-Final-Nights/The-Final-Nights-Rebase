@@ -12,7 +12,6 @@
 	anchored_tabletop_offset = 6
 	var/owner_needed = TRUE //Does an npc need to be here for this
 	var/mob/living/carbon/human/npc/my_owner //tracks existence of owner
-	var/is_gun_store = FALSE
 	var/payment_department = ACCOUNT_SRV
 
 	var/list/datum/data/vending_product/products_list = list()
@@ -45,6 +44,8 @@
 		if(owner_needed == TRUE && (!my_owner || (get_dist(src, my_owner) > 4) || (my_owner.stat >= HARD_CRIT)))
 			to_chat(user, span_alert("There's no teller here to sell you things..."))
 			return
+		else if(owner_needed == TRUE && my_owner && get_dist(src, my_owner) <= 4)
+			my_owner.say(pick(my_owner.socialrole.random_phrases))
 		ui_interact(user)
 
 /obj/structure/retail/proc/build_inventory()
@@ -70,6 +71,9 @@
 			return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		if(owner_needed && my_owner)
+			my_owner.face_atom(user)
+			my_owner.realistic_say(pick(my_owner.socialrole.random_phrases))
 		ui = new(user, src, "RetailVendor", name)
 		ui.open()
 
@@ -95,6 +99,7 @@
 		)
 			product_data["icon"] = initial(printed.icon)
 			product_data["icon_state"] = initial(printed.icon_state)
+	.["money_symbol"] = MONEY_SYMBOL
 
 /obj/structure/retail/ui_data(mob/user)
 	. = list()

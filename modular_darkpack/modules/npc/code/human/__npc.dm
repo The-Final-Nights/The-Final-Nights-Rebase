@@ -36,11 +36,11 @@
 	var/hostile = FALSE
 	var/aggressive = FALSE
 	var/last_antagonised = 0
-	var/mob/living/danger_source
+	var/datum/weakref/danger_source
 	var/obj/effect/abstract/turf_fire/afraid_of_fire
-	var/mob/living/last_attacker
+	var/datum/weakref/last_attacker
 	var/last_health = 100
-	var/mob/living/last_damager
+	var/datum/weakref/last_damager
 
 	var/turf/walktarget	//dlya movementa
 
@@ -91,7 +91,6 @@
 	RegisterSignal(src, COMSIG_LIVING_MOB_BUMPED, PROC_REF(handle_bumped))
 	// Be annoyed if helped
 	RegisterSignal(src, COMSIG_CARBON_HELP_ACT, PROC_REF(handle_helped))
-
 	return INITIALIZE_HINT_LATELOAD
 
 /mob/living/carbon/human/npc/LateInitialize(mapload)
@@ -110,14 +109,15 @@
 		if(istype(my_weapon, /obj/item/gun/ballistic))
 			RegisterSignal(my_weapon, COMSIG_GUN_FIRED, PROC_REF(handle_gun))
 			RegisterSignal(my_weapon, COMSIG_GUN_EMPTY, PROC_REF(handle_empty_gun))
-		register_sticky_item(my_weapon)
+		// register_sticky_item(my_weapon) // TFN EDIT - REMOVAL
 
 	if (my_backup_weapon_type)
 		my_backup_weapon = new my_backup_weapon_type(src)
 		equip_to_appropriate_slot(my_backup_weapon)
-		register_sticky_item(my_backup_weapon)
+		// register_sticky_item(my_backup_weapon) // TFN EDIT - REMOVAL
 
 /mob/living/carbon/human/npc/Destroy()
+	UnregisterSignal(src, list(COMSIG_ATOM_WAS_ATTACKED, COMSIG_LIVING_MOB_BUMPED, COMSIG_CARBON_HELP_ACT))
 	QDEL_NULL(socialrole)
 	danger_source = null
 	QDEL_NULL(afraid_of_fire)
@@ -136,13 +136,14 @@
 	SShumannpcpool.try_repopulate()
 	return ..()
 
+/* // TFN EDIT REMOVAL START
 //====================Sticky Item Handling====================
 /mob/living/carbon/human/npc/proc/register_sticky_item(obj/item/my_item)
 	ADD_TRAIT(my_item, TRAIT_NODROP, NPC_ITEM_TRAIT)
 	if(!drop_on_death_list?.len)
 		drop_on_death_list = list()
 	drop_on_death_list += my_item
-
+*/ // TFN EDIT REMOVAL END
 /mob/living/carbon/human/npc/death(gibbed)
 	. = ..()
 
@@ -167,15 +168,17 @@
 		return
 	is_talking = TRUE
 
-	addtimer(CALLBACK(src, PROC_REF(start_talking), message), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(start_talking), message), 1 SECONDS)
 
 /mob/living/carbon/human/npc/proc/start_talking(message)
+	ADD_TRAIT(src, TRAIT_THINKING_IN_CHARACTER, CURRENTLY_TYPING_TRAIT)
 	create_typing_indicator()
 	var/typing_delay = round(length_char(message) * 0.5)
 	addtimer(CALLBACK(src, PROC_REF(finish_talking), message), max(3 SECONDS, typing_delay))
 
 /mob/living/carbon/human/npc/proc/finish_talking(message)
 	remove_typing_indicator()
+	REMOVE_TRAIT(src, TRAIT_THINKING_IN_CHARACTER, CURRENTLY_TYPING_TRAIT)
 	say(message)
 	is_talking = FALSE
 
@@ -194,14 +197,14 @@
 	if(source)
 		addtimer(CALLBACK(src, PROC_REF(face_atom), source), rand(0.3 SECONDS, 0.7 SECONDS))
 
-	var/phrase
+	var/phrase = "Wow."
 	if (prob(50))
-		phrase = pick(socialrole.neutral_phrases)
+		phrase = pick(socialrole?.neutral_phrases)
 	else
 		if (gender == MALE)
-			phrase = pick(socialrole.male_phrases)
+			phrase = pick(socialrole?.male_phrases)
 		else
-			phrase = pick(socialrole.female_phrases)
+			phrase = pick(socialrole?.female_phrases)
 	realistic_say(phrase)
 
 /mob/living/carbon/human/npc/proc/handle_attacked(datum/source, atom/attacker, attack_flags)
@@ -215,7 +218,7 @@
 /mob/living/carbon/human/npc/proc/handle_bumped(mob/living/carbon/human/npc/source, mob/living/bumping)
 	SIGNAL_HANDLER
 
-	if (bumping.can_mobswap_with(source))
+	if (bumping.can_mobswap_with(source) && prob(25))
 		return
 
 	source.Annoy(bumping)

@@ -1,6 +1,12 @@
 /datum/discipline/thaumaturgy
 	name = "Thaumaturgy"
-	desc = "Opens the secrets of blood magic and how you use it, allows to steal other's blood. Violates Masquerade."
+	desc = {"Opens the secrets of blood magic and how you use it, allows to steal other's blood. Violates Masquerade.
+	Difficulty scales depending on the dots used.
+● A Taste for Blood: Permanent Willpower vs. difficulty
+●● Blood Rage: Permanent Willpower vs. difficulty
+●●● Blood of Potency: Permanent Willpower vs. difficulty
+●●●● Theft of Vitae: Permanent Willpower vs. difficulty
+●●●●● Cauldron of Blood: Permanent Willpower vs. difficulty"} // TFN EDIT CHANGE - ORIGINAL: desc = "Opens the secrets of blood magic and how you use it, allows to steal other's blood. Violates Masquerade."
 	icon_state = "thaumaturgy"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/thaumaturgy
@@ -12,6 +18,12 @@
 	thaumaturgy.Grant(owner)
 	thaumaturgy.level = level
 	add_verb(owner, /mob/living/carbon/human/proc/check_research_points)
+
+/datum/discipline/thaumaturgy/post_loss()
+	. = ..()
+	for(var/datum/action/action as anything in owner.actions)
+		if(istype(action, /datum/action/ritual_drawing/thaumaturgy))
+			qdel(action)
 
 /datum/discipline_power/thaumaturgy
 	name = "Thaumaturgy power name"

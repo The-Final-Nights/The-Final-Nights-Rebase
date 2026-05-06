@@ -1,7 +1,7 @@
 // This is the home of drink related tablecrafting recipes, I have opted to only let players bottle fancy boozes to reduce the number of entries.
 
 ///////////////// Booze & Bottles ///////////////////
-/* // DARKPACK EDIT REMOVE
+/* // DARKPACK EDIT REMOVAL
 /datum/crafting_recipe/lizardwine
 	name = "Lizard Wine"
 	time = 4 SECONDS
@@ -147,6 +147,7 @@
 	//We can't spawn the abstract food/grown path
 	unit_test_spawn_extras = list(/obj/item/food/grown/banana = 4)
 	category = CAT_DRINK
+	non_craftable = TRUE // TFN EDIT ADDITION
 
 /datum/crafting_recipe/lean
 	name = "lean"

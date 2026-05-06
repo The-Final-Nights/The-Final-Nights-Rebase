@@ -1,6 +1,11 @@
 /datum/discipline/serpentis
 	name = "Serpentis"
-	desc = "Act like a cobra, get the powers to stun targets with your gaze and your tongue, praise the mummy traditions and spread them to your childe. Violates Masquerade."
+	desc = {"Act like a cobra, get the powers to stun targets with your gaze and your tongue, praise the mummy traditions and spread them to your childe. Violates Masquerade.
+● The Eyes of the Serpent: Passive
+●● The Tongue of the Asp: Strength (difficulty 6)
+●●● The Skin of the Adder: Passive
+●●●● The Form of the Cobra: Passive
+●●●●● The Heart of Darkness: Passive"} // TFN EDIT CHANGE - ORIGINAL: desc = "Act like a cobra, get the powers to stun targets with your gaze and your tongue, praise the mummy traditions and spread them to your childe. Violates Masquerade."
 	icon_state = "serpentis"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/serpentis
@@ -21,6 +26,7 @@
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SEE
 	target_type = TARGET_LIVING
 	range = 3
+	vitae_cost = 0
 
 	aggravating = FALSE
 	hostile = FALSE
@@ -30,8 +36,8 @@
 	duration_length = 5 SECONDS
 	cooldown_length = 5 SECONDS
 
-/datum/discipline_power/serpentis/the_eyes_of_the_serpent/proc/immobilize_target(mob/living/carbon/human/target, duration = 5 SECONDS)
-	ADD_TRAIT(target, TRAIT_IMMOBILIZED, TRAIT_GENERIC)
+/datum/discipline_power/serpentis/the_eyes_of_the_serpent/proc/immobilize_target(mob/living/target, duration = 5 SECONDS)
+	ADD_TRAIT(target, TRAIT_IMMOBILIZED, DISCIPLINE_TRAIT(type))
 	RegisterSignals(target, list(COMSIG_ATOM_ATTACKBY, COMSIG_MOB_ITEM_ATTACK, COMSIG_PROJECTILE_PREHIT), PROC_REF(on_target_attacked))
 	if(do_after(owner, duration, target))
 		release_target(target)
@@ -42,15 +48,15 @@
 
 /datum/discipline_power/serpentis/the_eyes_of_the_serpent/proc/on_target_attacked(datum/source)
 	SIGNAL_HANDLER
-	var/mob/living/carbon/human/target = source
+	var/mob/living/target = source
 	release_target(target)
 	to_chat(owner, span_warning("Your concentration is broken as [target] is attacked!"))
 	to_chat(target, span_warning("The mental hold on you breaks as you're attacked!"))
 
-/datum/discipline_power/serpentis/the_eyes_of_the_serpent/proc/release_target(mob/living/carbon/human/target)
+/datum/discipline_power/serpentis/the_eyes_of_the_serpent/proc/release_target(mob/living/target)
 	UnregisterSignal(target, list(COMSIG_ATOM_ATTACKBY, COMSIG_MOB_ITEM_ATTACK, COMSIG_PROJECTILE_PREHIT))
 	to_chat(target, span_danger("You feel your concentration become your own once more, able to look away from the commanding gaze."))
-	REMOVE_TRAIT(target, TRAIT_IMMOBILIZED, TRAIT_GENERIC)
+	REMOVE_TRAIT(target, TRAIT_IMMOBILIZED, DISCIPLINE_TRAIT(type))
 
 /datum/discipline_power/serpentis/the_eyes_of_the_serpent/can_activate_untargeted(alert)
 	. = ..()
@@ -92,6 +98,7 @@
 	hostile = TRUE
 	violates_masquerade = TRUE
 	cooldown_length = 5 SECONDS
+	vitae_cost = 0
 	var/successes
 
 /datum/discipline_power/serpentis/the_tongue_of_the_asp/can_activate_untargeted(alert)
@@ -256,6 +263,7 @@
 
 	level = 5
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING | DISC_CHECK_FREE_HAND
+	vitae_cost = 0
 
 	violates_masquerade = TRUE
 

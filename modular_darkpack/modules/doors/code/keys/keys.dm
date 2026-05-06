@@ -61,7 +61,7 @@
 		LOCKACCESS_JAZZ_CLUB,
 		LOCKACCESS_PRIMOGEN,
 		LOCKACCESS_JAZZ_CLUB_DELIVERY,
-		LOCKACCESS_PRINCE, // TFN ADIT ADD
+		LOCKACCESS_PRINCE,
 	)
 	color = "#bd3327"
 
@@ -213,10 +213,7 @@
 	name = "sexy keys"
 	accesslocks = list(
 		LOCKACCESS_TOREADOR,
-		"toreador1",
-		"toreador2",
-		"toreador3",
-		"toreador4"
+		LOCKACCESS_STRIP
 	)
 	color = "#ffa7e6"
 
@@ -240,6 +237,7 @@
 	name = "really sexy keys"
 	accesslocks = list(
 		LOCKACCESS_PRIMOGEN_TOREADOR,
+		LOCKACCESS_STRIP,
 		LOCKACCESS_TOREADOR,
 		LOCKACCESS_PRIMOGEN,
 		LOCKACCESS_JAZZ_CLUB,
@@ -319,13 +317,12 @@
 	)
 	color = "#6a2e1d"
 
-// TFN EDIT START
 /obj/item/vamp/keys/setite
 	name = "setite keys"
 	accesslocks = list(
 		LOCKACCESS_SETITE
 	)
-// TFN EDIT END
+
 //===========================CLINIC KEYS===========================
 /obj/item/vamp/keys/clinic
 	name = "clinic keys"
@@ -414,6 +411,14 @@
 	)
 	color = "#339933"
 
+// TFN EDIT ADD START - ([LORE TEAM REQUESTED] map changes)
+/obj/item/vamp/keys/evergreen
+	name = "nature's bounty shop keys"
+	accesslocks = list(
+		LOCKACCESS_EVERGREEN
+	)
+	color = "#339933"
+// TFN EDIT ADD END - ([LORE TEAM REQUESTED] map changes)
 //===========================MISC KEYS===========================
 
 /obj/item/vamp/keys/triads

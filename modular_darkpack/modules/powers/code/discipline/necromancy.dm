@@ -2,7 +2,12 @@
 
 /datum/discipline/necromancy
 	name = "Necromancy"
-	desc = "Offers control over another, undead reality."
+	desc = {"Offers control over another, undead reality.
+● Shroudsight: Perception + Awareness (difficulty 7)
+●● Ethereal Horde: Wits + Occult (difficulty 6)
+●●● Ashes to Ashes: Wits + Occult (difficulty 6)
+●●●● Cold of the Grave: Wits + Occult (difficulty 6)
+●●●●● Shambling Horde: Wits + Occult (difficulty 6)"} // TFN EDIT CHANGE - ORIGINAL: desc = "Offers control over another, undead reality."
 	icon_state = "necromancy"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/necromancy
@@ -13,6 +18,12 @@
 	var/datum/action/ritual_drawing/necromancy/ritualist = new()
 	ritualist.Grant(owner)
 	ritualist.level = level
+
+/datum/discipline/necromancy/post_loss()
+	. = ..()
+	for(var/datum/action/action as anything in owner.actions)
+		if(istype(action, /datum/action/ritual_drawing/necromancy))
+			qdel(action)
 
 /datum/discipline_power/necromancy/pre_activation_checks(mob/living/target)
 	. = ..()

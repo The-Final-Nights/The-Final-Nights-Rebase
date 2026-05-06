@@ -79,6 +79,7 @@
 #define LOCKACCESS_COGGIE "coggie"
 #define LOCKACCESS_PENTEX "pentex"
 #define LOCKACCESS_PENTEX_LEADER "pentexleader"
+#define LOCKACCESS_EVERGREEN "evergreen" // TFN EDIT ADD - ([LORE TEAM REQUESTED] map changes)
 
 #define LOCK_OWNERSHIP_CAR "car"
 #define LOCK_OWNERSHIP_APARTMENT "apartment"

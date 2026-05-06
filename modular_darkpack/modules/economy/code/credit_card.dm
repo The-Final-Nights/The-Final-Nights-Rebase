@@ -101,20 +101,24 @@
 
 /datum/outfit/job/vampire/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
 	. = ..()
+	// TFN EDIT START
+	var/obj/item/card/credit/card
+	for(var/obj/item/storage/backpack/b in user)
+		if(istype(b, /obj/item/storage/backpack/duffelbag/loadout))
+			continue // ignores the loadout bag
+		card = locate(/obj/item/card/credit) in b.contents
+		if(card)
+			break
+	if(card && card.has_checked == FALSE)
+		card.registered_name = user.real_name
 
-	var/obj/item/storage/backpack/b = locate() in user
-	if(b)
-		var/obj/item/card/credit/card = locate() in b.contents
-		if(card && card.has_checked == FALSE)
-			card.registered_name = user.real_name
+		//card.update_label()
+		//card.update_icon()
+		var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[user.account_id]"]
 
-			//card.update_label()
-			//card.update_icon()
-			var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[user.account_id]"]
-
-			if(account && account.account_id == user.account_id)
-				card.set_account(account)
-
+		if(account && account.account_id == user.account_id)
+			card.set_account(account)
+	// TFN EDIT END
 
 /obj/item/proc/GetCreditCard()
 	return null

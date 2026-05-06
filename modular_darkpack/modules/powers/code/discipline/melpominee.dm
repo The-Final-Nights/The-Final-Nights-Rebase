@@ -1,6 +1,12 @@
 /datum/discipline/melpominee
 	name = "Melpominee"
-	desc = "Named for the Greek Muse of Tragedy, Melpominee is a unique discipline of the Daughters of Cacophony. It explores the power of the voice, shaking the very soul of those nearby and allowing the vampire to perform sonic feats otherwise impossible."
+	desc = {"Named for the Greek Muse of Tragedy, Melpominee is a unique discipline of the Daughters of Cacophony. It explores the power of the voice, shaking the very soul of those nearby and allowing the vampire to perform sonic feats otherwise impossible.
+● The Missing Voice: Passive
+●● Phantom Speaker: Wits + Performance (difficulty 7)
+●●● Madrigal: Wits + Performance vs. target's Wits + Awareness
+●●●● Siren's Beckoning: Wits + Performance vs. target's Willpower
+●●●●● Virtuosa: Passive toggle
+●●●●●● Shattering Crescendo: Passive"} // TFN EDIT CHANGE - ORIGINAL: desc = "Named for the Greek Muse of Tragedy, Melpominee is a unique discipline of the Daughters of Cacophony. It explores the power of the voice, shaking the very soul of those nearby and allowing the vampire to perform sonic feats otherwise impossible."
 	icon_state = "melpominee"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/melpominee
@@ -350,14 +356,14 @@
 	listener.overlays_standing[MUTATIONS_LAYER] = song_overlay
 	listener.apply_overlay(MUTATIONS_LAYER)
 	if(cumulative_our_power[listener] >= 20)
-		listener.add_quirk(/datum/quirk/derangement)
+		listener.add_quirk(/datum/quirk/darkpack/derangement)
 
 	if(cumulative_list[listener] <= cumulative_our_power[listener]-6)
-		if(listener.add_quirk(/datum/quirk/derangement))
+		if(listener.add_quirk(/datum/quirk/darkpack/derangement))
 			addtimer(CALLBACK(src, PROC_REF(remove_derangement), listener), 1 SCENES)
 
 /datum/discipline_power/melpominee/sirens_beckoning/proc/remove_derangement(mob/living/carbon/listener)
-	listener.remove_quirk(/datum/quirk/derangement)
+	listener.remove_quirk(/datum/quirk/darkpack/derangement)
 
 /datum/discipline_power/melpominee/sirens_beckoning/deactivate(mob/living/carbon/target)
 	. = ..()

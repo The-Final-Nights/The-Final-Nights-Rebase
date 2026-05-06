@@ -3,7 +3,8 @@
 
 /datum/discipline/bloodheal
 	name = "Bloodheal"
-	desc = "Use the power of your Vitae to mend your flesh."
+	desc = {"Use the power of your Vitae to mend your flesh.
+● Bloodheal: Stamina + Survival (difficulty 8) - roll only on interrupted cast"} // TFN EDIT CHANGE - ORIGINAL: desc = "Use the power of your Vitae to mend your flesh."
 	icon_state = "bloodheal"
 	power_type = /datum/discipline_power/bloodheal
 	selectable = FALSE
@@ -45,7 +46,7 @@
 
 /datum/discipline_power/bloodheal/pre_activation_checks(atom/target)
 	. = ..()
-	if(do_after(owner, 1 TURNS, timed_action_flags = DO_AFTER_CHECK_NEXT_MOVE))
+	if(do_after(owner, 1 TURNS, timed_action_flags = DO_AFTER_CHECK_NEXT_MOVE | IGNORE_INCAPACITATED))
 		return TRUE
 	if(!bloodheal_roll)
 		bloodheal_roll = new()

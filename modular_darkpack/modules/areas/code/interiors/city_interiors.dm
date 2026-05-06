@@ -13,6 +13,7 @@
 	icon_state = "giovanni"
 	zone_type = ZONE_ELYSIUM
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/giovanni/basement
 	name = "Giovanni Mansion - Basement"
@@ -30,11 +31,13 @@
 	icon_state = "giovanni"
 	zone_type = ZONE_ELYSIUM
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/police
 	name = "\improper Police Station"
 	icon_state = "police"
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/police/morgue
 	name = "Police Station - Morgue"
@@ -70,16 +73,19 @@
 	name = "Strip Club"
 	icon_state = "strip"
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/mansion
 	name = "Abandoned Mansion"
 	icon_state = "mansion"
 	zone_type = ZONE_NO_MASQUERADE
+	domain = TRUE
 
 /area/vtm/interior/apartment
 	name = "Millenium Apartments"
 	icon_state = "camarilla_interior"
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/apartment/pacific
 	name = "Pacific Apartments"
@@ -110,6 +116,7 @@
 	icon_state = "old_clan_tzimisce"
 	zone_type = ZONE_ELYSIUM
 	music_index = MUSIC_PRINCE
+	domain = TRUE
 
 /area/vtm/interior/strip_elysium
 	name = "Strip Club - Elysium"
@@ -123,6 +130,7 @@
 	ambience_index = AMBIENCE_OFFICE
 	zone_type = ZONE_ELYSIUM
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/cabaret
 	name = "Siren's Cabaret"
@@ -136,21 +144,23 @@
 	ambience_index = AMBIENCE_OFFICE
 	music_index = MUSIC_SAFE
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/clinic/haven
 	name = "Clinic - Psych Ward"
 	zone_type = ZONE_ELYSIUM
 
 /area/vtm/interior/supply
-	name = "Supply"
+	name = "Warehouse" // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
 	icon_state = "supply"
-	ambience_index = AMBIENCE_OFFICE
+	ambience_index = AMBIENCE_SEWER // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
 
 /area/vtm/interior/hotel
 	name = "Hotel"
 	icon_state = "hotel"
 	ambience_index = AMBIENCE_OFFICE
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/cabdepot
 	name = "Cab Depot"
@@ -165,6 +175,7 @@
 	ambience_index = AMBIENCE_OFFICE
 	music_index = MUSIC_CHURCH
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/church/staff
 	name = "Church - Backrooms"
@@ -202,6 +213,7 @@
 	icon_state = "old_clan_tzimisce"
 	zone_type = ZONE_ELYSIUM
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/trujah
 	name = "Antique Shop"
@@ -225,6 +237,7 @@
 	name = "Coffee House"
 	icon_state = "old_clan_tzimisce"
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/banu/haven
 	name = "Coffee House - Employee Only"
@@ -232,10 +245,12 @@
 	zone_type = ZONE_ELYSIUM
 	fire_controled = TRUE
 
+// line 111. someone fucked up.
 /area/vtm/interior/tzimisce_manor
 	name = "Clan Tzimisce Manor"
 	icon_state = "old_clan_tzimisce"
 	zone_type = ZONE_ELYSIUM
+	domain = TRUE
 
 /area/vtm/interior/tzimisce_sanctum
 	name = "Clan Tzimisce Sanctum"
@@ -243,12 +258,13 @@
 	zone_type = ZONE_ELYSIUM
 
 /area/vtm/interior/setite
-	name = "Community Center"
+	name = "Casino" // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
 	icon_state = "hotel"
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/setite/basement
-	name = "Community Center Basement"
+	name = "Temple of Set" // TFN EDIT CHANGE - ([LORE TEAM REQUESTED] map changes)
 	zone_type = ZONE_ELYSIUM
 
 /area/vtm/interior/ghetto
@@ -260,6 +276,7 @@
 	name = "Little Italy - Store"
 	icon_state = "shop"
 	fire_controled = TRUE
+	domain = TRUE
 
 /area/vtm/interior/littleitaly/apartments
 	name = "Little Italy - Apartments"
@@ -275,20 +292,13 @@
 /area/vtm/interior/sabbat_lair
 	name = "Interior"
 	zone_type = "elysium"
+	domain = TRUE
 
 /area/vtm/interior/subway
 	name = "Subway Station"
 	icon_state = "financialdistrict"
 	fire_controled = TRUE
-
-/area/vtm/interior/setite
-	name = "Community Center"
-	icon_state = "hotel"
-	fire_controled = TRUE
-
-/area/vtm/interior/setite/basement
-	name = "Community Center Basement"
-	zone_type = "elysium"
+	domain = TRUE
 
 /area/vtm/interior/substation
 	name = "Grid Substation"
@@ -297,3 +307,17 @@
 	music_index = MUSIC_CITY
 	ambience_index = AMBIENCE_OFFICE
 	fire_controled = TRUE
+
+// TFN EDIT START - [LORE TEAM REQUESTED] map changes
+
+/area/vtm/interior/trainyard
+	name = "Old Trainyard"
+	icon_state = "supply"
+	ambience_index = AMBIENCE_OFFICE
+
+/area/vtm/interior/mall
+	name = "Union Square Mall"
+	icon_state = "shop"
+	fire_controled = TRUE
+
+// TFN EDIT END - [LORE TEAM REQUESTED] map changes

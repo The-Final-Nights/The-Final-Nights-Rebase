@@ -1,6 +1,11 @@
 /datum/discipline/visceratika
 	name = "Visceratika"
-	desc = "The Discipline of Visceratika is the exclusive possession of the Gargoyle bloodline and is an extension of their natural affinity for stone, earth, and things made thereof."
+	desc = {"The Discipline of Visceratika is the exclusive possession of the Gargoyle bloodline and is an extension of their natural affinity for stone, earth, and things made thereof.
+● Skin of the Chameleon: Passive
+●● Scry the Hearthstone: Perception + Awareness
+●●● Bond with the Mountain: Passive
+●●●● Armor of Terra: No roll - always active
+●●●●● Flow Within the Mountain: Passive"} // TFN EDIT CHANGE - ORIGINAL: desc = "The Discipline of Visceratika is the exclusive possession of the Gargoyle bloodline and is an extension of their natural affinity for stone, earth, and things made thereof."
 	icon_state = "visceratika"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/visceratika
@@ -66,7 +71,7 @@
 	willpower_cost = 1
 
 	level = 2
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_SEE
+	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE  // TFN EDIT - Original :  check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_SEE
 	toggled = TRUE
 	var/area/starting_area
 	var/datum/storyteller_roll/scry_the_hearthstone/scry_roll
@@ -188,7 +193,7 @@
 	desc = "Merge with solid stone, and move through it without disturbing it."
 
 	level = 5
-	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
+	check_flags = DISC_CHECK_CONSCIOUS
 	vitae_cost = 2
 	violates_masquerade = TRUE
 
@@ -222,7 +227,7 @@
 	SIGNAL_HANDLER
 	if(!istype(blocker, /turf/closed))
 		return
-	if(!istype(blocker, /turf/cordon))
+	if(istype(blocker, /turf/cordon))
 		return
 	if(get_area(owner) == get_area(blocker))
 		return COMSIG_COMPONENT_PERMIT_PASSAGE

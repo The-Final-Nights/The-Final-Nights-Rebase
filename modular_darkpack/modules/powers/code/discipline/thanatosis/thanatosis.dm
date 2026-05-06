@@ -1,6 +1,11 @@
 /datum/discipline/thanatosis
 	name = "Thanatosis"
-	desc = "Offers control over your own rotted body"
+	desc = {"Offers control over your own rotted body.
+● Hag's Wrinkles: Stamina + Subterfuge
+●● Putrefaction: Dexterity + Medicine vs. target's Stamina
+●●● Ashes to Ashes: Passive
+●●●● Withering: Manipulation + Medicine vs. target's Stamina
+●●●●● Necrosis: Dexterity + Medicine vs. target's Stamina"} // TFN EDIT CHANGE - ORIGINAL: desc = "Offers control over your own rotted body"
 	icon_state = "thanatosis"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/thanatosis
@@ -183,6 +188,7 @@
 	target_type = TARGET_LIVING
 	range = 1
 	willpower_cost = 1
+	vitae_cost = 0
 
 	effect_sound = 'modular_darkpack/modules/ritual_necromancy/sounds/necromancy4.ogg'
 

@@ -1,6 +1,11 @@
 /datum/discipline/dementation
 	name = "Dementation"
-	desc = "Makes all humans in radius mentally ill for a moment, supressing their defending ability."
+	desc = {"Makes all humans in radius mentally ill for a moment, supressing their defending ability.
+● Passion: Charisma + Empathy
+●● The Haunting: Manipulation + Subterfuge
+●●● Eyes of Chaos: Perception + Occult
+●●●● Voice of Madness: Manipulation + Empathy
+●●●●● Total Insanity: Manipulation + Intimidation"} // TFN EDIT CHANGE - ORIGINAL: desc = "Makes all humans in radius mentally ill for a moment, supressing their defending ability."
 	icon_state = "dementation"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/dementation
@@ -8,7 +13,7 @@
 
 /datum/discipline/dementation/post_gain()
 	. = ..()
-	owner.add_quirk(/datum/quirk/derangement)
+	owner.add_quirk(/datum/quirk/darkpack/derangement)
 
 /datum/discipline_power/dementation
 	name = "Dementation power name"
@@ -72,7 +77,7 @@ Presence powers, etc
 /datum/discipline_power/dementation/passion/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
-	var/mutable_appearance/dementation_overlay = mutable_appearance('modular_darkpack/modules/powers/icons/dementation.dmi', "dementation", -MUTATIONS_LAYER) // TFN EDIT
+	var/mutable_appearance/dementation_overlay = mutable_appearance('modular_darkpack/modules/powers/icons/dementation.dmi', "dementation", -MUTATIONS_LAYER)
 	dementation_overlay.pixel_z = 1
 	target.overlays_standing[MUTATIONS_LAYER] = dementation_overlay
 	target.apply_overlay(MUTATIONS_LAYER)
@@ -155,7 +160,7 @@ pools for a turn or two after the manifestation.
 /datum/discipline_power/dementation/the_haunting/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.remove_overlay(MUTATIONS_LAYER)
-	var/mutable_appearance/dementation_overlay = mutable_appearance('modular_darkpack/modules/powers/icons/dementation.dmi', "dementation", -MUTATIONS_LAYER) // TFN EDIT
+	var/mutable_appearance/dementation_overlay = mutable_appearance('modular_darkpack/modules/powers/icons/dementation.dmi', "dementation", -MUTATIONS_LAYER)
 	dementation_overlay.pixel_z = 1
 	target.overlays_standing[MUTATIONS_LAYER] = dementation_overlay
 	target.apply_overlay(MUTATIONS_LAYER)
@@ -338,7 +343,7 @@ frenzy or Rötschreck response is automatic.
 	var/successes
 
 
-//DARKPACK TODO - frenzy. this power requires it
+// DARKPACK TODO - frenzy. this power requires it
 
 /*
 Affected victims fly immediately into frenzy or a
@@ -386,7 +391,7 @@ frenzy or Rötschreck response is automatic.
 		GLOB.move_manager.move_away(moving = chosen, chasing = owner, max_dist = 10, timeout = (duration_length * 2), delay = chosen.cached_multiplicative_slowdown)
 
 		chosen.remove_overlay(MUTATIONS_LAYER)
-		var/mutable_appearance/dementation_overlay = mutable_appearance('modular_darkpack/modules/powers/icons/dementation.dmi', "dementation", -MUTATIONS_LAYER) // TFN EDIT
+		var/mutable_appearance/dementation_overlay = mutable_appearance('modular_darkpack/modules/powers/icons/dementation.dmi', "dementation", -MUTATIONS_LAYER)
 		dementation_overlay.pixel_z = 1
 		chosen.overlays_standing[MUTATIONS_LAYER] = dementation_overlay
 		chosen.apply_overlay(MUTATIONS_LAYER)
@@ -455,7 +460,7 @@ determines the duration.
 	. = ..()
 	attack_target = target
 	attack_target.remove_overlay(MUTATIONS_LAYER)
-	var/mutable_appearance/dementation_overlay = mutable_appearance('modular_darkpack/modules/powers/icons/dementation.dmi', "dementation", -MUTATIONS_LAYER) // TFN EDIT
+	var/mutable_appearance/dementation_overlay = mutable_appearance('modular_darkpack/modules/powers/icons/dementation.dmi', "dementation", -MUTATIONS_LAYER)
 	dementation_overlay.pixel_z = 1
 	attack_target.overlays_standing[MUTATIONS_LAYER] = dementation_overlay
 	attack_target.apply_overlay(MUTATIONS_LAYER)

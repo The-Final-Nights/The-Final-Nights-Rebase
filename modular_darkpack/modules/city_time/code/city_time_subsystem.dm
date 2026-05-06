@@ -54,7 +54,7 @@ SUBSYSTEM_DEF(city_time)
 			H.apply_status_effect(/datum/status_effect/sunlight_burning)
 
 /datum/controller/subsystem/city_time/proc/extend_round(amount)
-	time_till_daytime += amount * SSticker.station_time_rate_multiplier
+	//time_till_daytime += amount * SSticker.station_time_rate_multiplier // TFN EDIT REMOVAL
 	time_till_roundend += amount * SSticker.station_time_rate_multiplier
 	log_admin("the round was extended to [SScity_time.time_till_roundend]/[DisplayTimeText(SScity_time.time_till_roundend)].")
 	message_admins("the round was extended to [SScity_time.time_till_roundend]/[DisplayTimeText(SScity_time.time_till_roundend)].")
