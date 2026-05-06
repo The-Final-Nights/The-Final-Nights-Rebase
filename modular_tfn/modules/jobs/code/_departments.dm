@@ -4,5 +4,5 @@
 	department_head = /datum/job/vampire/branch_lead
 	department_experience_type = EXP_TYPE_SPIRAL
 	display_order = 1
-	label_class = "pentex"
-	ui_color = COLOR_CORP_ENDRON
+	label_class = "magadon"
+	ui_color = COLOR_CORP_HERRICKS // lol, spriters used the wrong magadon color?

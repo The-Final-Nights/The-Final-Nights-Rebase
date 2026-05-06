@@ -390,7 +390,7 @@ export function JobsPage() {
                 <Department department="Strip_Club" />
                 <Department department="Warehouse" />
                 <Department department="Police" />
-                <Department department="Pentex" />
+                <Department department="Magadon" />
               </Stack>
             </Stack.Item>
             <Stack.Item>
@@ -406,7 +406,8 @@ export function JobsPage() {
               </Stack>
             </Stack.Item>
             {
-              // DARKPACK EDIT ADD END
+               // TFN EDIT CHANGE - Original : <Department department="Pentex" />
+               // DARKPACK EDIT ADD END
             }
           </Stack>
         </Stack.Item>
