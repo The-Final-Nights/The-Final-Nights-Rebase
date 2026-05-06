@@ -3180,6 +3180,21 @@
 	icon_state = "stone8"
 	},
 /area/vtm/interior/trujah)
+"aRr" = (
+/obj/structure/vampdoor/reinf{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/grey{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/grey{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/door/access/spiral,
+/obj/effect/mapping_helpers/door/bash_difficulty/five,
+/obj/effect/mapping_helpers/door/unlock,
+/turf/open/floor/plating/grate,
+/area/vtm/interior/wyrm_corrupted)
 "aRx" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
@@ -37599,6 +37614,9 @@
 /obj/effect/turf_decal/siding/grey{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/access/spiral,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/wyrm_corrupted)
 "jCh" = (
@@ -42057,9 +42075,9 @@
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/door/access/pentex,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/spiral,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/endron_facility/plant)
 "kLL" = (
@@ -46974,10 +46992,9 @@
 /area/vtm/interior/anarch/basement)
 "lYB" = (
 /obj/structure/vampdoor,
-/obj/effect/mapping_helpers/door/access/pentex,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
-/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/spiral,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "lYG" = (
@@ -66012,10 +66029,9 @@
 /obj/structure/vampdoor{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/pentex,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
-/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/spiral,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "qGt" = (
@@ -79936,6 +79952,9 @@
 /obj/effect/turf_decal/siding/grey{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/door/access/spiral,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/bash_difficulty/six,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/wyrm_corrupted)
 "uhv" = (
@@ -97829,7 +97848,7 @@ uht
 jmr
 jmr
 jmr
-uht
+aRr
 jmr
 jmr
 uvs
