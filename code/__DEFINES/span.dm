@@ -90,6 +90,7 @@
 #define span_medradio(str) ("<span class='medradio'>" + str + "</span>")
 #define span_memo(str) ("<span class='memo'>" + str + "</span>")
 #define span_memoedit(str) ("<span class='memoedit'>" + str + "</span>")
+#define span_policy(str) ("<span class='policy'>" + str + "</span>")
 #define span_mentor(str) ("<span class ='mentor'>" + str + "</span>")
 #define span_mentornotice(str) ("<span class = 'mentornotice'>" + str + "</span>")
 #define span_message(str) ("<span class='message'>" + str + "</span>")
