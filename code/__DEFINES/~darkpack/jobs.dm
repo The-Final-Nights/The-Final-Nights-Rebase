@@ -227,7 +227,7 @@
 #define DEPARTMENT_BITFLAG_CITY_SERVICES (1<<13)
 #define DEPARTMENT_CITY_SERVICES "City_Services"
 #define DEPARTMENT_BITFLAG_PENTEX (1<<14)
-#define DEPARTMENT_PENTEX "Pentex"
+#define DEPARTMENT_PENTEX "Magadon" // TFN EDIT CHANGE - Original : #define DEPARTMENT_PENTEX "Pentex"
 #define DEPARTMENT_BITFLAG_GAIA (1<<15)
 #define DEPARTMENT_GAIA "Garou_Nation"
 // TFN EDIT ADD - More Sabbat Jobs
