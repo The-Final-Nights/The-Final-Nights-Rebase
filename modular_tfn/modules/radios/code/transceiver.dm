@@ -13,7 +13,7 @@ GLOBAL_VAR_INIT(police_crime_reporting_cooldown, 0)
 		return ..()
 	if(!COOLDOWN_FINISHED(GLOB, police_crime_reporting_cooldown))
 		return
-	COOLDOWN_START(GLOB, police_crime_reporting_cooldown, 10 SECONDS)
+	COOLDOWN_START(GLOB, police_crime_reporting_cooldown, 4 SECONDS)
 	crime_nav_location = location
 	var/gps = "<a href='byond://?src=[REF(src)];navigate_to=1'>\[GPS\]</a>"
 	var/description = suspect_desc ? "Suspect last seen wearing [suspect_desc]. " : ""
