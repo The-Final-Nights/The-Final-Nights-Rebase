@@ -32,6 +32,7 @@
 	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
 
 /obj/item/bodypart/leg/left/fera
+	unarmed_sharpness = SHARP_EDGED
 	// limb_id = SPECIES_FERA
 	unarmed_sharpness = SHARP_EDGED
 
