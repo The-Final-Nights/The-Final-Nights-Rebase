@@ -72,10 +72,16 @@ JOB_START_HELPER(camarilla/towerwork, JOB_TOWERWORK)
 JOB_START_HELPER(primogen/toreador, JOB_PRIMOGEN_TOREADOR)
 JOB_START_HELPER(primogen/banu, JOB_PRIMOGEN_BANU_HAQIM)
 // JOB_START_HELPER(primogen/lasombra, JOB_PRIMOGEN_LASOMBRA) //TFN EDIT REMOVAL - Brujah Primogen
-JOB_START_HELPER(primogen/brujah, JOB_PRIMOGEN_BRUJAH) //TFN EDIT ADD - Brujah Primogen
 JOB_START_HELPER(primogen/malkavian, JOB_PRIMOGEN_MALKAVIAN)
 JOB_START_HELPER(primogen/nosferatu, JOB_PRIMOGEN_NOSFERATU)
 JOB_START_HELPER(primogen/ventrue, JOB_PRIMOGEN_VENTRUE)
+
+//TFN EDIT ADD - Brujah Primogen
+/obj/effect/landmark/start/darkpack/primogen/brujah
+	name = JOB_PRIMOGEN_BRUJAH
+	icon_state = JOB_PRIMOGEN_BRUJAH
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+//TFN EDIT ADD END
 
 /* Hospital */
 /obj/effect/landmark/start/darkpack/hospital
@@ -189,5 +195,14 @@ JOB_START_HELPER(pentex/employee, JOB_PENTEX_EMPLOYEE)
 JOB_START_HELPER(voivode/voivode, JOB_VOIVODE)
 JOB_START_HELPER(voivode/bogatyr, JOB_BOGATYR)
 JOB_START_HELPER(voivode/zadruga, JOB_ZADRUGA)
+
+/* Society of Leopold */
+/obj/effect/landmark/start/darkpack/society_of_leopold
+	name = "generic hunter start"
+
+JOB_START_HELPER(society_of_leopold/abbe, JOB_ABBE)
+JOB_START_HELPER(society_of_leopold/condittieri, JOB_CONDOTTIERI)
+JOB_START_HELPER(society_of_leopold/inquisitor, JOB_INQUISITOR)
+JOB_START_HELPER(society_of_leopold/novice, JOB_NOVICE)
 
 #undef JOB_START_HELPER
