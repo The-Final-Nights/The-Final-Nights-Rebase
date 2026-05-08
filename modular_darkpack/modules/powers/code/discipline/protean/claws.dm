@@ -9,8 +9,6 @@
 	force = 1 TTRPG_DAMAGE
 	damtype = AGGRAVATED // Based on V20
 	sharpness = SHARP_POINTY
-	armour_penetration = 40
-	block_chance = 20
 	item_flags = DROPDEL
 	masquerade_violating = TRUE
 	obj_flags = NONE
@@ -22,6 +20,9 @@
 /obj/item/gangrel_claws/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	// Based on V20
+	/* TFN EDIT REMOVAL - Protean 2 Damage Fix
 	if(isliving(user))
 		var/mob/living/living_user = user
 		force = (living_user.st_get_stat(STAT_STRENGTH) + 1) TTRPG_DAMAGE
+	*/
+	force = ((user.st_get_stat (STAT_STRENGTH) + 1) * 5) // TFN EDIT ADD - Protean 2 Damage Fix

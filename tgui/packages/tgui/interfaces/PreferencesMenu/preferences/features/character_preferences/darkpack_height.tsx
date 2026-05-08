@@ -30,30 +30,28 @@ function HeightInput(props: FeatureValueProps<number, number, HeightServerData>)
     handleSetValue(snapToBackend(next));
   };
   return (
-    <>
-      <Stack align="center">
-        <Stack.Item>
-          <Button icon="minus" disabled={!serverData || displayInch <= 0} onClick={() => adjust(-1)} />
-        </Stack.Item>
-        <Stack.Item grow>
-          <Slider
-            value={displayInch}
-            minValue={0}
-            maxValue={inchSpan}
-            step={1}
-            disabled={!serverData}
-            format={() => `${label}`}
-            onChange={(_e: Event, v: number) => {
-              setDisplayInch(v);
-              handleSetValue(snapToBackend(v));
-            }}
-          />
-        </Stack.Item>
-        <Stack.Item>
-          <Button icon="plus" disabled={!serverData || displayInch >= inchSpan} onClick={() => adjust(1)} />
-        </Stack.Item>
-      </Stack>
-    </>
+    <Stack align="center">
+      <Stack.Item>
+        <Button icon="minus" disabled={!serverData || displayInch <= 0} onClick={() => adjust(-1)} />
+      </Stack.Item>
+      <Stack.Item grow>
+        <Slider
+          value={displayInch}
+          minValue={0}
+          maxValue={inchSpan}
+          step={1}
+          disabled={!serverData}
+          format={() => `${label}`}
+          onChange={(_e: Event, v: number) => {
+            setDisplayInch(v);
+            handleSetValue(snapToBackend(v));
+          }}
+        />
+      </Stack.Item>
+      <Stack.Item>
+        <Button icon="plus" disabled={!serverData || displayInch >= inchSpan} onClick={() => adjust(1)} />
+      </Stack.Item>
+    </Stack>
   );
 }
 // TFN EDIT END

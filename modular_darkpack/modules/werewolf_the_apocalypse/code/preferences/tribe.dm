@@ -8,7 +8,13 @@
 
 /datum/preference/choiced/subsplat/garou_tribe/icon_for(value)
 	var/datum/universal_icon/tribe_icon = uni_icon('icons/effects/effects.dmi', "nothing")
-	tribe_icon.blend_icon(uni_icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/tribes.dmi', replacetext(LOWER_TEXT(value), " ", "_")), ICON_OVERLAY)
+	// TFN EDIT ADDITION START - Garou
+	var/icon/tribe_icon_state = replacetext(LOWER_TEXT(value), " ", "_")
+	if(icon_exists('modular_darkpack/modules/werewolf_the_apocalypse/icons/tribes.dmi', tribe_icon_state))
+		tribe_icon.blend_icon(uni_icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/tribes.dmi', tribe_icon_state), ICON_OVERLAY)
+	else
+		tribe_icon.blend_icon(uni_icon('modular_tfn/modules/werewolf_the_apocalypse/icons/tribes.dmi', tribe_icon_state), ICON_OVERLAY)
+	// TFN EDIT ADDITION END
 	return tribe_icon
 
 /datum/preference/choiced/subsplat/garou_tribe/apply_to_human(mob/living/carbon/human/target, value)

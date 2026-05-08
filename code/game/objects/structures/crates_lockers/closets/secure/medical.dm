@@ -22,12 +22,16 @@
 	name = "anesthetic closet"
 	desc = "Used to knock people out."
 	icon_state = "med_secure"
-	req_access = list(ACCESS_SURGERY)
+	req_one_access = list(ACCESS_SURGERY) // TFN EDIT CHANGE - Original : req_access = list(ACCESS_SURGERY)
 
 /obj/structure/closet/secure_closet/medical2/PopulateContents()
 	..()
 	for(var/i in 1 to 3)
 		new /obj/item/tank/internals/anesthetic(src)
+// TFN EDIT ADDITION START
+	for(var/i in 1 to 3)
+		new /obj/item/tank/internals/oxygen(src)
+// TFN EDIT ADDITION END
 	for(var/i in 1 to 3)
 		new /obj/item/clothing/mask/breath/muzzle(src)
 

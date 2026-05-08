@@ -4,14 +4,14 @@
 #define CHOICE_NO "No Extension"
 
 /datum/vote/extend_night
-	name = "Extend Night"
+	name = "Extend the Round" // TFN EDIT, ORIGINAL: name = "Extend Night"
 	default_choices = list(
 		CHOICE_15,
 		CHOICE_30,
 		CHOICE_60,
 		CHOICE_NO
 	)
-	default_message = "Vote to extend the night by a given amount."
+	default_message = "Vote to extend the round by a given amount. Note this will not extend the night, but rather the daytime." // TFN EDIT, ORIGINAL: default_message = "Vote to extend the night by a given amount."
 
 /datum/vote/extend_night/can_be_initiated(forced)
 	. = ..()
@@ -21,9 +21,14 @@
 	if(forced)
 		return VOTE_AVAILABLE
 
+	/* // TFN EDIT REMOVAL START
 	if(SScity_time.daytime_started)
 		return "The night has already ended."
-
+	*/ // TFN EDIT REMOVAL END
+	// TFN EDIT ADD START
+	if(SScity_time.roundend_started)
+		return "The round has already ended."
+	// TFN EDIT ADD END
 	return VOTE_AVAILABLE
 
 /datum/vote/extend_night/finalize_vote(winning_option)

@@ -42,6 +42,9 @@
 	check_flags = DISC_CHECK_CONSCIOUS
 	vitae_cost = 0
 
+/datum/discipline_power/temporis/hourglass_of_the_mind/post_gain()
+	ADD_TRAIT(owner, TRAIT_TIME_SENSE, DISCIPLINE_TRAIT(type))
+
 /datum/discipline_power/temporis/hourglass_of_the_mind/activate()
 	. = ..()
 	to_chat(owner, "<b>[station_time_timestamp("hh:mm:ss")]</b>")
@@ -75,6 +78,7 @@
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
 	target_type = TARGET_LIVING
 	range = 7
+	vitae_cost = 0 //You *can* spend a BP to boost this, but it'd extend time to hours or a day.
 
 	hostile = TRUE
 

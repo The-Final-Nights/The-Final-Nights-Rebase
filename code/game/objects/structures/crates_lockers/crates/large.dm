@@ -34,6 +34,12 @@
 
 /obj/structure/closet/crate/large/attackby(obj/item/W, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(W.tool_behaviour == TOOL_CROWBAR)
+		// TFN EDIT START
+		playsound(loc, 'sound/machines/airlock/airlock_alien_prying.ogg', 30, TRUE)
+		balloon_alert(user, "prying open crate...")
+		if(!do_after(user, delay = rand(10, 13) SECONDS, target = src, icon = 'icons/obj/tools.dmi', iconstate = "crowbar"))
+			return FALSE
+		// TFN EDIT END
 		if(manifest)
 			tear_manifest(user)
 		if(!open(user))

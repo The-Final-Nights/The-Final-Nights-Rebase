@@ -399,9 +399,11 @@ export function JobsPage() {
                 <Department department="Giovanni" />
                 <Department department="Manor" />
                 <Department department="Sabbat" />
+                <Department department="True_Sabbat" />
                 <Department department="Citizen" />
                 <Department department="City_Services" />
                 <Department department="Garou_Nation" />
+                <Department department="Society_of_Leopold" />
               </Stack>
             </Stack.Item>
             {

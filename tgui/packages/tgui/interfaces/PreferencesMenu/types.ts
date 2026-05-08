@@ -30,6 +30,7 @@ export enum Food {
   Sugar = 'SUGAR',
   Toxic = 'TOXIC',
   Vegetables = 'VEGETABLES',
+  Egg = 'EGG',
 }
 
 export enum JobPriority {
@@ -241,6 +242,7 @@ export type PreferencesMenuData = {
   discipline_tier: string;
   discipline_tier_details: string;
   is_trusted: BooleanLike;
+  player_whitelists: string[]; // TFN EDIT ADD - WHITELIST
   max_trusted_generation: number;
   max_public_generation: number;
   highest_generation_limit: number;

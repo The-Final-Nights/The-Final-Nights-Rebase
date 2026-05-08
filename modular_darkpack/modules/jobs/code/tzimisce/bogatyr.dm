@@ -1,7 +1,8 @@
 
+/* TFN EDIT REMOVAL - More Sabbat Roles
 /datum/job/vampire/bogatyr
 	title = JOB_BOGATYR
-	faction = FACTION_CITY
+	faction = FACTION_SABBAT
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = " the Laws of Hospitality"
@@ -36,3 +37,4 @@
 	belt = /obj/item/storage/belt/sheath/vamp/sword
 	l_pocket = /obj/item/smartphone/bogatyr
 	backpack_contents = list(/obj/item/vamp/keys/old_clan_tzimisce=1, /obj/item/card/credit=1)
+*/

@@ -1,9 +1,9 @@
 /datum/job/vampire/sabbatpack
 	title = JOB_SABBAT_PACK
-	faction = FACTION_CITY
+	faction = FACTION_SABBAT
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "Caine"
+	supervisors = "the Ductus"
 	config_tag = "SABBAT_PACK"
 	outfit = /datum/outfit/job/vampire/sabbatpack
 	job_flags = CITY_JOB_FLAGS
@@ -25,7 +25,7 @@
 	l_pocket = /obj/item/smartphone
 	r_pocket = /obj/item/vamp/keys/sabbat
 	uses_default_clan_clothes = TRUE
-	backpack_contents = list(/obj/item/card/credit=1) // TFN EDIT ADD - Gives Sabbat Debit Cards
+	backpack_contents = list(/obj/item/card/credit=1)
 
 /datum/outfit/job/vampire/sabbatpack/pre_equip(mob/living/carbon/human/H)
 	. = ..()

@@ -1,9 +1,9 @@
 /datum/job/vampire/sabbatductus
 	title = JOB_SABBAT_DUCTUS
-	faction = FACTION_CITY
+	faction = FACTION_SABBAT
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Caine"
+	supervisors = SUPERVISOR_SABBAT
 	config_tag = "SABBAT_DUCTUS"
 	outfit = /datum/outfit/job/vampire/sabbatductus
 	allowed_splats = list(SPLAT_KINDRED)
@@ -27,7 +27,7 @@
 	l_pocket = /obj/item/smartphone
 	r_pocket = /obj/item/vamp/keys/sabbat
 	uses_default_clan_clothes = TRUE
-	backpack_contents = list(/obj/item/card/credit=1) // TFN EDIT ADD - Gives Sabbat Debit Cards
+	backpack_contents = list(/obj/item/card/credit=1)
 
 /datum/outfit/job/vampire/sabbatductus/pre_equip(mob/living/carbon/human/H)
 	. = ..()
