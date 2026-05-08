@@ -402,6 +402,8 @@
 	contains = list(/obj/item/clothing/suit/vampire/vest/army,
 					/obj/item/clothing/head/vampire/army)
 	crate_name = "armor crate"
+*/ //TFN EDIT REMOVE END
+
 /datum/supply_pack/weapons/armoreod
 	name = "Armor (EOD)"
 	desc = "Contains a single complect of full EOD protection."
@@ -409,4 +411,3 @@
 	contains = list(/obj/item/clothing/suit/vampire/eod,
 					/obj/item/clothing/head/vampire/eod)
 	crate_name = "armor crate"
-*/ //TFN EDIT REMOVE END
