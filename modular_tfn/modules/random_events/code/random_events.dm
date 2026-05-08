@@ -50,7 +50,7 @@ SUBSYSTEM_DEF(tfnevents)
 		if(box.damaged > 100) // dont doubly blow the thing if its already blown from say, the faulty grid event
 			continue
 		box.damaged = 150
-		box.check_damage()
+		box.power_off()
 		blown += box
 
 	if(!length(blown))

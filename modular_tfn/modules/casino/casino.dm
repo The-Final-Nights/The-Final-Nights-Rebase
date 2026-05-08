@@ -366,15 +366,11 @@
 
 /obj/lombard/casino/sell_one_item(obj/item/stack/sold, mob/living/user)
 	var/datum/component/selling/sold_sc = sold.GetComponent(/datum/component/selling)
-	var/is_donator = (user.client?.prefs?.donator_rank && user.client?.prefs?.donator_rank > 0)
-	var/fee = is_donator ? 0 : round(sold_sc.cost * 0.07) // 7% fee for non-donators, 0% fee for donators.
+	var/fee = sold_sc.cost * 0.07
 	var/amount = (sold_sc.cost - fee) * sold.amount
 	var/chip_amount = sold.amount > 1 ? " for [sold.amount] chips" : ""
-	if(!is_donator)
-		sold_sc.cost -= fee
-		to_chat(user, span_notice("The casino deducts a $[fee] fee. You receive $[amount][chip_amount]."))
-	else
-		to_chat(user, span_notice("The casino waives the $[fee] fee. You receive $[amount][chip_amount]. (( Thank you for donating! ))"))
+	sold_sc.cost -= fee
+	to_chat(user, span_notice("The casino deducts a $[fee] fee. You receive $[amount][chip_amount]."))
 	spawn_money(amount, src.loc)
 	playsound(loc, 'modular_tfn/modules/casino/sounds/singlepayout.ogg', pick(50, 60), TRUE)
 	qdel(sold)
