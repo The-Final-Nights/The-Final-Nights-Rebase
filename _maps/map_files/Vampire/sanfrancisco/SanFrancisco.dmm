@@ -1875,6 +1875,7 @@
 /area/vtm/interior/strip)
 "axp" = (
 /obj/effect/decal/cleanable/litter,
+/obj/effect/landmark/start/darkpack/society_of_leopold/novice,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer)
 "axw" = (
@@ -5721,6 +5722,7 @@
 /obj/structure/railing{
 	dir = 10
 	},
+/obj/effect/landmark/start/darkpack/society_of_leopold/novice,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/sewer)
 "bya" = (
@@ -35277,7 +35279,7 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/obj/item/vtm_artifact/key_of_alamut,
+/obj/item/occult_artifact/vampire/key_of_alamut,
 /obj/item/masquerade_contract,
 /turf/open/floor/carpet,
 /area/vtm/interior/banu/haven)
@@ -37517,6 +37519,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "jxT" = (
+/obj/effect/landmark/start/darkpack/society_of_leopold/novice,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/sewer)
 "jxU" = (
@@ -48701,6 +48704,10 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/apartment/pacific)
+"mnW" = (
+/obj/effect/landmark/start/darkpack/society_of_leopold/abbe,
+/turf/open/floor/carpet,
+/area/vtm/interior/sewer)
 "mnX" = (
 /obj/effect/turf_decal/asphaltline/alt{
 	dir = 8
@@ -54424,6 +54431,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/light/dim/directional/north,
+/obj/effect/landmark/start/darkpack/society_of_leopold/novice,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/sewer)
 "nLm" = (
@@ -63692,6 +63700,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/litter,
+/obj/effect/landmark/start/darkpack/society_of_leopold/novice,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/sewer)
 "pZm" = (
@@ -63914,6 +63923,13 @@
 /obj/effect/decal/support,
 /turf/open/water/beach/vamp/deep,
 /area/vtm)
+"qcs" = (
+/obj/effect/decal/cleanable/litter,
+/obj/effect/landmark/start/darkpack/society_of_leopold/inquisitor,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/vtm/interior/sewer)
 "qcu" = (
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/bush/fullgrass/style_random,
@@ -74612,6 +74628,12 @@
 /obj/machinery/light/prince/directional/north,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
+"sLZ" = (
+/obj/effect/landmark/start/darkpack/society_of_leopold/inquisitor,
+/turf/open/floor/plating/concrete{
+	color = "#bfbfbf"
+	},
+/area/vtm/interior/sewer)
 "sMi" = (
 /obj/structure/fluff/tv{
 	icon_state = "tv_off";
@@ -77079,6 +77101,10 @@
 /obj/effect/decal/cleanable/food/flour,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/shop)
+"tsT" = (
+/obj/effect/landmark/start/darkpack/society_of_leopold/condittieri,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/sewer)
 "tsW" = (
 /obj/structure/table/wood/fancy/red,
 /obj/item/flashlight/flare/candle/infinite{
@@ -85671,6 +85697,7 @@
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1
 	},
+/obj/effect/landmark/start/darkpack/society_of_leopold/inquisitor,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer)
 "vHk" = (
@@ -113113,7 +113140,7 @@ gco
 pHD
 gco
 rQH
-iky
+sLZ
 pHD
 ajD
 sRQ
@@ -113521,7 +113548,7 @@ gco
 gco
 gco
 pIH
-ajD
+qcs
 iky
 lby
 pch
@@ -113718,7 +113745,7 @@ dlo
 cVX
 oHK
 wXF
-gco
+tsT
 gco
 gco
 gco
@@ -113919,7 +113946,7 @@ uvs
 uvs
 nFc
 swr
-fGA
+mnW
 fGA
 xdJ
 gco
@@ -114128,7 +114155,7 @@ tgD
 krd
 iuf
 qmI
-gco
+tsT
 gco
 gco
 rQH
