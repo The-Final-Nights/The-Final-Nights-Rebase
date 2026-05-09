@@ -6,7 +6,7 @@
 	if(auspice.name == AUSPICE_PHILODOX)
 		if(garou_splat)
 			. += "<span class='purple'><i>You recognize their scent as Garou.</i></span><br>"
-		if(kinfolk_splat)
+		if(kinfolk_splat && !(HAS_TRAIT(examined, TRAIT_UNSCENTED)))
 			. += "<span class='purple'><i>You recognize their scent as Kin.</i></span><br>"
 	// TFN EDIT END
 	if(wolp_splat)
