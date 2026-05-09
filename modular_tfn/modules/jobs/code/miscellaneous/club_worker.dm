@@ -1,2 +1,2 @@
 /datum/job/vampire/club_worker
-	maximum_immortal_age = 10
+	maximum_immortal_age = 100
