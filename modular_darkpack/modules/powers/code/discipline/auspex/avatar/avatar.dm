@@ -74,3 +74,9 @@
 	var/known_name = GET_GUESTBOOK_NAME(src, hovered)
 	returned_name[1] = known_name ? "[known_name]" : "[hovered.name]"
 	return SCREENTIP_NAME_SET
+
+// TFN EDIT START
+/mob/living/basic/avatar/try_speak(message, ignore_spam, forced, filterproof)
+	to_chat(src, span_warning("You cannot speak while astrally projecting!"))
+	return FALSE
+// TFN EDIT END

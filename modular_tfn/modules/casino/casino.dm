@@ -20,9 +20,9 @@
 
 	// dice rolls for each symbol
 	var/sevenroll = 5
-	var/diamondroll = 15
-	var/bellroll = 35
-	var/barroll = 60
+	var/diamondroll = 5
+	var/bellroll = 15
+	var/barroll = 25
 
 	// payouts for each symbol based on the result
 	var/seven_payout = 77
@@ -56,10 +56,10 @@
 	name = "deluxe slot machine"
 	desc = "Higher stakes, higher rewards!"
 	// dice rolls for each symbol
-	sevenroll = 8
-	diamondroll = 20
-	bellroll = 40
-	barroll = 55
+	sevenroll = 5
+	diamondroll = 5
+	bellroll = 15
+	barroll = 20
 
 	// payouts for each symbol based on the result
 	seven_payout = 77
@@ -70,7 +70,7 @@
 
 	// bet sizes
 	bet_size = 25
-	bet_sizes = list(25, 50, 100, 250)
+	bet_sizes = list(25, 50, 75, 100)
 
 /obj/structure/casino/slotmachine/attack_hand(mob/user)
 	ui_interact(user)
