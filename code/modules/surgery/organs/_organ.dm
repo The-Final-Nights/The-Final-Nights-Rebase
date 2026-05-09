@@ -163,7 +163,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(owner)
 		if(owner.bodytemperature > T0C)
 			var/air_temperature_factor = min((owner.bodytemperature - T0C) / 20, 1)
-			apply_organ_damage(decay_factor * maxHealth * seconds_per_tick * air_temperature_factor)
+			//apply_organ_damage(decay_factor * maxHealth * seconds_per_tick * air_temperature_factor) // TFN REMOVAL - organs should only decay when exposed to the air, not when they are inside of someone
 	else
 		var/datum/gas_mixture/exposed_air = return_air()
 		if(exposed_air && exposed_air.temperature > T0C)
