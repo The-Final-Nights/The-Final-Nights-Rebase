@@ -180,7 +180,7 @@ once the player is either dead or staked, the hunter will guard their 'kill' for
 			continue
 		if(HAS_TRAIT(nearby, TRAIT_OBFUSCATED))
 			continue
-		if(!get_vampire_splat(nearby))
+		if(!get_kindred_splat(nearby))
 			continue
 		if(!isnull(known_kindred) && known_kindred.Find(nearby))
 			face_atom(nearby)
