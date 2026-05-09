@@ -154,7 +154,7 @@
 // TFN EDIT START
 /datum/subsplat/werewolf/tribe/garou/blackspiraldancers/on_gain(mob/living/carbon/human/gaining_mob, datum/splat/gaining_splat, joining_round)
 	. = ..()
-	ADD_TRAIT(gaining_mob, TRAIT_WYRMTAINTED_SPRITE)
+	ADD_TRAIT(gaining_mob, TRAIT_WYRMTAINTED_SPRITE, INNATE_TRAIT)
 // TFN EDIT END
 
 /datum/subsplat/werewolf/tribe/garou/ronin
