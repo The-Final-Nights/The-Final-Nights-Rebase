@@ -1,10 +1,9 @@
 /datum/job/vampire/keeper
 	title = JOB_GAROU_KEEPER
 	description = "You are a Keeper, finding yourself at the bottom of the Sept's hierarchy doing the dirty work. Help out your fellow kin as best you can and follow orders."
-	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_CITY
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 5
+	spawn_positions = 5
 	supervisors = "everyone else in the Sept"
 	req_admin_notify = 1
 	minimal_player_age = 25
@@ -18,7 +17,7 @@
 
 	allowed_splats = list(SPLAT_GAROU, SPLAT_KINFOLK)
 	allowed_tribes = TRIBE_LIST_GAIA
-
+	splat_slots = list(SPLAT_GAROU = 3)
 	display_order = JOB_DISPLAY_ORDER_KEEPER
 	department_for_prefs = /datum/job_department/gaia
 	departments_list = list(
