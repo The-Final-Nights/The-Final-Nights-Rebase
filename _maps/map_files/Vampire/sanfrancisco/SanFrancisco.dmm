@@ -3015,7 +3015,7 @@
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/outside/financialdistrict)
 "aOs" = (
-/mob/living/carbon/human/npc/bouncer/endron/endron_lab,
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_lab,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior/endron_facility)
 "aOu" = (
@@ -9887,6 +9887,7 @@
 /obj/item/reagent_containers/cup/bottle/chloralhydrate,
 /obj/item/gun/syringe,
 /obj/item/storage/box/syringes,
+/obj/machinery/light/directional/north,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior/endron_facility)
 "cxp" = (
@@ -20968,7 +20969,6 @@
 "fpx" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
 /obj/effect/mapping_helpers/door/access/pentex,
-/obj/effect/mapping_helpers/door/autoname,
 /obj/structure/vampdoor/glass{
 	dir = 1
 	},
@@ -30152,7 +30152,6 @@
 	},
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
-/obj/effect/mapping_helpers/door/autoname,
 /turf/open/floor/plating/grate,
 /area/vtm/interior/endron_facility)
 "hKh" = (
@@ -30351,7 +30350,6 @@
 "hLS" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
 /obj/effect/mapping_helpers/door/access/pentex,
-/obj/effect/mapping_helpers/door/autoname,
 /obj/structure/vampdoor/glass{
 	dir = 1
 	},
@@ -30787,6 +30785,10 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/ghetto)
+"hRG" = (
+/obj/effect/vip_barrier/endron/endron_lab_2,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "hRN" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/wood/smooth/old,
@@ -37317,7 +37319,6 @@
 "jxi" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
 /obj/effect/mapping_helpers/door/access/pentex,
-/obj/effect/mapping_helpers/door/autoname,
 /obj/structure/vampdoor/glass,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/turf_decal/siding/grey,
@@ -40226,7 +40227,6 @@
 /obj/structure/vampdoor/old{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/autoname,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/plating/grate,
@@ -49728,7 +49728,6 @@
 "mHl" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
 /obj/effect/mapping_helpers/door/access/pentex,
-/obj/effect/mapping_helpers/door/autoname,
 /obj/structure/vampdoor/glass{
 	dir = 1
 	},
@@ -56953,7 +56952,6 @@
 "orH" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
 /obj/effect/mapping_helpers/door/access/pentex,
-/obj/effect/mapping_helpers/door/autoname,
 /obj/structure/vampdoor/glass{
 	dir = 1
 	},
@@ -64206,7 +64204,6 @@
 "qiM" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
 /obj/effect/mapping_helpers/door/access/pentex,
-/obj/effect/mapping_helpers/door/autoname,
 /obj/structure/vampdoor/glass{
 	dir = 1
 	},
@@ -72153,7 +72150,6 @@
 "slc" = (
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
 /obj/effect/mapping_helpers/door/access/pentex,
-/obj/effect/mapping_helpers/door/autoname,
 /obj/structure/vampdoor/glass{
 	dir = 1
 	},
@@ -81521,6 +81517,13 @@
 	color = "#bfbfbf"
 	},
 /area/vtm)
+"uDi" = (
+/obj/structure/chair/office/darkpack/green{
+	dir = 1
+	},
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_lab_2,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "uDj" = (
 /obj/structure/chair/office/darkpack/blue{
 	dir = 8
@@ -92009,7 +92012,6 @@
 /obj/structure/vampdoor{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/autoname,
 /obj/effect/turf_decal/siding/grey{
 	dir = 4
 	},
@@ -126599,7 +126601,7 @@ nGD
 nGD
 khK
 nGD
-nGD
+hRG
 fpx
 eRV
 eRV
@@ -126802,8 +126804,8 @@ nen
 nGD
 nGD
 dNC
-fLB
-nGD
+uDi
+hRG
 jxi
 vHD
 vHD
