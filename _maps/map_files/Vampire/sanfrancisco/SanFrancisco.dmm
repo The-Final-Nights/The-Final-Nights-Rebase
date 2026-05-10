@@ -28255,10 +28255,6 @@
 /obj/item/clothing/shoes/vampire/jackboots/work,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/shop)
-"hiW" = (
-/obj/effect/vip_barrier/endron/endron_lab_2,
-/turf/open/floor/mineral/titanium/tiled/white,
-/area/vtm/interior/endron_facility)
 "hjb" = (
 /obj/machinery/photocopier/gratis/prebuilt,
 /turf/open/floor/wood/smooth,
@@ -32789,6 +32785,13 @@
 /obj/machinery/sprinkler,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/trainyard)
+"iri" = (
+/obj/structure/chair/office/darkpack/green{
+	dir = 1
+	},
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_lab_2,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "iro" = (
 /obj/structure/railing{
 	dir = 1
@@ -42302,11 +42305,6 @@
 	},
 /turf/open/floor/carpet/red,
 /area/vtm/interior/apartment)
-"kOM" = (
-/obj/structure/closet/crate/bin,
-/obj/machinery/light/red/directional/west,
-/turf/open/floor/mineral/titanium/tiled/white,
-/area/vtm/interior/endron_facility)
 "kOQ" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -63594,10 +63592,8 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "qbo" = (
-/obj/structure/chair/office/darkpack/green{
-	dir = 1
-	},
-/mob/living/carbon/human/npc/bouncer/magadon/magadon_lab_2,
+/obj/structure/closet/crate/bin,
+/obj/machinery/light/red/directional/west,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior/endron_facility)
 "qbr" = (
@@ -64281,6 +64277,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
+"qjt" = (
+/obj/effect/vip_barrier/endron/endron_lab_2,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "qjB" = (
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
@@ -125998,7 +125998,7 @@ nGD
 wcN
 nGD
 gwY
-kOM
+qbo
 sBf
 uwi
 khK
@@ -126601,7 +126601,7 @@ nGD
 nGD
 khK
 nGD
-hiW
+qjt
 fpx
 eRV
 eRV
@@ -126804,8 +126804,8 @@ nen
 nGD
 nGD
 dNC
-qbo
-hiW
+iri
+qjt
 jxi
 vHD
 vHD
@@ -168838,9 +168838,9 @@ lSs
 ijP
 nGD
 opE
-mOo
 pvg
 mOo
+pvg
 kIU
 vBb
 jBa
