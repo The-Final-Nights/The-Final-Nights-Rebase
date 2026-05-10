@@ -1,4 +1,3 @@
-// DARKPACK TODO - all these magadon clothes
 
 /datum/socialrole/bouncer/magadon
 	bouncer_weapon_type = /obj/item/gun/ballistic/automatic/darkpack/mp5
