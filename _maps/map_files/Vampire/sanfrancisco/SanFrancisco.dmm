@@ -1100,6 +1100,18 @@
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/clinic)
+"aok" = (
+/obj/structure/closet,
+/obj/item/clothing/gloves/vampire/latex,
+/obj/item/clothing/gloves/vampire/latex,
+/obj/item/storage/box/beakers,
+/obj/item/storage/box/bodybags,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/syringes,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/science,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "aol" = (
 /obj/effect/turf_decal/siding/wideplating/red{
 	dir = 9
@@ -20760,13 +20772,13 @@
 /area/vtm/interior/police/fed)
 "fnj" = (
 /obj/structure/closet,
-/obj/item/clothing/gloves/vampire/latex,
-/obj/item/clothing/gloves/vampire/latex,
-/obj/item/storage/box/beakers,
-/obj/item/storage/box/bodybags,
-/obj/item/storage/box/masks,
-/obj/item/storage/box/syringes,
-/obj/item/clothing/glasses/science,
+/obj/item/stack/package_wrap,
+/obj/item/stack/package_wrap,
+/obj/item/stack/package_wrap,
+/obj/item/storage/box,
+/obj/item/storage/box,
+/obj/item/storage/box,
+/obj/item/hand_labeler,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior/endron_facility)
 "fns" = (
@@ -32785,13 +32797,6 @@
 /obj/machinery/sprinkler,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/trainyard)
-"iri" = (
-/obj/structure/chair/office/darkpack/green{
-	dir = 1
-	},
-/mob/living/carbon/human/npc/bouncer/magadon/magadon_lab_2,
-/turf/open/floor/mineral/titanium/tiled/white,
-/area/vtm/interior/endron_facility)
 "iro" = (
 /obj/structure/railing{
 	dir = 1
@@ -33682,6 +33687,7 @@
 /obj/structure/table/greyscale,
 /obj/item/storage/box/beakers/variety,
 /obj/item/storage/box/beakers/variety,
+/obj/item/hand_labeler,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior/endron_facility)
 "iCi" = (
@@ -41402,8 +41408,8 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
 "kBZ" = (
-/obj/structure/table/wood,
 /obj/machinery/fax/endron,
+/obj/structure/table/greyscale,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior/endron_facility)
 "kCb" = (
@@ -48292,6 +48298,10 @@
 "mmf" = (
 /turf/closed/wall/vampwall/rock,
 /area/vtm/outside/baywalk)
+"mmh" = (
+/obj/effect/vip_barrier/endron/endron_lab_2,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "mmj" = (
 /obj/effect/turf_decal/siding/white,
 /turf/open/floor/city/toilet,
@@ -63592,8 +63602,10 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "qbo" = (
-/obj/structure/closet/crate/bin,
-/obj/machinery/light/red/directional/west,
+/obj/structure/chair/office/darkpack/green{
+	dir = 1
+	},
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_lab_2,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior/endron_facility)
 "qbr" = (
@@ -64277,10 +64289,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
-"qjt" = (
-/obj/effect/vip_barrier/endron/endron_lab_2,
-/turf/open/floor/mineral/titanium/tiled/white,
-/area/vtm/interior/endron_facility)
 "qjB" = (
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
@@ -66947,6 +66955,11 @@
 	},
 /turf/open/floor/city/plating_stone,
 /area/vtm/interior/giovanni)
+"qRt" = (
+/obj/structure/closet/crate/bin,
+/obj/machinery/light/red/directional/west,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "qRv" = (
 /obj/structure/hedge,
 /obj/structure/flora/bush/flowers_br/style_random,
@@ -125998,7 +126011,7 @@ nGD
 wcN
 nGD
 gwY
-qbo
+qRt
 sBf
 uwi
 khK
@@ -126601,7 +126614,7 @@ nGD
 nGD
 khK
 nGD
-qjt
+mmh
 fpx
 eRV
 eRV
@@ -126804,8 +126817,8 @@ nen
 nGD
 nGD
 dNC
-iri
-qjt
+qbo
+mmh
 jxi
 vHD
 vHD
@@ -128245,7 +128258,7 @@ iCc
 nGD
 nGD
 nGD
-fnj
+aok
 geD
 tuX
 aej
