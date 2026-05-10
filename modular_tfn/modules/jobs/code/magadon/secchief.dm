@@ -16,7 +16,7 @@
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/secchief
 
-	allowed_splats = list(SPLAT_GAROU) // TFN EDIT CHANGE
+	allowed_splats = list(SPLAT_GAROU)
 //	allowed_tribes = list(TRIBE_WYRM, TRIBE_FORSWORN)
 	minimal_masquerade = 4
 	// minimal_renown_rank = 3
