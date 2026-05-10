@@ -20,7 +20,7 @@
 //	allowed_tribes = list(TRIBE_WYRM, TRIBE_FORSWORN)
 	minimal_masquerade = 4
 	// minimal_renown_rank = 3
-	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)
+	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN)
 	display_order = JOB_DISPLAY_ORDER_SECCHIEF
 	department_for_prefs = /datum/job_department/pentex
 	departments_list = list(
