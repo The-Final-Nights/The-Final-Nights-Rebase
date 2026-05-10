@@ -3,8 +3,8 @@
 	description = "You are an acting security for " + EVIL_PHARMA_COMPANY + ", operating out of San Francisco. Under the chief of security's direction, your job is to keep the complex free of nosy meddlers, pick up contract violators, and to assist the chief in tackling threats to corporate assets."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
-	total_positions = 4 // TFN EDIT CHANGE
-	spawn_positions = 4 // TFN EDIT CHANGE
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the Board, Branch Lead, and Chief of Security"
 	req_admin_notify = 1
 	minimal_player_age = 25
