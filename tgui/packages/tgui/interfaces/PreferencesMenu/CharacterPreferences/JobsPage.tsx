@@ -407,7 +407,7 @@ export function JobsPage() {
               </Stack>
             </Stack.Item>
             {
-               // TFN EDIT CHANGE - Original : <Department department="Pentex" />
+               // <Department department="Pentex" /> // TFN REMOVAL
                // DARKPACK EDIT ADD END
             }
           </Stack>
