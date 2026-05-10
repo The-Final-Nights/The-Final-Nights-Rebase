@@ -28255,6 +28255,10 @@
 /obj/item/clothing/shoes/vampire/jackboots/work,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/shop)
+"hiW" = (
+/obj/effect/vip_barrier/endron/endron_lab_2,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "hjb" = (
 /obj/machinery/photocopier/gratis/prebuilt,
 /turf/open/floor/wood/smooth,
@@ -30785,10 +30789,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/ghetto)
-"hRG" = (
-/obj/effect/vip_barrier/endron/endron_lab_2,
-/turf/open/floor/mineral/titanium/tiled/white,
-/area/vtm/interior/endron_facility)
 "hRN" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/wood/smooth/old,
@@ -42302,6 +42302,11 @@
 	},
 /turf/open/floor/carpet/red,
 /area/vtm/interior/apartment)
+"kOM" = (
+/obj/structure/closet/crate/bin,
+/obj/machinery/light/red/directional/west,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/vtm/interior/endron_facility)
 "kOQ" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -63589,8 +63594,10 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "qbo" = (
-/obj/structure/table/greyscale,
-/obj/machinery/light/red/directional/west,
+/obj/structure/chair/office/darkpack/green{
+	dir = 1
+	},
+/mob/living/carbon/human/npc/bouncer/magadon/magadon_lab_2,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/vtm/interior/endron_facility)
 "qbr" = (
@@ -81517,13 +81524,6 @@
 	color = "#bfbfbf"
 	},
 /area/vtm)
-"uDi" = (
-/obj/structure/chair/office/darkpack/green{
-	dir = 1
-	},
-/mob/living/carbon/human/npc/bouncer/magadon/magadon_lab_2,
-/turf/open/floor/mineral/titanium/tiled/white,
-/area/vtm/interior/endron_facility)
 "uDj" = (
 /obj/structure/chair/office/darkpack/blue{
 	dir = 8
@@ -125993,15 +125993,15 @@ bSH
 geD
 uwi
 fLB
-nGD
+slG
 nGD
 wcN
-slG
+nGD
 gwY
-bSH
+kOM
 sBf
 uwi
-qbo
+khK
 geD
 tuX
 aej
@@ -126601,7 +126601,7 @@ nGD
 nGD
 khK
 nGD
-hRG
+hiW
 fpx
 eRV
 eRV
@@ -126804,8 +126804,8 @@ nen
 nGD
 nGD
 dNC
-uDi
-hRG
+qbo
+hiW
 jxi
 vHD
 vHD
