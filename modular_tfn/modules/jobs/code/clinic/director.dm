@@ -2,4 +2,4 @@
 	l_pocket = /obj/item/smartphone/doctor/director
 
 /datum/job/vampire/clinic_director
-	maximum_immortal_age = 100
+	maximum_immortal_age = 200
