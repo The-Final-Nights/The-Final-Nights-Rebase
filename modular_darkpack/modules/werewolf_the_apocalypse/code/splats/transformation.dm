@@ -87,6 +87,7 @@
 /datum/splat/werewolf/shifter/proc/transform_finish(form_to_transform, time_taken = DOGGY_ANIMATION_TIME)
 	animate(owner, transform = null, color = "#FFFFFF", time = time_taken * 0.1)
 	owner.set_species(form_to_transform)
+	owner.update_soak()
 
 /datum/splat/werewolf/shifter/proc/is_breed_form()
 	if(!owner?.dna)
