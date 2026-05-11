@@ -22,6 +22,10 @@
 		if(splat_name)
 			to_chat(new_player, span_warning("[splat_name] requires a special whitelisting process. Feel free to apply for it on Discord!"))
 			return
+		var/stat_error = new_player.client?.prefs?.validate_stats()
+		if(stat_error)
+			to_chat(new_player, span_warning(stat_error))
+			return
 	return ..()
 
 /atom/movable/screen/lobby/button/join/Click(location, control, params)
@@ -29,6 +33,10 @@
 	var/splat_name = new_player.get_restricted_splat_name()
 	if(splat_name)
 		to_chat(new_player, span_warning("[splat_name] requires a special whitelisting process. Feel free to apply for it on Discord!"))
+		return
+	var/stat_error = new_player.client?.prefs?.validate_stats()
+	if(stat_error)
+		to_chat(new_player, span_warning(stat_error))
 		return
 	return ..()
 
