@@ -2,5 +2,6 @@
 // WARNING: The sections here actually matter in this file as it's tested by CI. Please do not toy with the sections."
 
 // BEGIN TRAIT DEFINES
-
+// Removes the scent of Kinfolk.
+#define TRAIT_UNSCENTED "unscented"
 // END TRAIT DEFINES

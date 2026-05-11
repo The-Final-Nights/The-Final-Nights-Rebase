@@ -11,6 +11,7 @@
 	description = "You are the High Priest of San Francisco's Temple of Set. Guide your brothers and sisters in serving your Dark God. Enlighten the ignorant; corruption and vice are your tools of liberation."
 	minimal_masquerade = 4
 	minimum_immortal_age = 100
+	minimal_generation = 12
 
 /datum/outfit/job/vampire/setite/faithful/high_priest
 	name = "High Priest"

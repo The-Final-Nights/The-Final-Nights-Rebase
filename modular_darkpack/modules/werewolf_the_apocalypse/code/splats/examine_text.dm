@@ -1,9 +1,13 @@
 /datum/splat/werewolf/proc/examine_other_human(mob/living/carbon/examined)
 	var/datum/splat/werewolf/wolp_splat = get_werewolf_splat(examined)
 	// TFN EDIT START
-	var/datum/splat/vampire/vampire_splat = get_vampire_splat(examined)
-	if(vampire_splat)
-		. += "<span class='purple'><i>You recognize their scent as cold and lifeless.</i></span><br>"
+	var/datum/splat/werewolf/shifter/garou/garou_splat = get_garou_splat(examined)
+	var/datum/splat/werewolf/kinfolk/kinfolk_splat = get_kinfolk_splat(examined)
+	if(auspice.name == AUSPICE_PHILODOX)
+		if(garou_splat)
+			. += "<span class='purple'><i>You recognize their scent as Garou.</i></span><br>"
+		if(kinfolk_splat && !(HAS_TRAIT(examined, TRAIT_UNSCENTED)))
+			. += "<span class='purple'><i>You recognize their scent as Kin.</i></span><br>"
 	// TFN EDIT END
 	if(wolp_splat)
 		var/list/honor_flavor = list("claim to good conduct", "claim to honor", "claim to chivalry")
@@ -20,7 +24,6 @@
 
 		switch(wolp_splat.renown_rank)
 			if(RANK_CUB to RANK_FOSTERN)
-				. += "<span class='purple'><i>You recognize their scent as Garou.</i></span><br>" // TFN EDIT ADD
 				if(same_tribe)
 					. += "<b>You know [examined.p_them()] as \a [fera_rank_name(wolp_splat.renown_rank)] of the [wolp_splat.tribe.name].</b>"
 					is_known = TRUE
