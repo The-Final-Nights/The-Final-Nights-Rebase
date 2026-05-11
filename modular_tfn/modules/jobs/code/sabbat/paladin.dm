@@ -7,6 +7,7 @@
 	spawn_positions = 3
 	supervisors = SUPERVISOR_SABBAT_BISHOP
 	minimal_player_age = 7
+	minimum_immortal_age = 10
 	config_tag = "PALADIN"
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/paladin
