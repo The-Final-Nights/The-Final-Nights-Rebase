@@ -107,7 +107,7 @@
 	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(on_talk))
 
 	for(var/mob/living/carbon/human/npc/NPC in GLOB.npc_list)
-		if (NPC.danger_source == owner)
+		if ((NPC.danger_source?.resolve()) == owner)
 			NPC.danger_source = null
 	ADD_TRAIT(owner, TRAIT_OBFUSCATED, OBFUSCATE_TRAIT)
 
@@ -157,8 +157,12 @@
 	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(on_talk))
 
 	for(var/mob/living/carbon/human/npc/NPC in GLOB.npc_list)
-		if (NPC.danger_source == owner)
+		if ((NPC.danger_source?.resolve()) == owner)
 			NPC.danger_source = null
+			// TFN EDIT START
+			GLOB.move_manager.stop_looping(NPC)
+			NPC.walktarget = null
+			// TFN EDIT END
 
 	ADD_TRAIT(owner, TRAIT_OBFUSCATED, OBFUSCATE_TRAIT)
 
@@ -213,7 +217,7 @@
 	var/mob/living/carbon/human/target = examined
 	var/image/target_image = image(target)
 	to_chat(owner, span_info("You get a good look at your target and memorize their features."))
-	LAZYSET(cached_targets, target.name, list("image" = target_image, "target" = target))
+	LAZYSET(cached_targets, target.name, list("image" = target_image, "target" = WEAKREF(target)))
 
 /datum/discipline_power/obfuscate/mask_of_a_thousand_faces/post_gain()
 	. = ..()
@@ -247,8 +251,8 @@
 		try_deactivate(direct = TRUE)
 		return
 
-	var/mob/living/carbon/human/target = cached_targets[chosen_name]["target"]
-
+	var/datum/weakref/target_weakref = cached_targets[chosen_name]["target"]
+	var/mob/living/carbon/human/target = target_weakref.resolve()
 	if(!target)
 		to_chat(owner, span_warning("You can't recall [chosen_name]'s features clearly enough!"))
 		try_deactivate(direct = TRUE)
@@ -274,17 +278,21 @@
 		owner.set_body_sprite(target_splat.clan.alt_sprite, target_splat.clan.alt_sprite_greyscale, TRUE)
 	else
 		if(owner_splat.clan && (TRAIT_MASQUERADE_VIOLATING_FACE in owner_splat.clan.clan_traits))
-			REMOVE_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_FACE, MAGIC_TRAIT)
+			REMOVE_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_FACE, CLAN_TRAIT)
 		if(owner_splat.clan && (TRAIT_MASQUERADE_VIOLATING_EYES in owner_splat.clan.clan_traits))
-			REMOVE_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_EYES, MAGIC_TRAIT)
+			REMOVE_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_EYES, CLAN_TRAIT)
 		owner.set_body_sprite(SPECIES_HUMAN, TRUE, TRUE)
 
 	owner.updateappearance(mutcolor_update = TRUE)
 	to_chat(owner, span_notice("You assume the appearance of [target.name]."))
 
 	for(var/mob/living/carbon/human/npc/NPC in GLOB.npc_list)
-		if (NPC.danger_source == owner)
+		if ((NPC.danger_source?.resolve()) == owner)
 			NPC.danger_source = null
+			// TFN EDIT START
+			GLOB.move_manager.stop_looping(NPC)
+			NPC.walktarget = null
+			// TFN EDIT END
 
 /datum/discipline_power/obfuscate/mask_of_a_thousand_faces/deactivate()
 	. = ..()
@@ -292,9 +300,9 @@
 	owner.name = original_name
 
 	if(owner_splat.clan && (TRAIT_MASQUERADE_VIOLATING_FACE in owner_splat.clan.clan_traits))
-		ADD_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_FACE, MAGIC_TRAIT)
+		ADD_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_FACE, CLAN_TRAIT)
 	if(owner_splat.clan && (TRAIT_MASQUERADE_VIOLATING_EYES in owner_splat.clan.clan_traits))
-		ADD_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_EYES, MAGIC_TRAIT)
+		ADD_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_EYES, CLAN_TRAIT)
 
 	owner.set_body_sprite(original_sprite, original_sprite_greyscale, TRUE)
 	owner.updateappearance(mutcolor_update = TRUE)
@@ -307,7 +315,7 @@
 
 	level = 4
 	check_flags = DISC_CHECK_CAPABLE
-	vitae_cost = 2
+	vitae_cost = 0 //No Vitae cost
 
 	toggled = TRUE
 
@@ -330,8 +338,12 @@
 	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(on_talk))
 
 	for(var/mob/living/carbon/human/npc/NPC in GLOB.npc_list)
-		if (NPC.danger_source == owner)
+		if ((NPC.danger_source?.resolve()) == owner)
 			NPC.danger_source = null
+			// TFN EDIT START
+			GLOB.move_manager.stop_looping(NPC)
+			NPC.walktarget = null
+			// TFN EDIT END
 	if(prob(1))
 		SEND_SIGNAL(SSmasquerade, COMSIG_PLAYER_MASQUERADE_REINFORCE, owner)
 
@@ -368,8 +380,12 @@
 	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(on_talk))
 
 	for(var/mob/living/carbon/human/npc/NPC in GLOB.npc_list)
-		if (NPC.danger_source == owner)
+		if ((NPC.danger_source?.resolve()) == owner)
 			NPC.danger_source = null
+			// TFN EDIT START
+			GLOB.move_manager.stop_looping(NPC)
+			NPC.walktarget = null
+			// TFN EDIT END
 	ADD_TRAIT(owner, TRAIT_OBFUSCATED, OBFUSCATE_TRAIT)
 
 /datum/discipline_power/obfuscate/cloak_the_gathering/deactivate()

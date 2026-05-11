@@ -3,12 +3,20 @@
 	SIGNAL_HANDLER
 	animate(src, invisibility = OBFUSCATE_INVISIBILITY, time = 0.5 SECONDS)
 	add_obficon()
+	// TFN EDIT START
+	set_hud_image_inactive(HEALTH_HUD)
+	set_hud_image_inactive(STATUS_HUD)
+	// TFN EDIT END
 
 /// Called when [TRAIT_OBFUSCATED] is removed from the mob.
 /mob/living/proc/make_visible(datum/source)
 	SIGNAL_HANDLER
 	animate(src, invisibility = NONE, time = 0.5 SECONDS)
 	remove_obficon()
+	// TFN EDIT START
+	set_hud_image_active(HEALTH_HUD)
+	set_hud_image_active(STATUS_HUD)
+	// TFN EDIT END
 
 /// Creating & Handling obfuscate indicator
 /mob/living/proc/add_obficon()

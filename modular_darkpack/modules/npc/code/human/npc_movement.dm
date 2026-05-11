@@ -55,11 +55,11 @@
 	SShumannpcpool.try_repopulate()
 	GLOB.move_manager.stop_looping(src)
 
-	if (!last_attacker || (get_dist(src, last_attacker) >= 10) || key || hostile)
+	if (!last_attacker || (get_dist(src, (last_attacker.resolve())) >= 10) || key || hostile)
 		return ..()
 
-	if (istype(last_attacker, /mob/living/simple_animal/hostile))
-		var/mob/living/simple_animal/hostile/HS = last_attacker
+	if (istype((last_attacker.resolve()), /mob/living/simple_animal/hostile))
+		var/mob/living/simple_animal/hostile/HS = (last_attacker.resolve())
 		if(HS.my_creator)
 			SEND_SIGNAL(HS.my_creator, COMSIG_PATH_HIT, -1, 0, FALSE, 8)
 			HS.my_creator.killed_count += 1
@@ -71,8 +71,8 @@
 				else
 					SEND_SOUND(HS.my_creator, sound('modular_darkpack/modules/deprecated/sounds/sus.ogg', volume = 75))
 					to_chat(HS.my_creator, span_userdanger("<b>SUSPICIOUS ACTION (murder)</b>"))
-	else if (ishuman(last_attacker))
-		var/mob/living/carbon/human/HM = last_attacker
+	else if (ishuman((last_attacker.resolve())))
+		var/mob/living/carbon/human/HM = (last_attacker.resolve())
 		SEND_SIGNAL(HM, COMSIG_PATH_HIT, -1, 0, FALSE, 8)
 		HM.killed_count += 1
 		if(!HM.warrant && !HM.ignores_warrant)
@@ -101,7 +101,7 @@
 	if (!can_npc_move())
 		return
 	nutrition = 400
-	if (get_dist(danger_source, src) < 7)
+	if (get_dist((danger_source?.resolve()), src) < 7)
 		last_antagonised = world.time
 	if (fire_stacks >= 1)
 		INVOKE_ASYNC(src, PROC_REF(execute_resist))
@@ -228,12 +228,14 @@
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
 		return FALSE
+	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
+		return FALSE
 	if(is_talking)
 		return FALSE
 	if(pulledby)
 		if (HAS_TRAIT(pulledby, TRAIT_CHARMER))
 			return FALSE
-		if (prob(30))
+		if (prob(10))
 			execute_resist()
 		return FALSE
 
@@ -267,30 +269,32 @@
 
 	// Combat behaviour
 	if (danger_source)
+		var/resolved_danger_source = danger_source?.resolve()
 		// Run away from the danger source if they aren't aggressive and have no weapon
 		if (!has_weapon && !aggressive)
-			GLOB.move_manager.move_away(src, danger_source, 10, cached_multiplicative_slowdown)
+			GLOB.move_manager.move_away(src, resolved_danger_source, 10, cached_multiplicative_slowdown)
 		else
 			// Criminals will attack anyone, others will only attack non-police
 			// DARKPACK TODO - reimplement IDs
 			/*
-			var/obj/item/card/id/id_card = danger_source.get_idcard(FALSE)
+			var/obj/item/card/id/id_card = (danger_source?.resolve()).get_idcard(FALSE)
 			if (!istype(id_card, /obj/item/card/id/police) || is_criminal)
 			*/
 			if(!spawned_weapon && has_weapon)
 				npc_draw_weapon()
 			if(spawned_weapon && get_active_held_item() != my_weapon)
 				has_weapon = FALSE
-			if(danger_source)
-				if(danger_source == src)
+			if(resolved_danger_source)
+				if(resolved_danger_source == src)
 					danger_source = null
 				else
-					ClickOn(danger_source)
-					face_atom(danger_source)
-					GLOB.move_manager.move_to(src, danger_source, 1, cached_multiplicative_slowdown)
+					ClickOn(resolved_danger_source)
+					face_atom(resolved_danger_source)
+					GLOB.move_manager.move_to(src, resolved_danger_source, 1, cached_multiplicative_slowdown)
 
-		// Deaggro if the danger source has been beaten up
-		if (danger_source.stat > UNCONSCIOUS)
+		// Deaggro if the danger source was nulled, deleted, or beaten unconscious
+		var/mob/living/dangerous_person = resolved_danger_source
+		if (!dangerous_person || dangerous_person.stat > UNCONSCIOUS) // TFN EDIT
 			end_combat()
 
 		// Deaggro if 30 second have passed since being antagonised
@@ -307,7 +311,7 @@
 	else if (walktarget && !staying)
 		GLOB.move_manager.move_to(src, walktarget, 0, cached_multiplicative_slowdown)
 
-	if (!has_weapon || danger_source || !spawned_weapon)
+	if (!has_weapon || (danger_source?.resolve()) || !spawned_weapon)
 		return
 	if (get_active_held_item() == my_weapon)
 		npc_stow_weapon()

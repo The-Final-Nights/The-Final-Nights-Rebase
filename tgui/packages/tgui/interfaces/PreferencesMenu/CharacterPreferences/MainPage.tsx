@@ -12,8 +12,9 @@ import {
   NumberInput, // DARKPACK EDIT
   Section,
   Stack,
+  Icon, // TFN EDIT ADD
 } from 'tgui-core/components';
-import { exhaustiveCheck } from 'tgui-core/exhaustive'; // DARKPACK EDIT ADDITION
+import { exhaustiveCheck } from 'tgui-core/exhaustive'; // DARKPACK EDIT ADD
 import { classes } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
 import { CharacterPreview } from '../../common/CharacterPreview';
@@ -37,9 +38,10 @@ import { useServerPrefs } from '../useServerPrefs';
 import { DeleteCharacterPopup } from './DeleteCharacterPopup';
 import { MultiNameInput, NameInput } from './names';
 import { VocalsInput, VoiceInput } from './tfn_vocals'; // TFN EDIT ADDITION
+import { TRUSTED_CLAN_WHITELIST_IDS } from '../preferences/features/character_preferences/tfn_trusted_whitelist'; // TFN EDIT ADD
 
 const CLOTHING_CELL_SIZE = 48;
-const CLOTHING_SIDEBAR_ROWS = 12; // DARKPACK EDIT, ORIGINAL: 9;
+const CLOTHING_SIDEBAR_ROWS = 12; // DARKPACK EDIT CHANGE - ORIGINAL: 9;
 
 const CLOTHING_SELECTION_CELL_SIZE = 48;
 const CLOTHING_SELECTION_WIDTH = 5.4;
@@ -106,10 +108,11 @@ type ChoicedSelectionProps = {
   supplementalFeature?: string;
   supplementalValue?: unknown;
   onSelect: (value: string) => void;
+  isLocked?: (choice: string) => boolean; // TFN EDIT ADD
 };
 
 function ChoicedSelection(props: ChoicedSelectionProps) {
-  const { catalog, supplementalFeature, supplementalValue } = props;
+  const { catalog, supplementalFeature, supplementalValue, isLocked } = props; // TFN EDIT CHANGE - ORIGINAL: const { catalog, supplementalFeature, supplementalValue } = props;
   const [searchText, setSearchText] = useState('');
 
   if (!catalog.icons) {
@@ -155,6 +158,7 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
             <Stack wrap>
               {searchInCatalog(searchText, catalog.icons).map(
                 ([name, image], index) => {
+                  const locked = isLocked?.(name) ?? false; // TFN EDIT ADD
                   return (
                     <Button
                       key={index}
@@ -162,11 +166,12 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
                         props.onSelect(name);
                       }}
                       selected={name === props.selected}
-                      tooltip={name}
+                      tooltip={locked ? `${name} (Whitelisted, apply on Discord!)` : name} // TFN EDIT ADD
                       tooltipPosition="right"
                       style={{
                         height: `${CLOTHING_SELECTION_CELL_SIZE}px`,
                         width: `${CLOTHING_SELECTION_CELL_SIZE}px`,
+                        position: 'relative', // TFN EDIT ADD
                       }}
                     >
                       <Box
@@ -178,8 +183,25 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
                         style={{
                           transform:
                             'translateX(-50%) translateY(-50%) scale(0.8)',
+                          opacity: locked ? 0.4 : 1, // TFN EDIT ADD
                         }}
                       />
+{/* TFN EDIT START */}
+                      {locked && (
+                        <Box
+                          style={{
+                            position: 'absolute',
+                            bottom: '2px',
+                            right: '2px',
+                            fontSize: '11px',
+                            color: 'rgba(255,255,255,0.85)',
+                            pointerEvents: 'none',
+                          }}
+                        >
+                          <Icon name="lock" color="label" />
+                        </Box>
+                      )}
+{/* TFN EDIT END */}
                     </Button>
                   );
                 },
@@ -258,6 +280,7 @@ type MainFeatureProps = {
   handleSelect: (newClothing: string) => void;
   randomization?: RandomSetting;
   setRandomization: (newSetting: RandomSetting) => void;
+  isLocked?: (choice: string) => boolean; // TFN EDIT ADD
 };
 
 function MainFeature(props: MainFeatureProps) {
@@ -268,6 +291,7 @@ function MainFeature(props: MainFeatureProps) {
     handleSelect,
     randomization,
     setRandomization,
+    isLocked, // TFN EDIT ADD
   } = props;
 
   const supplementalFeature = catalog.supplemental_feature;
@@ -289,6 +313,7 @@ function MainFeature(props: MainFeatureProps) {
             ]
           }
           onSelect={handleSelect}
+          isLocked={isLocked} // TFN EDIT ADD
         />
       }
     >
@@ -355,7 +380,7 @@ type PreferenceListProps = {
   randomizations: Record<string, RandomSetting>;
   maxHeight: string;
   children?: ReactNode;
-  overrides?: Record<string, ReactNode>; // DARKPACK EDIT ADDITION
+  overrides?: Record<string, ReactNode>; // DARKPACK EDIT ADD
 };
 
 export function PreferenceList(props: PreferenceListProps) {
@@ -393,7 +418,7 @@ export function PreferenceList(props: PreferenceListProps) {
                 key={featureId}
                 label={feature.name}
                 tooltip={feature.description}
-                tooltipPosition="right" // DARKPACK EDIT ADDITION - Swappable pref menus
+                tooltipPosition="right" // DARKPACK EDIT ADD - Swappable pref menus
                 verticalAlign="middle"
               >
                 <Stack fill>
@@ -465,6 +490,10 @@ export function MainPage(props: MainPageProps) {
   const [vocalsInputOpen, setVocalsInputOpen] = useState(false); // TFN EDIT ADDITION
   const [randomToggleEnabled] = useRandomToggleState();
   const [pendingConfirm, setPendingConfirm] = useState<(() => void) | null>(null); // TFN EDIT ADD - for popups
+  // TFN EDIT START
+  const whitelistSet = new Set(data.player_whitelists || []);
+  const isTrusted = whitelistSet.has('trusted');
+  // TFN EDIT END
 
   const serverData = useServerPrefs();
 
@@ -506,7 +535,7 @@ export function MainPage(props: MainPageProps) {
     delete nonContextualPreferences.random_name;
   }
 
-  // DARKPACK EDIT ADDITION BEGIN: SWAPPABLE PREF MENUS
+  // DARKPACK EDIT ADD START - SWAPPABLE PREF MENUS
   enum PrefPage {
     Visual, // The visual parts
     Profile, // Flavor Text, Age, Records, PDA ringtone, etc
@@ -561,7 +590,7 @@ export function MainPage(props: MainPageProps) {
     default:
       exhaustiveCheck(currentPrefPage);
   }
-  // DARKPACK EDIT ADDITION END
+  // DARKPACK EDIT ADD END
 
   return (
     <>
@@ -686,7 +715,14 @@ export function MainPage(props: MainPageProps) {
                     }
                   : baseSelect;
               // DARKPACK EDIT END
-
+              // TFN EDIT START - lock icons for whitelisted clans
+              const isChoiceLocked = clothingKey === 'vampire_clan'
+                ? (choice: string) => {
+                    const whitelistId = TRUSTED_CLAN_WHITELIST_IDS[choice];
+                    return !!whitelistId && !isTrusted && !whitelistSet.has(whitelistId);
+                  }
+                : undefined;
+              // TFN EDIT END
               return (
                 <Stack.Item key={clothingKey}>
                   {!catalog ? (
@@ -699,6 +735,7 @@ export function MainPage(props: MainPageProps) {
                       handleSelect={handleSelect}
                       randomization={randomizationOfMainFeatures[clothingKey]}
                       setRandomization={createSetRandomization(clothingKey)}
+                      isLocked={isChoiceLocked} // TFN EDIT ADD
                     />
                   )}
                 </Stack.Item>
@@ -735,7 +772,7 @@ export function MainPage(props: MainPageProps) {
             */
               // DARKPACK EDIT REMOVAL END
             }
-            {/* DARKPACK EDIT ADDITION BEGIN: Swappable pref menus */}
+            {/* DARKPACK EDIT ADD START -  Swappable pref menus */}
             <Stack>
               <Stack.Item grow={2}>
                 <PageButton
@@ -759,7 +796,7 @@ export function MainPage(props: MainPageProps) {
             {prefPageContents}
           </Stack>
         </Stack.Item>
-        {/* DARKPACK EDIT ADDITION END: Swappable pref menus */}
+        {/* DARKPACK EDIT ADD END: Swappable pref menus */}
       </Stack>
     </>
   );

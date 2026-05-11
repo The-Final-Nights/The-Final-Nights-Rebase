@@ -236,6 +236,7 @@
 	if(old_grab_state == GRAB_PASSIVE)
 		defender.drop_all_held_items()
 		attacker.setGrabState(GRAB_AGGRESSIVE) //Instant aggressive grab if on grab intent
+		defender.update_incapacitated() // TFN EDIT ADD - violation_check_aoe.dm checks for incapacitated to avoid masq reporting, so this is necessary or cqc knowing licks will get masq violations from the person being fed on
 		log_combat(attacker, defender, "grabbed", addition="aggressively")
 		defender.visible_message(
 			span_warning("[attacker] violently grabs [defender]!"),

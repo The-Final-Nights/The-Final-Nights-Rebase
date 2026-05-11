@@ -1,6 +1,7 @@
+/* TFN EDIT REMOVAL - More Sabbat Roles
 /datum/job/vampire/voivode
 	title = JOB_VOIVODE
-	faction = FACTION_CITY
+	faction = FACTION_SABBAT
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = " the Laws of Hospitality"
@@ -33,3 +34,4 @@
 	belt = /obj/item/storage/belt/sheath/vamp/sword
 	l_pocket = /obj/item/smartphone/voivode
 	backpack_contents = list(/obj/item/vamp/keys/old_clan_tzimisce=1, /obj/item/instrument/eguitar/vamp=1, /obj/item/card/credit/elder=1)
+*/

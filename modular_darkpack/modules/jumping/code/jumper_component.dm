@@ -56,6 +56,9 @@
 	if(HAS_TRAIT(jumper, TRAIT_FLOORED))
 		return
 
+	if(jumper.body_position == LYING_DOWN)
+		return
+
 	if(jumper.buckled)
 		return
 
@@ -145,7 +148,7 @@
 /datum/component/jumper/proc/jump_boom(mob/living/jumper)
 	playsound(get_turf(jumper), 'modular_darkpack/modules/jumping/sounds/jump_slam.ogg', 40, FALSE)
 	new /obj/effect/temp_visual/dir_setting/crack_effect(get_turf(jumper))
-	for(var/mob/living/shaken_person in range(5, jumper))
+	for(var/mob/living/shaken_person in range(2, jumper))	// TFN EDIT - JUMPER (5 -> 2)
 		if(shaken_person == jumper)
 			continue
 		shaken_person.Stun(20)
