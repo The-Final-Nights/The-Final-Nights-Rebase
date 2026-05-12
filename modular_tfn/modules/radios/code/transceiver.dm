@@ -2,6 +2,7 @@ GLOBAL_VAR_INIT(police_crime_reporting_cooldown, 0)
 
 /obj/machinery/radio_tranceiver/police
 	var/turf/crime_nav_location = null
+	var/crime_type = ""
 
 /obj/machinery/radio_tranceiver/police/crime_reported(datum/source, crime, turf/location, suspect_desc)
 	var/area/vtm/crime_area = astype(get_area(location))
@@ -15,6 +16,7 @@ GLOBAL_VAR_INIT(police_crime_reporting_cooldown, 0)
 		return
 	COOLDOWN_START(GLOB, police_crime_reporting_cooldown, 4 SECONDS)
 	crime_nav_location = location
+	crime_type = crime
 	var/gps = "<a href='byond://?src=[REF(src)];navigate_to=1'>\[GPS\]</a>"
 	var/description = suspect_desc ? "Suspect last seen wearing [suspect_desc]. " : ""
 	switch(crime)
@@ -36,6 +38,10 @@ GLOBAL_VAR_INIT(police_crime_reporting_cooldown, 0)
 		var/mob/living/carbon/human/clicker = usr
 		if(HAS_TRAIT(clicker, TRAIT_INCAPACITATED) || !crime_nav_location)
 			return
-		balloon_alert(clicker, "adjusting gps...")
-		addtimer(CALLBACK(clicker, TYPE_PROC_REF(/mob/living, create_navigation), crime_nav_location), 1 SECONDS)
+		var/atom/movable/screen/alert/police_gps/alert = clicker.throw_alert("police_gps", /atom/movable/screen/alert/police_gps)
+		if(alert)
+			alert.tracking_target = crime_nav_location
+			alert.crime_label = crime_type
+			alert.name = "GPS: [crime_type]"
+		balloon_alert(clicker, "gps updated")
 	return ..()
