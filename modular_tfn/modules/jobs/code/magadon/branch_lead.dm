@@ -52,6 +52,6 @@
 	uniform =  /obj/item/clothing/under/vampire/magadon_executivesuit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
 	suit = /obj/item/clothing/suit/vampire/magadon_labcoat
-	l_pocket = /obj/item/smartphone // /branch_lead - TODO: phone subtype
+	l_pocket = /obj/item/smartphone/magadon_lead
 	r_pocket = /obj/item/vamp/keys/pentex/leader
 	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/phone_book=1, /obj/item/card/credit/prince=1)
