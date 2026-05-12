@@ -116,6 +116,11 @@ export function StatsPage() {
                                 <span className="filled">{filled}</span>
                                 <span className="empty">{empty}</span>
                                 <span className="filled_bonus">{filled_bonus}</span>
+                                <span className="stat-score-value">
+                                  {bonus_score
+                                    ? `${score}+${bonus_score}=${score + bonus_score}`
+                                    : `${score}`}
+                                </span>
                               </Stack.Item>
                             </Stack>
                           </Stack.Item>

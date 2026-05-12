@@ -76,13 +76,13 @@
 
 	if(!stat_path.can_decrease_score(1))
 		return FALSE
-
+	// TFN EDIT START
 	if((stat_path.get_score(include_bonus = FALSE) - 1) >= stat_path.starting_score)
-		if(freebie_point_stat.can_increase_freebie_points(stat_path.freebie_point_cost)) // Can we regain freebie points?
-			freebie_point_stat.increase_freebie_points(stat_path.freebie_point_cost) // Regain freebie points.
+		if(abstract_stat.get_points() < abstract_stat.get_initial_points()) // give back to the category if we can
+			abstract_stat.increase_points(1)
 		else
-			abstract_stat.increase_points(1) // Regain a score point.
-
+			freebie_point_stat.increase_freebie_points(stat_path.freebie_point_cost) // if not give a freebie point
+	// TFN EDIT END
 	stat_path.decrease_score(1) // By this point we know we have regained either a point, or the appropriate freebie cost for this stat, and it is not min_score. So decrease it by one.
 
 	if(stat_path.stat_flags & AFFECTS_STATS)
