@@ -81,7 +81,7 @@ export async function processTestMerges({ github, context }) {
 
     const newBody = createComment(servers, existingComment?.body);
     if (!newBody) {
-      console.log(`No changes for PR #${prNumber}`);
+      console.log(`No changes for PR #${prNumber}`); // the original didnt have a $. javascript needs its money money
       continue;
     }
 
@@ -95,7 +95,7 @@ export async function processTestMerges({ github, context }) {
         });
       } catch (error) {
         if (error.status) {
-          console.error(`Failed to create comment for #{prNumber}`);
+          console.error(`Failed to create comment for #${prNumber}`);
           console.error(error);
           continue;
         } else {
@@ -112,12 +112,28 @@ export async function processTestMerges({ github, context }) {
         });
       } catch (error) {
         if (error.status) {
-          console.error(`Failed to update comment for #{prNumber}`);
+          console.error(`Failed to update comment for #${prNumber}`);
           console.error(error);
           continue;
         } else {
           throw error;
         }
+      }
+    }
+	// testmerge labels, too
+    try {
+      await github.rest.issues.addLabels({
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        issue_number: parseInt(prNumber, 10),
+        labels: ["Testmerged"],
+      });
+    } catch (error) {
+      if (error.status) {
+        console.error(`Failed to add label to #${prNumber}`);
+        console.error(error);
+      } else {
+        throw error;
       }
     }
   }
