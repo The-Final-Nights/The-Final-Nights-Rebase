@@ -8,10 +8,12 @@
 	if(!stats || !length(stats))
 		return null
 
+	var/list/score_violations = list()
 	for(var/stat_typepath in stats)
 		var/datum/st_stat/stat = stats[stat_typepath]
-		if(stat.get_score(include_bonus = FALSE) < stat.min_score || stat.get_score(include_bonus = FALSE) > stat.max_score) // accounts for exploited higher-than-max scores (like 12 strength)
-			return "Your character has an invalid '[stat.name]' score of [stat.get_score(include_bonus = FALSE)] (allowed: [stat.min_score]-[stat.max_score]). Please reset your stats."
+		var/score = stat.get_score(include_bonus = FALSE)
+		if(score < stat.min_score || score > stat.max_score)
+			score_violations += "[stat.name]: [score] (allowed [stat.min_score] to [stat.max_score])"
 
 	var/list/levels_by_abstract = list()
 	for(var/stat_typepath in stats)
@@ -25,6 +27,7 @@
 			levels_by_abstract[stat.abstract_type] = 0
 		levels_by_abstract[stat.abstract_type] += levels_above
 
+	var/list/budget_violations = list()
 	var/total_freebie_needed = 0
 	for(var/abstract_typepath in levels_by_abstract)
 		var/datum/st_stat/abstract_stat = stats[abstract_typepath]
@@ -34,8 +37,9 @@
 		var/freebie_cost = initial(abstract_stat.freebie_point_cost)
 		var/levels_above = levels_by_abstract[abstract_typepath]
 		var/overflow = max(0, levels_above - pool_size)
-		if(!overflow || !freebie_cost)
+		if(!overflow || !freebie_cost || !abstract_stat.name)
 			continue
+		budget_violations += "[abstract_stat.name]: [levels_above] spent, budget is [pool_size] ([overflow] over)"
 		total_freebie_needed += overflow * freebie_cost
 
 	var/datum/st_stat/freebie/freebie_stat = stats[STAT_FREEBIE_POINTS]
@@ -46,10 +50,23 @@
 		if(quirk_type)
 			quirk_balance -= quirk_type.value
 	var/available_freebie = max(0, base_freebie + quirk_balance)
+	var/freebie_short = total_freebie_needed - available_freebie
 
-	if(total_freebie_needed > available_freebie)
-		return "Your character's stat allocation exceeds your points budget. Please reset and re-allocate this character's stats and quirks before attempting to join. If you believe your stats to be correct despite this error, screenshot your stats and quirks pages and tag a maintainer in Discord."
-	return null
+	if(!length(score_violations) && freebie_short <= 0)
+		return null
+
+	var/msg = "HEY, LISTEN! Your character's stats are invalid! Please matrix out to the character selection screen and fix the following issues:\n"
+	if(length(score_violations))
+		msg += "\nStat scores out of range:\n"
+		for(var/v in score_violations)
+			msg += "  [v]\n"
+	if(length(budget_violations))
+		msg += "\nCategories over budget:\n"
+		for(var/v in budget_violations)
+			msg += "  [v]\n"
+	if(freebie_short > 0)
+		msg += "\nFreebie points: need [total_freebie_needed], have [available_freebie] ([freebie_short] short of what is needed to be valid)\n"
+	return msg
 
 /datum/preferences/proc/validate_stats()
 	for(var/datum/preference_middleware/M as anything in middleware)
