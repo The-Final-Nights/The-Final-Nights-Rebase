@@ -1,7 +1,7 @@
 /obj/machinery/computer/cargo/express
 	req_access = list()
 	locked = FALSE
-	landingzone = /area/vtm/outside/supply
+	landingzone = /area/vtm/interior/supply // TFN EDIT CHANGE - [mapfixes 1] - ORIGINAL: /area/vtm/outside/supply
 
 /obj/machinery/computer/cargo/express/Initialize(mapload)
 	. = ..()

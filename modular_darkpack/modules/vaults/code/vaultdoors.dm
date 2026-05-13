@@ -36,6 +36,13 @@
 	desc = "A massive reinforced vault door protecting the bank's reserves."
 	lock_id = "bank_vault"
 
+// TFN EDIT ADD START - [mapfixes 2]
+/obj/structure/vaultdoor/pincode/casino
+	name = "casino vault door"
+	desc = "A massive reinforced vault door protecting the casino's reserves."
+	lock_id = "casino_vault"
+// TFN EDIT ADD END - [mapfixes 2]
+
 /obj/structure/vaultdoor/Initialize(mapload)
 	. = ..()
 	pincode = create_unique_pincode()
