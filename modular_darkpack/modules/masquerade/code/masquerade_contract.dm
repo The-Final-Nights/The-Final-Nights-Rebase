@@ -24,7 +24,7 @@
 		var/turf/turf = get_turf(breacher)
 		var/direction = get_dir(current_location, turf)
 		var/disttext = dir2text(direction)
-		to_chat(user, span_info("[breacher.real_name], breached masquerade, [get_area_name(turf)], [disttext]"))
+		to_chat(user, span_info("[breacher.real_name], [get_area_name(turf)], [disttext]"))
 //TFN EDIT ADD END
 
 	if(!GLOB.masquerade_breakers_list)
@@ -52,7 +52,7 @@
 		var/turf/turf = get_turf(breacher)
 		var/direction = get_dir(current_location, turf)
 		var/disttext = dir2text(direction)
-		to_chat(user, span_info("[breacher.real_name], broken veil, [get_area_name(turf)], [disttext]"))
+		to_chat(user, span_info("[breacher.real_name], [get_area_name(turf)], [disttext]"))
 //TFN EDIT ADD END
 
 	if(!GLOB.veil_breakers_list)
