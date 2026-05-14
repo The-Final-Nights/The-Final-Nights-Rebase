@@ -133,52 +133,68 @@
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS
 	duration_length = 5 TURNS // TFN EDIT
-	cooldown_length = 1 SCENES
-	vitae_cost = 0
-	toggled = TRUE // TFN EDIT
+	cooldown_length = 1 TURNS
 	cancelable = TRUE
+	multi_activate = TRUE // TFN EDIT
 	var/datum/storyteller_roll/aura_perception/aura_roll
 	// TFN EDIT START
 	var/datum/storyteller_roll/auspex_detection/detection_roll
 	var/datum/storyteller_roll/obfuscate_concealment/concealment_roll
-	var/list/mob/detected_mobs // mobs who failed the roll and were perceived
-	var/list/mob/checked_mobs // mobs who we checked but havent necessarily failed the roll
 	COOLDOWN_DECLARE(detection_cooldown)
 	// TFN EDIT END
 
-/datum/discipline_power/auspex/aura_perception/pre_activation_checks(mob/living/target)
+// TFN EDIT START
+/datum/discipline_power/auspex/aura_perception/New(datum/discipline/discipline)
 	. = ..()
 	if(!aura_roll)
 		aura_roll = new()
-	switch(aura_roll.st_roll(owner, target))
-		if(ROLL_SUCCESS)
-			return TRUE
-		else
-			to_chat(owner, span_danger("You fail to read into anything at all..."))
-			return FALSE
 
-/datum/discipline_power/auspex/aura_perception/activate()
-	. = ..()
 	var/datum/atom_hud/data/auspex_aura/target_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	target_hud.show_to(owner)
 
-	// TFN EDIT START
-	detected_mobs = list()
-	checked_mobs = list()
-	if(!detection_roll)
-		detection_roll = new()
-	if(!concealment_roll)
-		concealment_roll = new()
-	START_PROCESSING(SSfastprocess, src)
-	// TFN EDIT END
-	var/list/heard = orange(DEFAULT_MESSAGE_RANGE, owner)
-	for(var/mob/living/hearer in heard)
-		if(!HAS_TRAIT(src, TRAIT_FORCED_EMOTION))
-			hearer.apply_status_effect(/datum/status_effect/question_emotion)
+	//hides everyone's aura first..
+	for(var/mob/living/human in GLOB.human_list)
+		var/image/holder = human.hud_list[AUSPEX_AURA_HUD]
+		if(holder && owner.client)
+			owner.client.images -= holder
+
+/datum/discipline_power/auspex/aura_perception/activate(atom/target)
+	. = ..()
+	var/list/list_of_mobs_to_pick = list()
+	for(var/mob/living/hearer in oview(DEFAULT_MESSAGE_RANGE, owner))
+		if(hearer == owner)
+			continue
+
+		//for obfuscation if they pass they are not added to the list
+		if(HAS_TRAIT(hearer, TRAIT_OBFUSCATED))
+			var/auspex_successes = detection_roll.st_roll(owner, hearer)
+			var/obfuscate_successes = concealment_roll.st_roll(hearer, owner)
+			if(obfuscate_successes > auspex_successes)
+				continue
+		list_of_mobs_to_pick += hearer
+
+	var/chosen = tgui_input_list(owner, "Choose a target to examine their aura", "Aura Perception", list_of_mobs_to_pick)
+	if(chosen)
+		if(aura_roll.st_roll(owner, target) == ROLL_FAILURE)
+			to_chat(owner, span_danger("You fail to read into anything at all..."))
+			return FALSE
+		var/mob/living/carbon/human/targeted_human = chosen
+		var/image/holder = targeted_human.hud_list[AUSPEX_AURA_HUD]
+		if(holder && owner.client)
+			owner.client.images += holder
+			//cooldown to remove the aura after a bit.
+			addtimer(CALLBACK(src, PROC_REF(remove_aura), targeted_human), 10 SECONDS) //todo: change this back when done
+			targeted_human.apply_status_effect(/datum/status_effect/question_emotion)
+
+/datum/discipline_power/auspex/aura_perception/proc/remove_aura(mob/living/carbon/human/human_to_remove_aura)
+	var/image/holder = human_to_remove_aura.hud_list[AUSPEX_AURA_HUD]
+	if(holder && owner.client)
+		owner.client.images -= holder
+// TFN EDIT END
 
 /datum/discipline_power/auspex/aura_perception/deactivate()
 	. = ..()
-	// TFN EDIT START
+	/* TFN EDIT START
 	STOP_PROCESSING(SSfastprocess, src)
 	if(owner.client)
 		for(var/mob/living/detected_mob in detected_mobs)
@@ -186,9 +202,7 @@
 				var/image/holder = detected_mob.hud_list[AUSPEX_AURA_HUD]
 				if(holder)
 					owner.client.images -= holder
-	detected_mobs = null
-	checked_mobs = null
-	// TFN EDIT END
+	*/ //TFN EDIT END
 
 	var/datum/atom_hud/data/auspex_aura/target_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	target_hud.hide_from(owner)
@@ -211,7 +225,7 @@ against Manipulation + Subterfuge (Obfuscate
 user). The difficulty for both rolls is 7, and the
 character with the most successes wins
 */
-/datum/discipline_power/auspex/aura_perception/process()
+/* /datum/discipline_power/auspex/aura_perception/process()
 	if(!COOLDOWN_FINISHED(src, detection_cooldown))
 		return
 	COOLDOWN_START(src, detection_cooldown, (rand(5,30) SECONDS))
@@ -224,6 +238,7 @@ character with the most successes wins
 		if(!(prev_mob in current_obfuscated))
 			checked_mobs -= prev_mob
 
+	//obfuscated test
 	for(var/mob/living/hearer in current_obfuscated)
 		if((hearer in checked_mobs) || (hearer in detected_mobs))
 			continue
@@ -234,7 +249,7 @@ character with the most successes wins
 			var/image/holder = hearer.hud_list[AUSPEX_AURA_HUD]
 			if(holder && owner.client)
 				owner.client.images |= holder
-				detected_mobs += hearer
+				detected_mobs += hearer */
 // TFN EDIT END
 
 //THE SPIRIT'S TOUCH
