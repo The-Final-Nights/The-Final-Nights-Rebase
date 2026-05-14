@@ -156,18 +156,18 @@
 /datum/supply_pack/weapons/ak74
 	name = "Weapon (AK-74)"
 	desc = "Contains an AK-74."
-	cost = 2200
+	cost = 2250
 	contains = list(/obj/item/gun/ballistic/automatic/darkpack/ak74)
 	crate_name = "weapon crate"
 
-/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/weaponrifle
 	name = "Weapon (AR-15)"
 	desc = "Contains an AR-15 assault rifle."
-	cost = 3000
+	cost = 2500
 	contains = list(/obj/item/gun/ballistic/automatic/darkpack/ar15, /obj/item/ammo_box/magazine/darkpack556)
 	crate_name = "weapon crate"
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/weaponcarbine
 	name = "Weapon (AUG)"
 	desc = "Contains an AUG assault carbine."
@@ -191,6 +191,13 @@
 	contains = list(/obj/item/gun/ballistic/automatic/darkpack/sniper)
 	crate_name = "weapon crate"
 */ //TFN EDIT REMOVE END
+
+/datum/supply_pack/weapons/weaponsniper
+	name = "Weapon (antique musket)"
+	desc = "Contains a .75 caliber antique musket."
+	cost = 3000
+	contains = list(/obj/item/gun/ballistic/automatic/darkpack/musket, /obj/item/ammo_box/darkpack/c75)
+	crate_name = "weapon crate"
 
 /datum/supply_pack/weapons/ammo9
 	name = "Ammo (9mm)"
@@ -264,17 +271,37 @@
 */ //TFN EDIT REMOVE END
 
 /datum/supply_pack/weapons/ammo50
-	name = "Ammo (.50)"
-	desc = "Contains a box of .50 ammunition."
+	name = "Ammo (.50 BMG)"
+	desc = "Contains a box of .50 BMG ammunition."
 	cost = 2500
 	contains = list(/obj/item/ammo_box/darkpack/c50)
 	crate_name = "ammo crate"
+
+/datum/supply_pack/weapons/ammo50ae
+	name = "Ammo (.50 AE)"
+	desc = "Conmtains a box of .50 AE ammunition"
+	cost = 1000
+	contains = list(/obj/item/ammo_box/darkpack/c50ae, /obj/item/ammo_box/darkpack/c50ae)
 
 /datum/supply_pack/weapons/ammo556
 	name = "Ammo (5.56)"
 	desc = "Contains a box of 5.56 ammunition."
 	cost = 1500
 	contains = list(/obj/item/ammo_box/darkpack/c556)
+	crate_name = "ammo crate"
+
+/datum/supply_pack/weapons/ammo75
+	name = "Cartriages (.75 Ball)"
+	desc = "Contains a bag of .75 ball cartriages."
+	cost = 1000
+	contains = list(/obj/item/ammo_box/darkpack/c75)
+	crate_name = "ammo crate"
+
+/datum/supply_pack/weapons/ammo75_silver
+	name = "Cartriages (.75 Ball)"
+	desc = "Contains a bag of silver .75 ball cartriages."
+	cost = 7000
+	contains = list(/obj/item/ammo_box/darkpack/c75/silver)
 	crate_name = "ammo crate"
 
 /* //TFN EDIT REMOVE START

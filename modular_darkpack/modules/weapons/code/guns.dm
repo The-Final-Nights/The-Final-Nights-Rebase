@@ -100,8 +100,8 @@
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "deagle"
-	ammo_type = /obj/item/ammo_casing/vampire/c50
-	caliber = CALIBER_50CAL
+	ammo_type = /obj/item/ammo_casing/vampire/c50ae
+	caliber = CALIBER_50CAL_AE
 	max_ammo = 7
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
@@ -595,7 +595,7 @@
 	recoil = 2
 	fire_delay = 1					//It's bolt-action. Fast as you can go really; which is still pretty slow.
 	burst_size = 1
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	projectile_damage_multiplier = 1.5 //~52 damage vs 35 base .44 damage. It's ok, on par with 5.56 but lower pen and slower to fire due to bolt action.
 	masquerade_violating = FALSE
 	serial_type = "WN"
@@ -604,7 +604,7 @@
 	name = "sniper rifle internal magazine"
 	desc = "Oh god, this shouldn't be here"
 	ammo_type = /obj/item/ammo_casing/vampire/c50
-	caliber = CALIBER_50CAL
+	caliber = CALIBER_50CAL_BMG
 	max_ammo = 5
 	//multiload = TRUE
 
