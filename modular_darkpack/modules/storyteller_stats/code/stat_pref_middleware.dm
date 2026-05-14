@@ -43,11 +43,13 @@
 
 /datum/preference_middleware/stats/proc/increase_stat(list/params, mob/user)
 	SHOULD_NOT_SLEEP(TRUE)
-
+	// TFN EDIT START
+	/*
 	if("[user.client.prefs.default_slot]" in user.persistent_client.joined_as_slots)
 		to_chat(user, span_warning("You cannot be spawned in as this character to adjust its stats."))
 		return FALSE
-
+	*/
+	// TFN EDIT END
 	var/datum/st_stat/stat_path = preferences.preference_storyteller_stats[text2path(params["stat"])]
 	var/datum/st_stat/abstract_stat = preferences.preference_storyteller_stats[stat_path.abstract_type]
 	var/datum/st_stat/freebie_point_stat = preferences.preference_storyteller_stats[STAT_FREEBIE_POINTS]
