@@ -52,7 +52,7 @@ SUBSYSTEM_DEF(police_gps)
 		if(selected_target > wanted_length)
 			selected_target = 1
 		tracking_target = SSpolice_gps.wanted[selected_target]
-	to_chat(owner, span_info("You are now tracking [tracking_target] at [get_area_name(tracking_target)]. Suspect is wanted in connection to multiple homicides."))
+	to_chat(owner, span_info("You are now tracking a suspect last seen near [get_area_name(tracking_target)], wanted in connection to multiple homicides."))
 
 
 /atom/movable/screen/alert/police_gps/process(seconds_per_tick)
