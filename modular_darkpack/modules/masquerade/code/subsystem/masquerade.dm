@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(masquerade)
 /datum/controller/subsystem/masquerade/proc/get_description()
 	var/return_list = ""
 	switch(masquerade_level)
-//TFN EDIT START CHANGE
+//TFN EDIT CHANGE START
 		if(0)
 			return_list += "MASQUEARADE FAILURE: "
 		if(1 to 2)
@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(masquerade)
 			return_list += "SUSPICIOUS: "
 		else
 			return_list += "STABLE: "
-//TFN EDIT END CHANGE
+//TFN EDIT CHANGE END
 	return_list += "[masquerade_level]/[MASQUERADE_MAX_LEVEL]"
 	return return_list
 
