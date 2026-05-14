@@ -101,6 +101,7 @@
 	owner.physiology.heat_mod *= 2
 	owner.physiology.cold_mod *= 0.25
 
+	ADD_TRAIT(owner, TRAIT_STABLEHEART, INNATE_TRAIT) // TFN ADDITION - kindred can survive without a heart
 
 /datum/splat/vampire/kindred/on_lose()
 	owner.remove_st_power(/datum/discipline/bloodheal)
