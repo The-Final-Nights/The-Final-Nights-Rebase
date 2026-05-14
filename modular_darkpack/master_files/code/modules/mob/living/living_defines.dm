@@ -21,7 +21,7 @@
 	var/bloodquality = BLOOD_QUALITY_LOW
 
 	COOLDOWN_DECLARE(masquerade_timer)
-	var/masquerade_score = 5
+	var/masquerade_score = 2 // TFN EDIT CHANGE - ORIGINAL : var/masquerade_score = 5
 
 	var/killed_count = 0
 	var/warrant = FALSE

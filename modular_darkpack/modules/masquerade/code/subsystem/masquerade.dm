@@ -25,16 +25,18 @@ SUBSYSTEM_DEF(masquerade)
 /datum/controller/subsystem/masquerade/proc/get_description()
 	var/return_list = ""
 	switch(masquerade_level)
+//TFN EDIT START CHANGE
 		if(0)
 			return_list += "MASQUEARADE FAILURE: "
-		if(1 to 9)
+		if(1 to 2)
 			return_list += "MASSIVE BREACH: "
-		if(10 to 14)
+		if(3 to 5)
 			return_list += "MODERATE VIOLATION: "
-		if(15 to 20)
+		if(6 to 8)
 			return_list += "SUSPICIOUS: "
 		else
 			return_list += "STABLE: "
+//TFN EDIT END CHANGE
 	return_list += "[masquerade_level]/[MASQUERADE_MAX_LEVEL]"
 	return return_list
 
@@ -66,12 +68,13 @@ SUBSYSTEM_DEF(masquerade)
 
 				masquerade_breachers -= list(masquerade_breach)
 				masquerade_level = min(MASQUERADE_MAX_LEVEL, masquerade_level + 1)
-				player_breacher.masquerade_score = min(5, player_breacher.masquerade_score + 1)
+				player_breacher.masquerade_score = min(2, player_breacher.masquerade_score + 1) //TFN EDIT CHANGE - ORIGINAL : 				player_breacher.masquerade_score = min(5, player_breacher.masquerade_score + 1)
 				. = TRUE
 				break
-	if(player_breacher.masquerade_score == 5) //Doesn't matter if they weren't in one of these lists.
+	if(player_breacher.masquerade_score == 2) //Doesn't matter if they weren't in one of these lists. // TFN EDIT CHANGE - ORIGINAL :	if(player_breacher.masquerade_score == 5) //Doesn't matter if they weren't in one of these lists.
 		GLOB.veil_breakers_list -= player_breacher
 		GLOB.masquerade_breakers_list -= player_breacher
+		GLOB.supernatural_breakers_list -= player_breacher //TFN EDIT ADD
 
 	/*
 	var/datum/splat/werewolf/werewolf_splat = get_werewolf_splat(player_breacher)
@@ -98,8 +101,10 @@ SUBSYSTEM_DEF(masquerade)
 	masquerade_breachers += list(list(player_breacher, source, reason))
 	if(get_vampire_splat(player_breacher))
 		GLOB.masquerade_breakers_list |= player_breacher
+		GLOB.supernatural_breakers_list |= player_breacher //TFN EDIT ADD
 	else if(get_werewolf_splat(player_breacher))
 		GLOB.veil_breakers_list |= player_breacher
+		GLOB.supernatural_breakers_list |= player_breacher //TFN EDIT ADD
 	//Only lower the global masq if the player's breach score is actually reduced by 1
 	if(pre_breach_score > player_breacher.masquerade_score)
 		masquerade_level = max(0, masquerade_level - 1)
@@ -133,19 +138,23 @@ SUBSYSTEM_DEF(masquerade)
 			masquerade_level = min(MASQUERADE_MAX_LEVEL, masquerade_level + 1)
 	GLOB.masquerade_breakers_list -= player_breacher
 	GLOB.veil_breakers_list -= player_breacher
+	GLOB.supernatural_breakers_list -= player_breacher //TFN EDIT ADD
 	if(update_preferences)
 		save_persistent_masquerade(player_breacher)
 
 // This is for checking if a joined player should be on the breachers list.
 /datum/controller/subsystem/masquerade/proc/masquerade_breacher_check(mob/living/player_breacher)
-	if(player_breacher.masquerade_score < 5)
+	if(player_breacher.masquerade_score == 1) //TFN EDIT CHANGE - ORIGINAL : 	if(player_breacher.masquerade_score < 5)
 		if(get_vampire_splat(player_breacher))
 			GLOB.masquerade_breakers_list |= player_breacher
+			GLOB.supernatural_breakers_list |= player_breacher //TFN EDIT ADD
 		else if(get_werewolf_splat(player_breacher))
 			GLOB.veil_breakers_list |= player_breacher
+			GLOB.supernatural_breakers_list |= player_breacher //TFN EDIT ADD
 	else
 		GLOB.masquerade_breakers_list -= player_breacher
 		GLOB.veil_breakers_list -= player_breacher
+		GLOB.supernatural_breakers_list -= player_breacher //TFN EDIT ADD
 
 /datum/controller/subsystem/masquerade/proc/player_masquerade_reinforce(datum/source, mob/living/player_breacher)
 	SIGNAL_HANDLER

@@ -18,15 +18,14 @@
 	if(!get_vampire_splat(user))
 		return
 	var/turf/current_location = get_turf(user)
-	to_chat(user, "[span_bold("YOU")], [get_area_name(user)] X:[current_location.x] Y:[current_location.y] Z:[current_location.z]")
+//TFN EDIT ADD START
+	to_chat(user, "[span_bold("YOU")], [get_area_name(user)]")
 	for(var/mob/living/carbon/breacher as anything in GLOB.masquerade_breakers_list)
-		var/location_info
 		var/turf/turf = get_turf(breacher)
-		if(breacher.masquerade_score <= 2)
-			location_info = "[get_area_name(turf)], X:[turf.x] Y:[turf.y] Z:[turf.z]"
-		else
-			location_info = "[get_area_name(turf)]"
-		to_chat(user, span_info("[breacher.real_name], Masquerade: [breacher.masquerade_score], Diablerist: [HAS_TRAIT(breacher, TRAIT_DIABLERIE) ? "<b>YES</b>" : "NO"], [location_info]"))
+		var/direction = get_dir(current_location, turf)
+		var/disttext = dir2text(direction)
+		to_chat(user, span_info("[breacher.real_name], breached masquerade, [get_area_name(turf)], [disttext]"))
+//TFN EDIT ADD END
 
 	if(!GLOB.masquerade_breakers_list)
 		to_chat(user, span_info("No available Masquerade breakers in city..."))
@@ -47,15 +46,14 @@
 	if(!get_werewolf_splat(user))
 		return
 	var/turf/current_location = get_turf(user)
-	to_chat(user, "[span_bold("YOU")], [get_area_name(user)] X:[current_location.x] Y:[current_location.y] Z:[current_location.z]")
+//TFN EDIT ADD START
+	to_chat(user, "[span_bold("YOU")], [get_area_name(user)]")
 	for(var/mob/living/breacher as anything in GLOB.veil_breakers_list)
-		var/location_info
 		var/turf/turf = get_turf(breacher)
-		if(breacher.masquerade_score <= 2)
-			location_info = "[get_area_name(turf)], X:[turf.x] Y:[turf.y] Z:[turf.z]"
-		else
-			location_info = "[get_area_name(turf)]"
-		to_chat(user, span_info("[breacher.real_name], Veil: [breacher.masquerade_score], [location_info]"))
+		var/direction = get_dir(current_location, turf)
+		var/disttext = dir2text(direction)
+		to_chat(user, span_info("[breacher.real_name], broken veil, [get_area_name(turf)], [disttext]"))
+//TFN EDIT ADD END
 
 	if(!GLOB.veil_breakers_list)
 		to_chat(user, span_info("No available Veil breakers in city..."))

@@ -207,7 +207,7 @@
 		TRAIT_TRANSFORM_UPDATES_ICON,
 	)
 	causes_delirium = TRUE
-	veil_breaching_form = TRUE
+//	veil_breaching_form = TRUE //TFN EDIT REMOVE
 
 	mutanttongue = /obj/item/organ/tongue/fera
 	bodypart_overrides = list(
