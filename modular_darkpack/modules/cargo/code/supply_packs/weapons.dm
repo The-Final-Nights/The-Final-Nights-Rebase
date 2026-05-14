@@ -192,7 +192,7 @@
 	crate_name = "weapon crate"
 */ //TFN EDIT REMOVE END
 
-/datum/supply_pack/weapons/weaponsniper
+/datum/supply_pack/weapons/musket
 	name = "Weapon (antique musket)"
 	desc = "Contains a .75 caliber antique musket."
 	cost = 3000
@@ -298,7 +298,7 @@
 	crate_name = "ammo crate"
 
 /datum/supply_pack/weapons/ammo75_silver
-	name = "Cartriages (.75 Ball)"
+	name = "Cartriages (.75 Ball Silver)"
 	desc = "Contains a bag of silver .75 ball cartriages."
 	cost = 7000
 	contains = list(/obj/item/ammo_box/darkpack/c75/silver)
