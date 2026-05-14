@@ -71,7 +71,7 @@ SUBSYSTEM_DEF(masquerade)
 				player_breacher.masquerade_score = min(2, player_breacher.masquerade_score + 1) //TFN EDIT CHANGE - ORIGINAL : 				player_breacher.masquerade_score = min(5, player_breacher.masquerade_score + 1)
 				. = TRUE
 				break
-	if(player_breacher.masquerade_score == 2) //Doesn't matter if they weren't in one of these lists. // TFN EDIT CHANGE - ORIGINAL :	if(player_breacher.masquerade_score == 5) //Doesn't matter if they weren't in one of these lists.
+	if(player_breacher.masquerade_score == 2) //Doesn't matter if they weren't in one of these lists. // TFN EDIT CHANGE - ORIGINAL :	if(player_breacher.masquerade_score == 5)
 		GLOB.veil_breakers_list -= player_breacher
 		GLOB.masquerade_breakers_list -= player_breacher
 		GLOB.supernatural_breakers_list -= player_breacher //TFN EDIT ADD
