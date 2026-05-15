@@ -49,7 +49,7 @@
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex
-	uniform = /obj/item/clothing/under/vampire/magadon_turtleneck
+	uniform = /obj/item/clothing/under/vampire/magadon_shirtlongsleeve
 	gloves = /obj/item/clothing/gloves/vampire/work
 	shoes = /obj/item/clothing/shoes/vampire
 	r_pocket = /obj/item/vamp/keys/pentex

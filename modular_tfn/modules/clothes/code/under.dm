@@ -28,4 +28,23 @@
 	icon_state = "magadon_turtleneck"
 	TFN_CLOTHING_ADDITION
 
+/obj/item/clothing/under/vampire/magadon_overalls
+	name = "Magadon Incorporated overalls"
+	desc = "A pair of overalls belonging to a Magadon Inc. employee."
+	icon_state = "magadon_overalls"
+	TFN_CLOTHING_ADDITION
+
+/obj/item/clothing/under/vampire/magadon_shirt
+	name = "Magadon Incorporated shirt"
+	desc = "A shirt belonging to a Magadon Inc. employee."
+	icon_state = "magadon_shirt"
+	TFN_CLOTHING_ADDITION
+
+/obj/item/clothing/under/vampire/magadon_shirtlongsleeve
+	name = "Magadon Incorporated long-sleeve shirt"
+	desc = "A long-sleeved shirt belonging to a Magadon Inc. employee."
+	icon_state = "magadon_shirtlongsleeve"
+	TFN_CLOTHING_ADDITION
+
+
 
