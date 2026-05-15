@@ -25,6 +25,7 @@
 	)
 
 	allowed_splats = list(SPLAT_KINDRED, SPLAT_GHOUL, SPLAT_KINFOLK, SPLAT_NONE)
+	maximum_immortal_age = 199
 
 	description = "You are employed by the jazz club, providing it's services to the public and it's special clients. You are either clueless, paid well enough not to talk, or bound to secrecy by other means."
 	minimal_masquerade = 3

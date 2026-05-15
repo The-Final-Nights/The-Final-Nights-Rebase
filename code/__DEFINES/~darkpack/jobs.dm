@@ -40,7 +40,7 @@
 //Anarch
 #define JOB_BARON "Baron"
 #define JOB_TAPSTER "Tapster"
-#define JOB_BRUISER "Bruiser"
+#define JOB_BRUISER "Bouncer" //TFN EDIT CHANGE - ORIGINAL : #define JOB_BRUISER "Bruiser"
 #define JOB_EMISSARY "Emissary"
 #define JOB_SWEEPER "Sweeper"
 

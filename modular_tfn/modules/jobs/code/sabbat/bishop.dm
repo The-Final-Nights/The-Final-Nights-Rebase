@@ -18,7 +18,7 @@
 	)
 
 	allowed_splats = list(SPLAT_KINDRED)
-	disallowed_clans = list(VAMPIRE_CLAN_BAALI, VAMPIRE_CLAN_TREMERE, VAMPIRE_CLAN_GIOVANNI)
+	disallowed_clans = list(VAMPIRE_CLAN_BAALI, VAMPIRE_CLAN_TREMERE, VAMPIRE_CLAN_GIOVANNI, VAMPIRE_CLAN_VENTRUE, VAMPIRE_CLAN_OLD_CLAN_TZIMISCE)
 	known_contacts = list("Ductus")
 
 /datum/outfit/job/vampire/bishop
@@ -34,3 +34,8 @@
 	r_pocket = /obj/item/vamp/keys/sabbat
 	l_pocket = /obj/item/smartphone/bishop
 	backpack_contents = list(/obj/item/masquerade_contract=1, /obj/item/card/credit=1)
+
+/datum/outfit/job/vampire/bishop/pre_equip(mob/living/carbon/human/H)
+	. = ..()
+	if(H.mind)
+		H.mind.add_antag_datum(/datum/antagonist/sabbatist/bishop)

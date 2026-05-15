@@ -18,6 +18,7 @@
 
 	minimal_masquerade = 3
 	allowed_splats = list(SPLAT_KINDRED)
+	disallowed_clans = list(VAMPIRE_CLAN_GIOVANNI)
 
 	known_contacts = list("Bishop")
 
@@ -32,3 +33,8 @@
 	r_pocket = /obj/item/vamp/keys/sabbat
 	l_pocket = /obj/item/smartphone/true_sabbat
 	backpack_contents = list(/obj/item/card/credit=1)
+
+/datum/outfit/job/vampire/true_sabbat/pre_equip(mob/living/carbon/human/H)
+	. = ..()
+	if(H.mind)
+		H.mind.add_antag_datum(/datum/antagonist/sabbatist)

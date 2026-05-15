@@ -46,7 +46,7 @@
 	worn_icon_state = "green_id"
 
 /obj/item/card/bruiser
-	name = "bruiser badge"
+	name = "bouncer badge" //TFN EDIT CHANGE - ORIGINAL - : 	name = "bruiser badge"
 	desc = "A badge which shows grit."
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "bruiser_badge"
