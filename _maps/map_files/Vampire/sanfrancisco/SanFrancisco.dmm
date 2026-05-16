@@ -48041,7 +48041,7 @@
 "lXO" = (
 /obj/structure/table,
 /obj/structure/platform/lowwall/market,
-/turf/open/space/basic,
+/turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility)
 "lYh" = (
 /obj/effect/turf_decal/siding/wood/dark,
@@ -60219,6 +60219,12 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
+"oTZ" = (
+/obj/machinery/light/red/dim/directional/east{
+	pixel_y = 16
+	},
+/turf/open/floor/iron/dark/small,
+/area/vtm/interior/endron_facility/restricted)
 "oUb" = (
 /obj/effect/decal/coastline/corner{
 	dir = 4
@@ -77759,7 +77765,7 @@
 	dir = 4;
 	pixel_y = 8
 	},
-/turf/open/space/basic,
+/turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility)
 "tkY" = (
 /obj/machinery/hydroponics/simple/plastic,
@@ -85402,6 +85408,9 @@
 /obj/effect/turf_decal/siding/grey/corner{
 	dir = 8
 	},
+/obj/machinery/light/directional/east{
+	pixel_y = 16
+	},
 /turf/open/floor/city/plating,
 /area/vtm/interior/endron_facility)
 "veJ" = (
@@ -86608,7 +86617,7 @@
 	pixel_y = 11;
 	pixel_x = -10
 	},
-/turf/open/space/basic,
+/turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility)
 "vyd" = (
 /obj/effect/turf_decal/siding/wideplating/orange/corner{
@@ -87337,7 +87346,7 @@
 	pixel_y = 5;
 	pixel_x = 6
 	},
-/turf/open/space/basic,
+/turf/open/floor/city/plating_mono,
 /area/vtm/interior/endron_facility)
 "vHF" = (
 /obj/effect/decal/wallpaper,
@@ -97746,6 +97755,13 @@
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/police/upstairs)
+"ykZ" = (
+/obj/structure/lattice/grate{
+	dir = 4
+	},
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/water/vamp_sewer,
+/area/vtm/interior/sewer)
 "ylf" = (
 /obj/structure/arc{
 	dir = 4
@@ -129976,7 +129992,7 @@ hge
 hge
 cZx
 oYx
-vbb
+ykZ
 geD
 nEI
 wcN
@@ -133241,7 +133257,7 @@ vFf
 tuX
 geD
 vVz
-wcN
+oTZ
 wcN
 hkX
 geD
