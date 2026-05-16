@@ -1,6 +1,7 @@
 // THIS IS A TFN UI FILE
-import { useState, useEffect, useRef } from 'react';
+
 import type { ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -40,7 +41,7 @@ export const GuideMenu = () => {
         undefined,
         ['background'],
         ['img', 'iframe', 'style'],
-      );
+      ).sanitized;
     }
   }, [safeIndex, currentTab?.html_content, editingContent]);
 
@@ -63,7 +64,11 @@ export const GuideMenu = () => {
   };
 
   return (
-    <Window width={currentTab?.name === 'Wiki' ? 1300 : 920} height={660} title="Guide">
+    <Window
+      width={currentTab?.name === 'Wiki' ? 1300 : 920}
+      height={660}
+      title="Guide"
+    >
       <Window.Content
         fitted
         style={{
@@ -152,7 +157,10 @@ export const GuideMenu = () => {
                         title="Move up"
                         disabled={i === 0}
                         onClick={() => {
-                          act('move_tab', { tab_index: i + 1, direction: 'up' });
+                          act('move_tab', {
+                            tab_index: i + 1,
+                            direction: 'up',
+                          });
                           if (selectedTab === i) setSelectedTab(i - 1);
                           else if (selectedTab === i - 1) setSelectedTab(i);
                         }}
@@ -163,7 +171,10 @@ export const GuideMenu = () => {
                         title="Move down"
                         disabled={i === tabs.length - 1}
                         onClick={() => {
-                          act('move_tab', { tab_index: i + 1, direction: 'down' });
+                          act('move_tab', {
+                            tab_index: i + 1,
+                            direction: 'down',
+                          });
                           if (selectedTab === i) setSelectedTab(i + 1);
                           else if (selectedTab === i + 1) setSelectedTab(i);
                         }}
@@ -182,9 +193,7 @@ export const GuideMenu = () => {
                       <SidebarButton
                         title="Delete section"
                         danger
-                        onClick={() =>
-                          act('delete_tab', { tab_index: i + 1 })
-                        }
+                        onClick={() => act('delete_tab', { tab_index: i + 1 })}
                       >
                         delete
                       </SidebarButton>
@@ -255,8 +264,9 @@ export const GuideMenu = () => {
               >
                 Server Guide
               </span>
-              {adminActive && currentTab && (
-                editingContent ? (
+              {adminActive &&
+                currentTab &&
+                (editingContent ? (
                   <>
                     <ToolbarButton
                       color="#ddd"
@@ -287,8 +297,7 @@ export const GuideMenu = () => {
                   >
                     Edit Content
                   </ToolbarButton>
-                )
-              )}
+                ))}
 
               <div style={{ flex: 1 }} />
 
@@ -446,17 +455,15 @@ const ToolbarButton = ({
 }: ToolbarButtonProps) => (
   <button
     onClick={onClick}
-    style={
-      {
-        padding: '3px 10px',
-        background: bg,
-        border: `1px solid ${border}`,
-        color,
-        cursor: 'pointer',
-        fontSize: '12px',
-        borderRadius: '3px',
-      }
-    }
+    style={{
+      padding: '3px 10px',
+      background: bg,
+      border: `1px solid ${border}`,
+      color,
+      cursor: 'pointer',
+      fontSize: '12px',
+      borderRadius: '3px',
+    }}
   >
     {children}
   </button>
