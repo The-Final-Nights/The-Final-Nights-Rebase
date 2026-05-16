@@ -14,4 +14,4 @@
 	female_clothes = /obj/item/clothing/under/vampire/toreador/female
 	enlightenment = FALSE
 	whitelisted = TRUE
-	subsplat_keys = /obj/item/vamp/keys/daughters
+//	subsplat_keys = /obj/item/vamp/keys/daughters //TFN EDIT REMOVE - No Mapped Area

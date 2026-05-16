@@ -15,6 +15,7 @@
 	)
 	male_clothes = /obj/item/clothing/under/vampire/suit
 	female_clothes = /obj/item/clothing/under/vampire/suit/female
+	subsplat_keys = /obj/item/vamp/keys/giovanni //TFN EDIT ADD
 
 /datum/subsplat/vampire_clan/giovanni/on_join_round(mob/living/carbon/human/joining)
 	. = ..()
