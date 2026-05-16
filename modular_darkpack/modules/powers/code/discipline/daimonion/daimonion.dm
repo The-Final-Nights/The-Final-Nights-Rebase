@@ -175,7 +175,7 @@
 /obj/projectile/flames/baali/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	var/turf/open/target_turf = get_turf(target)
-	target_turf.ignite_turf(35, "#1c1f1d") //Equal to a molotov's 30 + fuel bonus of 5, but doesn't spread fuel around, so it'll spread less.
+	target_turf.ignite_turf(35, "#1c1f1d")
 	
 
 /datum/discipline_power/daimoinon/conflagration/activate(atom/target)
