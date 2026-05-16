@@ -1,3 +1,4 @@
+import { sanitizeText } from 'tgui/sanitize';
 import {
   Button,
   Collapsible,
@@ -6,7 +7,6 @@ import {
   Stack,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
-
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
@@ -29,6 +29,13 @@ export const ImplantPad = (props) => {
     saved_deathrattle_group,
     current_deathrattle_group,
   } = data;
+  const sanitized = sanitizeText(case_information);
+  const textHtml = {
+    __html:
+      typeof sanitized === 'object' && sanitized !== null
+        ? sanitized.sanitized
+        : sanitized,
+  };
   return (
     <Window width={300} height={350}>
       <Window.Content scrollable>
