@@ -19,6 +19,9 @@
 	enlightenment = TRUE
 	whitelisted = TRUE
 	subsplat_keys = /obj/item/vamp/keys/baali
+	accessories = list("baali_full", "baali_left", "baali_right", "baali_broken", "baali_round", "baali_oni", "baali_devil", "baali_legs_and_tail", "baali_claws", "none")
+	accessories_layers = list("baali_full" = BODY_FRONT_LAYER, "baali_left" = BODY_FRONT_LAYER, "baali_right" = BODY_FRONT_LAYER, "baali_broken" = BODY_FRONT_LAYER, "baali_round" = BODY_FRONT_LAYER, "baali_devil" = BODY_FRONT_LAYER, "baali_oni" = BODY_FRONT_LAYER, "baali_legs_and_tail" = BODY_FRONT_LAYER, "baali_claws" = BODY_FRONT_LAYER, "none" = BODY_FRONT_LAYER)
+	default_accessory = "none"
 
 /* // TFN EDIT REMOVAl START
 /datum/subsplat/vampire_clan/baali/on_gain(mob/living/carbon/human/gaining_mob, datum/splat/gaining_splat, joining_round)
