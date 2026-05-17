@@ -1570,15 +1570,8 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
 "ate" = (
-/obj/structure/flora/rock/stalagmite,
 /obj/effect/turf_decal/darkpack/cave{
 	dir = 9
-	},
-/obj/structure/glowshroom/single,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/bed/maint{
 	pixel_y = 5;
@@ -64736,11 +64729,6 @@
 	dir = 4;
 	pixel_y = 8
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/item/flashlight/lantern/on{
 	pixel_x = 7;
@@ -81709,6 +81697,11 @@
 "uiq" = (
 /turf/closed/wall/vampwall/rock,
 /area/vtm/outside/northbeach)
+"uiy" = (
+/obj/structure/flora/rock/darkpack,
+/obj/structure/glowshroom/single,
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/evergreen/caern)
 "uiJ" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 1
@@ -89928,22 +89921,10 @@
 /turf/open/floor/wood/ornate,
 /area/vtm/interior/setite)
 "wpm" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/effect/turf_decal/darkpack/cave{
 	dir = 8
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
-/mob/living/basic/pet/dog/wolf/black,
-/obj/structure/bed/dogbed{
-	desc = "A small pet bed.";
-	name = "pet bed"
-	},
-/obj/item/dog_bone,
-/obj/effect/mapping_helpers/mob_buckler,
 /turf/open/misc/dirt,
 /area/vtm/interior/evergreen/caern)
 "wpo" = (
@@ -90174,6 +90155,11 @@
 /obj/structure/closet/secure_closet/freezer/fridge/open,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/shop)
+"wrE" = (
+/obj/effect/turf_decal/darkpack/cave,
+/obj/structure/glowshroom/single,
+/turf/open/misc/dirt,
+/area/vtm/interior/evergreen/caern)
 "wrG" = (
 /turf/open/floor/iron/stairs{
 	dir = 8
@@ -123023,7 +123009,7 @@ wDm
 eAK
 jrT
 odz
-mAe
+uiy
 ate
 wDm
 wDm
@@ -123232,7 +123218,7 @@ cIP
 rMR
 cjW
 wpm
-iEv
+wrE
 wDm
 wDm
 ptu
