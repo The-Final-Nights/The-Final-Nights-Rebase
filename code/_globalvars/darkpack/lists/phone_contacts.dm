@@ -14,7 +14,7 @@ GLOBAL_LIST_EMPTY(anarch_network)
 GLOBAL_LIST_EMPTY(supply_network)
 GLOBAL_LIST_EMPTY(vampire_leader_network)
 GLOBAL_LIST_EMPTY(endron_network)
-GLOBAL_LIST_EMPTY(magadon_network) //TFN EDIT ADD - Magadonification
+GLOBAL_LIST_EMPTY(magadon_network) //TFN EDIT CHANGE - Magadonification - Original: GLOBAL_LIST_EMPTY(endron_network)
 GLOBAL_LIST_EMPTY(magadon_leader_network) //TFN EDIT ADD - Magadonification
 GLOBAL_LIST_EMPTY(society_network)
 GLOBAL_LIST_EMPTY(clinic_network) //TFN EDIT ADD - Clinic Phones
