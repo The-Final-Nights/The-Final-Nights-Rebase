@@ -13,6 +13,7 @@ GLOBAL_LIST_EMPTY(tzmisce_network)
 GLOBAL_LIST_EMPTY(anarch_network)
 GLOBAL_LIST_EMPTY(supply_network)
 GLOBAL_LIST_EMPTY(vampire_leader_network)
+GLOBAL_LIST_EMPTY(endron_network)
 GLOBAL_LIST_EMPTY(magadon_network) //TFN EDIT ADD - Magadonification
 GLOBAL_LIST_EMPTY(magadon_leader_network) //TFN EDIT ADD - Magadonification
 GLOBAL_LIST_EMPTY(society_network)
@@ -27,8 +28,9 @@ GLOBAL_LIST_EMPTY(sabbat_network) // TFN EDIT ADD - Sabbat Phones
 #define ANARCH_NETWORK 6
 #define SUPPLY_NETWORK 7
 #define VAMPIRE_LEADER_NETWORK 8
-#define MAGADON_NETWORK 9 //TFN EDIT ADD - Magadonification
-#define MAGADON_LEADER_NETWORK 10 //TFN EDIT ADD - Magadonification
+#define ENDRON_NETWORK 9
+#define MAGADON_NETWORK 10 //TFN EDIT ADD - Magadonification
+#define MAGADON_LEADER_NETWORK 11 //TFN EDIT ADD - Magadonification
 #define SOCIETY_OF_LEOPOLD_NETWORK 11
 #define CLINIC_NETWORK 12 //TFN EDIT ADD - Clinic Phones
 #define SABBAT_NETWORK 13 // TFN EDIT ADD - Sabbat Phones
@@ -43,6 +45,7 @@ GLOBAL_LIST_INIT(contact_networks, alist(
 		ANARCH_NETWORK = GLOB.anarch_network,
 		SUPPLY_NETWORK = GLOB.supply_network,
 		VAMPIRE_LEADER_NETWORK = GLOB.vampire_leader_network,
+		ENDRON_NETWORK = GLOB.endron_network,
 		MAGADON_NETWORK = GLOB.magadon_network, //TFN EDIT ADD - Magadonification
 		MAGADON_LEADER_NETWORK = GLOB.magadon_leader_network, //TFN EDIT ADD - Magadonification
 		SOCIETY_OF_LEOPOLD_NETWORK = GLOB.society_network,
