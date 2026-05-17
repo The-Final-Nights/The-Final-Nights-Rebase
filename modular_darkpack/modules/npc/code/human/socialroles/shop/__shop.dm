@@ -79,15 +79,7 @@
 		/obj/item/clothing/shoes/vampire/brown
 	)
 	uniforms = list(
-		/obj/item/clothing/under/vampire/mechanic,
-		/obj/item/clothing/under/vampire/brujah,
-		/obj/item/clothing/under/vampire/emo,
-		/obj/item/clothing/under/vampire/suit,
-		/obj/item/clothing/under/vampire/turtleneck_black,
-		/obj/item/clothing/under/vampire/office,
-		/obj/item/clothing/under/vampire/gangrel,
-		/obj/item/clothing/under/vampire/tremere,
-		/obj/item/clothing/under/vampire/supply,
+		/obj/item/clothing/under/vampire/pentex_shortsleeve, // TFN EDIT - Great Magadonification
 	)
 	pockets = list(
 		/obj/item/vamp/keys/npc,
