@@ -28,7 +28,7 @@ GLOBAL_LIST_EMPTY(sabbat_network) // TFN EDIT ADD - Sabbat Phones
 #define ANARCH_NETWORK 6
 #define SUPPLY_NETWORK 7
 #define VAMPIRE_LEADER_NETWORK 8
-#define ENDRON_NETWORK 9 //TFN EDIT CHANGE - Magadonification
+#define ENDRON_NETWORK 9
 #define SOCIETY_OF_LEOPOLD_NETWORK 10
 #define CLINIC_NETWORK 11 //TFN EDIT ADD - Clinic Phones
 #define SABBAT_NETWORK 12 // TFN EDIT ADD - Sabbat Phones
