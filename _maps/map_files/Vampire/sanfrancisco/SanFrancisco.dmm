@@ -13450,16 +13450,10 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
 "dtq" = (
-/obj/effect/turf_decal/bordur{
-	dir = 8
+/obj/effect/landmark/npcwall,
+/turf/closed/wall/vampwall/brick_old{
+	density = 0
 	},
-/obj/structure/vampdoor/oldwood{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/evergreen,
-/obj/effect/mapping_helpers/door/lock_difficulty/eight,
-/turf/open/floor/plating/rough,
 /area/vtm/interior/evergreen/caern)
 "dtx" = (
 /obj/structure/sign/poster/contraband/double_rainbow/directional/north,
@@ -17263,9 +17257,6 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/hotel)
 "eqe" = (
-/obj/effect/turf_decal/darkpack/cave{
-	dir = 9
-	},
 /obj/structure/glowshroom/single,
 /turf/open/misc/dirt,
 /area/vtm/interior/evergreen/caern)
@@ -25780,17 +25771,11 @@
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
 "gyJ" = (
+/obj/structure/flora/rock/stalagmite,
 /obj/effect/turf_decal/darkpack/cave{
-	dir = 8
+	dir = 9
 	},
-/obj/structure/flora/bush/sparsegrass/style_random,
-/mob/living/basic/pet/dog/wolf/black,
-/obj/structure/bed/dogbed{
-	desc = "A small pet bed.";
-	name = "pet bed"
-	},
-/obj/item/dog_bone,
-/turf/open/misc/dirt,
+/turf/open/floor/plating/rough/cave,
 /area/vtm/interior/evergreen/caern)
 "gyK" = (
 /obj/structure/chair/sofa/corp{
@@ -37146,6 +37131,13 @@
 /turf/open/floor/carpet,
 /area/vtm/interior/chantry/basement)
 "joi" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/mob/living/basic/pet/dog/wolf/black,
+/obj/structure/bed/dogbed{
+	desc = "A small pet bed.";
+	name = "pet bed"
+	},
+/obj/item/dog_bone,
 /obj/effect/turf_decal/darkpack/cave{
 	dir = 9
 	},
@@ -84083,6 +84075,12 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/evergreen)
+"uNn" = (
+/obj/effect/turf_decal/darkpack/cave{
+	dir = 9
+	},
+/turf/open/floor/plating/rough/cave,
+/area/vtm/interior/evergreen/caern)
 "uNp" = (
 /obj/structure/platform/lowwall/bar,
 /obj/structure/vampfence/rich{
@@ -84781,8 +84779,14 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/hotel)
 "uWv" = (
-/obj/effect/turf_decal/darkpack/cave/corner,
-/turf/open/misc/dirt,
+/obj/effect/turf_decal/bordur{
+	dir = 8
+	},
+/obj/structure/vampdoor/oldwood,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/evergreen,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/turf/open/floor/plating/rough,
 /area/vtm/interior/evergreen/caern)
 "uWx" = (
 /obj/effect/decal/cleanable/litter{
@@ -122869,7 +122873,7 @@ eAK
 jrT
 odz
 mAe
-cIP
+gyJ
 wDm
 wDm
 wDm
@@ -123074,9 +123078,9 @@ aHO
 btT
 cIP
 cIP
-wRV
+joi
 eqe
-gyJ
+wqx
 wDm
 wDm
 wDm
@@ -123277,10 +123281,10 @@ eNS
 whe
 cIP
 cIP
-cIP
-joi
-uWv
+uNn
+urq
 ibI
+uWv
 iEv
 pSC
 wDm
@@ -123484,7 +123488,7 @@ cIP
 cIP
 urq
 qPi
-ibI
+wqx
 xKb
 lue
 wDm
@@ -123688,7 +123692,7 @@ dSV
 wDm
 wqx
 wqx
-wmC
+wqx
 dtq
 wqx
 wlL
@@ -123893,7 +123897,7 @@ wDm
 wmC
 dlA
 tGB
-tGB
+flH
 krp
 tOE
 kVz
