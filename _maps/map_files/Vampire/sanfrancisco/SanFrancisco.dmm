@@ -10254,9 +10254,7 @@
 "cAS" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/market,
-/obj/effect/decal/wallpaper/light/low{
-	color = "#509462"
-	},
+/obj/effect/decal/wallpaper/trim/green,
 /obj/vampire_computer,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/evergreen)
@@ -17257,7 +17255,10 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/hotel)
 "eqe" = (
-/obj/structure/glowshroom/single,
+/obj/structure/vampfence/rich{
+	dir = 4;
+	pixel_y = 8
+	},
 /turf/open/misc/dirt,
 /area/vtm/interior/evergreen/caern)
 "eqk" = (
@@ -25775,6 +25776,7 @@
 /obj/effect/turf_decal/darkpack/cave{
 	dir = 9
 	},
+/obj/structure/glowshroom/single,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/evergreen/caern)
 "gyK" = (
@@ -38040,9 +38042,7 @@
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/trujah)
 "jwP" = (
-/obj/effect/decal/wallpaper/light/low{
-	color = "#509462"
-	},
+/obj/effect/decal/wallpaper/trim/green,
 /obj/structure/platform/lowwall/wood/window,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/ranger)
@@ -39410,6 +39410,13 @@
 	},
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/chantry/basement)
+"jQV" = (
+/obj/effect/turf_decal/darkpack/cave{
+	dir = 1
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/dirt,
+/area/vtm/interior/evergreen/caern)
 "jQZ" = (
 /obj/structure/chair/office/darkpack/blue{
 	dir = 4
@@ -57322,9 +57329,7 @@
 /turf/open/floor/plating/roofwalk,
 /area/vtm)
 "olt" = (
-/obj/effect/decal/wallpaper/light/low{
-	color = "#509462"
-	},
+/obj/effect/decal/wallpaper/trim/green,
 /turf/closed/wall/vampwall/market,
 /area/vtm)
 "olx" = (
@@ -68351,7 +68356,6 @@
 /turf/open/misc/dirt,
 /area/vtm/interior/sabbat_lair)
 "qSZ" = (
-/obj/structure/rack/tall/store_shelf_metal,
 /obj/item/reagent_containers/cup/jerrycan/left4zed{
 	pixel_y = -5;
 	pixel_x = 4
@@ -68369,6 +68373,7 @@
 /obj/item/shovel/vamp{
 	pixel_y = 16
 	},
+/obj/structure/rack/tall/store_shelf_metal,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/evergreen/caern)
 "qTn" = (
@@ -76003,6 +76008,13 @@
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic)
+"sNY" = (
+/obj/effect/mapping_helpers/door/access/evergreen,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/prison,
+/turf/open/misc/dirt,
+/area/vtm/interior/evergreen/caern)
 "sOh" = (
 /obj/effect/turf_decal/siding/wood/light/end,
 /turf/open/floor/wood/ornate,
@@ -79349,9 +79361,7 @@
 /turf/open/floor/carpet/green,
 /area/vtm/interior)
 "tFj" = (
-/obj/effect/decal/wallpaper/light/low{
-	color = "#509462"
-	},
+/obj/effect/decal/wallpaper/trim/green,
 /turf/closed/wall/vampwall/wood,
 /area/vtm/interior/ranger)
 "tFr" = (
@@ -79496,9 +79506,7 @@
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/chantry/basement)
 "tHo" = (
-/obj/effect/decal/wallpaper/light/low{
-	color = "#509462"
-	},
+/obj/effect/decal/wallpaper/trim/green,
 /obj/structure/platform/lowwall/market/window,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/evergreen)
@@ -79944,7 +79952,6 @@
 	},
 /area/vtm/interior/sewer/nosferatu_warren)
 "tMf" = (
-/obj/structure/rack/tall/store_shelf_metal,
 /obj/item/reagent_containers/cup/jerrycan/eznutriment{
 	pixel_y = -5;
 	pixel_x = -4
@@ -79966,6 +79973,7 @@
 /obj/item/shovel/vamp{
 	pixel_y = 16
 	},
+/obj/structure/rack/tall/store_shelf_metal,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/evergreen/caern)
 "tMj" = (
@@ -84778,16 +84786,6 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/hotel)
-"uWv" = (
-/obj/effect/turf_decal/bordur{
-	dir = 8
-	},
-/obj/structure/vampdoor/oldwood,
-/obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/evergreen,
-/obj/effect/mapping_helpers/door/lock_difficulty/eight,
-/turf/open/floor/plating/rough,
-/area/vtm/interior/evergreen/caern)
 "uWx" = (
 /obj/effect/decal/cleanable/litter{
 	pixel_x = 5;
@@ -89657,9 +89655,7 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
 "wmC" = (
-/obj/effect/decal/wallpaper/light/low{
-	color = "#509462"
-	},
+/obj/effect/decal/wallpaper/trim/green,
 /turf/closed/wall/vampwall/brick_old,
 /area/vtm/interior/evergreen/caern)
 "wmH" = (
@@ -93660,9 +93656,7 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/trainyard)
 "xjj" = (
-/obj/effect/decal/wallpaper/light/low{
-	color = "#509462"
-	},
+/obj/effect/decal/wallpaper/trim/green,
 /turf/closed/wall/vampwall/market,
 /area/vtm/interior/evergreen)
 "xju" = (
@@ -123080,8 +123074,8 @@ cIP
 cIP
 joi
 eqe
-wqx
-wDm
+ibI
+iEv
 wDm
 wDm
 ptu
@@ -123283,8 +123277,8 @@ cIP
 cIP
 uNn
 urq
+sNY
 ibI
-uWv
 iEv
 pSC
 wDm
@@ -123486,9 +123480,9 @@ cIP
 cIP
 cIP
 cIP
-urq
-qPi
-wqx
+jQV
+eqe
+ibI
 xKb
 lue
 wDm
