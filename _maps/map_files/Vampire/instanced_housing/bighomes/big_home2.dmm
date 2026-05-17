@@ -1,14 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/structure/bookcase/random/religion{
-	pixel_y = 22;
+/obj/structure/bookcase/random/nonfiction{
+	pixel_y = 20;
 	density = 0
 	},
 /turf/open/floor/city/plating_mono,
 /area/space)
 "aj" = (
-/obj/structure/bookcase/random/religion{
-	pixel_y = 22;
+/obj/structure/bookcase/random/nonfiction{
+	pixel_y = 20;
 	density = 0
 	},
 /obj/effect/turf_decal/siding/wood/dark/corner{
@@ -41,13 +41,6 @@
 	dir = 8
 	},
 /turf/open/misc/grass,
-/area/space)
-"aI" = (
-/obj/structure/table/wood/fancy/black,
-/obj/effect/turf_decal/siding/wood/dark,
-/obj/structure/railing/wooden_fence,
-/obj/item/sabbat_priest_tome,
-/turf/open/floor/wood/smooth/old,
 /area/space)
 "aR" = (
 /obj/structure/table/wood,
@@ -245,8 +238,8 @@
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
 	},
-/obj/structure/bookcase/random/religion{
-	pixel_y = 22;
+/obj/structure/bookcase/random/nonfiction{
+	pixel_y = 20;
 	density = 0
 	},
 /obj/structure/railing{
@@ -257,6 +250,9 @@
 "fe" = (
 /obj/structure/dresser{
 	pixel_y = 12
+	},
+/obj/machinery/light_switch{
+	pixel_y = 29
 	},
 /turf/open/floor/wood/smooth/old,
 /area/space)
@@ -287,6 +283,9 @@
 /area/space)
 "fU" = (
 /obj/machinery/oven/range,
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
 /turf/open/floor/plating/sidewalk/old,
 /area/space)
 "gf" = (
@@ -525,8 +524,8 @@
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
 	},
-/obj/structure/bookcase/random/religion{
-	pixel_y = 22;
+/obj/structure/bookcase/random/nonfiction{
+	pixel_y = 20;
 	density = 0
 	},
 /obj/structure/railing{
@@ -587,6 +586,16 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/space)
+"nf" = (
+/obj/item/kirbyplants/darkpack/random{
+	pixel_y = 8;
+	pixel_x = 7
+	},
+/obj/machinery/light_switch{
+	pixel_x = 19
+	},
+/turf/open/floor/wood/smooth/old,
+/area/space)
 "nx" = (
 /obj/structure/curtain/bounty{
 	pixel_y = 8
@@ -629,8 +638,8 @@
 /area/space)
 "oj" = (
 /obj/structure/chair/wood/darkpack,
-/obj/structure/bookcase/random/religion{
-	pixel_y = 22;
+/obj/structure/bookcase/random/nonfiction{
+	pixel_y = 20;
 	density = 0
 	},
 /turf/open/floor/wood/smooth/old,
@@ -675,6 +684,12 @@
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass/nosmooth,
+/area/space)
+"pR" = (
+/obj/machinery/light_switch{
+	pixel_x = -19
+	},
+/turf/open/floor/carpet/darkpack/blackgold,
 /area/space)
 "qb" = (
 /obj/structure/vampfence/rich{
@@ -808,6 +823,15 @@
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
 /area/space)
+"sc" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 8
+	},
+/obj/machinery/light_switch{
+	pixel_x = 19
+	},
+/turf/open/floor/wood/smooth/old,
+/area/space)
 "sg" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/tree/vamp/pine,
@@ -816,10 +840,6 @@
 "sj" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
-"sp" = (
-/obj/structure/bookcase/random/religion,
-/turf/open/floor/wood/smooth/old,
 /area/space)
 "st" = (
 /obj/structure/flora/tree/vamp/pine,
@@ -929,6 +949,9 @@
 	pixel_x = -7
 	},
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/machinery/light_switch{
+	pixel_x = -19
+	},
 /turf/open/floor/wood/smooth/old,
 /area/space)
 "vB" = (
@@ -1157,14 +1180,21 @@
 /obj/item/kirbyplants/darkpack/random,
 /turf/open/floor/wood/smooth/old,
 /area/space)
+"yQ" = (
+/obj/machinery/light_switch{
+	pixel_x = -19;
+	pixel_y = 32
+	},
+/turf/open/floor/city/plating,
+/area/space)
 "yR" = (
 /obj/effect/turf_decal/bordur,
 /obj/machinery/light/prince/directional/north,
 /turf/open/floor/plating/sidewalkalt,
 /area/space)
 "zD" = (
-/obj/structure/bookcase/random/religion{
-	pixel_y = 22;
+/obj/structure/bookcase/random/nonfiction{
+	pixel_y = 20;
 	density = 0
 	},
 /obj/effect/turf_decal/siding/wood/dark,
@@ -1364,9 +1394,6 @@
 /area/space)
 "Gc" = (
 /obj/structure/fireplace,
-/obj/item/gun/ballistic/automatic/darkpack/musket{
-	pixel_y = 30
-	},
 /turf/open/floor/wood/smooth/old,
 /area/space)
 "GQ" = (
@@ -1502,8 +1529,20 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/space)
+"Jo" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/space)
 "Jp" = (
 /obj/structure/closet/secure_closet/freezer/fridge/all_access,
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
 /turf/open/floor/iron/freezer,
 /area/space)
 "Jy" = (
@@ -1521,8 +1560,8 @@
 /turf/open/floor/wood/smooth/old,
 /area/space)
 "JU" = (
-/obj/structure/bookcase/random/religion{
-	pixel_y = 22;
+/obj/structure/bookcase/random/nonfiction{
+	pixel_y = 20;
 	density = 0
 	},
 /obj/item/kirbyplants/darkpack/random{
@@ -1545,8 +1584,8 @@
 /turf/open/floor/wood/smooth/old,
 /area/space)
 "KW" = (
-/obj/structure/bookcase/random/religion{
-	pixel_y = 22;
+/obj/structure/bookcase/random/nonfiction{
+	pixel_y = 20;
 	density = 0
 	},
 /obj/structure/chair/wood/darkpack{
@@ -1618,6 +1657,12 @@
 	dir = 1
 	},
 /area/space)
+"Ok" = (
+/obj/machinery/light_switch{
+	pixel_x = 19
+	},
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/space)
 "OC" = (
 /obj/machinery/sprinkler,
 /turf/open/floor/city/plating,
@@ -1643,11 +1688,6 @@
 	},
 /obj/structure/hedge,
 /turf/open/floor/plating/rough,
-/area/space)
-"PG" = (
-/obj/structure/table/wood,
-/obj/item/vampirebook/noddist,
-/turf/open/floor/carpet/darkpack/blackgold,
 /area/space)
 "PM" = (
 /turf/open/floor/iron/stairs/black/right{
@@ -1715,14 +1755,6 @@
 /obj/structure/table/wood/fancy/black,
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/railing/wooden_fence,
-/obj/item/reagent_containers/cup/silver_goblet/vaulderie_goblet{
-	pixel_y = 11;
-	pixel_x = 6
-	},
-/obj/item/vampirebook/noddist{
-	pixel_y = 2;
-	pixel_x = -5
-	},
 /turf/open/floor/wood/smooth/old,
 /area/space)
 "Sl" = (
@@ -1758,6 +1790,9 @@
 /obj/item/kirbyplants/darkpack/random{
 	pixel_y = 8;
 	pixel_x = -7
+	},
+/obj/machinery/light_switch{
+	pixel_x = -19
 	},
 /turf/open/floor/wood/smooth/old,
 /area/space)
@@ -1869,13 +1904,16 @@
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
 	},
-/obj/structure/bookcase/random/religion,
+/obj/structure/bookcase/random/nonfiction,
 /turf/open/floor/wood/smooth/old,
 /area/space)
 "Vr" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/rich/old,
 /obj/structure/bedsheetbin/basket,
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
 /turf/open/floor/city/plating,
 /area/space)
 "Vt" = (
@@ -1965,13 +2003,6 @@
 /obj/effect/turf_decal/siding/wood/dark/corner,
 /turf/open/floor/wood/smooth/old,
 /area/space)
-"Xq" = (
-/obj/structure/bookcase/random/religion{
-	pixel_y = 22;
-	density = 0
-	},
-/turf/open/floor/wood/smooth/old,
-/area/space)
 "Xr" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -2008,8 +2039,8 @@
 /turf/open/floor/city/plating_mono,
 /area/space)
 "YA" = (
-/obj/structure/bookcase/random/religion{
-	pixel_y = 22;
+/obj/structure/bookcase/random/nonfiction{
+	pixel_y = 20;
 	density = 0
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
@@ -2346,7 +2377,7 @@ VQ
 mY
 eT
 Ig
-Df
+pR
 Df
 Df
 Df
@@ -2447,7 +2478,7 @@ mV
 mV
 Gc
 Sr
-aI
+Sh
 iQ
 gf
 yk
@@ -2526,7 +2557,7 @@ Df
 Df
 Xa
 mk
-qu
+sc
 qu
 qu
 Su
@@ -2550,7 +2581,7 @@ VQ
 GV
 Bo
 Ig
-Df
+Ok
 Df
 Df
 Df
@@ -2721,7 +2752,7 @@ bF
 xT
 Bn
 mV
-Xq
+rT
 iC
 fS
 XF
@@ -2994,18 +3025,18 @@ XF
 aa
 Yg
 oN
-GV
+nf
 fS
 fS
 XF
 vE
-GV
+nf
 fS
 fS
 UI
 mV
 yk
-GV
+nf
 fS
 db
 ez
@@ -3061,7 +3092,7 @@ mV
 mV
 mV
 KW
-PG
+sj
 HT
 fS
 Jc
@@ -3439,12 +3470,12 @@ mV
 PT
 mV
 mV
-Mz
-PG
+Jo
+sj
 Mz
 Vj
-sp
-sp
+VQ
+VQ
 XF
 wu
 SP
@@ -3470,7 +3501,7 @@ mV
 bF
 Uv
 nx
-sM
+yQ
 aD
 mV
 mV
