@@ -8414,7 +8414,6 @@
 /obj/effect/turf_decal/bordur/corner{
 	dir = 1
 	},
-/mob/living/carbon/human/npc/magadonsecurity,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "cdU" = (
@@ -11510,7 +11509,6 @@
 /obj/effect/turf_decal/bordur/corner{
 	dir = 8
 	},
-/mob/living/carbon/human/npc/magadonsecurity,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "cRJ" = (
@@ -30572,10 +30570,6 @@
 /obj/item/clothing/mask/vampire/fomori_chaser,
 /turf/open/indestructible/necropolis/air,
 /area/vtm/interior/wyrm_corrupted)
-"hJm" = (
-/mob/living/carbon/human/npc/magadonsecurity,
-/turf/open/floor/plating/sidewalk/poor,
-/area/vtm/interior/endron_facility/plant)
 "hJx" = (
 /obj/structure/closet/crate/coffin{
 	opened = 1
@@ -34627,6 +34621,12 @@
 /obj/item/vamp/keys/pentex,
 /obj/item/vamp/keys/pentex,
 /obj/machinery/light/directional/south,
+/obj/item/clothing/under/vampire/magadon_suit,
+/obj/item/clothing/under/vampire/magadon_suitskirt,
+/obj/item/clothing/under/vampire/magadon_executivesuit,
+/obj/item/clothing/under/vampire/magadon_executivesuitskirt,
+/obj/item/clothing/suit/vampire/magadon_labcoat,
+/obj/item/clothing/suit/vampire/pentex_labcoat,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/endron_facility)
 "iHa" = (
@@ -47213,16 +47213,6 @@
 /obj/structure/roofstuff/alt1,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
-"lQd" = (
-/mob/living/carbon/human/npc/magadonsecurity,
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/effect/turf_decal/bordur{
-	dir = 1
-	},
-/turf/open/floor/plating/concrete,
-/area/vtm/outside/pacificheights/industrial)
 "lQf" = (
 /turf/open/openspace,
 /area/vtm/interior/trainyard)
@@ -50951,6 +50941,9 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/vip_barrier/endron{
+	dir = 8
+	},
 /turf/open/floor/city/plating,
 /area/vtm/interior/endron_facility)
 "mLp" = (
@@ -54592,6 +54585,9 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/access/pentex,
+/obj/effect/vip_barrier/endron/endron_backdoor{
+	dir = 4
+	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility)
 "nFT" = (
@@ -55465,13 +55461,6 @@
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm/outside/ghetto)
-"nPC" = (
-/obj/effect/turf_decal/bordur,
-/obj/darkpack_car/endroncar{
-	dir = 4
-	},
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/pacificheights/industrial)
 "nPG" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
@@ -59579,6 +59568,14 @@
 /obj/effect/decal/graffiti/large,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights/industrial)
+"oNK" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "trails_2-old";
+	dir = 4
+	},
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/city/circled,
+/area/vtm/interior/wyrm_corrupted)
 "oNL" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/transfer_point_vamp/umbral/exit{
@@ -66776,6 +66773,10 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm)
+"qyV" = (
+/mob/living/carbon/human/npc/bouncer/magadon,
+/turf/open/floor/city/plating,
+/area/vtm/interior/endron_facility)
 "qzc" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 1
@@ -80257,10 +80258,6 @@
 /obj/structure/platform/lowwall/painted/window,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/bianchiBank)
-"tPM" = (
-/obj/effect/decal/wallpaper/grey/low,
-/turf/closed/wall/vampwall/market,
-/area/vtm/interior/endron_facility)
 "tPR" = (
 /obj/vehicle/ridden/wheelchair{
 	dir = 4
@@ -83489,13 +83486,6 @@
 /obj/structure/flora/bush/flowers_pp/style_random,
 /turf/open/misc/grass/nosmooth,
 /area/vtm)
-"uGq" = (
-/obj/effect/turf_decal/bordur,
-/obj/darkpack_car/endrontruck{
-	dir = 4
-	},
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/pacificheights/industrial)
 "uGF" = (
 /obj/effect/turf_decal/siding/grey{
 	dir = 4
@@ -100561,7 +100551,7 @@ uvs
 uvs
 uvs
 uWd
-iQp
+oNK
 hKa
 fxW
 ltZ
@@ -139711,7 +139701,7 @@ tao
 tao
 tao
 tao
-lQd
+ohF
 sgN
 eXP
 vcn
@@ -139722,7 +139712,7 @@ now
 goA
 wiu
 eEj
-hJm
+tvm
 tvm
 tvm
 goA
@@ -141571,7 +141561,7 @@ soR
 goA
 goA
 ruB
-uGq
+hdQ
 uDw
 vGb
 uDw
@@ -141772,7 +141762,7 @@ tvm
 tvm
 tvm
 tvm
-hJm
+tvm
 xBY
 tao
 hdQ
@@ -143407,7 +143397,7 @@ cTJ
 tvm
 xBY
 tao
-nPC
+hdQ
 uDw
 vGb
 uDw
@@ -144405,12 +144395,6 @@ uDw
 qok
 tao
 vXh
-hJm
-ixZ
-tZO
-tZO
-tZO
-sTg
 tvm
 ixZ
 tZO
@@ -144424,7 +144408,13 @@ tZO
 tZO
 sTg
 tvm
-hJm
+ixZ
+tZO
+tZO
+tZO
+sTg
+tvm
+tvm
 xBY
 tao
 hdQ
@@ -170070,7 +170060,7 @@ fxB
 fxB
 fxB
 sMM
-pij
+qyV
 pij
 pij
 pvk
@@ -172522,7 +172512,7 @@ pvk
 pvk
 pvk
 pvk
-tPM
+ruh
 nFO
 pvk
 pvk
