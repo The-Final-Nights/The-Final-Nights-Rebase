@@ -28,12 +28,12 @@ GLOBAL_LIST_EMPTY(sabbat_network) // TFN EDIT ADD - Sabbat Phones
 #define ANARCH_NETWORK 6
 #define SUPPLY_NETWORK 7
 #define VAMPIRE_LEADER_NETWORK 8
-#define ENDRON_NETWORK 9
-#define MAGADON_NETWORK 10 //TFN EDIT ADD - Magadonification
-#define MAGADON_LEADER_NETWORK 11 //TFN EDIT ADD - Magadonification
-#define SOCIETY_OF_LEOPOLD_NETWORK 11
-#define CLINIC_NETWORK 12 //TFN EDIT ADD - Clinic Phones
-#define SABBAT_NETWORK 13 // TFN EDIT ADD - Sabbat Phones
+#define ENDRON_NETWORK 9 //TFN EDIT CHANGE - Magadonification
+#define SOCIETY_OF_LEOPOLD_NETWORK 10
+#define CLINIC_NETWORK 11 //TFN EDIT ADD - Clinic Phones
+#define SABBAT_NETWORK 12 // TFN EDIT ADD - Sabbat Phones
+#define MAGADON_NETWORK 13 //TFN EDIT CHANGE - Magadonification
+#define MAGADON_LEADER_NETWORK 14 //TFN EDIT ADD - Magadonification
 
 // An indexed list of all the different phone networks that connect the phones that are part of them together.
 GLOBAL_LIST_INIT(contact_networks, alist(
