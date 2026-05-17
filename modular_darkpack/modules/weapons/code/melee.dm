@@ -307,6 +307,7 @@
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "shovel"
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	custom_price = 150
 	force = 30	//It's sharp.. somehow.
 

@@ -32,9 +32,9 @@
 	mask = /obj/item/clothing/mask/vampire/venetian_mask
 	r_pocket = /obj/item/vamp/keys/archive
 	l_pocket = /obj/item/smartphone/gargoyle
+	l_hand = /obj/item/scythe/vamp
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 	backpack_contents = list(
 		/obj/item/ritual_tome/arcane = 1,
 		/obj/item/card/credit = 1,
-		/obj/item/scythe/vamp = 1,
 	)

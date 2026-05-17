@@ -28,8 +28,8 @@
 	glasses = /obj/item/clothing/glasses/vampire/perception
 	shoes = /obj/item/clothing/shoes/vampire
 	gloves = /obj/item/clothing/gloves/vampire/latex
-	belt = /obj/item/scythe/vamp
 	r_pocket = /obj/item/vamp/keys/archive
 	l_pocket = /obj/item/smartphone/archivist
+	l_hand = /obj/item/scythe/vamp
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 	backpack_contents = list(/obj/item/ritual_tome/arcane=1, /obj/item/card/credit=1)
