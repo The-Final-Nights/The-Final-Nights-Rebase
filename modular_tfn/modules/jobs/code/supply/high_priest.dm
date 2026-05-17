@@ -22,3 +22,30 @@
 	l_pocket = /obj/item/smartphone/dealer/high_priest
 	r_pocket = /obj/item/vamp/keys/supply
 	backpack_contents = list(/obj/item/card/credit/rich=1, /obj/item/hatchet)
+
+/datum/memory/key/casino_vault_code
+	var/remembered_code
+
+/datum/memory/key/casino_vault_code/New(
+	datum/mind/memorizer_mind,
+	atom/protagonist,
+	atom/deuteragonist,
+	atom/antagonist,
+	remembered_code,
+)
+	src.remembered_code = remembered_code
+	return ..()
+
+/datum/memory/key/casino_vault_code/get_names()
+	return list("The casino vault code is [remembered_code].")
+
+/datum/memory/key/casino_vault_code/get_starts()
+	return list(
+		"[protagonist_name] blurts out [remembered_code], then looks nervous. Were they supposed to say that...?"
+	)
+
+/datum/job/vampire/setite/faithful/high_priest/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	var/obj/structure/vaultdoor/pincode/casino/door = locate() in GLOB.vault_doors
+	if(door)
+		spawned.mind.add_memory(/datum/memory/key/casino_vault_code, remembered_code = door.pincode)
