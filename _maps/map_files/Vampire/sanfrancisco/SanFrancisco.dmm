@@ -3122,6 +3122,8 @@
 /area/vtm/interior/fightclub)
 "aOs" = (
 /obj/structure/table/countertop/purple,
+/obj/item/electropack,
+/obj/item/assembly/signaler,
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
 "aOu" = (
@@ -3571,6 +3573,13 @@
 /obj/effect/decal/shadow,
 /turf/open/misc/dirt,
 /area/vtm/outside/park)
+"aUT" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 2;
+	id = 134
+	},
+/turf/closed/wall/vampwall/metal/glass,
+/area/vtm/interior/endron_facility/restricted)
 "aUY" = (
 /turf/closed/wall/vampwall/junk,
 /area/vtm/interior/sewer/nosferatu_warren)
@@ -7018,6 +7027,14 @@
 	},
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/chinatown)
+"bMB" = (
+/obj/structure/table/countertop/purple,
+/obj/machinery/camera/directional/south{
+	pixel_y = 16;
+	network = list("magadon")
+	},
+/turf/open/floor/iron/white/textured,
+/area/vtm/interior/endron_facility/restricted)
 "bMD" = (
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/trainyard)
@@ -20755,6 +20772,9 @@
 /obj/effect/turf_decal/trimline/purple/warning{
 	dir = 1
 	},
+/obj/machinery/camera/directional/west{
+	network = list("magadon")
+	},
 /turf/open/floor/iron/white/textured,
 /area/vtm/interior/endron_facility/restricted)
 "fkk" = (
@@ -21448,6 +21468,10 @@
 	},
 /obj/effect/turf_decal/trimline/purple/filled/warning,
 /obj/effect/turf_decal/siding/dark,
+/obj/machinery/button/door{
+	pixel_y = 0;
+	id = 134
+	},
 /obj/machinery/button/door{
 	pixel_y = 8;
 	id = 131;
@@ -24473,6 +24497,14 @@
 /obj/effect/decal/graffiti,
 /turf/open/floor/plating/asphalt,
 /area/vtm/outside/pacificheights/industrial)
+"gfH" = (
+/obj/machinery/light/cold/directional/south,
+/obj/machinery/camera/directional/south{
+	pixel_y = 16;
+	network = list("magadon")
+	},
+/turf/open/floor/iron/dark/small,
+/area/vtm/interior/endron_facility/restricted)
 "gfJ" = (
 /obj/effect/turf_decal/siding/grey{
 	dir = 8
@@ -27946,6 +27978,10 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/gloves/vampire/latex,
 /obj/machinery/light/cold/directional/south,
+/obj/machinery/camera/directional/south{
+	pixel_y = 16;
+	network = list("magadon")
+	},
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
 "hah" = (
@@ -28874,6 +28910,10 @@
 /obj/structure/table/reinforced,
 /obj/item/binoculars{
 	pixel_y = 4
+	},
+/obj/machinery/camera/directional/south{
+	pixel_y = 16;
+	network = list("magadon")
 	},
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
@@ -38743,6 +38783,10 @@
 /area/vtm/interior/laundromat)
 "jFI" = (
 /obj/machinery/light/cold/directional/north,
+/obj/machinery/camera/directional/north{
+	pixel_y = 24;
+	network = list("magadon")
+	},
 /turf/open/water/bloodwave,
 /area/vtm/interior/endron_facility/restricted)
 "jFQ" = (
@@ -47344,6 +47388,10 @@
 /area/vtm/interior/fightclub)
 "lOY" = (
 /obj/fusebox,
+/obj/machinery/camera/directional/north{
+	pixel_y = 24;
+	network = list("magadon")
+	},
 /turf/open/floor/iron/dark/small,
 /area/vtm/interior/endron_facility/restricted)
 "lPe" = (
@@ -69057,6 +69105,13 @@
 /obj/effect/decal/cleanable/cardboard,
 /turf/open/floor/plating/concrete,
 /area/vtm/outside/trainyard)
+"rbr" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = 134
+	},
+/turf/closed/wall/vampwall/metal/glass,
+/area/vtm/interior/endron_facility/restricted)
 "rbz" = (
 /obj/machinery/button/door{
 	pixel_y = 33;
@@ -69767,9 +69822,13 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
-/obj/vampire_computer/box{
-	dir = 4;
-	pixel_y = 8
+/obj/machinery/computer/security{
+	icon_keyboard = null;
+	icon_screen = null;
+	icon_state = "oldcomp";
+	pixel_y = 8;
+	network = list("magadon");
+	dir = 4
 	},
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
@@ -73531,6 +73590,10 @@
 /obj/structure/extinguisher_cabinet/directional/east,
 /obj/structure/lattice/grate{
 	dir = 4
+	},
+/obj/machinery/camera/directional/south{
+	pixel_y = 16;
+	network = list("magadon")
 	},
 /turf/open/water/vamp_sewer,
 /area/vtm/interior/sewer)
@@ -87822,6 +87885,13 @@
 	icon_state = "canal_concrete"
 	},
 /area/vtm/interior/sewer/nosferatu_bar)
+"vOi" = (
+/obj/machinery/camera/directional/north{
+	pixel_y = 24;
+	network = list("magadon")
+	},
+/turf/open/floor/iron/dark/small,
+/area/vtm/interior/endron_facility/restricted)
 "vOu" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -94113,6 +94183,16 @@
 	},
 /turf/open/floor/plating/stone,
 /area/vtm/interior/trujah)
+"xpa" = (
+/obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/machinery/camera/directional/south{
+	pixel_y = 16;
+	network = list("magadon")
+	},
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 1
+	},
+/area/vtm/interior/endron_facility/restricted)
 "xph" = (
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/wood/smooth/old,
@@ -128614,7 +128694,7 @@ oBc
 eJK
 nGD
 nGD
-bjc
+bMB
 geD
 tuX
 aej
@@ -129634,7 +129714,7 @@ tnT
 xpR
 wcN
 qAr
-wUI
+gfH
 geD
 tuX
 aej
@@ -131255,7 +131335,7 @@ geD
 geD
 geD
 geD
-tKg
+rbr
 geD
 dCk
 fOy
@@ -131460,7 +131540,7 @@ dCk
 qQC
 rjI
 xmI
-tKg
+aUT
 pRs
 wcN
 ird
@@ -131664,7 +131744,7 @@ dCk
 fsa
 mlt
 wcN
-tKg
+aUT
 xpR
 wcN
 hag
@@ -131868,7 +131948,7 @@ dCk
 sRo
 wcN
 wcN
-tKg
+aUT
 csA
 wcN
 ird
@@ -132070,7 +132150,7 @@ tuX
 tuX
 geD
 dCk
-wcN
+vOi
 wcN
 geD
 dCk
@@ -132490,7 +132570,7 @@ qAr
 qAr
 qAr
 qAr
-wUI
+gfH
 geD
 tuX
 aej
@@ -133302,7 +133382,7 @@ ppf
 qAr
 rtq
 luT
-qkN
+xpa
 dCk
 crr
 oBc
