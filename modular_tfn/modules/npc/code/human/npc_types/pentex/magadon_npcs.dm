@@ -30,6 +30,14 @@
 	. = ..()
 	AssignSocialRole(/datum/socialrole/magadonexecsecurity)
 
+/mob/living/carbon/human/npc/magadonpharmacist
+	staying = TRUE
+
+/mob/living/carbon/human/npc/magadonpharmacist/Initialize(mapload)
+	. = ..()
+
+	AssignSocialRole(/datum/socialrole/shop/magadonpharmacist)
+
 /mob/living/carbon/human/npc/bouncer/magadon
 	our_role = /datum/socialrole/bouncer/magadon
 	protected_zone_id = "endron"
