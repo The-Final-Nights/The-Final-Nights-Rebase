@@ -214,38 +214,36 @@
 	important_contact_of = VAMPIRE_CLAN_SETITE
 //TFN ADDITION END - Setite Faction
 
-// MAGADON
+// ENDRON
 
-/obj/item/smartphone/magadon_lead
+/obj/item/smartphone/endron_lead
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Branch Lead", USE_JOB_TITLE = FALSE)
-		, alist(NETWORK_ID = MAGADON_LEADER_NETWORK, OUR_ROLE = "Magadon Branch Leader", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = ENDRON_NETWORK, OUR_ROLE = "Endron Branch Lead", USE_JOB_TITLE = FALSE)
 		)
 
-/obj/item/smartphone/magadon_exec
+/obj/item/smartphone/endron_exec
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Executive", USE_JOB_TITLE = FALSE)
-		, alist(NETWORK_ID = MAGADON_LEADER_NETWORK, OUR_ROLE = "Magadon Executive", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = ENDRON_NETWORK, OUR_ROLE = "Endron Executive", USE_JOB_TITLE = FALSE)
 		)
 
-/obj/item/smartphone/magadon_affairs
+/obj/item/smartphone/endron_affairs
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Internal Affairs Agent", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = ENDRON_NETWORK, OUR_ROLE = "Endron Internal Affairs Agent", USE_JOB_TITLE = FALSE)
 		)
 
-/obj/item/smartphone/magadon_sec_chief
+/obj/item/smartphone/endron_sec_chief
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Chief of Security", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = ENDRON_NETWORK, OUR_ROLE = "Endron Chief of Security", USE_JOB_TITLE = FALSE)
 		)
 
-/obj/item/smartphone/magadon_security
+/obj/item/smartphone/endron_security
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Security Agent", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = ENDRON_NETWORK, OUR_ROLE = "Endron Security Agent", USE_JOB_TITLE = FALSE)
 		)
 
-/obj/item/smartphone/magadon_employee
+/obj/item/smartphone/endron_employee
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Employee", USE_JOB_TITLE = TRUE)
+		alist(NETWORK_ID = ENDRON_NETWORK, OUR_ROLE = "Endron Employee", USE_JOB_TITLE = TRUE)
 		)
 
 //TFN EDIT ADD START - Brujah Primogen
