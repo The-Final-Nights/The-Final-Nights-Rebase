@@ -5,6 +5,7 @@
 #define SENSE_TOUCH "Touch"
 #define TELEPATHY_MIND_READING "Mind Reading"
 #define TELEPATHY_IMPLANT_THOUGHT "Implant Thoughts"
+#define PROJECTION_TIMER_LENGTH 1 SCENES //TFN EDIT
 
 /datum/discipline/auspex
 	name = "Auspex"
@@ -494,21 +495,52 @@ character with the most successes wins
 //PSYCHIC PROJECTION
 /datum/discipline_power/auspex/psychic_projection
 	name = "Psychic Projection"
-	desc = "Leave your body behind and fly across the land."
-
+	desc = "Leave your body behind and fly across the land. It takes a mighty amount of willpower for your body to withstand the strain of being souless, \
+	push too hard and you'll lose yourself permanently in limbo." //TFN EDIT
 	willpower_cost = 1
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS
 	vitae_cost = 0
 	cooldown_length = 1 TURNS
+	var/mob/living/basic/avatar/playing_with_fire //TFN EDIT
 
 /datum/discipline_power/auspex/psychic_projection/activate()
 	. = ..()
 	var/roll = SSroll.storyteller_roll(owner.st_get_stat(STAT_PERCEPTION) + owner.st_get_stat(STAT_AWARENESS), 7, owner)
-	if(roll == ROLL_SUCCESS)
-		owner.enter_avatar()
+	//TFN EDIT START
+	switch(roll)
+		if(ROLL_SUCCESS)
+			playing_with_fire = owner.enter_avatar()
+			addtimer(CALLBACK(src, PROC_REF(exhaust_timer)), PROJECTION_TIMER_LENGTH)
+
+		if(ROLL_FAILURE)
+			to_chat(owner, span_warning("Your mind fails to leave your body."))
+
+		if(ROLL_BOTCH)
+			playing_with_fire = owner.enter_avatar()
+			to_chat(owner, span_danger("Your mind violently leaves your body, leaving you disoriented on where you are!"))
+
+			var/turf/ending_turfs = get_safe_random_station_turf_equal_weight()
+			do_teleport(playing_with_fire, ending_turfs, channel = TELEPORT_CHANNEL_MAGIC)
+			playsound(playing_with_fire, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/eldritchlaugh.ogg', vol = 15, falloff_distance = 2, vary = TRUE)
+
+			addtimer(CALLBACK(src, PROC_REF(exhaust_timer)), PROJECTION_TIMER_LENGTH)
+	//TFN EDIT END
+
+//TFN EDIT START
+/datum/discipline_power/auspex/psychic_projection/proc/exhaust_timer()
+	if(!playing_with_fire)
+		return
+
+	if(owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) <= 0)
+		to_chat(playing_with_fire, span_cult_large("The strain of psychic projection is too much for you, and you lose yourself in the astral plane permanently..."))
+		playsound(playing_with_fire, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/eldritchlaugh.ogg', vol = 15, falloff_distance = 2, vary = TRUE)
+		qdel(playing_with_fire)
 	else
-		to_chat(owner, span_warning("Your mind fails to leave your body."))
+		owner.st_set_stat(STAT_TEMPORARY_WILLPOWER, owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) - 1)
+		addtimer(CALLBACK(src, PROC_REF(exhaust_timer)), PROJECTION_TIMER_LENGTH)
+		to_chat(playing_with_fire, span_warning("The strain of psychic projection exhausts you. You lose 1 temporary willpower point. You have [owner.st_get_stat(STAT_TEMPORARY_WILLPOWER)] temporary willpower points left."))
+//TFN EDIT END
 
 #undef TELEPATHY_MIND_READING
 #undef TELEPATHY_IMPLANT_THOUGHT
@@ -517,3 +549,4 @@ character with the most successes wins
 #undef SENSE_SMELL
 #undef SENSE_TASTE
 #undef SENSE_TOUCH
+#undef PROJECTION_TIMER_LENGTH //TFN EDIT

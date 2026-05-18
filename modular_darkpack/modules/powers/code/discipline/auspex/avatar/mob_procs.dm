@@ -12,4 +12,5 @@
 	// TFN EDIT START
 	ghost.set_hud_image_inactive(HEALTH_HUD)
 	ghost.set_hud_image_inactive(STATUS_HUD)
+	return ghost
 	// TFN EDIT END
