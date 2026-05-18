@@ -104,9 +104,9 @@ export const sound_midi: Feature<number> = {
 };
 
 export const sound_ship_ambience_volume: Feature<number> = {
-  name: 'Ship ambience volume',
+  name: 'City ambience volume', // TFN EDIT - Original: Ship ambience volume
   category: 'SOUND',
-  description: `Ship ambience refers to the low ambient buzz that plays on loop.`,
+  description: `Ambience refers to things like ocean waves, city noise, etc.`, // TFN EDIT - Original: Ship ambience refers to the low ambient buzz that plays on loop.
   component: FeatureSliderInput,
 };
 
