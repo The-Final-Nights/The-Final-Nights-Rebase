@@ -22,6 +22,10 @@
 	disallowed_clans = list(VAMPIRE_CLAN_BAALI, VAMPIRE_CLAN_GIOVANNI, VAMPIRE_CLAN_OLD_CLAN_TZIMISCE, VAMPIRE_CLAN_VENTRUE)
 	known_contacts = list("Bishop", "Ductus")
 
+	alt_titles = list(
+	"Paladin",
+	"Templar"
+	)
 /datum/outfit/job/vampire/paladin
 	name = "Paladin"
 	jobtype = /datum/job/vampire/paladin
