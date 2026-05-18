@@ -16016,6 +16016,14 @@
 /obj/machinery/sprinkler,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/substation)
+"eay" = (
+/obj/effect/turf_decal/siding/wood/dark,
+/obj/structure/vampdoor/woodglass,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/pentex_leader,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/endron_facility)
 "eaz" = (
 /obj/effect/turf_decal/siding/grey{
 	dir = 1
@@ -31649,6 +31657,8 @@
 /obj/structure/guncase{
 	anchored = 1
 	},
+/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta,
+/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta,
 /turf/open/floor/city/circled,
 /area/vtm/interior/wyrm_corrupted)
 "hYt" = (
@@ -32916,10 +32926,6 @@
 /obj/item/ammo_box/darkpack/c556{
 	pixel_y = 1;
 	pixel_x = 8
-	},
-/obj/item/ammo_box/darkpack/c50{
-	pixel_x = -5;
-	pixel_y = 7
 	},
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
@@ -42031,6 +42037,10 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/unionsquare)
+"kAp" = (
+/obj/item/claymore/machete,
+/turf/open/floor/city/circled,
+/area/vtm/interior/wyrm_corrupted)
 "kAs" = (
 /obj/effect/spawner/random/trash/box,
 /turf/open/floor/plating/sidewalk,
@@ -59017,7 +59027,6 @@
 	pixel_y = 38;
 	pixel_x = 17
 	},
-/obj/item/gun/ballistic/automatic/darkpack/sniper,
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
 "oGQ" = (
@@ -73295,6 +73304,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior)
+"sgp" = (
+/obj/structure/table,
+/obj/item/ammo_box/darkpack/c9mm,
+/turf/open/floor/city/circled,
+/area/vtm/interior/wyrm_corrupted)
 "sgw" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/machinery/light/prince/directional/west{
@@ -73966,6 +73980,9 @@
 /obj/item/flashlight/lamp{
 	pixel_y = 12;
 	pixel_x = -9
+	},
+/obj/item/claymore/machete{
+	pixel_x = 8
 	},
 /turf/open/floor/city/circled,
 /area/vtm/interior/wyrm_corrupted)
@@ -76020,6 +76037,11 @@
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic)
+"sOa" = (
+/obj/effect/decal/pallet,
+/obj/item/ammo_box/darkpack/c12g,
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/endron_facility/plant)
 "sOh" = (
 /obj/effect/turf_decal/siding/wood/light/end,
 /turf/open/floor/wood/ornate,
@@ -76915,6 +76937,7 @@
 /obj/structure/guncase{
 	anchored = 1
 	},
+/obj/item/gun/ballistic/shotgun/vampire,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/endron_facility/plant)
 "tao" = (
@@ -85185,14 +85208,6 @@
 	},
 /turf/open/floor/city/gummaguts,
 /area/vtm/interior/mall)
-"vcr" = (
-/obj/effect/turf_decal/siding/wood/dark,
-/obj/structure/vampdoor/woodglass,
-/obj/effect/mapping_helpers/door/lock_difficulty/six,
-/obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/pentex_leader,
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior/endron_facility)
 "vcs" = (
 /obj/effect/spawner/random/occult/artifact,
 /turf/open/floor/plating/rough/cave,
@@ -99546,7 +99561,7 @@ iNg
 fxW
 wfl
 pyX
-pyX
+sgp
 hYo
 jmr
 uvs
@@ -102197,7 +102212,7 @@ roF
 aXz
 hTQ
 xEJ
-sto
+kAp
 jmr
 jmr
 jmr
@@ -139717,7 +139732,7 @@ eXP
 vcn
 vcn
 vcn
-uzh
+sOa
 now
 goA
 wiu
@@ -140751,7 +140766,7 @@ pLl
 nkX
 xOe
 xOe
-uzh
+pLl
 rFY
 goA
 eZm
@@ -140952,10 +140967,10 @@ ljT
 mIN
 vcn
 vcn
-vcn
+ajt
 xOe
 vcn
-ajt
+vcn
 vcn
 cec
 tmn
@@ -211482,7 +211497,7 @@ tbg
 kXF
 kXF
 fHS
-vcr
+eay
 pij
 vyA
 pij
