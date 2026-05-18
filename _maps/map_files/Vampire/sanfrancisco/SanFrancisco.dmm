@@ -2978,7 +2978,6 @@
 	},
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/pentex_leader,
 /obj/machinery/door/poddoor/shutters{
 	id = 137;
 	dir = 8;
@@ -2987,6 +2986,7 @@
 /obj/structure/vampdoor/reinf{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
 "aLN" = (
@@ -39486,7 +39486,6 @@
 	},
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/pentex_leader,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 140;
 	max_integrity = 500;
@@ -39495,6 +39494,7 @@
 /obj/structure/vampdoor/reinf{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
 "jTQ" = (
@@ -65159,7 +65159,6 @@
 /obj/structure/chair/plastic/darkpack{
 	dir = 8
 	},
-/obj/effect/landmark/start/darkpack/pentex/employee,
 /turf/open/floor/plating/concrete,
 /area/vtm)
 "qfY" = (
@@ -68627,20 +68626,15 @@
 	},
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/pentex_leader,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 139;
-	max_integrity = 500;
-	dir = 4
-	},
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = 140;
 	max_integrity = 500;
 	dir = 4
 	},
 /obj/structure/vampdoor/reinf{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/access/pentex,
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
 "qWy" = (
@@ -78140,9 +78134,13 @@
 /area/vtm/interior)
 "tps" = (
 /obj/structure/table/countertop/purple,
-/obj/item/restraints/handcuffs/cable/zipties,
-/obj/item/restraints/handcuffs/cable/zipties{
-	pixel_y = 7
+/obj/item/reagent_containers/cup/bottle/mutagen{
+	pixel_y = 5;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/cup/bottle/mutagen{
+	pixel_y = 5;
+	pixel_x = -6
 	},
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
@@ -85187,6 +85185,14 @@
 	},
 /turf/open/floor/city/gummaguts,
 /area/vtm/interior/mall)
+"vcr" = (
+/obj/effect/turf_decal/siding/wood/dark,
+/obj/structure/vampdoor/woodglass,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/pentex_leader,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/endron_facility)
 "vcs" = (
 /obj/effect/spawner/random/occult/artifact,
 /turf/open/floor/plating/rough/cave,
@@ -87036,7 +87042,6 @@
 /area/vtm/interior/endron_facility)
 "vFe" = (
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/pentex,
 /obj/effect/turf_decal/siding/dark,
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -87052,6 +87057,7 @@
 	dir = 2
 	},
 /obj/structure/vampdoor/reinf,
+/obj/effect/mapping_helpers/door/access/pentex,
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/endron_facility/restricted)
 "vFf" = (
@@ -211476,7 +211482,7 @@ tbg
 kXF
 kXF
 fHS
-nfW
+vcr
 pij
 vyA
 pij
