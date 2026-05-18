@@ -25,7 +25,7 @@
 	ambience_index = AMBIENCE_SPOOKY
 
 /area/vtm/interior/wyrm_corrupted
-	ambience_index = AMBIENCE_WYRM
+	ambience_index = AMBIENCE_CREEPY
 
 /area/vtm/interior/setite/basement
 	ambience_index = AMBIENCE_HOLY
