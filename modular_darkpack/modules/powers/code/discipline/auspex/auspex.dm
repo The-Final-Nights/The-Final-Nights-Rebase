@@ -498,7 +498,7 @@ character with the most successes wins
 	check_flags = DISC_CHECK_CONSCIOUS
 	vitae_cost = 0
 	cooldown_length = 1 TURNS
-	var/mob/living/basic/avatar/playing_with_fire // TFN EDIT
+	var/mob/living/basic/avatar/playing_with_fire // TFN EDIT, the incorporeal body our mind resides at.
 
 /datum/discipline_power/auspex/psychic_projection/activate()
 	. = ..()
