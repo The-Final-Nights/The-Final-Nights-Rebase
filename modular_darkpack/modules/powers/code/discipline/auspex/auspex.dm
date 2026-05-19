@@ -5,7 +5,7 @@
 #define SENSE_TOUCH "Touch"
 #define TELEPATHY_MIND_READING "Mind Reading"
 #define TELEPATHY_IMPLANT_THOUGHT "Implant Thoughts"
-#define PROJECTION_TIMER_LENGTH 1 SCENES // TFN EDIT
+#define PROJECTION_TIMER_LENGTH 2 SCENES // TFN EDIT
 
 /datum/discipline/auspex
 	name = "Auspex"
@@ -511,7 +511,7 @@ character with the most successes wins
 
 		if(ROLL_BOTCH)
 			playing_with_fire = owner.enter_avatar()
-			to_chat(owner, span_danger("Your mind violently leaves your body, leaving you disoriented on where you are!"))
+			to_chat(playing_with_fire, span_cult_large("Your mind violently leaves your body, leaving you disoriented on where you are!"))
 
 			var/turf/ending_turfs = get_safe_random_station_turf_equal_weight()
 			do_teleport(playing_with_fire, ending_turfs, channel = TELEPORT_CHANNEL_MAGIC)
