@@ -78,6 +78,21 @@ export async function processTestMerges({ github, context }) {
         comment.author?.login === "github-actions" &&
         comment.body.startsWith(TEST_MERGE_COMMENT_HEADER),
     );
+    try {
+      await github.rest.issues.addLabels({
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        issue_number: parseInt(prNumber, 10),
+        labels: ["Testmerged"],
+      });
+    } catch (error) {
+      if (error.status) {
+        console.error(`Failed to add label to #${prNumber}`);
+        console.error(error);
+      } else {
+        throw error;
+      }
+    }
 
     const newBody = createComment(servers, existingComment?.body);
     if (!newBody) {
@@ -118,22 +133,6 @@ export async function processTestMerges({ github, context }) {
         } else {
           throw error;
         }
-      }
-    }
-	// testmerge labels, too
-    try {
-      await github.rest.issues.addLabels({
-        owner: context.repo.owner,
-        repo: context.repo.repo,
-        issue_number: parseInt(prNumber, 10),
-        labels: ["Testmerged"],
-      });
-    } catch (error) {
-      if (error.status) {
-        console.error(`Failed to add label to #${prNumber}`);
-        console.error(error);
-      } else {
-        throw error;
       }
     }
   }
