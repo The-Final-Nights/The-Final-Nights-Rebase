@@ -135,7 +135,8 @@
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS
 	duration_length = 5 TURNS // TFN EDIT
-	cooldown_length = 1 TURNS
+	cooldown_length = 1 TURNS // TFN EDIT
+	vitae_cost = 0
 	target_type = TARGET_HUMAN | TARGET_SELF // TFN EDIT
 	range = 8 // TFN EDIT
 	cancelable = TRUE
