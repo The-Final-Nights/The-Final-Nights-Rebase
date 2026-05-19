@@ -26,6 +26,7 @@
 	name = "True Sabbat"
 	jobtype = /datum/job/vampire/true_sabbat
 
+	id = /obj/item/card/noddist
 	uniform = /obj/item/clothing/under/vampire/homeless
 	gloves = /obj/item/clothing/gloves/vampire/work
 	suit = /obj/item/clothing/suit/vampire/trench
