@@ -166,6 +166,23 @@
 	. = ..()
 	hides_aura()
 
+/* From v20:
+Obfuscate: When a vampire tries to use her
+heightened perceptions to notice a Kindred
+hidden with Obfuscate, she detects the sub-
+ject’s presence if her Auspex rating is higher
+than his Obfuscate, and she succeeds at a
+Perception + Awareness roll (difficulty equals
+7 minus the number of dots by which her
+Auspex exceeds his Obfuscate). Conversely,
+if the target’s Obfuscate outranks her Auspex,
+he remains undiscovered. If the two ratings
+are equal, both characters make a resisted roll
+of Perception + Awareness (Auspex user)
+against Manipulation + Subterfuge (Obfuscate
+user). The difficulty for both rolls is 7, and the
+character with the most successes wins
+*/
 /datum/discipline_power/auspex/aura_perception/activate(atom/target)
 	. = ..()
 	if(target == owner)
@@ -222,66 +239,11 @@
 	addtimer(CALLBACK(src, PROC_REF(remove_aura), human_to_add_aura), time)
 	human_to_add_aura.apply_status_effect(/datum/status_effect/question_emotion)
 	list_of_mobs_with_aura += human_to_add_aura
-// TFN EDIT END
 
 /datum/discipline_power/auspex/aura_perception/deactivate()
 	. = ..()
-	/* TFN EDIT START
-	STOP_PROCESSING(SSfastprocess, src)
-	if(owner.client)
-		for(var/mob/living/detected_mob in detected_mobs)
-			if(HAS_TRAIT(detected_mob, TRAIT_OBFUSCATED))
-				var/image/holder = detected_mob.hud_list[AUSPEX_AURA_HUD]
-				if(holder)
-					owner.client.images -= holder
-	*/ // TFN EDIT END
-
 	var/datum/atom_hud/data/auspex_aura/target_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	target_hud.hide_from(owner)
-
-// TFN EDIT START
-/* From v20:
-Obfuscate: When a vampire tries to use her
-heightened perceptions to notice a Kindred
-hidden with Obfuscate, she detects the sub-
-ject’s presence if her Auspex rating is higher
-than his Obfuscate, and she succeeds at a
-Perception + Awareness roll (difficulty equals
-7 minus the number of dots by which her
-Auspex exceeds his Obfuscate). Conversely,
-if the target’s Obfuscate outranks her Auspex,
-he remains undiscovered. If the two ratings
-are equal, both characters make a resisted roll
-of Perception + Awareness (Auspex user)
-against Manipulation + Subterfuge (Obfuscate
-user). The difficulty for both rolls is 7, and the
-character with the most successes wins
-*/
-/* /datum/discipline_power/auspex/aura_perception/process()
-	if(!COOLDOWN_FINISHED(src, detection_cooldown))
-		return
-	COOLDOWN_START(src, detection_cooldown, (rand(5,30) SECONDS))
-	var/list/current_obfuscated = list()
-	for(var/mob/living/hearer in orange(DEFAULT_MESSAGE_RANGE, owner))
-		if(HAS_TRAIT(hearer, TRAIT_OBFUSCATED))
-			current_obfuscated += hearer
-
-	for(var/mob/living/prev_mob in checked_mobs)
-		if(!(prev_mob in current_obfuscated))
-			checked_mobs -= prev_mob
-
-	//obfuscated test
-	for(var/mob/living/hearer in current_obfuscated)
-		if((hearer in checked_mobs) || (hearer in detected_mobs))
-			continue
-		checked_mobs += hearer
-		var/auspex_successes = detection_roll.st_roll(owner, hearer)
-		var/obfuscate_successes = concealment_roll.st_roll(hearer, owner)
-		if(auspex_successes > obfuscate_successes)
-			var/image/holder = hearer.hud_list[AUSPEX_AURA_HUD]
-			if(holder && owner.client)
-				owner.client.images |= holder
-				detected_mobs += hearer */
 // TFN EDIT END
 
 //THE SPIRIT'S TOUCH
