@@ -5,7 +5,7 @@
 #define SENSE_TOUCH "Touch"
 #define TELEPATHY_MIND_READING "Mind Reading"
 #define TELEPATHY_IMPLANT_THOUGHT "Implant Thoughts"
-#define PROJECTION_TIMER_LENGTH 1 SCENES //TFN EDIT
+#define PROJECTION_TIMER_LENGTH 1 SCENES // TFN EDIT
 
 /datum/discipline/auspex
 	name = "Auspex"
@@ -126,22 +126,26 @@
 	applicable_stats = list(STAT_MANIPULATION, STAT_SUBTERFUGE)
 	numerical = TRUE
 	roll_output_type = ROLL_PRIVATE
+
 // TFN EDIT END
 /datum/discipline_power/auspex/aura_perception
 	name = "Aura Perception"
-	desc = "Allows you to perceive the auras of those near you."
+	desc = "Allows you to perceive the auras of those near you. Target yourself to feel the auras of those who tries to hide it." // TFN EDIT
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS
 	duration_length = 5 TURNS // TFN EDIT
 	cooldown_length = 1 TURNS
+	target_type = TARGET_HUMAN | TARGET_SELF // TFN EDIT
+	range = 8 // TFN EDIT
 	cancelable = TRUE
 	multi_activate = TRUE // TFN EDIT
 	var/datum/storyteller_roll/aura_perception/aura_roll
 	// TFN EDIT START
 	var/datum/storyteller_roll/auspex_detection/detection_roll
 	var/datum/storyteller_roll/obfuscate_concealment/concealment_roll
-	COOLDOWN_DECLARE(detection_cooldown)
+	var/list/mob/living/carbon/human/list_of_mobs_with_aura = list()
+	//COOLDOWN_DECLARE(detection_cooldown)
 	// TFN EDIT END
 
 // TFN EDIT START
@@ -149,48 +153,75 @@
 	. = ..()
 	if(!aura_roll)
 		aura_roll = new()
+	if(!detection_roll)
+		detection_roll = new()
+	if(!concealment_roll)
+		concealment_roll = new()
 
 	var/datum/atom_hud/data/auspex_aura/target_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	target_hud.show_to(owner)
 
-	//hides everyone's aura first..
-	for(var/mob/living/human in GLOB.human_list)
-		var/image/holder = human.hud_list[AUSPEX_AURA_HUD]
-		if(holder && owner.client)
-			owner.client.images -= holder
+//to handle new people that hasn't been hidden, bodged code. I know -_-
+/datum/discipline_power/auspex/aura_perception/process()
+	. = ..()
+	hides_aura()
 
 /datum/discipline_power/auspex/aura_perception/activate(atom/target)
 	. = ..()
-	var/list/list_of_mobs_to_pick = list()
-	for(var/mob/living/hearer in oview(DEFAULT_MESSAGE_RANGE, owner))
-		if(hearer == owner)
-			continue
+	if(target == owner)
+		to_chat(owner, span_notice("You focus on yourself, trying to sense the auras of those around you wishing to hide."))
+		var/found_something = FALSE
+		for(var/mob/living/carbon/human/hearer in orange(DEFAULT_MESSAGE_RANGE, owner))
+			if(hearer == owner)
+				continue
+			if(!HAS_TRAIT(hearer, TRAIT_OBFUSCATED))
+				continue
 
-		//for obfuscation if they pass they are not added to the list
-		if(HAS_TRAIT(hearer, TRAIT_OBFUSCATED))
 			var/auspex_successes = detection_roll.st_roll(owner, hearer)
 			var/obfuscate_successes = concealment_roll.st_roll(hearer, owner)
 			if(obfuscate_successes > auspex_successes)
 				continue
-		list_of_mobs_to_pick += hearer
 
-	var/chosen = tgui_input_list(owner, "Choose a target to examine their aura", "Aura Perception", list_of_mobs_to_pick)
-	if(chosen)
-		if(aura_roll.st_roll(owner, target) == ROLL_FAILURE)
-			to_chat(owner, span_danger("You fail to read into anything at all..."))
-			return FALSE
-		var/mob/living/carbon/human/targeted_human = chosen
-		var/image/holder = targeted_human.hud_list[AUSPEX_AURA_HUD]
+			//highlight them briefly
+			add_aura(hearer, 1 TURNS)
+			found_something = TRUE
+
+		if(found_something)
+			to_chat(owner, span_danger("You temporarily sense the presence of someone trying to hide their aura!"))
+		else
+			to_chat(owner, span_danger("You fail to sense any hidden auras around you..."))
+
+	else if(target)
+		if(aura_roll.st_roll(owner, target) == ROLL_SUCCESS)
+			var/mob/living/carbon/human/targeted_human = target
+			add_aura(targeted_human, 1 SCENES)
+			return TRUE
+
+		to_chat(owner, span_danger("You fail to read into anything at all..."))
+
+/datum/discipline_power/auspex/aura_perception/proc/hides_aura()
+	for(var/mob/living/human in GLOB.human_list)
+		var/image/holder = human.hud_list[AUSPEX_AURA_HUD]
+		if(human in list_of_mobs_with_aura)
+			continue
 		if(holder && owner.client)
-			owner.client.images += holder
-			//cooldown to remove the aura after a bit.
-			addtimer(CALLBACK(src, PROC_REF(remove_aura), targeted_human), 10 SECONDS) //todo: change this back when done
-			targeted_human.apply_status_effect(/datum/status_effect/question_emotion)
+			owner.client.images -= holder
 
 /datum/discipline_power/auspex/aura_perception/proc/remove_aura(mob/living/carbon/human/human_to_remove_aura)
 	var/image/holder = human_to_remove_aura.hud_list[AUSPEX_AURA_HUD]
 	if(holder && owner.client)
 		owner.client.images -= holder
+
+	list_of_mobs_with_aura -= human_to_remove_aura
+
+/datum/discipline_power/auspex/aura_perception/proc/add_aura(mob/living/carbon/human/human_to_add_aura, time)
+	var/image/holder = human_to_add_aura.hud_list[AUSPEX_AURA_HUD]
+	if(holder && owner.client)
+		owner.client.images += holder
+
+	addtimer(CALLBACK(src, PROC_REF(remove_aura), human_to_add_aura), time)
+	human_to_add_aura.apply_status_effect(/datum/status_effect/question_emotion)
+	list_of_mobs_with_aura += human_to_add_aura
 // TFN EDIT END
 
 /datum/discipline_power/auspex/aura_perception/deactivate()
@@ -203,7 +234,7 @@
 				var/image/holder = detected_mob.hud_list[AUSPEX_AURA_HUD]
 				if(holder)
 					owner.client.images -= holder
-	*/ //TFN EDIT END
+	*/ // TFN EDIT END
 
 	var/datum/atom_hud/data/auspex_aura/target_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	target_hud.hide_from(owner)
@@ -447,7 +478,7 @@ character with the most successes wins
 			var/flavor_text_telepathy = "Someone nearby reads your mind without your knowing..." + get_flavor_text(successes)
 			var/mind_reading_search = tgui_input_list(owner, "Are you searching their mind for specific information? Deeper secrets and long-past memories require more successes.", "Mind Reading Specifics", list("Yes", "No"), "No")
 			if(mind_reading_search == "Yes")
-				specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = (MAX_MESSAGE_LEN * 10)) //TFN EDIT CHANGE - Original : specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = MAX_MESSAGE_LEN)
+				specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = (MAX_MESSAGE_LEN * 10)) // TFN EDIT CHANGE - Original : specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = MAX_MESSAGE_LEN)
 				if(!specific_search)
 					specific_search = "something specific"
 
@@ -496,18 +527,18 @@ character with the most successes wins
 /datum/discipline_power/auspex/psychic_projection
 	name = "Psychic Projection"
 	desc = "Leave your body behind and fly across the land. It takes a mighty amount of willpower for your body to withstand the strain of being souless, \
-	push too hard and you'll lose yourself permanently in limbo." //TFN EDIT
+	push too hard and you'll lose yourself permanently in limbo." // TFN EDIT
 	willpower_cost = 1
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS
 	vitae_cost = 0
 	cooldown_length = 1 TURNS
-	var/mob/living/basic/avatar/playing_with_fire //TFN EDIT
+	var/mob/living/basic/avatar/playing_with_fire // TFN EDIT
 
 /datum/discipline_power/auspex/psychic_projection/activate()
 	. = ..()
 	var/roll = SSroll.storyteller_roll(owner.st_get_stat(STAT_PERCEPTION) + owner.st_get_stat(STAT_AWARENESS), 7, owner)
-	//TFN EDIT START
+	// TFN EDIT START
 	switch(roll)
 		if(ROLL_SUCCESS)
 			playing_with_fire = owner.enter_avatar()
@@ -525,22 +556,23 @@ character with the most successes wins
 			playsound(playing_with_fire, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/eldritchlaugh.ogg', vol = 15, falloff_distance = 2, vary = TRUE)
 
 			addtimer(CALLBACK(src, PROC_REF(exhaust_timer)), PROJECTION_TIMER_LENGTH)
-	//TFN EDIT END
+	// TFN EDIT END
 
-//TFN EDIT START
+// TFN EDIT START
 /datum/discipline_power/auspex/psychic_projection/proc/exhaust_timer()
 	if(!playing_with_fire)
 		return
+	playsound(playing_with_fire, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/eldritchlaugh.ogg', vol = 15, falloff_distance = 2, vary = TRUE)
 
 	if(owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) <= 0)
 		to_chat(playing_with_fire, span_cult_large("The strain of psychic projection is too much for you, and you lose yourself in the astral plane permanently..."))
-		playsound(playing_with_fire, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/eldritchlaugh.ogg', vol = 15, falloff_distance = 2, vary = TRUE)
+		playing_with_fire.ghostize(can_reenter_corpse = FALSE)
 		qdel(playing_with_fire)
 	else
 		owner.st_set_stat(STAT_TEMPORARY_WILLPOWER, owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) - 1)
 		addtimer(CALLBACK(src, PROC_REF(exhaust_timer)), PROJECTION_TIMER_LENGTH)
-		to_chat(playing_with_fire, span_warning("The strain of psychic projection exhausts you. You lose 1 temporary willpower point. You have [owner.st_get_stat(STAT_TEMPORARY_WILLPOWER)] temporary willpower points left."))
-//TFN EDIT END
+		to_chat(playing_with_fire, span_cult_large("The strain of psychic projection exhausts you. You lose 1 temporary willpower point. You have [owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) + 1] temporary willpower points left. If you run out, you will lose yourself in the astral plane permanently..."))
+// TFN EDIT END
 
 #undef TELEPATHY_MIND_READING
 #undef TELEPATHY_IMPLANT_THOUGHT
@@ -549,4 +581,4 @@ character with the most successes wins
 #undef SENSE_SMELL
 #undef SENSE_TASTE
 #undef SENSE_TOUCH
-#undef PROJECTION_TIMER_LENGTH //TFN EDIT
+#undef PROJECTION_TIMER_LENGTH // TFN EDIT
