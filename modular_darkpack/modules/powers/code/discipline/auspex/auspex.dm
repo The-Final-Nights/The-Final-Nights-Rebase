@@ -142,6 +142,8 @@
 	multi_activate = TRUE // TFN EDIT
 	var/datum/storyteller_roll/aura_perception/aura_roll
 	// TFN EDIT START
+	punish_cooldown_on_fail = TRUE
+	punishment_length = 3 TURNS // <-- 15~ seconds btw
 	var/datum/storyteller_roll/auspex_detection/detection_roll
 	var/datum/storyteller_roll/obfuscate_concealment/concealment_roll
 	var/list/mob/living/carbon/human/list_of_mobs_with_aura = list()
