@@ -1,4 +1,5 @@
 ///Spawns a cargo pod containing a random cargo supply pack on a random area of the station
+/* //TFN EDIT REMOVAL START
 /datum/round_event_control/stray_cargo
 	name = "Stray Cargo Pod"
 	typepath = /datum/round_event/stray_cargo
@@ -197,3 +198,4 @@
 	var/obj/structure/closet/supplypod/S = new
 	S.set_style(/datum/pod_style/syndicate)
 	return S
+*/ //TFN EDIT REMOVAL END

@@ -17,6 +17,7 @@
 	crate_name = "beekeeper suits"
 	crate_type = /obj/structure/closet/crate/hydroponics
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/organic/hydroponics/beekeeping_fullkit
 	name = "Beekeeping Starter Crate"
 	desc = "BEES BEES BEES. Contains three honey frames, a beekeeper suit and helmet, \
@@ -31,6 +32,7 @@
 				)
 	crate_name = "beekeeping starter crate"
 	crate_type = /obj/structure/closet/crate/hydroponics
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/organic/randomized
 	test_ignored = TRUE
@@ -88,6 +90,7 @@
 		/obj/item/food/grown/cucumber,
 	)
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/organic/exoticseeds
 	name = "Exotic Seeds Crate"
 	desc = "Any entrepreneuring botanist's dream. Contains twelve different seeds, \
@@ -110,6 +113,7 @@
 	)
 	crate_name = "exotic seeds crate"
 	crate_type = /obj/structure/closet/crate/hydroponics
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/organic/food
 	name = "Food Crate"

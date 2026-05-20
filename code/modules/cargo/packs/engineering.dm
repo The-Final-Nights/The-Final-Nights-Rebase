@@ -71,6 +71,7 @@
 	crate_name = "insulated gloves crate"
 	crate_type = /obj/structure/closet/crate/engineering/electrical
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/engineering/inducers
 	name = "NT-75 Electromagnetic Power Inducers Crate"
 	desc = "No rechargers? No problem, with the NT-75 EPI, you can recharge any standard \
@@ -79,6 +80,7 @@
 	contains = list(/obj/item/inducer/orderable = 2)
 	crate_name = "inducer crate"
 	crate_type = /obj/structure/closet/crate/nakamura
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/engineering/pacman
 	name = "P.A.C.M.A.N Generator Crate"
@@ -122,6 +124,7 @@
 	cost = CARGO_CRATE_VALUE * 5
 	crate_name = "toolbox crate"
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/engineering/portapump
 	name = "Portable Air Pump Crate"
 	desc = "Did someone let the air out of the shuttle again? We've got you covered. \
@@ -149,6 +152,7 @@
 	contains = list(/obj/machinery/portable_atmospherics/scrubber/huge/movable/cargo)
 	crate_name = "huge portable scrubber crate"
 	crate_type = /obj/structure/closet/crate/large
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/engineering/space_heater
 	name = "Space Heater Crate"
