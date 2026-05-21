@@ -46,9 +46,21 @@ GLOBAL_LIST_INIT(trusted_only_clans, list(
 			return clan
 	return null
 
+/proc/get_restricted_age(mob/dead/new_player/new_player)
+	var/client/C = new_player.client
+	if(!C.prefs.has_whitelist(WHITELIST_TRUSTED))
+		var/immortal_age = C.prefs.read_preference(/datum/preference/numeric/immortal_age)
+		if(immortal_age > 199)
+			return TRUE
+	return FALSE
+
 /atom/movable/screen/lobby/button/ready/Click(location, control, params)
 	var/mob/dead/new_player/new_player = hud.mymob
 	if(new_player.ready == PLAYER_NOT_READY)
+		var/is_restricted_age = get_restricted_age(new_player)
+		if(is_restricted_age)
+			to_chat(new_player.client, span_warning("The age you selected is an Elder aged Vampire. The Trusted Whitelist is required to play Elder Vampires, aged 200 or higher. Feel free to apply for it on Discord!"))
+			return
 		var/datum/subsplat/vampire_clan/clan = get_restricted_clan(new_player)
 		if(clan)
 			to_chat(new_player, span_warning("[clan.name] requires a special whitelisting process. Feel free to apply for it on Discord!"))
@@ -57,6 +69,10 @@ GLOBAL_LIST_INIT(trusted_only_clans, list(
 
 /atom/movable/screen/lobby/button/join/Click(location, control, params)
 	var/mob/dead/new_player/new_player = hud.mymob
+	var/is_restricted_age = get_restricted_age(new_player)
+	if(is_restricted_age)
+		to_chat(new_player.client, span_warning("The age you selected is an Elder aged Vampire. The Trusted Whitelist is required to play Elder Vampires, aged 200 or higher. Feel free to apply for it on Discord!"))
+		return
 	var/datum/subsplat/vampire_clan/clan = get_restricted_clan(new_player)
 	if(clan)
 		to_chat(new_player, span_warning("[clan.name] requires a special whitelisting process. Feel free to apply for it on Discord!"))

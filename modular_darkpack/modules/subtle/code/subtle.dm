@@ -160,7 +160,7 @@
 		var/mob/target_mob = target
 		user.show_message(subtler_message, alt_msg = subtler_message)
 		if((get_dist(user.loc, target_mob.loc) <= subtler_range))
-			subtler_message = span_subtler("<b>[GET_GUESTBOOK_NAME(target_mob, user)]</b>[space]<i>[user.apply_message_emphasis(subtler_message)]</i>")
+			subtler_message = span_subtler("<b>[GET_GUESTBOOK_NAME(target_mob, user)]</b>[space]<i>[user.apply_message_emphasis(subtler_emote)]</i>")
 			target_mob.show_message(subtler_message, alt_msg = subtler_message)
 			if(target_mob.client?.prefs.read_preference(/datum/preference/toggle/subtler_sound))
 				target_mob.playsound_local(get_turf(target_mob), 'sound/effects/achievement/glockenspiel_ping.ogg', 50)
@@ -169,7 +169,7 @@
 	else if(istype(target, /obj/effect/overlay/holo_pad_hologram))
 		var/obj/effect/overlay/holo_pad_hologram/hologram = target
 		if(hologram.Impersonation?.client)
-			subtler_message = span_subtler("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtler_message)]</i>")
+			subtler_message = span_subtler("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtler_emote)]</i>")
 			hologram.Impersonation.show_message(subtler_message, alt_msg = subtler_message)
 			if(hologram.Impersonation?.client?.prefs.read_preference(/datum/preference/toggle/subtler_sound))
 				hologram.Impersonation.playsound_local(get_turf(hologram.Impersonation), 'sound/effects/achievement/glockenspiel_ping.ogg', 50)
@@ -182,7 +182,7 @@
 			ghostless += dullahan.owner
 
 		for(var/mob/receiver in ghostless)
-			subtler_message = span_subtler("<b>[GET_GUESTBOOK_NAME(receiver, user)]</b>[space]<i>[user.apply_message_emphasis(subtler_message)]</i>")
+			subtler_message = span_subtler("<b>[GET_GUESTBOOK_NAME(receiver, user)]</b>[space]<i>[user.apply_message_emphasis(subtler_emote)]</i>")
 			receiver.show_message(subtler_message, alt_msg = subtler_message)
 			if(receiver.client?.prefs.read_preference(/datum/preference/toggle/subtler_sound))
 				receiver.playsound_local(get_turf(receiver), 'sound/effects/achievement/glockenspiel_ping.ogg', 50)
