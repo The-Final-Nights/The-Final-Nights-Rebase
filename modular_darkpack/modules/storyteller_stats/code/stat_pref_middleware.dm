@@ -1,3 +1,12 @@
+// TFN EDIT START
+/datum/preference_middleware/stats/proc/ensure_morality_path()
+	var/datum/st_stat/morality_path/morality/stat_morality = preferences.preference_storyteller_stats[STAT_MORALITY]
+	if(stat_morality && !stat_morality.morality_path)
+		var/morality_type = preferences.read_preference(/datum/preference/choiced/vtm_morality)
+		if(morality_type)
+			stat_morality.morality_path = new morality_type()
+// TFN EDIT END
+
 /datum/preference_middleware/stats
 	action_delegations = list(
 		"increase_stat" = PROC_REF(increase_stat),
@@ -72,6 +81,7 @@
 	stat_path.increase_score(1) // By this point we know we have spend either a point, or the appropriate freebie cost for this stat, and it is not max_score. So increase it by one.
 
 	if(stat_path.stat_flags & AFFECTS_STATS)
+		ensure_morality_path() // TFN EDIT
 		update_middleware_stats(preferences.preference_storyteller_stats)
 
 
@@ -105,6 +115,7 @@
 	stat_path.decrease_score(1) // By this point we know we have regained either a point, or the appropriate freebie cost for this stat, and it is not min_score. So decrease it by one.
 
 	if(stat_path.stat_flags & AFFECTS_STATS)
+		ensure_morality_path() // TFN EDIT
 		update_middleware_stats(preferences.preference_storyteller_stats)
 
 	var/new_value = stat_path.get_score(include_bonus = FALSE)
