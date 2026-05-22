@@ -162,10 +162,9 @@
 
 #define JOB_DISPLAY_ORDER_BARON 26
 #define JOB_DISPLAY_ORDER_EMISSARY 27
-#define JOB_DISPLAY_ORDER_REEVE 28
-#define JOB_DISPLAY_ORDER_SWEEPER 29 //TFN CHANGE - Anarch Refresh
-#define JOB_DISPLAY_ORDER_BRUISER 30 //TFN CHANGE - Anarch Refresh
-//#define JOB_DISPLAY_ORDER_LIAISON 30 //TFN REMOVAL - Anarch Refresh Liaison isn't being used right now, it's unlikely to be used anytime soon, and i'd frankly rather just take it's number than renumber the entire list
+#define JOB_DISPLAY_ORDER_REEVE 28 // TFN EDIT CHANGE - Adds Reeve - Original: #define JOB_DISPLAY_ORDER_SWEEPER 28
+#define JOB_DISPLAY_ORDER_SWEEPER 29 //TFN CHANGE - Adds Reeve - Original: #define JOB_DISPLAY_ORDER_BRUISER 29
+#define JOB_DISPLAY_ORDER_BRUISER 30 //TFN CHANGE - Adds Reeve - Original: #define JOB_DISPLAY_ORDER_LIAISON 30 - Liason is not being used right now on TFN
 #define JOB_DISPLAY_ORDER_TAPSTER 31
 
 #define JOB_DISPLAY_ORDER_REGENT 32
