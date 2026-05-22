@@ -6,7 +6,6 @@
 	gain_text = span_notice("You are possessed of a bizarre mutation!")
 	lose_text = span_notice("Your body returns to normal.")
 	allowed_splats = list(SPLAT_KINDRED) //All kindred can actually have this, not just Baali.
-//	excluded_clans = list(VAMPIRE_CLAN_GARGOYLE, VAMPIRE_CLAN_GANGREL, VAMPIRE_CLAN_CITY_GANGREL, VAMPIRE_CLAN_NOSFERATU, VAMPIRE_CLAN_TZIMISCE, VAMPIRE_CLAN_KIASYD) //The removal process causes difficulties for any clans with existing accessories, and they're not compatible anwyay. 
 	included_clans = list(VAMPIRE_CLAN_BAALI)
 	icon = FA_ICON_STAR
 	failure_message = "Your body returns to normal."
