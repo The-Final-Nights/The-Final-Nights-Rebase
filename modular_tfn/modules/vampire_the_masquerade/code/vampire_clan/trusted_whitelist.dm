@@ -9,22 +9,25 @@ GLOBAL_LIST_INIT(trusted_only_clans, list(
 
 // remember kids, you should always obtain enthusiastic informed values before proceeding
 /datum/preference/choiced/subsplat/vampire_clan/create_informed_default_value(datum/preferences/preferences)
-	if(preferences && !preferences.discipline_trusted)
+	if(preferences && !preferences.has_whitelist(WHITELIST_TRUSTED))
 		var/list/safe_choices = list()
 		for(var/choice in get_choices())
 			var/datum/subsplat/vampire_clan/clan = get_vampire_clan(choice)
 			if(!clan || !(clan.id in GLOB.trusted_only_clans))
+				safe_choices += choice
+			else if(preferences.has_whitelist(clan.id))
 				safe_choices += choice
 		if(length(safe_choices))
 			return pick(safe_choices)
 	return ..()
 
 /datum/preference/choiced/subsplat/vampire_clan/is_valid(value, datum/preferences/preferences)
-	if(preferences && !preferences.discipline_trusted)
+	if(preferences && !preferences.has_whitelist(WHITELIST_TRUSTED))
 		var/datum/subsplat/vampire_clan/clan = get_vampire_clan(value)
 		if(clan?.id in GLOB.trusted_only_clans)
-			to_chat(preferences.parent, span_warning("The [clan.name] clan requires a special whitelisting process. Feel free to apply for it on Discord!"))
-			return FALSE
+			if(!preferences.has_whitelist(clan.id))
+				to_chat(preferences.parent, span_warning("The [clan.name] clan requires a special whitelisting process. Feel free to apply for it on Discord!"))
+				return FALSE
 	return ..()
 
 // helper procs to make absolutely sure unwhitelisted people cannot join with whitelisted splats
@@ -34,17 +37,30 @@ GLOBAL_LIST_INIT(trusted_only_clans, list(
 	var/client/C = new_player.client
 	if(!C?.prefs)
 		return null
-	if(C.prefs.discipline_trusted)
+	if(C.prefs.has_whitelist(WHITELIST_TRUSTED))
 		return null
 	var/selected = C.prefs.read_preference(/datum/preference/choiced/subsplat/vampire_clan)
 	var/datum/subsplat/vampire_clan/clan = get_vampire_clan(selected)
 	if(clan?.id in GLOB.trusted_only_clans)
-		return clan
+		if(!C.prefs.has_whitelist(clan.id))
+			return clan
 	return null
+
+/proc/get_restricted_age(mob/dead/new_player/new_player)
+	var/client/C = new_player.client
+	if(!C.prefs.has_whitelist(WHITELIST_TRUSTED))
+		var/immortal_age = C.prefs.read_preference(/datum/preference/numeric/immortal_age)
+		if(immortal_age > 199)
+			return TRUE
+	return FALSE
 
 /atom/movable/screen/lobby/button/ready/Click(location, control, params)
 	var/mob/dead/new_player/new_player = hud.mymob
 	if(new_player.ready == PLAYER_NOT_READY)
+		var/is_restricted_age = get_restricted_age(new_player)
+		if(is_restricted_age)
+			to_chat(new_player.client, span_warning("The age you selected is an Elder aged Vampire. The Trusted Whitelist is required to play Elder Vampires, aged 200 or higher. Feel free to apply for it on Discord!"))
+			return
 		var/datum/subsplat/vampire_clan/clan = get_restricted_clan(new_player)
 		if(clan)
 			to_chat(new_player, span_warning("[clan.name] requires a special whitelisting process. Feel free to apply for it on Discord!"))
@@ -53,6 +69,10 @@ GLOBAL_LIST_INIT(trusted_only_clans, list(
 
 /atom/movable/screen/lobby/button/join/Click(location, control, params)
 	var/mob/dead/new_player/new_player = hud.mymob
+	var/is_restricted_age = get_restricted_age(new_player)
+	if(is_restricted_age)
+		to_chat(new_player.client, span_warning("The age you selected is an Elder aged Vampire. The Trusted Whitelist is required to play Elder Vampires, aged 200 or higher. Feel free to apply for it on Discord!"))
+		return
 	var/datum/subsplat/vampire_clan/clan = get_restricted_clan(new_player)
 	if(clan)
 		to_chat(new_player, span_warning("[clan.name] requires a special whitelisting process. Feel free to apply for it on Discord!"))

@@ -139,12 +139,18 @@
 			return "[jobtitle] doesn't have any free splat slots for you. (This can include human)"
 		if(JOB_UNAVAILABLE_WHITELIST)
 			return "You aren't whitelisted for [jobtitle]."
-		if(JOB_UNAVAILABLE_KINDRED_AGE)
+		if(JOB_UNAVAILABLE_KINDRED_AGE_MIN)
 			return "Your character is too young for [jobtitle]."
+		if(JOB_UNAVAILABLE_KINDRED_AGE_MAX)
+			return "Your character is too old for [jobtitle]."
 		if(JOB_UNAVAILABLE_KINDRED_GENERATION)
 			return "Your character's generation is too high for [jobtitle]."
 		if(JOB_UNAVAILABLE_KINDRED_CLAN)
 			return "Your character's clan is incompatible for [jobtitle]."
+		if(JOB_UNAVAILABLE_FERA_TRIBE)
+			return "Your character's tribe is incompatible for [jobtitle]."
+		if(JOB_UNAVAILABLE_FERA_AUSPICE)
+			return "Your character's auspice is incompatible for [jobtitle]."
 		// DARKPACK EDIT END
 
 	return GENERIC_JOB_UNAVAILABLE_ERROR
@@ -241,7 +247,7 @@
 		humanc = character //Let's retypecast the var to be human,
 
 	if(humanc) //These procs all expect humans
-		var/chosen_rank = humanc.client?.prefs.alt_job_titles?[rank] || rank // DARKPACK EDIT ADDITION - ALTERNATIVE_JOB_TITLES
+		var/chosen_rank = humanc.client?.prefs.alt_job_titles?[rank] || rank // DARKPACK EDIT ADD - ALTERNATIVE_JOB_TITLES
 		if(SSshuttle.arrivals)
 			SSshuttle.arrivals.QueueAnnounce(humanc, chosen_rank) // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: SSshuttle.arrivals.QueueAnnounce(humanc, rank)
 		else
@@ -250,7 +256,7 @@
 
 		humanc.increment_scar_slot()
 		humanc.load_persistent_scars()
-		humanc.load_guestbook() // DARKPACK EDIT ADDITION
+		humanc.load_guestbook() // DARKPACK EDIT ADD
 
 		if(GLOB.curse_of_madness_triggered)
 			give_madness(humanc, GLOB.curse_of_madness_triggered)

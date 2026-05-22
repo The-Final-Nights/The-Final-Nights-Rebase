@@ -1,9 +1,9 @@
 /datum/job/vampire/sabbatductus
 	title = JOB_SABBAT_DUCTUS
-	faction = FACTION_CITY
+	faction = FACTION_SABBAT
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Caine"
+	supervisors = SUPERVISOR_SABBAT
 	config_tag = "SABBAT_DUCTUS"
 	outfit = /datum/outfit/job/vampire/sabbatductus
 	allowed_splats = list(SPLAT_KINDRED)

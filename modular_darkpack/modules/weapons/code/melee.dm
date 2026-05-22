@@ -169,6 +169,26 @@
 	. = ..()
 	fera_silver_damage(target, 5, 1)
 
+// TFN EDIT START - Purchasable Silver Sword
+/obj/item/claymore/longsword/silver
+	name = "Silver Longsword"
+	desc = "A classic weapon of the knight, the longsword is a versatile weapon that can be used for both cutting and thrusting. This one has been coated in silver."
+	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
+	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
+	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
+	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
+	icon_state = "longsword"
+	inhand_icon_state = "longsword"
+
+/obj/item/claymore/longsword/silver/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
+	. = ..()
+	fera_silver_damage(target, 1, 1)
+
+/obj/item/claymore/longsword/silver/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 40000, "silver longsword", FALSE)
+// TFN EDIT END - Purchasable Silver Sword
 /obj/item/melee/baseball_bat/vamp
 	name = "baseball bat"
 	desc = "There ain't a skull in the league that can withstand a swatter."
@@ -386,6 +406,7 @@
 	lefthand_file = 'modular_darkpack/modules/weapons/icons/melee_lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/weapons/icons/melee_righthand.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	force = 45
 	throwforce = 10
 	w_class = WEIGHT_CLASS_BULKY
@@ -400,7 +421,6 @@
 	resistance_flags = FIRE_PROOF
 	masquerade_violating = FALSE
 	custom_price = 1200
-	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi') // DARKPACK EDIT ADD
 
 /obj/item/darkpack/spear/Initialize()
 	. = ..()

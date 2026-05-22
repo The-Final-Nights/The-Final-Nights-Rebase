@@ -2,7 +2,7 @@
 	title = JOB_GAROU_WARDER
 	description = "You are the most respected Ahroun within the" + SEPT_NAME + ", granted the honor of coordinating the caern's security. The Wyrmfoe and Guardians answer to you."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	faction = FACTION_CITY
+	faction = FACTION_GAIA
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = SUPERVISOR_LITANY
@@ -17,8 +17,8 @@
 	outfit = /datum/outfit/job/vampire/warder
 
 	allowed_splats = list(SPLAT_GAROU)
-//	allowed_tribes = list(TRIBE_GAIA)
-//	allowed_auspice = list(AUSPICE_AHROUN)
+	allowed_tribes = TRIBE_LIST_GAIA
+	allowed_auspice = list(AUSPICE_AHROUN)
 
 	display_order = JOB_DISPLAY_ORDER_WARDER
 	department_for_prefs = /datum/job_department/gaia
@@ -29,7 +29,7 @@
 	known_contacts = list(
 		"Councillor",
 		"Truthcatcher",
-		"Wyrmfoe",
+		"Keeper", //TFN EDIT CHANGE - Keeper - Original: "Wyrmfoe",
 		"Guardian"
 	)
 
@@ -46,4 +46,5 @@
 	suit = /obj/item/clothing/suit/vampire/vest/medieval
 	glasses = /obj/item/clothing/glasses/vampire/sun
 	l_pocket = /obj/item/smartphone
+	r_pocket = /obj/item/vamp/keys/evergreen // TFN EDIT ADD - ([LORE TEAM REQUESTED] map changes)
 	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/veil_contract, /obj/item/card/credit/rich=1)

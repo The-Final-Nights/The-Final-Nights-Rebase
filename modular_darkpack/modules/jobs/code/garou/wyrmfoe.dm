@@ -1,8 +1,9 @@
+/* //TFN EDIT REMOVAL START
 /datum/job/vampire/wyrmfoe
 	title = JOB_GAROU_WYRMFOE
 	description = "You are the Warder's right hand, a promising tactician in your own right, granted the honor of coordinating the Sept's more offensive actions. "
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	faction = FACTION_CITY
+	faction = FACTION_GAIA
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = SUPERVISOR_LITANY
@@ -17,7 +18,7 @@
 	outfit = /datum/outfit/job/vampire/wyrmfoe
 
 	allowed_splats = list(SPLAT_GAROU)
-//	allowed_tribes = list(TRIBE_GAIA)
+	allowed_tribes = TRIBE_LIST_GAIA
 
 	display_order = JOB_DISPLAY_ORDER_WYRMFOE
 	department_for_prefs = /datum/job_department/gaia
@@ -43,3 +44,4 @@
 	shoes = /obj/item/clothing/shoes/vampire/jackboots/work
 	l_pocket = /obj/item/smartphone
 	backpack_contents = list(/obj/item/phone_book=1, /obj/item/card/credit/rich=1)
+*/ // TFN EDIT REMOVAL END

@@ -63,6 +63,17 @@
 	label_class = "strip_club"
 	ui_color = "#a566a5ff"
 
+//TFN EDIT ADDITION START - Crown Blue Jazz Club OverHaul
+/datum/job_department/jazz_club
+	department_name = DEPARTMENT_JAZZ_CLUB
+	department_bitflags = DEPARTMENT_BITFLAG_JAZZ_CLUB
+	department_head = /datum/job/vampire/primogen_ventrue
+	department_experience_type = EXP_TYPE_JAZZ_CLUB
+	display_order = 1
+	label_class = "jazz_club"
+	ui_color = "#7372ac"
+//TFN EDIT ADDITION END - Crown Blue Jazz Club OverHaul
+
 /datum/job_department/giovanni
 	department_name = DEPARTMENT_GIOVANNI
 	department_bitflags = DEPARTMENT_BITFLAG_GIOVANNI
@@ -90,6 +101,17 @@
 	label_class = "sabbat"
 	ui_color = "#4e4e4eff"
 
+// TFN EDIT ADD START - More Sabbat Roles
+/datum/job_department/true_sabbat
+	department_name = DEPARTMENT_TRUE_SABBAT
+	department_bitflags = DEPARTMENT_BITFLAG_TRUE_SABBAT
+	department_head = /datum/job/vampire/bishop
+	department_experience_type = EXP_TYPE_SABBAT
+	display_order = 1
+	label_class = "true_sabbat"
+	ui_color = "#3d0404ff"
+// TFN EDIT ADD END - More Sabbat Roles
+
 /datum/job_department/chantry
 	department_name = DEPARTMENT_CHANTRY
 	department_bitflags = DEPARTMENT_BITFLAG_CHANTRY
@@ -99,6 +121,7 @@
 	label_class = "chantry"
 	ui_color = "#a56666ff"
 
+/* TFN EDIT REMOVAL - More Sabbat Jobs
 /datum/job_department/manor
 	department_name = DEPARTMENT_MANOR
 	department_bitflags = DEPARTMENT_BITFLAG_MANOR
@@ -107,6 +130,7 @@
 	display_order = 1
 	label_class = "manor"
 	ui_color = "#a066a5ff"
+*/
 
 /datum/job_department/city_services
 	department_name = DEPARTMENT_CITY_SERVICES
@@ -128,4 +152,13 @@
 	department_experience_type = EXP_TYPE_SPIRAL
 	display_order = 1
 	label_class = "pentex"
-	ui_color = COLOR_ENDRON_GREEN
+	ui_color = COLOR_CORP_ENDRON
+
+/datum/job_department/society_of_leopold
+	department_name = DEPARTMENT_SOCIETY_OF_LEOPOLD
+	department_bitflags = DEPARTMENT_BITFLAG_SOCIETY_OF_LEOPOLD
+	department_head = /datum/job/vampire/abbe
+	department_experience_type = EXP_TYPE_CHURCH
+	display_order = 1
+	label_class = "society"
+	ui_color = "#fff022"

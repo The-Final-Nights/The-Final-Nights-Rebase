@@ -144,12 +144,14 @@
 	contains = list(/obj/item/gun/ballistic/automatic/darkpack/thompson)
 	crate_name = "weapon crate"
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/mp5
 	name = "Weapon (MP5)"
 	desc = "Contains an MP5."
 	cost = 2000
 	contains = list(/obj/item/gun/ballistic/automatic/darkpack/mp5)
 	crate_name = "weapon crate"
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/weapons/ak74
 	name = "Weapon (AK-74)"
@@ -158,6 +160,7 @@
 	contains = list(/obj/item/gun/ballistic/automatic/darkpack/ak74)
 	crate_name = "weapon crate"
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/weaponrifle
 	name = "Weapon (AR-15)"
 	desc = "Contains an AR-15 assault rifle."
@@ -171,6 +174,7 @@
 	cost = 4000
 	contains = list(/obj/item/gun/ballistic/automatic/darkpack/aug, /obj/item/ammo_box/magazine/darkpackaug)
 	crate_name = "weapon crate"
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/weapons/weaponcrossbow
 	name = "Weapon (crossbow)"
@@ -179,12 +183,14 @@
 	contains = list(/obj/item/gun/ballistic/shotgun/toy/crossbow/vampire)
 	crate_name = "weapon crate"
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/weaponsniper
 	name = "Weapon (.50 cal sniper rifle)"
 	desc = "Contains a .50 cal sniper rifle."
 	cost = 4000
 	contains = list(/obj/item/gun/ballistic/automatic/darkpack/sniper)
 	crate_name = "weapon crate"
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/weapons/ammo9
 	name = "Ammo (9mm)"
@@ -249,11 +255,13 @@
 	contains = list(/obj/item/ammo_box/darkpack/c45acp/silver)
 	crate_name = "ammo crate"
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/ammo556/silver
 	name = "Ammo (5.56, silver)"
 	desc = "Contains a box of silver 5.56 ammunition."
 	cost = 3000
 	contains = list(/obj/item/ammo_box/darkpack/c556/silver)
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/weapons/ammo50
 	name = "Ammo (.50)"
@@ -269,12 +277,14 @@
 	contains = list(/obj/item/ammo_box/darkpack/c556)
 	crate_name = "ammo crate"
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/ammo556/incendiart
 	name = "Ammo (5.56 incendiary)"
 	desc = "Contains a box of incendiary 5.56 ammunition."
 	cost = 4500
 	contains = list(/obj/item/ammo_box/darkpack/c556/incendiary)
 	crate_name = "ammo crate"
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/weapons/ammobolt
 	name = "Ammo (bolts)"
@@ -360,6 +370,7 @@
 	contains = list(/obj/item/ammo_box/magazine/darkpackthompson, /obj/item/ammo_box/magazine/darkpackthompson, /obj/item/ammo_box/magazine/darkpackthompson)
 	crate_name = "ammo crate"
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/armorlight
 	name = "Armor (3 civilian)"
 	desc = "Contains 3 types of body clothing and 3 types of light head protection."
@@ -373,6 +384,7 @@
 		/obj/item/clothing/head/vampire/british
 	)
 	crate_name = "armor crate"
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/weapons/armorpolice
 	name = "Armor (police)"
@@ -382,6 +394,7 @@
 					/obj/item/clothing/head/vampire/helmet)
 	crate_name = "armor crate"
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/armorarmy
 	name = "Armor (army)"
 	desc = "Contains a single complect of full army protection."
@@ -389,7 +402,6 @@
 	contains = list(/obj/item/clothing/suit/vampire/vest/army,
 					/obj/item/clothing/head/vampire/army)
 	crate_name = "armor crate"
-
 /datum/supply_pack/weapons/armoreod
 	name = "Armor (EOD)"
 	desc = "Contains a single complect of full EOD protection."
@@ -397,3 +409,4 @@
 	contains = list(/obj/item/clothing/suit/vampire/eod,
 					/obj/item/clothing/head/vampire/eod)
 	crate_name = "armor crate"
+*/ //TFN EDIT REMOVE END

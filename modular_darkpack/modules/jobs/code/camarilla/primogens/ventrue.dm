@@ -2,7 +2,7 @@
 	title = JOB_PRIMOGEN_VENTRUE
 	description = "Offer your infinite knowledge to Prince of the City. Maintain the local Jazz Club, in front of the Tower, and its Elysium."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	faction = FACTION_CITY
+	faction = FACTION_CAMARILLA
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = SUPERVISOR_TRADITIONS
@@ -20,6 +20,7 @@
 	department_for_prefs = /datum/job_department/camarilla
 	departments_list = list(
 		/datum/job_department/camarilla,
+		/datum/job_department/jazz_club, // TFN EDIT ADDITION
 	)
 
 	minimal_generation = 12

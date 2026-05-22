@@ -111,18 +111,40 @@
 	roll_output_type = ROLL_PRIVATE
 
 //AURA PERCEPTION
+// TFN EDIT START
+/datum/storyteller_roll/auspex_detection
+	bumper_text = "auspex scan for nearby obfuscators (if any)"
+	difficulty = 7
+	applicable_stats = list(STAT_PERCEPTION, STAT_AWARENESS)
+	numerical = TRUE
+	roll_output_type = ROLL_PRIVATE
+
+/datum/storyteller_roll/obfuscate_concealment
+	bumper_text = "obfuscate concealment to counter auspex"
+	difficulty = 7
+	applicable_stats = list(STAT_MANIPULATION, STAT_SUBTERFUGE)
+	numerical = TRUE
+	roll_output_type = ROLL_PRIVATE
+// TFN EDIT END
 /datum/discipline_power/auspex/aura_perception
 	name = "Aura Perception"
 	desc = "Allows you to perceive the auras of those near you."
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS
-	duration_length = 1 SCENES
+	duration_length = 5 TURNS // TFN EDIT
 	cooldown_length = 1 SCENES
 	vitae_cost = 0
-
+	toggled = TRUE // TFN EDIT
 	cancelable = TRUE
 	var/datum/storyteller_roll/aura_perception/aura_roll
+	// TFN EDIT START
+	var/datum/storyteller_roll/auspex_detection/detection_roll
+	var/datum/storyteller_roll/obfuscate_concealment/concealment_roll
+	var/list/mob/detected_mobs // mobs who failed the roll and were perceived
+	var/list/mob/checked_mobs // mobs who we checked but havent necessarily failed the roll
+	COOLDOWN_DECLARE(detection_cooldown)
+	// TFN EDIT END
 
 /datum/discipline_power/auspex/aura_perception/pre_activation_checks(mob/living/target)
 	. = ..()
@@ -140,6 +162,15 @@
 	var/datum/atom_hud/data/auspex_aura/target_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	target_hud.show_to(owner)
 
+	// TFN EDIT START
+	detected_mobs = list()
+	checked_mobs = list()
+	if(!detection_roll)
+		detection_roll = new()
+	if(!concealment_roll)
+		concealment_roll = new()
+	START_PROCESSING(SSfastprocess, src)
+	// TFN EDIT END
 	var/list/heard = orange(DEFAULT_MESSAGE_RANGE, owner)
 	for(var/mob/living/hearer in heard)
 		if(!HAS_TRAIT(src, TRAIT_FORCED_EMOTION))
@@ -147,8 +178,64 @@
 
 /datum/discipline_power/auspex/aura_perception/deactivate()
 	. = ..()
+	// TFN EDIT START
+	STOP_PROCESSING(SSfastprocess, src)
+	if(owner.client)
+		for(var/mob/living/detected_mob in detected_mobs)
+			if(HAS_TRAIT(detected_mob, TRAIT_OBFUSCATED))
+				var/image/holder = detected_mob.hud_list[AUSPEX_AURA_HUD]
+				if(holder)
+					owner.client.images -= holder
+	detected_mobs = null
+	checked_mobs = null
+	// TFN EDIT END
+
 	var/datum/atom_hud/data/auspex_aura/target_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	target_hud.hide_from(owner)
+
+// TFN EDIT START
+/* From v20:
+Obfuscate: When a vampire tries to use her
+heightened perceptions to notice a Kindred
+hidden with Obfuscate, she detects the sub-
+ject’s presence if her Auspex rating is higher
+than his Obfuscate, and she succeeds at a
+Perception + Awareness roll (difficulty equals
+7 minus the number of dots by which her
+Auspex exceeds his Obfuscate). Conversely,
+if the target’s Obfuscate outranks her Auspex,
+he remains undiscovered. If the two ratings
+are equal, both characters make a resisted roll
+of Perception + Awareness (Auspex user)
+against Manipulation + Subterfuge (Obfuscate
+user). The difficulty for both rolls is 7, and the
+character with the most successes wins
+*/
+/datum/discipline_power/auspex/aura_perception/process()
+	if(!COOLDOWN_FINISHED(src, detection_cooldown))
+		return
+	COOLDOWN_START(src, detection_cooldown, (rand(5,30) SECONDS))
+	var/list/current_obfuscated = list()
+	for(var/mob/living/hearer in orange(DEFAULT_MESSAGE_RANGE, owner))
+		if(HAS_TRAIT(hearer, TRAIT_OBFUSCATED))
+			current_obfuscated += hearer
+
+	for(var/mob/living/prev_mob in checked_mobs)
+		if(!(prev_mob in current_obfuscated))
+			checked_mobs -= prev_mob
+
+	for(var/mob/living/hearer in current_obfuscated)
+		if((hearer in checked_mobs) || (hearer in detected_mobs))
+			continue
+		checked_mobs += hearer
+		var/auspex_successes = detection_roll.st_roll(owner, hearer)
+		var/obfuscate_successes = concealment_roll.st_roll(hearer, owner)
+		if(auspex_successes > obfuscate_successes)
+			var/image/holder = hearer.hud_list[AUSPEX_AURA_HUD]
+			if(holder && owner.client)
+				owner.client.images |= holder
+				detected_mobs += hearer
+// TFN EDIT END
 
 //THE SPIRIT'S TOUCH
 /datum/discipline_power/auspex/the_spirits_touch
@@ -181,6 +268,10 @@
 	UnregisterSignal(owner, COMSIG_MOB_EXAMINING)
 
 /datum/discipline_power/auspex/the_spirits_touch/proc/scan(mob/user, atom/scanned_atom, list/examine_strings)
+	// TFN EDIT START
+	if(ismob(scanned_atom) && HAS_TRAIT(scanned_atom, TRAIT_OBFUSCATED))
+		return TRUE
+	// TFN EDIT END
 	// Can scan items we hold and store
 	if(!(scanned_atom in user.get_all_contents()))
 		// Can remotely scan objects and mobs.

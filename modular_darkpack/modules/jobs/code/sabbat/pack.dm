@@ -1,9 +1,9 @@
 /datum/job/vampire/sabbatpack
 	title = JOB_SABBAT_PACK
-	faction = FACTION_CITY
+	faction = FACTION_SABBAT
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "Caine"
+	supervisors = "the Ductus"
 	config_tag = "SABBAT_PACK"
 	outfit = /datum/outfit/job/vampire/sabbatpack
 	job_flags = CITY_JOB_FLAGS

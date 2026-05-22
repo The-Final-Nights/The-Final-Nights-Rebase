@@ -23,6 +23,7 @@ $department_map: (
   'Clinic': var(--color-teal),
   'Warehouse': var(--color-brown),
   'Strip_Club': var(--color-violet),
+  'Jazz_Club': var(--color-violet),
   'Police': var(--color-blue),
   'Giovanni': var(--color-green),
   'Manor': var(--color-violet),
@@ -30,7 +31,9 @@ $department_map: (
   'Citizen': var(--color-light-grey),
   'City_Services': var(--color-white),
   'Garou_Nation': var(--color-olive),
-  'Pentex': var(--color-green), // DARKPACK EDIT ADD END
+  'Pentex': var(--color-green),
+  'Society_of_Leopold': var(--color-yellow), // DARKPACK EDIT ADD END
+  'True_Sabbat': var(--color-light-grey), // TFN EDIT ADD - More Sabbat Roles
 );
 
 .ChoicedSelection {

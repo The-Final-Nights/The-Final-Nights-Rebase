@@ -253,6 +253,19 @@
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 	worn_icon_state = "police_badge"
 
+// TFN EDIT ADD START - More Sabbat Roles
+/obj/item/card/paladin
+	name = "small pendant"
+	desc = "A small, gold-flashing pendant of some kind."
+	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
+	icon_state = "id12"
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
+	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
+	worn_icon_state = "head_sec_badge"
+
+// TFN EDIT ADD END - More Sabbat Roles
+
+/* TFN EDIT REMOVAL - More Sabbat Roles
 //TZIMISCE ROLES
 /obj/item/card/voivode
 	name = "ancient badge"
@@ -271,6 +284,7 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 	worn_icon_state = "head_sec_badge"
+*/
 
 // PRIMOGEN STUFF
 /obj/item/card/primogen
