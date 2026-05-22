@@ -43,7 +43,7 @@
 #define JOB_BRUISER "Bouncer" //TFN CHANGE - Original "Bruiser"
 #define JOB_EMISSARY "Emissary"
 #define JOB_SWEEPER "Sweeper"
-#define JOB_REEVE "Reeve"
+#define JOB_REEVE "Reeve" // TFN EDIT ADD - Adds Reeve
 
 //Tremere
 #define JOB_CHANTRY_ARCHIVIST "Chantry Archivist"
