@@ -211,7 +211,7 @@
 	crate_name = "training toolbox crate"
 
 ///Special supply crate that generates random syndicate gear up to a determined TC value
-/* //TFN EDIT REMOVE START
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/misc/syndicate
 	name = "Assorted Syndicate Gear"
 	desc = "Contains a random assortment of syndicate gear."
