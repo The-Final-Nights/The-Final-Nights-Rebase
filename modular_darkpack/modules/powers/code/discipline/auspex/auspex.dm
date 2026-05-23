@@ -5,7 +5,7 @@
 #define SENSE_TOUCH "Touch"
 #define TELEPATHY_MIND_READING "Mind Reading"
 #define TELEPATHY_IMPLANT_THOUGHT "Implant Thoughts"
-#define PROJECTION_TIMER_LENGTH 2 SCENES // TFN EDIT
+#define PROJECTION_TIMER_LENGTH 2 SCENES // TFN EDIT - Auspex Accuracy Pass, Dangerous Projection
 
 /datum/discipline/auspex
 	name = "Auspex"
@@ -130,28 +130,27 @@
 // TFN EDIT END
 /datum/discipline_power/auspex/aura_perception
 	name = "Aura Perception"
-	desc = "Allows you to perceive the auras of those near you. Target yourself to feel the auras of those who tries to hide it." // TFN EDIT
+	desc = "Allows you to perceive the auras of those near you. Target yourself to feel the auras of those who tries to hide it." // TFN EDIT - APPENDED WITH EXTRA INFO
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS
 	duration_length = 5 TURNS // TFN EDIT
-	cooldown_length = 1 TURNS // TFN EDIT
+	cooldown_length = 1 TURNS // TFN EDIT ORIGINAL: cooldown_length = 1 SCENES
 	vitae_cost = 0
 	target_type = TARGET_HUMAN | TARGET_SELF // TFN EDIT
-	range = 8 // TFN EDIT
 	cancelable = TRUE
-	multi_activate = TRUE // TFN EDIT
 	var/datum/storyteller_roll/aura_perception/aura_roll
-	// TFN EDIT START
+	// TFN EDIT START - TFN AURA TARGETED REWORK AUSPEX ACCURACY PASS
+	range = 8 // TFN EDIT
+	multi_activate = TRUE // TFN EDIT
 	punish_cooldown_on_fail = TRUE
 	punishment_length = 3 TURNS // <-- 15~ seconds btw
 	var/datum/storyteller_roll/auspex_detection/detection_roll
 	var/datum/storyteller_roll/obfuscate_concealment/concealment_roll
 	var/list/mob/living/carbon/human/list_of_mobs_with_aura = list()
-	//COOLDOWN_DECLARE(detection_cooldown)
 	// TFN EDIT END
 
-// TFN EDIT START
+// TFN EDIT START - TFN AURA TARGETED REWORK AUSPEX ACCURACY PASS
 /datum/discipline_power/auspex/aura_perception/New(datum/discipline/discipline)
 	. = ..()
 	if(!aura_roll)
@@ -247,7 +246,7 @@ character with the most successes wins
 	. = ..()
 	var/datum/atom_hud/data/auspex_aura/target_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	target_hud.hide_from(owner)
-// TFN EDIT END
+// TFN EDIT END - TFN AURA TARGETED REWORK AUSPEX ACCURACY PASS
 
 //THE SPIRIT'S TOUCH
 /datum/discipline_power/auspex/the_spirits_touch
@@ -443,7 +442,7 @@ character with the most successes wins
 			var/flavor_text_telepathy = "Someone nearby reads your mind without your knowing..." + get_flavor_text(successes)
 			var/mind_reading_search = tgui_input_list(owner, "Are you searching their mind for specific information? Deeper secrets and long-past memories require more successes.", "Mind Reading Specifics", list("Yes", "No"), "No")
 			if(mind_reading_search == "Yes")
-				specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = (MAX_MESSAGE_LEN * 10)) // TFN EDIT CHANGE - Original : specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = MAX_MESSAGE_LEN)
+				specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = (MAX_MESSAGE_LEN * 10)) //TFN EDIT CHANGE - Original : specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = MAX_MESSAGE_LEN)
 				if(!specific_search)
 					specific_search = "something specific"
 
@@ -492,18 +491,18 @@ character with the most successes wins
 /datum/discipline_power/auspex/psychic_projection
 	name = "Psychic Projection"
 	desc = "Leave your body behind and fly across the land. It takes a mighty amount of willpower for your body to withstand the strain of being souless, \
-	push too hard and you'll lose yourself permanently in limbo." // TFN EDIT
+	push too hard and you'll lose yourself permanently in limbo." // TFN EDIT Appended extra info - Auspex Accuracy Pass, Dangerous Projection
 	willpower_cost = 1
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS
 	vitae_cost = 0
 	cooldown_length = 1 TURNS
-	var/mob/living/basic/avatar/playing_with_fire // TFN EDIT, the incorporeal body our mind resides at.
+	var/mob/living/basic/avatar/playing_with_fire // TFN EDIT, the incorporeal body our mind resides at. - Auspex Accuracy Pass, Dangerous Projection
 
 /datum/discipline_power/auspex/psychic_projection/activate()
 	. = ..()
 	var/roll = SSroll.storyteller_roll(owner.st_get_stat(STAT_PERCEPTION) + owner.st_get_stat(STAT_AWARENESS), 7, owner)
-	// TFN EDIT START
+	// TFN EDIT START - Auspex Accuracy Pass, Dangerous Projection
 	switch(roll)
 		if(ROLL_SUCCESS)
 			playing_with_fire = owner.enter_avatar()
@@ -521,9 +520,9 @@ character with the most successes wins
 			playsound(playing_with_fire, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/eldritchlaugh.ogg', vol = 15, falloff_distance = 2, vary = TRUE)
 
 			addtimer(CALLBACK(src, PROC_REF(exhaust_timer)), PROJECTION_TIMER_LENGTH)
-	// TFN EDIT END
+	// TFN EDIT END - Auspex Accuracy Pass, Dangerous Projection
 
-// TFN EDIT START
+// TFN EDIT START - Auspex Accuracy Pass, Dangerous Projection
 /datum/discipline_power/auspex/psychic_projection/proc/exhaust_timer()
 	if(!playing_with_fire)
 		return
@@ -537,7 +536,7 @@ character with the most successes wins
 		owner.st_set_stat(STAT_TEMPORARY_WILLPOWER, owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) - 1)
 		addtimer(CALLBACK(src, PROC_REF(exhaust_timer)), PROJECTION_TIMER_LENGTH)
 		to_chat(playing_with_fire, span_cult_large("The strain of psychic projection exhausts you. You lose 1 temporary willpower point. You have [owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) + 1] temporary willpower points left. If you run out, you will lose yourself in the astral plane permanently..."))
-// TFN EDIT END
+// TFN EDIT END - Auspex Accuracy Pass, Dangerous Projection
 
 #undef TELEPATHY_MIND_READING
 #undef TELEPATHY_IMPLANT_THOUGHT
@@ -546,4 +545,4 @@ character with the most successes wins
 #undef SENSE_SMELL
 #undef SENSE_TASTE
 #undef SENSE_TOUCH
-#undef PROJECTION_TIMER_LENGTH // TFN EDIT
+#undef PROJECTION_TIMER_LENGTH // TFN EDIT - Auspex Accuracy Pass, Dangerous Projection
