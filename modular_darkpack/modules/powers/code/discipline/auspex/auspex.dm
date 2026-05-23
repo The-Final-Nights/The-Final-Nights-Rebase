@@ -141,8 +141,8 @@
 	cancelable = TRUE
 	var/datum/storyteller_roll/aura_perception/aura_roll
 	// TFN EDIT START - TFN AURA TARGETED REWORK AUSPEX ACCURACY PASS
-	range = 8 // TFN EDIT
-	multi_activate = TRUE // TFN EDIT
+	range = 8
+	multi_activate = TRUE
 	punish_cooldown_on_fail = TRUE
 	punishment_length = 3 TURNS // <-- 15~ seconds btw
 	var/datum/storyteller_roll/auspex_detection/detection_roll
