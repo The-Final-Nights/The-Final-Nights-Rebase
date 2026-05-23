@@ -3492,7 +3492,7 @@
 /obj/structure/vampdoor/wood{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/effect/mapping_helpers/door/access/hound,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/mineral/plastitanium,
@@ -5023,21 +5023,6 @@
 /obj/effect/turf_decal/bordur,
 /turf/open/floor/plating/concrete,
 /area/vtm/outside/trainyard)
-"bpf" = (
-/obj/structure/table/wood/fancy/royalblack,
-/obj/effect/turf_decal/siding/grey{
-	dir = 8
-	},
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/turf/open/floor/city/plating_mono,
-/area/vtm/interior/millennium_tower/f3)
 "bpl" = (
 /obj/structure/chair/comfy/darkpack/dark{
 	dir = 1
@@ -8221,6 +8206,9 @@
 /obj/item/vampire_stake,
 /obj/item/vampire_stake{
 	pixel_y = 10
+	},
+/obj/item/vampire_stake{
+	pixel_y = 5
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f2)
@@ -16152,6 +16140,11 @@
 	name = "Sheriff's special";
 	pixel_y = 9
 	},
+/obj/item/masquerade_contract,
+/obj/item/masquerade_contract,
+/obj/item/masquerade_contract,
+/obj/item/masquerade_contract,
+/obj/item/masquerade_contract,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/millennium_tower/f2)
 "dZb" = (
@@ -17594,8 +17587,7 @@
 "eqy" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/effect/turf_decal/siding/grey/inner_corner,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
+/obj/item/reagent_containers/cup/glass/bottle/wine/blood,
 /turf/open/floor/carpet/royalblack,
 /area/vtm/interior/millennium_tower/f3)
 "eqF" = (
@@ -21079,10 +21071,6 @@
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/condiment/milk,
 /obj/item/storage/fancy/egg_box,
-/obj/item/reagent_containers/blood/random,
-/obj/item/reagent_containers/blood/random,
-/obj/item/reagent_containers/blood/random,
-/obj/item/reagent_containers/blood/random,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/millennium_tower)
 "fkh" = (
@@ -27319,7 +27307,7 @@
 /obj/structure/vampdoor/wood{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/effect/mapping_helpers/door/access/hound,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/ten,
 /turf/open/floor/mineral/plastitanium,
@@ -34117,8 +34105,6 @@
 "iwa" = (
 /obj/effect/turf_decal/siding/grey,
 /obj/structure/closet,
-/obj/item/vampire_stake,
-/obj/item/masquerade_contract,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
 "iwf" = (
@@ -59424,8 +59410,13 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "oIx" = (
-/obj/structure/closet/crate/coffin,
-/turf/open/floor/wood/smooth,
+/obj/effect/decal/pallet,
+/obj/structure/closet/crate/wooden,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower)
 "oIP" = (
 /obj/effect/turf_decal/stripes,
@@ -67883,8 +67874,6 @@
 /obj/item/clothing/shoes/vampire,
 /obj/item/clothing/glasses/vampire/sun,
 /obj/structure/closet/cabinet,
-/obj/item/masquerade_contract,
-/obj/item/masquerade_contract,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/millennium_tower)
 "qMc" = (
@@ -72697,7 +72686,7 @@
 "rXt" = (
 /obj/structure/vampdoor/prison,
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/effect/mapping_helpers/door/access/hound,
 /obj/effect/mapping_helpers/door/lock_difficulty/nine,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower)
@@ -80723,7 +80712,6 @@
 /area/vtm/interior/hotel)
 "tVm" = (
 /obj/structure/table/wood,
-/obj/item/masquerade_contract,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
 "tVp" = (
@@ -84560,7 +84548,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/effect/mapping_helpers/door/access/hound,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower)
@@ -86647,7 +86635,7 @@
 /obj/structure/vampdoor/wood{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/clerk,
+/obj/effect/mapping_helpers/door/access/sheriff,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/wood/smooth,
@@ -122046,7 +122034,7 @@ nzS
 cnQ
 dnp
 dnp
-sGt
+oIx
 nxn
 hhY
 bEj
@@ -166510,7 +166498,7 @@ nPp
 dda
 qLV
 qFh
-oIx
+vPV
 git
 efx
 kAS
@@ -247305,7 +247293,7 @@ kFP
 lcf
 hmR
 iFj
-bpf
+hmR
 kJZ
 iMS
 mjT
