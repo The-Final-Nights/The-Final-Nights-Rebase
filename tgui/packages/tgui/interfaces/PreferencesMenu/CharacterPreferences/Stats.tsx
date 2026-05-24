@@ -17,6 +17,7 @@ export function StatsPage() {
       path,
       name: statData.name, // Display name for the points stat
       points: statData.points, // The current point value
+      max_points: statData.max_points, // TFN EDIT
     }));
 
   // Group by category → subcategory using subtypes() order
@@ -47,10 +48,16 @@ export function StatsPage() {
           </Stack.Item>
           <Stack.Item>
           {pointStats.map((pointStat) => (
+            /* TFN EDIT START */
             <Section inline my='10px' mx='5px' key={pointStat.path}>
-              <Stack.Item inline my='10px' mx='5px' key={pointStat.path}>
-              <b>{pointStat.name}: </b>
-              <AnimatedNumber value={pointStat.points} />
+              <Stack.Item inline my='10px' mx='5px'>
+                <b>{pointStat.name}: </b>
+                <span style={{ color: pointStat.points < 0 ? 'red' : undefined }}>
+                  <AnimatedNumber value={pointStat.points} />
+                </span>
+                {' / '}
+                {pointStat.max_points}
+                {/* TFN EDIT END */}
               </Stack.Item>
             </Section>
           ))}
@@ -116,6 +123,11 @@ export function StatsPage() {
                                 <span className="filled">{filled}</span>
                                 <span className="empty">{empty}</span>
                                 <span className="filled_bonus">{filled_bonus}</span>
+                                <span className="stat-score-value">
+                                  {bonus_score
+                                    ? `${score}+${bonus_score}=${score + bonus_score}`
+                                    : `${score}`}
+                                </span>
                               </Stack.Item>
                             </Stack>
                           </Stack.Item>
