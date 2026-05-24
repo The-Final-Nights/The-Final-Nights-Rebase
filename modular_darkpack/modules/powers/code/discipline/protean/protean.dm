@@ -203,6 +203,16 @@
 
 	var/datum/action/cooldown/spell/shapeshift/gangrel/mist/mist_form
 
+//TFN EDIT START - PROTEAN DELAY
+/datum/discipline_power/protean/mist_form/pre_activation_checks(atom/target)
+	. = ..()
+	if(do_after(owner, 3 TURNS, timed_action_flags = IGNORE_USER_LOC_CHANGE))
+		return TRUE
+	else
+		to_chat(owner, span_warning("You are unable rendered unable to transform!"))
+		return FALSE
+//TFN EDIT END
+
 /datum/discipline_power/protean/mist_form/activate()
 	. = ..()
 	if(mist_form)
