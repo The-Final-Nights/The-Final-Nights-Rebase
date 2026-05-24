@@ -49,7 +49,7 @@
 	var/cooldown_override = FALSE
 	/// List of Discipline power types that cannot be activated alongside this power and share a cooldown with it.
 	var/list/grouped_powers
-	// TFN EDIT START - AUSPEX ACCURACY PASS, PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
+	// TFN EDIT START - AUSPEX ACCURACY PASS - PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
 	var/punish_cooldown_on_fail = FALSE // prevents you from just spamming the power if the dice rolls unfavourably.
 	var/list/cooldown_targets = list() // list of targets that the power have been tried on
 	var/punishment_length //how long should the cooldown on the specific target should be.
@@ -310,12 +310,12 @@
 			to_chat(owner, span_warning("[target] resists your Disciplines!"))
 		return FALSE
 
-	// TFN EDIT START - AUSPEX ACCURACY PASS, PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
+	// TFN EDIT START - AUSPEX ACCURACY PASS - PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
 	if (target in cooldown_targets)
 		if (alert)
 			to_chat(owner, span_warning("You cannot cast [src] on [target] again so soon!"))
 		return FALSE
-	// TFN EDIT END - AUSPEX ACCURACY PASS, PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
+	// TFN EDIT END - AUSPEX ACCURACY PASS - PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
 
 	//check target type
 	// mob/living with a bunch of extra conditions
@@ -400,10 +400,10 @@
 		return
 
 	activate(target)
-	// TFN EDIT START - AUSPEX ACCURACY PASS, PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
+	// TFN EDIT START - AUSPEX ACCURACY PASS - PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
 	if(punish_cooldown_on_fail)
 		add_cooldown_target(target)
-	// TFN EDIT END - AUSPEX ACCURACY PASS, PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
+	// TFN EDIT END - AUSPEX ACCURACY PASS - PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
 
 /**
  * An overridable proc that allows for custom pre_activation() behaviour.
@@ -780,7 +780,7 @@
 	else if(willpower_cost)
 		to_chat(owner, span_warning("You do not have enough willpower to cast [src]!"))
 
-//TFN EDIT START - AUSPEX ACCURACY PASS, PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
+//TFN EDIT START - AUSPEX ACCURACY PASS - PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
 // Prevents the power from being spammed after the first target fails
 /datum/discipline_power/proc/add_cooldown_target(atom/target)
 	if(!punish_cooldown_on_fail)
@@ -791,4 +791,4 @@
 
 /datum/discipline_power/proc/remove_cooldown_target(atom/target)
 	cooldown_targets -= target
-//TFN EDIT END - AUSPEX ACCURACY PASS, PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS
+//TFN EDIT END - AUSPEX ACCURACY PASS - PREVENTS YOU FROM SPAMMING POWERS ON THE SAME PERSON TO PASS ROLLS

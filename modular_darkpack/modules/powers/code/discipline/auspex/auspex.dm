@@ -5,7 +5,7 @@
 #define SENSE_TOUCH "Touch"
 #define TELEPATHY_MIND_READING "Mind Reading"
 #define TELEPATHY_IMPLANT_THOUGHT "Implant Thoughts"
-#define PROJECTION_TIMER_LENGTH 2 SCENES // TFN EDIT - Auspex Accuracy Pass, Dangerous Projection
+#define PROJECTION_TIMER_LENGTH 2 SCENES // TFN ADDITION - Auspex Accuracy Pass - Dangerous Projection
 
 /datum/discipline/auspex
 	name = "Auspex"
@@ -130,7 +130,7 @@
 // TFN EDIT END
 /datum/discipline_power/auspex/aura_perception
 	name = "Aura Perception"
-	desc = "Allows you to perceive the auras of those near you. Target yourself to feel the auras of those who tries to hide it." // TFN EDIT - APPENDED WITH EXTRA INFO
+	desc = "Allows you to perceive the auras of those near you. Target yourself to feel the auras of those who tries to hide it." // TFN EDIT - AUSPEX ACCURACY PASS - APPENDED WITH EXTRA INFO
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS
@@ -140,7 +140,7 @@
 	target_type = TARGET_HUMAN | TARGET_SELF // TFN EDIT
 	cancelable = TRUE
 	var/datum/storyteller_roll/aura_perception/aura_roll
-	// TFN EDIT START - TFN AURA TARGETED REWORK AUSPEX ACCURACY PASS
+	// TFN EDIT START - TFN - AUSPEX ACCURACY PASS - AURA TARGETED REWORK
 	range = 8
 	multi_activate = TRUE
 	punish_cooldown_on_fail = TRUE
@@ -150,7 +150,7 @@
 	var/list/mob/living/carbon/human/list_of_mobs_with_aura = list()
 	// TFN EDIT END
 
-// TFN EDIT START - TFN AURA TARGETED REWORK AUSPEX ACCURACY PASS
+// TFN EDIT START - TFN - AUSPEX ACCURACY PASS - AURA TARGETED REWORK
 /datum/discipline_power/auspex/aura_perception/New(datum/discipline/discipline)
 	. = ..()
 	if(!aura_roll)
@@ -246,7 +246,7 @@ character with the most successes wins
 	. = ..()
 	var/datum/atom_hud/data/auspex_aura/target_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
 	target_hud.hide_from(owner)
-// TFN EDIT END - TFN AURA TARGETED REWORK AUSPEX ACCURACY PASS
+// TFN EDIT END - TFN - AUSPEX ACCURACY PASS - AURA TARGETED REWORK
 
 //THE SPIRIT'S TOUCH
 /datum/discipline_power/auspex/the_spirits_touch
@@ -491,18 +491,18 @@ character with the most successes wins
 /datum/discipline_power/auspex/psychic_projection
 	name = "Psychic Projection"
 	desc = "Leave your body behind and fly across the land. It takes a mighty amount of willpower for your body to withstand the strain of being souless, \
-	push too hard and you'll lose yourself permanently in limbo." // TFN EDIT Appended extra info - Auspex Accuracy Pass, Dangerous Projection
+	push too hard and you'll lose yourself permanently in limbo." // TFN EDIT - Auspex Accuracy Pass - Dangerous Projection, Appended extra info
 	willpower_cost = 1
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS
 	vitae_cost = 0
 	cooldown_length = 1 TURNS
-	var/mob/living/basic/avatar/playing_with_fire // TFN EDIT, the incorporeal body our mind resides at. - Auspex Accuracy Pass, Dangerous Projection
+	var/mob/living/basic/avatar/playing_with_fire // TFN ADDITION - Auspex Accuracy Pass - Dangerous Projection, the incorporeal body our mind resides at.
 
 /datum/discipline_power/auspex/psychic_projection/activate()
 	. = ..()
 	var/roll = SSroll.storyteller_roll(owner.st_get_stat(STAT_PERCEPTION) + owner.st_get_stat(STAT_AWARENESS), 7, owner)
-	// TFN EDIT START - Auspex Accuracy Pass, Dangerous Projection
+	// TFN EDIT - Auspex Accuracy Pass - Dangerous Projection
 	switch(roll)
 		if(ROLL_SUCCESS)
 			playing_with_fire = owner.enter_avatar()
@@ -520,9 +520,9 @@ character with the most successes wins
 			playsound(playing_with_fire, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/eldritchlaugh.ogg', vol = 15, falloff_distance = 2, vary = TRUE)
 
 			addtimer(CALLBACK(src, PROC_REF(exhaust_timer)), PROJECTION_TIMER_LENGTH)
-	// TFN EDIT END - Auspex Accuracy Pass, Dangerous Projection
+	// TFN EDIT EN - Auspex Accuracy Pass - Dangerous Projection
 
-// TFN EDIT START - Auspex Accuracy Pass, Dangerous Projection
+// TFN EDIT START - Auspex Accuracy Pass - Dangerous Projection
 /datum/discipline_power/auspex/psychic_projection/proc/exhaust_timer()
 	if(!playing_with_fire)
 		return
@@ -536,7 +536,7 @@ character with the most successes wins
 		owner.st_set_stat(STAT_TEMPORARY_WILLPOWER, owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) - 1)
 		addtimer(CALLBACK(src, PROC_REF(exhaust_timer)), PROJECTION_TIMER_LENGTH)
 		to_chat(playing_with_fire, span_cult_large("The strain of psychic projection exhausts you. You lose 1 temporary willpower point. You have [owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) + 1] temporary willpower points left. If you run out, you will lose yourself in the astral plane permanently..."))
-// TFN EDIT END - Auspex Accuracy Pass, Dangerous Projection
+// TFN EDIT END - Auspex Accuracy Pass - Dangerous Projection
 
 #undef TELEPATHY_MIND_READING
 #undef TELEPATHY_IMPLANT_THOUGHT
@@ -545,4 +545,4 @@ character with the most successes wins
 #undef SENSE_SMELL
 #undef SENSE_TASTE
 #undef SENSE_TOUCH
-#undef PROJECTION_TIMER_LENGTH // TFN EDIT - Auspex Accuracy Pass, Dangerous Projection
+#undef PROJECTION_TIMER_LENGTH // TFN ADDITION - Auspex Accuracy Pass - Dangerous Projection
