@@ -22,6 +22,13 @@
 		if(splat_name)
 			to_chat(new_player, span_warning("[splat_name] requires a special whitelisting process. Feel free to apply for it on Discord!"))
 			return
+		var/stat_error = new_player.client?.prefs?.validate_stats()
+		if(stat_error)
+			to_chat(new_player, span_warning(stat_error))
+			var/char_name = new_player.client?.prefs?.read_preference(/datum/preference/name/real_name)
+			var/log_msg = "[key_name(new_player)]'s character '[char_name]' (slot [new_player.client?.prefs?.default_slot]) has invalid stats:\n[stat_error]"
+			SSoverwatch.record_action(null, log_msg)
+			message_admins(log_msg)
 	return ..()
 
 /atom/movable/screen/lobby/button/join/Click(location, control, params)
@@ -30,6 +37,13 @@
 	if(splat_name)
 		to_chat(new_player, span_warning("[splat_name] requires a special whitelisting process. Feel free to apply for it on Discord!"))
 		return
+	var/stat_error = new_player.client?.prefs?.validate_stats()
+	if(stat_error)
+		to_chat(new_player, span_warning(stat_error))
+		var/char_name = new_player.client?.prefs?.read_preference(/datum/preference/name/real_name)
+		var/log_msg = "[key_name(new_player)]'s character '[char_name]' (slot [new_player.client?.prefs?.default_slot]) has invalid stats:\n[stat_error]"
+		SSoverwatch.record_action(null, log_msg)
+		message_admins(log_msg)
 	return ..()
 
 /datum/preference/choiced/splats/is_valid(value, datum/preferences/preferences)

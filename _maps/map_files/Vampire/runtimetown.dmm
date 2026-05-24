@@ -286,6 +286,11 @@
 "gN" = (
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
+"gQ" = (
+/obj/effect/turf_decal/siding/grey/end,
+/obj/machinery/telecomms/hub,
+/turf/open/floor/circuit,
+/area/vtm/interior/techshop)
 "gS" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
@@ -823,6 +828,16 @@
 	},
 /turf/open/floor/plating/sidewalk/rich,
 /area/vtm/outside/pacificheights)
+"qo" = (
+/obj/effect/turf_decal/siding/grey{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/grey{
+	dir = 8
+	},
+/obj/machinery/telecomms/allinone/public,
+/turf/open/floor/circuit,
+/area/vtm/interior/techshop)
 "qt" = (
 /obj/machinery/computer/cargo/express{
 	dir = 4
@@ -1544,6 +1559,13 @@
 /obj/fusebox/transformer,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/baywalk)
+"Cq" = (
+/obj/effect/turf_decal/siding/grey/end{
+	dir = 1
+	},
+/obj/machinery/telecomms/hub,
+/turf/open/floor/circuit,
+/area/vtm/interior/techshop)
 "Ct" = (
 /obj/structure/lamppost/one{
 	dir = 1
@@ -2332,6 +2354,9 @@
 "MJ" = (
 /obj/structure/table,
 /obj/item/blood_hunt,
+/obj/machinery/radio_tranceiver/police{
+	pixel_y = 12
+	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/techshop)
 "MS" = (
@@ -3938,9 +3963,9 @@ Jo
 EL
 oF
 ho
-Id
-Id
-Id
+Cq
+qo
+gQ
 Id
 yw
 Id
