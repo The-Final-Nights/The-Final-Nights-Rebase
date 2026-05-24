@@ -261,6 +261,7 @@ export type PreferencesMenuData = {
       category: string;
       subcategory: string;
       points: number;
+      max_points: number; // TFN ADDITION
       abstract_type: string;
     }
   >;
