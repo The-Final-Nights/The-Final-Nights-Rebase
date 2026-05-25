@@ -173,7 +173,7 @@
 	armour_penetration = 0
 	exposed_wound_bonus = 0
 	wound_bonus = 0
-	var/fire_stacks = 1
+	var/fire_stacks = 1 // 1 stack per pellet but we have 9 pellets so it adds up
 
 /obj/projectile/bullet/darkpack/dragonsbreath/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
