@@ -285,7 +285,7 @@
 	//owner.physiology.clone_mod = 0
 	//TFN EDIT START - OBTEN IMMUNITIES
 	saved_burn_mod = owner.physiology.burn_mod
-	owner.physiology.burn_mod = 4	//Normally 2 for vamps, it's 4x damage in this form since it says double the damage in the book.
+	owner.physiology.burn_mod = 2
 	saved_aggravated_mod= owner.physiology.aggravated_mod
 	owner.physiology.aggravated_mod = 0
 	//TFN EDIT END
