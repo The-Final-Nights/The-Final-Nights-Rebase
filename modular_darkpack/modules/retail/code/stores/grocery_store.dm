@@ -13,7 +13,7 @@
 		// TFN EDIT - COOKING UPDATE END
 		new /datum/data/vending_product("milk", /obj/item/reagent_containers/condiment/milk),
 		new /datum/data/vending_product("soy milk", /obj/item/reagent_containers/condiment/soymilk, 8), // TFN EDIT - COOKING UPDATE
-		new /datum/data/vending_product("creamer", /obj/item/reagent_containers/cup/glass/bottle/juice/cream, 10),
+		new /datum/data/vending_product("creamer", /obj/item/reagent_containers/cup/glass/bottle/juice/cream, 10), // TFN EDIT - COOKING UPDATE
 		new /datum/data/vending_product("bread", /obj/item/food/bread/plain, 8),
 		new /datum/data/vending_product("spaghetti", /obj/item/food/spaghetti, 6),
 		new /datum/data/vending_product("tomato", /obj/item/food/grown/tomato),
@@ -49,7 +49,6 @@
 		new /datum/data/vending_product("honey", /obj/item/reagent_containers/condiment/honey, 3),
 	//	new /datum/data/vending_product("bbq sauce", /obj/item/reagent_containers/condiment/bbqsauce, 3),
 	//	new /datum/data/vending_product("soy sauce", /obj/item/reagent_containers/condiment/soysauce, 4),
-	//	new /datum/data/vending_product("worcestershire sauce", /obj/item/reagent_containers/condiment/worcestershire, 6),
 		new /datum/data/vending_product("red bay seasoning", /obj/item/reagent_containers/condiment/red_bay, 4),
 		new /datum/data/vending_product("vinegar", /obj/item/reagent_containers/condiment/vinegar, 4),
 	// TFN EDIT - COOKING UPDATE END
@@ -62,6 +61,7 @@
 	//	new /datum/data/vending_product("blue stripe", /obj/item/reagent_containers/cup/glass/bottle/beer/vampire/blue_stripe),
 	//	new /datum/data/vending_product("candle pack", /obj/item/storage/fancy/candle_box),
 	//	new /datum/data/vending_product("bruise pack", /obj/item/stack/medical/bruise_pack),
+		new /datum/data/vending_product("mixing bowl", /obj/item/reagent_containers/glass/mixing_bowl),
 		new /datum/data/vending_product("drinking glass", /obj/item/reagent_containers/cup/glass/drinkingglass, 10),
 		new /datum/data/vending_product("colo cup", /obj/item/reagent_containers/cup/glass/colocup, 2),
 		new /datum/data/vending_product("bowl", /obj/item/reagent_containers/cup/bowl, 15),
@@ -71,7 +71,6 @@
 		new /datum/data/vending_product("soup pot", /obj/item/reagent_containers/cup/soup_pot, 25),
 		new /datum/data/vending_product("kitchen knife", /obj/item/knife, 26),
 		new /datum/data/vending_product("rolling pin", /obj/item/kitchen/rollingpin, 8),
-		// new /datum/data/vending_product("mixing bowl", /obj/item/reagent_containers/glass/mixing_bowl),
 		new /datum/data/vending_product("fork", /obj/item/kitchen/fork, 5),
 		new /datum/data/vending_product("spoon", /obj/item/kitchen/spoon, 5),
 		new /datum/data/vending_product("plastic fork", /obj/item/kitchen/fork/plastic, 2),
