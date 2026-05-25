@@ -156,6 +156,8 @@
 	results = list(/datum/reagent/consumable/soysauce = 5)
 	required_reagents = list(/datum/reagent/consumable/soymilk = 4, /datum/reagent/toxin/acid = 1)
 
+
+
 /datum/chemical_reaction/food/corn_syrup
 	results = list(/datum/reagent/consumable/corn_syrup = 5)
 	required_reagents = list(/datum/reagent/consumable/corn_starch = 1, /datum/reagent/toxin/acid = 1)
@@ -273,7 +275,23 @@
 /datum/chemical_reaction/food/bbqsauce
 	results = list(/datum/reagent/consumable/bbqsauce = 5)
 	required_reagents = list(/datum/reagent/ash = 1, /datum/reagent/consumable/tomatojuice = 1, /datum/reagent/medicine/salglu_solution = 3, /datum/reagent/consumable/blackpepper = 1)
+// TFN EDIT - COOKING UPDATE START
+/datum/chemical_reaction/food/bbqsauce_alt
+	results = list(/datum/reagent/consumable/bbqsauce = 5)
+	required_reagents = list(/datum/reagent/consumable/ketchup = 2, /datum/reagent/consumable/honey = 2, /datum/reagent/consumable/worcestershire = 1)
 
+/datum/chemical_reaction/food/worcestershire
+	results = list(/datum/reagent/consumable/worcestershire = 5)
+	required_reagents = list(/datum/reagent/consumable/tomatojuice = 2, /datum/reagent/consumable/soysauce = 2, /datum/reagent/consumable/vinegar = 1)
+
+/datum/chemical_reaction/food/cream_alt
+	results = list(/datum/reagent/consumable/cream = 5)
+	required_reagents = list(/datum/reagent/consumable/milk = 3, /datum/reagent/consumable/nutriment/fat = 2)
+
+/datum/chemical_reaction/food/soysauce_alt
+	results = list(/datum/reagent/consumable/soysauce = 5)
+	required_reagents = list(/datum/reagent/consumable/soymilk = 3, /datum/reagent/consumable/vinegar = 2)
+// TFN EDIT - COOKING UPDATE END
 /datum/chemical_reaction/food/gravy
 	results = list(/datum/reagent/consumable/gravy = 3)
 	required_reagents = list(/datum/reagent/consumable/milk = 1, /datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/flour = 1)
