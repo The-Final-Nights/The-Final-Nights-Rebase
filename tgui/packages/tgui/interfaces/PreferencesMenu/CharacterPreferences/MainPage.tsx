@@ -37,7 +37,7 @@ import { useRandomToggleState } from '../useRandomToggleState';
 import { useServerPrefs } from '../useServerPrefs';
 import { DeleteCharacterPopup } from './DeleteCharacterPopup';
 import { MultiNameInput, NameInput } from './names';
-import { VocalsInput, VoiceInput } from './tfn_vocals'; // TFN EDIT ADDITION
+import { VocalsInput, VoiceInput } from './darkpack_vocals'; // DARKPACK EDIT ADDITION
 import { TRUSTED_CLAN_WHITELIST_IDS } from '../preferences/features/character_preferences/tfn_trusted_whitelist'; // TFN EDIT ADD
 
 const CLOTHING_CELL_SIZE = 48;
@@ -487,7 +487,7 @@ export function MainPage(props: MainPageProps) {
   const [deleteCharacterPopupOpen, setDeleteCharacterPopupOpen] =
     useState(false);
   const [multiNameInputOpen, setMultiNameInputOpen] = useState(false);
-  const [vocalsInputOpen, setVocalsInputOpen] = useState(false); // TFN EDIT ADDITION
+  const [vocalsInputOpen, setVocalsInputOpen] = useState(false); // DARKPACK EDIT ADDITION
   const [randomToggleEnabled] = useRandomToggleState();
   const [pendingConfirm, setPendingConfirm] = useState<(() => void) | null>(null); // TFN EDIT ADD - for popups
   // TFN EDIT START
@@ -611,14 +611,14 @@ export function MainPage(props: MainPageProps) {
           names={data.character_preferences.names}
         />
       )}
-      {/* TFN EDIT ADDITION START */}
+      {/* DARKPACK EDIT ADDITION START */}
       {vocalsInputOpen && (
         <VocalsInput
           handleClose={() => setVocalsInputOpen(false)}
           vocals={data.character_preferences.vocals}
         />
       )}
-      {/* TFN EDIT ADDITION END */}
+      {/* DARKPACK EDIT ADDITION END */}
 
       {deleteCharacterPopupOpen && (
         <DeleteCharacterPopup
@@ -676,7 +676,7 @@ export function MainPage(props: MainPageProps) {
                 }}
               />
 
-            {/* TFN EDIT ADDITION START */}
+            {/* DARKPACK EDIT ADDITION START */}
             <Stack.Item position="relative">
               <VoiceInput
                 openVocalsInput={() => {
@@ -684,7 +684,7 @@ export function MainPage(props: MainPageProps) {
                 }}
               />
             </Stack.Item>
-            {/* TFN EDIT ADDITION END */}
+            {/* DARKPACK EDIT ADDITION END */}
             </Stack.Item>
           </Stack>
         </Stack.Item>
