@@ -14,6 +14,7 @@
 		new /datum/data/vending_product("milk", /obj/item/reagent_containers/condiment/milk),
 		new /datum/data/vending_product("soy milk", /obj/item/reagent_containers/condiment/soymilk, 8), // TFN EDIT - COOKING UPDATE
 		new /datum/data/vending_product("creamer", /obj/item/reagent_containers/cup/glass/bottle/juice/cream, 10), // TFN EDIT - COOKING UPDATE
+		new /datum/data/vending_product("butter", /obj/item/food/butter, 5), // TFN EDIT - COOKING UPDATE
 		new /datum/data/vending_product("bread", /obj/item/food/bread/plain, 8),
 		new /datum/data/vending_product("spaghetti", /obj/item/food/spaghetti, 6),
 		new /datum/data/vending_product("tomato", /obj/item/food/grown/tomato),
@@ -61,7 +62,7 @@
 	//	new /datum/data/vending_product("blue stripe", /obj/item/reagent_containers/cup/glass/bottle/beer/vampire/blue_stripe),
 	//	new /datum/data/vending_product("candle pack", /obj/item/storage/fancy/candle_box),
 	//	new /datum/data/vending_product("bruise pack", /obj/item/stack/medical/bruise_pack),
-		new /datum/data/vending_product("mixing bowl", /obj/item/reagent_containers/glass/mixing_bowl),
+		new /datum/data/vending_product("mixing bowl", /obj/item/reagent_containers/cup/mixing_bowl),
 		new /datum/data/vending_product("drinking glass", /obj/item/reagent_containers/cup/glass/drinkingglass, 10),
 		new /datum/data/vending_product("colo cup", /obj/item/reagent_containers/cup/glass/colocup, 2),
 		new /datum/data/vending_product("bowl", /obj/item/reagent_containers/cup/bowl, 15),
