@@ -7,7 +7,7 @@
 	spawn_positions = 3
 	supervisors = SUPERVISOR_SABBAT
 	minimal_player_age = 7
-	minimum_immortal_age = 80
+	minimum_immortal_age = 100
 	config_tag = "BISHOP"
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/bishop

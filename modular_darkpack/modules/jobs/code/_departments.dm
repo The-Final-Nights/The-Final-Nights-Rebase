@@ -63,6 +63,17 @@
 	label_class = "strip_club"
 	ui_color = "#a566a5ff"
 
+//TFN EDIT ADDITION START - Crown Blue Jazz Club OverHaul
+/datum/job_department/jazz_club
+	department_name = DEPARTMENT_JAZZ_CLUB
+	department_bitflags = DEPARTMENT_BITFLAG_JAZZ_CLUB
+	department_head = /datum/job/vampire/primogen_ventrue
+	department_experience_type = EXP_TYPE_JAZZ_CLUB
+	display_order = 1
+	label_class = "jazz_club"
+	ui_color = "#7372ac"
+//TFN EDIT ADDITION END - Crown Blue Jazz Club OverHaul
+
 /datum/job_department/giovanni
 	department_name = DEPARTMENT_GIOVANNI
 	department_bitflags = DEPARTMENT_BITFLAG_GIOVANNI
