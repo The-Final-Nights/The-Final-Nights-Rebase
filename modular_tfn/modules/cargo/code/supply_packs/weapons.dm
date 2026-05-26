@@ -18,3 +18,10 @@
 	cost = 1600
 	contains = list(/obj/item/gun/ballistic/rifle/darkpack/lever)
 	crate_name = "weapon crate"
+
+/datum/supply_pack/weapons/weaponsilversword
+	name = "Weapon (silver sword)"
+	desc = "Contains a silver sword."
+	cost = 40000
+	contains = list(/obj/item/claymore/longsword/silver)
+	crate_name = "weapon crate"

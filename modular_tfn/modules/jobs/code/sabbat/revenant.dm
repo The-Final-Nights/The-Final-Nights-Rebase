@@ -24,7 +24,7 @@
 	name = "Revenant"
 	jobtype = /datum/job/vampire/revenant
 
-	id = /obj/item/card/camarilla
+	id = /obj/item/card/noddist
 	uniform = /obj/item/clothing/under/vampire/voivode
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	r_pocket = /obj/item/vamp/keys/sabbat
