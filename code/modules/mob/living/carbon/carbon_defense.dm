@@ -384,8 +384,10 @@
 			to_chat(helper, span_notice("You wrap [src] into a tight bear hug!"))
 			to_chat(src, span_notice("[helper] squeezes you super tightly in a firm bear hug!"))
 		else
-			helper.visible_message(span_notice("[helper] hugs [src]."), \ // TFN EDIT - ORIGINAL: helper.visible_message(span_notice("[helper] hugs [src] to make [p_them()] feel better!"))
+			// TFN EDIT START - ORIGINAL: helper.visible_message(span_notice("[helper] hugs [src] to make [p_them()] feel better!")
+			helper.visible_message(span_notice("[helper] hugs [src]."), \
 						null, span_hear("You hear the rustling of clothes."), DEFAULT_MESSAGE_RANGE, list(helper, src))
+			// TFN EDIT END
 			to_chat(helper, span_notice("You hug [src].")) // TFN EDIT - ORIGINAL: to_chat(helper, span_notice("You hug [src] to make [p_them()] feel better!"))
 			to_chat(src, span_notice("[helper] hugs you.")) // TFN EDIT - ORIGINAL: to_chat(src, span_notice("[helper] hugs you to make you feel better!"))
 
