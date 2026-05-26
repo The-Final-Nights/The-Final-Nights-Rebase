@@ -106,13 +106,13 @@
 		if (length(GLOB.masquerade_latejoin))
 			var/obj/effect/landmark/latejoin_masquerade/LM = pick(GLOB.masquerade_latejoin)
 			if (LM)
-				joining.forceMove(get_turf(LM))
+				joining.forceMove(get_turf(LM)) //TFN EDIT: we have loadouts, and these override them. not everyone wants to latejoin with eyes wide shut drip
 		// if they spawn with the masquerade violating face trait, give them the things to cover up so they aren't stuck in the sewer.
-		var/obj/item/clothing/suit/hooded/robes/darkred/new_robe = new(joining.loc)
-		joining.equip_to_appropriate_slot(new_robe, FALSE)
+		//var/obj/item/clothing/suit/hooded/robes/darkred/new_robe = new(joining.loc)
+		//joining.equip_to_appropriate_slot(new_robe, FALSE)
 
-		var/obj/item/clothing/mask/vampire/venetian_mask/fancy/new_mask = new(joining.loc)
-		joining.equip_to_appropriate_slot(new_mask, FALSE)
+		//var/obj/item/clothing/mask/vampire/venetian_mask/fancy/new_mask = new(joining.loc)
+		//joining.equip_to_appropriate_slot(new_mask, FALSE)
 
 /// effect from daimonion psychomania
 /datum/subsplat/vampire_clan/proc/psychomania_effect(mob/living/target, mob/living/owner)
