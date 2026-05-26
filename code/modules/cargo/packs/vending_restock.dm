@@ -172,19 +172,17 @@
 				)
 	crate_name = "engineering department wardrobe supply crate"
 
-/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/vending/wardrobes/general
 	name = "General Wardrobes Supply Crate"
 	desc = "This crate contains refills for the CuraDrobe, BarDrobe, \
 		ChefDrobe and ChapDrobe."
 	cost = CARGO_CRATE_VALUE * 6
 	contains = list(/obj/item/vending_refill/wardrobe/curator_wardrobe,
-					/obj/item/vending_refill/wardrobe/bar_wardrobe,
+					// /obj/item/vending_refill/wardrobe/bar_wardrobe, TFN EDIT REMOVE - Removes Immersion breaking and exploitable content from the Cargo Console #323
 					/obj/item/vending_refill/wardrobe/chef_wardrobe,
 					/obj/item/vending_refill/wardrobe/chap_wardrobe,
 				)
 	crate_name = "general wardrobes vendor refills"
-*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/vending/wardrobes/hydroponics
 	name = "Hydrobe Supply Crate"
@@ -200,7 +198,6 @@
 	contains = list(/obj/item/vending_refill/wardrobe/jani_wardrobe)
 	crate_name = "janidrobe supply crate"
 
-/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/vending/wardrobes/medical
 	name = "Medical Wardrobe Supply Crate"
 	desc = "This crate contains refills for the MediDrobe, \
@@ -209,7 +206,7 @@
 	contains = list(/obj/item/vending_refill/wardrobe/medi_wardrobe,
 					/obj/item/vending_refill/wardrobe/chem_wardrobe,
 					/obj/item/vending_refill/wardrobe/viro_wardrobe,
-					/obj/item/vending_refill/wardrobe/coroner_wardrobe,
+					// /obj/item/vending_refill/wardrobe/coroner_wardrobe, TFN EDIT REMOVE - Removes Immersion breaking and exploitable content from the Cargo Console #323
 				)
 	crate_name = "medical department wardrobe supply crate"
 
@@ -224,6 +221,7 @@
 				)
 	crate_name = "science department wardrobe supply crate"
 
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/vending/wardrobes/security
 	name = "Security Wardrobe Supply Crate"
 	desc = "This crate contains refills for the SecDrobe, \
