@@ -335,6 +335,13 @@ $department_map: (
             .filled_bonus {
               color: var(--color-white);
             }
+
+            .stat-score-value {
+              margin-left: 6px;
+              color: var(--color-label);
+              font-size: 0.9em;
+              letter-spacing: normal;
+            }
           }
         }
       }

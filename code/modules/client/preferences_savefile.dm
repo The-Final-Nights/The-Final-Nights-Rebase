@@ -427,7 +427,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			continue
 		var/datum/st_stat/stat = new proper_stat_path()
 		stat.set_score(stats_list[stat_path][STAT_SCORE])
-		stat.set_points(stats_list[stat_path][STAT_POINTS])
+		stat.load_points(stats_list[stat_path][STAT_POINTS]) // TFN EDIT
 		stat.freebie_cost_spent = stats_list[stat_path][STAT_FREEBIE_COST_SPENT]
 		preference_storyteller_stats[proper_stat_path] = stat
 	update_middleware_stats(preference_storyteller_stats)
