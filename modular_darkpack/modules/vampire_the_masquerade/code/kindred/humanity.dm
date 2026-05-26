@@ -51,6 +51,10 @@
 
 	// Change morality according to calculated values
 	owner.st_set_stat(STAT_MORALITY, owner.st_get_stat(STAT_MORALITY) + humanity_change)
+	var/datum/st_stat/pref_morality = owner.client?.prefs?.preference_storyteller_stats[STAT_MORALITY]
+	if(pref_morality)
+		pref_morality.set_score(owner.st_get_stat(STAT_MORALITY))
+		owner.client.prefs.save_character()
 	if (humanity_change > 0)
 		SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/humanity_gain.ogg', volume = 75))
 		to_chat(owner, span_boldnicegreen("[uppertext(path)] INCREASED!"))
