@@ -11,7 +11,7 @@
 	if(!voice_pack)
 		return null
 	var/raw = voice_pack.get_sound(key)
-	if(!raw && !istype(voice_pack, /datum/voicepack/human))
+	if(!raw && istype(voice_pack, /datum/voicepack/human))
 		var/datum/voicepack/fallback = gender == FEMALE ? new /datum/voicepack/human/female() : new /datum/voicepack/human/male()
 		raw = fallback.get_sound(key)
 	if(!raw)
