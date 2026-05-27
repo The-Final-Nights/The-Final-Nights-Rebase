@@ -5,7 +5,7 @@
 	<br>
 	The Banu Haqim are the newest clan admitted into the Camarilla, following a major schism caused by the awakening of the Methuselah Ur-Shulgi. In San Francisco they remain outsiders struggling to secure stable political footing, despite holding a fragile Primogen position supported largely by the Ventrue.
 	<br>
-	The Warrior caste are the judges, assassins, and soldiers of Clan Banu Haqim. In San Francisco, most Warrior defectors who joined the Camarilla are viewed as outsiders, caught between loyalty to their clan and rejection of Ur-Shulgi's hardline vision. Like all Banu Haqim, their curse twists their relationship with Kindred vitae, giving them with an unnatural hunger for the blood of other Vampires, often leading to diablerie.
+	The Warrior caste are the judges, assassins, and soldiers of Clan Banu Haqim. In San Francisco, most Warrior defectors who joined the Camarilla are viewed as outsiders, caught between loyalty to their clan and rejection of Ur-Shulgi's hardline vision. Like all Banu Haqim, their curse twists their relationship with Kindred vitae, giving them an unnatural hunger for the blood of other Vampires, often leading to diablerie.
 	<br>ROLEPLAY LEVEL: Intermediate
 	<br>
 	Banu Haqim Viziers
