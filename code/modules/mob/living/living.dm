@@ -699,6 +699,7 @@
 			if(!silent)
 				to_chat(src, span_notice("You lay down."))
 			set_lying_down()
+			playsound(src, "[VO_SOUND_PATH]/actions/toggledown.ogg", 50, FALSE) // TFN EDIT ADD - emote sounds
 	else
 		if(body_position == STANDING_UP)
 			if(!silent)
@@ -710,6 +711,7 @@
 			if(!silent)
 				to_chat(src, span_notice("You stand up."))
 			get_up(instant)
+			playsound(src, "[VO_SOUND_PATH]/actions/toggleup.ogg", 50, FALSE) // TFN EDIT ADD - emote sounds
 
 	SEND_SIGNAL(src, COMSIG_LIVING_RESTING, new_resting, silent, instant)
 	update_resting()
