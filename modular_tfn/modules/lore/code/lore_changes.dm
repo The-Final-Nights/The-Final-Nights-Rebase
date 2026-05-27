@@ -32,7 +32,7 @@
 
 /datum/subsplat/vampire_clan/malkavian/dominate
 	desc = {"<br>Derided as Lunatics by other vampires, the Blood of the Malkavians lets them perceive and foretell truths hidden from others. Like the wise madmen of poetry their fractured perspective stems from seeing too much of the world at once, from understanding too deeply, and feeling emotions that are just too strong to bear. The Malkavians are cursed with supernatural madness that grants disturbing insights, visions and premonitions.
-	<br>They are largely loyal to the Camarilla, equally serving as seers, manipulators, prophets, and fools. 'Dominate Malkavians' were somehow protected from the 'Great Prank' which caused a majority of the clan to re-acquire Dementation as it's signature discipline. Dominate Malkavians are very similar to the mainline Malkavian bloodline, except their curse manifests more often as sociopathy, obsessive-compulsive disorder, and other tendencies toward minor hallucinations. Definitely the calmer of the two.
+	<br>They are largely loyal to the Camarilla, equally serving as seers, manipulators, prophets, and fools. 'Dominate Malkavians' were somehow protected from the 'Great Prank' which caused a majority of the clan to re-acquire Dementation as its signature discipline. Dominate Malkavians are very similar to the mainline Malkavian bloodline, except their curse manifests more often as sociopathy, obsessive-compulsive disorder, and other tendencies toward minor hallucinations. Definitely the calmer of the two.
 	<br> ROLEPLAY LEVEL: Beginner Friendly"}
 
 /datum/subsplat/vampire_clan/nosferatu
