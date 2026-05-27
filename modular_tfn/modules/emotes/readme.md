@@ -17,6 +17,15 @@ The default `Masculine` and `Feminine` packs use tgstation base sounds and work 
 1. Create a new subtype of `/datum/voicepack` in `code/voicepacks/`.
 2. Override `get_sound(key)` with a switch block mapping emote key strings to sound file references or lists. Return `..()` at the end for fallback to a parent pack.
 3. Add an entry to `GLOBAL_LIST_INIT(voicepack_list, ...)` in `code/__DEFINES/~tfn/voicepack.dm`.
+4. Ask your local host REALLY NICELY to add your files to the `tfn_config/vo` folder. On your local fork, you will place files here to test them (making sure not to accidentally commit them to the repository!)
+
+## Server-side Stuff
+
+- The server end of things holds the files in the path of `tfn_config/vo/` followed by male or female (or mobs for werewolf sounds), then the folder name.
+
+For example, in the voicepack_list, there is an entry called `Noble II`.
+
+This entry paths to the 'haughty' voicepack folder. The 'haughty' files on the TFN server are located at: `tfn_config/vo/female/haughty`
 
 ## Credits
 

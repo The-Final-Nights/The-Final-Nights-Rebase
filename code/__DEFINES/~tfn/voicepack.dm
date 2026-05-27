@@ -1,3 +1,5 @@
+#define VO_SOUND_PATH "[global.config.directory]/tfn_config/vo"
+
 #define VOICE_PITCH_MIN 80
 #define VOICE_PITCH_MAX 120
 #define VOICE_PITCH_DEFAULT 100
