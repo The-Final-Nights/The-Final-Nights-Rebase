@@ -21,7 +21,7 @@
 	<br>ROLEPLAY LEVEL: Beginner Friendly"}
 
 /datum/subsplat/vampire_clan/gangrel
-	desc = {"<br>Often closer to beasts than other vampires, the Gangrel style themselves apex predators. These Ferals prowl the wilds as easily as the urban jungle, and no clan of vampires can match their ability to endure, survive, and thrive in any environment. Often fiercely territorial, their shapeshifting abilities even give the undead pause. The Gangrel are survivalists, wanderers, and Predators, deely tied to their instincts and the Beast.
+	desc = {"<br>Often closer to beasts than other vampires, the Gangrel style themselves apex predators. These Ferals prowl the wilds as easily as the urban jungle, and no clan of vampires can match their ability to endure, survive, and thrive in any environment. Often fiercely territorial, their shapeshifting abilities even give the undead pause. The Gangrel are survivalists, wanderers, and Predators, deeply tied to their instincts and the Beast.
 	<br>Though the Clan officially left the Camarilla years ago, enough Elder Gangrel remain within it to still maintain influence. Gangrel tend to avoid rigid politics, preferring independence and practical strength over status. Their curse causes animalistic features to manifest after frenzy, slowly making them appear less human.
 	<br>ROLEPLAY LEVEL: Beginner Friendly"}
 
