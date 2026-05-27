@@ -117,7 +117,7 @@
 		adjusted_target = locate(jumper.loc.x + round(dx * scale), jumper.loc.y + round(dy * scale), jumper.loc.z)
 	playsound(jumper.loc, 'modular_darkpack/modules/jumping/sounds/jump_neutral.ogg', 50, TRUE)
 	// TFN EDIT START - emote sounds
-	if(ishuman(jumper)
+	if(ishuman(jumper))
 		var/mob/living/carbon/human/human_jumper = jumper
 		var/sound/jump_sound = human_jumper.get_voicepack_sound("jump")
 		if(jump_sound)
