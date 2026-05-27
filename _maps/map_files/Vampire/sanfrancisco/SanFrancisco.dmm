@@ -6653,6 +6653,14 @@
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/vjanitor)
+"bIj" = (
+/obj/structure/platform/lowwall/market/window,
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadoncurtain";
+	pixel_y = 8
+	},
+/turf/open/floor/city/plating,
+/area/vtm/interior/magadon_facility)
 "bIp" = (
 /obj/vampgrave,
 /obj/item/bouquet/poppy{
@@ -11797,6 +11805,10 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
+/obj/machinery/button/curtain{
+	id = "magadoncurtain";
+	pixel_x = -1
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/magadon_facility)
 "cWV" = (
@@ -12937,8 +12949,10 @@
 /area/vtm/interior/police)
 "dlr" = (
 /obj/structure/table/wood,
-/obj/item/kirbyplants/darkpack/random{
-	pixel_y = 8
+/obj/machinery/button/curtain{
+	id = "magadonexeccurtain";
+	pixel_y = 3;
+	pixel_x = -3
 	},
 /turf/open/floor/carpet/darkpack/purplegold,
 /area/vtm/interior/magadon_facility)
@@ -15512,6 +15526,14 @@
 /obj/structure/platform/lowwall/market,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
+"dSa" = (
+/obj/structure/platform/lowwall/market/window/reinforced,
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadoncurtain";
+	pixel_y = 8
+	},
+/turf/open/floor/city/plating,
+/area/vtm/interior/magadon_facility)
 "dSl" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
@@ -19727,6 +19749,16 @@
 	},
 /turf/open/floor/wood/rough,
 /area/vtm/interior/sewer)
+"eVm" = (
+/obj/effect/turf_decal/siding/wood/dark/corner{
+	dir = 1
+	},
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadoniaacurtain";
+	pixel_y = -24
+	},
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/magadon_facility)
 "eVn" = (
 /obj/effect/decal/wallpaper/red/low,
 /obj/structure/platform/lowwall/rich/window,
@@ -28021,6 +28053,13 @@
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
+"gZD" = (
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadoniaacurtain";
+	pixel_y = -24
+	},
+/turf/open/openspace,
+/area/vtm)
 "gZF" = (
 /obj/structure/railing/wooden_fence{
 	dir = 10
@@ -28807,6 +28846,16 @@
 /obj/structure/bed/maint,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/theatre)
+"hjl" = (
+/obj/effect/turf_decal/siding/wood/dark/corner{
+	dir = 1
+	},
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadonexeccurtain";
+	pixel_y = -24
+	},
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/magadon_facility)
 "hjo" = (
 /obj/structure/railing,
 /obj/structure/railing{
@@ -38832,6 +38881,13 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/police)
+"jEU" = (
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadoncurtain";
+	pixel_y = -24
+	},
+/turf/open/floor/city/plating,
+/area/vtm/interior/magadon_facility)
 "jEY" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -40108,6 +40164,8 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/gloves/vampire/latex,
 /obj/machinery/light/cold/directional/south,
+/obj/item/clothing/mask/vampire/gas/magadon,
+/obj/item/clothing/mask/vampire/gas/magadon,
 /obj/item/clothing/mask/vampire/gas/magadon,
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/magadon_facility/restricted)
@@ -46298,6 +46356,8 @@
 /obj/item/clothing/suit/vampire/magadon_labcoat,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/gloves/vampire/latex,
+/obj/item/clothing/mask/vampire/gas/magadon,
+/obj/item/clothing/mask/vampire/gas/magadon,
 /obj/item/clothing/mask/vampire/gas/magadon,
 /turf/open/floor/iron/dark/textured,
 /area/vtm/interior/magadon_facility/restricted)
@@ -63536,6 +63596,16 @@
 	},
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer)
+"pHK" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 1
+	},
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadonexeccurtain";
+	pixel_y = -24
+	},
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/magadon_facility)
 "pHM" = (
 /obj/effect/decal/cleanable/blood/splatter{
 	icon_state = "armorblood"
@@ -70560,6 +70630,16 @@
 /obj/structure/flora/bush/flowers_pp/style_random,
 /turf/open/floor/plating/granite/black,
 /area/vtm)
+"rud" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 1
+	},
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadoncurtain";
+	pixel_y = -24
+	},
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/magadon_facility)
 "rug" = (
 /obj/effect/turf_decal/siding/grey/inner_corner{
 	dir = 4
@@ -75850,6 +75930,16 @@
 	},
 /turf/open/water/beach/vamp/deep,
 /area/vtm/outside/fishermanswharf/industrial)
+"sKS" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 1
+	},
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadoniaacurtain";
+	pixel_y = -24
+	},
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/magadon_facility)
 "sKV" = (
 /obj/effect/turf_decal/siding/grey/inner_corner{
 	dir = 1
@@ -77700,6 +77790,16 @@
 /obj/structure/rack/clothing/rand,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/shop)
+"tjB" = (
+/obj/effect/turf_decal/siding/wood/dark/corner{
+	dir = 1
+	},
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadoncurtain";
+	pixel_y = -24
+	},
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/magadon_facility)
 "tjJ" = (
 /obj/structure/chair/comfy/darkpack,
 /obj/effect/turf_decal/siding/wood/dark{
@@ -83150,6 +83250,13 @@
 "uAK" = (
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
+"uAR" = (
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadonexeccurtain";
+	pixel_y = -24
+	},
+/turf/open/openspace,
+/area/vtm)
 "uAU" = (
 /obj/structure/table/countertop/bubway,
 /obj/structure/fluff/tv/order/one{
@@ -83294,6 +83401,16 @@
 	},
 /turf/open/floor/city/toilet,
 /area/vtm/interior/baali)
+"uCx" = (
+/obj/effect/turf_decal/siding/wood/dark/corner{
+	dir = 4
+	},
+/obj/structure/curtain/cloth/fancy/mechanical/luxurious{
+	id = "magadoncurtain";
+	pixel_y = -24
+	},
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/magadon_facility)
 "uCC" = (
 /obj/structure/railing{
 	dir = 8
@@ -210359,10 +210476,10 @@ cgI
 cgI
 cgI
 cgI
-muW
-muW
-muW
-muW
+dSa
+dSa
+dSa
+dSa
 cgI
 cgI
 mjT
@@ -210771,7 +210888,7 @@ qas
 qas
 qas
 qas
-pDQ
+uCx
 muW
 mjT
 mjT
@@ -210975,7 +211092,7 @@ cwU
 cwU
 cwU
 cwU
-vur
+rud
 muW
 mjT
 mjT
@@ -211163,7 +211280,7 @@ xEp
 xEp
 wmS
 mjT
-mjT
+uAR
 rHj
 thC
 ilu
@@ -211179,7 +211296,7 @@ cwU
 cwU
 nWJ
 cwU
-vur
+rud
 muW
 mjT
 mjT
@@ -211367,23 +211484,23 @@ xEp
 xEp
 wmS
 mjT
-mjT
+uAR
 rHj
 bbf
 xsM
 dlr
-vur
+pHK
 tft
 pij
 pij
-pij
+jEU
 rHj
 gdg
 cwU
 xCi
 xsM
 geU
-vur
+rud
 muW
 mjT
 mjT
@@ -211571,7 +211688,7 @@ rfu
 rfu
 vcO
 mjT
-mjT
+uAR
 rHj
 kOo
 ftl
@@ -211587,7 +211704,7 @@ srm
 mLy
 cWS
 srm
-sXn
+tjB
 muW
 mjT
 mjT
@@ -211780,11 +211897,11 @@ oZb
 fCI
 srm
 sTz
-sXn
+hjl
 tft
 pij
 vyA
-pij
+jEU
 rHj
 vGt
 xAa
@@ -211991,10 +212108,10 @@ vyA
 pij
 cgI
 cgI
-suv
-suv
-suv
-suv
+bIj
+bIj
+bIj
+bIj
 cgI
 cgI
 mjT
@@ -212387,7 +212504,7 @@ xEp
 wmS
 mjT
 mjT
-mjT
+gZD
 rHj
 thC
 sgL
@@ -212591,12 +212708,12 @@ xEp
 wmS
 mjT
 mjT
-mjT
+gZD
 rHj
 bbf
 xsM
 dlr
-vur
+sKS
 tft
 uRg
 cwU
@@ -212795,7 +212912,7 @@ xEp
 wmS
 mjT
 mjT
-mjT
+gZD
 rHj
 kOo
 mXc
@@ -213004,7 +213121,7 @@ oZb
 fCI
 srm
 sTz
-sXn
+eVm
 tft
 uRg
 cwU
