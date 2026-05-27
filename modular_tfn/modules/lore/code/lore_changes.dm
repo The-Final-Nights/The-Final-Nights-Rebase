@@ -42,7 +42,7 @@
 
 /datum/subsplat/vampire_clan/setite
 	desc = {"<br>The Followers of Set, also called the Ministry of Set, Ministry, or Setites, are a clan of vampires who believe their founder was the Egyptian god Set. The Followers of Set are corrupters who seek freedom through temptation and vice. In San Francisco they operate an independent faction tied heavily to black market trade and alliances with some of the Clans of Death, like the Samedi and Harbingers.
-	<br>The Nagaraja, on the other Hand, are the archenemies of the Setites. Setites thrive in secrecy, manipulation, and spiritual corruption, often presenting themselves as liberators from moral restraint through their Clans almost cultlike belief in their Founder Set. Their curse weakens them beneath bright light and exposure to fire or the sun.
+	<br>The Nagaraja, on the other hand, are the archenemies of the Setites. Setites thrive in secrecy, manipulation, and spiritual corruption, often presenting themselves as liberators from moral restraint through their Clans almost cultlike belief in their founder Set. Their curse weakens them beneath bright light and exposure to fire or the sun.
 	<br>ROLEPLAY LEVEL: Advanced"}
 
 /datum/subsplat/vampire_clan/toreador
