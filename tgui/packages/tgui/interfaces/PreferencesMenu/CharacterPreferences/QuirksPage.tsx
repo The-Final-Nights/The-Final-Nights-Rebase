@@ -1,5 +1,5 @@
 import { filter } from 'es-toolkit/compat';
-import { useState } from 'react';
+import { useEffect, useState } from 'react'; // TFN EDIT
 import { useBackend } from 'tgui/backend';
 import {
   Box,
@@ -304,12 +304,13 @@ function QuirkPage() {
   const randomBodyEnabled =
     data.character_preferences.non_contextual.random_body !==
       RandomSetting.Disabled || randomToggleEnabled;
+  // TFN EDIT START
+  const [selectedQuirks, setSelectedQuirks] = useState<string[]>(data.selected_quirks);
 
-  const selectedQuirks = data.selected_quirks;
-  function setSelectedQuirks(selected_quirks) {
-    data.selected_quirks = selected_quirks;
-  }
-
+  useEffect(() => {
+    setSelectedQuirks(data.selected_quirks);
+  }, [data.selected_quirks]);
+  // TFN EDIT END
   const [quirkActionLocked, setQuirkActionLocked] = useState(false);
 
   function withQuirkDebounce(debounce: () => void, delay = 200) {
