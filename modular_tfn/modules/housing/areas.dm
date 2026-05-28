@@ -1,4 +1,8 @@
 // housing areas
+
+/area/housing/instance
+	name = "Housing"
+
 /turf/open/misc/dirt/housing
 	name = "dirt"
 	desc = "Something bad happened here."

@@ -83,6 +83,12 @@
 	var/template_display_name = ""
 	var/datum/map_template/housing/loaded_template
 	var/datum/map_template/housing/forced_template
+	COOLDOWN_DECLARE(breakin_cooldown)
+
+/datum/housing_instance/proc/display_name()
+	if(house_name)
+		return house_name
+	return owner_mind ? "[owner_mind.name]'s Residence" : "an Unknown Residence"
 
 /datum/housing_instance/proc/owner_is_home()
 	var/mob/M = owner_mind?.current
@@ -171,7 +177,7 @@ SUBSYSTEM_DEF(housing)
 // this happens at init time once, and in my tests it took less than a second to complete
 /datum/controller/subsystem/housing/proc/generate_slots()
 	var/slot_w = 25
-	var/slot_h = 25
+	var/slot_h = 35
 	var/z = housing_level_1.z_value
 
 	var/col = 0
@@ -254,8 +260,8 @@ SUBSYSTEM_DEF(housing)
 			continue
 		var/area_type = "[shared_area.type]"
 		if(!area_by_type[area_type])
-			var/area/inst_area = new shared_area.type(null)
-			inst_area.name = "[inst.house_name] - [shared_area.name]"
+			var/area/inst_area = new /area/housing/instance(null)
+			inst_area.name = "[inst.house_name] - [initial(shared_area.name)]"
 			inst_area.power_light = shared_area.power_light
 			inst_area.power_equip = shared_area.power_equip
 			inst_area.power_environ = shared_area.power_environ
@@ -269,6 +275,10 @@ SUBSYSTEM_DEF(housing)
 			var/area/inst_area = area_by_type["[switchy.area.type]"]
 			if(inst_area)
 				switchy.area = inst_area
+
+	for(var/turf/T in both_floors)
+		for(var/obj/machinery/light/L in T)
+			L.update()
 
 	return TRUE
 
@@ -406,8 +416,8 @@ SUBSYSTEM_DEF(housing)
 				return FALSE
 			var/mob/owner_mob = inst.owner_mind.current
 			var/approve_link = "<a href='?src=[REF(inst)];approve=[REF(ui.user.mind)]'>Allow entry</a>"
-			to_chat(owner_mob, span_notice("Someone is knocking on your door! [approve_link]"))
-			to_chat(ui.user, span_notice("You knock on the door of [inst.house_name]."))
+			to_chat(owner_mob, span_notice("[ui.user.name] is knocking on your door! [approve_link]"))
+			to_chat(ui.user, span_notice("You knock on the door of [inst.display_name()]."))
 			return TRUE
 		if("toggle_lock")
 			var/datum/housing_instance/inst = instances[ui.user.mind]
@@ -446,6 +456,9 @@ SUBSYSTEM_DEF(housing)
 			if(is_in_housing(lockpicker))
 				to_chat(lockpicker, span_warning("You must leave the house you are in first."))
 				return FALSE
+			if(!COOLDOWN_FINISHED(inst, breakin_cooldown))
+				to_chat(lockpicker, span_warning("The lock needs [round((inst.breakin_cooldown - world.time) / 10)] more second\s before it can be picked again."))
+				return FALSE
 			if(CONFIG_GET(flag/punishing_zero_dots) && lockpicker.st_get_stat(STAT_LARCENY) < 1)
 				to_chat(lockpicker, span_warning("You have no idea how to pick a lock."))
 				return FALSE
@@ -459,6 +472,7 @@ SUBSYSTEM_DEF(housing)
 			lockpicker.balloon_alert_to_viewers("breaking in...")
 			if(!do_after(lockpicker, 3 TURNS))
 				return FALSE
+			COOLDOWN_START(inst, breakin_cooldown, 1 MINUTE)
 			var/datum/storyteller_roll/lockpick/lockpick_roll = new()
 			lockpick_roll.difficulty = owner_mob.st_get_stat(STAT_INTELLIGENCE) + owner_mob.st_get_stat(STAT_SURVIVAL)
 			switch(lockpick_roll.st_roll(lockpicker))
@@ -484,8 +498,8 @@ SUBSYSTEM_DEF(housing)
 			var/mob/living/escorted = isliving(ui.user.pulling) ? ui.user.pulling : null
 			if(escorted)
 				inst.enter(escorted)
-				to_chat(ui.user, span_notice("You're taken to [inst.house_name]."))
-			to_chat(ui.user, span_notice("You travel to [inst.house_name]."))
+				to_chat(ui.user, span_notice("You're taken to [inst.display_name()]."))
+			to_chat(ui.user, span_notice("You travel to [inst.display_name()]."))
 			inst.enter(ui.user)
 			return TRUE
 	return FALSE
