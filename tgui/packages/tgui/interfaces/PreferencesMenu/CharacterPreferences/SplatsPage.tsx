@@ -217,9 +217,9 @@ function SplatsPageInner(props: SplatsPageInnerProps) {
               <Box>
                 <Stack fill>
                   <Stack.Item width="70%">
-                    {/* TFN EDIT START */}
+                    {/* TFN EDIT START - newline support */}
                     <Section title={currentSplat.name}>
-                      <Section title="Description">{currentSplat.desc}</Section>
+                      <Section title="Description"><Box style={{ whiteSpace: 'pre-wrap' }}>{currentSplat.desc}</Box></Section>
                     {/* TFN EDIT END */}
 
                       <Section title="Features">

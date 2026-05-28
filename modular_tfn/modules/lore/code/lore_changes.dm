@@ -71,3 +71,35 @@
 		return
 	to_chat(user, span_notice("[uppertext(clan.name)]<br>[clan.desc]"))
 	to_chat(user, span_notice("<br>Roleplay levels, or, the difficulty to play and portray a character from that clan, are as follows: Beginner Friendly, Intermediate, Advanced"))
+
+/datum/splat/werewolf/kinfolk/get_splat_description()
+	return "Lorem Ipsum"
+
+/datum/splat/werewolf/kinfolk/get_splat_lore()
+	return list(
+		"Lorem Ipsum",
+	)
+
+/datum/splat/werewolf/shifter/garou/get_splat_description()
+	return "The Werewolves of the World of Darkness. They are shapeshifting warriors created by higher Forces to defend the natural world against corruption, decay, and supernatural evil (or spread it, in the case of the Black Spiral Dancers). Fiercely territorial and almost always violently hostile toward vampires, they are among the more dangerous creatures encountered in the World of Darkness.\n\nIn Northern California, most Garou affiliated with the Garou Nation belong to the Sept of the Western Eye, a Children of Gaia-led sept.  To most Kindred, Garou are terrifying forces of nature whose presence beyond the city limits represents sudden violence, righteous fury, and almost certain death."
+
+/datum/splat/werewolf/shifter/garou/get_splat_lore()
+	return list(
+		"Lorem Ipsum",
+	)
+
+/datum/splat/vampire/ghoul/get_splat_description()
+	return "Mortals sustained and Bound by vampiric vitae, gaining unnatural vitality, slowed aging, and an emotional dependency on their domitors. Some serve willingly out of loyalty, love, or ambition, while others remain trapped by addiction and blood bonds they can't escape.\n\nIn San Francisco, ghouls act as bodyguards, servants, agents, and intermediaries for Kindred across every sect and faction. Though stronger than ordinary humans, they remain vulnerable to the whims and politics of Kindred Society and their masters."
+
+/datum/splat/vampire/ghoul/get_splat_lore()
+	return list(
+		"Feed just about any living creature a little vampire blood and it becomes a Ghoul, at least temporarily. In VTM, ghouls are omnipresent servants, easily created, and heavily abused - although networks do exist to assist them in escaping their masters. A ghoul's emotions run to extremes with the heady drug of vitae in his veins, not to mention the Blood Bond - such a creature often falls prey to great rages and disturbing cravings. The name \"ghouls\" was not chosen at random."
+	)
+
+/datum/splat/vampire/kindred/get_splat_description()
+	return "Immortal predators cursed to live in the night, these vampires survive on human blood while hiding their existence behind the facade they call the Masquerade. Divided by clans, sects, and rivalries, they wage endless political and ideological wars beneath the surface of mortal society.\n\nThough officially under the Camarilla, San Francisco also harbours Anarchs, Sabbat, and independent factions in an uneasy balance constantly threatened by each other, outside forces and internal fighting alike. Every Kindred struggles against its primal urges, with frenzy and decline into monstrosity only ever one mistake away."
+
+/datum/splat/vampire/kindred/get_splat_lore()
+	return list(
+		"The blood-drinkers who stalk the World of Darkness mostly call themselves Kindred, licks, or Cainites. The term \"vampire\" seems déclassé to the habitués of Elysium and the theorists of Anarch utopia, reminiscent of cheesy Hammer sequels and tourist-friendly reactionary folklore. However, those Embraced in recent decades increasingly use the term among themselves (\"taking the v-word back\"), establishing their claim to this status despite the thinness of their Blood.",
+	)
