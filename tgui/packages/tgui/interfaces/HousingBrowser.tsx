@@ -16,8 +16,14 @@ type Instance = {
   locked: boolean;
 };
 
+type ModelHome = {
+  house_name: string;
+  ref: string;
+};
+
 type Data = {
   instances: Instance[];
+  model_homes: ModelHome[];
   has_instance: boolean;
   slots_available: boolean;
   guests: Guest[];
@@ -25,7 +31,7 @@ type Data = {
 
 export const HousingBrowser = () => {
   const { act, data } = useBackend<Data>();
-  const { instances, has_instance, slots_available, guests } = data;
+  const { instances, model_homes, has_instance, slots_available, guests } = data;
 
   return (
     <Window width={300} height={500} title="Housing Directory">
@@ -76,6 +82,23 @@ export const HousingBrowser = () => {
                 </Stack>
               ))
             )}
+          </Section>
+        )}
+        {model_homes.length > 0 && (
+          <Section title="Model Homes">
+            {model_homes.map((inst) => (
+              <Stack key={inst.ref} justify="space-between" align="center">
+                <Stack.Item grow>{inst.house_name}</Stack.Item>
+                <Stack.Item>
+                  <Button
+                    icon="eye"
+                    onClick={() => act('teleport', { ref: inst.ref })}
+                  >
+                    Preview
+                  </Button>
+                </Stack.Item>
+              </Stack>
+            ))}
           </Section>
         )}
         <Section title="Directory">

@@ -72,7 +72,7 @@
 	sound_environment = SOUND_ENVIRONMENT_ROOM
 
 /area/housing/bighouse
-	name = "First floor"
+	name = "Estate"
 	icon = 'icons/area/areas_away_missions.dmi'
 	icon_state = "away"
 	default_gravity = STANDARD_GRAVITY
@@ -103,14 +103,38 @@
 	default_gravity = STANDARD_GRAVITY
 	ambience_index = AMBIENCE_AWAY
 
+/area/housing/bighouse/first_floor/study
+	name = "Study"
+	icon_state = "away"
+	default_gravity = STANDARD_GRAVITY
+	ambience_index = AMBIENCE_AWAY
+
 /area/housing/bighouse/first_floor/bedroom
-	name = "Bedroom1"
+	name = "Bedroom"
+	icon_state = "away"
+	default_gravity = STANDARD_GRAVITY
+	ambience_index = AMBIENCE_AWAY
+
+/area/housing/bighouse/first_floor/bathroom
+	name = "Bathroom"
+	icon_state = "away"
+	default_gravity = STANDARD_GRAVITY
+	ambience_index = AMBIENCE_AWAY
+
+/area/housing/bighouse/first_floor/bedroom/additional
+	name = "Bedroom"
 	icon_state = "away"
 	default_gravity = STANDARD_GRAVITY
 	ambience_index = AMBIENCE_AWAY
 
 /area/housing/bighouse/first_floor/kitchen
 	name = "Kitchen"
+	icon_state = "away"
+	default_gravity = STANDARD_GRAVITY
+	ambience_index = AMBIENCE_AWAY
+
+/area/housing/bighouse/first_floor/kitchen/storage
+	name = "Kitchen storage"
 	icon_state = "away"
 	default_gravity = STANDARD_GRAVITY
 	ambience_index = AMBIENCE_AWAY
@@ -134,6 +158,12 @@
 	ambience_index = AMBIENCE_AWAY
 
 /area/housing/bighouse/second_floor/left_bedroom
+	name = "Left Bedroom"
+	icon_state = "away"
+	default_gravity = STANDARD_GRAVITY
+	ambience_index = AMBIENCE_AWAY
+
+/area/housing/bighouse/second_floor/left_bedroom/additional
 	name = "Left Bedroom"
 	icon_state = "away"
 	default_gravity = STANDARD_GRAVITY

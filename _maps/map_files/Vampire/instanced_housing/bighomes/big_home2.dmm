@@ -5,7 +5,7 @@
 	density = 0
 	},
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "aj" = (
 /obj/structure/bookcase/random/nonfiction{
 	pixel_y = 20;
@@ -15,7 +15,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "as" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
@@ -24,53 +24,66 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor)
 "au" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
 	},
 /obj/effect/decal/shadow,
 /turf/open/floor/plating/asphalt,
-/area/space)
+/area/housing/bighouse)
 "aD" = (
 /obj/structure/bath/sabbatbath,
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
 "aE" = (
 /obj/structure/vampfence/rich{
 	dir = 8
 	},
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "aR" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/rich/old,
 /obj/item/food/meat/slab/chicken,
 /obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/iron/freezer,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
 "bg" = (
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "bj" = (
 /obj/structure/chair/wood/darkpack{
 	dir = 8
 	},
 /obj/machinery/light/prince/directional/south,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "bk" = (
 /obj/structure/chair/wood/darkpack,
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "bp" = (
 /obj/machinery/light/prince/directional/south,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "bF" = (
 /obj/effect/decal/wallpaper/stone,
 /turf/closed/wall/vampwall/rich/old,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
+"bP" = (
+/obj/machinery/light/prince/directional/east{
+	pixel_y = 14
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor)
+"bX" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/obj/structure/curtain/bounty{
+	pixel_y = 8
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/first_floor/entryway)
 "bZ" = (
 /obj/structure/table/wood,
 /obj/item/plate,
@@ -155,13 +168,13 @@
 	pixel_y = 14
 	},
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "cb" = (
 /obj/machinery/light/prince/directional/east{
 	pixel_y = 14
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "ck" = (
 /obj/structure/ladder/manhole/up,
 /obj/effect/decal/cleanable/cobweb/cobweb2{
@@ -169,23 +182,23 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
 "cI" = (
 /turf/open/floor/iron/freezer,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
 "cN" = (
 /obj/structure/platform/lowwall/rich/old,
 /obj/structure/vampstatue/cloaked{
 	pixel_y = 8
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
 "db" = (
 /obj/machinery/light/prince/directional/east{
 	pixel_y = 14
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "dt" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -195,7 +208,10 @@
 	},
 /obj/effect/turf_decal/siding/wood/dark/corner,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
+"dO" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/kitchen)
 "dT" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/rich/old,
@@ -205,35 +221,41 @@
 /obj/item/food/meat/slab/chicken,
 /obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/iron/freezer,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
 "el" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "es" = (
 /obj/effect/turf_decal/bordur{
 	dir = 5
 	},
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "ez" = (
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "eA" = (
 /obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/bordur,
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
+"eR" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor)
 "eT" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/machinery/light/prince/directional/west{
 	pixel_y = 14
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"eW" = (
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/housing/bighouse/first_floor/study)
 "eY" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -246,7 +268,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "fe" = (
 /obj/structure/dresser{
 	pixel_y = 12
@@ -255,19 +277,31 @@
 	pixel_y = 29
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/bedroom/additional)
 "fh" = (
 /obj/structure/platform/lowwall/rich/old/window,
 /obj/structure/curtain/bounty{
 	pixel_y = 15
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
+"fr" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 1
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/study)
+"fM" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/dining_hall)
 "fO" = (
 /obj/structure/platform/lowwall/rich/old,
 /obj/structure/table/wood,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "fP" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 6
@@ -277,17 +311,17 @@
 	dir = 6
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "fS" = (
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom)
 "fU" = (
 /obj/machinery/oven/range,
 /obj/machinery/light_switch{
 	pixel_y = 29
 	},
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "gf" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
@@ -305,7 +339,22 @@
 	pixel_x = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"gl" = (
+/obj/effect/decal/wallpaper/stone,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/kitchen/storage)
+"gq" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/obj/structure/curtain/bounty{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/left_bedroom)
+"gE" = (
+/obj/machinery/light/prince/directional/south,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/dining_hall)
 "gG" = (
 /obj/effect/decal/wallpaper/stone/low/tilt{
 	dir = 8
@@ -313,33 +362,36 @@
 /turf/open/floor/iron/stairs/black/right{
 	dir = 4
 	},
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "gO" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/effect/turf_decal/bordur{
 	dir = 9
 	},
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "gP" = (
 /obj/machinery/light/prince/directional/east{
 	pixel_y = 14
 	},
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
+"gT" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "hr" = (
 /obj/structure/kitchenspike,
 /turf/open/floor/iron/freezer,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
 "hE" = (
 /obj/structure/chair/wood/darkpack{
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "hL" = (
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "hP" = (
 /obj/structure/vampdoor/wood{
 	dir = 4
@@ -347,12 +399,12 @@
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "ie" = (
 /obj/structure/table/wood,
 /obj/machinery/microwave,
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "ig" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 4
@@ -361,20 +413,30 @@
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "iC" = (
 /obj/structure/chair/wood/darkpack{
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "iQ" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
 	},
 /obj/effect/decal/shadow,
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"jb" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 4
+	},
+/obj/structure/railing/corner/end{
+	dir = 1
+	},
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
 "jj" = (
 /obj/structure/chair/sofa/corner/brown{
 	color = "#525252";
@@ -384,14 +446,20 @@
 	pixel_y = 14
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "jk" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
+"jt" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/right_bedroom)
 "ju" = (
 /obj/effect/turf_decal/bordur/corner,
 /obj/structure/railing/wooden_fence{
@@ -399,7 +467,7 @@
 	},
 /obj/machinery/light/prince/directional/north,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse)
 "jv" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
@@ -410,30 +478,46 @@
 	pixel_y = 24
 	},
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "kb" = (
 /turf/open/floor/iron/stairs/black/left{
 	dir = 4
 	},
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "kp" = (
 /obj/structure/flora/tree/vamp/pine,
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "ku" = (
 /obj/machinery/sprinkler,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
+"kD" = (
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/right_bedroom)
 "kJ" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 8
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "kQ" = (
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse)
+"lc" = (
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom)
 "lh" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 8
@@ -441,14 +525,14 @@
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/roadsign/housing_sign,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "ln" = (
 /obj/structure/platform/lowwall/rich/old,
 /obj/structure/hedge{
 	pixel_y = 8
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/second_floor)
 "lo" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -461,21 +545,25 @@
 	},
 /obj/machinery/sprinkler,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "ly" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
+"lA" = (
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/left_bedroom)
 "lF" = (
 /obj/structure/chair/sofa/left/brown{
 	color = "#525252";
 	dir = 1
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "lH" = (
 /obj/structure/curtain/bounty{
 	pixel_y = 8
@@ -483,7 +571,10 @@
 /turf/open/floor/iron/stairs/black/right{
 	dir = 1
 	},
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
+"lK" = (
+/turf/open/floor/city/plating,
+/area/housing/bighouse/first_floor/bathroom)
 "lP" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 4
@@ -492,21 +583,24 @@
 	pixel_y = 14
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
 "lR" = (
 /obj/structure/toilet{
 	dir = 4;
 	pixel_y = 12
 	},
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
+"lX" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "ma" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
 	pixel_y = 5
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "mk" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 8
@@ -519,7 +613,7 @@
 	pixel_y = 14
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
 "mo" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
@@ -536,7 +630,7 @@
 	pixel_x = 7
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor)
 "mw" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
@@ -545,7 +639,7 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/structure/vampdoor/woodglass,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
 "mz" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -554,7 +648,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "mA" = (
 /obj/effect/turf_decal/siding/wood/dark/corner,
 /obj/item/kirbyplants/darkpack/random{
@@ -565,7 +659,15 @@
 	pixel_y = 14
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
+"mC" = (
+/obj/effect/decal/wallpaper/grey,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"mD" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/dining_hall)
 "mH" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 10
@@ -575,17 +677,17 @@
 	},
 /obj/structure/hedge,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "mV" = (
 /turf/closed/wall/vampwall/rich/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "mY" = (
 /obj/item/kirbyplants/darkpack/random{
 	pixel_y = 8;
 	pixel_x = -7
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "nf" = (
 /obj/item/kirbyplants/darkpack/random{
 	pixel_y = 8;
@@ -595,21 +697,25 @@
 	pixel_x = 19
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
+"nt" = (
+/obj/structure/hedge,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/dining_hall)
 "nx" = (
 /obj/structure/curtain/bounty{
 	pixel_y = 8
 	},
 /obj/structure/platform/lowwall/rich/old/window,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
 "nz" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
 	},
 /obj/effect/decal/shadow,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "nP" = (
 /obj/effect/decal/wallpaper/stone/low/tilt,
 /obj/effect/decal/wallpaper/stone/low/tilt{
@@ -619,14 +725,14 @@
 /turf/open/floor/iron/stairs/black{
 	dir = 4
 	},
-/area/space)
+/area/housing/bighouse)
 "of" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "og" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 6
@@ -635,7 +741,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor)
 "oj" = (
 /obj/structure/chair/wood/darkpack,
 /obj/structure/bookcase/random/nonfiction{
@@ -643,20 +749,28 @@
 	density = 0
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "ou" = (
 /obj/structure/hedge,
 /obj/effect/turf_decal/bordur/end{
 	dir = 4
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse)
+"ox" = (
+/obj/structure/table/wood,
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/housing/bighouse/first_floor/study)
+"oz" = (
+/obj/effect/landmark/housing/spawnpoint,
+/turf/open/floor/plating/asphalt,
+/area/housing/bighouse)
 "oE" = (
 /obj/effect/turf_decal/bordur{
 	dir = 10
 	},
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse)
 "oN" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -664,39 +778,57 @@
 /obj/effect/decal/shadow,
 /obj/structure/hedge,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "oR" = (
 /obj/structure/vampfence/rich{
 	dir = 1
 	},
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
+"pe" = (
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/housing/bighouse/second_floor)
+"po" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 8
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/entryway)
 "pp" = (
 /obj/structure/table/wood,
 /obj/vampire_computer/box{
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
+"px" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/study)
 "pz" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
+"pK" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/study)
 "pR" = (
 /obj/machinery/light_switch{
 	pixel_x = -19
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "qb" = (
 /obj/structure/vampfence/rich{
 	pixel_y = 4
 	},
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "qd" = (
 /obj/structure/table/wood/fancy/black,
 /obj/effect/turf_decal/siding/wood/dark,
@@ -708,7 +840,7 @@
 	pixel_y = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "qk" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -716,19 +848,26 @@
 /obj/effect/decal/shadow,
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
+"qr" = (
+/obj/structure/bath/sabbatbath,
+/turf/open/floor/city/plating,
+/area/housing/bighouse/first_floor/bathroom)
 "qu" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "qB" = (
 /obj/effect/turf_decal/bordur{
 	dir = 6
 	},
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse)
+"qK" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/den)
 "qX" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
@@ -738,13 +877,13 @@
 	},
 /obj/machinery/sprinkler,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "ra" = (
 /obj/structure/vampfence/corner/rich{
 	dir = 4
 	},
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "rb" = (
 /obj/structure/curtain/bounty{
 	pixel_y = 8
@@ -752,7 +891,7 @@
 /turf/open/floor/iron/stairs/black/medium{
 	dir = 1
 	},
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
 "rk" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -760,14 +899,14 @@
 /obj/structure/bed,
 /obj/item/bedsheet/black,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "rq" = (
 /obj/structure/vampfence/rich{
 	pixel_y = 4
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "rr" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
@@ -776,19 +915,26 @@
 /obj/structure/bed,
 /obj/item/bedsheet/black,
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom)
 "rC" = (
 /obj/structure/rack/tall/wood_shelf/alt,
 /obj/item/soap/deluxe,
 /obj/machinery/light/prince/directional/north,
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
 "rJ" = (
 /obj/structure/platform/lowwall/rich/old,
 /obj/structure/table/wood,
 /obj/item/plate/large,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
+"rK" = (
+/obj/structure/hedge,
+/obj/effect/turf_decal/bordur/end{
+	dir = 4
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/first_floor/study)
 "rN" = (
 /obj/item/paper_bin{
 	pixel_y = 6
@@ -801,28 +947,35 @@
 	},
 /obj/structure/table/wood,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "rT" = (
 /obj/structure/bookcase/random/nonfiction{
 	pixel_y = 20;
 	density = 0
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "rZ" = (
 /obj/effect/decal/carpet{
 	icon_state = "rug_fancy"
 	},
 /obj/machinery/sprinkler,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom)
+"sa" = (
+/obj/effect/turf_decal/siding/wood/dark,
+/obj/machinery/light/prince/directional/east{
+	pixel_y = 14
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/dining_hall)
 "sb" = (
 /obj/structure/chair/sofa/middle/brown{
 	color = "#525252";
 	dir = 1
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "sc" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -831,31 +984,34 @@
 	pixel_x = 19
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
 "sg" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/tree/vamp/pine,
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "sj" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor)
 "st" = (
 /obj/structure/flora/tree/vamp/pine,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
+"sA" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/second_floor/landing)
 "sC" = (
 /obj/machinery/smartfridge/drying,
 /turf/open/floor/iron/freezer,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
 "sK" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "sM" = (
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
 "sR" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
@@ -864,20 +1020,46 @@
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "ti" = (
 /obj/structure/table/wood/fancy/black,
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 5
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"tp" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/obj/structure/curtain/bounty{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/first_floor/dining_hall)
+"tB" = (
+/obj/structure/hedge,
+/obj/effect/turf_decal/bordur/end{
+	dir = 8
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse)
+"tQ" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/entryway)
+"tY" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/right_bedroom)
 "uj" = (
 /obj/structure/chair/wood/darkpack{
 	dir = 4
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"ur" = (
+/turf/closed/housing/border,
+/area/housing/bighouse)
 "ut" = (
 /obj/effect/turf_decal/stock{
 	dir = 4
@@ -887,7 +1069,11 @@
 	},
 /obj/machinery/shower/directional/west,
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
+"uu" = (
+/obj/effect/decal/wallpaper/grey,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/right_bedroom)
 "uF" = (
 /obj/structure/table/wood,
 /obj/item/food/grown/berries{
@@ -902,23 +1088,27 @@
 	pixel_x = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "uP" = (
 /turf/closed/housing/border,
-/area/space)
+/area/housing/bighouse/second_floor)
 "uQ" = (
 /obj/structure/table/wood/fancy/black,
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 10
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "uS" = (
 /obj/machinery/light/prince/directional/west{
 	pixel_y = 14
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"uY" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/bedroom)
 "uZ" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -928,18 +1118,24 @@
 	},
 /obj/structure/hedge,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "vr" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
 	},
 /obj/structure/table/wood,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "vw" = (
 /obj/machinery/griddle,
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
+"vx" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/bedroom)
+"vz" = (
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/housing/bighouse/first_floor/dining_hall)
 "vA" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
@@ -953,7 +1149,7 @@
 	pixel_x = -19
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "vB" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
@@ -963,42 +1159,42 @@
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "vE" = (
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/siding/wood/dark,
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom)
 "vK" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/railing/wooden_fence,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse)
 "vS" = (
 /obj/effect/decal/carpet{
 	icon_state = "rug_fancy";
 	pixel_x = 16
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "vY" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
 	},
 /obj/machinery/light/prince/directional/north,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse)
 "wh" = (
 /obj/structure/closet/secure_closet/freezer/meat/all_access,
 /turf/open/floor/iron/freezer,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
 "wk" = (
 /obj/structure/dresser,
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
 	},
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom)
 "wt" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
@@ -1007,12 +1203,12 @@
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
 "wu" = (
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/siding/wood/dark/corner,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "wy" = (
 /obj/structure/table/wood,
 /obj/item/plate,
@@ -1094,29 +1290,29 @@
 	pixel_y = 4
 	},
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "wP" = (
 /turf/open/floor/iron/stairs/black/medium{
 	dir = 4
 	},
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "xb" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 4
 	},
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse)
 "xd" = (
 /obj/structure/hedge,
 /obj/machinery/sprinkler,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "xm" = (
 /obj/structure/vampfence/rich{
 	dir = 1
 	},
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "xp" = (
 /obj/structure/table/wood,
 /obj/effect/decal/wallpaper/stone/low{
@@ -1130,7 +1326,7 @@
 	pixel_y = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "xM" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/railing/wooden_fence,
@@ -1138,7 +1334,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "xT" = (
 /obj/effect/turf_decal/siding/grey{
 	dir = 4
@@ -1147,19 +1343,19 @@
 	pixel_y = 8
 	},
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
 "xY" = (
 /obj/structure/railing/wooden_fence,
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "yk" = (
 /obj/structure/hedge,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "yq" = (
 /turf/open/floor/plating/asphalt,
-/area/space)
+/area/housing/bighouse)
 "ys" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -1171,27 +1367,27 @@
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "yC" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "yH" = (
 /obj/item/kirbyplants/darkpack/random,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "yQ" = (
 /obj/machinery/light_switch{
 	pixel_x = -19;
 	pixel_y = 32
 	},
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
 "yR" = (
 /obj/effect/turf_decal/bordur,
 /obj/machinery/light/prince/directional/north,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse)
 "zD" = (
 /obj/structure/bookcase/random/nonfiction{
 	pixel_y = 20;
@@ -1199,7 +1395,10 @@
 	},
 /obj/effect/turf_decal/siding/wood/dark,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
+"zK" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/bedroom/additional)
 "zM" = (
 /obj/effect/decal/wallpaper/stone/low/tilt{
 	dir = 4
@@ -1207,7 +1406,11 @@
 /turf/open/floor/iron/stairs/black/left{
 	dir = 8
 	},
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"zN" = (
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/closed/housing/border,
+/area/housing/bighouse/second_floor)
 "zS" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -1225,14 +1428,17 @@
 	pixel_x = 11
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "zY" = (
 /obj/structure/hedge,
 /obj/effect/turf_decal/bordur/end{
 	dir = 8
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/first_floor/study)
+"Ad" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/study)
 "Ah" = (
 /obj/effect/turf_decal/stock{
 	dir = 4
@@ -1241,7 +1447,7 @@
 	dir = 8
 	},
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
 "Ak" = (
 /obj/structure/platform/lowwall/rich/old,
 /obj/structure/table/wood,
@@ -1257,17 +1463,17 @@
 	pixel_x = -4
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "Aq" = (
 /obj/structure/table/wood,
 /obj/vampire_computer/box{
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "Az" = (
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "AB" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 1
@@ -1276,62 +1482,83 @@
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "AF" = (
 /obj/machinery/sprinkler,
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
+"AG" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/left_bedroom)
 "AJ" = (
 /obj/structure/platform/lowwall/rich/old/window,
 /obj/structure/curtain/bounty{
 	pixel_y = 8
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/second_floor)
 "AV" = (
 /obj/structure/platform/lowwall/rich/old/window,
 /obj/structure/curtain/bounty/start_closed{
 	pixel_y = 15
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "Bn" = (
 /obj/structure/curtain/bounty{
 	pixel_y = 8
 	},
 /obj/structure/platform/lowwall/rich/window,
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
 "Bo" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/machinery/light/prince/directional/east{
 	pixel_y = 14
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "Bq" = (
 /obj/machinery/light/prince/directional/north,
 /obj/item/bedsheet/black,
 /obj/structure/bed,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/bedroom)
+"BB" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 1
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/dining_hall)
+"BM" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/bedroom/additional)
 "BP" = (
 /obj/structure/table/wood,
 /obj/machinery/reagentgrinder/kitchen,
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "BT" = (
 /obj/structure/table/wood,
 /obj/machinery/processor,
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "BU" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/vampdoor/wood,
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/baseturf_helper/housing/ground_floor,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/bedroom/additional)
+"Ch" = (
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/housing/bighouse/first_floor/entryway)
+"Ck" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/housing/bighouse/first_floor/entryway)
 "Cp" = (
 /obj/structure/table/wood,
 /obj/item/food/grown/berries{
@@ -1346,16 +1573,42 @@
 	pixel_x = -8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
+"Cr" = (
+/obj/structure/extinguisher_cabinet/directional/east,
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/second_floor/landing)
 "CD" = (
 /obj/effect/turf_decal/siding/grey{
 	dir = 1
 	},
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
+"CG" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"CN" = (
+/obj/item/kirbyplants/darkpack/random{
+	pixel_y = 8;
+	pixel_x = 7
+	},
+/obj/machinery/light_switch{
+	pixel_x = 19
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/left_bedroom)
+"CZ" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/bedroom/additional)
 "Df" = (
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "Do" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/effect/turf_decal/bordur{
@@ -1363,10 +1616,24 @@
 	},
 /obj/structure/flora/tree/vamp/pine,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
+"DD" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/study)
+"DI" = (
+/turf/open/floor/iron/stairs/black,
+/area/housing/bighouse/first_floor/dining_hall)
 "DM" = (
 /turf/open/openspace,
-/area/space)
+/area/housing/bighouse/second_floor)
+"El" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/bathroom)
+"ES" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/study)
 "Fi" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/table/wood/fancy/black,
@@ -1382,7 +1649,22 @@
 	pixel_x = -8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"Fl" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/second_floor/staircase)
+"Fy" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 8
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/dining_hall)
 "Gb" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 9
@@ -1391,11 +1673,15 @@
 	dir = 9
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "Gc" = (
 /obj/structure/fireplace,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"GI" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/dining_hall)
 "GQ" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
@@ -1403,19 +1689,24 @@
 /obj/structure/vampdoor/wood,
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/two,
+/obj/effect/baseturf_helper/housing/ground_floor,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
+"GU" = (
+/obj/effect/decal/wallpaper/grey,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "GV" = (
 /obj/item/kirbyplants/darkpack/random{
 	pixel_y = 8;
 	pixel_x = 7
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "GW" = (
 /obj/machinery/sprinkler,
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "GX" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/drinkingglass/wine_glass{
@@ -1427,13 +1718,13 @@
 	pixel_x = -8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "Hl" = (
 /obj/structure/stairs/west{
 	color = "#876E4B"
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
 "Hn" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/noticeboard{
@@ -1442,14 +1733,14 @@
 /obj/structure/bed,
 /obj/item/bedsheet/black,
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom)
 "Ho" = (
 /obj/structure/vampstatue/angel{
 	pixel_y = 12
 	},
 /obj/structure/platform/lowwall/rich/old,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse)
 "HN" = (
 /obj/structure/vampfence/corner/rich{
 	dir = 4;
@@ -1459,28 +1750,28 @@
 	dir = 4
 	},
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "HS" = (
 /turf/open/floor/iron/stairs/black/medium{
 	dir = 8
 	},
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "HT" = (
 /obj/structure/chair/wood/darkpack{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/wood/dark,
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor)
 "HW" = (
 /obj/structure/vampfence/rich{
 	pixel_y = 4
 	},
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "Ig" = (
 /turf/open/floor/iron/stairs/black,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "Ih" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -1492,11 +1783,19 @@
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "Ii" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/freezer,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
+"IG" = (
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/entryway)
 "II" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -1508,11 +1807,11 @@
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "IX" = (
 /obj/structure/fireplace,
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "IZ" = (
 /obj/structure/vampfence/corner/rich{
 	dir = 8;
@@ -1522,13 +1821,16 @@
 	dir = 8
 	},
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "Jc" = (
 /obj/machinery/light/prince/directional/west{
 	pixel_y = 14
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
+"Jh" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor)
 "Jo" = (
 /obj/structure/chair/wood/darkpack{
 	dir = 8
@@ -1537,18 +1839,18 @@
 	pixel_y = 29
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor)
 "Jp" = (
 /obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/machinery/light_switch{
 	pixel_y = 29
 	},
 /turf/open/floor/iron/freezer,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
 "Jy" = (
 /obj/structure/closet/cabinet,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "JI" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 10
@@ -1558,7 +1860,7 @@
 	dir = 10
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "JU" = (
 /obj/structure/bookcase/random/nonfiction{
 	pixel_y = 20;
@@ -1569,20 +1871,37 @@
 	pixel_x = 7
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "Kn" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
+"Kz" = (
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/right_bedroom)
+"KI" = (
+/obj/structure/dresser{
+	pixel_y = 12
+	},
+/obj/machinery/light_switch{
+	pixel_y = 29
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/bedroom)
 "KO" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 4
 	},
 /obj/structure/dresser,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
+"KP" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/kitchen/storage)
 "KW" = (
 /obj/structure/bookcase/random/nonfiction{
 	pixel_y = 20;
@@ -1592,24 +1911,28 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor)
+"Lc" = (
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/large_restroom)
 "Lj" = (
 /obj/machinery/sprinkler,
 /turf/open/floor/iron/freezer,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
 "Lv" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "LF" = (
 /obj/structure/chair/sofa/right/brown{
 	color = "#525252";
 	dir = 8
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "LQ" = (
 /obj/structure/filingcabinet{
 	pixel_x = -6
@@ -1618,28 +1941,41 @@
 	pixel_x = 7
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "LS" = (
 /obj/structure/table/wood,
 /obj/machinery/sprinkler,
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "Me" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
 	},
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "Mq" = (
 /obj/structure/sink/directional/west,
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
 "Mz" = (
 /obj/structure/chair/wood/darkpack{
 	dir = 8
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/second_floor)
+"ME" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/kitchen)
+"MO" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/turf/open/floor/carpet/darkpack/blackgold,
+/area/housing/bighouse/first_floor/dining_hall)
+"NB" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/bedroom)
 "NG" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
@@ -1648,7 +1984,7 @@
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "NK" = (
 /obj/structure/curtain/bounty{
 	pixel_y = 8
@@ -1656,44 +1992,61 @@
 /turf/open/floor/iron/stairs/black/left{
 	dir = 1
 	},
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
 "Ok" = (
 /obj/machinery/light_switch{
 	pixel_x = 19
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "OC" = (
 /obj/machinery/sprinkler,
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
 "OM" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
+"Pe" = (
+/obj/effect/decal/wallpaper/stone,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/kitchen)
+"Pl" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/entryway)
 "Pv" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "Px" = (
 /obj/effect/turf_decal/bordur{
 	dir = 5
 	},
 /obj/structure/flora/tree/vamp/pine,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
+"PC" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/dining_hall)
 "PE" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
 	},
 /obj/structure/hedge,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "PM" = (
 /turf/open/floor/iron/stairs/black/right{
 	dir = 8
 	},
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"PN" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/obj/structure/curtain/bounty{
+	pixel_y = 8
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/second_floor/right_bedroom)
 "PT" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
@@ -1704,7 +2057,7 @@
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/two,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
 "Qo" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/railing/wooden_fence,
@@ -1712,18 +2065,24 @@
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
+"Qp" = (
+/obj/machinery/light/prince/directional/north,
+/obj/item/bedsheet/black,
+/obj/structure/bed,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/bedroom/additional)
 "Qq" = (
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "Qv" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
 	},
 /obj/structure/railing/corner/end/flip,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/staircase)
 "QG" = (
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/railing/wooden_fence,
@@ -1732,7 +2091,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "QJ" = (
 /obj/effect/decal/wallpaper/stone,
 /turf/closed/wall/vampwall/rich/old{
@@ -1740,29 +2099,75 @@
 	desc = "A wall with a crack in it";
 	color = "#BBBBBB"
 	},
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
+"QQ" = (
+/obj/item/kirbyplants/darkpack/random{
+	pixel_y = 8;
+	pixel_x = 7
+	},
+/obj/machinery/light_switch{
+	pixel_x = 19
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/second_floor/landing)
+"QX" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 1
+	},
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/entryway)
+"Rs" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/entryway)
 "RC" = (
 /obj/effect/turf_decal/bordur/corner,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse)
 "RJ" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"RR" = (
+/obj/effect/turf_decal/siding/wood/dark,
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/bedroom)
+"RW" = (
+/obj/effect/decal/wallpaper/stone,
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/bathroom)
 "Sh" = (
 /obj/structure/table/wood/fancy/black,
 /obj/effect/turf_decal/siding/wood/dark,
 /obj/structure/railing/wooden_fence,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "Sl" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
+"Sn" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/obj/structure/curtain/bounty{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/first_floor/study)
+"Sq" = (
+/obj/structure/platform/lowwall/rich/old/window,
+/obj/structure/curtain/bounty{
+	pixel_y = 15
+	},
+/turf/open/floor/plating/rough,
+/area/housing/bighouse/first_floor/kitchen)
 "Sr" = (
 /obj/structure/chair/comfy/darkpack/dark,
 /obj/effect/decal/kopatich{
@@ -1770,7 +2175,11 @@
 	},
 /obj/machinery/sprinkler,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"Ss" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/bedroom)
 "Su" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 1
@@ -1779,7 +2188,10 @@
 	pixel_y = 14
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
+"SC" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/townhouse/second_floor/landing)
 "SP" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
@@ -1795,19 +2207,23 @@
 	pixel_x = -19
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "Tn" = (
 /obj/structure/table/wood/fancy/black,
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 9
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"TD" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/bedroom/additional)
 "TP" = (
 /obj/structure/dresser,
 /obj/effect/turf_decal/siding/wood/dark,
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom)
 "TR" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
@@ -1816,7 +2232,7 @@
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "TS" = (
 /obj/structure/vampdoor/wood{
 	dir = 4
@@ -1824,7 +2240,7 @@
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "TT" = (
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
@@ -1833,26 +2249,26 @@
 	},
 /obj/structure/vampdoor/woodglass,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
 "TZ" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/rich/old,
 /obj/structure/sink/basin/directional/south,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "Ua" = (
 /obj/structure/closet/secure_closet/freezer/fridge/all_access,
 /obj/machinery/light/prince/directional/east{
 	pixel_y = 14
 	},
 /turf/open/floor/iron/freezer,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen/storage)
 "Ur" = (
 /obj/structure/vampfence/rich{
 	dir = 4
 	},
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "Us" = (
 /obj/structure/mirror{
 	pixel_y = 32
@@ -1861,7 +2277,7 @@
 /obj/structure/platform/lowwall/rich/old,
 /obj/structure/sink/basin/directional/south,
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
 "Uv" = (
 /obj/effect/turf_decal/stock{
 	dir = 1
@@ -1869,14 +2285,14 @@
 /obj/effect/turf_decal/stock,
 /obj/machinery/shower/directional/east,
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
 "UI" = (
 /obj/structure/closet/cabinet,
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
 	},
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom)
 "UK" = (
 /obj/item/kirbyplants/darkpack/random{
 	pixel_y = 8;
@@ -1884,7 +2300,7 @@
 	},
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "UO" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
@@ -1894,19 +2310,23 @@
 	},
 /obj/machinery/sprinkler,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "UR" = (
 /obj/structure/fireplace,
 /obj/effect/turf_decal/siding/wood/dark,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
+"UY" = (
+/obj/structure/bookcase/random/nonfiction,
+/turf/open/floor/wood/smooth/old,
+/area/housing/bighouse/first_floor/dining_hall)
 "Vj" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
 	},
 /obj/structure/bookcase/random/nonfiction,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "Vr" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/rich/old,
@@ -1915,7 +2335,7 @@
 	pixel_y = 29
 	},
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
 "Vt" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
@@ -1924,29 +2344,35 @@
 	pixel_y = 14
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "Vw" = (
 /obj/structure/fireplace,
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "VB" = (
 /obj/structure/table/wood/fancy/black,
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"VE" = (
+/turf/open/openspace,
+/area/housing/bighouse/second_floor/staircase)
+"VL" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/dining_hall)
 "VQ" = (
 /obj/structure/bookcase/random/nonfiction,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "Wk" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 1
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "Wu" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
@@ -1955,24 +2381,31 @@
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
 "Ww" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor)
+"WH" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/first_floor/kitchen/storage)
 "WL" = (
 /obj/machinery/light/prince/directional/north,
 /turf/open/openspace,
-/area/space)
+/area/housing/bighouse/second_floor)
 "WR" = (
 /obj/structure/table/wood/fancy/black,
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
+"WS" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/housing/border,
+/area/housing/bighouse)
 "WW" = (
 /obj/structure/toilet{
 	dir = 1;
@@ -1980,7 +2413,7 @@
 	},
 /obj/machinery/light/prince/directional/south,
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
 "Xa" = (
 /obj/structure/platform/lowwall/rich/old,
 /obj/structure/hedge{
@@ -1990,7 +2423,7 @@
 	pixel_y = 8
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/first_floor/entryway)
 "Xh" = (
 /obj/structure/hedge,
 /obj/effect/turf_decal/bordur,
@@ -1998,11 +2431,11 @@
 	dir = 1
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "Xp" = (
 /obj/effect/turf_decal/siding/wood/dark/corner,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 "Xr" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -2010,76 +2443,83 @@
 /obj/effect/decal/shadow,
 /obj/structure/chair/wood/darkpack,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "XA" = (
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "XD" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/second_floor/right_bedroom)
 "XF" = (
 /obj/effect/decal/wallpaper/grey,
 /turf/closed/wall/vampwall/rich/old,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom)
 "Yc" = (
 /obj/effect/turf_decal/stock{
 	dir = 1
 	},
 /obj/effect/turf_decal/stock,
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/large_restroom)
 "Yg" = (
 /obj/structure/railing/wooden_fence,
 /obj/structure/bed,
 /obj/item/bedsheet/black,
 /turf/open/floor/city/plating_mono,
-/area/space)
+/area/housing/bighouse/second_floor/left_bedroom/additional)
 "YA" = (
 /obj/structure/bookcase/random/nonfiction{
 	pixel_y = 20;
 	density = 0
 	},
 /turf/open/floor/carpet/darkpack/blackgold,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "YC" = (
 /obj/structure/vampfence/corner/rich{
 	dir = 8
 	},
 /turf/open/misc/grass,
-/area/space)
+/area/housing/bighouse)
 "YL" = (
 /obj/machinery/light/prince/directional/south,
 /turf/open/floor/city/plating,
-/area/space)
+/area/housing/bighouse/first_floor/bathroom)
+"YM" = (
+/obj/machinery/sprinkler,
+/turf/open/floor/city/plating,
+/area/housing/bighouse/first_floor/bathroom)
 "YO" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
 	},
 /obj/effect/decal/shadow,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/study)
 "YV" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
 /turf/open/misc/grass/nosmooth,
-/area/space)
+/area/housing/bighouse)
 "YZ" = (
 /obj/effect/turf_decal/bordur,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/bighouse)
+"Zb" = (
+/turf/closed/wall/vampwall/rich/old,
+/area/housing/bighouse/second_floor/large_restroom)
 "Zg" = (
 /obj/structure/chair/wood/darkpack,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "Zx" = (
 /obj/structure/table/wood,
 /turf/open/floor/plating/sidewalk/old,
-/area/space)
+/area/housing/bighouse/first_floor/kitchen)
 "ZC" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -2089,73 +2529,73 @@
 	},
 /obj/structure/chair/wood/darkpack,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "ZR" = (
 /obj/structure/table/wood/fancy/black,
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 6
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/bighouse/first_floor/dining_hall)
 
 (1,1,1) = {"
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+WS
 "}
 (2,1,1) = {"
-uP
-mV
-mV
-mV
-mV
-mV
-mV
-mV
-mV
-mV
-mV
-mV
-fh
-fh
-fh
-fh
-mV
-mV
-mV
-mV
-mV
-mV
-mV
+ur
+Jh
+Jh
+Jh
+Jh
+Jh
+VL
+VL
+VL
+VL
+dO
+dO
+Sq
+Sq
+Sq
+Sq
+ME
+WH
+WH
+WH
+WH
+WH
+KP
 Az
 Az
 Az
@@ -2164,32 +2604,32 @@ Az
 sg
 yC
 Az
-uP
+ur
 "}
 (3,1,1) = {"
-uP
-mV
-mV
-mV
-mV
-mV
-mV
+ur
+Jh
+Jh
+Jh
+Jh
+Jh
+VL
 PE
 PE
 PE
-bF
+Pe
 bZ
 wy
 vw
 vw
 Zx
 ie
-bF
+gl
 aR
 dT
 sC
 hr
-mV
+WH
 oR
 HW
 HW
@@ -2198,32 +2638,32 @@ xm
 qb
 qb
 YC
-uP
+ur
 "}
 (4,1,1) = {"
-uP
-mV
-mV
-mV
-mV
-mV
-mV
+ur
+Jh
+Jh
+Jh
+Jh
+Jh
+VL
 mY
-fS
-fS
-bF
+PC
+PC
+Pe
 Pv
 XA
 XA
 XA
 XA
 BP
-bF
+gl
 aR
 cI
 cI
 cI
-mV
+WH
 ju
 qk
 bg
@@ -2232,19 +2672,19 @@ kp
 Az
 yC
 Ur
-uP
+ur
 "}
 (5,1,1) = {"
-uP
-mV
-mV
-mV
-mV
-mV
-mV
-fS
-ku
-fS
+ur
+Jh
+Jh
+Jh
+Jh
+Jh
+VL
+PC
+GI
+PC
 sR
 XA
 XA
@@ -2252,7 +2692,7 @@ GW
 XA
 XA
 XA
-bF
+gl
 Ii
 cI
 Lj
@@ -2266,20 +2706,20 @@ yC
 yC
 Az
 Ur
-uP
+ur
 "}
 (6,1,1) = {"
-uP
-mV
-mV
-mV
-mV
-mV
-mV
-fS
-fS
-bp
-bF
+ur
+Jh
+Jh
+Jh
+Jh
+Jh
+VL
+PC
+PC
+gE
+Pe
 fU
 XA
 Zx
@@ -2291,7 +2731,7 @@ cI
 cI
 cI
 cI
-mV
+WH
 vK
 nz
 el
@@ -2300,32 +2740,32 @@ Az
 yC
 yC
 aE
-uP
+ur
 "}
 (7,1,1) = {"
-uP
-mV
-mV
-mV
-mV
-mV
-mV
-Ww
-Ww
-Ww
-bF
+ur
+Jh
+Jh
+Jh
+Jh
+Jh
+VL
+fM
+fM
+fM
+Pe
 TZ
 XA
 XA
 XA
 XA
 gP
-bF
+gl
 Jp
 Ua
 wh
-mV
-mV
+WH
+WH
 nP
 jv
 Kn
@@ -2334,31 +2774,31 @@ pz
 es
 yC
 Ur
-uP
+ur
 "}
 (8,1,1) = {"
-uP
-mV
-mV
-mV
-mV
-mV
-mV
+ur
+Jh
+Jh
+Jh
+Jh
+Jh
+VL
 gG
 wP
 kb
-bF
+Pe
 Ak
 rJ
 fO
-mV
-mV
-mV
-mV
-mV
-mV
-mV
-mV
+Pl
+Pl
+Pl
+Pl
+Pl
+Pl
+Rs
+qK
 qB
 xb
 yq
@@ -2368,31 +2808,31 @@ yq
 Wk
 Px
 Ur
-uP
+ur
 "}
 (9,1,1) = {"
-uP
-mV
-VQ
+ur
+VL
+UY
 mY
 eT
-Ig
+DI
 pR
-Df
-Df
-Df
+vz
+vz
+vz
 uS
-Df
-Df
-Df
-mV
-mV
+vz
+vz
+vz
+Pl
+Pl
 Hl
 cN
 Hl
-mV
-mV
-mV
+Pl
+Pl
+qK
 yR
 yq
 yq
@@ -2402,13 +2842,13 @@ yq
 yq
 ly
 Ur
-uP
+ur
 "}
 (10,1,1) = {"
-uP
-mV
-VQ
-fS
+ur
+VL
+UY
+PC
 RJ
 JI
 iQ
@@ -2417,15 +2857,15 @@ uj
 uj
 uj
 uj
-Df
-Df
+vz
+vz
 Xa
 mA
-Ww
-Ww
-Ww
+tQ
+tQ
+tQ
 lP
-mV
+Pl
 kQ
 YZ
 yq
@@ -2436,14 +2876,14 @@ yq
 yq
 Wk
 HN
-uP
+ur
 "}
 (11,1,1) = {"
-uP
-mV
-mV
+ur
+VL
+VL
 rT
-fS
+PC
 Sh
 iQ
 Tn
@@ -2451,49 +2891,49 @@ VB
 VB
 VB
 uQ
-Df
-Df
+vz
+vz
 NK
 OM
-Df
-Df
-Df
-Sl
+Ch
+Ch
+Ch
+QX
 TT
 kQ
 YZ
 yq
 yq
 yq
-zY
+tB
 au
 yq
 yq
 yq
-uP
+ur
 "}
 (12,1,1) = {"
-uP
-mV
-mV
+ur
+VL
+VL
 Gc
 Sr
 Sh
 iQ
 gf
-yk
+nt
 xd
-yk
+nt
 Fi
-Df
-Df
+vz
+vz
 rb
 OM
-Df
-AF
-Df
-Sl
-AJ
+Ch
+Ck
+Ch
+QX
+bX
 kQ
 YZ
 yq
@@ -2503,15 +2943,15 @@ Ho
 au
 yq
 yq
-yq
-uP
+oz
+ur
 "}
 (13,1,1) = {"
-uP
-mV
-mV
+ur
+VL
+VL
 rT
-fS
+PC
 qd
 iQ
 ti
@@ -2519,14 +2959,14 @@ WR
 WR
 WR
 ZR
-Df
-Df
+vz
+vz
 lH
 OM
-Df
-Df
-Df
-Sl
+Ch
+Ch
+Ch
+QX
 mw
 kQ
 YZ
@@ -2538,30 +2978,30 @@ au
 yq
 yq
 yq
-uP
+ur
 "}
 (14,1,1) = {"
-uP
-mV
-VQ
-fS
+ur
+VL
+UY
+PC
 Xp
 fP
 iQ
-Mz
-Mz
-Mz
-Mz
-Mz
-Df
-Df
+MO
+MO
+MO
+MO
+MO
+vz
+vz
 Xa
 mk
 sc
-qu
-qu
+po
+po
 Su
-mV
+Pl
 kQ
 YZ
 yq
@@ -2572,31 +3012,31 @@ yq
 yq
 lh
 IZ
-uP
+ur
 "}
 (15,1,1) = {"
-uP
-mV
-VQ
+ur
+VL
+UY
 GV
-Bo
-Ig
+sa
+DI
 Ok
-Df
-Df
-Df
+vz
+vz
+vz
 cb
-Df
-Df
-Df
-mV
-mV
-mV
-TS
-mV
-mV
-mV
-mV
+vz
+vz
+vz
+Pl
+Pl
+Pl
+IG
+Pl
+Pl
+Pl
+qK
 yR
 yq
 yq
@@ -2606,31 +3046,31 @@ yq
 yq
 Me
 Ur
-uP
+ur
 "}
 (16,1,1) = {"
-uP
-mV
-mV
-mV
-mV
-mV
-mV
+ur
+El
+El
+El
+El
+El
+VL
 zM
 HS
 PM
-mV
-mV
-mV
-mV
-mV
-mV
+VL
+vx
+vx
+vx
+vx
+pK
 vA
-Ww
+px
 Vt
 Lv
 yH
-mV
+pK
 oE
 RC
 yq
@@ -2640,32 +3080,32 @@ yq
 kJ
 Do
 Ur
-uP
+ur
 "}
 (17,1,1) = {"
-uP
-bF
+ur
+RW
 Vr
-sM
+lK
 lR
-aD
-mV
-qu
-qu
-qu
-XF
+qr
+VL
+Fy
+Fy
+Fy
+mC
 Bq
-fS
-fS
-BU
-Df
-Df
-Df
-Df
-Sl
-fS
-mV
-mV
+NB
+NB
+RR
+eW
+eW
+eW
+eW
+fr
+Ad
+pK
+ES
 YZ
 jk
 YV
@@ -2674,32 +3114,32 @@ YV
 gO
 yC
 Ur
-uP
+ur
 "}
 (18,1,1) = {"
-uP
-bF
+ur
+RW
 Us
-sM
-OC
-sM
+lK
+YM
+lK
 GQ
-fS
-fS
-fS
-XF
-fe
-ku
-Jy
-mV
+PC
+PC
+PC
+mC
+KI
+uY
+Ss
+vx
 YA
-Df
-Df
-Df
-Sl
-fS
+eW
+eW
+eW
+fr
+Ad
 LQ
-mV
+pK
 YZ
 el
 el
@@ -2708,32 +3148,32 @@ el
 el
 yC
 aE
-uP
+ur
 "}
 (19,1,1) = {"
-uP
-bF
+ur
+RW
 rC
-sM
-sM
+lK
+lK
 YL
-mV
+VL
 UK
-ku
-bp
-mV
-mV
-mV
-mV
-mV
+GI
+gE
+VL
+vx
+vx
+vx
+vx
 Vw
-Df
+eW
 LS
 lF
 zY
 YO
 ma
-mV
+pK
 YZ
 bg
 bg
@@ -2742,32 +3182,32 @@ st
 bg
 Az
 Ur
-uP
+ur
 "}
 (20,1,1) = {"
-uP
-mV
-mV
-bF
+ur
+El
+El
+RW
 xT
 Bn
-mV
+VL
 rT
 iC
-fS
-XF
+PC
+mC
 fe
-ku
-Jy
-mV
+BM
+TD
+zK
 YA
-Df
-sj
+eW
+ox
 sb
 Xh
 Xr
 Aq
-mV
+pK
 vY
 el
 bg
@@ -2776,32 +3216,32 @@ el
 bg
 yC
 Ur
-uP
+ur
 "}
 (21,1,1) = {"
-uP
-mV
+ur
+El
 ck
 QJ
 Ah
 ut
-mV
+VL
 oj
-sK
-hE
-XF
-Bq
-fS
-fS
+mD
+BB
+mC
+Qp
+CZ
+CZ
 BU
-Df
-Df
+eW
+eW
 LF
 jj
-ou
+rK
 xp
-sK
-mV
+DD
+pK
 oR
 rq
 rq
@@ -2810,32 +3250,32 @@ xm
 qb
 qb
 ra
-uP
+ur
 "}
 (22,1,1) = {"
-uP
-mV
-mV
-mV
-mV
-mV
-mV
-fh
-fh
-fh
-mV
-mV
-mV
-mV
-mV
-fh
-fh
-fh
-mV
-mV
-fh
-fh
-mV
+ur
+El
+El
+El
+El
+El
+VL
+tp
+tp
+tp
+VL
+zK
+zK
+zK
+zK
+Sn
+Sn
+Sn
+pK
+pK
+Sn
+Sn
+pK
 Az
 kp
 yC
@@ -2844,41 +3284,41 @@ yC
 kp
 yC
 Az
-uP
+ur
 "}
 (23,1,1) = {"
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
-uP
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
 "}
 
 (1,1,2) = {"
@@ -2913,26 +3353,26 @@ uP
 uP
 uP
 uP
-uP
+zN
 "}
 (2,1,2) = {"
 uP
 mV
 mV
-mV
-mV
-mV
-mV
+gT
+gT
+gT
+gT
 AV
 AV
 AV
-mV
-mV
-fh
-fh
-fh
-mV
-mV
+AG
+AG
+gq
+gq
+gq
+AG
+lA
 uZ
 ZC
 zS
@@ -2953,7 +3393,7 @@ uP
 uP
 mV
 mV
-XF
+GU
 aa
 xY
 oN
@@ -2966,12 +3406,12 @@ fS
 fS
 fS
 wk
-mV
+AG
 uF
 Zg
 GX
 hE
-fS
+sA
 Qo
 DM
 DM
@@ -2987,11 +3427,11 @@ uP
 uP
 mV
 mV
-XF
+GU
 IX
 hL
 Ig
-fS
+lX
 ku
 bj
 XF
@@ -3000,12 +3440,12 @@ fS
 rZ
 fS
 rr
-mV
+AG
 Cp
-fS
+sA
 vS
-fS
-fS
+sA
+sA
 QG
 DM
 DM
@@ -3021,25 +3461,25 @@ uP
 uP
 mV
 mV
-XF
+GU
 aa
 Yg
 oN
 nf
-fS
-fS
+lX
+lX
 XF
 vE
-nf
+CN
 fS
 fS
 UI
-mV
+AG
 yk
-nf
-fS
+QQ
+sA
 db
-ez
+Cr
 xM
 DM
 DM
@@ -3055,26 +3495,26 @@ uP
 uP
 mV
 mV
-mV
-mV
-mV
-mV
-mV
+gT
+gT
+gT
+gT
+gT
 TS
-mV
-mV
-mV
-mV
-TS
-mV
-mV
-mV
-mV
-mV
+gT
+AG
+AG
+AG
+lc
+AG
+AG
+AG
+SC
+SC
 hP
-mV
-mV
-mV
+SC
+SC
+SC
 DM
 DM
 DM
@@ -3094,19 +3534,19 @@ mV
 KW
 sj
 HT
-fS
+eR
 Jc
-fS
+eR
 Qq
-fS
-fS
-fS
-fS
+eR
+eR
+eR
+eR
 Jc
-fS
-fS
-fS
-fS
+eR
+eR
+eR
+eR
 mV
 mV
 DM
@@ -3137,8 +3577,8 @@ NG
 Wu
 Ww
 Qv
-NG
-Wu
+CG
+jb
 ig
 bp
 mV
@@ -3170,11 +3610,11 @@ DM
 DM
 ln
 ln
-DM
-DM
-DM
+VE
+VE
+VE
 TR
-fS
+eR
 AJ
 DM
 DM
@@ -3204,11 +3644,11 @@ DM
 DM
 DM
 DM
-DM
-DM
-DM
+VE
+VE
+VE
 TR
-fS
+eR
 AJ
 DM
 DM
@@ -3238,11 +3678,11 @@ DM
 DM
 DM
 DM
-DM
-DM
-DM
+VE
+VE
+VE
 TR
-fS
+eR
 AJ
 DM
 DM
@@ -3272,11 +3712,11 @@ DM
 DM
 DM
 DM
-DM
-DM
-DM
+VE
+VE
+VE
 UO
-fS
+eR
 AJ
 DM
 DM
@@ -3306,11 +3746,11 @@ DM
 DM
 DM
 DM
-DM
-DM
-DM
+VE
+VE
+VE
 TR
-fS
+eR
 AJ
 DM
 DM
@@ -3340,11 +3780,11 @@ DM
 DM
 DM
 DM
-DM
-DM
-DM
+VE
+VE
+VE
 TR
-fS
+eR
 AJ
 DM
 DM
@@ -3374,9 +3814,9 @@ DM
 DM
 Gb
 mz
-mz
-mz
-mz
+Fl
+Fl
+Fl
 AB
 bp
 mV
@@ -3407,12 +3847,12 @@ lo
 Ih
 II
 AB
-fS
-db
-fS
-fS
-fS
-fS
+eR
+bP
+eR
+eR
+eR
+eR
 mV
 DM
 DM
@@ -3432,23 +3872,23 @@ mV
 mV
 mV
 JU
-fS
-fS
+eR
+eR
 ez
 Bo
-Df
-Df
-Df
+pe
+pe
+pe
 Sl
-fS
-fS
-mV
-mV
-mV
-TS
-mV
-mV
-mV
+eR
+eR
+tY
+tY
+tY
+kD
+tY
+tY
+Kz
 DM
 DM
 DM
@@ -3464,25 +3904,25 @@ uP
 mV
 mV
 mV
-mV
-mV
-mV
+Zb
+Zb
+Zb
 PT
-mV
-mV
+Zb
+Lc
 Jo
 sj
 Mz
 Vj
 VQ
 VQ
-XF
+uu
 wu
 SP
-Ww
+jt
 of
 KO
-mV
+tY
 DM
 DM
 DM
@@ -3503,20 +3943,20 @@ Uv
 nx
 yQ
 aD
+Zb
 mV
 mV
 mV
 mV
 mV
 mV
-mV
-XF
+uu
 zD
 Df
 Df
 Df
 vr
-AJ
+PN
 DM
 DM
 DM
@@ -3537,20 +3977,20 @@ Yc
 nx
 OC
 WW
+Zb
 mV
 mV
 mV
 mV
 mV
 mV
-mV
-XF
+uu
 UR
 Df
 AF
 bk
 vB
-AJ
+PN
 DM
 DM
 DM
@@ -3571,20 +4011,20 @@ Yc
 CD
 Mq
 sM
+Zb
 mV
 mV
 mV
 mV
 mV
 mV
-mV
-XF
+uu
 aj
 rk
 qu
 rN
 XD
-mV
+tY
 DM
 DM
 DM
@@ -3600,25 +4040,25 @@ uP
 mV
 mV
 mV
+Zb
+Zb
+Zb
+Zb
+Zb
+Zb
 mV
 mV
 mV
 mV
 mV
 mV
-mV
-mV
-mV
-mV
-mV
-mV
-mV
-mV
+tY
+tY
 fh
 fh
 fh
-mV
-mV
+tY
+tY
 DM
 DM
 DM

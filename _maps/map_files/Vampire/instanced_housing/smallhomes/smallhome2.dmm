@@ -3,7 +3,7 @@
 /obj/effect/turf_decal/bordur,
 /obj/structure/vampdoor/old,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "ci" = (
 /obj/effect/turf_decal/bordur,
 /obj/effect/decal/cleanable/trash{
@@ -11,18 +11,22 @@
 	},
 /obj/structure/roadsign/housing_sign,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/townhouse/first_floor)
 "dm" = (
 /obj/effect/turf_decal/siding/beige/inner_corner{
 	dir = 8
 	},
 /turf/open/floor/city/industrial/large,
-/area/space)
+/area/housing/townhouse/first_floor/kitchen)
+"eC" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/first_floor/den)
 "gz" = (
 /obj/effect/turf_decal/bordur/corner,
 /obj/effect/decal/cleanable/garbage,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/townhouse/first_floor)
 "gJ" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/brick_old,
@@ -32,7 +36,7 @@
 	broken = 1
 	},
 /turf/open/floor/city/industrial/large,
-/area/space)
+/area/housing/townhouse/first_floor/kitchen)
 "gK" = (
 /obj/structure/table/wood,
 /obj/structure/fluff/tv{
@@ -40,13 +44,17 @@
 	pixel_y = 14
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/den)
+"hi" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/second_floor/bedroom)
 "jq" = (
 /obj/structure/table/wood/billiard{
 	pixel_y = -7
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/den)
 "ly" = (
 /obj/effect/decal/carpet{
 	pixel_x = -14;
@@ -54,10 +62,10 @@
 	icon_state = "greencarpet"
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/den)
 "mc" = (
 /turf/open/openspace,
-/area/space)
+/area/housing/townhouse/second_floor)
 "mC" = (
 /obj/effect/turf_decal/siding/beige{
 	dir = 8
@@ -71,7 +79,7 @@
 	pixel_y = 24
 	},
 /turf/open/floor/city/industrial/large,
-/area/space)
+/area/housing/townhouse/first_floor/kitchen)
 "mZ" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
@@ -81,7 +89,11 @@
 	},
 /obj/structure/dresser,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/bedroom)
+"nn" = (
+/obj/effect/baseturf_helper/housing/second_floor,
+/turf/closed/housing/border,
+/area/housing/townhouse/second_floor)
 "nJ" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/brick_old,
@@ -90,7 +102,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/city/industrial/large,
-/area/space)
+/area/housing/townhouse/first_floor/kitchen)
 "ol" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
 	dir = 1
@@ -100,7 +112,7 @@
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/bedroom)
 "px" = (
 /obj/item/reagent_containers/cup/bucket/wooden{
 	pixel_x = -7;
@@ -111,15 +123,21 @@
 	pixel_x = 10
 	},
 /obj/effect/decal/cleanable/vomit/old,
+/obj/effect/baseturf_helper/housing/second_floor,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/bedroom)
 "pR" = (
 /obj/effect/decal/cleanable/glass,
 /obj/item/shard{
 	pixel_x = -5
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/bedroom)
+"qi" = (
+/obj/effect/turf_decal/bordur,
+/obj/effect/landmark/housing/spawnpoint,
+/turf/open/floor/plating/sidewalkalt,
+/area/housing/townhouse/first_floor)
 "ql" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -129,30 +147,40 @@
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/kitchen)
 "rf" = (
 /turf/closed/wall/vampwall/brick_old,
-/area/space)
+/area/housing/townhouse/first_floor)
 "sd" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/kitchen)
 "sD" = (
 /obj/structure/platform/lowwall/brick_old,
 /obj/structure/barricade/wooden/crude{
 	pixel_y = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor)
 "sG" = (
 /obj/structure/chair/comfy/darkpack/green{
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/den)
+"ta" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/second_floor)
 "wX" = (
 /turf/closed/housing/border,
-/area/space)
+/area/housing/townhouse/second_floor)
 "xr" = (
 /obj/structure/closet/crate/cardboard,
 /obj/effect/mapping_helpers/broken_floor,
@@ -163,30 +191,30 @@
 	pixel_y = 24
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor)
 "yk" = (
 /obj/structure/chair/plastic/darkpack{
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/den)
 "ys" = (
 /obj/structure/lattice,
 /obj/machinery/light/small/red/directional/north,
 /turf/open/openspace,
-/area/space)
+/area/housing/townhouse/second_floor)
 "zt" = (
 /obj/item/kirbyplants/random/dead{
 	pixel_x = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/den)
 "zP" = (
 /obj/effect/decal/cleanable/cobweb{
 	pixel_y = 24
 	},
 /turf/open/openspace,
-/area/space)
+/area/housing/townhouse/second_floor)
 "zZ" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -195,14 +223,18 @@
 	dir = 8
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor)
 "Bj" = (
 /obj/effect/turf_decal/bordur,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/townhouse/first_floor)
+"Bn" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/second_floor)
 "Bx" = (
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/townhouse/first_floor)
 "Cg" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -216,7 +248,10 @@
 	pixel_y = 24
 	},
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/townhouse/first_floor)
+"CD" = (
+/turf/closed/wall/vampwall/brick_old,
+/area/housing/townhouse/first_floor/kitchen)
 "Do" = (
 /obj/effect/decal/wallpaper/stone/low/tilt{
 	dir = 1
@@ -228,7 +263,7 @@
 /turf/open/floor/iron/stairs{
 	dir = 8
 	},
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "DL" = (
 /obj/structure/railing{
 	dir = 8
@@ -237,7 +272,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/stairs,
-/area/space)
+/area/housing/townhouse/first_floor)
 "DY" = (
 /obj/effect/turf_decal/bordur{
 	dir = 8
@@ -247,7 +282,7 @@
 	},
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/townhouse/first_floor)
 "Es" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -257,17 +292,20 @@
 	},
 /obj/effect/decal/shadow,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "Fa" = (
 /obj/effect/turf_decal/siding/beige{
 	dir = 8
 	},
 /turf/open/floor/city/industrial/large,
-/area/space)
+/area/housing/townhouse/first_floor/kitchen)
+"Gz" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/second_floor)
 "GS" = (
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/bedroom)
 "HB" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -276,32 +314,51 @@
 /obj/structure/chair/plastic/darkpack,
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/townhouse/first_floor)
 "Jj" = (
 /obj/effect/decal/cleanable/trash{
 	icon_state = "trash7"
 	},
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/den)
 "Jr" = (
 /turf/open/floor/plating/rough,
-/area/space)
-"LJ" = (
+/area/housing/townhouse/second_floor/landing)
+"Kf" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/closed/housing/border,
+/area/housing/townhouse/first_floor)
+"LB" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/trash{
+	icon_state = "trash7"
+	},
+/obj/effect/baseturf_helper/housing/ground_floor,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/kitchen)
+"LJ" = (
+/obj/effect/baseturf_helper/housing/ground_floor,
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/first_floor/den)
 "LV" = (
 /obj/structure/stairs/east,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor)
 "Mi" = (
 /obj/structure/rack/clothing_hanger{
 	pixel_x = -10;
 	density = 0
 	},
 /obj/machinery/light/small/red/directional/south,
+/obj/effect/baseturf_helper/housing/ground_floor,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "Ob" = (
 /obj/structure/platform/lowwall/brick_old,
 /obj/structure/barricade/wooden/crude{
@@ -312,7 +369,7 @@
 	pixel_x = 7
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor)
 "Qw" = (
 /obj/effect/decal/pallet,
 /obj/structure/bed/maint{
@@ -320,7 +377,7 @@
 	},
 /obj/machinery/light/small/red/directional/south,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/bedroom)
 "QA" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -329,7 +386,7 @@
 	pixel_y = 29
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor)
 "QH" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -341,13 +398,13 @@
 	icon_state = "trash7"
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor)
 "QO" = (
 /obj/effect/decal/cleanable/trash{
 	icon_state = "trash7"
 	},
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/bedroom)
 "QQ" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -364,21 +421,31 @@
 	pixel_y = 20
 	},
 /turf/open/floor/plating/sidewalkalt,
-/area/space)
+/area/housing/townhouse/first_floor)
+"RS" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/first_floor/den)
+"SL" = (
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/housing/townhouse/second_floor)
 "Ts" = (
 /obj/effect/decal/cleanable/trash{
 	icon_state = "trash7"
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "TW" = (
 /obj/structure/closet/cardboard,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "Uj" = (
 /obj/structure/lattice,
 /turf/open/openspace,
-/area/space)
+/area/housing/townhouse/second_floor/bedroom)
+"VO" = (
+/turf/closed/housing/border,
+/area/housing/townhouse/first_floor)
 "Wg" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -391,45 +458,51 @@
 	pixel_y = 29
 	},
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "Wo" = (
 /obj/effect/decal/cleanable/cardboard,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/bedroom)
+"WH" = (
+/turf/closed/wall/vampwall/brick_old,
+/area/housing/townhouse/second_floor)
 "WL" = (
 /obj/structure/closet/cabinet,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/second_floor/bedroom)
+"Xw" = (
+/turf/open/floor/wood/smooth/old,
+/area/housing/townhouse/second_floor/bedroom)
 "Yd" = (
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/plating/rough,
-/area/space)
+/area/housing/townhouse/second_floor/landing)
 "YW" = (
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/brick_old,
 /obj/item/lighter/greyscale,
 /turf/open/floor/city/industrial/large,
-/area/space)
+/area/housing/townhouse/first_floor/kitchen)
 "ZM" = (
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/wood/smooth/old,
-/area/space)
+/area/housing/townhouse/first_floor/kitchen)
 
 (1,1,1) = {"
-wX
-wX
-wX
-wX
-wX
-wX
-wX
-wX
-wX
-wX
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+Kf
 "}
 (2,1,1) = {"
-wX
+VO
 rf
 rf
 rf
@@ -438,10 +511,10 @@ rf
 QQ
 DY
 gz
-wX
+VO
 "}
 (3,1,1) = {"
-wX
+VO
 rf
 Es
 Ts
@@ -449,11 +522,11 @@ Mi
 rf
 HB
 Bx
-Bj
-wX
+qi
+VO
 "}
 (4,1,1) = {"
-wX
+VO
 rf
 Wg
 Jr
@@ -462,10 +535,10 @@ be
 DL
 Bx
 Bj
-wX
+VO
 "}
 (5,1,1) = {"
-wX
+VO
 rf
 Do
 TW
@@ -474,47 +547,47 @@ rf
 Cg
 Bx
 ci
-wX
+VO
 "}
 (6,1,1) = {"
-wX
+VO
 rf
 zZ
 ql
-QH
+LB
 rf
 rf
 rf
 rf
-wX
+VO
 "}
 (7,1,1) = {"
-wX
+VO
 rf
 LV
 sd
 sd
-sd
+eC
 jq
 LJ
 rf
-wX
+VO
 "}
 (8,1,1) = {"
-wX
+VO
 rf
 rf
 ZM
 sd
-LJ
-LJ
+RS
+RS
 Jj
 rf
-wX
+VO
 "}
 (9,1,1) = {"
-wX
-rf
+VO
+CD
 mC
 Fa
 dm
@@ -522,43 +595,43 @@ zt
 ly
 sG
 rf
-wX
+VO
 "}
 (10,1,1) = {"
-wX
-rf
+VO
+CD
 gJ
 YW
 nJ
 gK
-sd
+eC
 yk
 rf
-wX
+VO
 "}
 (11,1,1) = {"
-wX
+VO
+CD
+CD
+CD
+CD
 rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-wX
+VO
 "}
 (12,1,1) = {"
-wX
-wX
-wX
-wX
-wX
-wX
-wX
-wX
-wX
-wX
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
+VO
 "}
 
 (1,1,2) = {"
@@ -571,15 +644,15 @@ wX
 wX
 wX
 wX
-wX
+nn
 "}
 (2,1,2) = {"
 wX
-rf
-rf
-rf
-rf
-rf
+WH
+WH
+WH
+WH
+WH
 mc
 mc
 mc
@@ -587,11 +660,11 @@ wX
 "}
 (3,1,2) = {"
 wX
-rf
+WH
 zP
 mc
 mc
-rf
+WH
 mc
 mc
 mc
@@ -599,11 +672,11 @@ wX
 "}
 (4,1,2) = {"
 wX
-rf
-Uj
-Uj
-Uj
-rf
+WH
+SL
+SL
+SL
+WH
 mc
 mc
 mc
@@ -611,11 +684,11 @@ wX
 "}
 (5,1,2) = {"
 wX
-rf
+WH
 mc
 mc
 mc
-rf
+WH
 mc
 mc
 mc
@@ -623,74 +696,74 @@ wX
 "}
 (6,1,2) = {"
 wX
-rf
+WH
 mc
 mc
 mc
-rf
+WH
 sD
 Ob
-rf
+WH
 wX
 "}
 (7,1,2) = {"
 wX
-rf
+WH
 mc
 mc
 mc
 mZ
 pR
 px
-rf
+WH
 wX
 "}
 (8,1,2) = {"
 wX
-rf
+WH
 QA
-ql
+ta
 QH
 ol
 Uj
 GS
-rf
+WH
 wX
 "}
 (9,1,2) = {"
 wX
-rf
+WH
 ys
-LJ
-sd
-LJ
+Gz
+Bn
+Xw
 Wo
 Qw
-rf
+WH
 wX
 "}
 (10,1,2) = {"
 wX
-rf
+WH
 xr
-Uj
-Uj
+SL
+SL
 QO
-sd
+hi
 WL
-rf
+WH
 wX
 "}
 (11,1,2) = {"
 wX
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+WH
+WH
+WH
+WH
+WH
+WH
+WH
+WH
 wX
 "}
 (12,1,2) = {"

@@ -1,7 +1,13 @@
+#define HOUSING_SMALLHOME_MAP_1 "_maps/map_files/Vampire/instanced_housing/smallhomes/smallhome1.dmm"
+#define HOUSING_SMALLHOME_MAP_2 "_maps/map_files/Vampire/instanced_housing/smallhomes/smallhome2.dmm"
 #define HOUSING_TOWNHOUSE_MAP_1 "_maps/map_files/Vampire/instanced_housing/townhomes/townhome1.dmm"
 #define HOUSING_TOWNHOUSE_MAP_2 "_maps/map_files/Vampire/instanced_housing/townhomes/townhome2.dmm"
+#define HOUSING_TOWNHOUSE_MAP_3 "_maps/map_files/Vampire/instanced_housing/townhomes/townhome3.dmm"
+#define HOUSING_TOWNHOUSE_MAP_4 "_maps/map_files/Vampire/instanced_housing/townhomes/townhome4.dmm"
 #define HOUSING_BIGHOME_MAP_1 "_maps/map_files/Vampire/instanced_housing/bighomes/big_home1.dmm"
+#define HOUSING_BIGHOME_MAP_2 "_maps/map_files/Vampire/instanced_housing/bighomes/big_home2.dmm"
 
+#define HOUSING_SIZE_SMALL 0
 #define HOUSING_SIZE_MEDIUM 1
 #define HOUSING_SIZE_LARGE 2
 
@@ -17,9 +23,39 @@
 	keep_cached_map = TRUE
 	should_place_on_top = FALSE
 
+/datum/map_template/housing/smallhome/one
+	name = "Low Income Housing 1"
+	mappath = HOUSING_SMALLHOME_MAP_1
+	keep_cached_map = TRUE
+	should_place_on_top = FALSE
+
+/datum/map_template/housing/smallhome/two
+	name = "Low Income Housing 2"
+	mappath = HOUSING_SMALLHOME_MAP_2
+	keep_cached_map = TRUE
+	should_place_on_top = FALSE
+
+/datum/map_template/housing/townhouse/three
+	name = "Townhouse"
+	mappath = HOUSING_TOWNHOUSE_MAP_3
+	keep_cached_map = TRUE
+	should_place_on_top = FALSE
+
+/datum/map_template/housing/townhouse/four
+	name = "Townhouse"
+	mappath = HOUSING_TOWNHOUSE_MAP_4
+	keep_cached_map = TRUE
+	should_place_on_top = FALSE
+
 /datum/map_template/housing/bighouse
 	name = "Big House"
 	mappath = HOUSING_BIGHOME_MAP_1
+	keep_cached_map = TRUE
+	should_place_on_top = FALSE
+
+/datum/map_template/housing/bighouse/two
+	name = "Big House"
+	mappath = HOUSING_BIGHOME_MAP_2
 	keep_cached_map = TRUE
 	should_place_on_top = FALSE
 
@@ -41,19 +77,21 @@
 	var/list/guests = list()
 	var/size = HOUSING_SIZE_MEDIUM
 	var/house_name = ""
+	var/is_model = FALSE
+	var/datum/map_template/housing/loaded_template
+	var/datum/map_template/housing/forced_template
 
 /datum/housing_instance/proc/owner_is_home()
 	var/mob/M = owner_mind?.current
-	if(!M || !slot_origin)
+	if(!M || !slot_origin || !loaded_template)
 		return FALSE
 
-	var/datum/map_template/tmpl = size == HOUSING_SIZE_LARGE ? SShousing.bighouse_template : SShousing.townhouse_template_one
 	return (M.z == slot_origin.z || M.z == slot_origin.z + 1) \
-		&& M.x >= slot_origin.x && M.x < slot_origin.x + tmpl.width \
-		&& M.y >= slot_origin.y && M.y < slot_origin.y + tmpl.height
+		&& M.x >= slot_origin.x && M.x < slot_origin.x + loaded_template.width \
+		&& M.y >= slot_origin.y && M.y < slot_origin.y + loaded_template.height
 
 /datum/housing_instance/proc/can_enter(mob/user)
-	return !locked || (user.mind == owner_mind) || (user.mind in guests)
+	return is_model || !locked || (user.mind == owner_mind) || (user.mind in guests)
 
 /datum/housing_instance/proc/enter(mob/living/user)
 	if(!can_enter(user))
@@ -82,16 +120,24 @@ SUBSYSTEM_DEF(housing)
 	dependencies = list(
 		/datum/controller/subsystem/mapping,
 		/datum/controller/subsystem/atoms,
+		/datum/controller/subsystem/lighting,
+		/datum/controller/subsystem/air,
 	)
 	ss_flags = SS_NO_FIRE
 
 	var/datum/space_level/housing_level_1
 	var/datum/space_level/housing_level_2
+	var/datum/map_template/housing/smallhome/one/smallhome_template_one
+	var/datum/map_template/housing/smallhome/two/smallhome_template_two
 	var/datum/map_template/housing/townhouse/one/townhouse_template_one
 	var/datum/map_template/housing/townhouse/two/townhouse_template_two
+	var/datum/map_template/housing/townhouse/three/townhouse_template_three
+	var/datum/map_template/housing/townhouse/four/townhouse_template_four
 	var/datum/map_template/housing/bighouse/bighouse_template
+	var/datum/map_template/housing/bighouse/two/bighouse_template_two
 	var/list/available_slots = list() // list of list(x, y, z). the missile knows where it is etc
 	var/list/instances = list()
+	var/list/model_homes = list()
 
 /datum/controller/subsystem/housing/Initialize()
 	housing_level_1 = SSmapping.add_new_zlevel("Housing Floor 1", list(
@@ -106,10 +152,16 @@ SUBSYSTEM_DEF(housing)
 		ZTRAIT_NOPHASE = TRUE,
 		ZTRAIT_DOWN = TRUE,
 	))
+	smallhome_template_one = new /datum/map_template/housing/smallhome/one()
+	smallhome_template_two = new /datum/map_template/housing/smallhome/two()
 	townhouse_template_one = new /datum/map_template/housing/townhouse/one()
 	townhouse_template_two = new /datum/map_template/housing/townhouse/two()
+	townhouse_template_three = new /datum/map_template/housing/townhouse/three()
+	townhouse_template_four = new /datum/map_template/housing/townhouse/four()
 	bighouse_template = new /datum/map_template/housing/bighouse()
+	bighouse_template_two = new /datum/map_template/housing/bighouse/two()
 	generate_slots()
+	spawn_model_homes()
 	return SS_INIT_SUCCESS
 
 // this happens at init time once, and in my tests it took less than a second to complete
@@ -125,7 +177,7 @@ SUBSYSTEM_DEF(housing)
 			available_slots += list(list(col * slot_w + 2, row * slot_h + 2, z))
 			row++
 		col++
-	message_admins("Housing: generated [available_slots.len] slots (world: [world.maxx]x[world.maxy], z=[z])")
+	message_admins("Housing: generated [length(available_slots)] slots (world: [world.maxx]x[world.maxy], z=[z])")
 
 /datum/controller/subsystem/housing/proc/get_instance(mob/living/user)
 	return instances[user.mind]
@@ -134,12 +186,18 @@ SUBSYSTEM_DEF(housing)
 /datum/controller/subsystem/housing/proc/is_in_housing(mob/user)
 	for(var/datum/mind/M in instances)
 		var/datum/housing_instance/inst = instances[M]
-		if(!inst.loaded || !inst.slot_origin)
+		if(!inst.loaded || !inst.slot_origin || !inst.loaded_template)
 			continue
-		var/datum/map_template/tmpl = inst.size == HOUSING_SIZE_LARGE ? bighouse_template : townhouse_template_one
 		if((user.z == inst.slot_origin.z || user.z == inst.slot_origin.z + 1) \
-			&& user.x >= inst.slot_origin.x && user.x < inst.slot_origin.x + tmpl.width \
-			&& user.y >= inst.slot_origin.y && user.y < inst.slot_origin.y + tmpl.height)
+			&& user.x >= inst.slot_origin.x && user.x < inst.slot_origin.x + inst.loaded_template.width \
+			&& user.y >= inst.slot_origin.y && user.y < inst.slot_origin.y + inst.loaded_template.height)
+			return TRUE
+	for(var/datum/housing_instance/inst in model_homes)
+		if(!inst.loaded || !inst.slot_origin || !inst.loaded_template)
+			continue
+		if((user.z == inst.slot_origin.z || user.z == inst.slot_origin.z + 1) \
+			&& user.x >= inst.slot_origin.x && user.x < inst.slot_origin.x + inst.loaded_template.width \
+			&& user.y >= inst.slot_origin.y && user.y < inst.slot_origin.y + inst.loaded_template.height)
 			return TRUE
 	return FALSE
 
@@ -152,40 +210,47 @@ SUBSYSTEM_DEF(housing)
 	return inst
 
 /datum/controller/subsystem/housing/proc/load_instance(datum/housing_instance/inst, mob/living/carbon/human/user)
-	if(!available_slots.len)
+	if(!length(available_slots))
 		message_admins("Housing: load_instance failed - no slots remaining")
 		return FALSE
 	var/list/coords = available_slots[1]
 	available_slots.Cut(1, 2)
 	var/turf/slot = locate(coords[1], coords[2], coords[3])
 	if(!slot)
-		message_admins("Housing: locate() returned null for coords ([coords[1]], [coords[2]], [coords[3]]) - [available_slots.len] slots remaining")
+		message_admins("Housing: locate() returned null for coords ([coords[1]], [coords[2]], [coords[3]]) - [length(available_slots)] slots remaining")
 		return FALSE
-	message_admins("Housing: loading instance at ([coords[1]], [coords[2]], [coords[3]]) - [available_slots.len] slots remaining")
+	message_admins("Housing: loading instance at ([coords[1]], [coords[2]], [coords[3]]) - [length(available_slots)] slots remaining")
 	inst.slot_origin = slot
 
-	var/list/loaded_turfs
-	inst.size = user.st_get_stat(STAT_FINANCE) == 5 ? 2 : 1
-	if(inst.size == 1) // randomly picks between the townhouses. just different colors
-		var/datum/map_template/housing/townhouse/chosen = pick(townhouse_template_one, townhouse_template_two)
-		chosen.load(slot)
-		loaded_turfs = block(
+	if(!isnull(user))
+		inst.size = user.st_get_stat(STAT_FINANCE) >= 5 ? HOUSING_SIZE_LARGE : HOUSING_SIZE_MEDIUM
+
+	var/datum/map_template/housing/chosen
+	if(inst.forced_template)
+		chosen = inst.forced_template
+	else if(inst.size == HOUSING_SIZE_SMALL)
+		chosen = pick(smallhome_template_one, smallhome_template_two)
+	else if(inst.size == HOUSING_SIZE_MEDIUM)
+		chosen = pick(townhouse_template_one, townhouse_template_two, townhouse_template_three, townhouse_template_four)
+	else
+		chosen = pick(bighouse_template, bighouse_template_two)
+	chosen.load(slot)
+	inst.loaded_template = chosen
+	var/list/loaded_turfs = block(
 		slot.x, slot.y, slot.z,
 		slot.x + chosen.width - 1,
 		slot.y + chosen.height - 1,
 		slot.z,
-		)
-	else
-		bighouse_template.load(slot)
-		loaded_turfs = block(
+	)
+
+
+	var/list/both_floors = block(
 		slot.x, slot.y, slot.z,
-		slot.x + bighouse_template.width - 1,
-		slot.y + bighouse_template.height - 1,
-		slot.z,
-		)
-
-
-	for(var/turf/T in loaded_turfs)
+		slot.x + chosen.width - 1,
+		slot.y + chosen.height - 1,
+		slot.z + 1,
+	)
+	for(var/turf/T in both_floors)
 		if(locate(/obj/effect/landmark/housing/spawnpoint) in T)
 			inst.spawn_turf = T
 			break
@@ -255,10 +320,18 @@ SUBSYSTEM_DEF(housing)
 				"ref" = REF(G),
 			))
 
+	var/list/model_entries = list()
+	for(var/datum/housing_instance/inst in model_homes)
+		model_entries += list(list(
+			"house_name" = inst.house_name,
+			"ref" = REF(inst),
+		))
+
 	return list(
 		"instances" = entries,
+		"model_homes" = model_entries,
 		"has_instance" = !isnull(instances[user.mind]),
-		"slots_available" = available_slots.len > 0,
+		"slots_available" = length(available_slots) > 0,
 		"guests" = guests,
 	)
 
@@ -277,8 +350,7 @@ SUBSYSTEM_DEF(housing)
 				escorted.forceMove(destination)
 			return TRUE
 		if("go_home")
-			var/donator_tier = ui.user.client?.prefs?.donator_rank
-			if(donator_tier != "Antediluvian" && donator_tier != "Caine")
+			if(ui.user.client?.prefs?.donator_rank < DONATOR_ANTEDILUVIAN)
 				to_chat(ui.user, span_warning("Anyone can visit properties, but you must be an Antediluvian tier donator or above to claim yours."))
 				return FALSE
 			if(is_in_housing(ui.user))
@@ -377,9 +449,10 @@ SUBSYSTEM_DEF(housing)
 			if(is_in_housing(ui.user))
 				to_chat(ui.user, span_warning("You must leave the house you are in first."))
 				return FALSE
-			ui.user.balloon_alert_to_viewers("traveling...")
-			if(!do_after(ui.user, 10 SECONDS))
-				return
+			if(!inst.is_model)
+				ui.user.balloon_alert_to_viewers("traveling...")
+				if(!do_after(ui.user, 10 SECONDS))
+					return
 			var/mob/living/escorted = isliving(ui.user.pulling) ? ui.user.pulling : null
 			if(escorted)
 				inst.enter(escorted)
@@ -399,8 +472,40 @@ SUBSYSTEM_DEF(housing)
 	SShousing.ui_interact(user)
 	return TRUE
 
+// spawns one model home per house type at round start so players can preview each style
+/datum/controller/subsystem/housing/proc/spawn_model_homes()
+	var/list/model_home_defs = list(
+		list("Low Income Housing 1", HOUSING_SIZE_SMALL, smallhome_template_one),
+		list("Low Income Housing 2", HOUSING_SIZE_SMALL, smallhome_template_two),
+		list("Townhouse 1", HOUSING_SIZE_MEDIUM, townhouse_template_one),
+		list("Townhouse 2", HOUSING_SIZE_MEDIUM, townhouse_template_two),
+		list("Townhouse 3", HOUSING_SIZE_MEDIUM, townhouse_template_three),
+		list("Townhouse 4", HOUSING_SIZE_MEDIUM, townhouse_template_four),
+		list("Estate 1", HOUSING_SIZE_LARGE, bighouse_template),
+		list("Estate 2", HOUSING_SIZE_LARGE, bighouse_template_two),
+	)
+	for(var/list/def in model_home_defs)
+		var/datum/housing_instance/inst = new()
+		inst.house_name = def[1]
+		inst.size = def[2]
+		inst.is_model = TRUE
+		inst.locked = FALSE
+		inst.forced_template = def[3]
+		if(!load_instance(inst))
+			message_admins("Housing: failed to load model home '[def[1]]'. Tell Nimi!")
+			qdel(inst)
+			continue
+		model_homes += inst
+	message_admins("Housing: loaded [length(model_homes)] model homes")
+
+#undef HOUSING_SMALLHOME_MAP_1
+#undef HOUSING_SMALLHOME_MAP_2
 #undef HOUSING_TOWNHOUSE_MAP_1
 #undef HOUSING_TOWNHOUSE_MAP_2
+#undef HOUSING_TOWNHOUSE_MAP_3
+#undef HOUSING_TOWNHOUSE_MAP_4
 #undef HOUSING_BIGHOME_MAP_1
+#undef HOUSING_BIGHOME_MAP_2
+#undef HOUSING_SIZE_SMALL
 #undef HOUSING_SIZE_MEDIUM
 #undef HOUSING_SIZE_LARGE
