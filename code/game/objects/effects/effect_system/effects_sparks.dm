@@ -53,7 +53,9 @@
 	if(delete_timer_id != TIMER_ID_NULL)
 		deltimer(delete_timer_id)
 	delete_timer_id = QDEL_IN_STOPPABLE(src, decay_time + world.tick_lag)
-	if(!animated)
+	// TFN EDIT ADD START - HOUSING
+	if(!animated || isnull(middleman))
+	// TFN EDIT ADD END
 		return
 	var/obj/effect/abstract/main_light = middleman.primary_intercept
 	// We're going to fade our light out so it's less jarring when we fully disappear

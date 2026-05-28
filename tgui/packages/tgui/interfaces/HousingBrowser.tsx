@@ -1,3 +1,5 @@
+// THIS IS A TFN UI FILE
+import { useState } from 'react';
 import { Button, Section, Stack } from 'tgui-core/components';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -21,17 +23,31 @@ type ModelHome = {
   ref: string;
 };
 
+type HouseOption = {
+  name: string;
+  size: number;
+  count: number;
+  template_type: string;
+};
+
 type Data = {
   instances: Instance[];
   model_homes: ModelHome[];
   has_instance: boolean;
-  slots_available: boolean;
+  house_options: HouseOption[];
   guests: Guest[];
+};
+
+const sizeLabel = (size: number) => {
+  if (size === 0) return 'Small';
+  if (size === 1) return 'Medium';
+  return 'Large';
 };
 
 export const HousingBrowser = () => {
   const { act, data } = useBackend<Data>();
-  const { instances, model_homes, has_instance, slots_available, guests } = data;
+  const { instances, model_homes, has_instance, house_options, guests } = data;
+  const [picking, setPicking] = useState(false);
 
   return (
     <Window width={300} height={500} title="Housing Directory">
@@ -39,19 +55,25 @@ export const HousingBrowser = () => {
         <Section>
           <Stack>
             <Stack.Item grow>
-              <Button
-                fluid
-                icon="home"
-                disabled={!has_instance && !slots_available}
-                tooltip={
-                  !has_instance && !slots_available
-                    ? 'No housing slots are currently available.'
-                    : ' '
-                }
-                onClick={() => act('go_home')}
-              >
-                {has_instance ? 'Go to My House' : 'Claim a House'}
-              </Button>
+              {has_instance ? (
+                <Button fluid icon="home" onClick={() => act('go_home')}>
+                  Go to My House
+                </Button>
+              ) : (
+                <Button
+                  fluid
+                  icon="home"
+                  disabled={house_options.length === 0}
+                  tooltip={
+                    house_options.length === 0
+                      ? 'No housing is currently available.'
+                      : ' '
+                  }
+                  onClick={() => setPicking(true)}
+                >
+                  Claim a House
+                </Button>
+              )}
             </Stack.Item>
             <Stack.Item>
               <Button
@@ -62,6 +84,55 @@ export const HousingBrowser = () => {
             </Stack.Item>
           </Stack>
         </Section>
+        {!has_instance && picking && (
+          <Section
+            title="Choose Your House"
+            buttons={
+              <Button
+                icon="xmark"
+                tooltip="Cancel"
+                onClick={() => setPicking(false)}
+              />
+            }
+          >
+            {house_options.length === 0 ? (
+              <Stack.Item color="label">
+                No housing is currently available.
+              </Stack.Item>
+            ) : (
+              house_options.map((opt) => (
+                <Stack
+                  key={opt.template_type}
+                  justify="space-between"
+                  align="center"
+                  mb={1}
+                >
+                  <Stack.Item grow>
+                    {opt.name}
+                    <br />
+                    <span style={{ opacity: 0.6, fontSize: '0.85em' }}>
+                      {sizeLabel(opt.size)} &middot; {opt.count} available
+                    </span>
+                  </Stack.Item>
+                  <Stack.Item>
+                    <Button
+                      icon="home"
+                      disabled={opt.count === 0}
+                      onClick={() => {
+                        act('claim_house', {
+                          template_type: opt.template_type,
+                        });
+                        setPicking(false);
+                      }}
+                    >
+                      Claim
+                    </Button>
+                  </Stack.Item>
+                </Stack>
+              ))
+            )}
+          </Section>
+        )}
         {!!has_instance && (
           <Section title="Guests">
             {guests.length === 0 ? (
@@ -121,7 +192,7 @@ export const HousingBrowser = () => {
                       />
                       <Button
                         icon="pen"
-                        tooltip="Rename your house" // surely this wont go terribly
+                        tooltip="Rename your house"
                         onClick={() => act('rename')}
                       />
                     </>

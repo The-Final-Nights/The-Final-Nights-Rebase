@@ -11,52 +11,54 @@
 #define HOUSING_SIZE_MEDIUM 1
 #define HOUSING_SIZE_LARGE 2
 
+#define HOUSING_PRELOAD_COUNT 5
+
 /datum/map_template/housing/townhouse/one
 	name = "Townhouse"
 	mappath = HOUSING_TOWNHOUSE_MAP_1
-	keep_cached_map = TRUE
+	keep_cached_map = FALSE
 	should_place_on_top = FALSE
 
 /datum/map_template/housing/townhouse/two
 	name = "Townhouse"
 	mappath = HOUSING_TOWNHOUSE_MAP_2
-	keep_cached_map = TRUE
+	keep_cached_map = FALSE
 	should_place_on_top = FALSE
 
 /datum/map_template/housing/smallhome/one
 	name = "Low Income Housing 1"
 	mappath = HOUSING_SMALLHOME_MAP_1
-	keep_cached_map = TRUE
+	keep_cached_map = FALSE
 	should_place_on_top = FALSE
 
 /datum/map_template/housing/smallhome/two
 	name = "Low Income Housing 2"
 	mappath = HOUSING_SMALLHOME_MAP_2
-	keep_cached_map = TRUE
+	keep_cached_map = FALSE
 	should_place_on_top = FALSE
 
 /datum/map_template/housing/townhouse/three
 	name = "Townhouse"
 	mappath = HOUSING_TOWNHOUSE_MAP_3
-	keep_cached_map = TRUE
+	keep_cached_map = FALSE
 	should_place_on_top = FALSE
 
 /datum/map_template/housing/townhouse/four
 	name = "Townhouse"
 	mappath = HOUSING_TOWNHOUSE_MAP_4
-	keep_cached_map = TRUE
+	keep_cached_map = FALSE
 	should_place_on_top = FALSE
 
 /datum/map_template/housing/bighouse
 	name = "Big House"
 	mappath = HOUSING_BIGHOME_MAP_1
-	keep_cached_map = TRUE
+	keep_cached_map = FALSE
 	should_place_on_top = FALSE
 
 /datum/map_template/housing/bighouse/two
 	name = "Big House"
 	mappath = HOUSING_BIGHOME_MAP_2
-	keep_cached_map = TRUE
+	keep_cached_map = FALSE
 	should_place_on_top = FALSE
 
 /turf/closed/housing/border
@@ -78,6 +80,7 @@
 	var/size = HOUSING_SIZE_MEDIUM
 	var/house_name = ""
 	var/is_model = FALSE
+	var/template_display_name = ""
 	var/datum/map_template/housing/loaded_template
 	var/datum/map_template/housing/forced_template
 
@@ -98,9 +101,8 @@
 		to_chat(user, span_warning("You don't have access to this residence."))
 		return
 	if(!loaded)
-		if(!SShousing.load_instance(src))
-			to_chat(user, span_warning("No housing plots are currently available."))
-			return
+		to_chat(user, span_warning("This residence is unavailable."))
+		return
 	user.forceMove(spawn_turf)
 
 /datum/housing_instance/Topic(href, list/href_list)
@@ -135,9 +137,10 @@ SUBSYSTEM_DEF(housing)
 	var/datum/map_template/housing/townhouse/four/townhouse_template_four
 	var/datum/map_template/housing/bighouse/bighouse_template
 	var/datum/map_template/housing/bighouse/two/bighouse_template_two
-	var/list/available_slots = list() // list of list(x, y, z). the missile knows where it is etc
+	var/list/available_slots = list()
 	var/list/instances = list()
 	var/list/model_homes = list()
+	var/list/unclaimed_instances = list()
 
 /datum/controller/subsystem/housing/Initialize()
 	housing_level_1 = SSmapping.add_new_zlevel("Housing Floor 1", list(
@@ -162,6 +165,7 @@ SUBSYSTEM_DEF(housing)
 	bighouse_template_two = new /datum/map_template/housing/bighouse/two()
 	generate_slots()
 	spawn_model_homes()
+	preload_player_instances()
 	return SS_INIT_SUCCESS
 
 // this happens at init time once, and in my tests it took less than a second to complete
@@ -201,15 +205,7 @@ SUBSYSTEM_DEF(housing)
 			return TRUE
 	return FALSE
 
-/datum/controller/subsystem/housing/proc/assign_instance(mob/living/user)
-	if(instances[user.mind])
-		return instances[user.mind]
-	var/datum/housing_instance/inst = new()
-	inst.owner_mind = user.mind
-	instances[user.mind] = inst
-	return inst
-
-/datum/controller/subsystem/housing/proc/load_instance(datum/housing_instance/inst, mob/living/carbon/human/user)
+/datum/controller/subsystem/housing/proc/load_instance(datum/housing_instance/inst)
 	if(!length(available_slots))
 		message_admins("Housing: load_instance failed - no slots remaining")
 		return FALSE
@@ -222,9 +218,6 @@ SUBSYSTEM_DEF(housing)
 	message_admins("Housing: loading instance at ([coords[1]], [coords[2]], [coords[3]]) - [length(available_slots)] slots remaining")
 	inst.slot_origin = slot
 
-	if(!isnull(user))
-		inst.size = user.st_get_stat(STAT_FINANCE) >= 5 ? HOUSING_SIZE_LARGE : HOUSING_SIZE_MEDIUM
-
 	var/datum/map_template/housing/chosen
 	if(inst.forced_template)
 		chosen = inst.forced_template
@@ -236,14 +229,6 @@ SUBSYSTEM_DEF(housing)
 		chosen = pick(bighouse_template, bighouse_template_two)
 	chosen.load(slot)
 	inst.loaded_template = chosen
-	var/list/loaded_turfs = block(
-		slot.x, slot.y, slot.z,
-		slot.x + chosen.width - 1,
-		slot.y + chosen.height - 1,
-		slot.z,
-	)
-
-
 	var/list/both_floors = block(
 		slot.x, slot.y, slot.z,
 		slot.x + chosen.width - 1,
@@ -263,7 +248,7 @@ SUBSYSTEM_DEF(housing)
 
 	// makes 'unique' areas and ties the lightswitches to them, so one property's switches dont control others of the same type
 	var/list/area_by_type = list()
-	for(var/turf/T in loaded_turfs)
+	for(var/turf/T in both_floors)
 		var/area/shared_area = T.loc
 		if(!istype(shared_area, /area/housing))
 			continue
@@ -277,7 +262,7 @@ SUBSYSTEM_DEF(housing)
 			area_by_type[area_type] = inst_area
 		set_turf_to_area(T, area_by_type[area_type])
 
-	for(var/turf/T in loaded_turfs)
+	for(var/turf/T in both_floors)
 		for(var/obj/machinery/light_switch/switchy in T)
 			if(!switchy.area || !istype(switchy.area, /area/housing))
 				continue
@@ -327,11 +312,29 @@ SUBSYSTEM_DEF(housing)
 			"ref" = REF(inst),
 		))
 
+	// build house picker options grouped by template type
+	var/list/house_options = list()
+	if(!instances[user.mind])
+		var/list/type_seen = list()
+		for(var/datum/housing_instance/inst in unclaimed_instances)
+			var/type_str = "[inst.loaded_template.type]"
+			if(type_seen[type_str])
+				type_seen[type_str]["count"]++
+			else
+				var/list/opt = list(
+					"name" = inst.template_display_name,
+					"size" = inst.size,
+					"count" = 1,
+					"template_type" = type_str,
+				)
+				type_seen[type_str] = opt
+				house_options += list(opt)
+
 	return list(
 		"instances" = entries,
 		"model_homes" = model_entries,
 		"has_instance" = !isnull(instances[user.mind]),
-		"slots_available" = length(available_slots) > 0,
+		"house_options" = house_options,
 		"guests" = guests,
 	)
 
@@ -341,7 +344,7 @@ SUBSYSTEM_DEF(housing)
 		return FALSE
 	switch(action)
 		if("exit")
-			var/atom/destination = ui.user.mind?.assigned_role?.get_latejoin_spawn_point() // a subway spawnpoint
+			var/atom/destination = ui.user.mind?.assigned_role?.get_latejoin_spawn_point()
 			if(!destination)
 				return FALSE
 			var/mob/living/escorted = isliving(ui.user.pulling) ? ui.user.pulling : null
@@ -350,17 +353,42 @@ SUBSYSTEM_DEF(housing)
 				escorted.forceMove(destination)
 			return TRUE
 		if("go_home")
-			if(ui.user.client?.prefs?.donator_rank < DONATOR_ANTEDILUVIAN)
-				to_chat(ui.user, span_warning("Anyone can visit properties, but you must be an Antediluvian tier donator or above to claim yours."))
+			var/datum/housing_instance/inst = instances[ui.user.mind]
+			if(!inst?.loaded)
 				return FALSE
 			if(is_in_housing(ui.user))
 				to_chat(ui.user, span_warning("You must leave the house you are in first."))
 				return FALSE
-			var/datum/housing_instance/inst = assign_instance(ui.user)
-			if(!inst.loaded)
-				if(!load_instance(inst, ui.user))
-					to_chat(ui.user, span_warning("No housing slots are currently available."))
-					return FALSE
+			var/mob/living/dragged_guest = isliving(ui.user?.pulling) ? ui.user?.pulling : null
+			ui.user.forceMove(inst.spawn_turf)
+			if(dragged_guest?.mind)
+				inst.guests |= dragged_guest.mind
+				dragged_guest.forceMove(inst.spawn_turf)
+			return TRUE
+		if("claim_house")
+			if(ui.user.client?.prefs?.donator_rank < DONATOR_ANTEDILUVIAN)
+				to_chat(ui.user, span_warning("Anyone can visit properties, but you must be an Antediluvian tier donator or above to claim yours."))
+				return FALSE
+			if(instances[ui.user.mind])
+				return FALSE
+			if(is_in_housing(ui.user))
+				to_chat(ui.user, span_warning("You must leave the house you are in first."))
+				return FALSE
+			var/template_type = params["template_type"]
+			if(!template_type)
+				return FALSE
+			var/datum/housing_instance/inst
+			for(var/datum/housing_instance/candidate in unclaimed_instances)
+				if("[candidate.loaded_template.type]" == template_type)
+					inst = candidate
+					break
+			if(!inst)
+				to_chat(ui.user, span_warning("No housing of that type is currently available."))
+				return FALSE
+			unclaimed_instances -= inst
+			inst.owner_mind = ui.user.mind
+			inst.locked = TRUE
+			instances[ui.user.mind] = inst
 			var/mob/living/dragged_guest = isliving(ui.user?.pulling) ? ui.user?.pulling : null
 			ui.user.forceMove(inst.spawn_turf)
 			if(dragged_guest?.mind)
@@ -498,6 +526,33 @@ SUBSYSTEM_DEF(housing)
 		model_homes += inst
 	message_admins("Housing: loaded [length(model_homes)] model homes")
 
+// pre-loads HOUSING_PRELOAD_COUNT of each house type so players claim pre-spawned instances
+/datum/controller/subsystem/housing/proc/preload_player_instances()
+	var/list/defs = list(
+		list("Low Income Housing 1", HOUSING_SIZE_SMALL, smallhome_template_one),
+		list("Low Income Housing 2", HOUSING_SIZE_SMALL, smallhome_template_two),
+		list("Townhouse 1", HOUSING_SIZE_MEDIUM, townhouse_template_one),
+		list("Townhouse 2", HOUSING_SIZE_MEDIUM, townhouse_template_two),
+		list("Townhouse 3", HOUSING_SIZE_MEDIUM, townhouse_template_three),
+		list("Townhouse 4", HOUSING_SIZE_MEDIUM, townhouse_template_four),
+		list("Estate 1", HOUSING_SIZE_LARGE, bighouse_template),
+		list("Estate 2", HOUSING_SIZE_LARGE, bighouse_template_two),
+	)
+	var/loaded = 0
+	for(var/i in 1 to HOUSING_PRELOAD_COUNT)
+		for(var/list/def in defs)
+			var/datum/housing_instance/inst = new()
+			inst.template_display_name = def[1]
+			inst.size = def[2]
+			inst.forced_template = def[3]
+			if(!load_instance(inst))
+				message_admins("Housing: failed to preload '[def[1]]' (slot [i]). Tell Nimi!")
+				qdel(inst)
+				continue
+			unclaimed_instances += inst
+			loaded++
+	message_admins("Housing: preloaded [loaded]/[HOUSING_PRELOAD_COUNT * length(defs)] player instances")
+
 #undef HOUSING_SMALLHOME_MAP_1
 #undef HOUSING_SMALLHOME_MAP_2
 #undef HOUSING_TOWNHOUSE_MAP_1
@@ -509,3 +564,4 @@ SUBSYSTEM_DEF(housing)
 #undef HOUSING_SIZE_SMALL
 #undef HOUSING_SIZE_MEDIUM
 #undef HOUSING_SIZE_LARGE
+#undef HOUSING_PRELOAD_COUNT
