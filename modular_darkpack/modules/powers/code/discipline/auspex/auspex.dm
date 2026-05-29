@@ -137,7 +137,7 @@
 	duration_length = 5 TURNS // TFN EDIT
 	cooldown_length = 1 TURNS // TFN EDIT ORIGINAL: cooldown_length = 1 SCENES
 	vitae_cost = 0
-	target_type = TARGET_HUMAN | TARGET_SELF // TFN EDIT
+	target_type = TARGET_HUMAN | TARGET_SELF // TFN EDIT - Auspex Accuracy Pass
 	cancelable = TRUE
 	var/datum/storyteller_roll/aura_perception/aura_roll
 	// TFN EDIT START - TFN - AUSPEX ACCURACY PASS - AURA TARGETED REWORK
@@ -502,7 +502,7 @@ character with the most successes wins
 /datum/discipline_power/auspex/psychic_projection/activate()
 	. = ..()
 	var/roll = SSroll.storyteller_roll(owner.st_get_stat(STAT_PERCEPTION) + owner.st_get_stat(STAT_AWARENESS), 7, owner)
-	// TFN EDIT - Auspex Accuracy Pass - Dangerous Projection
+	// TFN EDIT START - Auspex Accuracy Pass - Dangerous Projection
 	switch(roll)
 		if(ROLL_SUCCESS)
 			playing_with_fire = owner.enter_avatar()
@@ -520,9 +520,7 @@ character with the most successes wins
 			playsound(playing_with_fire, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/eldritchlaugh.ogg', vol = 15, falloff_distance = 2, vary = TRUE)
 
 			addtimer(CALLBACK(src, PROC_REF(exhaust_timer)), PROJECTION_TIMER_LENGTH)
-	// TFN EDIT EN - Auspex Accuracy Pass - Dangerous Projection
 
-// TFN EDIT START - Auspex Accuracy Pass - Dangerous Projection
 /datum/discipline_power/auspex/psychic_projection/proc/exhaust_timer()
 	if(!playing_with_fire)
 		return
