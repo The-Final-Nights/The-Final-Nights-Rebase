@@ -87,13 +87,20 @@
 
 /datum/component/aura/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	// TFN EDIT START
+	// TFN EDIT START AUSPEX ACCURACY PASS
 	if(HAS_TRAIT(parent, TRAIT_OBFUSCATED))
 		return
-	// TFN EDIT END
-	var/datum/atom_hud/data/auspex_aura/auspex_hud = GLOB.huds[DATA_HUD_AUSPEX_AURAS]
-	if(!(user in auspex_hud.hud_users_all_z_levels))
+
+	var/datum/splat/vampire/vamp = get_splat_with_discipline(user)
+	var/datum/discipline_power/auspex/aura_perception/aura_disc = vamp?.get_discipline(/datum/discipline/auspex)?.get_power(/datum/discipline_power/auspex/aura_perception)
+
+	if(aura_disc)
+		if(!(parent in aura_disc.list_of_mobs_with_aura))
+			return
+	else
 		return
+	// TFN EDIT END AUSPEX ACCURACY PASS
+
 	update_examine_message(null)
 	if(!examine_message)
 		return
