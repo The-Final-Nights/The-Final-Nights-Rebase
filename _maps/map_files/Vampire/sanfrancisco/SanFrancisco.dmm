@@ -7658,6 +7658,17 @@
 /area/vtm)
 "bTv" = (
 /obj/structure/closet/cabinet,
+/obj/item/vampire_stake,
+/obj/item/fireaxe/vamp{
+	armour_penetration = 40;
+	block_chance = 30;
+	desc = "YOU STUPID BITCH, WHY DON'T YOU TALK?!! HERE'S JOHNY!!!";
+	force = 35;
+	name = "Brenda"
+	},
+/obj/item/toy/dummy{
+	pixel_x = -4
+	},
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/clinic/haven)
 "bTz" = (
@@ -26612,9 +26623,8 @@
 /turf/open/floor/carpet/royalblue,
 /area/vtm/interior/jazzclub)
 "gGE" = (
-/obj/effect/decal/wallpaper/blue,
-/turf/closed/wall/vampwall/city,
-/area/vtm/interior/sewer)
+/turf/closed/wall/vampwall/brick_old,
+/area/vtm/interior/clinic/haven)
 "gGP" = (
 /turf/open/floor/plating,
 /area/vtm)
@@ -45555,16 +45565,6 @@
 /area/vtm/interior/sewer/nosferatu_warren)
 "lsB" = (
 /obj/structure/table/wood,
-/obj/item/toy/dummy{
-	pixel_x = -4
-	},
-/obj/item/fireaxe/vamp{
-	armour_penetration = 40;
-	block_chance = 30;
-	desc = "YOU STUPID BITCH, WHY DON'T YOU TALK?!! HERE'S JOHNY!!!";
-	force = 35;
-	name = "Brenda"
-	},
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/clinic/haven)
 "lsG" = (
@@ -73458,6 +73458,20 @@
 /obj/item/aquarium_kit,
 /obj/item/restraints/handcuffs,
 /obj/item/vampire_stake,
+/obj/item/vamp/keys/clinic{
+	pixel_y = 11;
+	pixel_x = 11
+	},
+/obj/item/vamp/keys/clinic{
+	pixel_y = 11;
+	pixel_x = 11
+	},
+/obj/item/vamp/keys/camarilla{
+	accesslocks = list("malkav","malkav1","malkav2", "fireshelter");
+	name = "Master key";
+	pixel_y = 5;
+	pixel_x = -7
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/clinic/haven)
 "ska" = (
@@ -79410,13 +79424,6 @@
 	desc = "A board with pamphlets of Saint John's Community Health Clinic.";
 	pixel_y = 32
 	},
-/obj/item/vamp/keys/clinic{
-	accesslocks = list("fireshelter");
-	name = "Fire Shelter keys";
-	desc = "Keys to the clinic's fire shelter.";
-	color = "#e06224"
-	},
-/obj/item/vampire_stake,
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/clinic/haven)
 "tHJ" = (
@@ -131044,7 +131051,7 @@ vAM
 vAM
 vAM
 vAM
-vAM
+uvs
 tuX
 aej
 vFf
@@ -131244,7 +131251,7 @@ vAM
 vAM
 cEX
 cEX
-cEX
+elG
 elG
 elG
 elG
@@ -133467,7 +133474,7 @@ tuX
 tuX
 tuX
 tuX
-gGE
+pik
 ksg
 jBe
 lfI
@@ -133671,7 +133678,7 @@ vlV
 vlV
 oRh
 gSI
-tuX
+gGE
 vAM
 vAM
 vAM
