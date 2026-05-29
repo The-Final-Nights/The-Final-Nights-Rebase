@@ -1,6 +1,6 @@
 /datum/job/vampire/employee
 	title = JOB_PENTEX_EMPLOYEE
-	description = "You are an employee for " + MAIN_EVIL_COMPANY + ", operating out of San Francisco. Your bosses can be a little strange; give credence to the security team and executives for tasks on the night shift, and avoid getting negative attention from the branch manager or internal affairs."
+	description = "You are an employee for " + EVIL_PHARMA_COMPANY + ", operating out of San Francisco. Your bosses can be a little strange; give credence to the security team and executives for tasks on the night shift, and avoid getting negative attention from the branch manager or internal affairs."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 3
@@ -17,11 +17,11 @@
 	outfit = /datum/outfit/job/vampire/employee
 
 	alt_titles = list(
-		"Endron Employee",
-		"Endron Janitor",
-		"Endron Secretary",
-		"Endron Researcher",
-		"Endron Labourer"
+		"Magadon Employee",
+		"Magadon Janitor",
+		"Magadon Secretary",
+		"Magadon Researcher",
+		"Magadon Labourer"
 	)
 
 	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)	minimal_masquerade = 3
@@ -49,9 +49,9 @@
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex
-	uniform = /obj/item/clothing/under/vampire/pentex_longleeve
+	uniform = /obj/item/clothing/under/vampire/magadon_shirtlongsleeve
 	gloves = /obj/item/clothing/gloves/vampire/work
 	shoes = /obj/item/clothing/shoes/vampire
 	r_pocket = /obj/item/vamp/keys/pentex
-	l_pocket = /obj/item/smartphone
+	l_pocket = /obj/item/smartphone/magadon_employee
 	backpack_contents = list(/obj/item/card/credit=1)
