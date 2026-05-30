@@ -149,19 +149,8 @@
 			if("cherry")
 				payout_multiplier = cherry_payout
 
-
-// TFN Edit: Pairs will now return your bet instead of doubling it to avoid massive player favoured advantage.
 	else if(reelone == reeltwo || reelone == reelthree || reeltwo == reelthree)
 		payout_multiplier = 1 // any pair pays 1x the bet
-
-// TFN Removal: Removing ridiculous fucking mechanics that contributed to the return to player percentage exceeding 200%.
-/* TFN REMOVAL START
-
-	for(var/symbol in reels)
-		if(symbol == "diamond")
-			payout_multiplier *= 2 // each diamond multiplies payout by 2
-
-TFN REMOVAL END */
 
 	return CEILING(payout_multiplier, 1) // round up just incase
 
