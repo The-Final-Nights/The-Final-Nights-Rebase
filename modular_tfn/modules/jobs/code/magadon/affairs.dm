@@ -1,6 +1,6 @@
 /datum/job/vampire/affairs
 	title = JOB_PENTEX_AFFAIRS
-	description = "You are the internal affairs agent operating for " + MAIN_EVIL_COMPANY + ". You know the bloody and vile needs commanded of destruction will lead to jeopardy, and your duty is to see excellence on task rewarded and acknowledged, and curb the invariable atrocities that could endanger the greater plans of Pentex."
+	description = "You are the internal affairs agent operating for " + EVIL_PHARMA_COMPANY + ". You know the bloody and vile needs commanded of destruction will lead to jeopardy, and your duty is to see excellence on task rewarded and acknowledged, and curb the invariable atrocities that could endanger the greater plans of Pentex."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 1
@@ -44,8 +44,8 @@
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex/affairs
-	uniform =  /obj/item/clothing/under/vampire/pentex_suit
+	uniform =  /obj/item/clothing/under/vampire/magadon_suit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
-	l_pocket = /obj/item/smartphone
+	l_pocket = /obj/item/smartphone/magadon_affairs
 	r_pocket = /obj/item/vamp/keys/pentex
 	backpack_contents = list(/obj/item/phone_book=1, /obj/item/veil_contract, /obj/item/card/credit/rich=1)
