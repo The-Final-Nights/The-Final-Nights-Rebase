@@ -11,7 +11,7 @@
 		new	/datum/data/vending_product(".45 ACP ammo", /obj/item/ammo_box/darkpack/c45acp, 700),
 		new /datum/data/vending_product("9mm ammo", /obj/item/ammo_box/darkpack/c9mm, 600),
 		new /datum/data/vending_product(".44 ammo", /obj/item/ammo_box/darkpack/c44, 800),
-		new /datum/data/vending_product("5.56 ammo", /obj/item/ammo_box/darkpack/c556, 1200),	//TFN EDIT - CASINO CARGO CHANGES
+		new /datum/data/vending_product("5.56 ammo", /obj/item/ammo_box/darkpack/c556, 1200),	//TFN EDIT - CASINO CARGO CHANGES - Original: new /datum/data/vending_product("5.56 ammo", /obj/item/ammo_box/darkpack/c556, 2000),
 		new /datum/data/vending_product("shotgun", /obj/item/gun/ballistic/shotgun/vampire, 900),
 		new /datum/data/vending_product("double barrel shotgun", /obj/item/gun/ballistic/shotgun/vampire/doublebarrel, 1100),
 		new /datum/data/vending_product("12ga shotgun shells, buckshot", /obj/item/ammo_box/darkpack/c12g/buck, 400),
