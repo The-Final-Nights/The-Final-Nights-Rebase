@@ -25,3 +25,19 @@
 	cost = 40000
 	contains = list(/obj/item/claymore/longsword/silver)
 	crate_name = "weapon crate"
+
+/datum/supply_pack/weapons/brassknuckles
+	name = "Weapon (brass knuckles)"
+	desc = "Contains three sets of brass knuckles."
+	cost = 300
+	contains = list(/obj/item/clothing/gloves/vampire/brassknuckles,
+					/obj/item/clothing/gloves/vampire/brassknuckles,
+					/obj/item/clothing/gloves/vampire/brassknuckles)
+	crate_name = "weapon crate"
+
+/datum/supply_pack/weapons/spikedknuckles
+	name = "Weapon (brass knuckles)"
+	desc = "Contains a very illegal set of spiked knuckles."
+	cost = 1000
+	contains = list(/obj/item/clothing/gloves/vampire/brassknuckles/spiked)
+	crate_name = "weapon crate"

@@ -160,7 +160,6 @@
 	contains = list(/obj/item/gun/ballistic/automatic/darkpack/ak74)
 	crate_name = "weapon crate"
 
-/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/weaponrifle
 	name = "Weapon (AR-15)"
 	desc = "Contains an AR-15 assault rifle."
@@ -168,6 +167,7 @@
 	contains = list(/obj/item/gun/ballistic/automatic/darkpack/ar15, /obj/item/ammo_box/magazine/darkpack556)
 	crate_name = "weapon crate"
 
+/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/weaponcarbine
 	name = "Weapon (AUG)"
 	desc = "Contains an AUG assault carbine."
@@ -255,13 +255,11 @@
 	contains = list(/obj/item/ammo_box/darkpack/c45acp/silver)
 	crate_name = "ammo crate"
 
-/* //TFN EDIT REMOVE START
 /datum/supply_pack/weapons/ammo556/silver
 	name = "Ammo (5.56, silver)"
 	desc = "Contains a box of silver 5.56 ammunition."
 	cost = 3000
 	contains = list(/obj/item/ammo_box/darkpack/c556/silver)
-*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/weapons/ammo50
 	name = "Ammo (.50)"
