@@ -103,13 +103,11 @@
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle, /obj/item/ammo_box/magazine/m44)
 	crate_name = "weapon crate"
 
-/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/weapons/weapondeagle50
 	name = "Weapon (desert eagle 50AE)"
 	desc = "Contains a .50 caliber desert eagle."
 	cost = 2000
 	contains = list(/obj/item/gun/ballistic/automatic/pistol/deagle, /obj/item/ammo_box/magazine/m50)
-*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/weapons/glock
 	name = "Weapon (Brokk19)"
@@ -330,14 +328,12 @@
 	contains = list(/obj/item/ammo_box/magazine/m44, /obj/item/ammo_box/magazine/m44, /obj/item/ammo_box/magazine/m44)
 	crate_name = "ammo crate"
 
-/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/weapons/magazine_deagle50
 	name = "Ammo (3x Desert Eagle 50AE magazines)"
 	desc = "Contains three desert eagle 50AE magazines."
 	cost = 1200
 	contains = list(/obj/item/ammo_box/magazine/m50, /obj/item/ammo_box/magazine/m50, /obj/item/ammo_box/magazine/m50)
 	crate_name = "ammo crate"
-*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/weapons/magazine_mp5
 	name = "Ammo (3x HK MP5 magazines)"
