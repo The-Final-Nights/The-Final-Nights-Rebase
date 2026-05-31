@@ -1,10 +1,10 @@
 /datum/job/vampire/pentex_sec
 	title = JOB_PENTEX_SEC
-	description = "You are an acting security for " + MAIN_EVIL_COMPANY + ", operating out of San Francisco. Under the chief of security's direction, your job is to keep the complex free of nosy meddlers, pick up contract violators, and to assist the chief in tackling threats to corporate assets."
+	description = "You are an acting security for " + EVIL_PHARMA_COMPANY + ", operating out of San Francisco. Under the chief of security's direction, your job is to keep the complex free of nosy meddlers, pick up contract violators, and to assist the chief in tackling threats to corporate assets."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
-	total_positions = 4 // TFN EDIT CHANGE
-	spawn_positions = 4 // TFN EDIT CHANGE
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the Board, Branch Lead, and Chief of Security"
 	req_admin_notify = 1
 	minimal_player_age = 25
@@ -16,7 +16,7 @@
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/pentex_sec
 
-	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)	minimal_masquerade = 3
+	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN)
 
 	display_order = JOB_DISPLAY_ORDER_PENTEX_SEC
 	department_for_prefs = /datum/job_department/pentex
@@ -42,11 +42,11 @@
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex/sec
-	uniform =  /obj/item/clothing/under/vampire/pentex_shortsleeve
+	uniform =  /obj/item/clothing/under/vampire/magadon_shirt
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	gloves = /obj/item/clothing/gloves/vampire/work
 	suit = /obj/item/clothing/suit/vampire/vest
 	belt = /obj/item/storage/belt/holster/detective/darkpack/endron
-	l_pocket = /obj/item/smartphone
+	l_pocket = /obj/item/smartphone/magadon_security
 	r_pocket = /obj/item/vamp/keys/pentex
 	backpack_contents = list(/obj/item/phone_book=1, /obj/item/card/credit=1)
