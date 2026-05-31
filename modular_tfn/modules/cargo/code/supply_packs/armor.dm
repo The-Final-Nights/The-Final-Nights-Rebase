@@ -1,4 +1,4 @@
-/datum/supply_pack/weapons/armorpolice
+/datum/supply_pack/weapons/armorcivilian
 	name = "Armor (civilian)"
 	desc = "Contains a small assorment of reinforced jackets and coats."
 	cost = 2000
