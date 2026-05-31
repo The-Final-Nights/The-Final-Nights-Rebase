@@ -2664,8 +2664,7 @@
 /area/vtm)
 "aIP" = (
 /obj/structure/vampipe{
-	icon_state = "piping36";
-	pixel_y = 32
+	icon_state = "piping36"
 	},
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
@@ -18442,6 +18441,19 @@
 /obj/structure/barrels/rand,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/endron_facility/plant)
+"eEr" = (
+/obj/structure/lattice/grate,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/vampipe{
+	icon_state = "piping32"
+	},
+/turf/open/water/vamp_sewer/border,
+/area/vtm/interior/sewer)
 "eEw" = (
 /obj/machinery/jukebox/no_access{
 	density = 0;
@@ -22051,13 +22063,6 @@
 	},
 /turf/open/floor/plating/stone,
 /area/vtm/interior/supply)
-"fxs" = (
-/obj/structure/vampipe{
-	icon_state = "piping41"
-	},
-/obj/effect/decal/wallpaper/stone,
-/turf/closed/wall/vampwall/city,
-/area/vtm/interior/clinic/haven)
 "fxt" = (
 /obj/effect/landmark/npcwall,
 /turf/open/water/vamp_sewer/border,
@@ -32273,7 +32278,7 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/door/access/malkavian,
-/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/lock,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/clinic/haven)
@@ -45144,6 +45149,12 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating/concrete,
 /area/vtm/outside/financialdistrict)
+"ljF" = (
+/obj/structure/vampipe{
+	icon_state = "piping33"
+	},
+/turf/open/floor/plating/canalplating,
+/area/vtm/interior/sewer)
 "ljG" = (
 /turf/closed/wall/vampwall/rich/old{
 	density = 0;
@@ -46980,13 +46991,10 @@
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/millennium_tower)
 "lIC" = (
-/obj/structure/vampdoor,
-/obj/effect/turf_decal/siding/white{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/door/access/malkavian,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/structure/vampdoor,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
 "lID" = (
@@ -47674,7 +47682,6 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/museum)
 "lRt" = (
-/obj/machinery/light/directional/north,
 /obj/item/kirbyplants/organic/plant21{
 	pixel_y = 13;
 	pixel_x = -2
@@ -53652,10 +53659,6 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/theatre)
-"not" = (
-/obj/machinery/light/directional/south,
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior/clinic/haven)
 "now" = (
 /obj/effect/decal/pallet,
 /obj/structure/barrels/rand,
@@ -57980,6 +57983,9 @@
 /area/vtm/interior/nosferatu_office)
 "ooC" = (
 /obj/structure/table/wood/fancy/black,
+/obj/machinery/light/directional/east{
+	pixel_y = 16
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/clinic/haven)
 "ooE" = (
@@ -68343,9 +68349,6 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/outside/unionsquare)
 "qQE" = (
-/obj/effect/turf_decal/siding/white{
-	dir = 8
-	},
 /obj/structure/vampdoor{
 	dir = 4
 	},
@@ -78136,16 +78139,6 @@
 	dir = 8
 	},
 /turf/open/floor/plating/canalplating,
-/area/vtm/interior/sewer)
-"tnV" = (
-/obj/structure/vampipe{
-	icon_state = "piping32"
-	},
-/obj/structure/vampipe{
-	icon_state = "piping33";
-	pixel_y = 32
-	},
-/turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
 "tnX" = (
 /obj/structure/spacevine{
@@ -129716,7 +129709,7 @@ kpw
 lTx
 rDE
 xYw
-not
+kpw
 vAM
 uvs
 tuX
@@ -129915,7 +129908,7 @@ ieT
 ieT
 vEp
 jUU
-fsV
+kpw
 kpw
 iOg
 ooC
@@ -134399,7 +134392,7 @@ pik
 fdy
 ePU
 fDh
-fxs
+fmL
 qjs
 iHf
 iHf
@@ -135186,7 +135179,7 @@ gpd
 gpd
 gpd
 gpd
-hge
+gpd
 aIP
 kGC
 gpd
@@ -135420,7 +135413,7 @@ vAM
 vAM
 vAM
 vAM
-kOa
+lVv
 qLp
 tuX
 uvs
@@ -135612,18 +135605,18 @@ vFf
 hge
 kOa
 kOa
-kOa
-kOa
-kOa
-kOa
-kOa
-kOa
-kOa
-kOa
-kOa
-hge
-lup
-hge
+pOg
+hQT
+ljF
+hQT
+hQT
+hQT
+hQT
+hQT
+hQT
+seh
+eEr
+ndy
 kOa
 qLp
 tuX
@@ -135816,13 +135809,13 @@ vFf
 hge
 hge
 hge
-gxA
-seh
 hge
-tnV
-seh
-seh
-ndy
+hge
+hge
+hge
+hge
+hge
+hge
 hge
 hge
 hge
