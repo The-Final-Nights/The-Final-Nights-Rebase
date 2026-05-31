@@ -25,9 +25,9 @@
 		new /datum/data/vending_product("machete", /obj/item/claymore/machete, 500),
 		new /datum/data/vending_product("taser", /obj/item/melee/baton/security/handtaser, 250),
 		new /datum/data/vending_product("pepperspray", /obj/item/reagent_containers/spray/pepper, 200),
-		//TFN EDIT START - CASINO CARGO CHANGES
+		//TFN EDIT ADD START - CASINO CARGO CHANGES
 		new /datum/data/vending_product("silver 9mm ammo", /obj/item/ammo_box/darkpack/c9mm/silver, 3000),
 		new /datum/data/vending_product("silver .45 ACP ammo", /obj/item/ammo_box/darkpack/c45acp/silver, 3500),
 		new /datum/data/vending_product("silver .44 ammo", /obj/item/ammo_box/darkpack/c44/silver, 4000),
-		//TFN EDIT END - CASINO CARGO CHANGES
+		//TFN EDIT ADD END - CASINO CARGO CHANGES
 	)
