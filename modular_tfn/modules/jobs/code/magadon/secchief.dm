@@ -1,6 +1,6 @@
 /datum/job/vampire/secchief
 	title = JOB_PENTEX_SEC_CHIEF
-	description = "You are an acting chief of security for the Endron Oil Refinery, operating out of San Francisco. With discretion to the Branch Leader, your job is to keep the complex and it's proprietary information with the help of your security team, and to turn over contract violators to internal affairs or the executives."
+	description = "You are an acting chief of security for the Magadon division, operating out of San Francisco. With discretion to the Branch Leader, your job is to keep the complex and it's proprietary information with the help of your security team, and to turn over contract violators to internal affairs or the executives."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 1
@@ -16,11 +16,11 @@
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/secchief
 
-	allowed_splats = list(SPLAT_GAROU) // TFN EDIT CHANGE
+	allowed_splats = list(SPLAT_GAROU)
 //	allowed_tribes = list(TRIBE_WYRM, TRIBE_FORSWORN)
 	minimal_masquerade = 4
 	// minimal_renown_rank = 3
-	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)
+	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN)
 	display_order = JOB_DISPLAY_ORDER_SECCHIEF
 	department_for_prefs = /datum/job_department/pentex
 	departments_list = list(
@@ -39,18 +39,18 @@
 	liver_traits = list(TRAIT_ROYAL_METABOLISM)
 
 /datum/outfit/job/vampire/secchief
-	name = "Endron Chief of Security"
+	name = "Magadon Chief of Security"
 	jobtype = /datum/job/vampire/secchief
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex/secchief
-	uniform =  /obj/item/clothing/under/vampire/pentex_turtleneck
+	uniform =  /obj/item/clothing/under/vampire/magadon_turtleneck
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	gloves = /obj/item/clothing/gloves/vampire/work
 	head = /obj/item/clothing/head/vampire/pentex_beret
 	suit = /obj/item/clothing/suit/vampire/vest
 	belt = /obj/item/storage/belt/holster/detective/darkpack/endron
 	glasses = /obj/item/clothing/glasses/vampire/sun
-	l_pocket = /obj/item/smartphone
+	l_pocket = /obj/item/smartphone/magadon_sec_chief
 	r_pocket = /obj/item/vamp/keys/pentex/leader
 	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/phone_book=1, /obj/item/veil_contract, /obj/item/card/credit/rich=1)

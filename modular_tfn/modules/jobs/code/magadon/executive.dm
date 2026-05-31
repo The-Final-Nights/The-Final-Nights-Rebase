@@ -1,6 +1,6 @@
 /datum/job/vampire/executive
 	title = JOB_PENTEX_EXEC
-	description = "You are an acting executive for " + MAIN_EVIL_COMPANY + " operating out of San Francisco. With discretion to the Branch Leader, a position you may aim for, your job is to fuel production and expand operations."
+	description = "You are an acting executive for " + EVIL_PHARMA_COMPANY + " operating out of San Francisco. With discretion to the Branch Leader, a position you may aim for, your job is to fuel production and expand operations."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 1
@@ -17,15 +17,15 @@
 	outfit = /datum/outfit/job/vampire/executive
 
 	alt_titles = list(
-		"Endron Executive",
-		"Endron Regional Manager",
-		"Endron Manager",
-		"Endron Marketing Director",
-		"Endron Public Relations Manager",
-		"Endron Deputy Branch Director",
-		"Endron Chief Innovation Officer",
-		"Endron Chief Science Officer",
-		"Endron Chief Financial Officer"
+		"Magadon Executive",
+		"Magadon Regional Manager",
+		"Magadon Manager",
+		"Magadon Marketing Director",
+		"Magadon Public Relations Manager",
+		"Magadon Deputy Branch Director",
+		"Magadon Chief Innovation Officer",
+		"Magadon Chief Science Officer",
+		"Magadon Chief Financial Officer"
 	)
 
 	allowed_splats = list(SPLAT_GAROU, SPLAT_KINDRED)
@@ -55,8 +55,8 @@
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex/executive
-	uniform =  /obj/item/clothing/under/vampire/pentex_executive_suit
+	uniform =  /obj/item/clothing/under/vampire/magadon_executivesuit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
-	l_pocket = /obj/item/smartphone
+	l_pocket = /obj/item/smartphone/magadon_exec
 	r_pocket = /obj/item/vamp/keys/pentex/leader
 	backpack_contents = list(/obj/item/phone_book=1, /obj/item/card/credit/seneschal=1)

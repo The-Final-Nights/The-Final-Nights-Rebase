@@ -1,6 +1,6 @@
 /datum/job/vampire/branch_lead
 	title = JOB_PENTEX_LEAD
-	description = "You are the current branch leader for " + MAIN_EVIL_COMPANY + " , operating out of San Francisco. Your job is to fuel production and keep your clowns in line."
+	description = "You are the current branch leader for " + EVIL_PHARMA_COMPANY + " , operating out of San Francisco. Your job is to fuel production and keep your clowns in line."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 1
@@ -17,10 +17,10 @@
 	outfit = /datum/outfit/job/vampire/branch_lead
 
 	alt_titles = list(
-		"Endron Branch Lead",
-		"Endron Branch Director",
-		"Endron Regional Director",
-		"Endron Operations Director"
+		"Magadon Branch Lead",
+		"Magadon Branch Director",
+		"Magadon Regional Director",
+		"Magadon Operations Director"
 	)
 
 	minimal_masquerade = 5
@@ -44,14 +44,14 @@
 	liver_traits = list(TRAIT_ROYAL_METABOLISM)
 
 /datum/outfit/job/vampire/branch_lead
-	name = MAIN_EVIL_COMPANY + " Branch Lead"
+	name = EVIL_PHARMA_COMPANY + " Branch Lead"
 	jobtype = /datum/job/vampire/branch_lead
 
 //	ears = /obj/item/p25radio
 	id = /obj/item/card/pentex/branch_lead
-	uniform =  /obj/item/clothing/under/vampire/pentex_executive_suit
+	uniform =  /obj/item/clothing/under/vampire/magadon_executivesuit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
-	suit = /obj/item/clothing/suit/vampire/pentex_labcoat_alt
-	l_pocket = /obj/item/smartphone
+	suit = /obj/item/clothing/suit/vampire/magadon_labcoat
+	l_pocket = /obj/item/smartphone/magadon_lead
 	r_pocket = /obj/item/vamp/keys/pentex/leader
 	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/phone_book=1, /obj/item/card/credit/prince=1)
