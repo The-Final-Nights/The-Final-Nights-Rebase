@@ -216,7 +216,7 @@
 /datum/supply_pack/weapons/ammo545
 	name = "Ammo (5.45)"
 	desc = "Contains a box of 5.45 ammunition."
-	cost = 500
+	cost = 800		//TFN EDIT - CASINO CARGO CHANGES
 	contains = list(/obj/item/ammo_box/darkpack/c545, /obj/item/ammo_box/darkpack/c545)
 	crate_name = "ammo crate"
 
@@ -230,7 +230,7 @@
 /datum/supply_pack/weapons/ammo556
 	name = "Ammo (5.56)"
 	desc = "Contains a box of 5.56 ammunition."
-	cost = 1500
+	cost = 1000		//TFN EDIT - CASINO CARGO CHANGES
 	contains = list(/obj/item/ammo_box/darkpack/c556, /obj/item/ammo_box/darkpack/c556)
 	crate_name = "ammo crate"
 
