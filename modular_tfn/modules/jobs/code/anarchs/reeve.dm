@@ -25,12 +25,11 @@
 	jobtype = /datum/job/vampire/reeve
 
 	id = /obj/item/card/reeve
-	glasses = /obj/item/clothing/glasses/vampire/sun
 	uniform = /obj/item/clothing/under/vampire/bar
 	suit = /obj/item/clothing/suit/vampire/jacket/better
 	shoes = /obj/item/clothing/shoes/vampire
-	gloves = /obj/item/clothing/gloves/vampire/work
+	gloves = /obj/item/clothing/gloves/vampire/brassknuckles/spiked
 	l_pocket = /obj/item/smartphone/reeve
 	r_pocket = /obj/item/vamp/keys/baron
 	r_hand = /obj/item/gun/ballistic/shotgun/vampire/doublebarrel/sawnoff
-	backpack_contents = list(/obj/item/vampire_stake=2, /obj/item/card/credit=1, /obj/item/clothing/gloves/vampire/brassknuckles/spiked=1, /obj/item/masquerade_contract=1, /obj/item/ammo_box/darkpack/c12g/buck=1)
+	backpack_contents = list(/obj/item/vampire_stake=1, /obj/item/card/credit=1, /obj/item/masquerade_contract=1, /obj/item/ammo_box/darkpack/c12g/buck=1)
