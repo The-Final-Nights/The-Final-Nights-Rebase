@@ -1,7 +1,6 @@
 /datum/job/vampire/revenant
 	title = JOB_SABBAT_REVENANT
 	description = "You are a Revenant of the Sabbat, a family maintained to serve their superiors within the manor. Born with vitae within your veins, your very existence is to serve."
-	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_CITY
 	total_positions = 3
 	spawn_positions = 3
@@ -25,7 +24,7 @@
 	name = "Revenant"
 	jobtype = /datum/job/vampire/revenant
 
-	id = /obj/item/card/camarilla
+	id = /obj/item/card/noddist
 	uniform = /obj/item/clothing/under/vampire/voivode
 	shoes = /obj/item/clothing/shoes/vampire/jackboots
 	r_pocket = /obj/item/vamp/keys/sabbat

@@ -52,7 +52,7 @@
 /obj/item/smartphone/toreador_primo
 	important_contact_of = VAMPIRE_CLAN_TOREADOR
 	contact_networks_pre_init = list(
-		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Rosebud Night Club Manager", USE_JOB_TITLE = FALSE) // TFN EDIT CHANGE - ORIGINAL: alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Rosebud Night Club Owner", USE_JOB_TITLE = FALSE)
+		alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = (PRIMARY_NIGHTCLUB_COMPANY + " Night Club Owner"), USE_JOB_TITLE = FALSE)
 		)
 
 // NOSFERATU
@@ -262,8 +262,31 @@
 /obj/item/smartphone/doctor/director
 	contact_networks_pre_init = list(
 		alist(NETWORK_ID = CLINIC_NETWORK, OUR_ROLE = "Clinic Director", USE_JOB_TITLE = TRUE)
+		, alist(NETWORK_ID = MAGADON_LEADER_NETWORK, OUR_ROLE = "Clinic Director", USE_JOB_TITLE = FALSE) // TFN Edit - Magadonification
 		)
 //TFN EDIT ADD END
+
+/obj/item/smartphone/novice
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = SOCIETY_OF_LEOPOLD_NETWORK, OUR_ROLE = "Novice", USE_JOB_TITLE = TRUE)
+		)
+
+/obj/item/smartphone/condottieri
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = SOCIETY_OF_LEOPOLD_NETWORK, OUR_ROLE = "Condottieri", USE_JOB_TITLE = TRUE)
+		)
+
+/obj/item/smartphone/inquisitor
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = SOCIETY_OF_LEOPOLD_NETWORK, OUR_ROLE = "Inquisitor", USE_JOB_TITLE = TRUE)
+		)
+
+/obj/item/smartphone/abbe
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = SOCIETY_OF_LEOPOLD_NETWORK, OUR_ROLE = "Abbé", USE_JOB_TITLE = TRUE)
+		)
+
+
 #undef NETWORK_ID
 #undef OUR_ROLE
 #undef USE_JOB_TITLE

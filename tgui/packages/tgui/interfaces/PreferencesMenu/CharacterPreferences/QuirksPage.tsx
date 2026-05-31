@@ -1,5 +1,5 @@
 import { filter } from 'es-toolkit/compat';
-import { useState } from 'react';
+import { useEffect, useState } from 'react'; // TFN EDIT
 import { useBackend } from 'tgui/backend';
 import {
   Box,
@@ -21,7 +21,6 @@ import {
 import { useRandomToggleState } from '../useRandomToggleState';
 import { useServerPrefs } from '../useServerPrefs';
 import { getRandomization, PreferenceList } from './MainPage';
-// import { PersonalityPage } from './PersonalityPage';
 
 function getColorValueClass(quirk: Quirk) {
   if (quirk.value > 0) {
@@ -305,12 +304,13 @@ function QuirkPage() {
   const randomBodyEnabled =
     data.character_preferences.non_contextual.random_body !==
       RandomSetting.Disabled || randomToggleEnabled;
+  // TFN EDIT START
+  const [selectedQuirks, setSelectedQuirks] = useState<string[]>(data.selected_quirks);
 
-  const selectedQuirks = data.selected_quirks;
-  function setSelectedQuirks(selected_quirks) {
-    data.selected_quirks = selected_quirks;
-  }
-
+  useEffect(() => {
+    setSelectedQuirks(data.selected_quirks);
+  }, [data.selected_quirks]);
+  // TFN EDIT END
   const [quirkActionLocked, setQuirkActionLocked] = useState(false);
 
   function withQuirkDebounce(debounce: () => void, delay = 200) {
@@ -344,7 +344,7 @@ function QuirkPage() {
     }
   });
 
-  const balance = data.freebie_points ?? 0; // DARKPACK EDIT CHANGE - Original :   let balance = -data.default_quirk_balance;
+  const balance = data.freebie_points ?? 0; // DARKPACK EDIT CHANGE - ORIGINAL: let balance = -data.default_quirk_balance;
   let positiveQuirks = 0;
 
   for (const selectedQuirkName of selectedQuirks) {
@@ -357,7 +357,7 @@ function QuirkPage() {
       positiveQuirks += 1;
     }
 
-    //balance += selectedQuirk.value; DARKPACK EDIT REMOVAL - Merits/Flaws
+    //balance += selectedQuirk.value; DARKPACK EDIT REMOVAL - MERITS_FLAWS
   }
 
   function getReasonToNotAdd(quirkName: string) {
@@ -370,11 +370,11 @@ function QuirkPage() {
         return 'You need a negative quirk to balance this out!';
       }
     }
-    //DARKPACK EDIT ADD - Merits/Flaws
+    // DARKPACK EDIT ADD - MERITS_FLAWS
     if (balance - quirk.value < 0) {
       return 'You need more freebie points to take this quirk!';
     }
-    //DARKPACK EDIT ADD - Merits/Flaws
+    // DARKPACK EDIT ADD - MERITS_FLAWS
 
     const selectedQuirkNames = selectedQuirks.map((quirkKey) => {
       return quirkInfo[quirkKey].name;
@@ -394,8 +394,8 @@ function QuirkPage() {
         }
       }
     }
-    if (data.clan_disallowed_quirks.includes(quirk.name)) {    // DARKPACK EDIT ADD - MERITS/FLAWS
-      return 'This quirk is incompatible with your selected clan.';    // DARKPACK EDIT END - MERITS/FLAWS
+    if (data.clan_disallowed_quirks.includes(quirk.name)) {    // DARKPACK EDIT ADD - MERITS_FLAWS
+      return 'This quirk is incompatible with your selected clan.';    // DARKPACK EDIT END - MERITS_FLAWS
     }
     if (data.splat_disallowed_quirks.includes(quirk.name)) { // DARKPACK EDIT CHANGE - SPLATS
       return 'This quirk is incompatible with your selected splats.'; // DARKPACK EDIT CHANGE - SPLATS
@@ -493,14 +493,14 @@ function QuirkPage() {
         <Stack vertical fill align="center">
           <Stack.Item>
             {(
-              // DARKPACK EDIT CHANGE START -- Removed pointsEnabled ? checks
-              <Box fontSize="1.3em">Freebie Points</Box> // DARKPACK EDIT CHANGE -- Changed 'Quirk Balance' to 'Freebie Points'
+              // DARKPACK EDIT CHANGE START - (Removed pointsEnabled ? checks)
+              <Box fontSize="1.3em">Freebie Points</Box> // DARKPACK EDIT CHANGE - (Changed 'Quirk Balance' to 'Freebie Points')
             )}
           </Stack.Item>
           <Stack.Item>
             {(
               <StatDisplay>{balance}</StatDisplay>
-              // DARKPACK EDIT CHANGE END -- Removed pointsEnabled ? checks
+              // DARKPACK EDIT CHANGE END
             )}
           </Stack.Item>
           <Stack.Item>
@@ -550,7 +550,7 @@ function QuirkPage() {
 }
 
 export function QuirkPersonalityPage() {
-  const [contentPage, setContentPage] = useState<'quirks'>( // TFN EDIT, ORIGINAL: const [contentPage, setContentPage] = useState<'quirks' | 'personality'>(
+  const [contentPage, setContentPage] = useState<'quirks'>( // DARKPACK EDIT CHANGE - ORIGINAL: const [contentPage, setContentPage] = useState<'quirks' | 'personality'>(
     'quirks',
   );
 
@@ -569,7 +569,7 @@ export function QuirkPersonalityPage() {
               Quirks
             </Button>
           </Stack.Item>
-          { /* // TFN EDIT REMOVAL START
+          { /* // DARKPACK EDIT REMOVAL START
           <Stack.Item grow>
             <Button
               selected={contentPage === 'personality'}
@@ -581,17 +581,17 @@ export function QuirkPersonalityPage() {
               Personality
             </Button>
           </Stack.Item>
-          // TFN EDIT REMOVAL END */}
+          // DARKPACK EDIT REMOVAL END */}
         </Stack>
       </Stack.Item>
-      { /* // TFN EDIT REMOVAL START
+      { /* // DARKPACK EDIT REMOVAL START
       <Stack.Item grow>
         {contentPage === 'personality' ? <PersonalityPage /> : <QuirkPage />}
       </Stack.Item>
-      // TFN EDIT REMOVAL END */}
-      {/* TFN EDIT ADDITION START */}
+      // DARKPACK EDIT REMOVAL END */}
+      {/* DARKPACK EDIT ADD START */}
       <QuirkPage />
-      {/* TFN EDIT ADDITION END */}
+      {/* DARKPACK EDIT ADD END */}
     </Stack>
   );
 }

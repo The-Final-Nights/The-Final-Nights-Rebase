@@ -2,7 +2,7 @@
 	title = JOB_PENTEX_LEAD
 	description = "You are the current branch leader for " + MAIN_EVIL_COMPANY + " , operating out of San Francisco. Your job is to fuel production and keep your clowns in line."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	faction = FACTION_CITY
+	faction = FACTION_PENTEX
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Board"
@@ -23,9 +23,9 @@
 		"Endron Operations Director"
 	)
 
-//	allowed_tribes = list(TRIBE_WYRM, TRIBE_RONIN)
 	minimal_masquerade = 5
-
+	// minimal_renown_rank = 4
+	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)
 	display_order = JOB_DISPLAY_ORDER_BRANCH_LEAD
 	department_for_prefs = /datum/job_department/pentex
 	departments_list = list(
@@ -38,7 +38,6 @@
 		JOB_PENTEX_SEC_CHIEF
 	)
 
-//	minimal_renownrank = 4
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_SEC
 
@@ -53,6 +52,6 @@
 	uniform =  /obj/item/clothing/under/vampire/pentex_executive_suit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
 	suit = /obj/item/clothing/suit/vampire/pentex_labcoat_alt
-	l_pocket = /obj/item/smartphone // /branch_lead - TODO: phone subtype
+	l_pocket = /obj/item/smartphone
 	r_pocket = /obj/item/vamp/keys/pentex/leader
 	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle=1, /obj/item/phone_book=1, /obj/item/card/credit/prince=1)

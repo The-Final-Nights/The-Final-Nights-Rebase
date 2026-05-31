@@ -194,7 +194,6 @@ function JobRow(props: JobRowProps) {
   const experienceNeeded = data.job_required_experience?.[name];
   const daysLeft = data.job_days_left ? data.job_days_left[name] : 0;
 
-
   // DARKPACK EDIT ADD START -  ALTERNATIVE_JOB_TITLES
   const alt_title_selected = data.job_alt_titles[name]
     ? data.job_alt_titles[name]
@@ -388,9 +387,10 @@ export function JobsPage() {
                 <Department department="Chantry" />
                 <Department department="Clinic" />
                 <Department department="Strip_Club" />
+                <Department department="Jazz_Club" />
                 <Department department="Warehouse" />
                 <Department department="Police" />
-                <Department department="Pentex" />
+                <Department department="Magadon" />
               </Stack>
             </Stack.Item>
             <Stack.Item>
@@ -403,10 +403,12 @@ export function JobsPage() {
                 <Department department="Citizen" />
                 <Department department="City_Services" />
                 <Department department="Garou_Nation" />
+                <Department department="Society_of_Leopold" />
               </Stack>
             </Stack.Item>
             {
-              // DARKPACK EDIT ADD END
+               // <Department department="Pentex" /> // TFN REMOVAL
+               // DARKPACK EDIT ADD END
             }
           </Stack>
         </Stack.Item>

@@ -1,11 +1,13 @@
 /datum/job/vampire/paladin
 	title = JOB_SABBAT_PALADIN
 	description = "A Paladin of the Sabbat, you must serve your Bishops loyally. Having distinguished yourself in the art of war, you must defend your Bishops and your Domain."
+	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_CITY
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = SUPERVISOR_SABBAT_BISHOP
 	minimal_player_age = 7
+	minimum_immortal_age = 10
 	config_tag = "PALADIN"
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/paladin

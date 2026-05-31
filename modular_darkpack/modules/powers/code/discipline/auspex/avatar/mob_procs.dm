@@ -9,3 +9,7 @@
 	SStgui.on_transfer(src, ghost) // Transfer NanoUIs.
 	ghost.PossessByPlayer(key)
 	ghost.client?.init_verbs()
+	// TFN EDIT START
+	ghost.set_hud_image_inactive(HEALTH_HUD)
+	ghost.set_hud_image_inactive(STATUS_HUD)
+	// TFN EDIT END

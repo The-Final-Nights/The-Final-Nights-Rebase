@@ -17,6 +17,8 @@
 	var/process_interval = 3 SECONDS
 	var/list/derangements
 	COOLDOWN_DECLARE(next_process)
+	darkpack_allowed = FALSE //TFN EDIT ADD - Disables selection in character setup so that the nonmalk version shows in its place.
+
 
 /datum/quirk/darkpack/derangement/add()
 	derangements = subtypesof(/datum/hallucination/malk)

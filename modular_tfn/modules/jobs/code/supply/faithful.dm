@@ -9,7 +9,7 @@
 	display_order = JOB_DISPLAY_ORDER_FAITHFUL
 
 	allowed_splats = list(SPLAT_KINDRED)
-	allowed_clans = list(VAMPIRE_CLAN_SETITE) //Locked to the clan in lieu of having the ability to check merits e.g. Setite Initiate from Lore of the Clans
+	allowed_clans = list(VAMPIRE_CLAN_SETITE, VAMPIRE_CLAN_TLACIQUE, VAMPIRE_CLAN_WARRIOR_SETITE ) //Locked to the clan in lieu of having the ability to check merits e.g. Setite Initiate from Lore of the Clans
 
 	description = "You are a member of San Francisco's Temple of Set. You serve to further your Temple's interests and help the blind to see."
 

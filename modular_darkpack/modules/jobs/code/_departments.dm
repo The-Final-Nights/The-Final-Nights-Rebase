@@ -63,6 +63,17 @@
 	label_class = "strip_club"
 	ui_color = "#a566a5ff"
 
+//TFN EDIT ADDITION START - Crown Blue Jazz Club OverHaul
+/datum/job_department/jazz_club
+	department_name = DEPARTMENT_JAZZ_CLUB
+	department_bitflags = DEPARTMENT_BITFLAG_JAZZ_CLUB
+	department_head = /datum/job/vampire/primogen_ventrue
+	department_experience_type = EXP_TYPE_JAZZ_CLUB
+	display_order = 1
+	label_class = "jazz_club"
+	ui_color = "#7372ac"
+//TFN EDIT ADDITION END - Crown Blue Jazz Club OverHaul
+
 /datum/job_department/giovanni
 	department_name = DEPARTMENT_GIOVANNI
 	department_bitflags = DEPARTMENT_BITFLAG_GIOVANNI
@@ -141,4 +152,13 @@
 	department_experience_type = EXP_TYPE_SPIRAL
 	display_order = 1
 	label_class = "pentex"
-	ui_color = COLOR_ENDRON_GREEN
+	ui_color = COLOR_CORP_ENDRON
+
+/datum/job_department/society_of_leopold
+	department_name = DEPARTMENT_SOCIETY_OF_LEOPOLD
+	department_bitflags = DEPARTMENT_BITFLAG_SOCIETY_OF_LEOPOLD
+	department_head = /datum/job/vampire/abbe
+	department_experience_type = EXP_TYPE_CHURCH
+	display_order = 1
+	label_class = "society"
+	ui_color = "#fff022"
