@@ -124,7 +124,6 @@
 	cost = CARGO_CRATE_VALUE * 5
 	crate_name = "toolbox crate"
 
-/* //TFN EDIT REMOVE START - Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/engineering/portapump
 	name = "Portable Air Pump Crate"
 	desc = "Did someone let the air out of the shuttle again? We've got you covered. \
@@ -144,6 +143,7 @@
 	crate_name = "portable scrubber crate"
 	crate_type = /obj/structure/closet/crate/secure/engineering/atmos
 
+/* //TFN EDIT REMOVE START - Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/engineering/hugescrubber
 	name = "Huge Portable Scrubber Crate"
 	desc = "A huge portable scrubber for huge atmospherics mistakes."
