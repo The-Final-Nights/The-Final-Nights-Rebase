@@ -1423,6 +1423,7 @@
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
 	},
+/obj/structure/vampdoor,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/clinic/haven)
 "aru" = (
@@ -16273,7 +16274,7 @@
 /obj/effect/mapping_helpers/door/access/malkavian,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
-/turf/open/floor/plating/sidewalk/poor,
+/turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
 "ebn" = (
 /obj/effect/turf_decal/darkpack/grass{
@@ -18424,9 +18425,7 @@
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic)
 "eDX" = (
-/obj/machinery/jukebox/no_access{
-	anchored = 0
-	},
+/obj/machinery/jukebox/no_access,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic/haven)
 "eEb" = (
@@ -26493,13 +26492,14 @@
 /obj/item/gun/ballistic/automatic/darkpack/mp5,
 /obj/item/gun/ballistic/automatic/darkpack/mp5,
 /obj/item/gun/ballistic/automatic/darkpack/mp5,
-/obj/item/storage/fancy/hardcase/mag_mp5,
-/obj/item/storage/fancy/hardcase/mag_mp5,
 /obj/item/ammo_box/darkpack/c9mm,
 /obj/item/ammo_box/darkpack/c9mm,
 /obj/item/ammo_box/darkpack/c9mm,
 /obj/effect/turf_decal/siding/grey/inner_corner,
 /obj/machinery/light/red/directional/north,
+/obj/item/storage/fancy/hardcase/mag_mp5,
+/obj/item/storage/fancy/hardcase/mag_mp5,
+/obj/item/storage/fancy/hardcase/mag_mp5,
 /turf/open/floor/city/factory,
 /area/vtm/interior/police/upstairs)
 "gFr" = (
@@ -45015,7 +45015,7 @@
 /area/vtm/interior/giovanni)
 "lhZ" = (
 /obj/machinery/light/directional/east{
-	pixel_y = 9
+	pixel_y = 16
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
@@ -62772,7 +62772,7 @@
 /area/vtm/interior/apartment)
 "pvW" = (
 /obj/machinery/light/directional/west{
-	pixel_y = 9
+	pixel_y = 16
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
@@ -73846,9 +73846,7 @@
 /area/vtm/outside/forest)
 "slE" = (
 /obj/structure/table/wood,
-/obj/machinery/light/small/directional/west{
-	pixel_y = -9
-	},
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/clinic/haven)
 "slS" = (
@@ -89090,15 +89088,15 @@
 	desc = "A shiny new SFPD Carbine, courtesy of improved budgets and a dire need to clean these streets.";
 	name = "Police Issue CAR-15"
 	},
-/obj/item/storage/fancy/hardcase/mag_mp5,
-/obj/item/storage/fancy/hardcase/mag_mp5,
-/obj/item/storage/fancy/hardcase/mag_mp5,
 /obj/item/ammo_box/darkpack/c556,
 /obj/item/ammo_box/darkpack/c556,
 /obj/item/ammo_box/darkpack/c556,
 /obj/effect/turf_decal/siding/grey{
 	dir = 1
 	},
+/obj/item/storage/fancy/hardcase/mag_556,
+/obj/item/storage/fancy/hardcase/mag_556,
+/obj/item/storage/fancy/hardcase/mag_556,
 /turf/open/floor/city/factory,
 /area/vtm/interior/police/upstairs)
 "wdY" = (
