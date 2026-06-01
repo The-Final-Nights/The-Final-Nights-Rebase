@@ -12,6 +12,10 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	custom_price = 20 // ECONOMY
 
+/obj/item/watch/Initialize()
+	. = ..()
+	AddComponent(/datum/component/selling, 50, "watch", FALSE)
+
 /obj/item/watch/examine(mob/user)
 	. = ..()
 	. += "[src]: <b>[server_timestamp("hh:mm:ss", ic_time = TRUE, twelve_hour_clock = user.client?.prefs.read_preference(/datum/preference/toggle/twelve_hour))], [server_timestamp("MMM DD", ic_time = TRUE)]</b>"
