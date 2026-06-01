@@ -25,4 +25,4 @@
 /obj/item/bouquet/Initialize()
 	. = ..()
 	AddComponent(/datum/component/selling, 100, "bouquet", FALSE)
-// TFN EDIT END 
+// TFN EDIT END  - Making items that used to be sellable on prebase sellable again
