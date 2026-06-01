@@ -64,11 +64,11 @@
 	///What was copied
 	var/copy_type = null
 
-//TFN EDIT ADDITION - Making Heist Loot Sellable
+//TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
 /obj/item/documents/photocopy/Initialize()
 	.=..()
 	AddComponent(/datum/component/selling, 20, "documents", FALSE)
-//TFN EDIT ADDITION - Making Heist Loot Sellable
+//TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
 
 /obj/item/documents/photocopy/Initialize(mapload, obj/item/documents/copy=null)
 	. = ..()
