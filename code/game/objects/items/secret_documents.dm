@@ -21,11 +21,11 @@
 	pressure_resistance = 2
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-//TFN EDIT ADDITION - Making Heist Loot Sellable
+//TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
 /obj/item/documents/Initialize()
 	. = ..()
 	AddComponent(/datum/component/selling, 500, "documents", FALSE)
-//TFN EDIT ADDITION - Making Heist Loot Sellable
+//TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
 
 ///Nanotrasen documents
 /obj/item/documents/nanotrasen
