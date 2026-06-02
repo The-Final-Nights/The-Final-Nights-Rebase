@@ -6,8 +6,8 @@
 	gain_text = span_notice("You feel the wind on you, empowering you to use it to strike.")
 	lose_text = span_notice("Your knowledge of Kailindo fades; the wind blowing away your mastery..")
 	allowed_splats = list(SPLAT_GAROU)	//Might want to limit what septs can take this.
-	var/list/included_tribes = list(TRIBE_STARGAZERS, TRIBE_GALESTALKERS)
-	var/list/excluded_tribes = list(TRIBE_FORSWORN, TRIBE_BLACK_FURIES, TRIBE_BONE_GNAWERS, TRIBE_CHILDREN_OF_GAIA, TRIBE_HART_WARDENS, TRIBE_GET_OF_FENRIS, TRIBE_GHOST_COUNCIL, TRIBE_GLASS_WALKERS, TRIBE_RED_TALONS, TRIBE_SHADOW_LORDS, TRIBE_SILENT_STRIDERS, TRIBE_SILVER_FANGS, TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_CORAX)
+	included_tribes = list(TRIBE_STARGAZERS, TRIBE_GALESTALKERS)
+	excluded_tribes = list(TRIBE_FORSWORN, TRIBE_BLACK_FURIES, TRIBE_BONE_GNAWERS, TRIBE_CHILDREN_OF_GAIA, TRIBE_HART_WARDENS, TRIBE_GET_OF_FENRIS, TRIBE_GHOST_COUNCIL, TRIBE_GLASS_WALKERS, TRIBE_RED_TALONS, TRIBE_SHADOW_LORDS, TRIBE_SILENT_STRIDERS, TRIBE_SILVER_FANGS, TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_CORAX)
 	icon = FA_ICON_SCROLL
 	var/minimum_brawl	//Forces you to have at least 4 brawl to get this.
 
@@ -24,18 +24,3 @@
 	if(ishuman(new_holder))
 		var/datum/martial_art/learned_art = new /datum/martial_art/darkpack_kailindo(new_holder)
 		learned_art.teach(new_holder)
-
-/datum/quirk/darkpack/kailindo_teachings/proc/is_tribe_appropriate(datum/subsplat/werewolf/tribe/garou/tribe)
-	if(!excluded_tribes && !included_tribes)
-		return TRUE
-
-	if(!tribe)
-		return TRUE
-
-	if(excluded_tribes && (tribe.id in excluded_tribes))
-		return FALSE
-
-	if(included_tribes && !(tribe.id in included_tribes))
-		return FALSE
-
-	return TRUE
