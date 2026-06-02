@@ -109,11 +109,11 @@
 				joining.forceMove(get_turf(LM))
 		// if they spawn with the masquerade violating face trait, give them the things to cover up so they aren't stuck in the sewer.
 /* TFN EDIT REMOVE - Removes roundstart mask + robes
-		//var/obj/item/clothing/suit/hooded/robes/darkred/new_robe = new(joining.loc)
-		//joining.equip_to_appropriate_slot(new_robe, FALSE)
+		var/obj/item/clothing/suit/hooded/robes/darkred/new_robe = new(joining.loc)
+		joining.equip_to_appropriate_slot(new_robe, FALSE)
 
-		//var/obj/item/clothing/mask/vampire/venetian_mask/fancy/new_mask = new(joining.loc)
-		//joining.equip_to_appropriate_slot(new_mask, FALSE)
+		var/obj/item/clothing/mask/vampire/venetian_mask/fancy/new_mask = new(joining.loc)
+		joining.equip_to_appropriate_slot(new_mask, FALSE)
 */ // TFN EDIT REMOVE END - Removes roundstart mask + robes
 
 /// effect from daimonion psychomania
