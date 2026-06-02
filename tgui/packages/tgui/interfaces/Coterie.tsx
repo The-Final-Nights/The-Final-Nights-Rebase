@@ -11,6 +11,7 @@ const DECORATIVE: React.CSSProperties = {
 };
 
 type Member = {
+  ckey: string;
   name: string;
   clan_icon: string | null;
   clan_name: string | null;
@@ -19,6 +20,7 @@ type Member = {
   is_online: boolean;
   portrait: string | null;
   is_viewer: boolean;
+  is_leader: boolean;
 };
 
 type Data = {
@@ -124,7 +126,18 @@ export const Coterie = (props) => {
                     </Stack.Item>
                   )}
                   {!selected.is_online && selected.last_seen && (
-                    <Stack.Item>Last online: {selected.last_seen}</Stack.Item>
+                    <Stack.Item>Last seen {selected.last_seen}.</Stack.Item>
+                  )}
+                  {!!is_leader && !selected.is_viewer && !selected.is_leader && (
+                    <Stack.Item mt={1}>
+                      <Button
+                        icon="user-minus"
+                        color="bad"
+                        onClick={() => act('kick', { ckey: selected.ckey })}
+                      >
+                        Kick
+                      </Button>
+                    </Stack.Item>
                   )}
                   {!!selected.is_viewer && (
                     <Stack.Item mt={1}>

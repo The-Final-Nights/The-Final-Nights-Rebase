@@ -1,5 +1,5 @@
 // the polycule feature
-#define COTERIES_SAVE_PATH "data/coteries.json"
+#define COTERIES_SAVE_PATH "data/tfn_data/coteries.json"
 
 GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 
@@ -41,7 +41,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 	new_coterie.leader = leader_ckey
 	new_coterie.members[leader_ckey] = leader_real_name
 	registry[key] = new_coterie
-	new_coterie.save()
+	new_coterie.save_coterie()
 	return new_coterie
 
 /datum/preferences
@@ -80,7 +80,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 		return
 	portraits[target.client.ckey] = icon2base64(flat_icon)
 
-/datum/coterie/proc/save()
+/datum/coterie/proc/save_coterie()
 	var/datum/json_savefile/coterie_savefile = GLOB.coterie_controller.get_savefile()
 	coterie_savefile.set_entry(key, list(
 		"name" = name,
@@ -107,18 +107,20 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 	var/list/data = list()
 	data["name"] = name
 	data["leader_name"] = members[leader] || "Unknown"
-	data["is_leader"] = user.client?.ckey == leader
+	data["is_leader"] = (user.client?.ckey == leader) || !!(user.client?.holder)
 	var/viewer_ckey = user.client?.ckey
 	data["viewer_name"] = user.real_name
 	data["can_retake"] = COOLDOWN_FINISHED(src, portrait_cooldown)
 	var/list/member_list = list()
-	var/needs_save = FALSE
 	for(var/member_ckey in members)
 		var/is_online = !!(GLOB.directory[member_ckey])
 		if(is_online)
-			last_seen[member_ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
-			needs_save = TRUE
+			var/today = server_timestamp("Month DD, YYYY", ic_time = TRUE)
+			if(last_seen[member_ckey] != today)
+				last_seen[member_ckey] = today
+				save_coterie()
 		member_list += list(list(
+			"ckey" = member_ckey,
 			"name" = members[member_ckey],
 			"clan_icon" = clan_icons[member_ckey],
 			"clan_name" = clan_names[member_ckey],
@@ -126,10 +128,9 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 			"last_seen" = last_seen[member_ckey],
 			"is_online" = is_online,
 			"portrait" = portraits[member_ckey],
-			"is_viewer" = (member_ckey == viewer_ckey)
+			"is_viewer" = (member_ckey == viewer_ckey),
+			"is_leader" = (member_ckey == leader)
 		))
-	if(needs_save)
-		save()
 	data["members"] = member_list
 	return data
 
@@ -147,21 +148,21 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 				return FALSE
 			capture_portrait(usr)
 			COOLDOWN_START(src, portrait_cooldown, 1 MINUTES)
-			save()
+			save_coterie()
 			SStgui.update_uis(src)
 			return TRUE
 		if("rename")
-			if(leader != usr.client?.ckey)
+			if(leader != usr.client?.ckey && !usr.client?.holder)
 				return FALSE
 			var/new_name = tgui_input_text(usr, "Enter a new name for your coterie.", "Rename Coterie", name, max_length = 64)
 			if(!new_name || !length(new_name))
 				return FALSE
 			name = new_name
-			save()
+			save_coterie()
 			SStgui.update_uis(src)
 			return TRUE
 		if("invite")
-			if(leader != usr.client?.ckey)
+			if(leader != usr.client?.ckey && !usr.client?.holder)
 				return FALSE
 			var/list/nearby_mobs = list()
 			for(var/mob/living/carbon/human/nearby_mob in oview(7, usr))
@@ -186,9 +187,30 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 			join_dates[target.client.ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
 			last_seen[target.client.ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
 			capture_portrait(target)
-			save()
+			save_coterie()
 			to_chat(usr, span_notice("[target.real_name] has joined [name]."))
 			to_chat(target, span_notice("You joined [name]."))
+			return TRUE
+		if("kick")
+			if(leader != usr.client?.ckey && !usr.client?.holder)
+				return FALSE
+			var/target_ckey = params["ckey"]
+			if(!target_ckey || !members[target_ckey] || target_ckey == leader)
+				return FALSE
+			var/client/target_client = GLOB.directory[target_ckey]
+			if(target_client)
+				to_chat(target_client.mob, span_warning("You have been removed from [name]."))
+				target_client.mob.coterie = null
+				target_client.prefs.coterie_key = null
+				target_client.prefs.save_character()
+			members -= target_ckey
+			portraits -= target_ckey
+			clan_icons -= target_ckey
+			clan_names -= target_ckey
+			join_dates -= target_ckey
+			last_seen -= target_ckey
+			save_coterie()
+			SStgui.update_uis(src)
 			return TRUE
 		if("leave")
 			if(leader == usr.client?.ckey)
@@ -209,7 +231,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 				SStgui.close_uis(src)
 				return TRUE
 			members -= usr.client?.ckey
-			save()
+			save_coterie()
 			usr.coterie = null
 			usr.client.prefs.coterie_key = null
 			usr.client.prefs.save_character()
@@ -239,7 +261,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 	mob.coterie.join_dates[ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
 	mob.coterie.last_seen[ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
 	mob.coterie.capture_portrait(mob)
-	mob.coterie.save()
+	mob.coterie.save_coterie()
 	prefs.coterie_key = coterie_key
 	prefs.save_character()
 	mob.coterie.ui_interact(mob)
@@ -253,6 +275,48 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 		to_chat(mob, span_warning("You are not in a coterie."))
 		return
 	coterie.ui_interact(mob)
+
+/datum/coterie_admin_panel
+
+/datum/coterie_admin_panel/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "CoterieAdmin", "Admin Coterie Viewer")
+		ui.open()
+
+/datum/coterie_admin_panel/ui_state(mob/user)
+	return ADMIN_STATE(R_ADMIN)
+
+/datum/coterie_admin_panel/ui_data(mob/user)
+	var/list/data = list()
+	var/list/coterie_list = list()
+	for(var/key in GLOB.coterie_controller.registry)
+		var/datum/coterie/C = GLOB.coterie_controller.registry[key]
+		coterie_list += list(list(
+			"key" = key,
+			"name" = C.name,
+			"leader_name" = C.members[C.leader] || "Unknown",
+			"member_count" = length(C.members)
+		))
+	data["coteries"] = coterie_list
+	return data
+
+/datum/coterie_admin_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return .
+	switch(action)
+		if("open_coterie")
+			var/key = params["key"]
+			var/datum/coterie/C = GLOB.coterie_controller.registry[key]
+			if(!C)
+				return FALSE
+			C.ui_interact(usr)
+			return TRUE
+
+ADMIN_VERB(view_coteries, R_ADMIN, "View Coteries", "View all active coteries.", ADMIN_CATEGORY_SECOND_CITY)
+	var/datum/coterie_admin_panel/panel = new()
+	panel.ui_interact(user.mob)
 
 /mob
 	var/datum/coterie/coterie = null
@@ -270,5 +334,5 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 		return null
 	if(client.ckey && real_name)
 		coterie.members[client.ckey] = real_name
-		coterie.save()
+		coterie.save_coterie()
 	return coterie
