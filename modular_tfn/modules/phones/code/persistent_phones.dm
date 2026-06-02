@@ -7,8 +7,8 @@
 	if(persistent_phone_numbers)
 		return
 	persistent_phone_numbers = list()
-	var/datum/json_savefile/sf = new /datum/json_savefile(PERSISTENT_PHONES_SAVE_PATH)
-	var/list/saved = sf.get_entry("taken")
+	var/datum/json_savefile/phone_savefile = new /datum/json_savefile(PERSISTENT_PHONES_SAVE_PATH)
+	var/list/saved = phone_savefile.get_entry("taken")
 	if(saved)
 		for(var/number in saved)
 			persistent_phone_numbers[number] = TRUE
@@ -16,9 +16,9 @@
 /datum/controller/subsystem/phones/proc/reserve_persistent_number(number)
 	load_persistent_numbers()
 	persistent_phone_numbers[number] = TRUE
-	var/datum/json_savefile/sf = new /datum/json_savefile(PERSISTENT_PHONES_SAVE_PATH)
-	sf.set_entry("taken", persistent_phone_numbers)
-	sf.save()
+	var/datum/json_savefile/phone_savefile = new /datum/json_savefile(PERSISTENT_PHONES_SAVE_PATH)
+	phone_savefile.set_entry("taken", persistent_phone_numbers)
+	phone_savefile.save()
 
 /datum/controller/subsystem/phones/proc/generate_persistent_number()
 	load_persistent_numbers()
@@ -62,13 +62,17 @@
 	. = ..()
 	if(visuals_only || !user?.client?.ckey || !user?.client?.prefs)
 		return
-	var/obj/item/smartphone/phone = locate(/obj/item/smartphone) in user.contents
+	var/obj/item/smartphone/phone = locate(/obj/item/smartphone) in user
 	if(!phone?.sim_card)
 		return
 	var/datum/preferences/prefs = user.client.prefs
 	if(!prefs.persistent_phone_number)
 		prefs.persistent_phone_number = SSphones.generate_persistent_number()
 		prefs.save_character()
+	else
+		SSphones.load_persistent_numbers()
+		if(!SSphones.persistent_phone_numbers[prefs.persistent_phone_number])
+			SSphones.reserve_persistent_number(prefs.persistent_phone_number)
 	phone.sim_card.apply_persistent_number(prefs.persistent_phone_number)
 	for(var/list/entry in prefs.persistent_contacts)
 		var/datum/phonecontact/contact = new()
@@ -95,8 +99,3 @@
 	. = ..()
 	if(. && (action == "add_contact" || action == "remove_contact"))
 		save_contacts_to_prefs()
-
-/mob/living/Logout()
-	. = ..()
-	var/obj/item/smartphone/phone = locate(/obj/item/smartphone) in contents
-	phone?.save_contacts_to_prefs()
