@@ -307,18 +307,3 @@
 #undef JAB_COMBO
 #undef CROSS_COMBO
 #undef DIRTY_COMBO
-
-/obj/item/clothing/gloves/boxing_gloves
-	name = "Debugging Gloves"
-	desc = "Delete at some point"
-	icon_state = "black"
-	greyscale_colors = COLOR_BLACK
-	cold_protection = HANDS
-	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
-	heat_protection = HANDS
-	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
-	resistance_flags = NONE
-
-/obj/item/clothing/gloves/boxing_gloves/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/martial_art_giver, /datum/martial_art/darkpack_boxing)

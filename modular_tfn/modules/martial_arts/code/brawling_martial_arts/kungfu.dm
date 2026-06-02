@@ -73,7 +73,8 @@
 	var/atom/throw_target = get_edge_target_turf(defender, attacker.dir)
 	var/throw_distance = clamp((attacker.st_get_stat(STAT_STRENGTH) - defender.st_get_stat(STAT_STAMINA)), 1, 3)
 	defender.throw_at(throw_target, throw_distance, 4, attacker)
-	defender.apply_damage(15, attacker.get_attack_type(), BODY_ZONE_CHEST)
+	var/armor_block = defender.run_armor_check(attacker.zone_selected, MELEE)
+	defender.apply_damage(15, attacker.get_attack_type(), BODY_ZONE_CHEST, blocked = armor_block)
 	log_combat(attacker, defender, "Frontal Kicked (Kungfu)")
 	return TRUE
 
@@ -284,18 +285,3 @@
 #undef LAUNCH_KICK_COMBO
 #undef DROP_KICK_COMBO
 #undef KNEE_STOMACH_COMBO
-
-/obj/item/clothing/gloves/kungfu_gloves
-	name = "Debugging Gloves"
-	desc = "Delete at some point"
-	icon_state = "black"
-	greyscale_colors = COLOR_BLACK
-	cold_protection = HANDS
-	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
-	heat_protection = HANDS
-	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
-	resistance_flags = NONE
-
-/obj/item/clothing/gloves/kungfu_gloves/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/martial_art_giver, /datum/martial_art/darkpack_kungfu)

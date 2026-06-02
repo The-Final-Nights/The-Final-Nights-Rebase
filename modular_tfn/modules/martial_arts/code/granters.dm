@@ -1,5 +1,5 @@
-//Being blunt here, I suck at TGUI/Preference Menu nonsense, so in the interests of actually shipping something i'm gonna take the easy way out
-//Ideally martial arts-selection should be properly added into the players preference menu upon placing enough dots in Brawl
+// These are left as unobtainable in game. We assign martial arts via character creation.
+// These remain just for purely debug purposes or the rare chance these are needed for something event/admin related.
 
 /obj/item/book/granter/martial/kungfu
 	martial = /datum/martial_art/darkpack_kungfu
@@ -24,12 +24,9 @@
 
 /obj/item/book/granter/martial/kungfu/update_appearance(updates)
 	. = ..()
-	if(uses <= 0)
-		qdel(src)	//Deletes them to reduce clutter
-	else
-		name = initial(name)
-		desc = initial(desc)
-		icon_state = initial(icon_state)
+	name = initial(name)
+	desc = initial(desc)
+	icon_state = initial(icon_state)
 
 /obj/item/book/granter/martial/cqb
 	martial = /datum/martial_art/darkpack_cqb
@@ -79,14 +76,10 @@
 
 /obj/item/book/granter/martial/kungfu/update_appearance(updates)
 	. = ..()
-	if(uses <= 0)
-		qdel(src)	//Deletes them to reduce clutter
-	else
-		name = initial(name)
-		desc = initial(desc)
-		icon_state = initial(icon_state)
+	name = initial(name)
+	desc = initial(desc)
+	icon_state = initial(icon_state)
 
-// Purely for debugging purposes
 /obj/item/book/granter/martial/kailindo
 	martial = /datum/martial_art/darkpack_kailindo
 	name = "dog scroll"
@@ -104,9 +97,6 @@
 
 /obj/item/book/granter/martial/kailindo/update_appearance(updates)
 	. = ..()
-	if(uses <= 0)
-		qdel(src)	//Deletes them to reduce clutter
-	else
-		name = initial(name)
-		desc = initial(desc)
-		icon_state = initial(icon_state)
+	name = initial(name)
+	desc = initial(desc)
+	icon_state = initial(icon_state)

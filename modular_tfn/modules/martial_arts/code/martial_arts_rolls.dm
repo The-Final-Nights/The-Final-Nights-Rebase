@@ -1,8 +1,7 @@
-//Seperated by Brawl/Melee & Defending/Attacking
-
+//Seperated by Brawl/Melee & Defending/Attacking. We have these seperated from /attack/punch due to being numerical-based.
 /datum/storyteller_roll/brawl_strength
 	bumper_text = "martial (strength)"
-	spammy_roll = TRUE //Mar
+	spammy_roll = TRUE
 	applicable_stats = list(STAT_STRENGTH, STAT_BRAWL)
 	numerical = TRUE
 	roll_output_type = ROLL_PRIVATE_AND_TARGET
