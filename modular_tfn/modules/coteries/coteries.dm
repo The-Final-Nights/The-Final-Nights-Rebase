@@ -336,3 +336,5 @@ ADMIN_VERB(view_coteries, R_ADMIN, "View Coteries", "View all active coteries.",
 		coterie.members[client.ckey] = real_name
 		coterie.save_coterie()
 	return coterie
+
+#undef COTERIES_SAVE_PATH

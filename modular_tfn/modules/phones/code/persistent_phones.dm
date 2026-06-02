@@ -99,3 +99,5 @@
 	. = ..()
 	if(. && (action == "add_contact" || action == "remove_contact"))
 		save_contacts_to_prefs()
+
+#undef PERSISTENT_PHONES_SAVE_PATH
