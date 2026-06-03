@@ -17,6 +17,7 @@ type Member = {
   clan_name: string | null;
   join_date: string | null;
   last_seen: string | null;
+  phone_number: string | null;
   is_online: boolean;
   portrait: string | null;
   is_viewer: boolean;
@@ -121,30 +122,41 @@ export const Coterie = (props) => {
                   {selected.clan_name && (
                     <Stack.Item>
                       {selected.name}, the {selected.clan_name},{' '}
-                      {selected.name === leader_name ? 'formed' : 'joined'} {name} on{' '}
-                      {selected.join_date ?? 'Unknown'}.
+                      {selected.name === leader_name ? 'formed' : 'joined'}{' '}
+                      {name} on {selected.join_date ?? 'Unknown'}.
+                    </Stack.Item>
+                  )}
+                  {selected.phone_number && (
+                    <Stack.Item>
+                      Their phone number is {selected.phone_number}.
                     </Stack.Item>
                   )}
                   {!selected.is_online && selected.last_seen && (
                     <Stack.Item>Last seen {selected.last_seen}.</Stack.Item>
                   )}
-                  {!!is_leader && !selected.is_viewer && !selected.is_leader && (
-                    <Stack.Item mt={1}>
-                      <Button
-                        icon="user-minus"
-                        color="bad"
-                        onClick={() => act('kick', { ckey: selected.ckey })}
-                      >
-                        Kick
-                      </Button>
-                    </Stack.Item>
-                  )}
+                  {!!is_leader &&
+                    !selected.is_viewer &&
+                    !selected.is_leader && (
+                      <Stack.Item mt={1}>
+                        <Button
+                          icon="user-minus"
+                          color="bad"
+                          onClick={() => act('kick', { ckey: selected.ckey })}
+                        >
+                          Kick
+                        </Button>
+                      </Stack.Item>
+                    )}
                   {!!selected.is_viewer && (
                     <Stack.Item mt={1}>
                       <Button
                         icon="camera"
                         disabled={!can_retake}
-                        tooltip={!can_retake ? 'You may only update your headshot once per minute.' : undefined}
+                        tooltip={
+                          !can_retake
+                            ? 'You may only update your headshot once per minute.'
+                            : undefined
+                        }
                         onClick={() => act('retake_headshot')}
                       >
                         Retake Headshot
@@ -162,7 +174,9 @@ export const Coterie = (props) => {
 
   return (
     <Window title={name} width={300} height={420}>
-      <Window.Content style={{ background: 'linear-gradient(to bottom, #4a4a4a, #000000)' }}>
+      <Window.Content
+        style={{ background: 'linear-gradient(to bottom, #4a4a4a, #000000)' }}
+      >
         <Stack vertical fill>
           <Stack.Item>
             <Section title="Leader">{leader_name}</Section>

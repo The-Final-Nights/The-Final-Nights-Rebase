@@ -31,6 +31,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 	loaded_coterie.clan_names = saved["clan_names"] || list()
 	loaded_coterie.join_dates = saved["join_dates"] || list()
 	loaded_coterie.last_seen = saved["last_seen"] || list()
+	loaded_coterie.phone_numbers = saved["phone_numbers"] || list()
 	registry[key] = loaded_coterie
 	return loaded_coterie
 
@@ -72,6 +73,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 	var/list/clan_names = list()
 	var/list/join_dates = list()
 	var/list/last_seen = list()
+	var/list/phone_numbers = list()
 	COOLDOWN_DECLARE(portrait_cooldown)
 
 /datum/coterie/proc/capture_portrait(mob/target)
@@ -90,7 +92,8 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 		"clan_icons" = clan_icons.Copy(),
 		"clan_names" = clan_names.Copy(),
 		"join_dates" = join_dates.Copy(),
-		"last_seen" = last_seen.Copy()
+		"last_seen" = last_seen.Copy(),
+		"phone_numbers" = phone_numbers.Copy()
 	))
 	coterie_savefile.save()
 
@@ -115,9 +118,17 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 	for(var/member_ckey in members)
 		var/is_online = !!(GLOB.directory[member_ckey])
 		if(is_online)
+			var/client/member_client = GLOB.directory[member_ckey]
+			var/needs_save = FALSE
+			var/phone = member_client?.prefs?.persistent_phone_number
+			if(phone && phone_numbers[member_ckey] != phone)
+				phone_numbers[member_ckey] = phone
+				needs_save = TRUE
 			var/today = server_timestamp("Month DD, YYYY", ic_time = TRUE)
 			if(last_seen[member_ckey] != today)
 				last_seen[member_ckey] = today
+				needs_save = TRUE
+			if(needs_save)
 				save_coterie()
 		member_list += list(list(
 			"ckey" = member_ckey,
@@ -126,6 +137,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 			"clan_name" = clan_names[member_ckey],
 			"join_date" = join_dates[member_ckey],
 			"last_seen" = last_seen[member_ckey],
+			"phone_number" = phone_numbers[member_ckey],
 			"is_online" = is_online,
 			"portrait" = portraits[member_ckey],
 			"is_viewer" = (member_ckey == viewer_ckey),
@@ -186,6 +198,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 			clan_names[target.client.ckey] = target_clan?.name
 			join_dates[target.client.ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
 			last_seen[target.client.ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
+			phone_numbers[target.client.ckey] = target.client.prefs.persistent_phone_number
 			capture_portrait(target)
 			save_coterie()
 			to_chat(usr, span_notice("[target.real_name] has joined [name]."))
@@ -209,6 +222,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 			clan_names -= target_ckey
 			join_dates -= target_ckey
 			last_seen -= target_ckey
+			phone_numbers -= target_ckey
 			save_coterie()
 			SStgui.update_uis(src)
 			return TRUE
@@ -260,6 +274,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 	mob.coterie.clan_names[ckey] = clan?.name
 	mob.coterie.join_dates[ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
 	mob.coterie.last_seen[ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
+	mob.coterie.phone_numbers[ckey] = prefs.persistent_phone_number
 	mob.coterie.capture_portrait(mob)
 	mob.coterie.save_coterie()
 	prefs.coterie_key = coterie_key
@@ -331,6 +346,12 @@ ADMIN_VERB(view_coteries, R_ADMIN, "View Coteries", "View all active coteries.",
 		if(client.prefs.coterie_key)
 			client.prefs.coterie_key = null
 			client.prefs.save_character()
+		return null
+	if(!coterie.members[client.ckey]) // kicked while offline
+		client.prefs.coterie_key = null
+		client.prefs.save_character()
+		coterie = null
+		to_chat(src, span_warning("You have been removed from the coterie while offline."))
 		return null
 	if(client.ckey && real_name)
 		coterie.members[client.ckey] = real_name
