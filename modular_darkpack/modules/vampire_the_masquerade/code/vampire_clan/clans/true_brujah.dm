@@ -5,6 +5,7 @@
 	icon = "true_brujah"
 	curse = "Absence of passion."
 	sense_the_sin_text = "cant express emotions."
+	hidden = TRUE // TFN EDIT ADD - the coteries update
 	clan_disciplines = list(
 		/datum/discipline/potence,
 		/datum/discipline/presence,

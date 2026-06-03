@@ -42,6 +42,11 @@
 	/// daimoinon 1 text
 	var/sense_the_sin_text = "has been abandoned by the cold ocean of the night with nobody to keep them afloat."
 
+	// TFN EDIT START - the coteries update
+	/// whether or not this clan is shunned; useful when determining if they should be able to disguise their clan as another in coteries
+	var/hidden = FALSE
+	// TFN EDIT END
+
 /**
  * Applies Clan-specific effects to the mob
  * gaining this Clan. Will alter the mob's

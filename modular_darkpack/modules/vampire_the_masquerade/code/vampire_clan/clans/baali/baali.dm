@@ -19,6 +19,7 @@
 	enlightenment = TRUE
 	whitelisted = TRUE
 	subsplat_keys = /obj/item/vamp/keys/baali
+	hidden = TRUE // TFN EDIT ADD - the coteries update
 
 /* // TFN EDIT REMOVAl START
 /datum/subsplat/vampire_clan/baali/on_gain(mob/living/carbon/human/gaining_mob, datum/splat/gaining_splat, joining_round)

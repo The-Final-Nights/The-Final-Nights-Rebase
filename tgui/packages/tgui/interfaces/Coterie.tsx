@@ -27,6 +27,7 @@ type Member = {
 type Data = {
   name: string;
   leader_name: string;
+  is_admin: boolean;
   is_leader: boolean;
   members: Member[];
   viewer_name: string;
@@ -47,13 +48,14 @@ const OnlineCircle = (props: { online: boolean }) => (
 
 export const Coterie = (props) => {
   const { act, data } = useBackend<Data>();
-  const { name, leader_name, is_leader, members = [], can_retake } = data;
+  const { name, leader_name, is_admin, is_leader, members = [], can_retake } = data;
+  const windowTitle = is_admin ? `${name} (Admin View)` : name;
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const selected = selectedName ? (members.find((m) => m.name === selectedName) ?? null) : null;
 
   if (selected) {
     return (
-      <Window title={name} width={300} height={420}>
+      <Window title={windowTitle} width={300} height={420}>
         <Window.Content style={{ background: 'linear-gradient(to bottom, #4a4a4a, #000000)' }}>
           <Stack vertical fill>
             <Stack.Item>
@@ -173,7 +175,7 @@ export const Coterie = (props) => {
   }
 
   return (
-    <Window title={name} width={300} height={420}>
+    <Window title={windowTitle} width={300} height={420}>
       <Window.Content
         style={{ background: 'linear-gradient(to bottom, #4a4a4a, #000000)' }}
       >

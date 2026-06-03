@@ -100,7 +100,8 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 /datum/coterie/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Coterie", name)
+		var/title = user.client?.holder ? "[name] (Admin View)" : name
+		ui = new(user, src, "Coterie", title)
 		ui.open()
 
 /datum/coterie/ui_state(mob/user)
@@ -110,6 +111,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 	var/list/data = list()
 	data["name"] = name
 	data["leader_name"] = members[leader] || "Unknown"
+	data["is_admin"] = !!(user.client?.holder)
 	data["is_leader"] = (user.client?.ckey == leader) || !!(user.client?.holder)
 	var/viewer_ckey = user.client?.ckey
 	data["viewer_name"] = user.real_name
@@ -186,16 +188,34 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 			var/mob/living/carbon/human/target = tgui_input_list(usr, "Who do you want to invite?", "Invite to Coterie", nearby_mobs)
 			if(!target?.client)
 				return FALSE
-			var/response = tgui_alert(target, "[usr.real_name] is inviting you to join their coterie. Your character's full name, clan, phone number, and online status will be visible to other members if you accept.", "Coterie Invitation", list("Accept", "Decline"))
+			var/datum/subsplat/vampire_clan/target_clan = get_vampire_clan(target.client.prefs.read_preference(/datum/preference/choiced/subsplat/vampire_clan))
+			var/datum/subsplat/vampire_clan/displayed_clan = target_clan
+			if(target_clan?.hidden)
+				var/list/clan_choices = list()
+				for(var/clan_name in GLOB.vampire_clan_list)
+					var/datum/subsplat/vampire_clan/option = get_vampire_clan(GLOB.vampire_clan_list[clan_name])
+					if(option && option.hidden != TRUE) // no, you cannot disguise one shunned clan as another, vampire
+						clan_choices += clan_name
+				var/chosen_name = tgui_input_list(target, "You have been invited to join a coterie. Your clan will be visible to other members. You may select a clan to display in place of your own, or cancel to decide whether to reveal your true clan.", "Disguise Clan", clan_choices)
+				if(!chosen_name)
+					var/reveal_response = tgui_alert(target, "You did not choose a disguise. Do you want other members to see that you are Baali?", "Reveal Clan?", list("Yes", "No"))
+					if(reveal_response != "Yes")
+						to_chat(target, span_notice("You declined the invitation to join [name]."))
+						to_chat(usr, span_notice("[target.real_name] declined the invitation to join [name]."))
+						return FALSE
+				else
+					displayed_clan = get_vampire_clan(GLOB.vampire_clan_list[chosen_name])
+			var/response = tgui_alert(target, "[usr.real_name] is inviting you to join their coterie. Your character's full name, [target_clan?.hidden ? "disguised clan of [displayed_clan?.name]" : "clan"], phone number, and online status will be visible to other members if you accept.", "Coterie Invitation", list("Accept", "Decline"))
 			if(response != "Accept")
+				to_chat(target, span_notice("You declined the invitation to join [name]."))
+				to_chat(usr, span_notice("[target.real_name] declined the invitation to join [name]."))
 				return FALSE
 			target.client.prefs.coterie_key = key
 			target.client.prefs.save_character()
 			target.coterie = src
 			members[target.client.ckey] = target.real_name
-			var/datum/subsplat/vampire_clan/target_clan = get_vampire_clan(target.client.prefs.read_preference(/datum/preference/choiced/subsplat/vampire_clan))
-			clan_icons[target.client.ckey] = target_clan?.icon
-			clan_names[target.client.ckey] = target_clan?.name
+			clan_icons[target.client.ckey] = displayed_clan?.icon
+			clan_names[target.client.ckey] = displayed_clan?.name
 			join_dates[target.client.ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
 			last_seen[target.client.ckey] = server_timestamp("Month DD, YYYY", ic_time = TRUE)
 			phone_numbers[target.client.ckey] = target.client.prefs.persistent_phone_number
