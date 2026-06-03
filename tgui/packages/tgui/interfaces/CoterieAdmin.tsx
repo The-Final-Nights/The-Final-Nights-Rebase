@@ -1,6 +1,6 @@
 // THIS IS A TFN UI FILE
 import { useBackend } from 'tgui/backend';
-import { Button, Section, Stack, Table } from 'tgui-core/components';
+import { Button, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 type Coterie = {
