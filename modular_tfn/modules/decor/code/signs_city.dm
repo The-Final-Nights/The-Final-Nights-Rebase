@@ -12,3 +12,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/crown_blue, 32)
 /obj/structure/sign/city/crown_blue/Initialize(mapload)
 	. = ..()
 	set_light(3, 2, "#4d60b6")
+
+/obj/structure/sign/city/body_shop
+	name = "Body Shop Gym sign"
+	desc = "It says Body Shop. It looks encouraging."
+	icon = 'modular_tfn/modules/decor/icons/body_shop_sign.dmi'
+	icon_state = "bodyshop"
+	layer = ABOVE_ALL_MOB_LAYER
+	anchored = TRUE
+	pixel_w = -8
+	//pixel_z = 32
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/body_shop, 32)
+/obj/structure/sign/city/body_shop/Initialize(mapload)
+	. = ..()
+	set_light(3, 2, "#4d60b6")

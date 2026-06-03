@@ -74,6 +74,17 @@
 	ui_color = "#7372ac"
 //TFN EDIT ADDITION END - Crown Blue Jazz Club OverHaul
 
+//TFN EDIT ADDITION START - Body Shop Gym
+/datum/job_department/fight_club
+	department_name = DEPARTMENT_FIGHT_CLUB
+	department_bitflags = DEPARTMENT_BITFLAG_FIGHT_CLUB
+	department_head = /datum/job/vampire/primogen_brujah
+	department_experience_type = EXP_TYPE_FIGHT_CLUB
+	display_order = 1
+	label_class = "fight_club"
+	ui_color = "#7372ac"
+//TFN EDIT ADDITION END - Body Shop Gym
+
 /datum/job_department/giovanni
 	department_name = DEPARTMENT_GIOVANNI
 	department_bitflags = DEPARTMENT_BITFLAG_GIOVANNI

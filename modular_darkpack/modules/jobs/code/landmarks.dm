@@ -89,6 +89,13 @@ JOB_START_HELPER(primogen/ventrue, JOB_PRIMOGEN_VENTRUE)
 	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
 //TFN EDIT ADD END
 
+//TFN EDIT ADD - Body Shop Gym
+/obj/effect/landmark/start/darkpack/citizen/fight_club_worker
+	name = JOB_FIGHT_CLUB_WORKER
+	icon_state = JOB_FIGHT_CLUB_WORKER
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+//TFN EDIT ADD END
+
 /* Hospital */
 /obj/effect/landmark/start/darkpack/hospital
 	name = "generic hospital start"

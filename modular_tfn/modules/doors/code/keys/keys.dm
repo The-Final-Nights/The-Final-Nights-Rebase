@@ -4,6 +4,12 @@
 		LOCKACCESS_JAZZ_CLUB
 	)
 	color = "#e0dca5"
+/obj/item/vamp/keys/fight
+	name = "kinda punk keys"
+	accesslocks = list(
+		LOCKACCESS_FIGHT_CLUB
+	)
+	color = "#eec6a4"
 /obj/item/vamp/keys/pentex
 	name = "\improper " + EVIL_PHARMA_COMPANY + " facility keys"
 	accesslocks = list(

@@ -17,6 +17,7 @@
 #define LOCKACCESS_THEATRE "theatre"
 #define LOCKACCESS_JAZZ_CLUB "milleniumCommon"
 #define LOCKACCESS_JAZZ_CLUB_DELIVERY "millenium_delivery"
+#define LOCKACCESS_FIGHT_CLUB "bodyShopGym" //TFN EDIT ADDITION - Body Shop Fight Club
 
 #define LOCKACCESS_DIRECTOR "director"
 #define LOCKACCESS_CLINIC "clinic"
