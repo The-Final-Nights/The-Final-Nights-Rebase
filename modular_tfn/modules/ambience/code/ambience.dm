@@ -117,7 +117,7 @@ var/static/list/city_noises = list(
 		return
 	var/stem_file = pick(stems)
 	var/stem_length = SSsounds.get_sound_length(stem_file)
-	SEND_SOUND(M, sound(stem_file, repeat = 0, wait = 0, volume = volume * 0.4, channel = CHANNEL_AMBIENCE_STEMS))
+	SEND_SOUND(M, sound(stem_file, repeat = 0, wait = 0, volume = volume * 0.3, channel = CHANNEL_AMBIENCE_STEMS))
 	COOLDOWN_START(src, stem_cooldown, stem_length)
 
 /datum/component/vtm_ambience/proc/try_play_nature_sounds(mob/living/M, volume, chance = 100)
@@ -185,7 +185,7 @@ var/static/list/city_noises = list(
 	if(HAS_TRAIT(M, TRAIT_DEAF))
 		return 1 MINUTES
 	var/base_volume = volume * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
-	try_play_stem(M, base_volume, 25)
+	try_play_stem(M, base_volume, 10)
 	try_play_nature_sounds(M, base_volume, 50)
 	return 1 MINUTES
 
@@ -200,14 +200,14 @@ var/static/list/city_noises = list(
 	var/volume_modifier = (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume)) / 100
 	var/area/ocean_area = get_area(M)
 	var/sound_length = play_oneshot(M, ocean_waves, volume * volume_modifier)
-	try_play_stem(M, volume * volume_modifier)
+	try_play_stem(M, volume * volume_modifier, 10)
 	return sound_length + rand(ocean_area.min_ambience_cooldown, ocean_area.max_ambience_cooldown)
 
 /datum/component/vtm_ambience/proc/play_city_ambience(mob/M, volume = 75)
 	if(HAS_TRAIT(M, TRAIT_DEAF))
 		return 1 MINUTES
 	var/base_volume = volume * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
-	var/adjusted_volume = (prob(50) && (base_volume - 10 > 0)) ? base_volume - 10 : base_volume
+	var/adjusted_volume = (prob(50) && (base_volume - 10 > 0)) ? base_volume - 20 : base_volume
 
 	var/list/nearby_asphalt = list()
 	for(var/turf/open/floor/plating/asphalt/asphalt_turf in range(10, M))
@@ -217,10 +217,8 @@ var/static/list/city_noises = list(
 	var/noise_file = pick(city_noises)
 	var/noise_length = SSsounds.get_sound_length(noise_file)
 
-	if(length(nearby_asphalt))
-		play_positional_sound(M, noise_file, noise_length, pick(nearby_asphalt), adjusted_volume)
-	else
-		SEND_SOUND(M, sound(noise_file, repeat = 0, wait = 0, volume = adjusted_volume, channel = CHANNEL_AMBIENCE))
+	if(length(nearby_asphalt) && prob(25))
+		play_positional_sound(M, noise_file, noise_length, pick(nearby_asphalt), adjusted_volume - 10)
 
 	try_play_stem(M, base_volume, 10)
 	var/area/city_area = get_area(M)
