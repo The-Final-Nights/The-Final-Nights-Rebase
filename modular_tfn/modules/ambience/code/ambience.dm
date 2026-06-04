@@ -139,7 +139,7 @@ var/static/list/city_noises = list(
 
 	COOLDOWN_START(src, noise_cooldown, noise_length)
 
-/datum/component/vtm_ambience/proc/play_positional_sound(mob/M, noise_file, noise_length, turf/source, volume, environment = SOUND_ENVIRONMENT_NONE, max_distance = 10)
+/datum/component/vtm_ambience/proc/play_positional_sound(mob/M, noise_file, noise_length, turf/source, volume, environment = SOUND_ENVIRONMENT_NONE, max_distance = 15)
 	positional_sound_source = source
 	positional_sound_max_dist = max_distance
 	active_positional_sound = sound(noise_file, repeat = 0, wait = 0, channel = CHANNEL_AMBIENCE_POSITIONAL)
@@ -185,7 +185,7 @@ var/static/list/city_noises = list(
 	if(HAS_TRAIT(M, TRAIT_DEAF))
 		return 1 MINUTES
 	var/base_volume = volume * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
-	try_play_stem(M, base_volume, 10)
+	try_play_stem(M, base_volume, 5)
 	try_play_nature_sounds(M, base_volume, 50)
 	return 1 MINUTES
 
@@ -198,10 +198,24 @@ var/static/list/city_noises = list(
 	if(HAS_TRAIT(M, TRAIT_DEAF))
 		return 1 MINUTES
 	var/volume_modifier = (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume)) / 100
+	var/base_volume = volume * volume_modifier
+
+	var/list/nearby_ocean = list()
+	for(var/turf/ocean_turf in range(10, M))
+		if(!istype(ocean_turf, /turf/open/water/beach/vamp))
+			continue
+		if(get_dist(M, ocean_turf) >= 4)
+			nearby_ocean += ocean_turf
+
+	var/noise_file = pick(ocean_waves)
+	var/noise_length = SSsounds.get_sound_length(noise_file)
+
+	if(length(nearby_ocean))
+		play_positional_sound(M, noise_file, noise_length, pick(nearby_ocean), base_volume)
+
+	try_play_stem(M, base_volume, 5)
 	var/area/ocean_area = get_area(M)
-	var/sound_length = play_oneshot(M, ocean_waves, volume * volume_modifier)
-	try_play_stem(M, volume * volume_modifier, 10)
-	return sound_length + rand(ocean_area.min_ambience_cooldown, ocean_area.max_ambience_cooldown)
+	return noise_length + rand(ocean_area.min_ambience_cooldown, ocean_area.max_ambience_cooldown)
 
 /datum/component/vtm_ambience/proc/play_city_ambience(mob/M, volume = 75)
 	if(HAS_TRAIT(M, TRAIT_DEAF))
@@ -220,7 +234,7 @@ var/static/list/city_noises = list(
 	if(length(nearby_asphalt) && prob(25))
 		play_positional_sound(M, noise_file, noise_length, pick(nearby_asphalt), adjusted_volume - 10)
 
-	try_play_stem(M, base_volume, 10)
+	try_play_stem(M, base_volume, 5)
 	var/area/city_area = get_area(M)
 	return noise_length + rand(city_area.min_ambience_cooldown, city_area.max_ambience_cooldown)
 
@@ -241,7 +255,7 @@ var/static/list/city_noises = list(
 		return 10 SECONDS
 
 	var/obj/structure/vampipe/target = pick(nearby_pipes)
-	play_positional_sound(M, noise_file, noise_length, get_turf(target), base_volume, SOUND_ENVIRONMENT_SEWER_PIPE, 8)
+	play_positional_sound(M, noise_file, noise_length, get_turf(target), base_volume, SOUND_ENVIRONMENT_SEWER_PIPE, 12)
 
 	var/area/sewer_area = get_area(M)
 	return noise_length + rand(sewer_area.min_ambience_cooldown, sewer_area.max_ambience_cooldown)
