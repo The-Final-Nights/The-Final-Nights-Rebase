@@ -210,7 +210,6 @@
 #define JOB_DISPLAY_ORDER_NOVICE 64 // TFN EDIT CHANGE - Original: #define JOB_DISPLAY_ORDER_NOVICE 57
 
 //TFN EDIT ADDITION END - Setite Faction
-//TFN EDIT ADDITION END - Body Shop Fight Club
 //////////////////////////////////////////////////
 
 #define DEPARTMENT_BITFLAG_CITIZEN (1<<0)
@@ -255,7 +254,6 @@
 #define DEPARTMENT_BITFLAG_JAZZ_CLUB (1<<18)
 #define DEPARTMENT_JAZZ_CLUB "Jazz_Club"
 // TFN EDIT ADD END - Jazz Club Jobs
-
 
 DEFINE_BITFIELD(departments_bitflags, list(
 	"CITIZEN" = DEPARTMENT_BITFLAG_CITIZEN,
