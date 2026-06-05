@@ -388,7 +388,6 @@ export function JobsPage() {
                 <Department department="Clinic" />
                 <Department department="Strip_Club" />
                 <Department department="Jazz_Club" />
-                <Department department="Fight_Club" />
                 <Department department="Warehouse" />
                 <Department department="Police" />
                 <Department department="Magadon" />
