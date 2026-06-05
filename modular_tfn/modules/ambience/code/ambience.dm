@@ -1,7 +1,4 @@
 // ambient soundscapes, mostly from bloodlines 1
-/area/vtm
-	ambient_buzz = null
-
 var/static/list/ocean_waves = list(
 	'modular_tfn/modules/ambience/sound/ocean/waves_1.ogg',
 	'modular_tfn/modules/ambience/sound/ocean/waves_2.ogg',
@@ -10,6 +7,8 @@ var/static/list/ocean_waves = list(
 	'modular_tfn/modules/ambience/sound/ocean/waves_6.ogg',
 	'modular_tfn/modules/ambience/sound/ocean/waves_7.ogg',
 	'modular_tfn/modules/ambience/sound/ocean/waves_9.ogg',
+	'modular_tfn/modules/ambience/sound/ocean/buoy.ogg',
+	'modular_tfn/modules/ambience/sound/ocean/helicopter_overhead_3.ogg',
 )
 
 var/static/list/stems = list(
@@ -36,6 +35,7 @@ var/static/list/nature_noises = list(
 	'modular_tfn/modules/ambience/sound/outdoors/forest_sounds/raven1.ogg',
 	'modular_tfn/modules/ambience/sound/outdoors/forest_sounds/raven2.ogg',
 	'modular_tfn/modules/ambience/sound/outdoors/forest_sounds/raven4.ogg',
+	'modular_tfn/modules/ambience/sound/outdoors/outdoors2.ogg',
 )
 
 var/static/list/sewer_noises = list(
@@ -49,10 +49,72 @@ var/static/list/city_noises = list(
 	'modular_tfn/modules/ambience/sound/city/airliner_overhead_2.ogg',
 	'modular_tfn/modules/ambience/sound/city/airliner_overhead_3.ogg',
 	'modular_tfn/modules/ambience/sound/city/airliner_overhead_4.ogg',
+	'modular_tfn/modules/ambience/sound/city/blowing_paper.ogg',
+	'modular_tfn/modules/ambience/sound/city/car_by_2.ogg',
+	'modular_tfn/modules/ambience/sound/city/car_by_3.ogg',
+	'modular_tfn/modules/ambience/sound/city/car_by_4.ogg',
+	'modular_tfn/modules/ambience/sound/city/car_by_5.ogg',
+	'modular_tfn/modules/ambience/sound/city/car_skidding.ogg',
 	'modular_tfn/modules/ambience/sound/city/cars_passing_on_highway.ogg',
+	'modular_tfn/modules/ambience/sound/city/chain_link_rattle.ogg',
+	'modular_tfn/modules/ambience/sound/city/distant_car_door.ogg',
+	'modular_tfn/modules/ambience/sound/city/harley_by.ogg',
 	'modular_tfn/modules/ambience/sound/city/truck_passing_3.ogg',
 	'modular_tfn/modules/ambience/sound/city/truck_passing_4.ogg',
 )
+
+var/static/list/interior_noises = list(
+	'modular_tfn/modules/ambience/sound/interior/ambient_high_heels.ogg',
+	'modular_tfn/modules/ambience/sound/interior/ambient_high_heels2.ogg',
+	'modular_tfn/modules/ambience/sound/interior/ambient_high_heels3.ogg',
+	'modular_tfn/modules/ambience/sound/interior/ambient_typing.ogg',
+	'modular_tfn/modules/ambience/sound/interior/desk_bell.ogg',
+	'modular_tfn/modules/ambience/sound/interior/desk_bell2.ogg',
+	'modular_tfn/modules/ambience/sound/interior/desk_bell3.ogg',
+	'modular_tfn/modules/ambience/sound/interior/desk_bell4.ogg',
+	'modular_tfn/modules/ambience/sound/interior/desk_bell5.ogg',
+	'modular_tfn/modules/ambience/sound/interior/desk_bell6.ogg',
+	'modular_tfn/modules/ambience/sound/interior/desk_bell7.ogg',
+	'modular_tfn/modules/ambience/sound/interior/faucet_running.ogg',
+	'modular_tfn/modules/ambience/sound/interior/faucet_running2.ogg',
+	'modular_tfn/modules/ambience/sound/interior/faucet_running3.ogg',
+	'modular_tfn/modules/ambience/sound/interior/faucet_running4.ogg',
+	'modular_tfn/modules/ambience/sound/interior/faucet_running5.ogg',
+	'modular_tfn/modules/ambience/sound/interior/kitchen_pots.ogg',
+	'modular_tfn/modules/ambience/sound/interior/kitchen_pots2.ogg',
+	'modular_tfn/modules/ambience/sound/interior/lightbulb_pop.ogg',
+	'modular_tfn/modules/ambience/sound/interior/lightbulb_pop2.ogg',
+	'modular_tfn/modules/ambience/sound/interior/paper_rustle.ogg',
+	'modular_tfn/modules/ambience/sound/interior/paper_rustle2.ogg',
+	'modular_tfn/modules/ambience/sound/interior/paper_rustle3.ogg',
+	'modular_tfn/modules/ambience/sound/interior/paper_rustle4.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses1.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses2.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses3.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses4.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses5.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses6.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses7.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses8.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses9.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses10.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses11.ogg',
+	'modular_tfn/modules/ambience/sound/interior/party_glasses12.ogg',
+	'modular_tfn/modules/ambience/sound/interior/silverware1.ogg',
+	'modular_tfn/modules/ambience/sound/interior/silverware2.ogg',
+	'modular_tfn/modules/ambience/sound/interior/silverware3.ogg',
+	'modular_tfn/modules/ambience/sound/interior/silverware4.ogg',
+	'modular_tfn/modules/ambience/sound/interior/silverware5.ogg',
+	'modular_tfn/modules/ambience/sound/interior/toiletflush.ogg',
+	'modular_tfn/modules/ambience/sound/interior/toiletflush2.ogg',
+	'modular_tfn/modules/ambience/sound/interior/toiletflush3.ogg',
+	'modular_tfn/modules/ambience/sound/interior/toiletflush4.ogg',
+	'modular_tfn/modules/ambience/sound/interior/toiletflush5.ogg',
+)
+
+/mob/living/Login()
+	. = ..()
+	src.AddComponent(/datum/component/vtm_ambience)
 
 /mob/refresh_looping_ambience()
 	if(!client || isobserver(client.mob))
@@ -68,11 +130,6 @@ var/static/list/city_noises = list(
 		return
 	client.current_ambient_sound = sound_to_use
 	SEND_SOUND(src, sound(sound_to_use, repeat = 1, wait = 0, volume = my_area.ambient_buzz_vol * (volume_modifier / 100), channel = CHANNEL_BUZZ))
-
-/area/vtm/outside/proc/stop_ocean_ambience(mob/M)
-	if(!M.client)
-		return
-	SEND_SOUND(M, sound(null, repeat = 0, wait = 0, channel = CHANNEL_AMBIENCE))
 
 /datum/component/vtm_ambience
 	dupe_mode = COMPONENT_DUPE_UNIQUE
@@ -184,7 +241,7 @@ var/static/list/city_noises = list(
 /datum/component/vtm_ambience/proc/play_forest_ambience(mob/M, volume = 75)
 	if(HAS_TRAIT(M, TRAIT_DEAF))
 		return 1 MINUTES
-	var/base_volume = volume * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
+	var/base_volume = max(0, volume) * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
 	try_play_stem(M, base_volume, 5)
 	try_play_nature_sounds(M, base_volume, 50)
 	return 1 MINUTES
@@ -197,8 +254,7 @@ var/static/list/city_noises = list(
 /datum/component/vtm_ambience/proc/play_ocean_ambience(mob/M, volume = 75)
 	if(HAS_TRAIT(M, TRAIT_DEAF))
 		return 1 MINUTES
-	var/volume_modifier = (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume)) / 100
-	var/base_volume = volume * volume_modifier
+	var/base_volume = max(0, volume) * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
 
 	var/list/nearby_ocean = list()
 	for(var/turf/ocean_turf in range(10, M))
@@ -220,8 +276,8 @@ var/static/list/city_noises = list(
 /datum/component/vtm_ambience/proc/play_city_ambience(mob/M, volume = 75)
 	if(HAS_TRAIT(M, TRAIT_DEAF))
 		return 1 MINUTES
-	var/base_volume = volume * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
-	var/adjusted_volume = (prob(50) && (base_volume - 10 > 0)) ? base_volume - 20 : base_volume
+	var/adjusted_volume = prob(50) ? max(0, volume - 20) : volume
+	var/base_volume = adjusted_volume * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
 
 	var/list/nearby_asphalt = list()
 	for(var/turf/open/floor/plating/asphalt/asphalt_turf in range(10, M))
@@ -241,7 +297,7 @@ var/static/list/city_noises = list(
 /datum/component/vtm_ambience/proc/play_sewer_ambience(mob/M, volume = 75)
 	if(HAS_TRAIT(M, TRAIT_DEAF))
 		return 1 MINUTES
-	var/base_volume = volume * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
+	var/base_volume = max(0, volume) * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
 
 	var/list/nearby_pipes = list()
 	for(var/obj/structure/vampipe/pipe in range(10, M))
@@ -259,6 +315,36 @@ var/static/list/city_noises = list(
 
 	var/area/sewer_area = get_area(M)
 	return noise_length + rand(sewer_area.min_ambience_cooldown, sewer_area.max_ambience_cooldown)
+
+/datum/component/vtm_ambience/proc/play_interior_ambience(mob/M, volume = 75) // for now this is just the hotel
+	if(HAS_TRAIT(M, TRAIT_DEAF))
+		return 1 MINUTES
+	var/adjusted_volume = max(10, volume - 50)
+	var/base_volume = adjusted_volume * (M.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_ambience_volume) / 100)
+
+	var/list/nearby_lights = list()
+	for(var/obj/machinery/light in range(10, M))
+		if(get_dist(M, light) >= 6)
+			nearby_lights += light
+
+	var/noise_file = pick(interior_noises)
+	var/noise_length = SSsounds.get_sound_length(noise_file)
+
+	if(!length(nearby_lights))
+		return 10 SECONDS
+
+	var/obj/machinery/light/target = pick(nearby_lights)
+	play_positional_sound(M, noise_file, noise_length, get_turf(target), base_volume, SOUND_ENVIRONMENT_LIVINGROOM)
+
+	var/area/interior_area = get_area(M)
+	return noise_length + rand(interior_area.min_ambience_cooldown, interior_area.max_ambience_cooldown)
+
+/datum/component/vtm_ambience/proc/tick_interior_ambience(area/vtm/source_area)
+	var/mob/M = parent
+	var/area/current = get_area(M)
+	if(QDELETED(M) || !istype(current, /area/vtm/interior/hotel) && !istype(current, /area/vtm/interior/shop))
+		return
+	ambience_timer = addtimer(CALLBACK(src, PROC_REF(tick_interior_ambience), source_area), play_interior_ambience(M), TIMER_STOPPABLE)
 
 /datum/component/vtm_ambience/proc/tick_sewer_ambience(area/vtm/interior/sewer/source_area)
 	var/mob/M = parent
@@ -296,59 +382,7 @@ var/static/list/city_noises = list(
 		INVOKE_ASYNC(src, PROC_REF(tick_ocean_ambience), new_area)
 	else if(istype(new_area, /area/vtm/outside))
 		INVOKE_ASYNC(src, PROC_REF(tick_city_ambience), new_area)
+	else if(istype(new_area, /area/vtm/interior/hotel) || istype(new_area, /area/vtm/interior/shop))
+		INVOKE_ASYNC(src, PROC_REF(tick_interior_ambience), new_area)
 	else if(istype(new_area, /area/vtm/interior/sewer))
 		INVOKE_ASYNC(src, PROC_REF(tick_sewer_ambience), new_area)
-
-/mob/living/Login()
-	. = ..()
-	src.AddComponent(/datum/component/vtm_ambience)
-
-/area/vtm/outside
-	ambient_buzz = 'modular_tfn/modules/ambience/sound/city/downtown_main.ogg'
-	ambient_buzz_vol = 30
-
-/area/vtm/outside/forest
-	ambient_buzz = 'modular_tfn/modules/ambience/sound/outdoors/outdoors1.ogg'
-	ambient_buzz_vol = 30
-
-/area/vtm/planetgeneration
-	ambient_buzz = 'modular_tfn/modules/ambience/sound/outdoors/outdoors1.ogg'
-	ambient_buzz_vol = 30
-
-/area/vtm/planetgeneration/woodland
-	ambient_buzz = 'modular_tfn/modules/ambience/sound/outdoors/outdoors1.ogg'
-	ambient_buzz_vol = 30
-
-/area/vtm/outside/baywalk
-	ambient_buzz = 'modular_tfn/modules/ambience/sound/ocean/surf_lite_loop.ogg'
-	ambient_buzz_vol = 30
-	ambientsounds = list()
-
-/area/vtm/outside/baywalk/Exited(atom/movable/AM, area/new_area)
-	. = ..()
-	if(ismob(AM))
-		stop_ocean_ambience(AM)
-
-/area/vtm/outside/northbeach
-	ambient_buzz = 'modular_tfn/modules/ambience/sound/ocean/surf_lite_loop.ogg'
-	ambient_buzz_vol = 30
-	ambientsounds = list()
-
-/area/vtm/outside/northbeach/Exited(atom/movable/AM, area/new_area)
-	. = ..()
-	if(ismob(AM))
-		stop_ocean_ambience(AM)
-
-/area/vtm/outside/fishermanswharf
-	ambient_buzz = 'modular_tfn/modules/ambience/sound/ocean/surf_lite_loop.ogg'
-	ambient_buzz_vol = 28
-	ambientsounds = list()
-
-/area/vtm/outside/fishermanswharf/Exited(atom/movable/AM, area/new_area)
-	. = ..()
-	if(ismob(AM))
-		stop_ocean_ambience(AM)
-
-/area/vtm/interior/sewer
-	ambient_buzz = 'modular_tfn/modules/ambience/sound/sewer/sewer_ambience.ogg'
-	ambient_buzz_vol = 30
