@@ -378,7 +378,7 @@ var/static/list/interior_noises = list(
 	deltimer(ambience_timer)
 	if(istype(new_area, /area/vtm/outside/forest) || istype(new_area, /area/vtm/planetgeneration))
 		INVOKE_ASYNC(src, PROC_REF(tick_forest_ambience), new_area)
-	else if(istype(new_area, /area/vtm/outside/baywalk) || istype(new_area, /area/vtm/outside/northbeach) || istype(new_area, /area/vtm/outside/fishermanswharf))
+	else if(istype(new_area, /area/vtm/outside/northbeach) || istype(new_area, /area/vtm/outside/fishermanswharf))
 		INVOKE_ASYNC(src, PROC_REF(tick_ocean_ambience), new_area)
 	else if(istype(new_area, /area/vtm/outside))
 		INVOKE_ASYNC(src, PROC_REF(tick_city_ambience), new_area)
