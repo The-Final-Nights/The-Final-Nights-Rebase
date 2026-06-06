@@ -268,3 +268,5 @@
 	exp_required_type = EXP_TYPE_CHANTRY
 	exp_required_type_department = EXP_TYPE_CHANTRY
 	exp_granted_type = EXP_TYPE_CHANTRY
+
+#undef EXP_TYPE_SOCIETY "Society of Leopold"
