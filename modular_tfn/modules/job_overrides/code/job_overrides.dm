@@ -182,9 +182,8 @@
 
 /datum/job/vampire/fbi
 	exp_requirements = 600
-	exp_required_type = EXP_TYPE_POLICE
-	exp_required_type_department = EXP_TYPE_POLICE
-	exp_granted_type = EXP_TYPE_POLICE
+	exp_required_type = EXP_TYPE_LIVING
+	exp_required_type_department = EXP_TYPE_LIVING
 
 /datum/job/vampire/police_sergeant
 	exp_requirements = 600
