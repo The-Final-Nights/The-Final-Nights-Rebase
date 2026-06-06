@@ -44,6 +44,8 @@
 
 /datum/job/vampire/hound
 	exp_requirements = 600
+	exp_required_type = EXP_TYPE_LIVING
+	exp_required_type_department = EXP_TYPE_LIVING
 
 /datum/job/vampire/towerwork
 	exp_granted_type = EXP_TYPE_CAMARILLA
@@ -269,4 +271,4 @@
 	exp_required_type_department = EXP_TYPE_CHANTRY
 	exp_granted_type = EXP_TYPE_CHANTRY
 
-#undef EXP_TYPE_SOCIETY "Society of Leopold"
+#undef EXP_TYPE_SOCIETY
