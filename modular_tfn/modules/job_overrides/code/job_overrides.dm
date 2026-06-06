@@ -192,7 +192,7 @@
 	exp_granted_type = EXP_TYPE_POLICE
 
 /datum/job/vampire/police_officer
-	exp_requirements = 600
+	exp_requirements = 300
 	exp_required_type = EXP_TYPE_LIVING
 	exp_required_type_department = EXP_TYPE_LIVING
 	exp_granted_type = EXP_TYPE_POLICE
