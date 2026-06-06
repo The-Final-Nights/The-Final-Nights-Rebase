@@ -12,6 +12,10 @@ GLOBAL_PROTECT(exp_to_update)
 		return 0
 	if(!IS_XP_LOCKED(src))
 		return 0
+	//TFN EDIT START - Job Time Requirements
+	if(C.prefs?.discipline_trusted)
+		return 0
+	//TFN EDIT END - Job Time Requirements
 	if(CONFIG_GET(flag/use_exp_restrictions_admin_bypass) && check_rights_for(C,R_ADMIN))
 		return 0
 	var/isexempt = C.prefs.db_flags & DB_FLAG_EXEMPT
