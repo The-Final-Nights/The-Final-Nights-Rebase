@@ -12,15 +12,19 @@
 	exp_granted_type = EXP_TYPE_ANARCH
 
 /datum/job/vampire/bruiser
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_ANARCH
 
 /datum/job/vampire/emissary
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_ANARCH
 
 /datum/job/vampire/sweeper
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_ANARCH
 
 /datum/job/vampire/tapster
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_ANARCH
 
 // Camarilla Jobs
@@ -48,6 +52,7 @@
 	exp_required_type_department = EXP_TYPE_LIVING
 
 /datum/job/vampire/towerwork
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_CAMARILLA
 
 /datum/job/vampire/clerk
@@ -64,6 +69,7 @@
 	exp_granted_type = EXP_TYPE_CLINIC
 
 /datum/job/vampire/doctor
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_CLINIC
 
 // Garou Jobs
@@ -76,6 +82,12 @@
 /datum/job/vampire/truthcatcher
 	exp_requirements = 900
 
+/datum/job/vampire/keeper
+	exp_requirements = 0
+
+/datum/job/vampire/guardian
+	exp_requirements = 0
+
 // Giovanni Jobs
 /datum/job/vampire/capo
 	exp_requirements = 1200
@@ -84,9 +96,11 @@
 	exp_granted_type = EXP_TYPE_GIOVANNI
 
 /datum/job/vampire/famiglia
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_GIOVANNI
 
 /datum/job/vampire/squadra
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_GIOVANNI
 
 // Hunter Jobs
@@ -166,6 +180,8 @@
 	exp_required_type_department = EXP_TYPE_LIVING
 
 /datum/job/vampire/employee
+	exp_requirements = 0
+
 	alt_titles = list(
 		"Magadon Employee",
 		"Magadon Janitor",
@@ -182,6 +198,7 @@
 	exp_granted_type = EXP_TYPE_POLICE
 
 /datum/job/vampire/dispatcher
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_POLICE
 
 /datum/job/vampire/fbi
@@ -246,12 +263,15 @@
 
 // Supply Jobs
 /datum/job/vampire/setite
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_WAREHOUSE
 
 /datum/job/vampire/setite/faithful
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_WAREHOUSE
 
 /datum/job/vampire/setite/ward
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_WAREHOUSE
 
 /datum/job/vampire/setite/faithful/high_priest
@@ -262,9 +282,11 @@
 
 // Tremere Jobs
 /datum/job/vampire/archivist
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_CHANTRY
 
 /datum/job/vampire/gargoyle
+	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_CHANTRY
 
 /datum/job/vampire/regent
