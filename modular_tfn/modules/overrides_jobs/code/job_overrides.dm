@@ -51,6 +51,9 @@
 	exp_required_type = EXP_TYPE_LIVING
 	exp_required_type_department = EXP_TYPE_LIVING
 
+/datum/job/vampire/harpy
+	exp_requirements = 0
+
 /datum/job/vampire/towerwork
 	exp_requirements = 0
 	exp_granted_type = EXP_TYPE_CAMARILLA
