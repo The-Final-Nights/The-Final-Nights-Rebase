@@ -14,6 +14,8 @@ GLOBAL_LIST_EMPTY(anarch_network)
 GLOBAL_LIST_EMPTY(supply_network)
 GLOBAL_LIST_EMPTY(vampire_leader_network)
 GLOBAL_LIST_EMPTY(endron_network)
+GLOBAL_LIST_EMPTY(magadon_network) //TFN EDIT CHANGE - Magadonification - Original: GLOBAL_LIST_EMPTY(endron_network)
+GLOBAL_LIST_EMPTY(magadon_leader_network) //TFN EDIT ADD - Magadonification
 GLOBAL_LIST_EMPTY(society_network)
 GLOBAL_LIST_EMPTY(clinic_network) //TFN EDIT ADD - Clinic Phones
 GLOBAL_LIST_EMPTY(sabbat_network) // TFN EDIT ADD - Sabbat Phones
@@ -30,6 +32,8 @@ GLOBAL_LIST_EMPTY(sabbat_network) // TFN EDIT ADD - Sabbat Phones
 #define SOCIETY_OF_LEOPOLD_NETWORK 10
 #define CLINIC_NETWORK 11 //TFN EDIT ADD - Clinic Phones
 #define SABBAT_NETWORK 12 // TFN EDIT ADD - Sabbat Phones
+#define MAGADON_NETWORK 13 //TFN EDIT CHANGE - Magadonification
+#define MAGADON_LEADER_NETWORK 14 //TFN EDIT ADD - Magadonification
 
 // An indexed list of all the different phone networks that connect the phones that are part of them together.
 GLOBAL_LIST_INIT(contact_networks, alist(
@@ -42,6 +46,8 @@ GLOBAL_LIST_INIT(contact_networks, alist(
 		SUPPLY_NETWORK = GLOB.supply_network,
 		VAMPIRE_LEADER_NETWORK = GLOB.vampire_leader_network,
 		ENDRON_NETWORK = GLOB.endron_network,
+		MAGADON_NETWORK = GLOB.magadon_network, //TFN EDIT ADD - Magadonification
+		MAGADON_LEADER_NETWORK = GLOB.magadon_leader_network, //TFN EDIT ADD - Magadonification
 		SOCIETY_OF_LEOPOLD_NETWORK = GLOB.society_network,
 		CLINIC_NETWORK = GLOB.clinic_network,
 		SABBAT_NETWORK = GLOB.sabbat_network, // TFN EDIT ADD - Sabbat Phones
