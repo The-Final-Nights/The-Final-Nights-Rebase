@@ -20,7 +20,6 @@
 	department_for_prefs = /datum/job_department/camarilla
 	departments_list = list(
 		/datum/job_department/camarilla,
-		/datum/job_department/fight_club,
 	)
 
 	minimal_generation = 12
