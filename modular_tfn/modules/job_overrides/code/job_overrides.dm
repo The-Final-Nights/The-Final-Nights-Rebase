@@ -54,7 +54,7 @@
 	exp_requirements = 1200
 
 /datum/job/vampire/sheriff
-	exp_requirements = 1200
+	exp_requirements = 900
 
 // Clinic Jobs
 /datum/job/vampire/clinic_director
@@ -162,6 +162,8 @@
 
 /datum/job/vampire/pentex_sec
 	exp_requirements = 600
+	exp_required_type = EXP_TYPE_LIVING
+	exp_required_type_department = EXP_TYPE_LIVING
 
 /datum/job/vampire/employee
 	alt_titles = list(
