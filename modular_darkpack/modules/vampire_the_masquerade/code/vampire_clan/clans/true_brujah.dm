@@ -15,3 +15,5 @@
 	female_clothes = /obj/item/clothing/under/vampire/business
 	restricted_disciplines = list(/datum/discipline/celerity)
 	whitelisted = TRUE
+
+	subsplat_keys = /obj/item/vamp/keys/brujah	//TFN EDIT ADD - TRUJAH KEYS
