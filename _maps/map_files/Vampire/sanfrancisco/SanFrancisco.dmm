@@ -10006,7 +10006,9 @@
 /area/vtm/interior/sewer/nosferatu_warren)
 "cyc" = (
 /obj/machinery/light/prince/directional/north,
-/obj/structure/sink/basin/directional/south,
+/obj/structure/sink/basin/directional/south{
+	pixel_y = 5
+	},
 /obj/structure/table/countertop/black,
 /turf/open/floor/city/factory,
 /area/vtm/interior/jazzclub)
@@ -24204,16 +24206,9 @@
 /turf/open/floor/plating/concrete,
 /area/vtm)
 "gbX" = (
-/obj/item/reagent_containers/cup/glass/bottle/wine{
-	pixel_y = 10;
-	pixel_x = 8
-	},
-/obj/structure/table/wood/fancy/royalblue,
 /obj/machinery/sprinkler/area_managed,
-/obj/item/storage/fancy/cigarettes/cigars/cohiba,
-/obj/item/flashlight/flare/candle/infinite{
-	anchored = 1;
-	pixel_y = 7
+/obj/structure/chair/wood/darkpack{
+	dir = 4
 	},
 /turf/open/floor/carpet/royalblue,
 /area/vtm/interior/jazzclub)
@@ -28461,6 +28456,13 @@
 /obj/structure/chair/plastic/darkpack,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm)
+"hhm" = (
+/obj/machinery/light/prince/directional/north,
+/obj/machinery/sprinkler/area_managed{
+	pixel_y = -5
+	},
+/turf/open/floor/plating/granite/black,
+/area/vtm/interior/jazzclub)
 "hhr" = (
 /obj/effect/turf_decal/siding/wideplating/red/corner{
 	dir = 1
@@ -33679,13 +33681,9 @@
 /area/vtm/interior/apartment)
 "ivE" = (
 /obj/structure/table/countertop/black,
-/obj/machinery/reagentgrinder/kitchen{
-	pixel_y = 13;
-	pixel_x = -8
-	},
-/obj/item/knife/kitchen{
-	pixel_y = 3;
-	pixel_x = 9
+/obj/item/storage/box/drinkingglasses{
+	pixel_x = -4;
+	pixel_y = 8
 	},
 /turf/open/floor/city/factory,
 /area/vtm/interior/jazzclub)
@@ -39936,6 +39934,13 @@
 /obj/structure/stairs/east,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
+"kbr" = (
+/obj/structure/closet/crate/bin{
+	pixel_y = 5;
+	pixel_x = -5
+	},
+/turf/open/floor/city/factory,
+/area/vtm/interior/jazzclub)
 "kbz" = (
 /obj/effect/turf_decal/bordur{
 	dir = 1
@@ -45663,15 +45668,6 @@
 	},
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
-"lwg" = (
-/obj/machinery/light/prince/directional/west{
-	pixel_y = 8
-	},
-/obj/effect/turf_decal/siding/wideplating/blue{
-	dir = 9
-	},
-/turf/open/floor/carpet/royalblue,
-/area/vtm/interior/jazzclub)
 "lwu" = (
 /obj/effect/decal/rugs,
 /obj/machinery/sprinkler/area_managed,
@@ -46422,13 +46418,6 @@
 /obj/effect/landmark/npcbeacon,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/unionsquare)
-"lHU" = (
-/obj/machinery/sprinkler/area_managed,
-/obj/effect/turf_decal/siding/wood/light{
-	dir = 10
-	},
-/turf/open/floor/wood/smooth,
-/area/vtm/interior/jazzclub)
 "lHW" = (
 /obj/effect/turf_decal/bordur/corner{
 	dir = 8
@@ -47232,13 +47221,13 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/culture)
 "lSI" = (
-/obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /obj/effect/mapping_helpers/door/access/ventrue,
 /obj/structure/vampdoor/wood,
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/jazzclub)
 "lSP" = (
@@ -58734,6 +58723,12 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
+"oGz" = (
+/obj/structure/chair/wood/darkpack{
+	dir = 8
+	},
+/turf/open/floor/carpet/royalblue,
+/area/vtm/interior/jazzclub)
 "oGD" = (
 /obj/effect/turf_decal/asphaltline/alt{
 	dir = 8
@@ -60089,9 +60084,13 @@
 /area/vtm/interior)
 "oXo" = (
 /obj/structure/table/countertop/black,
-/obj/item/storage/box/drinkingglasses{
-	pixel_x = -4;
-	pixel_y = 8
+/obj/machinery/reagentgrinder/kitchen{
+	pixel_y = 13;
+	pixel_x = -8
+	},
+/obj/item/knife/kitchen{
+	pixel_y = 3;
+	pixel_x = 9
 	},
 /turf/open/floor/city/church,
 /area/vtm/interior/jazzclub)
@@ -60172,7 +60171,6 @@
 /area/vtm/interior/sewer/nosferatu_warren)
 "oYg" = (
 /obj/structure/table/countertop/black,
-/obj/item/kitchen/rollingpin,
 /turf/open/floor/city/church,
 /area/vtm/interior/jazzclub)
 "oYi" = (
@@ -63895,9 +63893,6 @@
 /obj/effect/turf_decal/siding/wood/light{
 	dir = 1
 	},
-/obj/effect/turf_decal/siding/wood/light{
-	dir = 8
-	},
 /turf/open/floor/wood/ornate,
 /area/vtm/interior/jazzclub)
 "pTj" = (
@@ -65965,13 +65960,6 @@
 /obj/machinery/jukebox/no_access,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/fightclub)
-"qsa" = (
-/obj/structure/table/modern,
-/obj/effect/turf_decal/siding/wood/light{
-	dir = 8
-	},
-/turf/open/floor/wood/ornate,
-/area/vtm/interior/jazzclub)
 "qsb" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/vampire/bahari,
@@ -66600,6 +66588,13 @@
 /obj/effect/decal/cleanable/cardboard,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
+"qAu" = (
+/obj/effect/turf_decal/siding/wood/light{
+	dir = 10
+	},
+/obj/structure/table/modern,
+/turf/open/floor/wood/ornate,
+/area/vtm/interior/jazzclub)
 "qAv" = (
 /obj/structure/platform/lowwall/painted,
 /turf/open/floor/plating/rough,
@@ -80086,7 +80081,6 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "tTB" = (
-/obj/structure/chair/wood/darkpack,
 /obj/effect/turf_decal/siding/wideplating/blue/corner{
 	dir = 1
 	},
@@ -86604,7 +86598,8 @@
 /obj/effect/turf_decal/siding/wood/light{
 	dir = 9
 	},
-/turf/open/floor/wood/smooth,
+/obj/structure/table/modern,
+/turf/open/floor/wood/ornate,
 /area/vtm/interior/jazzclub)
 "vFK" = (
 /obj/structure/table/wood/fancy/red,
@@ -96210,6 +96205,10 @@
 /area/vtm/interior/library)
 "xZu" = (
 /obj/structure/table/countertop/black,
+/obj/item/kitchen/rollingpin{
+	pixel_y = 3;
+	pixel_x = 8
+	},
 /turf/open/floor/city/factory,
 /area/vtm/interior/jazzclub)
 "xZB" = (
@@ -96579,6 +96578,15 @@
 /obj/effect/turf_decal/siding/grey,
 /turf/open/floor/city/factory,
 /area/vtm/interior/church/staff)
+"ydX" = (
+/obj/structure/vampdoor/wood{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/access/ventrue,
+/obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/jazzclub)
 "yec" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/wood/light{
@@ -172955,7 +172963,7 @@ eQe
 oXo
 ivE
 rRr
-vZm
+kbr
 hKN
 nRV
 lqZ
@@ -173985,7 +173993,7 @@ sCm
 oZH
 hic
 vFI
-qLl
+qAu
 acg
 uNL
 ohs
@@ -174189,7 +174197,7 @@ ipx
 oZH
 tiq
 pTc
-qsa
+khw
 acg
 gGz
 osF
@@ -174987,7 +174995,7 @@ jwW
 myX
 pVw
 pVw
-pIC
+pVw
 pVw
 mXL
 pee
@@ -175397,7 +175405,7 @@ faO
 pVw
 pVw
 pVw
-pVw
+pIC
 nRV
 xmX
 pVX
@@ -214359,7 +214367,7 @@ mjT
 mjT
 mjT
 vTC
-gLj
+hhm
 qWz
 sAW
 oxm
@@ -215399,8 +215407,8 @@ gUz
 oJP
 jKE
 jKE
-jKE
 vno
+jKE
 xsT
 gUz
 ucp
@@ -215604,8 +215612,8 @@ gUz
 mnH
 ucp
 ucp
-ucp
-ucp
+ydX
+ydX
 ucp
 ucp
 ucp
@@ -215808,8 +215816,8 @@ dWx
 ucp
 nRV
 mTu
-asu
-lwg
+qLl
+caM
 fln
 fIE
 ucp
@@ -216218,8 +216226,8 @@ lSI
 blg
 blg
 tTB
-oKy
-sEk
+oGz
+gGz
 oqf
 mjT
 mjT
@@ -216420,10 +216428,10 @@ acg
 gGz
 nRV
 oba
-lHU
-xnV
+qLl
+acg
 gbX
-sEk
+gGz
 oqf
 mjT
 mjT
@@ -216619,7 +216627,7 @@ jPt
 jPt
 bri
 vOa
-wIl
+jUP
 acg
 gGz
 nRV
