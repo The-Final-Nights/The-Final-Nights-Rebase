@@ -9916,7 +9916,7 @@
 /area/vtm/interior/millennium_tower)
 "cwS" = (
 /obj/structure/chair/comfy/darkpack/red{
-	pixel_y = 10;
+	pixel_y = 2;
 	dir = 1
 	},
 /turf/open/floor/carpet/red,
@@ -10885,6 +10885,13 @@
 	},
 /turf/open/floor/carpet/darkpack/orangesilver,
 /area/vtm/interior/fightclub)
+"cKP" = (
+/obj/structure/chair/plastic/darkpack{
+	dir = 4
+	},
+/obj/machinery/light/warm,
+/turf/open/floor/plating/sidewalkalt,
+/area/vtm/interior/jazzclub)
 "cKQ" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 10
@@ -11546,13 +11553,6 @@
 	dir = 1
 	},
 /turf/open/floor/wood/smooth/old,
-/area/vtm/interior/theatre)
-"cTB" = (
-/obj/structure/chair/comfy/darkpack/red{
-	pixel_y = 9;
-	dir = 1
-	},
-/turf/open/floor/carpet/red,
 /area/vtm/interior/theatre)
 "cTJ" = (
 /obj/effect/turf_decal/siding/grey/corner{
@@ -18955,7 +18955,7 @@
 /obj/effect/mapping_helpers/door/access/jazz_club,
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/lock_difficulty/two,
-/turf/open/floor/city/factory,
+/turf/open/floor/city/gummaguts,
 /area/vtm/interior/jazzclub)
 "eOy" = (
 /obj/effect/turf_decal/siding/grey{
@@ -22475,7 +22475,7 @@
 /obj/machinery/light/prince/directional/west{
 	pixel_y = 8
 	},
-/turf/open/floor/city/factory,
+/turf/open/floor/city/gummaguts,
 /area/vtm/interior/jazzclub)
 "fFo" = (
 /obj/effect/turf_decal/siding/grey/inner_corner{
@@ -25211,6 +25211,9 @@
 /obj/effect/landmark/start/darkpack/chantry/archivist,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/library)
+"gpJ" = (
+/turf/open/floor/city/gummaguts,
+/area/vtm/interior/jazzclub)
 "gpK" = (
 /obj/effect/turf_decal/siding/tan/end{
 	dir = 8
@@ -28527,7 +28530,7 @@
 /obj/effect/turf_decal/siding/grey{
 	dir = 8
 	},
-/turf/open/floor/city/factory,
+/turf/open/floor/city/gummaguts,
 /area/vtm/interior/jazzclub)
 "hib" = (
 /obj/effect/turf_decal/bordur/corner{
@@ -38679,6 +38682,15 @@
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/strip)
+"jJK" = (
+/obj/effect/decal/wallpaper/blue,
+/obj/effect/decal/wallpaper/gold/alt,
+/obj/machinery/light/warm/dim{
+	dir = 1;
+	pixel_y = -14
+	},
+/turf/closed/wall/vampwall/rich,
+/area/vtm/interior/jazzclub)
 "jKj" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
@@ -47230,12 +47242,15 @@
 "lSI" = (
 /obj/effect/mapping_helpers/door/access/ventrue,
 /obj/structure/vampdoor/wood,
-/obj/effect/turf_decal/siding/wood/dark{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
-/turf/open/floor/wood/smooth/old,
+/obj/effect/turf_decal/siding/wideplating/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating/blue{
+	dir = 8
+	},
+/turf/open/floor/carpet/royalblue,
 /area/vtm/interior/jazzclub)
 "lSP" = (
 /obj/structure/table/wood,
@@ -54478,16 +54493,18 @@
 /area/vtm/interior/evergreen/caern)
 "nHx" = (
 /obj/structure/table/wood/fancy/royalblue,
-/obj/structure/bedsheetbin/basket,
-/obj/item/rag{
-	pixel_y = 7;
-	pixel_x = 10
+/obj/structure/bedsheetbin/basket{
+	pixel_x = -3
 	},
 /obj/item/rag{
 	pixel_y = 7;
 	pixel_x = 10
 	},
-/turf/open/floor/city/factory,
+/obj/item/rag{
+	pixel_y = 7;
+	pixel_x = 10
+	},
+/turf/open/floor/city/gummaguts,
 /area/vtm/interior/jazzclub)
 "nHF" = (
 /obj/structure/guncase{
@@ -57539,7 +57556,7 @@
 	pixel_y = 11
 	},
 /obj/machinery/light/prince/directional/north,
-/turf/open/floor/city/factory,
+/turf/open/floor/city/gummaguts,
 /area/vtm/interior/jazzclub)
 "orl" = (
 /obj/structure/flora/bush/grassy/style_random,
@@ -70032,7 +70049,7 @@
 "rsm" = (
 /obj/structure/sink/directional/south,
 /obj/structure/mirror/directional/north,
-/turf/open/floor/city/factory,
+/turf/open/floor/city/gummaguts,
 /area/vtm/interior/jazzclub)
 "rss" = (
 /obj/effect/decal/wallpaper/stone/low{
@@ -86950,7 +86967,7 @@
 /obj/machinery/sprinkler/area_managed{
 	pixel_y = 21
 	},
-/turf/open/floor/city/factory,
+/turf/open/floor/city/gummaguts,
 /area/vtm/interior/jazzclub)
 "vJV" = (
 /obj/machinery/iv_drip,
@@ -94844,7 +94861,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/vtm/interior/jazzclub)
 "xGT" = (
-/obj/machinery/light/prince/directional/south,
+/obj/machinery/light/warm/dim,
 /turf/open/openspace,
 /area/vtm/interior/jazzclub)
 "xGV" = (
@@ -132374,7 +132391,7 @@ rAP
 upc
 mUY
 dtU
-cTB
+cwS
 foQ
 wQu
 foQ
@@ -174399,7 +174416,7 @@ pVw
 pVw
 pVw
 phU
-phU
+cKP
 nRV
 eMQ
 vZm
@@ -175235,8 +175252,8 @@ njp
 sOh
 nRV
 rsm
-vZm
-vZm
+gpJ
+gpJ
 ucp
 lEF
 jBa
@@ -175428,7 +175445,7 @@ oYE
 nIK
 nRV
 vos
-vIy
+caM
 vIy
 vIy
 ovW
@@ -175632,7 +175649,7 @@ sud
 idj
 nRV
 lCJ
-ohs
+xGP
 hTS
 ohs
 xsK
@@ -215208,7 +215225,7 @@ jUP
 acg
 gGz
 wIl
-wLE
+jJK
 amD
 amD
 amD
