@@ -14235,10 +14235,6 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
-"dDt" = (
-/obj/machinery/light/prince/directional/west,
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior/theatre)
 "dDv" = (
 /obj/effect/turf_decal/bordur{
 	dir = 4
@@ -20943,6 +20939,7 @@
 /obj/effect/turf_decal/siding/wideplating/blue{
 	dir = 8
 	},
+/obj/machinery/light/prince/directional/west,
 /turf/open/floor/carpet/royalblue,
 /area/vtm/interior/jazzclub)
 "flu" = (
@@ -31272,6 +31269,15 @@
 	},
 /turf/open/misc/grass/nosmooth,
 /area/vtm)
+"hTr" = (
+/obj/effect/turf_decal/siding/wideplating/blue{
+	dir = 6
+	},
+/obj/machinery/light/prince/directional/east{
+	pixel_y = 8
+	},
+/turf/open/floor/carpet/royalblue,
+/area/vtm/interior/jazzclub)
 "hTA" = (
 /obj/effect/decal/wallpaper/red/low,
 /obj/structure/curtain/bounty{
@@ -41138,6 +41144,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/flowers_pp/style_random,
+/obj/machinery/light/warm,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/jazzclub)
 "krC" = (
@@ -63440,6 +63447,12 @@
 	},
 /turf/closed/wall/vampwall/junk,
 /area/vtm/interior/sewer/nosferatu_warren)
+"pNV" = (
+/obj/structure/hedge,
+/obj/structure/flora/bush/flowers_pp/style_random,
+/obj/machinery/light/warm,
+/turf/open/floor/wood/smooth,
+/area/vtm/interior/jazzclub)
 "pNW" = (
 /obj/structure/hedge,
 /obj/structure/flora/bush/flowers_pp/style_random,
@@ -68970,6 +68983,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/flowers_pp/style_random,
+/obj/machinery/light/warm,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/jazzclub)
 "rfk" = (
@@ -75697,6 +75711,7 @@
 /area/vtm/interior/clinic)
 "sOh" = (
 /obj/effect/turf_decal/siding/wood/light/end,
+/obj/machinery/light/prince/directional/south,
 /turf/open/floor/wood/ornate,
 /area/vtm/interior/jazzclub)
 "sOk" = (
@@ -79251,6 +79266,13 @@
 /obj/effect/turf_decal/siding/grey/inner_corner,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/clinic)
+"tIv" = (
+/obj/effect/turf_decal/siding/wideplating/red{
+	dir = 4
+	},
+/obj/machinery/light/prince/directional/west,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/theatre)
 "tIy" = (
 /obj/effect/decal/wallpaper/stone/low{
 	pixel_y = 24
@@ -90275,15 +90297,6 @@
 /obj/structure/barrels/rand,
 /turf/open/floor/wood/old,
 /area/vtm/outside/fishermanswharf/industrial)
-"wAa" = (
-/obj/machinery/light/prince/directional/east{
-	pixel_y = 8
-	},
-/obj/effect/turf_decal/siding/wood/light{
-	dir = 6
-	},
-/turf/open/floor/wood/smooth,
-/area/vtm/interior/jazzclub)
 "wAb" = (
 /obj/structure/chair/sofa/left/brown{
 	color = "#525252";
@@ -93816,6 +93829,7 @@
 /area/vtm/outside/forest)
 "xtZ" = (
 /obj/structure/railing/wooden_fence,
+/obj/machinery/light/warm,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/jazzclub)
 "xuh" = (
@@ -131541,11 +131555,11 @@ myB
 eQU
 xur
 raA
-dDt
+raA
 xIr
 nos
 nos
-nos
+tIv
 nos
 nos
 lqr
@@ -174607,9 +174621,9 @@ kwL
 kDp
 fDS
 nTc
-xsK
+hTr
 eex
-wAa
+vvs
 hCh
 wqg
 lEF
@@ -215397,7 +215411,7 @@ fHe
 cmJ
 nak
 kOT
-ooG
+pNV
 wLE
 amD
 amD
