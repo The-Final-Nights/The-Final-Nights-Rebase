@@ -48,11 +48,13 @@
 
 /datum/job/vampire/hound
 	exp_requirements = 600
-	exp_required_type = EXP_TYPE_LIVING
-	exp_required_type_department = EXP_TYPE_LIVING
+	exp_required_type = EXP_TYPE_CAMARILLA
+	exp_required_type_department = EXP_TYPE_CAMARILLA
+	exp_granted_type = EXP_TYPE_CAMARILLA
 
 /datum/job/vampire/harpy
 	exp_requirements = 0
+	exp_granted_type = EXP_TYPE_CAMARILLA
 
 /datum/job/vampire/towerwork
 	exp_requirements = 0
@@ -122,13 +124,13 @@
 	exp_granted_type = EXP_TYPE_SOCIETY
 
 /datum/job/vampire/inquisitor
-	exp_requirements = 600
+	exp_requirements = 0
 	exp_required_type = EXP_TYPE_LIVING
 	exp_required_type_department = EXP_TYPE_LIVING
 	exp_granted_type = EXP_TYPE_SOCIETY
 
 /datum/job/vampire/novice
-	exp_requirements = 600
+	exp_requirements = 0
 	exp_required_type = EXP_TYPE_LIVING
 	exp_required_type_department = EXP_TYPE_LIVING
 	exp_granted_type = EXP_TYPE_SOCIETY
@@ -179,11 +181,13 @@
 
 /datum/job/vampire/pentex_sec
 	exp_requirements = 600
-	exp_required_type = EXP_TYPE_LIVING
-	exp_required_type_department = EXP_TYPE_LIVING
+	exp_required_type = EXP_TYPE_SPIRAL
+	exp_required_type_department = EXP_TYPE_SPIRAL
+	exp_granted_type = EXP_TYPE_SPIRAL
 
 /datum/job/vampire/employee
 	exp_requirements = 0
+	exp_granted_type = EXP_TYPE_SPIRAL
 
 	alt_titles = list(
 		"Magadon Employee",
@@ -205,7 +209,7 @@
 	exp_granted_type = EXP_TYPE_POLICE
 
 /datum/job/vampire/fbi
-	exp_requirements = 600
+	exp_requirements = 0
 	exp_required_type = EXP_TYPE_LIVING
 	exp_required_type_department = EXP_TYPE_LIVING
 
@@ -216,7 +220,7 @@
 	exp_granted_type = EXP_TYPE_POLICE
 
 /datum/job/vampire/police_officer
-	exp_requirements = 300
+	exp_requirements = 0
 	exp_required_type = EXP_TYPE_LIVING
 	exp_required_type_department = EXP_TYPE_LIVING
 	exp_granted_type = EXP_TYPE_POLICE
@@ -229,7 +233,7 @@
 	exp_granted_type = EXP_TYPE_SABBAT
 
 /datum/job/vampire/sabbatpack
-	exp_requirements = 600
+	exp_requirements = 0
 	exp_required_type = EXP_TYPE_LIVING
 	exp_required_type_department = EXP_TYPE_LIVING
 	exp_granted_type = EXP_TYPE_SABBAT
@@ -253,13 +257,13 @@
 	exp_granted_type = EXP_TYPE_SABBAT
 
 /datum/job/vampire/true_sabbat
-	exp_requirements = 600
+	exp_requirements = 0
 	exp_required_type = EXP_TYPE_LIVING
 	exp_required_type_department = EXP_TYPE_LIVING
 	exp_granted_type = EXP_TYPE_SABBAT
 
 /datum/job/vampire/revenant
-	exp_requirements = 600
+	exp_requirements = 0
 	exp_required_type = EXP_TYPE_LIVING
 	exp_required_type_department = EXP_TYPE_LIVING
 	exp_granted_type = EXP_TYPE_SABBAT
