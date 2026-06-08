@@ -265,7 +265,9 @@ export const TFNSlotMachine = () => {
               <Paysymbols key={i} entry={entry} />
             ))}
             {[
+            /* TFN EDIT REMOVAL START - Slots rebalanced
               ['💎', 'x2 per'],
+            TFN EDIT REMOVAL END */
               ['Payouts are bet x multiplier', ''],
             ].map(([label, value], i) => (
               <Box
