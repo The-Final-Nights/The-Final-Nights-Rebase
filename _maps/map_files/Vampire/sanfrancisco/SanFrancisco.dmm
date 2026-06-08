@@ -1287,7 +1287,6 @@
 "aqm" = (
 /obj/structure/table/wood,
 /obj/item/storage/ashtray{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/effect/decal/fakelattice{
@@ -2251,8 +2250,7 @@
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
@@ -3457,8 +3455,7 @@
 "aUc" = (
 /obj/structure/platform/lowwall/bar/window,
 /obj/structure/curtain/bounty{
-	pixel_y = 8;
-	pixel_x = 0
+	pixel_y = 8
 	},
 /turf/open/floor/city/plating,
 /area/vtm/interior/strip)
@@ -5011,6 +5008,12 @@
 /obj/effect/turf_decal/siding/grey/corner,
 /turf/open/floor/city/plating_stone,
 /area/vtm/interior/strip)
+"boz" = (
+/obj/effect/landmark/navigate_destination{
+	location = "Magadon Facility"
+	},
+/turf/open/floor/city/plating_mono,
+/area/vtm/interior/magadon_facility)
 "boB" = (
 /obj/effect/decal/wallpaper/padded,
 /turf/closed/wall/vampwall/city,
@@ -5440,7 +5443,6 @@
 "btz" = (
 /obj/structure/table/wood/fancy/royalblue,
 /obj/item/plate/small{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/plate/small{
@@ -6551,6 +6553,19 @@
 	},
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/giovanni)
+"bGP" = (
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/bank,
+/obj/effect/mapping_helpers/door/lock,
+/obj/structure/vampdoor/woodglass,
+/obj/effect/landmark/navigate_destination{
+	location = "Bianchi Bank"
+	},
+/turf/open/floor/plating/sidewalk,
+/area/vtm/interior/bianchiBank)
 "bGT" = (
 /obj/effect/turf_decal/siding/grey/inner_corner{
 	dir = 8
@@ -9248,7 +9263,6 @@
 /area/vtm/interior/sewer/nosferatu_warren)
 "clJ" = (
 /obj/item/clothing/head/collectable/welding{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/weldingtool{
@@ -10057,8 +10071,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = 12;
-	pixel_y = 0
+	pixel_x = 12
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
@@ -10606,6 +10619,9 @@
 /obj/effect/mapping_helpers/door/autoname,
 /obj/effect/mapping_helpers/door/access/bar,
 /obj/effect/mapping_helpers/door/unlock,
+/obj/effect/landmark/navigate_destination{
+	location = "Rose Bar"
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "cEq" = (
@@ -11197,6 +11213,9 @@
 	},
 /obj/effect/mapping_helpers/door/autoname,
 /obj/effect/mapping_helpers/door/unlock,
+/obj/effect/landmark/navigate_destination{
+	location = "Millennium Apts."
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/apartment)
 "cNd" = (
@@ -11409,11 +11428,9 @@
 	pixel_y = 6
 	},
 /obj/item/stack/medical/wrap/sticky_tape/duct{
-	pixel_y = 0;
 	pixel_x = 7
 	},
 /obj/item/stack/medical/wrap/sticky_tape/duct{
-	pixel_y = 0;
 	pixel_x = -7
 	},
 /turf/open/floor/plating/concrete,
@@ -13818,7 +13835,6 @@
 "dwi" = (
 /obj/structure/table/wood/fancy/royalblue,
 /obj/item/plate/small{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/plate/small{
@@ -17157,7 +17173,6 @@
 /area/vtm/interior/sewer/police)
 "ekO" = (
 /obj/structure/chair/sofa/left/brown{
-	dir = 2;
 	color = "#6d281e"
 	},
 /turf/open/floor/wood/smooth/old,
@@ -17369,8 +17384,7 @@
 /obj/effect/decal/pallet,
 /obj/item/storage/ashtray{
 	desc = "A discreet ashtray for keeping things clean.";
-	pixel_x = -4;
-	pixel_y = 0
+	pixel_x = -4
 	},
 /obj/item/cigbutt{
 	pixel_x = -8;
@@ -18538,7 +18552,6 @@
 /area/vtm/interior/library)
 "eFa" = (
 /obj/structure/chair/sofa/corp/corner{
-	dir = 2;
 	color = "#5aa2fa"
 	},
 /obj/effect/turf_decal/siding/wood/light{
@@ -19313,6 +19326,9 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/autoname,
+/obj/effect/landmark/navigate_destination{
+	location = "Haight Arts Center"
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/library)
 "ePE" = (
@@ -19824,7 +19840,6 @@
 "eVR" = (
 /obj/structure/table/wood/fancy/royalblue,
 /obj/item/plate/small{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/plate/small{
@@ -21030,8 +21045,7 @@
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = 12;
-	pixel_y = 0
+	pixel_x = 12
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/tzimisce_manor)
@@ -21320,8 +21334,7 @@
 /obj/effect/decal/wallpaper/red/low,
 /obj/structure/platform/lowwall/bar/window,
 /obj/structure/curtain/bounty{
-	pixel_y = 8;
-	pixel_x = 0
+	pixel_y = 8
 	},
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/strip)
@@ -22830,6 +22843,12 @@
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/mall)
+"fGX" = (
+/obj/effect/landmark/navigate_destination{
+	location = "Trainyard"
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/outside/trainyard)
 "fHd" = (
 /obj/machinery/light/small/directional/south,
 /obj/effect/turf_decal/siding/beige{
@@ -25555,6 +25574,23 @@
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/giovanni/basement)
+"grn" = (
+/obj/structure/vampdoor/woodglass,
+/obj/effect/mapping_helpers/door/access/jazz_club,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/turf_decal/siding/wideplating/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating/blue{
+	dir = 8
+	},
+/obj/effect/landmark/navigate_destination{
+	location = "Jazz Club"
+	},
+/turf/open/floor/carpet/royalblue,
+/area/vtm/interior/jazzclub)
 "grs" = (
 /obj/effect/decal/wallpaper/red,
 /turf/closed/wall/vampwall/junk/alt,
@@ -32146,7 +32182,6 @@
 /obj/structure/rack/clothing/rand{
 	dir = 1;
 	density = 0;
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /turf/open/floor/wood/smooth/old,
@@ -32313,8 +32348,7 @@
 "icx" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 140;
-	max_integrity = 500;
-	dir = 2
+	max_integrity = 500
 	},
 /turf/closed/wall/vampwall/metal/glass,
 /area/vtm/interior/magadon_facility/restricted)
@@ -34863,8 +34897,7 @@
 	pixel_y = 11
 	},
 /obj/item/stamp/granted{
-	pixel_x = -10;
-	pixel_y = 0
+	pixel_x = -10
 	},
 /turf/open/floor/wood/ornate,
 /area/vtm/interior/setite)
@@ -35323,7 +35356,6 @@
 	pixel_x = 7
 	},
 /obj/item/storage/ashtray{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /turf/open/floor/plating/concrete,
@@ -36278,6 +36310,17 @@
 "iZI" = (
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/chantry/basement)
+"iZR" = (
+/obj/structure/vampdoor/glass,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/access/police,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/landmark/navigate_destination{
+	location = "Police HQ"
+	},
+/turf/open/floor/plating/concrete,
+/area/vtm/interior/police)
 "iZX" = (
 /obj/structure/table/glass,
 /obj/machinery/light/directional/south,
@@ -37566,7 +37609,6 @@
 "jpn" = (
 /obj/structure/table/wood/fancy/royalblue,
 /obj/item/plate/small{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/plate/small{
@@ -39539,7 +39581,6 @@
 	pixel_x = 5
 	},
 /obj/item/clothing/suit/apron/chef{
-	pixel_y = 0;
 	pixel_x = 6;
 	name = "grillmaster's apron";
 	desc = "A gready and well worn apron, it appears to have faded text of the old graphic 'GRILL MASTER'."
@@ -47667,8 +47708,7 @@
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = 140;
-	max_integrity = 500;
-	dir = 2
+	max_integrity = 500
 	},
 /obj/structure/vampdoor/reinf,
 /obj/effect/mapping_helpers/door/access/pentex,
@@ -47677,7 +47717,6 @@
 "lPA" = (
 /obj/structure/table/wood/fancy/royalblue,
 /obj/item/plate/small{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/plate/small{
@@ -50778,7 +50817,6 @@
 "mCr" = (
 /obj/structure/platform/lowwall/bar,
 /obj/structure/vampstatue/angel{
-	pixel_x = 0;
 	pixel_y = 12
 	},
 /turf/open/floor/city/plating_mono,
@@ -51214,8 +51252,7 @@
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = 12;
-	pixel_y = 0
+	pixel_x = 12
 	},
 /turf/open/floor/plating/rough/cave,
 /area/vtm)
@@ -52588,8 +52625,7 @@
 /area/vtm/interior/ghetto)
 "mYX" = (
 /obj/structure/chair/sofa/right/brown{
-	color = "#6d281e";
-	dir = 2
+	color = "#6d281e"
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/mall)
@@ -52709,8 +52745,7 @@
 /area/vtm/interior/mall)
 "mZP" = (
 /obj/structure/chair/sofa/corp{
-	color = "#5aa2fa";
-	dir = 2
+	color = "#5aa2fa"
 	},
 /obj/structure/sign/painting/large/library{
 	dir = 1
@@ -52816,7 +52851,6 @@
 	pixel_x = -3
 	},
 /obj/item/seeds/apple{
-	pixel_y = 0;
 	pixel_x = -3
 	},
 /obj/structure/railing,
@@ -54260,7 +54294,6 @@
 /area/vtm/interior/bianchiBank)
 "ntQ" = (
 /obj/machinery/door/poddoor/shutters/preopen{
-	dir = 2;
 	id = 134
 	},
 /turf/closed/wall/vampwall/metal/glass,
@@ -55777,8 +55810,7 @@
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
@@ -55995,8 +56027,7 @@
 /area/vtm/interior/supply)
 "nQo" = (
 /obj/structure/chair/sofa/corp{
-	color = "#5aa2fa";
-	dir = 2
+	color = "#5aa2fa"
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/strip)
@@ -57205,7 +57236,6 @@
 "oeH" = (
 /obj/effect/decal/carpet{
 	icon_state = "greencarpet";
-	pixel_y = 0;
 	pixel_x = 16
 	},
 /turf/open/floor/wood/smooth/old,
@@ -58763,8 +58793,7 @@
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /turf/open/floor/plating/stone,
 /area/vtm/interior/tzimisce_manor)
@@ -62434,6 +62463,9 @@
 /obj/effect/mapping_helpers/door/unlock,
 /obj/effect/mapping_helpers/door/autoname,
 /obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/landmark/navigate_destination{
+	location = "Clinic"
+	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/interior/clinic)
 "pqb" = (
@@ -63175,6 +63207,9 @@
 /obj/effect/mapping_helpers/door/access/taxi,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/five,
+/obj/effect/landmark/navigate_destination{
+	location = "Cab Depot"
+	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/cabdepot)
 "pzA" = (
@@ -67069,8 +67104,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
@@ -68599,7 +68633,6 @@
 "qRL" = (
 /obj/structure/table/wood/fancy/royalblue,
 /obj/item/plate/small{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/plate/small{
@@ -68659,8 +68692,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
@@ -68795,8 +68827,7 @@
 "qUh" = (
 /obj/structure/table,
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
-	dir = 8;
-	pixel_y = 0
+	dir = 8
 	},
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/strip)
@@ -71043,9 +71074,7 @@
 /turf/open/floor/wood/old,
 /area/vtm/outside/fishermanswharf/industrial)
 "rxq" = (
-/obj/effect/decal/carpet{
-	pixel_y = 0
-	},
+/obj/effect/decal/carpet,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/apartment/pacific)
 "rxw" = (
@@ -72570,7 +72599,6 @@
 "rRc" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/flashlight/flare/candle/infinite{
-	pixel_y = 0;
 	pixel_x = 13
 	},
 /turf/open/floor/plating/sidewalk/old,
@@ -72587,8 +72615,7 @@
 	pixel_y = 24
 	},
 /obj/structure/chair/sofa/right/brown{
-	color = "#6d281e";
-	dir = 2
+	color = "#6d281e"
 	},
 /obj/effect/landmark/start/darkpack/setite/ward,
 /turf/open/floor/city/plating_mono,
@@ -72899,8 +72926,7 @@
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = 12;
-	pixel_y = 0
+	pixel_x = 12
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/tzimisce_manor)
@@ -74002,8 +74028,7 @@
 /area/vtm/interior/apartment/pacific)
 "skS" = (
 /obj/effect/decal/carpet{
-	pixel_x = -14;
-	pixel_y = 0
+	pixel_x = -14
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/mall)
@@ -74498,7 +74523,6 @@
 "srw" = (
 /obj/effect/decal/carpet{
 	icon_state = "greencarpet";
-	pixel_y = 0;
 	pixel_x = 16
 	},
 /obj/machinery/sprinkler,
@@ -74899,8 +74923,7 @@
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = 12;
-	pixel_y = 0
+	pixel_x = 12
 	},
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
@@ -75172,7 +75195,6 @@
 	pixel_y = 24
 	},
 /obj/item/clothing/head/collectable/welding{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/weldingtool{
@@ -79714,6 +79736,12 @@
 	},
 /turf/open/floor/carpet/red,
 /area/vtm/interior)
+"tGV" = (
+/obj/effect/landmark/navigate_destination{
+	location = "Union Square Mall"
+	},
+/turf/open/floor/city/industrial,
+/area/vtm/interior/mall)
 "tHb" = (
 /obj/effect/decal/pallet,
 /turf/open/floor/plating/canalplating,
@@ -80185,7 +80213,6 @@
 "tLR" = (
 /obj/effect/decal/carpet{
 	icon_state = "greencarpet";
-	pixel_y = 0;
 	pixel_x = 16
 	},
 /obj/machinery/light/directional/west,
@@ -80368,7 +80395,6 @@
 /area/vtm/interior/clinic/haven)
 "tNM" = (
 /obj/structure/chair/sofa/corp/corner{
-	dir = 2;
 	color = "#5aa2fa"
 	},
 /turf/open/floor/city/plating_mono,
@@ -80845,7 +80871,6 @@
 /obj/effect/turf_decal/trimline/purple/filled/warning,
 /obj/effect/turf_decal/siding/dark,
 /obj/machinery/button/door{
-	pixel_y = 0;
 	id = 134
 	},
 /obj/machinery/button/door{
@@ -83419,8 +83444,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
@@ -84611,6 +84635,22 @@
 	},
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/chinatown)
+"uOy" = (
+/obj/effect/turf_decal/siding/grey{
+	dir = 8
+	},
+/obj/structure/vampdoor{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/lock_difficulty/six,
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/autoname,
+/obj/effect/mapping_helpers/door/access/strip,
+/obj/effect/landmark/navigate_destination{
+	location = "Strip Club"
+	},
+/turf/open/floor/city/plating,
+/area/vtm/interior/strip)
 "uOF" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/chair/pew/left,
@@ -86103,6 +86143,12 @@
 /obj/structure/sink/basin/directional/south,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/strip)
+"vks" = (
+/obj/effect/landmark/navigate_destination{
+	location = "Millennium Tower"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/vtm/outside/financialdistrict)
 "vku" = (
 /obj/structure/table/countertop/black,
 /obj/machinery/microwave,
@@ -89037,6 +89083,16 @@
 /obj/effect/decal/graffiti,
 /turf/open/water/vamp_sewer/border,
 /area/vtm/interior/sewer)
+"waa" = (
+/obj/effect/mapping_helpers/door/unlock,
+/obj/effect/mapping_helpers/door/access/supply,
+/obj/structure/vampdoor/woodglass,
+/obj/effect/mapping_helpers/door/lock_difficulty/four,
+/obj/effect/landmark/navigate_destination{
+	location = "Casino"
+	},
+/turf/open/floor/city/plating_mono,
+/area/vtm/interior/setite)
 "wac" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4
@@ -91411,8 +91467,7 @@
 "wBy" = (
 /obj/structure/platform/lowwall/bar/window,
 /obj/structure/curtain/bounty{
-	pixel_y = 8;
-	pixel_x = 0
+	pixel_y = 8
 	},
 /obj/effect/decal/wallpaper/blue/low,
 /turf/open/floor/city/plating,
@@ -91622,7 +91677,6 @@
 "wEn" = (
 /obj/machinery/computer/arcade/orion_trail{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /turf/open/floor/eighties,
@@ -91997,8 +92051,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = 12;
-	pixel_y = 0
+	pixel_x = 12
 	},
 /turf/open/floor/plating/sidewalk/old,
 /area/vtm/interior/tzimisce_manor)
@@ -94062,8 +94115,7 @@
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = 12;
-	pixel_y = 0
+	pixel_x = 12
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/rough/cave,
@@ -94936,8 +94988,7 @@
 "xvI" = (
 /obj/machinery/door/poddoor/shutters{
 	id = 435;
-	name = "Parking Shutter";
-	dir = 2
+	name = "Parking Shutter"
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm/interior/jazzclub)
@@ -95152,7 +95203,6 @@
 "xxM" = (
 /obj/effect/decal/carpet{
 	icon_state = "greencarpet";
-	pixel_y = 0;
 	pixel_x = 16
 	},
 /turf/open/floor/wood/herring,
@@ -96500,8 +96550,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /obj/item/flashlight/flare/candle/infinite{
 	anchored = 1;
@@ -149207,7 +149256,7 @@ rhT
 hfD
 rhT
 rhT
-eow
+fGX
 rLy
 tIy
 hYt
@@ -157098,7 +157147,7 @@ fII
 fII
 fII
 fII
-oyu
+iZR
 xJt
 exE
 fTZ
@@ -167291,7 +167340,7 @@ qFh
 oIx
 git
 efx
-kAS
+vks
 kAS
 git
 eTH
@@ -170105,7 +170154,7 @@ nOy
 nOy
 nOy
 gnp
-tPh
+uOy
 gnp
 tPh
 gnp
@@ -170146,7 +170195,7 @@ cIw
 cIw
 bgX
 pij
-vyA
+boz
 pij
 vQy
 stA
@@ -174847,7 +174896,7 @@ kjX
 kjX
 kjX
 kjX
-dUC
+grn
 vZS
 jBa
 jcZ
@@ -174970,7 +175019,7 @@ qfJ
 tBQ
 dDT
 pLj
-pLj
+tGV
 uJu
 aMC
 taJ
@@ -175831,7 +175880,7 @@ etr
 iUj
 iUj
 iUj
-nXA
+bGP
 vtC
 mDD
 jcZ
@@ -179073,7 +179122,7 @@ tAy
 ksk
 ksk
 ksk
-pBU
+waa
 ksk
 ksk
 ksk
