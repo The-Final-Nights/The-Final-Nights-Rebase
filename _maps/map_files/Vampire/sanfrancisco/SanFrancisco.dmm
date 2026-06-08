@@ -11213,9 +11213,6 @@
 	},
 /obj/effect/mapping_helpers/door/autoname,
 /obj/effect/mapping_helpers/door/unlock,
-/obj/effect/landmark/navigate_destination{
-	location = "Millennium Apts."
-	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/apartment)
 "cNd" = (
@@ -56257,6 +56254,9 @@
 	dir = 1
 	},
 /obj/structure/vampdoor/woodglass,
+/obj/effect/landmark/navigate_destination{
+	location = "Tzimisce Manor"
+	},
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/interior/tzimisce_manor)
 "nTA" = (
@@ -85949,6 +85949,9 @@
 /obj/effect/mapping_helpers/door/access/giovanni,
 /obj/effect/mapping_helpers/door/lock,
 /obj/structure/vampdoor/woodglass,
+/obj/effect/landmark/navigate_destination{
+	location = "Giovanni Mansion"
+	},
 /turf/open/floor/city/plating_stone,
 /area/vtm/interior/giovanni)
 "vhf" = (
