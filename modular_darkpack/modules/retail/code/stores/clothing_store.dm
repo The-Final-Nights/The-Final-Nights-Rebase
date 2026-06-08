@@ -73,9 +73,9 @@
 		new /datum/data/vending_product("green coat", /obj/item/clothing/suit/vampire/coat/alt,	15),
 		new /datum/data/vending_product("jacket", /obj/item/clothing/suit/vampire/jacket,	15),
 		// TFN EDIT START
-		new /datum/data/vending_product("red jacket", /obj/item/clothing/suit/vampire/tfn/jacket/red, 15),
-		new /datum/data/vending_product("cropped black jacket", /obj/item/clothing/suit/vampire/tfn/jacket/cropped, 15),
-		new /datum/data/vending_product("cropped red jacket", /obj/item/clothing/suit/vampire/tfn/jacket/cropped/red, 15),
+		new /datum/data/vending_product("red jacket", /obj/item/clothing/suit/vampire/jacket/red, 15),
+		new /datum/data/vending_product("cropped black jacket", /obj/item/clothing/suit/vampire/jacket/cropped, 15),
+		new /datum/data/vending_product("cropped red jacket", /obj/item/clothing/suit/vampire/jacket/cropped/red, 15),
 		// TFN EDIT END
 		new /datum/data/vending_product("black coat", /obj/item/clothing/suit/vampire/coat/winter,	15),
 		new /datum/data/vending_product("red coat", /obj/item/clothing/suit/vampire/coat/winter/alt,	15),

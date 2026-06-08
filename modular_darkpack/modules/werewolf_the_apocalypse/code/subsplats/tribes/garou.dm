@@ -145,6 +145,7 @@
 	// 	/datum/action/cooldown/power/gift/venom_claws,
 	// 	/datum/action/cooldown/power/gift/burning_scars
 	// )
+	subsplat_keys = /obj/item/vamp/keys/spiral // TFN CHANGE MAGADONIFICATION EDIT
 
 /datum/subsplat/werewolf/tribe/garou/blackspiraldancers/psychomania_effect(mob/living/target, mob/living/owner)
 	target.playsound_local(target, "modular_darkpack/modules/powers/sounds/daimonion_laughs/demonlaugh3.ogg", 50, FALSE)

@@ -411,6 +411,17 @@
 	)
 	color = "#339933"
 
+// TFN MAGADONIFICATION EDIT START
+
+/obj/item/vamp/keys/spiral
+	name = "tainted keys"
+	accesslocks = list(
+		LOCKACCESS_SPIRAL
+	)
+	color = "#8B0000"
+
+//TFN MAGADONIFICATION EDIT END
+
 // TFN EDIT ADD START - ([LORE TEAM REQUESTED] map changes)
 /obj/item/vamp/keys/evergreen
 	name = "nature's bounty shop keys"

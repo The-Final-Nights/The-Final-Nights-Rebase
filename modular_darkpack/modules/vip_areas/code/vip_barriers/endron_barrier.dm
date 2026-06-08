@@ -1,5 +1,5 @@
 /obj/effect/vip_barrier/endron
-	name = "\improper " + MAIN_EVIL_COMPANY + " checkpoint"
+	name = "\improper " + EVIL_PHARMA_COMPANY + " checkpoint" // TFN EDIT - Magadon - Original: name = "\improper " + MAIN_EVIL_COMPANY + " checkpoint"
 	desc = "There's an employees only sign here."
 	protected_zone_id = "endron"
 	social_roll_difficulty = 7

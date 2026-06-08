@@ -46,6 +46,6 @@
 	id = /obj/item/card/pentex/affairs
 	uniform =  /obj/item/clothing/under/vampire/pentex_suit
 	shoes = /obj/item/clothing/shoes/vampire/businessblack
-	l_pocket = /obj/item/smartphone // /affairsagent - todo subtype
+	l_pocket = /obj/item/smartphone
 	r_pocket = /obj/item/vamp/keys/pentex
 	backpack_contents = list(/obj/item/phone_book=1, /obj/item/veil_contract, /obj/item/card/credit/rich=1)

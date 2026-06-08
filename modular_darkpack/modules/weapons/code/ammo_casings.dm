@@ -148,6 +148,15 @@
 			M.adjust_brute_loss(50, TRUE)
 */
 
+/obj/item/ammo_casing/vampire/c12g/buck/incendiary
+	name = "12g dragon's breath shell casing"
+	desc = "An incendiary 12g shell casing."
+	projectile_type = /obj/projectile/bullet/darkpack/dragonsbreath
+	pellets = 8
+	variance = 25
+	icon_state = "12d"
+	base_icon_state = "12d"
+
 // Crossbow Bolt
 /obj/item/ammo_casing/caseless/bolt
 	name = "bolt"
