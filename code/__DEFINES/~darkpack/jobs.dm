@@ -43,6 +43,7 @@
 #define JOB_BRUISER "Bruiser"
 #define JOB_EMISSARY "Emissary"
 #define JOB_SWEEPER "Sweeper"
+#define JOB_REEVE "Reeve" // TFN EDIT ADD - Adds Reeve
 
 //Tremere
 #define JOB_CHANTRY_ARCHIVIST "Chantry Archivist"
@@ -161,9 +162,9 @@
 
 #define JOB_DISPLAY_ORDER_BARON 26
 #define JOB_DISPLAY_ORDER_EMISSARY 27
-#define JOB_DISPLAY_ORDER_SWEEPER 28
-#define JOB_DISPLAY_ORDER_BRUISER 29
-#define JOB_DISPLAY_ORDER_LIAISON 30
+#define JOB_DISPLAY_ORDER_REEVE 28 // TFN EDIT CHANGE - Adds Reeve - Original: #define JOB_DISPLAY_ORDER_SWEEPER 28
+#define JOB_DISPLAY_ORDER_SWEEPER 29 //TFN CHANGE - Adds Reeve - Original: #define JOB_DISPLAY_ORDER_BRUISER 29
+#define JOB_DISPLAY_ORDER_BRUISER 30 //TFN CHANGE - Adds Reeve - Original: #define JOB_DISPLAY_ORDER_LIAISON 30 - Liason is not being used right now on TFN
 #define JOB_DISPLAY_ORDER_TAPSTER 31
 
 #define JOB_DISPLAY_ORDER_REGENT 32

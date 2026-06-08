@@ -25,6 +25,11 @@
 		alist(NETWORK_ID = SABBAT_NETWORK, OUR_ROLE = "Manor Servant", USE_JOB_TITLE = TRUE)
 		)
 
+/obj/item/smartphone/reeve
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = ANARCH_NETWORK, OUR_ROLE = "Club Security Enforcer", USE_JOB_TITLE = FALSE)
+		, alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Anarchy Rose Security Enforcer", USE_JOB_TITLE = FALSE)
+		)
 // Magadonification
 /obj/item/smartphone/magadon_lead
 	contact_networks_pre_init = list(
