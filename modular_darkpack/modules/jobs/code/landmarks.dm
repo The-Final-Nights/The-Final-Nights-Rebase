@@ -18,6 +18,12 @@ JOB_START_HELPER(anarch/bruiser, JOB_BRUISER)
 JOB_START_HELPER(anarch/emissary, JOB_EMISSARY)
 JOB_START_HELPER(anarch/sweeper, JOB_SWEEPER)
 JOB_START_HELPER(anarch/tapster, JOB_TAPSTER)
+//TFN EDIT ADD START - Reeve
+/obj/effect/landmark/start/darkpack/anarch/revee
+	name = JOB_REEVE
+	icon_state = JOB_REEVE
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+//TFN EDIT ADD END - Reeve
 
 /* Axe Gang */
 /obj/effect/landmark/start/darkpack/axe
