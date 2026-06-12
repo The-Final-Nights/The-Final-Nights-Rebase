@@ -12,9 +12,11 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
 	custom_price = 20 // ECONOMY
 
+// TFN EDIT ADD START - Sellable Items
 /obj/item/watch/Initialize()
 	. = ..()
 	AddComponent(/datum/component/selling, 50, "watch", FALSE)
+// TFN EDIT ADD END 
 
 /obj/item/watch/examine(mob/user)
 	. = ..()
