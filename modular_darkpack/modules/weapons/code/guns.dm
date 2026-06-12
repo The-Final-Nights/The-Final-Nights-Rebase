@@ -45,10 +45,11 @@
 	name = "magnum revolver"
 	desc = "Feelin' lucky, punk?"
 
+// TFN EDIT ADD START - Sellable Items
 /obj/item/gun/ballistic/revolver/darkpack/magnum/Initialize()
 	. = ..()
 	AddComponent(/datum/component/selling, 25, "revolver", FALSE)
-
+// TFN EDIT ADD END - Sellable Items
 /obj/item/gun/ballistic/revolver/darkpack/snub
 	name = "snub-nosed revolver"
 	desc = "a cheap Saturday night special revolver. Sometimes called a 'purse gun'. It takes 9mm rounds."
