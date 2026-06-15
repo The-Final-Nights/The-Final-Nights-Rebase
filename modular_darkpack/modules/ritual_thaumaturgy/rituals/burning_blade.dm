@@ -6,8 +6,6 @@
 	level = 2
 	cost = 3
 
-// TFN EDIT ADD START - Adds the fire katana to the burning blade ritual.
-
 /obj/ritual_rune/thaumaturgy/burning_blade/complete()
 	. = ..()
 	var/obj/item/scythe/vamp/scythe = locate(/obj/item/scythe/vamp) in get_turf(src)
@@ -23,11 +21,11 @@
 	to_chat(last_activator, span_notice("The [weapon.name] ignites with an unholy flame for [charges] swings!"))
 	qdel(src)
 
-//Turns a scythe into the 'egorium' icon state, allowing tremeres to deal aggravated damage for a few swings.
+// Turns a scythe/katana into the 'egorium' icon state, allowing tremeres to deal aggravated damage for a few swings.
 /datum/component/burning_blade
 	var/original_damtype
 	var/original_icon_state
-	var/original_inhand_icon_state  // TFN EDIT CHANGE: the original inhand_icon_state is now stored separately to ensure it's returned to the correct sprite.
+	var/original_inhand_icon_state
 	var/charges
 
 /datum/component/burning_blade/Initialize(charges)
@@ -38,7 +36,7 @@
 	src.charges = charges
 	original_damtype = weapon.damtype
 	original_icon_state = weapon.icon_state
-	original_inhand_icon_state = weapon.inhand_icon_state  // TFN EDIT CHANGE: the original inhand_icon_state is now stored separately to ensure it's returned to the correct sprite.
+	original_inhand_icon_state = weapon.inhand_icon_state  
 	weapon.damtype = AGGRAVATED
 
 	if(istype(weapon, /obj/item/katana/vamp))
@@ -59,9 +57,7 @@
 	var/obj/item/weapon = parent
 	weapon.damtype = original_damtype
 	weapon.icon_state = original_icon_state
-	weapon.inhand_icon_state = original_inhand_icon_state // TFN EDIT CHANGE: the original inhand_icon_state is now stored separately to ensure it's returned to the correct sprite.
-
-// TFN EDIT ADD END - Adds the fire katana to the burning blade ritual.
+	weapon.inhand_icon_state = original_inhand_icon_state 
 
 /datum/component/burning_blade/proc/on_hit_living()
 	SIGNAL_HANDLER
