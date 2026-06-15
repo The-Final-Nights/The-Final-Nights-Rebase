@@ -6,6 +6,8 @@
 	level = 2
 	cost = 3
 
+// TFN EDIT ADD START - Adds the fire katana to the burning blade ritual.
+
 /obj/ritual_rune/thaumaturgy/burning_blade/complete()
 	. = ..()
 	var/obj/item/scythe/vamp/scythe = locate(/obj/item/scythe/vamp) in get_turf(src)
@@ -25,7 +27,7 @@
 /datum/component/burning_blade
 	var/original_damtype
 	var/original_icon_state
-	var/original_inhand_icon_state  // bugfix: the original inhand_icon_state is now stored separately to ensure it's returned to the correct sprite.
+	var/original_inhand_icon_state  // TFN EDIT CHANGE: the original inhand_icon_state is now stored separately to ensure it's returned to the correct sprite.
 	var/charges
 
 /datum/component/burning_blade/Initialize(charges)
@@ -36,7 +38,7 @@
 	src.charges = charges
 	original_damtype = weapon.damtype
 	original_icon_state = weapon.icon_state
-	original_inhand_icon_state = weapon.inhand_icon_state  // bugfix: the original inhand_icon_state is now stored separately to ensure it's returned to the correct sprite.
+	original_inhand_icon_state = weapon.inhand_icon_state  // TFN EDIT CHANGE: the original inhand_icon_state is now stored separately to ensure it's returned to the correct sprite.
 	weapon.damtype = AGGRAVATED
 
 	if(istype(weapon, /obj/item/katana/vamp))
@@ -57,7 +59,9 @@
 	var/obj/item/weapon = parent
 	weapon.damtype = original_damtype
 	weapon.icon_state = original_icon_state
-	weapon.inhand_icon_state = original_inhand_icon_state
+	weapon.inhand_icon_state = original_inhand_icon_state // TFN EDIT CHANGE: the original inhand_icon_state is now stored separately to ensure it's returned to the correct sprite.
+
+// TFN EDIT ADD END - Adds the fire katana to the burning blade ritual.
 
 /datum/component/burning_blade/proc/on_hit_living()
 	SIGNAL_HANDLER
