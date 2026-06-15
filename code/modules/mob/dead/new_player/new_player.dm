@@ -256,7 +256,9 @@
 
 		humanc.increment_scar_slot()
 		humanc.load_persistent_scars()
+
 		humanc.load_guestbook() // DARKPACK EDIT ADD
+		humanc.update_soak() // DARKPACK EDIT ADDITION
 
 		if(GLOB.curse_of_madness_triggered)
 			give_madness(humanc, GLOB.curse_of_madness_triggered)
