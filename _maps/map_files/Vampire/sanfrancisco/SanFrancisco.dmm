@@ -577,7 +577,10 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "agu" = (
-/mob/living/basic/pet/dog/pug,
+/mob/living/basic/pet/dog/pug{
+	name = "Alexander";
+	real_name = null
+	},
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/jazzclub)
 "agC" = (
@@ -2233,15 +2236,6 @@
 /obj/structure/table,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
-"azT" = (
-/obj/structure/chair/pew{
-	dir = 1
-	},
-/obj/structure/chair/pew/left{
-	dir = 1
-	},
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior/theatre)
 "azX" = (
 /obj/effect/decal/pallet,
 /obj/item/flashlight/lamp/green{
@@ -11540,15 +11534,6 @@
 /area/vtm/interior/clinic)
 "cTz" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae{
-	pixel_y = 3;
-	pixel_x = 9
-	},
-/obj/item/reagent_containers/blood/vitae{
-	pixel_y = 7;
-	pixel_x = -9
-	},
 /obj/effect/turf_decal/siding/wideplating/red{
 	dir = 1
 	},
@@ -19206,8 +19191,6 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	id = 2005
 	},
-/obj/structure/platform/lowwall/rich,
-/obj/effect/decal/wallpaper/red/low,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/theatre)
 "eQV" = (
@@ -22652,7 +22635,7 @@
 /area/vtm/interior/giovanni)
 "fHl" = (
 /obj/effect/turf_decal/darkpack/dirt{
-	dir = 8
+	dir = 9
 	},
 /obj/structure/flora/bush/flowers_pp/style_random,
 /obj/structure/railing/wooden_fence{
@@ -28708,13 +28691,6 @@
 /obj/structure/punching_bag,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/fightclub)
-"hki" = (
-/obj/effect/turf_decal/siding/wideplating/blue{
-	dir = 8
-	},
-/obj/structure/railing/corner/end,
-/turf/open/floor/carpet/royalblue,
-/area/vtm/interior/jazzclub)
 "hkj" = (
 /obj/structure/fluff/tv{
 	icon_state = "tv_analog";
@@ -40625,11 +40601,6 @@
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm/interior/police)
-"kla" = (
-/obj/effect/decal/wallpaper/red,
-/obj/structure/sign/clock,
-/turf/closed/wall/vampwall/rich,
-/area/vtm/interior/theatre)
 "klh" = (
 /obj/structure/chair/wood/darkpack{
 	dir = 8
@@ -49246,15 +49217,6 @@
 /obj/structure/closet/crate/large,
 /turf/open/water/vamp_sewer/border,
 /area/vtm/interior/sewer)
-"mpN" = (
-/obj/structure/railing/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wideplating/blue{
-	dir = 8
-	},
-/turf/open/floor/carpet/royalblue,
-/area/vtm/interior/jazzclub)
 "mqd" = (
 /obj/item/reagent_containers/cup/glass/baggie/meth,
 /turf/open/indestructible/necropolis/air,
@@ -59414,8 +59376,6 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	id = 2005
 	},
-/obj/structure/platform/lowwall/rich,
-/obj/effect/decal/wallpaper/red/low,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/theatre)
 "oPp" = (
@@ -69301,17 +69261,6 @@
 /area/vtm/outside/pacificheights)
 "riH" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/blood/vitae{
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/blood/vitae{
-	pixel_x = 7;
-	pixel_y = -1
-	},
-/obj/item/reagent_containers/blood/vitae{
-	pixel_x = -10;
-	pixel_y = 5
-	},
 /obj/effect/turf_decal/siding/wideplating/red/corner{
 	dir = 1
 	},
@@ -70810,9 +70759,6 @@
 /turf/open/misc/beach/vamp,
 /area/vtm/outside/fishermanswharf/lower)
 "rAP" = (
-/obj/structure/chair/pew{
-	dir = 1
-	},
 /obj/structure/chair/pew/right{
 	dir = 1
 	},
@@ -81505,24 +81451,6 @@
 	},
 /turf/open/floor/iron/stairs,
 /area/vtm/outside/fishermanswharf/industrial)
-"ukS" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/blood/vitae{
-	pixel_x = 9;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/blood/vitae{
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/blood/vitae{
-	pixel_x = -10;
-	pixel_y = 3
-	},
-/obj/effect/turf_decal/siding/wideplating/red{
-	dir = 1
-	},
-/turf/open/floor/wood/smooth/old,
-/area/vtm/interior/theatre)
 "ukT" = (
 /obj/structure/chair/darkpack,
 /obj/effect/decal/wallpaper/stone/low{
@@ -84666,9 +84594,8 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	id = 2005
 	},
-/obj/effect/decal/wallpaper/red/low,
-/obj/structure/platform/lowwall/rich,
-/turf/open/floor/plating/rough,
+/obj/effect/turf_decal/siding/wood/dark,
+/turf/open/floor/wood/smooth/old,
 /area/vtm/interior/theatre)
 "vbJ" = (
 /obj/effect/turf_decal/bordur/corner,
@@ -87725,6 +87652,7 @@
 	dir = 10
 	},
 /obj/structure/table/countertop/red,
+/obj/structure/coclock,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/theatre)
 "vVj" = (
@@ -131979,7 +131907,7 @@ tLT
 foQ
 vbB
 xur
-azT
+bis
 upc
 mUY
 hfb
@@ -132395,7 +132323,7 @@ cwS
 foQ
 wQu
 foQ
-ukS
+cTz
 tuX
 aej
 vFf
@@ -133000,7 +132928,7 @@ hPO
 hPO
 hPO
 hPO
-kla
+mHq
 vUV
 foQ
 foQ
@@ -133210,7 +133138,7 @@ iov
 foQ
 foQ
 nUW
-uvs
+usf
 uvs
 tuX
 wBr
@@ -133412,9 +133340,9 @@ hPO
 hPO
 hPO
 hPO
-uvs
-uvs
-uvs
+usf
+usf
+usf
 uvs
 tuX
 aej
@@ -174832,10 +174760,10 @@ cvr
 bve
 kBl
 rVv
-hki
+vIy
 imC
 imC
-mpN
+vIy
 vIy
 vIy
 vIy
