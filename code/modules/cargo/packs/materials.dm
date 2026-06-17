@@ -49,11 +49,12 @@
 /datum/supply_pack/materials/fueltank
 	name = "Fuel Tank Crate"
 	desc = "Contains a welding fuel tank. Caution, highly flammable."
-	cost = CARGO_CRATE_VALUE * 1.6
+	cost = CARGO_CRATE_VALUE * 8 //TFN EDIT CHANGE - Removes Immersion breaking and exploitable content from the Cargo Console #323
 	contains = list(/obj/structure/reagent_dispensers/fueltank)
 	crate_name = "fuel tank crate"
 	crate_type = /obj/structure/closet/crate/large
 
+/* //TFN EDIT REMOVE START - Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/materials/hightankfuel
 	name = "Large Fuel Tank Crate"
 	desc = "Contains a high-capacity fuel tank. Keep contents away from open flame."
@@ -62,6 +63,7 @@
 	contains = list(/obj/structure/reagent_dispensers/fueltank/large)
 	crate_name = "high-capacity fuel tank crate"
 	crate_type = /obj/structure/closet/crate/large
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/materials/watertank
 	name = "Water Tank Crate"
@@ -71,6 +73,7 @@
 	crate_name = "water tank crate"
 	crate_type = /obj/structure/closet/crate/large
 
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/materials/gas_canisters
 	cost = CARGO_CRATE_VALUE * 0.05
 	contains = list(/obj/machinery/portable_atmospherics/canister)
@@ -110,3 +113,4 @@
 		canister_packs += pack
 
 	return canister_packs
+*/ //TFN EDIT REMOVE END

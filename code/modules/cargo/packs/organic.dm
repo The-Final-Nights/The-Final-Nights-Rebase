@@ -17,6 +17,7 @@
 	crate_name = "beekeeper suits"
 	crate_type = /obj/structure/closet/crate/hydroponics
 
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/organic/hydroponics/beekeeping_fullkit
 	name = "Beekeeping Starter Crate"
 	desc = "BEES BEES BEES. Contains three honey frames, a beekeeper suit and helmet, \
@@ -31,6 +32,7 @@
 				)
 	crate_name = "beekeeping starter crate"
 	crate_type = /obj/structure/closet/crate/hydroponics
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/organic/randomized
 	test_ignored = TRUE
@@ -88,6 +90,7 @@
 		/obj/item/food/grown/cucumber,
 	)
 
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/organic/exoticseeds
 	name = "Exotic Seeds Crate"
 	desc = "Any entrepreneuring botanist's dream. Contains twelve different seeds, \
@@ -110,13 +113,14 @@
 	)
 	crate_name = "exotic seeds crate"
 	crate_type = /obj/structure/closet/crate/hydroponics
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/organic/food
 	name = "Food Crate"
 	desc = "Get things cooking with this crate full of useful ingredients! \
 		Contains a dozen eggs, three bananas, and some flour, rice, milk, \
 		soymilk, salt, pepper, enzyme, sugar, and monkeymeat."
-	cost = CARGO_CRATE_VALUE * 2
+	cost = CARGO_CRATE_VALUE * 2.5 // TFN EDIT CHANGE - 2.0 to 2.5 - Removes Immersion breaking and exploitable content from the Cargo Console #1704
 	contains = list(/obj/item/reagent_containers/condiment/flour,
 					/obj/item/reagent_containers/condiment/rice,
 					/obj/item/reagent_containers/condiment/milk,

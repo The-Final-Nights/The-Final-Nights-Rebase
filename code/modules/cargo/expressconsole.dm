@@ -202,12 +202,12 @@ GLOBAL_LIST_EMPTY(cargo_landing_spots)
 
 			if(!istype(pack))
 				CRASH("Unknown supply pack id given by express order console ui. ID: [params["id"]]")
-
-			if((pack.order_flags & ORDER_GOODY) && !self_paid && !(obj_flags & EMAGGED))
+// TFN EDIT REMOVAL START - Allows people to order goodies using the express console
+		/*	if((pack.order_flags & ORDER_GOODY) && !self_paid && !(obj_flags & EMAGGED))
 				playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 				say("ERROR: Small crates may only be purchased by private accounts.")
-				return
-
+				return */
+// TFN EDIT REMOVAL END
 			var/name = "*None Provided*"
 			var/rank = "*None Provided*"
 			var/ckey = user.ckey

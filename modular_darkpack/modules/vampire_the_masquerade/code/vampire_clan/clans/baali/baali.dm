@@ -23,13 +23,6 @@
 	accessories_layers = list("baali_full" = BODY_FRONT_LAYER, "baali_left" = BODY_FRONT_LAYER, "baali_right" = BODY_FRONT_LAYER, "baali_broken" = BODY_FRONT_LAYER, "baali_round" = BODY_FRONT_LAYER, "baali_devil" = BODY_FRONT_LAYER, "baali_oni" = BODY_FRONT_LAYER, "baali_legs_and_tail" = BODY_FRONT_LAYER, "baali_claws" = BODY_FRONT_LAYER, "none" = BODY_FRONT_LAYER)
 	default_accessory = "none"
 
-/* // TFN EDIT REMOVAl START
-/datum/subsplat/vampire_clan/baali/on_gain(mob/living/carbon/human/gaining_mob, datum/splat/gaining_splat, joining_round)
-	. = ..()
-	gaining_mob.AddElement(/datum/element/holy_weakness)
-	gaining_mob.gain_trauma(new /datum/brain_trauma/mild/phobia/religion, TRAUMA_RESILIENCE_ABSOLUTE)
-*/ // TFN EDIT REMOVAL END
-
 /datum/subsplat/vampire_clan/baali/psychomania_effect(mob/living/target, mob/living/owner)
 	to_chat(target, span_notice("The sacred icons appearing before you lack the true substance of faith"))
 	new /datum/hallucination/delusion(target, TRUE, "repent", 200, 0)
