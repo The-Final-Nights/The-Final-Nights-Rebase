@@ -6,17 +6,20 @@
 
 /datum/preference/choiced/martial_arts_choice/init_possible_values(datum/preferences/preferences)
 	return list(
+		"None",
         MARTIALART_DARKPACK_CQB,
 		MARTIALART_DARKPACK_KUNGFU,
 		MARTIALART_DARKPACK_BOXING,
 	)
 
 /datum/preference/choiced/martial_arts_choice/create_default_value()
-    return
+    return "None"
 
 /datum/preference/choiced/martial_arts_choice/apply_to_human(mob/living/carbon/human/target, value)
 	var/datum/martial_art/learned_art
 	if(!value)
+		return
+	if(value == "None")
 		return
 	if(value == MARTIALART_DARKPACK_CQB)
 		learned_art = new /datum/martial_art/darkpack_cqb(target)
