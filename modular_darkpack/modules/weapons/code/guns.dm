@@ -719,6 +719,7 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	custom_price = 1000
+	can_be_sawn_off	= TRUE			//TFN ADD - SAWN OFFS
 	serial_type = "L"
 
 /obj/item/ammo_box/magazine/internal/darkpack_dbarrel

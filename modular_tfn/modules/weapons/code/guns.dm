@@ -7,8 +7,22 @@
 	icon_state = "dbarrel_sawn"
 	inhand_icon_state = "dbarrel_sawn"
 	base_icon_state = "dbarrel_sawn"
-	worn_icon_state = "pomp"
 	can_be_sawn_off = FALSE
+
+/obj/item/ammo_box/magazine/internal/vampshotgun/sawnoff
+	name = "sawn-off shotgun internal magazine"
+	max_ammo = 3
+
+/obj/item/gun/ballistic/shotgun/vampire/sawnoff
+	name = "sawn-off shotgun"
+	desc = "A traditional shotgun that's been shortened.. probably illegally. Sports a three-round tube magazine."
+	icon_state = "pomp_sawn"
+	inhand_icon_state = "pomp_sawn"
+	recoil = 10
+	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_MEDIUM
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/vampshotgun/sawnoff
+
 
 /obj/item/ammo_box/magazine/internal/darkpack/lever/sawnoff
 	name = "mares leg lever action internal magazine"
@@ -19,9 +33,7 @@
 	desc = "A .44 caliber lever action rifle, perfect for casual hunters, reenactors, and urban cowboys. This one has had its barrel and stock sawn down."
 	icon_state = "lever_sawn"
 	inhand_icon_state = "lever_sawn"
-	worn_icon_state = "lever"
 	w_class = WEIGHT_CLASS_NORMAL
-	weapon_weight = WEAPON_MEDIUM
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/darkpack/lever/sawnoff
 	can_be_sawn_off = FALSE
 
@@ -30,7 +42,6 @@
 	desc = "Pretty old, but also easy fireable and cleanable by vodka. This one has had its stock removed and the barrel chopped; it's a miracle it still cycles! Uses 5.45 rounds."
 	icon_state = "ak74_sawn"
 	inhand_icon_state = "ak74_sawn"
-	worn_icon_state = "sks"
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack545
