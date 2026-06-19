@@ -488,7 +488,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	show_bolt_icon = FALSE
 	mag_display = TRUE
-	can_be_sawn_off	= TRUE
+	can_be_sawn_off	= TRUE		//TFN ADD - SAWN OFFS
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/ak.ogg'
 	masquerade_violating = TRUE
 	serial_type = "KA"
@@ -600,7 +600,7 @@
 	fire_delay = 1					//It's bolt-action. Fast as you can go really; which is still pretty slow.
 	burst_size = 1
 	slot_flags = ITEM_SLOT_BACK
-	can_be_sawn_off	= TRUE
+	can_be_sawn_off	= TRUE			//TFN ADD - SAWN OFFS
 	projectile_damage_multiplier = 1.5 //~52 damage vs 35 base .44 damage. It's ok, on par with 5.56 but lower pen and slower to fire due to bolt action.
 	masquerade_violating = FALSE
 	serial_type = "WN"
@@ -858,7 +858,7 @@
 	projectile_damage_multiplier = 1.5 //150 damage; it is a single-shot.
 	serial_shown = FALSE	//No serial, it's a musket.
 	actions_types = list()
-	can_be_sawn_off	= TRUE
+	can_be_sawn_off	= TRUE		//TFN ADD - SAWN OFFS
 
 /obj/item/gun/ballistic/automatic/darkpack/musket/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	..()
