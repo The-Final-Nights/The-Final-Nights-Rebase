@@ -230,7 +230,7 @@
 /datum/supply_pack/weapons/ammo12g/incendiary
 	name = "Ammo (12g, Dragon's Breath)"
 	desc = "Contains a box of 12g incendiary shells."
-	cost = 4000
+	cost = 12000
 	contains = list(/obj/item/ammo_box/darkpack/c12g/buck/incendiary)
 	crate_name = "ammo crate"
 
