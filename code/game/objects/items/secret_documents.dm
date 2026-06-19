@@ -22,7 +22,7 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 //TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
-/obj/item/documents/Initialize()
+/obj/item/documents/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/selling, 500, "documents", FALSE)
 //TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
@@ -65,7 +65,7 @@
 	var/copy_type = null
 
 //TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
-/obj/item/documents/photocopy/Initialize()
+/obj/item/documents/photocopy/Initialize(mapload)
 	.=..()
 	AddComponent(/datum/component/selling, 20, "documents", FALSE)
 //TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
