@@ -1,6 +1,7 @@
 /datum/storyteller_roll/gift/mothers_touch
 	applicable_stats = list(STAT_INTELLIGENCE, STAT_EMPATHY)
 	numerical = TRUE
+	roll_output_type = ROLL_PRIVATE_AND_TARGET
 
 /*
 From W20 p. 164
@@ -97,6 +98,9 @@ the scar is received and an extra Gnosis point is spent.
 	UnregisterSignal(owner, COMSIG_LIVING_DEATH)
 
 /datum/action/cooldown/power/gift/sense_wyrm/proc/get_sense_difficulty(mob/living/target)
+	if(HAS_TRAIT(target, TRAIT_HIDDEN_WYRMTAINT))
+		return
+
 	// To be used for stuff like banes.
 	if(HAS_TRAIT(target, TRAIT_WYRMTAINTED))
 		. = 6
