@@ -162,6 +162,7 @@
 	contains = list(/mob/living/basic/mothroach)
 	crate_name = "mothroach crate"
 
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/critter/monkey
 	name = "Monkey Cube Crate"
 	desc = "Stop monkeying around! Contains seven monkey cubes. Just add water!"
@@ -169,6 +170,7 @@
 	contains = list (/obj/item/storage/box/monkeycubes)
 	crate_type = /obj/structure/closet/crate
 	crate_name = "monkey cube crate"
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/critter/pug
 	name = "Pug Crate"
@@ -215,6 +217,7 @@
 	contains = list(/mob/living/basic/lizard)
 	crate_name = "lizard crate"
 
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/critter/garden_gnome
 	name = "Garden Gnome Crate"
 	desc = "Collect them all for your garden. Comes with three!"
@@ -228,6 +231,7 @@
 	. = ..()
 	for(var/i in 1 to 2)
 		new /mob/living/basic/garden_gnome(.)
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/critter/fish
 	test_ignored = TRUE // However, we should be wary of how possible it is to get more valuable fish out of this on average, depending on sample size.
@@ -261,10 +265,11 @@
 	contains = list(/obj/item/storage/fish_case/tiziran = 2)
 	crate_name = "tiziran fish crate"
 */
-
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/critter/turtle
 	name = "Turtle Crate"
 	desc = "Cute flora turtles that'll emit good vibes to nearby plants!"
 	cost = CARGO_CRATE_VALUE * 2
 	contains = list(/mob/living/basic/turtle)
 	crate_name = "flora-turtle crate"
+*/ //TFN EDIT REMOVE END
