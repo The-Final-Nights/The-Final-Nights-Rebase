@@ -19,6 +19,22 @@
 	description = "Underpaid, overworked, and understrength. Do your best to keep the order in " + CITY_NAME + ". Keep the officers in line."
 	minimal_masquerade = 0
 
+
+/datum/job/vampire/police_captain/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	if(!ishuman(spawned) || !prob(PIG_COP_PROBABILITY))
+		return
+	var/mob/living/carbon/human/piggy = spawned
+	for (var/obj/item/bodypart/ham as anything in piggy.get_bodyparts())
+		// These are string lists
+		ham.butcher_drops = ham.butcher_drops.Copy()
+		for (var/meat_type in ham.butcher_drops)
+			if (!ispath(meat_type, /obj/item/food/meat/slab))
+				continue
+			ham.butcher_drops[/obj/item/food/meat/slab/pig] = ham.butcher_drops[meat_type]
+			ham.butcher_drops -= meat_type
+		ham.butcher_drops = string_list(ham.butcher_drops)
+
 /datum/outfit/job/vampire/police_captain
 	name = "Police Captain"
 	jobtype = /datum/job/vampire/police_captain
