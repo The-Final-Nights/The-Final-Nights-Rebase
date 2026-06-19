@@ -1,7 +1,7 @@
 #define UPPERCUT_COMBO "HDH"
 #define JAB_COMBO "GHH"
 #define CROSS_COMBO "DHH"
-#define DIRTY_COMBO "GD"
+#define DIRTY_COMBO "GGD"
 
 /datum/martial_art/darkpack_boxing
 	name = "Street Boxing"
@@ -303,7 +303,7 @@
 	to_chat(usr, "[span_notice("Uppercut")]: Punch Shove Punch. Jump up and hit an opponent directly in the jaw, dealing significant damage and launching weaker foes away!")
 	to_chat(usr, "[span_notice("Jab Combo")]: Grab Punch Punch. Release a flurry of jabs into your opponent's head, disorienting and tiring them, along with dealing decent amounts of brute damage.")
 	to_chat(usr, "[span_notice("Cross Punch")]: Shove Punch Punch. Throw a single, heavy punch directly at your opponents skull")
-	to_chat(usr, "[span_notice("Dirty Hit")]: Grab Shove. Disregard the rules of the ring and punch the liver of your opponent, making them puke and keel over.")
+	to_chat(usr, "[span_notice("Dirty Hit")]: Grab Grab Shove. Disregard the rules of the ring and punch the liver of your opponent, making them puke and keel over.")
 	to_chat(usr, "[span_notice("Dodging")]: Like any trained boxer, you are able to avoid punches thrown at you while in Combat Mode. Throw mode greatly increases the avoidance chance")
 
 #undef UPPERCUT_COMBO

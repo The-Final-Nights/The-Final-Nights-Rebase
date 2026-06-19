@@ -1,6 +1,6 @@
 #define SLAM_COMBO "GH"
 #define KICK_COMBO "HH"
-#define RESTRAIN_COMBO "GG"
+#define RESTRAIN_COMBO "GGD"
 #define PRESSURE_COMBO "DG"
 
 /datum/martial_art/darkpack_cqb
@@ -152,22 +152,6 @@
 		return FALSE
 	if(defender.stat != CONSCIOUS)
 		return FALSE
-	ath_defend.difficulty = (attacker.st_get_stat(STAT_STRENGTH) + attacker.st_get_stat(STAT_BRAWL))
-	var/stun_time = str_attack.st_roll(attacker, defender) //In THEORY this should be attacker weighted, with high stamima users shrugging it off.
-	var/defended_time = ath_defend.st_roll(defender, attacker)
-	var/total_time = stun_time - defended_time
-	if(total_time <= 0)
-		log_combat(attacker, defender, "failed restrained (CQB)")
-		defender.visible_message(
-			span_warning("[attacker] failes to get [defender] into a restraining hold!"),
-			span_userdanger("You've managed to resist a restraining hold by [attacker]!"),
-			span_hear("You hear shuffling and a muffled groan!"),
-			null,
-			attacker,
-		)
-		to_chat(attacker, span_danger("You fail to lock [defender] into a restraining position!"))
-		defender.adjust_stamina_loss(20)
-		return TRUE
 	log_combat(attacker, defender, "restrained (CQB)")
 	defender.visible_message(
 		span_warning("[attacker] locks [defender] into a restraining position!"),
@@ -177,8 +161,8 @@
 		attacker,
 	)
 	to_chat(attacker, span_danger("You lock [defender] into a restraining position!"))
-	defender.adjust_stamina_loss(20)
-	defender.Stun(total_time SECONDS)
+	defender.apply_damage(20, STAMINA)
+	defender.Paralyze(2 SECONDS)
 	restraining_mob = WEAKREF(defender)
 	addtimer(VARSET_CALLBACK(src, restraining_mob, null), 5 SECONDS, TIMER_UNIQUE)
 	return TRUE
@@ -372,7 +356,7 @@
 
 	to_chat(usr, "[span_notice("Slam")]: Grab Punch. Slam opponent into the ground, knocking them down.")
 	to_chat(usr, "[span_notice("CQB Kick")]: Punch Punch. Knocks opponent away. Knocks out stunned opponents and does stamina damage.")
-	to_chat(usr, "[span_notice("Restrain")]: Grab Grab. Locks opponents into a restraining position, disarm to knock them out with a chokehold.")
+	to_chat(usr, "[span_notice("Restrain")]: Grab Grab Disarm. Locks opponents into a restraining position, disarm to knock them out with a chokehold.")
 	to_chat(usr, "[span_notice("Pressure")]: Shove Grab. Decent stamina damage.")
 	to_chat(usr, "[span_notice("Combat Training")]: Your past training has imparted various additional techniques. Getting someone in a strangehold will allow for you to snap their neck with a Punch. Certain techniques have unique interactions with knocked-down opponents.")
 
