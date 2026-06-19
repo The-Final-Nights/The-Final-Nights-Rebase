@@ -13,7 +13,7 @@
 	custom_price = 20 // ECONOMY
 
 // TFN EDIT ADD START - Sellable Items
-/obj/item/watch/Initialize()
+/obj/item/watch/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/selling, 50, "watch", FALSE)
 // TFN EDIT ADD END 
