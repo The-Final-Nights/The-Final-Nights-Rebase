@@ -141,18 +141,21 @@
 			var/mob/living/carbon/human/human_owner = defender
 			// Normally vomit can stun for 20 seconds but that's.. really rough. Instead we do 5, and 3 seconds knockdown
 			if(get_kindred_splat(human_owner))	//Did you know that kindred use blood in place of bodily fluids?
-				human_owner.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE | VOMIT_CATEGORY_BLOOD), lost_nutrition = 0, distance = rand(1,2))
-				human_owner.Paralyze(5 SECONDS)
-				human_owner.Knockdown(3 SECONDS)
+				if(prob(50))
+					human_owner.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE | VOMIT_CATEGORY_BLOOD), lost_nutrition = 0, distance = rand(1,2))
+				human_owner.Paralyze(2 SECONDS)
+				human_owner.Knockdown(2 SECONDS)
 			if(iscrinos(human_owner))			//We don't knock down Garou; they're able to tank it
-				human_owner.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE), lost_nutrition = 10, distance = rand(1,2), purge_ratio = 0.5)
-				human_owner.Paralyze(5 SECONDS)
+				if(prob(50))
+					human_owner.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE), lost_nutrition = 10, distance = rand(1,2), purge_ratio = 0.5)
+				human_owner.Paralyze(2 SECONDS)
 			else								//Ghouls/humans/other get the base effect
-				human_owner.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE), lost_nutrition = 10, distance = rand(1,2), purge_ratio = 0.5)
-				human_owner.Paralyze(5 SECONDS)
-				human_owner.Knockdown(3 SECONDS)
+				if(prob(50))
+					human_owner.vomit(vomit_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE), lost_nutrition = 10, distance = rand(1,2), purge_ratio = 0.5)
+				human_owner.Paralyze(2 SECONDS)
+				human_owner.Knockdown(2 SECONDS)
 
-	defender.apply_damage(40, STAMINA)
+	defender.apply_damage(30, STAMINA)
 	var/armor_block = defender.run_armor_check(BODY_ZONE_CHEST, MELEE)
 	defender.apply_damage(30, attacker.get_attack_type(), BODY_ZONE_CHEST, blocked = armor_block)
 	log_combat(attacker, defender, "gut punched (Street Boxing)")

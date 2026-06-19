@@ -79,16 +79,7 @@
 	defender.apply_damage(10, BRUTE)
 	if(!iscrinos(defender))	//We check if defender is crinos. If they are? No knockdown; only a stun which you roll.
 		defender.Knockdown(3 SECONDS)
-
-	if(!stam_defend)
-		stam_defend = new()
-	stam_defend.difficulty = (attacker.st_get_stat(STAT_STRENGTH) + attacker.st_get_stat(STAT_BRAWL))
-	var/defended_time = stam_defend.st_roll(defender, attacker)
-	if(!str_attack)
-		str_attack = new()
-	var/stun_time = str_attack.st_roll(attacker, defender)
-	stun_time = clamp((stun_time-defended_time), 0, 10)
-	defender.Paralyze(stun_time SECONDS)
+	defender.Paralyze(3 SECONDS)
 	log_combat(attacker, defender, "slammed (CQB)")
 	return TRUE
 
@@ -212,6 +203,7 @@
 	if(old_grab_state == GRAB_PASSIVE)
 		defender.drop_all_held_items()
 		attacker.setGrabState(GRAB_AGGRESSIVE) //Instant aggressive grab if on grab intent
+		defender.update_incapacitated()
 		log_combat(attacker, defender, "grabbed", addition="aggressively")
 		defender.visible_message(
 			span_warning("[attacker] violently grabs [defender]!"),
