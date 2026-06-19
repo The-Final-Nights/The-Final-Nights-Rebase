@@ -137,7 +137,7 @@
 	texture_layer_icon_state = "shine"
 
 //TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
-/obj/item/stack/sheet/mineral/gold/Initialize()
+/obj/item/stack/sheet/mineral/gold/Initialize(mapload)
 	. = ..()
 	if(!GetComponent(/datum/component/selling))
 		AddComponent(/datum/component/selling, 100, "precious_metals", FALSE)
@@ -177,7 +177,7 @@
 	points_per_boulder_unit = 10 / SHEET_MATERIAL_AMOUNT
 
 //TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
-/obj/item/stack/sheet/mineral/diamond/Initialize()
+/obj/item/stack/sheet/mineral/diamond/Initialize(mapload)
 	. = ..()
 	// check if it's a named unique diamond
 	AddComponent(/datum/component/selling, 1000, "precious_gems", FALSE)
