@@ -120,7 +120,7 @@
 	for(var/i = 1; i <= min(targets_to_affect, length(potential_targets)); i++)
 		var/mob/living/carbon/target = potential_targets[i]
 		apply_presence_overlay(target)
-		to_chat(target, span_yellowteamradio("You feel extremely attracted to and persuaded by [owner]'s words, no matter what they're saying!"))
+		to_chat(target, span_yellowteamradio("You feel extremely attracted to and persuaded by [owner]'s words, no matter what they're saying, however danger will break this spell of fascination! You will remember how you felt around this person after but you will not notice that you were under the effect of a discipline.")) // TFN EDIT CHANGE - Presence Wording Change  Original - "You feel extremely attracted to and persuaded by [owner]'s words, no matter what they're saying!"
 		target.apply_status_effect(STATUS_EFFECT_AWE)
 		affected_targets += target
 
@@ -326,7 +326,7 @@
 		apply_presence_overlay(hearer, 3 MINUTES)
 		affected_targets[hearer] = hearer_successes
 
-		to_chat(hearer, span_hypnophrase("You find yourself completely submitting to the Majesty of [owner]. Their every word is your utmost priority, every frown of displeasure crushing your soul. You find yourself humbled entirely in their overwhelming presence."))
+		to_chat(hearer, span_hypnophrase("You find yourself completely submitting to the Majesty of [owner]. Their every word is your utmost priority, every frown of displeasure crushing your soul. You find yourself humbled entirely in their overwhelming presence. Despite this your mind is still your own and you need not listen to suicidal or ridiculous directives, although such directives will not break the spell in it's entirety.")) // TFN EDIT CHANGE - Presence Wording Change - Original - "You find yourself completely submitting to the Majesty of [owner]. Their every word is your utmost priority, every frown of displeasure crushing your soul. You find yourself humbled entirely in their overwhelming presence."
 
 		// this ability is often used to end combat scenes but it often ignored.
 		var/pacifism_delay = hearer_successes * 10 SECONDS

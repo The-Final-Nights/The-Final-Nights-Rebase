@@ -118,6 +118,7 @@ const SPLAT_WHITELIST_REQUIREMENTS: Record<string, string> = {
   splat_ghoul: 'ghoul',
   splat_garou: 'garou',
   splat_kinfolk: 'kinfolk',
+  splat_corax: 'corax',
 };
 // TFN EDIT END
 
