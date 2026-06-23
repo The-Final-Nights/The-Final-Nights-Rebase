@@ -187,8 +187,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 /datum/preferences/proc/update_character_darkpack(current_version, list/save_data)
 	if (current_version < 2)
-		if(read_preference(/datum/preference/choiced/subsplat/garou_breed) == "Metis")
-			write_preference(GLOB.preference_entries[/datum/preference/choiced/subsplat/garou_breed], BREED_CRINOS)
+		if(read_preference(/datum/preference/choiced/subsplat/fera_breed/garou) == "Metis")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/subsplat/fera_breed/garou], BREED_CRINOS)
 // DARKPACK EDIT ADD END
 
 /// checks through keybindings for outdated unbound keys and updates them
@@ -427,7 +427,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			continue
 		var/datum/st_stat/stat = new proper_stat_path()
 		stat.set_score(stats_list[stat_path][STAT_SCORE])
-		stat.set_points(stats_list[stat_path][STAT_POINTS])
+		stat.load_points(stats_list[stat_path][STAT_POINTS]) // TFN EDIT
 		stat.freebie_cost_spent = stats_list[stat_path][STAT_FREEBIE_COST_SPENT]
 		preference_storyteller_stats[proper_stat_path] = stat
 	update_middleware_stats(preference_storyteller_stats)

@@ -36,6 +36,8 @@
 		LOCKACCESS_JAZZ_CLUB,
 		LOCKACCESS_PRIMOGEN,
 		LOCKACCESS_JAZZ_CLUB_DELIVERY,
+		LOCKACCESS_SHERIFF, //TFN EDIT ADD - Camarilla Job Pass
+		LOCKACCESS_HOUND, //TFN EDIT ADD - Camarilla Job Pass
 	)
 	color = "#bd3327"
 
@@ -49,6 +51,8 @@
 		LOCKACCESS_PRIMOGEN,
 		LOCKACCESS_CLERK,
 		LOCKACCESS_JAZZ_CLUB_DELIVERY,
+		LOCKACCESS_SHERIFF, //TFN EDIT ADD - Camarilla Job Pass
+		LOCKACCESS_HOUND, //TFN EDIT ADD - Camarilla Job Pass
 	)
 	color = "#bd3327"
 
@@ -62,6 +66,8 @@
 		LOCKACCESS_PRIMOGEN,
 		LOCKACCESS_JAZZ_CLUB_DELIVERY,
 		LOCKACCESS_PRINCE,
+		LOCKACCESS_SHERIFF, //TFN EDIT ADD - Camarilla Job Pass
+		LOCKACCESS_HOUND, //TFN EDIT ADD - Camarilla Job Pass
 	)
 	color = "#bd3327"
 
@@ -72,6 +78,7 @@
 		LOCKACCESS_CLERK,
 		LOCKACCESS_CAMARILLA,
 		LOCKACCESS_JAZZ_CLUB_DELIVERY,
+		LOCKACCESS_HOUND, //TFN EDIT ADD - Camarilla Job Pass
 	)
 	color = "#bd3327"
 
@@ -410,6 +417,17 @@
 		LOCKACCESS_COGGIE
 	)
 	color = "#339933"
+
+// TFN MAGADONIFICATION EDIT START
+
+/obj/item/vamp/keys/spiral
+	name = "tainted keys"
+	accesslocks = list(
+		LOCKACCESS_SPIRAL
+	)
+	color = "#8B0000"
+
+//TFN MAGADONIFICATION EDIT END
 
 // TFN EDIT ADD START - ([LORE TEAM REQUESTED] map changes)
 /obj/item/vamp/keys/evergreen

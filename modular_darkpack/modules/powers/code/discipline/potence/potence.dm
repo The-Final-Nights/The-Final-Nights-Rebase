@@ -20,7 +20,7 @@
 	check_flags = DISC_CHECK_CAPABLE
 
 	toggled = TRUE
-	duration_length = 1 TURNS
+	duration_length = 2 TURNS	//TFN EDIT - Swapped from 1 turn duration back to 2 after discussion
 
 /datum/discipline_power/potence/post_gain()
 	owner.st_add_stat_mod(STAT_STRENGTH, level, "Potence")

@@ -262,6 +262,7 @@
 /obj/item/smartphone/doctor/director
 	contact_networks_pre_init = list(
 		alist(NETWORK_ID = CLINIC_NETWORK, OUR_ROLE = "Clinic Director", USE_JOB_TITLE = TRUE)
+		, alist(NETWORK_ID = MAGADON_LEADER_NETWORK, OUR_ROLE = "Clinic Director", USE_JOB_TITLE = FALSE) // TFN Edit - Magadonification
 		)
 //TFN EDIT ADD END
 

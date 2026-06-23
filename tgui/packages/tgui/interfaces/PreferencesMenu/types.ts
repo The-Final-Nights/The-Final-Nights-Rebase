@@ -191,7 +191,7 @@ export type CharacterPreferencesData = {
   manually_rendered_features: Record<string, string>;
 
   names: Record<string, string>;
-  vocals: Record<string, string | number | boolean>; // TFN EDIT ADDITION
+  vocals: Record<string, string | number | boolean>; // DARKPACK EDIT ADD - BLOOPERS
 
   misc: {
     gender: Gender;
@@ -261,6 +261,7 @@ export type PreferencesMenuData = {
       category: string;
       subcategory: string;
       points: number;
+      max_points: number; // TFN ADDITION
       abstract_type: string;
     }
   >;

@@ -38,6 +38,7 @@ once the player is either dead or staked, the hunter will guard their 'kill' for
 	var/datum/storyteller_roll/hunter_perception/perception_roll
 	var/scan_chance_min = 10 // base scan chance at full masquerade
 	var/scan_chance_max = 85 // scan chance at zero masquerade
+	var/scan_bonus_permanent_fangs = 30 // scan increase for having visible fangs
 	var/scan_penalty_blush = 30 // scan reduction for having Blush of Health
 	var/scan_penalty_humanity_per_dot = 5 // scan reduction per point of humanity above the threshold
 	var/scan_humanity_threshold = 4 // humanity at or below which no scan penalty applies
@@ -192,6 +193,8 @@ once the player is either dead or staked, the hunter will guard their 'kill' for
 		var/scan_chance = base_chance
 		if(HAS_TRAIT(nearby, TRAIT_BLUSH_OF_HEALTH))
 			scan_chance -= scan_penalty_blush
+		if(HAS_TRAIT(nearby, TRAIT_PERMAFANGS) && !is_mouth_covered(nearby))
+			scan_chance += scan_bonus_permanent_fangs
 		var/datum/st_stat/morality_path/morality/path = nearby.storyteller_stats?[STAT_MORALITY]
 		if(path?.morality_path?.alignment == MORALITY_HUMANITY)
 			scan_chance -= clamp(path.get_score() - scan_humanity_threshold, 0, scan_humanity_max_dots) * scan_penalty_humanity_per_dot

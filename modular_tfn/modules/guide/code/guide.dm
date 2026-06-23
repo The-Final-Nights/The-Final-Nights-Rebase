@@ -50,11 +50,12 @@
 		tabs += tab
 
 // woe, globals upon ye
-var/datum/guide_manager/guide_datum
+GLOBAL_DATUM(guide_datum, /datum/guide_manager)
+
 /proc/get_guide()
-	if(!guide_datum)
-		guide_datum = new /datum/guide_manager()
-	return guide_datum
+	if(!GLOB.guide_datum)
+		GLOB.guide_datum = new /datum/guide_manager()
+	return GLOB.guide_datum
 
 /datum/guide_manager/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

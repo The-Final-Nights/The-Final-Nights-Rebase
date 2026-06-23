@@ -1,5 +1,5 @@
 import { filter } from 'es-toolkit/compat';
-import { useState } from 'react';
+import { useEffect, useState } from 'react'; // TFN EDIT
 import { useBackend } from 'tgui/backend';
 import {
   Box,
@@ -304,12 +304,13 @@ function QuirkPage() {
   const randomBodyEnabled =
     data.character_preferences.non_contextual.random_body !==
       RandomSetting.Disabled || randomToggleEnabled;
+  // TFN EDIT START
+  const [selectedQuirks, setSelectedQuirks] = useState<string[]>(data.selected_quirks);
 
-  const selectedQuirks = data.selected_quirks;
-  function setSelectedQuirks(selected_quirks) {
-    data.selected_quirks = selected_quirks;
-  }
-
+  useEffect(() => {
+    setSelectedQuirks(data.selected_quirks);
+  }, [data.selected_quirks]);
+  // TFN EDIT END
   const [quirkActionLocked, setQuirkActionLocked] = useState(false);
 
   function withQuirkDebounce(debounce: () => void, delay = 200) {
@@ -402,6 +403,20 @@ function QuirkPage() {
     return;
   }
 
+  // DARKPACK EDIT ADD START - MERITS_FLAWS
+    function getReasonToNotDisplay(quirkName: string) {
+    const quirk = quirkInfo[quirkName];
+
+    if (data.clan_disallowed_quirks.includes(quirk.name)) {
+      return false
+    }
+    if (data.splat_disallowed_quirks.includes(quirk.name)) {
+      return false
+    }
+    return;
+  }
+  // DARKPACK EDIT ADD END
+
   function getReasonToNotRemove(quirkName: string) {
     const quirk = quirkInfo[quirkName];
 
@@ -465,7 +480,8 @@ function QuirkPage() {
                 .filter(([quirkName, _]) => {
                   return (
                     selectedQuirks.indexOf(quirkName) === -1 &&
-                    quirkSearch(quirkInfo[quirkName])
+                    quirkSearch(quirkInfo[quirkName]) && // DARKPACK EDIT CHANGE - MERITS_FLAWS
+                    getReasonToNotDisplay(quirkName) === undefined // DARKPACK EDIT ADD - MERITS_FLAWS
                   );
                 })
                 .map(([quirkName, quirk]) => {

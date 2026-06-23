@@ -211,6 +211,10 @@
 
 /obj/effect/mapping_helpers/door/access/pentex_leader
 	lock_id = LOCKACCESS_PENTEX_LEADER
+// TFN MAGADONIFICATION EDIT START
+/obj/effect/mapping_helpers/door/access/spiral
+	lock_id = LOCKACCESS_SPIRAL
+// TFN MAGADONIFICATION EDIT END
 // TFN EDIT ADD START - ([LORE TEAM REQUESTED] map changes)
 /obj/effect/mapping_helpers/door/access/evergreen
 	lock_id = LOCKACCESS_EVERGREEN

@@ -4,3 +4,4 @@
 #define CRIME_BURGLARY "Burglary"
 #define CRIME_EMERGENCY "Emergency Alarm"
 #define CRIME_ATM_TAMPERING "Atm Tampering"
+#define CRIME_BATTERY "Battery" // TFN ADDITION

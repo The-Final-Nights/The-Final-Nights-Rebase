@@ -20,9 +20,9 @@
 
 	// dice rolls for each symbol
 	var/sevenroll = 5
-	var/diamondroll = 5
-	var/bellroll = 15
-	var/barroll = 25
+	var/diamondroll = 16
+	var/bellroll = 34
+	var/barroll = 58
 
 	// payouts for each symbol based on the result
 	var/seven_payout = 77
@@ -45,7 +45,7 @@
 	. = ..()
 	. += mutable_appearance(icon, spinning ? "slots_screen_working" : "slots_screen")
 
-/obj/structure/casino/slotmachine/Initialize()
+/obj/structure/casino/slotmachine/Initialize(mapload)
 	. = ..()
 	reel_delay_1 = pick(3 SECONDS, 4 SECONDS)
 	reel_delay_2 = pick(5 SECONDS, 6 SECONDS)
@@ -57,16 +57,16 @@
 	desc = "Higher stakes, higher rewards!"
 	// dice rolls for each symbol
 	sevenroll = 5
-	diamondroll = 5
-	bellroll = 15
-	barroll = 20
+	diamondroll = 16
+	bellroll = 34
+	barroll = 58
 
 	// payouts for each symbol based on the result
 	seven_payout = 77
-	diamond_payout = 30
-	bell_payout = 15
-	bar_payout = 10
-	cherry_payout = 6
+	diamond_payout = 25
+	bell_payout = 10
+	bar_payout = 5
+	cherry_payout = 3
 
 	// bet sizes
 	bet_size = 25
@@ -111,7 +111,7 @@
 	list("symbols" = list("bell",    "bell",    "bell"),    "payout" = bell_payout),
 	list("symbols" = list("bar",     "bar",     "bar"),     "payout" = bar_payout),
 	list("symbols" = list("cherry",  "cherry",  "cherry"),  "payout" = cherry_payout),
-	list("symbols" = list(null,      null,      null),      "payout" = 2, "pair" = TRUE)
+	list("symbols" = list(null,      null,      null),      "payout" = 1, "pair" = TRUE)
 	)
 
 	return data
@@ -148,12 +148,9 @@
 				payout_multiplier = bar_payout
 			if("cherry")
 				payout_multiplier = cherry_payout
-	else if(reelone == reeltwo || reelone == reelthree || reeltwo == reelthree)
-		payout_multiplier = 2 // any pair pays 2x the bet
 
-	for(var/symbol in reels)
-		if(symbol == "diamond")
-			payout_multiplier *= 2 // each diamond multiplies payout by 2
+	else if(reelone == reeltwo || reelone == reelthree || reeltwo == reelthree)
+		payout_multiplier = 1 // any pair pays 1x the bet
 
 	return CEILING(payout_multiplier, 1) // round up just incase
 
@@ -261,7 +258,7 @@
 	var/coinflip
 	item_flags = NO_MAT_REDEMPTION
 
-/obj/item/stack/casino/chip/Initialize()
+/obj/item/stack/casino/chip/Initialize(mapload)
 	. = ..()
 	coinflip = pick(sideslist)
 	pixel_x = base_pixel_x + rand(0, 16) - 8
@@ -308,7 +305,7 @@
 	value = 100
 	merge_type = /obj/item/stack/casino/chip/onehundred
 
-/obj/item/stack/casino/chip/onehundred/Initialize()
+/obj/item/stack/casino/chip/onehundred/Initialize(mapload)
 	. = ..()
 	if(!QDELETED(src))
 		AddComponent(/datum/component/selling/casino, 100, "casino_chips", FALSE)
@@ -320,7 +317,7 @@
 	value = 1000
 	merge_type = /obj/item/stack/casino/chip/onethousand
 
-/obj/item/stack/casino/chip/onethousand/Initialize()
+/obj/item/stack/casino/chip/onethousand/Initialize(mapload)
 	. = ..()
 	if(!QDELETED(src))
 		AddComponent(/datum/component/selling/casino, 1000, "casino_chips", FALSE)

@@ -148,6 +148,13 @@
 	points = max(amount, 0)
 	return TRUE
 
+// TFN EDIT START
+/datum/st_stat/proc/load_points(amount)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	points = amount
+	return TRUE
+// TFN EDIT END
+
 /datum/st_stat/proc/increase_points(amount)
 	SHOULD_NOT_OVERRIDE(TRUE)
 	points += amount

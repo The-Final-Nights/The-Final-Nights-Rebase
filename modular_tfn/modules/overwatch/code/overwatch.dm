@@ -57,7 +57,7 @@ SUBSYSTEM_DEF(overwatch)
 		"CKEY" = embed.author,
 		"PLAYERS" = player_count,
 		"ROUND ID" = GLOB.round_id,
-		"ROUND TIME" = ROUND_TIME(),
+		"ROUND TIME" = round_timestamp(),
 		"ADMINS" = admin_text,
 		"MESSAGE" = message,
 	)

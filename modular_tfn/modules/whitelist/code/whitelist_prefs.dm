@@ -59,6 +59,12 @@
 		"category" = "splat",
 		"is_default" = FALSE,
 	)
+	defs[WHITELIST_CORAX] = list(
+		"name" = "Corax",
+		"description" = "Access to play as corax.",
+		"category" = "splat",
+		"is_default" = FALSE
+	)
 	defs[WHITELIST_TRUSTED] = list(
 		"name" = "Trusted",
 		"description" = "Bypasses discipline sheet limits, unlocks all trusted-only clans, and allows them to be a lower generation kindred.",

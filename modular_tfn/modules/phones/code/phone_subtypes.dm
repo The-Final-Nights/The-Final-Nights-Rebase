@@ -25,6 +25,44 @@
 		alist(NETWORK_ID = SABBAT_NETWORK, OUR_ROLE = "Manor Servant", USE_JOB_TITLE = TRUE)
 		)
 
+/obj/item/smartphone/reeve
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = ANARCH_NETWORK, OUR_ROLE = "Club Security Enforcer", USE_JOB_TITLE = FALSE)
+		, alist(NETWORK_ID = VAMPIRE_LEADER_NETWORK, OUR_ROLE = "Anarchy Rose Security Enforcer", USE_JOB_TITLE = FALSE)
+		)
+// Magadonification
+/obj/item/smartphone/magadon_lead
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Branch Lead", USE_JOB_TITLE = FALSE)
+		, alist(NETWORK_ID = MAGADON_LEADER_NETWORK, OUR_ROLE = "Magadon Branch Leader", USE_JOB_TITLE = FALSE)
+		)
+
+/obj/item/smartphone/magadon_exec
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Executive", USE_JOB_TITLE = FALSE)
+		, alist(NETWORK_ID = MAGADON_LEADER_NETWORK, OUR_ROLE = "Magadon Executive", USE_JOB_TITLE = FALSE)
+		)
+
+/obj/item/smartphone/magadon_affairs
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Internal Affairs Agent", USE_JOB_TITLE = FALSE)
+		)
+
+/obj/item/smartphone/magadon_sec_chief
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Chief of Security", USE_JOB_TITLE = FALSE)
+		)
+
+/obj/item/smartphone/magadon_security
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Security Agent", USE_JOB_TITLE = FALSE)
+		)
+
+/obj/item/smartphone/magadon_employee
+	contact_networks_pre_init = list(
+		alist(NETWORK_ID = MAGADON_NETWORK, OUR_ROLE = "Magadon Employee", USE_JOB_TITLE = TRUE)
+		)
+// Magadonification
 #undef NETWORK_ID
 #undef OUR_ROLE
 #undef USE_JOB_TITLE

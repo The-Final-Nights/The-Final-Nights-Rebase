@@ -28,6 +28,22 @@
 
 	known_contacts = list("Police Captain")
 
+
+/datum/job/vampire/police_officer/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	if(!ishuman(spawned) || !prob(PIG_COP_PROBABILITY))
+		return
+	var/mob/living/carbon/human/piggy = spawned
+	for (var/obj/item/bodypart/ham as anything in piggy.get_bodyparts())
+		// These are string lists
+		ham.butcher_drops = ham.butcher_drops.Copy()
+		for (var/meat_type in ham.butcher_drops)
+			if (!ispath(meat_type, /obj/item/food/meat/slab))
+				continue
+			ham.butcher_drops[/obj/item/food/meat/slab/pig] = ham.butcher_drops[meat_type]
+			ham.butcher_drops -= meat_type
+		ham.butcher_drops = string_list(ham.butcher_drops)
+
 /datum/outfit/job/vampire/police_officer
 	name = "Police Officer"
 	jobtype = /datum/job/vampire/police_officer
@@ -40,7 +56,7 @@
 	id = /obj/item/card/police
 	l_pocket = /obj/item/smartphone
 	r_pocket = /obj/item/vamp/keys/police
-	backpack_contents = list(/obj/item/card/credit=1, /obj/item/ammo_box/darkpack/c9mm = 1, /obj/item/restraints/handcuffs = 1, /obj/item/melee/baton/vamp = 1, /obj/item/storage/medkit/darkpack/ifak = 1)
+	backpack_contents = list(/obj/item/card/credit=1, /obj/item/ammo_box/darkpack/c9mm = 1, /obj/item/storage/medkit/darkpack/ifak = 1)
 
 /datum/outfit/job/vampire/police_officer/post_equip(mob/living/carbon/human/H)
 	..()
