@@ -3473,7 +3473,7 @@
 /obj/structure/vampdoor/wood{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/effect/mapping_helpers/door/access/hound,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/mineral/plastitanium,
@@ -5034,21 +5034,6 @@
 /obj/effect/turf_decal/bordur,
 /turf/open/floor/plating/concrete,
 /area/vtm/outside/trainyard)
-"bpf" = (
-/obj/structure/table/wood/fancy/royalblack,
-/obj/effect/turf_decal/siding/grey{
-	dir = 8
-	},
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
-/turf/open/floor/city/plating_mono,
-/area/vtm/interior/millennium_tower/f3)
 "bpl" = (
 /obj/structure/chair/comfy/darkpack/dark{
 	dir = 1
@@ -8250,6 +8235,9 @@
 /obj/item/vampire_stake,
 /obj/item/vampire_stake{
 	pixel_y = 10
+	},
+/obj/item/vampire_stake{
+	pixel_y = 5
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f2)
@@ -12113,7 +12101,7 @@
 /area/vtm/interior/substation)
 "dbq" = (
 /obj/effect/decal/pallet,
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer)
@@ -12205,7 +12193,7 @@
 /turf/open/floor/plating/asphalt,
 /area/vtm/outside/giovanni/courtyard)
 "dcJ" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights/industrial)
 "dcO" = (
@@ -14101,7 +14089,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/vtm/interior/jazzclub)
 "dzB" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/rough/cave{
 	icon_state = "stone8"
 	},
@@ -16154,6 +16142,11 @@
 	name = "Sheriff's special";
 	pixel_y = 9
 	},
+/obj/item/masquerade_contract,
+/obj/item/masquerade_contract,
+/obj/item/masquerade_contract,
+/obj/item/masquerade_contract,
+/obj/item/masquerade_contract,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/millennium_tower/f2)
 "dZb" = (
@@ -17150,7 +17143,7 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/sewer/nosferatu_warren)
 "ekL" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -17548,8 +17541,7 @@
 "eqy" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/effect/turf_decal/siding/grey/inner_corner,
-/obj/item/reagent_containers/blood/vitae,
-/obj/item/reagent_containers/blood/vitae,
+/obj/item/reagent_containers/cup/glass/bottle/wine/blood,
 /turf/open/floor/carpet/royalblack,
 /area/vtm/interior/millennium_tower/f3)
 "eqF" = (
@@ -19021,7 +19013,7 @@
 /area/vtm)
 "eMd" = (
 /obj/effect/decal/cleanable/trash,
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/baywalk)
 "eMw" = (
@@ -21009,10 +21001,6 @@
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/condiment/milk,
 /obj/item/storage/fancy/egg_box,
-/obj/item/reagent_containers/blood/random,
-/obj/item/reagent_containers/blood/random,
-/obj/item/reagent_containers/blood/random,
-/obj/item/reagent_containers/blood/random,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/millennium_tower)
 "fkh" = (
@@ -27208,9 +27196,9 @@
 /obj/structure/vampdoor/wood{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/camarilla,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/ten,
+/obj/effect/mapping_helpers/door/access/camarilla,
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f2)
 "gOv" = (
@@ -29533,7 +29521,7 @@
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sewer)
 "hsv" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /obj/effect/decal/cleanable/trash,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/clinic/haven)
@@ -30185,7 +30173,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/littleitaly/apartments)
 "hzM" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/concrete{
 	color = "#9c8064"
 	},
@@ -31491,7 +31479,7 @@
 /area/vtm/interior/mall)
 "hRA" = (
 /obj/effect/decal/cleanable/trash,
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "hRC" = (
@@ -34094,8 +34082,6 @@
 "iwa" = (
 /obj/effect/turf_decal/siding/grey,
 /obj/structure/closet,
-/obj/item/vampire_stake,
-/obj/item/masquerade_contract,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
 "iwf" = (
@@ -39850,7 +39836,7 @@
 /turf/open/floor/carpet/blue,
 /area/vtm/interior/museum)
 "jTF" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/culture)
 "jTI" = (
@@ -40342,7 +40328,7 @@
 /turf/open/misc/grass/nosmooth,
 /area/vtm/outside/baywalk)
 "jYS" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/sewer)
 "jYV" = (
@@ -40759,7 +40745,7 @@
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/anarch/basement)
 "keA" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "keC" = (
@@ -46718,7 +46704,7 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior)
 "lDn" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/unionsquare)
 "lDA" = (
@@ -48044,9 +48030,9 @@
 /area/vtm/interior/chantry/basement)
 "lVf" = (
 /obj/structure/vampdoor/prison,
-/obj/effect/mapping_helpers/door/access/camarilla,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/nine,
+/obj/effect/mapping_helpers/door/access/hound,
 /turf/open/floor/mineral/plastitanium,
 /area/vtm/interior/millennium_tower/f2)
 "lVh" = (
@@ -52351,7 +52337,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/vtm/interior/jazzclub)
 "mVA" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/baywalk)
 "mVH" = (
@@ -55147,7 +55133,7 @@
 /turf/open/misc/dirt,
 /area/vtm/interior/tzimisce_sanctum)
 "nFW" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/stone,
 /area/vtm/interior/caves)
 "nGc" = (
@@ -55495,7 +55481,7 @@
 /turf/open/misc/grass/nosmooth,
 /area/vtm/outside/culture)
 "nKf" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/rough/cave,
 /area/vtm/interior/caves)
 "nKk" = (
@@ -59707,8 +59693,13 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
 "oIx" = (
-/obj/structure/closet/crate/coffin,
-/turf/open/floor/wood/smooth,
+/obj/effect/decal/pallet,
+/obj/structure/closet/crate/wooden,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/obj/item/reagent_containers/blood/random,
+/turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower)
 "oIM" = (
 /obj/effect/decal/wallpaper/trim/green,
@@ -66935,7 +66926,7 @@
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
 "qxo" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/ghetto)
 "qxp" = (
@@ -68179,8 +68170,6 @@
 /obj/item/clothing/shoes/vampire,
 /obj/item/clothing/glasses/vampire/sun,
 /obj/structure/closet/cabinet,
-/obj/item/masquerade_contract,
-/obj/item/masquerade_contract,
 /turf/open/floor/wood/smooth,
 /area/vtm/interior/millennium_tower)
 "qMc" = (
@@ -68448,7 +68437,7 @@
 /obj/structure/vampipe{
 	icon_state = "piping35"
 	},
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
 "qPT" = (
@@ -68739,7 +68728,7 @@
 /turf/open/floor/plating/rough,
 /area/vtm/interior/ghetto)
 "qTA" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /obj/structure/vampipe{
 	icon_state = "piping31"
 	},
@@ -69066,7 +69055,7 @@
 /turf/open/floor/city/plating_stone,
 /area/vtm/interior/bianchiBank)
 "qXm" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/ghetto)
 "qXn" = (
@@ -69252,7 +69241,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "raS" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/wood/old,
 /area/vtm/interior/ghetto)
 "raU" = (
@@ -70342,7 +70331,7 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior)
 "roT" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/financialdistrict)
 "roU" = (
@@ -72967,7 +72956,7 @@
 "rXt" = (
 /obj/structure/vampdoor/prison,
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/effect/mapping_helpers/door/access/hound,
 /obj/effect/mapping_helpers/door/lock_difficulty/nine,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower)
@@ -73343,7 +73332,7 @@
 /obj/effect/decal/fakelattice{
 	density = 0
 	},
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer)
 "scY" = (
@@ -73646,7 +73635,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/chinatown)
 "sfX" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /obj/effect/landmark/npcwall,
 /turf/open/floor/plating/canalplating,
 /area/vtm/interior/sewer)
@@ -74377,7 +74366,7 @@
 /turf/open/floor/city/factory,
 /area/vtm/interior/police/upstairs)
 "sqC" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/sewer)
 "sqM" = (
@@ -79148,7 +79137,7 @@
 /area/vtm/interior/sewer/nosferatu_warren)
 "tzL" = (
 /obj/effect/decal/cleanable/trash,
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/unionsquare)
 "tzN" = (
@@ -80294,7 +80283,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/wood/old,
 /area/vtm/interior/ghetto)
 "tMT" = (
@@ -81051,7 +81040,6 @@
 /area/vtm/interior/hotel)
 "tVm" = (
 /obj/structure/table/wood,
-/obj/item/masquerade_contract,
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/millennium_tower/f2)
 "tVp" = (
@@ -84961,7 +84949,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/lock,
-/obj/effect/mapping_helpers/door/access/camarilla,
+/obj/effect/mapping_helpers/door/access/hound,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/millennium_tower)
@@ -87143,7 +87131,7 @@
 /obj/structure/vampdoor/wood{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/access/clerk,
+/obj/effect/mapping_helpers/door/access/sheriff,
 /obj/effect/mapping_helpers/door/lock,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
 /turf/open/floor/wood/smooth,
@@ -87644,7 +87632,7 @@
 /area/vtm/interior/tzimisce_sanctum)
 "vGO" = (
 /obj/effect/decal/cleanable/trash,
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/financialdistrict)
 "vGQ" = (
@@ -92441,7 +92429,7 @@
 	},
 /area/vtm/interior/caves)
 "wOr" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalkalt,
 /area/vtm/outside/financialdistrict)
 "wOy" = (
@@ -97610,7 +97598,7 @@
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights/industrial)
 "ydD" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/outside/trainyard)
 "ydG" = (
@@ -97693,7 +97681,7 @@
 /turf/open/floor/plating/canal,
 /area/vtm/interior/sabbat_lair)
 "yez" = (
-/obj/structure/fire_barrel,
+/obj/structure/bonfire/fire_barrel,
 /turf/open/floor/plating/concrete{
 	color = "#bfbfbf"
 	},
@@ -122824,7 +122812,7 @@ nzS
 cnQ
 dnp
 dnp
-sGt
+oIx
 nxn
 hhY
 bEj
@@ -167288,7 +167276,7 @@ nPp
 dda
 qLV
 qFh
-oIx
+vPV
 git
 efx
 kAS
@@ -248083,7 +248071,7 @@ kFP
 lcf
 hmR
 iFj
-bpf
+hmR
 kJZ
 iMS
 mjT
