@@ -14,7 +14,7 @@
 		return
 	var/turf/current_location = get_turf(user)
 	to_chat(user, "[span_bold("YOU")], [get_area_name(user)]")
-	for(var/mob/living/breacher as anything in GLOB.supernatural_breakers_list)
+	for(var/mob/living/breacher in GLOB.supernatural_breakers_list)
 		var/turf/turf = get_turf(breacher)
 		var/direction = get_dir(current_location, turf)
 		var/disttext = dir2text(direction)

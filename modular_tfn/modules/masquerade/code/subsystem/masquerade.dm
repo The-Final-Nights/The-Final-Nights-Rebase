@@ -16,7 +16,7 @@
 
 /datum/controller/subsystem/masquerade/masquerade_reinforce(atom/source, mob/living/player_breacher, reason)
 	. = FALSE
-	for(var/masquerade_breach as anything in masquerade_breachers)
+	for(var/masquerade_breach in masquerade_breachers)
 		var/breach_sources = masquerade_breach[2]
 		var/breach_reasons = masquerade_breach[3]
 
@@ -61,7 +61,7 @@
 		masquerade_level = max(0, masquerade_level - 1)
 
 /datum/controller/subsystem/masquerade/matrix_masquerade_breacher(mob/living/player_breacher, update_preferences)
-	for(var/masquerade_breach as anything in masquerade_breachers)
+	for(var/masquerade_breach in masquerade_breachers)
 		if((player_breacher in masquerade_breach))
 			masquerade_breachers -= list(masquerade_breach)
 			masquerade_level = min(MASQUERADE_MAX_LEVEL, masquerade_level + 1)
