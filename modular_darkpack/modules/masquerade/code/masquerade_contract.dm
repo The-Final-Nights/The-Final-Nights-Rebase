@@ -20,7 +20,7 @@
 	var/turf/current_location = get_turf(user)
 	// TFN EDIT CHANGE START - You Breach or You Don't
 	to_chat(user, "[span_bold("YOU")], [get_area_name(user)]")
-	for(var/mob/living/carbon/breacher as anything in GLOB.masquerade_breakers_list)
+	for(var/mob/living/carbon/breacher in GLOB.masquerade_breakers_list)
 		var/turf/turf = get_turf(breacher)
 		var/direction = get_dir(current_location, turf)
 		var/disttext = dir2text(direction)
@@ -48,7 +48,7 @@
 	var/turf/current_location = get_turf(user)
 	// TFN EDIT CHANGE START - You Breach or You Don't
 	to_chat(user, "[span_bold("YOU")], [get_area_name(user)]")
-	for(var/mob/living/breacher as anything in GLOB.veil_breakers_list)
+	for(var/mob/living/breacher in GLOB.veil_breakers_list)
 		var/turf/turf = get_turf(breacher)
 		var/direction = get_dir(current_location, turf)
 		var/disttext = dir2text(direction)
