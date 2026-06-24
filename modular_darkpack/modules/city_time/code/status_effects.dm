@@ -28,8 +28,8 @@
 	if(!kindred_owner)
 		return FALSE
 	// Humanity 10 vamps are immume to the light. atleast for the amount of time our day lasts.
-	if(CONFIG_GET(flag/humanity_sunlight_resistance) && !owner.is_enlightenment() && (owner.st_get_stat(STAT_MORALITY) >= 10))
-		return FALSE
+	// if(CONFIG_GET(flag/humanity_sunlight_resistance) && !owner.is_enlightenment() && (owner.st_get_stat(STAT_MORALITY) >= 10)) // TFN EDIT REMOVAL - Humanity 10 Not Immune to Sun
+		// return FALSE // TFN EDIT REMOVAL - Humanity 10 Not Immune to Sun
 
 	to_chat(owner, span_danger("THE SUN SEARS YOUR FLESH"))
 	return TRUE
