@@ -44,6 +44,16 @@
 		reset_streak()
 		return
 
+	//Stops you from comboing unconcious people.
+	if(defender.IsUnconscious())
+		reset_streak()
+		return
+
+	//If you get knockedown or otherwise stunned your streak resets.
+	if(attacker.IsKnockdown() || attacker.IsParalyzed() || attacker.IsStun() || attacker.body_position == LYING_DOWN)
+		reset_streak()
+		return
+
 	if(findtext(streak, SLAM_COMBO))
 		reset_streak()
 		return Slam(attacker, defender)

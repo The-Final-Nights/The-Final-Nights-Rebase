@@ -49,6 +49,16 @@
 	// Way of checking on combo what form the attackers in; prevents lupus combos and ensures no agg damage w/ crinos
 	check_form(attacker)
 
+	//Stops you from comboing unconcious people.
+	if(defender.IsUnconscious())
+		reset_streak()
+		return
+
+	//If you get knockedown or otherwise stunned your streak resets.
+	if(attacker.IsKnockdown() || attacker.IsParalyzed() || attacker.IsStun() || attacker.body_position == LYING_DOWN)
+		reset_streak()
+		return
+
 	if(findtext(streak,DECEPTIVE_WIND))
 		reset_streak()
 		return deceptive_wind(attacker, defender)
