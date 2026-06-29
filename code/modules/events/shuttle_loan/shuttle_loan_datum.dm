@@ -106,6 +106,7 @@
 	bonus_points = CARGO_CRATE_VALUE * 100 //Toxin bees can be unbeelievably lethal
 	logging_desc = "Shuttle full of bees"
 
+/* //TFN EDIT REMOVAL START
 /datum/shuttle_loan_situation/lots_of_bees/spawn_items(list/spawn_list, list/empty_shuttle_turfs, list/blocked_shutte_turfs)
 	var/datum/supply_pack/pack = SSshuttle.supply_packs[/datum/supply_pack/organic/hydroponics/beekeeping_fullkit]
 	pack.generate(pick_n_take(empty_shuttle_turfs))
@@ -133,6 +134,7 @@
 	for(var/i in 1 to 10)
 		var/casing = /obj/item/ammo_casing/spent
 		new casing(pick_n_take(empty_shuttle_turfs))
+*/ //TFN EDIT REMOVAL END
 
 /datum/shuttle_loan_situation/jc_a_bomb
 	sender = "CentCom Security Division"

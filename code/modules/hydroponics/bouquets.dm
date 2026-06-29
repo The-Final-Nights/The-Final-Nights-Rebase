@@ -20,3 +20,9 @@
 	desc = "A bouquet of roses. A bundle of love."
 	icon_state = "rosebouquet"
 	inhand_icon_state = "rosebouquet"
+
+// TFN EDIT START - Making items that used to be sellable on prebase sellable again
+/obj/item/bouquet/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 100, "bouquet", FALSE)
+// TFN EDIT END  - Making items that used to be sellable on prebase sellable again

@@ -39,12 +39,17 @@
 	fire_sound = 'modular_darkpack/modules/weapons/sounds/revolver.ogg'
 	vary_fire_sound = FALSE
 	fire_sound_volume = 85
-	recoil = 4
+	recoil = 3
 
 /obj/item/gun/ballistic/revolver/darkpack/magnum
 	name = "magnum revolver"
 	desc = "Feelin' lucky, punk?"
 
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/revolver/darkpack/magnum/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 25, "revolver", FALSE)
+// TFN EDIT ADD END - Sellable Items
 /obj/item/gun/ballistic/revolver/darkpack/snub
 	name = "snub-nosed revolver"
 	desc = "a cheap Saturday night special revolver. Sometimes called a 'purse gun'. It takes 9mm rounds."
@@ -55,8 +60,14 @@
 	initial_caliber = CALIBER_9MM
 	fire_sound_volume = 65
 	projectile_damage_multiplier = 1.2 //21.6 damage, slightly higher than the m1911, just so it is possible to kill NPCs within 6 bullets
+	recoil = 2
 	serial_type = "SN"
 
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/revolver/darkpack/snub/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 20, "revolver_snub", FALSE)
+// TFN EDIT ADD END - Sellable Items
 /obj/item/ammo_box/magazine/internal/cylinder/rev9mm
 	name = "revolver cylinder"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
@@ -91,17 +102,22 @@
 	inhand_icon_state = "deagle"
 	w_class = WEIGHT_CLASS_NORMAL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m44
-	recoil = 3
+	recoil = 4
 	fire_sound = 'modular_darkpack/modules/weapons/sounds/deagle.ogg'
 	serial_type = "MR"
 
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 75, "deagle", FALSE)
+// TFN EDIT ADD END - Sellable Items
 /obj/item/ammo_box/magazine/m50
 	name = "handgun magazine (.50)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "deagle"
-	ammo_type = /obj/item/ammo_casing/vampire/c50
-	caliber = CALIBER_50CAL
+	ammo_type = /obj/item/ammo_casing/vampire/c50ae
+	caliber = CALIBER_50CAL_AE
 	max_ammo = 7
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
@@ -112,6 +128,7 @@
 	inhand_icon_state = "deagle"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m50
 	fire_sound_volume = 125 //MY EARS
+	recoil = 5
 	weapon_weight = WEAPON_MEDIUM	//Firing .50 at 70 dam, think this is fair.
 
 /obj/item/ammo_box/magazine/darkpack45acp
@@ -134,6 +151,12 @@
 	vary_fire_sound = FALSE
 	fire_sound_volume = 100
 	serial_type = "CM"
+
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/pistol/darkpack/m1911/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 55, "colt1911", FALSE)
+// TFN EDIT ADD END - Sellable Items
 
 /obj/item/ammo_box/magazine/glock9mm
 	name = "automatic pistol magazine (9mm)"
@@ -160,6 +183,12 @@
 	fire_sound_volume = 100
 	serial_type = "GG"
 
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/pistol/darkpack/glock19/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 70, "glock19", FALSE)
+// TFN EDIT ADD END - Sellable Items
+
 /obj/item/ammo_box/magazine/glock45acp
 	name = "automatic pistol magazine (.45 ACP)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
@@ -182,11 +211,18 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/glock45acp
 	burst_size = 3
 	fire_delay = 1
+	recoil = 4
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = 'modular_darkpack/modules/weapons/sounds/glock.ogg'
 	fire_sound_volume = 100
 	serial_type = "GG"
+
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/pistol/darkpack/glock21/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 150, "glock21", FALSE)
+// TFN EDIT ADD END - Sellable Items
 
 /obj/item/gun/ballistic/automatic/pistol/darkpack/beretta
 	name = "\improper Elite 92G"
@@ -205,12 +241,24 @@
 	custom_price = 1200
 	serial_type = "BH"
 
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 70, "beretta", FALSE)
+// TFN EDIT ADD END - Sellable Items
+
 /obj/item/gun/ballistic/automatic/pistol/darkpack/beretta/toreador
 	name = "\improper Sword Series S 9mm"
 	desc = "A handgun that has been heavily decorated and customized. The improvements seem almost supernaturally good, you feel like the engravings have given you a tactical advantage."
 	icon_state = "beretta_toreador"
 	projectile_damage_multiplier = 2.5
 	fire_sound_volume = 110
+
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/pistol/darkpack/beretta/toreador/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 666, "toreador_beretta", FALSE)
+// TFN EDIT ADD END - Sellable Items
 
 /obj/item/ammo_box/magazine/semi9mm
 	name = "pistol magazine (9mm)"
@@ -255,6 +303,12 @@
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/uzi.ogg'
 	serial_type = "IWI"
 
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/uzi/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 175, "uzi", FALSE)
+// TFN EDIT ADD END - Sellable Items
+
 /obj/item/ammo_box/magazine/darkpack9mp5
 	name = "mp5 magazine (9mm)"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
@@ -284,6 +338,12 @@
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/mp5.ogg'
 	serial_type = "H&K"
 	var/rof = 0.15 SECONDS
+
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/mp5/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 200, "mp5", FALSE)
+// TFN EDIT ADD END - Sellable Items
 
 /obj/item/gun/ballistic/automatic/darkpack/mp5/Initialize(mapload)
 	. = ..()
@@ -322,6 +382,12 @@
 	serial_type = "GBI"
 	var/rof = 0.055 SECONDS //1090 RPM, if any other gun has the same fire rate as this gun, increase this gun so its the new fastest
 
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/mac10/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 3000, "mac10", FALSE)
+// TFN EDIT ADD END - Sellable Items
+
 /obj/item/gun/ballistic/automatic/darkpack/mac10/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, rof)
@@ -342,7 +408,7 @@
 	icon = 'modular_darkpack/modules/deprecated/icons/64x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "mac10_super"
-	recoil = 4
+	recoil = 5
 	spread = 8 //magic stock
 	suppressed = SUPPRESSED_QUIET
 	fire_sound = 'modular_darkpack/modules/weapons/sounds/mac10suppress.ogg'  //mac-10 recording
@@ -391,6 +457,12 @@
 	serial_type = "H&K"
 	var/rof = 0.1 SECONDS //600 RPM,
 
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/mp7/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 250, "mp7", FALSE)
+// TFN EDIT ADD END - Sellable Items
+
 /obj/item/gun/ballistic/automatic/darkpack/mp7/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, rof)
@@ -433,6 +505,12 @@
 	masquerade_violating = TRUE
 	serial_type = "CAR"
 
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/ar15/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 250, "ar15", FALSE)
+// TFN EDIT ADD END - Sellable Items
+
 /obj/item/gun/ballistic/automatic/darkpack/huntrifle
 	name = "hunting rifle"
 	desc = "A semi-automatic hunting rifle, just like what your dad used to shoot. If your dad didn't go out to get milk, anyways."
@@ -456,6 +534,12 @@
 	masquerade_violating = FALSE
 	custom_price = 2000
 	serial_type = "R&C"
+
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/huntrifle/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 150, "hunting_rifle", FALSE)
+// TFN EDIT ADD END - Sellable Items
 
 /obj/item/ammo_box/magazine/darkpack545
 	name = "rifle magazine (5.45mm)"
@@ -481,7 +565,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack545
 	recoil = 5
 	burst_size = 1
-	spread = 8
+	spread = 5
 	bolt_type = BOLT_TYPE_LOCKING
 	show_bolt_icon = FALSE
 	mag_display = TRUE
@@ -489,6 +573,12 @@
 	masquerade_violating = TRUE
 	serial_type = "KA"
 	var/rof = 0.2 SECONDS //300 RPM
+
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/ak74/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 225, "ak74", FALSE)
+// TFN EDIT ADD END - Sellable Items
 
 /obj/item/gun/ballistic/automatic/darkpack/ak74/Initialize(mapload)
 	. = ..()
@@ -527,6 +617,12 @@
 	obj_flags = NONE
 	serial_type = "SA"
 
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/aug/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 350, "aug", FALSE)
+// TFN EDIT ADD END - Sellable Items
+
 /obj/item/ammo_box/magazine/darkpackthompson
 	name = "tommy gun magazine (.45 ACP)"
 	icon_state = "thompson"
@@ -557,6 +653,12 @@
 	masquerade_violating = TRUE
 	serial_type = "AO"
 	var/rof = 0.15 SECONDS //400 RPM
+
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/thompson/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 250, "thompson", FALSE)
+// TFN EDIT ADD END - Sellable Items
 
 /obj/item/gun/ballistic/automatic/darkpack/thompson/Initialize(mapload)
 	. = ..()
@@ -592,7 +694,7 @@
 	rack_sound = 'modular_darkpack/modules/weapons/sounds/bolt/lever_out.ogg'
 	bolt_drop_sound = 'modular_darkpack/modules/weapons/sounds/bolt/lever_in.ogg'
 	tac_reloads = FALSE
-	recoil = 2
+	recoil = 3
 	fire_delay = 1					//It's bolt-action. Fast as you can go really; which is still pretty slow.
 	burst_size = 1
 	slot_flags = ITEM_SLOT_BACK
@@ -604,7 +706,7 @@
 	name = "sniper rifle internal magazine"
 	desc = "Oh god, this shouldn't be here"
 	ammo_type = /obj/item/ammo_casing/vampire/c50
-	caliber = CALIBER_50CAL
+	caliber = CALIBER_50CAL_BMG
 	max_ammo = 5
 	//multiload = TRUE
 
@@ -630,7 +732,7 @@
 	bolt_drop_sound = 'sound/items/weapons/gun/rifle/bolt_in.ogg'
 	tac_reloads = FALSE
 	fire_delay = 40
-	recoil = 7
+	recoil = 10
 	burst_size = 1
 	//zoomable = TRUE
 	//zoom_amt = 10 //Long range, enough to see in front of you, but no tiles behind you.
@@ -640,6 +742,12 @@
 	actions_types = list()
 	masquerade_violating = TRUE
 	serial_type = "RB"
+
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/sniper/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 250, "sniper", FALSE)
+// TFN EDIT ADD END - Sellable Items
 
 /obj/item/gun/ballistic/automatic/darkpack/autosniper
 	name = "auto-sniper rifle"
@@ -711,7 +819,6 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/vampshotgun
 	can_be_sawn_off	= FALSE
 	fire_sound = 'modular_darkpack/modules/deprecated/sounds/pomp.ogg'
-	recoil = 4
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	custom_price = 1000
@@ -744,7 +851,8 @@
 	burst_fire_selection = TRUE
 	burst_size = 2	//So you can fire both barrels at once.
 	burst_delay = 2
-	recoil = 4
+	recoil = 5
+	spread = 2
 	fire_delay = 3
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/darkpack_dbarrel
 	can_be_sawn_off	= TRUE
@@ -797,6 +905,12 @@
 	masquerade_violating = TRUE
 	recoil = 6
 	serial_type = "AL"
+
+// TFN EDIT ADD START - Sellable Items
+/obj/item/gun/ballistic/automatic/darkpack/autoshotgun/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 500, "autoshotgun", FALSE)
+// TFN EDIT ADD END - Sellable Items
 
 /obj/item/gun/ballistic/shotgun/toy/crossbow/vampire
 	name = "crossbow"
