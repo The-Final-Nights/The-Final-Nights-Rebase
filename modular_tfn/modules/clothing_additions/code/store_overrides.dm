@@ -1,4 +1,4 @@
-/obj/structure/retail/clothing_store/Initialize()
+/obj/structure/retail/clothing_store/Initialize(mapload)
 	. = ..()
 	products_list += new /datum/data/vending_product("black choker", /obj/item/clothing/neck/vampire/choker, 25)
 	products_list += new /datum/data/vending_product("metallic choker", /obj/item/clothing/neck/vampire/choker/metal, 25)
@@ -182,7 +182,7 @@
 	products_list += new /datum/data/vending_product("black shawl", /obj/item/clothing/suit/vampire/shawl, 50)
 	products_list += new /datum/data/vending_product("white shawl", /obj/item/clothing/suit/vampire/shawl/white, 50)
 
-/obj/structure/retail/costume_store/Initialize()
+/obj/structure/retail/costume_store/Initialize(mapload)
 	. = ..()
 	products_list += new /datum/data/vending_product("right eyepatch", /obj/item/clothing/glasses/vampire/misc/eyepatch, 25)
 	products_list += new /datum/data/vending_product("left eyepatch", /obj/item/clothing/glasses/vampire/misc/eyepatch/left, 25)

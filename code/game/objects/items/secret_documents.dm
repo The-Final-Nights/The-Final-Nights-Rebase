@@ -21,6 +21,12 @@
 	pressure_resistance = 2
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
+//TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
+/obj/item/documents/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/selling, 500, "documents", FALSE)
+//TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
+
 ///Nanotrasen documents
 /obj/item/documents/nanotrasen
 	desc = "\"Top Secret\" Nanotrasen documents, filled with complex diagrams and lists of names, dates and coordinates."
@@ -57,6 +63,12 @@
 	var/forgedseal = 0
 	///What was copied
 	var/copy_type = null
+
+//TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
+/obj/item/documents/photocopy/Initialize(mapload)
+	.=..()
+	AddComponent(/datum/component/selling, 20, "documents", FALSE)
+//TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
 
 /obj/item/documents/photocopy/Initialize(mapload, obj/item/documents/copy=null)
 	. = ..()
