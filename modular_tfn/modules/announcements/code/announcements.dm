@@ -51,7 +51,6 @@
 	var/list/data = json_decode(file_data)
 	if(!islist(data))
 		CRASH("Invalid data in [ANNOUNCEMENTS_DATA_FILE] for announcements! You should probably delete this file to let the server regenerate it, or fix it manually.")
-		return
 	camarilla_tabs = list()
 	for(var/list/entry as anything in data)
 		if(!islist(entry))
@@ -78,7 +77,6 @@
 			var/list/data = json_decode(file_data)
 			if(!islist(data)) // uh oh
 				CRASH("Invalid data in [file_path] for announcements. This should be a list!! You should probably delete this file to let the server regenerate it, or fix it manually.")
-				return
 			for(var/list/entry as anything in data)
 				if(!islist(entry))
 					continue
@@ -109,6 +107,37 @@
 	if(fexists(file_path))
 		fdel(file_path)
 	text2file(json_encode(data), file_path)
+
+/datum/announcement_manager/proc/send_announcement_webhook(mob/user, datum/announcement_tab/tab, which_menu, clan_id)
+	var/webhook
+	if(which_menu == "clan" && clan_id)
+		var/lookup_id = clan_id
+		switch(clan_id)
+			if("dominate_malkavian")
+				lookup_id = "malkavian"
+			if("banu_haqim_vizier")
+				lookup_id = "banu_haqim"
+		var/entry_type = text2path("/datum/config_entry/string/announcements_webhook_[lookup_id]")
+		if(entry_type)
+			webhook = global.config.Get(entry_type)
+	else
+		webhook = CONFIG_GET(string/announcements_webhook)
+	if(!webhook)
+		return
+
+	var/datum/discord_embed/embed = new()
+	embed.title = tab.name
+	var/body = "[tab.author_name]\n[tab.timestamp]\n\n[tab.html_content]"
+	embed.description = body
+
+	var/list/webhook_info = list()
+	webhook_info["embeds"] = list(embed.convert_to_list())
+
+	var/list/headers = list()
+	headers["Content-Type"] = "application/json"
+	var/datum/http_request/request = new()
+	request.prepare(RUSTG_HTTP_METHOD_POST, webhook, json_encode(webhook_info), headers, "tmp/response.json")
+	request.begin_async()
 
 /datum/announcement_manager/proc/get_user_clan_id(mob/user)
 	if(!isliving(user))
@@ -221,15 +250,18 @@ GLOBAL_DATUM(announcements_datum, /datum/announcement_manager)
 				new_tab.author_name = params["author_name"]
 			else
 				new_tab.author_name = ui.user.real_name
-			new_tab.timestamp = "[server_timestamp("Day, Month DD, YYYY", ic_time = TRUE)] [server_timestamp("hh:mm", ic_time = TRUE)] AM"
+			new_tab.timestamp = "[server_timestamp("Day, Month DD, YYYY", ic_time = TRUE)]"
 			target_tabs.Insert(1, new_tab)
+			var/post_log = "[key_name(ui.user)] posted announcement '[post_name]' to [which_menu] menu[which_menu == "clan" ? " ([target_clan_id])" : ""]\n\n [post_content]"
 			if(is_admin)
-				log_admin("[key_name(ui.user)] posted announcement '[post_name]' to [which_menu] menu[which_menu == "clan" ? " ([target_clan_id])" : ""]")
+				log_admin(post_log)
 				message_admins("[key_name_admin(ui.user)] posted announcement '[post_name]' to [which_menu] menu")
+			SSoverwatch.record_action(ui.user, post_log)
 			if(which_menu == "clan")
 				save_clan_announcements(target_clan_id)
 			else
 				save_camarilla_announcements()
+			send_announcement_webhook(ui.user, new_tab, which_menu, target_clan_id)
 			return TRUE
 		if("set_content")
 			if(!tab_index || tab_index < 1 || tab_index > length(target_tabs))
