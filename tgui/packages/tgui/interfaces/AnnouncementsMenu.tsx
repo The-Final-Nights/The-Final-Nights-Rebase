@@ -12,22 +12,39 @@ type Post = {
   can_edit: boolean;
 };
 
+type AdminClan = {
+  clan_id: string;
+  clan_name: string;
+  posts: Post[];
+};
+
+type AdminDept = {
+  dept_id: string;
+  dept_name: string;
+  posts: Post[];
+};
+
 type AnnouncementsMenuData = {
   camarilla_tabs: Post[];
   clan_tabs: Post[];
   clan_name: string | null;
   clan_id: string | null;
+  all_clan_tabs: AdminClan[];
+  dept_tabs: Post[];
+  dept_name: string | null;
+  dept_id: string | null;
+  all_dept_tabs: AdminDept[];
   can_post_camarilla: boolean;
   can_post_clan: boolean;
+  can_post_dept: boolean;
+  show_kindred_tabs: boolean;
   is_admin: boolean;
 };
 
-type ActiveMenu = 'camarilla' | 'clan';
-const getDateFromTimestamp = (ts: string): string =>
-  ts.replace(/\s*\d{1,2}:\d{2}\s*(?:AM|PM)\s*$/i, '').trim() || ts;
-
+type ActiveMenu = 'camarilla' | 'clan' | 'department';
 const MAX_TITLE = 64;
 const MAX_BODY = 1000;
+const formatID = (id: string): string => id.replace(/_/g, ' '); // because for some ungodly reason some of these have underscores in their strings
 
 export const AnnouncementsMenu = () => {
   const { act, data } = useBackend<AnnouncementsMenuData>();
@@ -36,12 +53,21 @@ export const AnnouncementsMenu = () => {
     clan_tabs = [],
     clan_name,
     clan_id,
+    all_clan_tabs = [],
+    dept_tabs = [],
+    dept_name,
+    dept_id,
+    all_dept_tabs = [],
     can_post_camarilla,
     can_post_clan,
+    can_post_dept,
+    show_kindred_tabs,
     is_admin,
   } = data;
 
-  const [activeMenu, setActiveMenu] = useState<ActiveMenu>('camarilla');
+  const [activeMenu, setActiveMenu] = useState<ActiveMenu>(
+    show_kindred_tabs ? 'camarilla' : 'department',
+  );
   const [composing, setComposing] = useState(false);
   const [draftTitle, setDraftTitle] = useState('');
   const [draftBody, setDraftBody] = useState('');
@@ -49,24 +75,66 @@ export const AnnouncementsMenu = () => {
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [draftEdit, setDraftEdit] = useState('');
   const [expandedDates, setExpandedDates] = useState<Set<string>>(new Set());
+  const [adminClanId, setAdminClanId] = useState<string | null>(null);
+  const [adminDeptId, setAdminDeptId] = useState<string | null>(null);
 
-  const posts = activeMenu === 'camarilla' ? camarilla_tabs : clan_tabs;
-  const canPost = !!(activeMenu === 'camarilla' ? can_post_camarilla : can_post_clan);
+  const effectiveClanId =
+    activeMenu === 'clan' && !!is_admin
+      ? adminClanId || all_clan_tabs[0]?.clan_id || clan_id
+      : clan_id;
+  const effectiveDeptId =
+    activeMenu === 'department' && !!is_admin
+      ? adminDeptId || all_dept_tabs[0]?.dept_id || dept_id
+      : dept_id;
+
+  const activeClanPosts =
+    activeMenu === 'clan' && !!is_admin && all_clan_tabs.length > 0
+      ? (all_clan_tabs.find((c) => c.clan_id === effectiveClanId)?.posts ?? [])
+      : clan_tabs;
+
+  const activeDept =
+    !!is_admin && all_dept_tabs.length > 0
+      ? all_dept_tabs.find((d) => d.dept_id === effectiveDeptId)
+      : null;
+
+  const activeDeptPosts =
+    activeMenu === 'department' && !!is_admin && all_dept_tabs.length > 0
+      ? (activeDept?.posts ?? [])
+      : dept_tabs;
+
+  const activeDeptName = activeDept?.dept_name ?? dept_name;
+
+  const posts =
+    activeMenu === 'camarilla'
+      ? camarilla_tabs
+      : activeMenu === 'clan'
+        ? activeClanPosts
+        : activeDeptPosts;
+
+  const canPost = !!(
+    activeMenu === 'camarilla'
+      ? can_post_camarilla
+      : activeMenu === 'clan'
+        ? can_post_clan
+        : can_post_dept
+  );
+
   const dateGroups: { date: string; items: { post: Post; index: number }[] }[] = [];
   const seenDates = new Map<string, number>();
   posts.forEach((post, i) => {
-    const date = getDateFromTimestamp(post.timestamp);
+    const date = post.timestamp;
     if (!seenDates.has(date)) {
       seenDates.set(date, dateGroups.length);
       dateGroups.push({ date, items: [] });
     }
     dateGroups[seenDates.get(date)!].items.push({ post, index: i });
   });
+
   useEffect(() => {
     const firstDate = dateGroups[0]?.date;
     setExpandedDates(firstDate ? new Set([firstDate]) : new Set());
     setEditingIndex(null);
-  }, [activeMenu]);
+  }, [activeMenu, adminClanId, adminDeptId]);
 
   const toggleDate = (date: string) => {
     setExpandedDates((prev) => {
@@ -86,7 +154,8 @@ export const AnnouncementsMenu = () => {
     if (!draftTitle.trim()) return;
     act('add_post', {
       which_menu: activeMenu,
-      clan_id: clan_id,
+      clan_id: effectiveClanId,
+      dept_id: effectiveDeptId,
       name: draftTitle.trim(),
       html_content: draftBody.trim(),
       author_name: draftAuthor.trim(),
@@ -101,11 +170,14 @@ export const AnnouncementsMenu = () => {
     act('set_content', {
       tab_index: index + 1,
       which_menu: activeMenu,
-      clan_id: clan_id,
+      clan_id: effectiveClanId,
+      dept_id: effectiveDeptId,
       html_content: draftEdit,
     });
     setEditingIndex(null);
   };
+
+  const showDeptTab = !!dept_id || !!is_admin;
 
   return (
     <Window width={760} height={640} title="Announcements & News">
@@ -129,20 +201,33 @@ export const AnnouncementsMenu = () => {
             flexShrink: 0,
           }}
         >
-          <MenuTab
-            active={activeMenu === 'camarilla'}
-            disabled={composing || editingIndex !== null}
-            onClick={() => handleMenuSwitch('camarilla')}
-          >
-            Camarilla
-          </MenuTab>
-          <MenuTab
-            active={activeMenu === 'clan'}
-            disabled={composing || editingIndex !== null || !clan_id}
-            onClick={() => handleMenuSwitch('clan')}
-          >
-            {clan_name ? `Clan ${clan_name}` : 'Clan'}
-          </MenuTab>
+          {!!show_kindred_tabs && (
+            <>
+              <MenuTab
+                active={activeMenu === 'camarilla'}
+                disabled={composing || editingIndex !== null}
+                onClick={() => handleMenuSwitch('camarilla')}
+              >
+                Camarilla
+              </MenuTab>
+              <MenuTab
+                active={activeMenu === 'clan'}
+                disabled={composing || editingIndex !== null || (!clan_id && !is_admin)}
+                onClick={() => handleMenuSwitch('clan')}
+              >
+                {clan_name ? `Clan ${formatID(clan_name)}` : 'Clan'}
+              </MenuTab>
+            </>
+          )}
+          {showDeptTab && (
+            <MenuTab
+              active={activeMenu === 'department'}
+              disabled={composing || editingIndex !== null}
+              onClick={() => handleMenuSwitch('department')}
+            >
+              {activeDeptName ? formatID(activeDeptName) : 'Department'}
+            </MenuTab>
+          )}
           <div style={{ flex: 1 }} />
           {canPost && !composing && (
             <button
@@ -162,6 +247,74 @@ export const AnnouncementsMenu = () => {
             </button>
           )}
         </div>
+        {activeMenu === 'clan' && !!is_admin && all_clan_tabs.length > 0 && (
+          <div
+            style={{
+              padding: '8px 16px',
+              background: '#1a1a1a',
+              borderBottom: '1px solid #3a3a3a',
+              flexShrink: 0,
+            }}
+          >
+            <select
+              value={effectiveClanId || ''}
+              onChange={(e) => {
+                setAdminClanId(e.target.value);
+                setComposing(false);
+                setEditingIndex(null);
+              }}
+              style={{
+                background: '#111',
+                border: '1px solid #444',
+                color: '#ddd',
+                fontSize: '12px',
+                padding: '4px 8px',
+                borderRadius: '3px',
+                outline: 'none',
+              }}
+            >
+              {all_clan_tabs.map((c) => (
+                <option key={c.clan_id} value={c.clan_id}>
+                  {formatID(c.clan_name)}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+        {activeMenu === 'department' && !!is_admin && all_dept_tabs.length > 0 && (
+          <div
+            style={{
+              padding: '8px 16px',
+              background: '#1a1a1a',
+              borderBottom: '1px solid #3a3a3a',
+              flexShrink: 0,
+            }}
+          >
+            <select
+              value={effectiveDeptId || ''}
+              onChange={(e) => {
+                setAdminDeptId(e.target.value);
+                setComposing(false);
+                setEditingIndex(null);
+              }}
+              style={{
+                background: '#111',
+                border: '1px solid #444',
+                color: '#ddd',
+                fontSize: '12px',
+                padding: '4px 8px',
+                borderRadius: '3px',
+                outline: 'none',
+              }}
+            >
+              {all_dept_tabs.map((d) => (
+                <option key={d.dept_id} value={d.dept_id}>
+                  {formatID(d.dept_name)}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
         {composing && (
           <div
             style={{
