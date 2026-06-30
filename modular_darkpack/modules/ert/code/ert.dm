@@ -1,6 +1,6 @@
 //Darkpack specific changes to ERTs 
 /datum/antagonist/ert/darkpack
-  var/splat_used = SPLAT_NONE
+	var/splat_used = SPLAT_NONE
 	var/generation = 13
 	var/clan = /datum/subsplat/vampire_clan/ventrue
 	var/discipline_dot_rating = 1 //How many dots to give them. Ghouls belonging to low gen Vamps can use 2nd+ dots of disciplines.
