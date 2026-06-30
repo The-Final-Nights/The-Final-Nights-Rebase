@@ -15,10 +15,10 @@
 	//wow, lore
 	desc = "A hefty lead pipe.\nLead is an uncommon sight in this sector after being phased out due to employee health concerns. \
 	\nThose of a more cynical disposition have claimed that the NT lead ban is a scheme to prevent diversion to Syndicate ammunition factories."
-	force = 15
-	throwforce = 12
+	force = 25 //Genuinely just want to see it used more
+	throwforce = 20
 	throw_range = 4
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL //Sneaky lead pipe in the pocket
 	wound_bonus = 20
 	demolition_mod = 1.25
 	pickup_sound = 'sound/items/handling/lead_pipe/lead_pipe_pickup.ogg'
