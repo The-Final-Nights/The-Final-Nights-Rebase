@@ -35,3 +35,10 @@
 	rename_team = "FBI SWAT Unit"
 	mission = "Assess the situation and assist the deployed FBI Special Agents."
 	polldesc = "the FBI's Special Weapons and Tactics Unit"
+
+/datum/ert/darkpack/camarilla_ert
+	leader_role = /datum/antagonist/ert/darkpack/camarilla_ert/leader
+	roles = list(/datum/antagonist/ert/darkpack/camarilla_ert/medic, /datum/antagonist/ert/darkpack/camarilla_ert/rifleman, /datum/antagonist/ert/darkpack/camarilla_ert/melee, /datum/antagonist/ert/darkpack/camarilla_ert/marksman)
+	rename_team = "Whiterock PMC Detachment"
+	mission = "Secure TransAm property and key staff, and obey the orders of the COO."
+	polldesc = "the Whiterock PMC Detachment"
