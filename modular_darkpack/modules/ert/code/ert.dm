@@ -5,7 +5,7 @@
 	var/clan = /datum/subsplat/vampire_clan/ventrue
 	var/discipline_dot_rating = 1 //How many dots to give them. Ghouls belonging to low gen Vamps can use 2nd+ dots of disciplines.
 
-/datum/antagonist/ertdarkpack/on_gain()
+/datum/antagonist/ert/darkpack/on_gain()
 	. = ..()
 	clear_splats()
 	for (var/datum/quirk/darkpack/quirk_type in owner)
