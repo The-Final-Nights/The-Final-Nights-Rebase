@@ -6045,13 +6045,6 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
-"bzY" = (
-/obj/machinery/door/poddoor/shutters/preopen/topless{
-	id = 4771;
-	plane = -2.9
-	},
-/turf/open/floor/wood/smooth,
-/area/vtm/interior/setite)
 "bAa" = (
 /obj/structure/table/wood,
 /obj/item/kirbyplants/darkpack/plant4{
@@ -92606,6 +92599,15 @@
 /obj/structure/platform/lowwall/brick_old/window,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/trainyard)
+"wzn" = (
+/obj/structure/table/wood,
+/obj/machinery/button/curtain{
+	id = "magadoniaacurtain";
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/turf/open/floor/carpet/darkpack/purplegold,
+/area/vtm/interior/magadon_facility)
 "wzs" = (
 /obj/transfer_point_vamp/umbral/exit{
 	id = 609
@@ -181008,7 +181010,7 @@ wPU
 plF
 wPU
 rHH
-bzY
+udG
 udG
 udG
 lwm
@@ -214511,7 +214513,7 @@ gZD
 rHj
 bbf
 xsM
-dlr
+wzn
 sKS
 tft
 uRg
