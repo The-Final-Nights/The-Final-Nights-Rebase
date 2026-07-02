@@ -22,9 +22,11 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT // Should really be suit storage
 	force_unwielded = 10
+	//TFN EDIT START - Melee Weapon Rebalance PR#386
 	demolition_mod = 1.50 //BREAK THINGS.
 	force_wielded = 50 //A fire axe somehow being outclassed by a longsword was a travesty.
 	armour_penetration = 30
+	//TFN EDIT END - Melee Weapon Rebalance PR#386
 	pixel_w = -8
 	custom_price = 1800
 
@@ -39,9 +41,11 @@
 	pixel_w = -8
 	custom_price = 1300
 	slot_flags = ITEM_SLOT_BELT
+	//TFN EDIT START - Melee Weapon Rebalance PR#386
 	force = 35 //The LARP is immense
 	block_chance = 20 //You can technically block with a Katana, but not nearly as effectively as a longsword.
 	exposed_wound_bonus = 20 //Bonus against bare flesh, but not against armor. This is a KATANA, not a chainsaw.
+	//TFN EDIT END - Melee Weapon Rebalance PR#386
 
 
 /obj/item/katana/vamp/Initialize(mapload)
@@ -99,8 +103,10 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "sabre"
 	var/value = 1000 // DARKPACK TODO: Move this up at some point. I hate the selling component with all my heart.
+	//TFN EDIT START - Melee Weapon Rebalance PR#386
 	armour_penetration = 40		//Enough to penetrate trenchcoats and leather jackets, but not enough to penetrate kevlar or armor.
 	force = 30 //Curved. Swords.
+	//TFN EDIT END - Melee Weapon Rebalance PR#386
 
 /obj/item/melee/sabre/vamp/Initialize(mapload)
 	. = ..()
@@ -116,10 +122,12 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "rapier"
 	armour_penetration = 50
+	//TFN EDIT START - Melee Weapon Rebalance PR#386
 	force = 25
 	wound_bonus = 0
 	exposed_wound_bonus = 0
 	sharpness = SHARP_POINTY
+	//TFN EDIT END - Melee Weapon Rebalance PR#386
 
 /obj/item/melee/sabre/rapier/Initialize(mapload)
 	. = ..()
@@ -140,8 +148,10 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "longsword"
 	inhand_icon_state = "longsword"
+	//TFN EDIT START - Melee Weapon Rebalance PR#386
 	block_chance = 30 //Making every hit on a longsword user essentially be a guaranteed coin flip was comically unbalanced.
 	w_class = WEIGHT_CLASS_BULKY //Why was this a 1:1 reskin of the Highlander event claymore
+	//TFN EDIT END - Melee Weapon Rebalance PR#386
 
 /obj/item/claymore/longsword/Initialize(mapload)
 	. = ..()
@@ -160,9 +170,11 @@
 	pixel_w = -8
 	masquerade_violating = FALSE
 	custom_price = 500
+	//TFN EDIT START - Melee Weapon Rebalance PR#386
 	force = 30			//Built for chopping through vines, not flesh and bone, but....
 	exposed_wound_bonus = 20 //...The serrated edge makes it hurt like hell.
 	block_chance = 20
+	//TFN EDIT END - Melee Weapon Rebalance PR#386
 
 /obj/item/claymore/machete/Initialize(mapload)
 	. = ..()
@@ -224,7 +236,9 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "baseball"
 	inhand_icon_state = "baseball"
+	//TFN EDIT START - Melee Weapon Rebalance PR#386
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
+	//TFN EDIT END - Melee Weapon Rebalance PR#386
 	custom_price = 50
 
 /obj/item/melee/baseball_bat/vamp/Initialize(mapload)
@@ -348,7 +362,9 @@
 	icon_state = "shovel"
 	custom_price = 150
 	force = 30
+	//TFN EDIT START - Melee Weapon Rebalance PR#386
 	sharpness = NONE //Bonk!!!!
+	//TFN EDIT END - Melee Weapon Rebalance PR#386
 
 /obj/item/shovel/vamp/attack(mob/living/target, mob/living/user)
 	. = ..()
