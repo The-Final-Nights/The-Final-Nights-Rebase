@@ -14,6 +14,7 @@
 	splat_used = SPLAT_GHOUL
 	discipline_dot_rating = 3
 	clan = /datum/subsplat/vampire_clan/malkavian
+	extra_bloodpool = 5
 
 /datum/antagonist/ert/darkpack/camarilla_ert/rifleman
 	name = "Whiterock Private Security Rifleman"
@@ -22,6 +23,7 @@
 	splat_used = SPLAT_GHOUL
 	discipline_dot_rating = 3
 	clan = /datum/subsplat/vampire_clan/gangrel/city
+	extra_bloodpool = 5
 
 /datum/antagonist/ert/darkpack/camarilla_ert/melee
 	name = "Whiterock Private Security CQB"
@@ -30,6 +32,7 @@
 	splat_used = SPLAT_GHOUL
 	discipline_dot_rating = 3
 	clan = /datum/subsplat/vampire_clan/brujah
+	extra_bloodpool = 5
 
 /datum/antagonist/ert/darkpack/camarilla_ert/marksman
 	name = "Whiterock Private Security Marksman"
@@ -38,6 +41,7 @@
 	splat_used = SPLAT_GHOUL
 	discipline_dot_rating = 3
 	clan = /datum/subsplat/vampire_clan/banu_haqim
+	extra_bloodpool = 5
 
 /datum/antagonist/ert/darkpack/camarilla_ert/on_gain()
 	. = ..()
