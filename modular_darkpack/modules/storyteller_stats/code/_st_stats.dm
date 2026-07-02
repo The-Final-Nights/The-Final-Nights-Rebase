@@ -100,6 +100,12 @@
 	score = clamp(score - amount, min_score, max_score)
 	return TRUE
 
+//ADDED IN ERT REWORK
+/datum/st_stat/proc/set_score_ignore_limits(amount)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	score = amount
+	return TRUE
+
 // Modifiers
 
 /datum/st_stat/proc/add_stat_mod(amount, source)
