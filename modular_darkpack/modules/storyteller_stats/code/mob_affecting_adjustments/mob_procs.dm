@@ -87,7 +87,7 @@
 	character.update_modifiers_from_stats(TRUE)
 	// TFN EDIT END
 
-// Procs to relatively easily set all physical/social/mental stats and talents/skills/knowledges without sticking them all into one huge proc.
+// Procs to relatively easily set all physical/social/mental stats and talents/skills/knowledges without sticking them all into one huge proc. Added in ERT Rework.
 
 // STATS
 
