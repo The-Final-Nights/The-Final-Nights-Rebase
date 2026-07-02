@@ -324,6 +324,18 @@ export const AnnouncementsMenu = () => {
               flexShrink: 0,
             }}
           >
+            <div style={{ marginBottom: '8px', color: '#aaa', fontSize: '12px', lineHeight: '1.5' }}>
+              <strong style={{ color: '#cc9900' }}>Note:</strong>
+              <p style={{ margin: '4px 0' }}>
+                Please do not make announcements that are not expressly IC. This includes things like announcing
+                obviously non-canon events (i.e. stating someone died). Repeated instances of this may result in a job ban.
+              </p>
+              <p style={{ margin: '4px 0' }}>
+                Remember that announcements are visible to a vast array of players, and that your character is in a
+                position shared by others; there are multiple seneschals, there are multiple primogens, there are
+                multiple managers, and so on. With this in mind, avoid using singular language, 'report to me', 'my city', 'my domain', 'my bar', etc. Instead, use language that reflects a plurality: 'your city', 'a primogen', 'an elder', 'a seneschal', etc.
+              </p>
+            </div>
             <input
               type="text"
               placeholder="Post title..."
