@@ -6,7 +6,7 @@
 	name = TRIBE_GALESTALKERS
 	desc = "Tireless trackers and peerless hunters, the galestalkers carry the namesake of the wind that crosses the tundra."
 	gifts_provided = list()
-	subsplat_keys = /obj/item/vamp/keys/nps
+	//subsplat_keys = /obj/item/vamp/keys/nps //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/ghostcouncil
 	name = TRIBE_GHOST_COUNCIL //TFN EDIT CHANGE - Ghost Council - Original: name = TRIBE_UKTENA
@@ -14,7 +14,7 @@
 	gifts_provided = list(
 		// /datum/action/cooldown/power/gift/spirit_speech, // DARKPACK TODO - (Selectable Gifts)
 	)
-	subsplat_keys = /obj/item/vamp/keys/nps
+	//subsplat_keys = /obj/item/vamp/keys/nps //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/hartwardens
 	name = TRIBE_HART_WARDENS //TFN EDIT CHANGE - Hart Wardens - Original: name = TRIBE_FIANNA
@@ -22,7 +22,7 @@
 	gifts_provided = list(
 		/datum/action/cooldown/power/gift/faerie_light,
 	)
-	subsplat_keys = /obj/item/vamp/keys/nps
+	//subsplat_keys = /obj/item/vamp/keys/nps //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/glasswalkers
 	name = TRIBE_GLASS_WALKERS
@@ -30,7 +30,7 @@
 	gifts_provided = list(
 		/datum/action/cooldown/power/gift/control_machine/simple,
 	)
-	subsplat_keys = /obj/item/vamp/keys/techstore
+	//subsplat_keys = /obj/item/vamp/keys/techstore //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/bonegnawers
 	name = TRIBE_BONE_GNAWERS
@@ -38,7 +38,7 @@
 	gifts_provided = list(
 		/datum/action/cooldown/power/gift/desperate_strength,
 	)
-	subsplat_keys = /obj/item/vamp/keys/children_of_gaia
+	//subsplat_keys = /obj/item/vamp/keys/children_of_gaia //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/childrenofgaia
 	name = TRIBE_CHILDREN_OF_GAIA
@@ -48,7 +48,7 @@
 		// /datum/action/cooldown/power/gift/mothers_touch, // DARKPACK TODO - (Selectable Gifts)
 		// /datum/action/cooldown/power/gift/resist_pain, // DARKPACK TODO - (Selectable Gifts)
 	)
-	subsplat_keys = /obj/item/vamp/keys/children_of_gaia
+	//subsplat_keys = /obj/item/vamp/keys/children_of_gaia //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/getoffenris
 	name = TRIBE_GET_OF_FENRIS
@@ -58,7 +58,7 @@
 		// /datum/action/cooldown/power/gift/resist_pain, // DARKPACK TODO - (Selectable Gifts)
 		/datum/action/cooldown/power/gift/visage_of_fenris,
 	)
-	subsplat_keys = /obj/item/vamp/keys/nps
+	//subsplat_keys = /obj/item/vamp/keys/nps //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/blackfuries
 	name = TRIBE_BLACK_FURIES
@@ -66,7 +66,7 @@
 	gifts_provided = list(
 		/datum/action/cooldown/power/gift/breath_of_the_wyld,
 	)
-	subsplat_keys = /obj/item/vamp/keys/nps
+	//subsplat_keys = /obj/item/vamp/keys/nps //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/silentstriders
 	name = TRIBE_SILENT_STRIDERS
@@ -75,7 +75,7 @@
 		// /datum/action/cooldown/power/gift/sense_wyrm, // DARKPACK TODO - (Selectable Gifts)
 		/datum/action/cooldown/power/gift/speed_of_thought,
 	)
-	subsplat_keys = /obj/item/vamp/keys/nps
+	//subsplat_keys = /obj/item/vamp/keys/nps //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/shadowlords
 	name = TRIBE_SHADOW_LORDS
@@ -84,7 +84,7 @@
 		/datum/action/cooldown/power/gift/aura_of_confidence,
 		/datum/action/cooldown/power/gift/fatal_flaw,
 	)
-	subsplat_keys = /obj/item/vamp/keys/techstore
+	//subsplat_keys = /obj/item/vamp/keys/techstore //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/redtalons
 	name = TRIBE_RED_TALONS
@@ -100,13 +100,13 @@
 	gifts_provided = list(
 		// /datum/action/cooldown/power/gift/inspiration, // DARKPACK TODO - (Selectable Gifts)
 	)
-	subsplat_keys = /obj/item/vamp/keys/nps
+	//subsplat_keys = /obj/item/vamp/keys/nps //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/stargazers
 	name = TRIBE_STARGAZERS
 	desc = "The calmest of the Garou, they are well known for their introversion. They are the smallest of the remaining tribes, many of their kind wiped out by the Wyrm."
 	gifts_provided = list()
-	subsplat_keys = /obj/item/vamp/keys/nps
+	//subsplat_keys = /obj/item/vamp/keys/nps //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 /datum/subsplat/werewolf/tribe/garou/blackspiraldancers
 	name = TRIBE_BLACK_SPIRAL_DANCERS
