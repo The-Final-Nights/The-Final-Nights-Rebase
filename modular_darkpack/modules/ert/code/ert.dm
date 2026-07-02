@@ -1,47 +1,56 @@
-//Darkpack specific changes to ERTs 
+//Darkpack specific changes to ERTs
 /datum/antagonist/ert/darkpack
 	var/splat_used = SPLAT_NONE
 	var/generation = 13
 	var/clan = /datum/subsplat/vampire_clan/ventrue
 	var/discipline_dot_rating = 1 //How many dots to give them. Ghouls belonging to low gen Vamps can use 2nd+ dots of disciplines.
+	var/extra_bloodpool = 0 //Extra bloodpool capacity. Ghouls belonging to Elders, etc, can store a lot more BP.
 
 /datum/antagonist/ert/darkpack/on_gain()
 	. = ..()
-	clear_splats()
-	for (var/datum/quirk/darkpack/quirk_type in owner)
+	var/mob/living/carbon/human/H = owner.current
+	H.clear_splats()
+	for (var/datum/quirk/darkpack/quirk_type in H)
 		quirk_type.remove_from_current_holder()
 	switch(splat_used)
 		if(SPLAT_KINDRED)
-			owner.make_kindred(generation, clan)
-			var/list/clan_disciplines = clan.clan_disciplines
+			H.make_kindred(generation, clan)
+			var/datum/subsplat/vampire_clan/selected_clan = new clan
+			var/list/clan_disciplines = get_vampire_clan(selected_clan).clan_disciplines
 			if(length(clan_disciplines))
 				for(var/i in 1 to 3)
 					var/discipline = clan_disciplines[i]
 					if(!discipline)
 						continue
-					owner.give_st_power(discipline, discipline_dot_rating)
+					H.give_st_power(discipline, discipline_dot_rating)
 					if(ispath(discipline, /datum/discipline/dementation))
-						owner.add_quirk(/datum/quirk/darkpack/derangement)
+						H.add_quirk(/datum/quirk/darkpack/derangement)
+			H.maxbloodpool += extra_bloodpool
+			H.adjust_blood_pool(H.maxbloodpool - H.bloodpool)
 		if(SPLAT_GHOUL)
-			owner.make_ghoul()
-			var/list/clan_disciplines = clan.clan_disciplines
+			H.make_ghoul()
+			var/datum/subsplat/vampire_clan/selected_clan = new clan
+			var/list/clan_disciplines = get_vampire_clan(selected_clan).clan_disciplines
 			if(length(clan_disciplines))
 				for(var/i in 1 to 3)
 					var/discipline = clan_disciplines[i]
 					if(!discipline)
 						continue
-					owner.give_st_power(discipline, discipline_dot_rating)
+					H.give_st_power(discipline, discipline_dot_rating)
 					if(ispath(discipline, /datum/discipline/dementation))
-						owner.add_quirk(/datum/quirk/darkpack/derangement)
-		owner.st_set_physical_stats(strength_amount = 4, dexterity_amount = 4, stamina_amount = 4) //Pretty much every ERT is very physically fit. Keeping the full names of the values here to ease understanding and changes.
-		owner.st_set_social_stats(charisma_amount = 2, manipulation_amount = 2, appearance_amount = 2)
-		owner.st_set_mental_stats(perception_amount = 2, intelligence_amount = 2, wits_amount = 2)
-		owner.st_set_talents_traits(alertness_amount = 1, athletics_amount = 4, awareness_amount = 2, brawl_amount = 3, empathy_amount = 1, expression_amount = 1, intimidation_amount = 1, leadership_amount = 1, streetwise_amount = 1, subterfuge_amount = 1)
-		owner.st_set_skills_traits(animal_ken_amount = 1, crafts_amount = 2, drive_amount = 2, etiquette_amount = 2, firearms_amount = 4, larceny_amount = 3, melee_amount = 3, performance_amount = 1, stealth_amount = 1, survival_amount = 1)
-		owner.st_set_knowledges_traits(academics_amount = 1, computer_amount = 1, finance_amount = 1, investigation_amount = 1, law_amount = 1, medicine_amount = 1, occult_amount = 1, politics_amount = 1, science_amount = 1, technology_amount = 1)
-		owner.st_set_stat(STAT_COURAGE, 3)
-		owner.st_set_stat(STAT_CONSCIENCE, 3)
-		owner.st_set_stat(STAT_SELF_CONTROL, 3)
-		owner.st_set_stat(STAT_MORALITY, 7)
-		owner.st_set_stat(STAT_PERMANENT_WILLPOWER, 6)
-		owner.st_set_stat(STAT_TEMPORARY_WILLPOWER, 6)
+						H.add_quirk(/datum/quirk/darkpack/derangement)
+			H.maxbloodpool += extra_bloodpool
+			H.adjust_blood_pool(H.maxbloodpool - H.bloodpool)
+	H.st_set_physical_stats(4, 4, 4) //Pretty much every ERT is very physically fit Strength, Dexterity, Stamina.
+	H.st_set_social_stats(2, 2, 2) //Charisma, Manipulation, Appearance
+	H.st_set_mental_stats(2, 2, 2) //Perception, Intelligence, Wits
+	H.st_set_talents_traits(1, 4, 2, 3, 1, 1, 3, 1, 1, 1) //Alertness, Athletics, Awareness, Brawl, Empathy, Expression, Intimidation, Leadership, Streetwise, Subterfuge
+	H.st_set_skills_traits(1, 2, 4, 2, 4, 3, 3, 1, 1, 1) //Animal Ken, Crafts, Drive, Etiquette, Firearms, Larceny, Melee, Performance, Stealth, Survival
+	H.st_set_knowledges_traits(1, 1, 1, 1, 1, 1, 1, 1, 1, 1) //Academics, Computer, Finance, Investigation, Law, Medicine, Occult, Politics, Science, Technology
+	H.st_set_stat(STAT_COURAGE, 3)
+	H.st_set_stat(STAT_CONSCIENCE, 3)
+	H.st_set_stat(STAT_SELF_CONTROL, 3)
+	H.st_set_stat(STAT_MORALITY, 7)
+	H.st_set_stat(STAT_PERMANENT_WILLPOWER, 6)
+	H.st_set_stat(STAT_TEMPORARY_WILLPOWER, 6)
+
