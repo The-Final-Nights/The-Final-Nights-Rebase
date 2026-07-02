@@ -1,0 +1,12 @@
+/datum/preference/numeric/masquerade
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "masquerade"
+	savefile_identifier = PREFERENCE_CHARACTER
+	minimum = 1
+	maximum = 2
+
+/datum/preference/numeric/masquerade/create_default_value()
+	return 2
+
+/datum/preference/numeric/masquerade/apply_to_human(mob/living/carbon/human/target, value)
+	target.masquerade_score = value
