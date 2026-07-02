@@ -44,7 +44,8 @@
 	//TFN EDIT START - Melee Weapon Rebalance PR#386
 	force = 35 //The LARP is immense
 	block_chance = 20 //You can technically block with a Katana, but not nearly as effectively as a longsword.
-	exposed_wound_bonus = 20 //Bonus against bare flesh, but not against armor. This is a KATANA, not a chainsaw.
+	exposed_wound_bonus = 30 //Bonus against bare flesh, but not against armor. This is a KATANA, not a chainsaw.
+	wound_bonus = 20
 	//TFN EDIT END - Melee Weapon Rebalance PR#386
 
 
@@ -104,6 +105,7 @@
 	icon_state = "sabre"
 	var/value = 1000 // DARKPACK TODO: Move this up at some point. I hate the selling component with all my heart.
 	//TFN EDIT START - Melee Weapon Rebalance PR#386
+	block_chance = 40
 	armour_penetration = 40		//Enough to penetrate trenchcoats and leather jackets, but not enough to penetrate kevlar or armor.
 	force = 30 //Curved. Swords.
 	//TFN EDIT END - Melee Weapon Rebalance PR#386

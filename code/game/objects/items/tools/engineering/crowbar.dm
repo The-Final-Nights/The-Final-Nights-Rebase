@@ -74,8 +74,10 @@
 
 /obj/item/crowbar/hammer
 	name = "claw hammer"
-	desc = "It's a heavy hammer with a pry bar on the back of its head. Nails aren't common in space, but this tool can still be used as a weapon or a crowbar."
-	force = 11
+	//TFN EDIT START - Melee Weapon Rebalance PR#386
+	desc = "A heavy hammer with a pry bar on the back of its head. This weighty tool can be used as a weapon or a crowbar."
+	force = 23
+	//TFN EDIT END - Melee Weapon Rebalance PR#386
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/weapons/hammer.dmi'
 	icon_state = "clawhammer"
@@ -84,7 +86,9 @@
 	righthand_file = 'icons/mob/inhands/weapons/hammers_righthand.dmi'
 	inhand_icon_state = "clawhammer"
 	inside_belt_icon_state = "clawhammer"
-	throwforce = 10
+	//TFN EDIT START - Melee Weapon Rebalance PR#386
+	throwforce = 20
+	//TFN EDIT END - Melee Weapon Rebalance PR#386
 	throw_range = 5
 	throw_speed = 3
 	toolspeed = 2
