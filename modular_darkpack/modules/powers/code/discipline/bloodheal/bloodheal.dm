@@ -90,11 +90,21 @@
 
 	//miscellaneous organ damage healing
 	var/obj/item/organ/eyes/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
+	if (!eyes)
+		eyes = new()
+		eyes.Insert(owner)
 	if (eyes)
 		eyes.apply_organ_damage(-HEAL_BASHING_LETHAL_DAMAGE * vitae_cost)
 
 		owner.adjust_temp_blindness(-HEAL_AGGRAVATED_DAMAGE * vitae_cost)
 		owner.adjust_eye_blur(-HEAL_AGGRAVATED_DAMAGE * vitae_cost)
+
+	var/obj/item/organ/ears/ears = owner.get_organ_slot(ORGAN_SLOT_EARS)
+	if (ears)
+		ears.apply_organ_damage(-HEAL_BASHING_LETHAL_DAMAGE * vitae_cost)
+
+	if(get_kindred_splat(owner) && length(owner.get_missing_limbs()))
+		owner.regenerate_limbs()
 
 	//healing too quickly attracts attention
 	if (violates_masquerade)
