@@ -59,6 +59,8 @@
 	H.st_set_talents_traits(empathy_amount = 6, intimidation_amount = 6, subterfuge_amount = 6, ignore_limits = TRUE)
 	H.st_set_skills_traits(performance_amount = 6, survival_amount = 6, ignore_limits = TRUE)
 	H.AddElement(/datum/element/wall_smasher, ENVIRONMENT_SMASH_WALLS) //Potence 6.
+	H.st_set_stat(STAT_PERMANENT_WILLPOWER, 8)
+	H.st_set_stat(STAT_TEMPORARY_WILLPOWER, 8)
 
 /datum/antagonist/ert/darkpack/camarilla_ert/melee/on_gain()
 	. = ..()
