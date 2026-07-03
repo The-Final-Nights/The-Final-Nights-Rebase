@@ -5,12 +5,6 @@
 	armour_penetration = 75
 	block_chance = 75
 
-/obj/item/claymore/longsword/camarilla/attack(mob/living/target, mob/living/carbon/human/user)
-	if(user.st_get_stat(STAT_STRENGTH) <= 5)
-		user.dropItemToGround(src, TRUE)
-		user.visible_message(span_notice("[user] drops the [src]!"), \
-		span_warning("You attempt to swing [src], only to find it's too heavy for you to use!"))
-
 /obj/item/vamp/keys/camarilla_ert
 	name = "whiterock keys"
 	accesslocks = list(
