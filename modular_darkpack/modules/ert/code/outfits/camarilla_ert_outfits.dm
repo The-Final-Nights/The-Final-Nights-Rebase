@@ -68,7 +68,6 @@
 	suit = /obj/item/clothing/suit/vampire/vest/army
 	head = /obj/item/clothing/head/beret
 	id = /obj/item/card/whiterock/cqb
-	suit_store = /obj/item/claymore/longsword/camarilla
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/m50 = 2,
 		/obj/item/storage/medkit/darkpack/ifak = 1,
