@@ -11,6 +11,7 @@
 	suit = /obj/item/clothing/suit/vampire/vest/army
 	head = /obj/item/clothing/head/vampire/army
 	id = /obj/item/card/whiterock
+	suit_store = /obj/item/storage/belt/sheath/vamp/sword
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/darkpack556/incendiary = 3,
 		/obj/item/ammo_box/magazine/darkpack556/silver = 1,
@@ -20,7 +21,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/darkpack/deagle/c50 = 1,
 		/obj/item/reagent_containers/blood/vitae = 2,
 	)
-	implants = /obj/item/implant/explosive
+	implants = list(/obj/item/implant/explosive)
 
 /datum/outfit/job/vampire/ert/camarilla_ert/leader
 	name = "Whiterock Private Security Officer"
@@ -50,7 +51,6 @@
 		/obj/item/reagent_containers/blood/vitae = 5,
 		)
 	skillchips = /obj/item/skillchip/self_surgery
-	implants = /obj/item/implant/explosive
 
 /datum/outfit/job/vampire/ert/camarilla_ert/rifleman
 	name = "Whiterock Private Security Rifleman"
@@ -68,6 +68,7 @@
 	suit = /obj/item/clothing/suit/vampire/vest/army
 	head = /obj/item/clothing/head/beret
 	id = /obj/item/card/whiterock/cqb
+	suit_store = /obj/item/claymore/longsword/camarilla
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/m50 = 2,
 		/obj/item/storage/medkit/darkpack/ifak = 1,
@@ -79,7 +80,6 @@
 		/obj/item/reagent_containers/hypospray/medipen/stimpack = 2,
 	)
 	skillchips = /obj/item/skillchip/matrix_taunt
-	implants = /obj/item/implant/explosive
 
 /datum/outfit/job/vampire/ert/camarilla_ert/marksman
 	name = "Whiterock Private Security Marksman"
