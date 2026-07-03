@@ -124,7 +124,7 @@
 	mob_size = MOB_SIZE_SMALL
 	icon_state = "cat"
 
-/mob/living/basic/pet/cat/darkpack/bw/Initialize()
+/mob/living/basic/pet/cat/darkpack/bw/Initialize(mapload)
 	. = ..()
 	icon_state = "cat" // because the parent sets a random cat sprite
 	icon_living = "cat"
