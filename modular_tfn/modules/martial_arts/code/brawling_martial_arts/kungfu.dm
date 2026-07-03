@@ -5,7 +5,7 @@
 /datum/martial_art/darkpack_kungfu
 	name = "Kung Fu"
 	id = MARTIALART_DARKPACK_KUNGFU
-	help_verb = /mob/living/proc/kungfu_help
+	help_verb = "Remember The Basics"
 	display_combos = TRUE
 	grab_state_modifier = 1
 	var/datum/storyteller_roll/brawl_strength/str_attack
@@ -279,18 +279,18 @@
 
 	return SUCCESSFUL_BLOCK
 
-/mob/living/proc/kungfu_help()
-	set name = "Recall Teachings"
-	set desc = "Remember the martial techniques of the Kung-Fu"
-	set category = "Martial Arts"
+/datum/martial_art/darkpack_kungfu/get_style_help()
+	. = list()
 
-	to_chat(usr, span_info("<b><i>You retreat inward and recall past teachings</i></b>"))
-	to_chat(usr, "[span_notice("Frontal Kick")]: Punch Shove. Launch your opponent away from you with incredible force!")
-	to_chat(usr, "[span_notice("Roundhouse Kick")]: Shove Shove. Nonlethally kick an opponent to the floor, knocking them down, discombobulating them and dealing substantial stamina damage. If they're already prone, disarm them as well.")
-	to_chat(usr, "[span_notice("Flying Knee")]: Grab Punch. Deliver a knee jab into the opponent, dealing high stamina damage, as well as briefly stunning them, winding them and making it difficult for them to speak.")
-	to_chat(usr, "[span_notice("Grabs and Shoves")]: While in combat mode, your typical grab and shove do decent stamina damage, and your grabs harder to break. If you grab someone who has substantial amounts of stamina damage, you knock them out!")
-	to_chat(usr, "[span_notice("Evasion")]: Training through the years has taught you how to dodge melee attacks while in Combat Mode. Seeking inner-scerenity within Throw Mode shall greatly increase the chance. Projectiles however are beyond the reaction speed of anyone short of [span_purple("stopping time")]...")
+	. += "<b><i>You try to remember some of the basics of Kungfu.</i></b>"
 
+	. += "[span_notice("Frontal Kick")]: Punch Shove. Launch your opponent away from you with incredible force!"
+	. += "[span_notice("Roundhouse Kick")]: Shove Shove. Nonlethally kick an opponent to the floor, knocking them down, discombobulating them and dealing substantial stamina damage. If they're already prone, disarm them as well."
+	. += "[span_notice("Flying Knee")]: Grab Punch. Deliver a knee jab into the opponent, dealing high stamina damage, as well as briefly stunning them, winding them and making it difficult for them to speak."
+	. += "[span_notice("Grabs and Shoves")]: While in combat mode, your typical grab and shove do decent stamina damage, and your grabs harder to break. If you grab someone who has substantial amounts of stamina damage, you knock them out!"
+	. += "[span_notice("Evasion")]: Training through the years has taught you how to dodge melee attacks while in Combat Mode. Seeking inner-scerenity within Throw Mode shall greatly increase the chance. Projectiles however are beyond the reaction speed of anyone short of [span_purple("stopping time")]..."
+
+	return .
 
 #undef LAUNCH_KICK_COMBO
 #undef DROP_KICK_COMBO

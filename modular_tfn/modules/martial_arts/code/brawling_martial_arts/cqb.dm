@@ -6,7 +6,7 @@
 /datum/martial_art/darkpack_cqb
 	name = "CQB"
 	id = MARTIALART_DARKPACK_CQB
-	help_verb = /mob/living/proc/CQB_help
+	help_verb = "Remember The Basics"
 	smashes_tables = TRUE
 	display_combos = TRUE
 	/// Weakref to a mob we're currently restraining (with grab-grab combo)
@@ -357,18 +357,18 @@
 	log_combat(attacker, defender, "failed to disarm (CQC)")
 	return MARTIAL_ATTACK_FAIL
 
+/datum/martial_art/darkpack_cqb/get_style_help()
+	. = list()
 
-/mob/living/proc/CQB_help()
-	set name = "Remember The Basics"
-	set desc = "You try to remember some of the basics of CQB."
-	set category = "Martial Art"
-	to_chat(usr, "<b><i>You try to remember some of the basics of CQB.</i></b>")
+	. += "<b><i>You try to remember some of the basics of CQC.</i></b>"
 
-	to_chat(usr, "[span_notice("Slam")]: Grab Punch. Slam opponent into the ground, knocking them down.")
-	to_chat(usr, "[span_notice("CQB Kick")]: Punch Punch. Knocks opponent away. Knocks out stunned opponents and does stamina damage.")
-	to_chat(usr, "[span_notice("Restrain")]: Grab Grab Disarm. Locks opponents into a restraining position, disarm to knock them out with a chokehold.")
-	to_chat(usr, "[span_notice("Pressure")]: Shove Grab. Decent stamina damage.")
-	to_chat(usr, "[span_notice("Combat Training")]: Your past training has imparted various additional techniques. Getting someone in a strangehold will allow for you to snap their neck with a Punch. Certain techniques have unique interactions with knocked-down opponents.")
+	. += "[span_notice("Slam")]: Grab Punch. Slam opponent into the ground, knocking them down."
+	. += "[span_notice("CQC Kick")]: Punch Punch. Knocks opponent away. Knocks out stunned opponents and does stamina damage."
+	. += "[span_notice("Restrain")]: Grab Grab Disarm. Locks opponents into a restraining position, disarm to knock them out with a chokehold."
+	. += "[span_notice("Pressure")]: Shove Grab. Decent stamina damage."
+	. += "[span_notice("Combat Training")]: Your past training has imparted various additional techniques. Getting someone in a strangehold will allow for you to snap their neck with a Punch. Certain techniques have unique interactions with knocked-down opponents."
+
+	return .
 
 #undef SLAM_COMBO
 #undef KICK_COMBO

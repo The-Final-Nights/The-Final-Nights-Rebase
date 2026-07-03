@@ -6,7 +6,7 @@
 /datum/martial_art/darkpack_boxing
 	name = "Street Boxing"
 	id = MARTIALART_DARKPACK_BOXING
-	help_verb = /mob/living/proc/streetboxing_help
+	help_verb = "Remember The Basics"
 	display_combos = TRUE
 	var/datum/storyteller_roll/brawl_dex/dex_attack
 	var/datum/storyteller_roll/brawl_strength/str_attack
@@ -304,17 +304,18 @@
 
 	return SUCCESSFUL_BLOCK
 
-/mob/living/proc/streetboxing_help()
-	set name = "Recall Teachings"
-	set desc = "Remember your training in Boxing"
-	set category = "Martial Arts"
+/datum/martial_art/darkpack_boxing/get_style_help()
+	. = list()
 
-	to_chat(usr, span_info("<b><i>You reminisce over the words of your Coach.</i></b>"))
-	to_chat(usr, "[span_notice("Uppercut")]: Punch Shove Punch. Jump up and hit an opponent directly in the jaw, dealing significant damage and launching weaker foes away!")
-	to_chat(usr, "[span_notice("Jab Combo")]: Grab Punch Punch. Release a flurry of jabs into your opponent's head, disorienting and tiring them, along with dealing decent amounts of brute damage.")
-	to_chat(usr, "[span_notice("Cross Punch")]: Shove Punch Punch. Throw a single, heavy punch directly at your opponents skull")
-	to_chat(usr, "[span_notice("Dirty Hit")]: Grab Grab Shove. Disregard the rules of the ring and punch the liver of your opponent, making them puke and keel over.")
-	to_chat(usr, "[span_notice("Dodging")]: Like any trained boxer, you are able to avoid punches thrown at you while in Combat Mode. Throw mode greatly increases the avoidance chance")
+	. += "<b><i>You try to remember some of the basics of street boxing.</i></b>"
+
+	. += "[span_notice("Uppercut")]: Punch Shove Punch. Jump up and hit an opponent directly in the jaw, dealing significant damage and launching weaker foes away!"
+	. += "[span_notice("Jab Combo")]: Grab Punch Punch. Release a flurry of jabs into your opponent's head, disorienting and tiring them, along with dealing decent amounts of brute damage."
+	. += "[span_notice("Cross Punch")]: Shove Punch Punch. Throw a single, heavy punch directly at your opponents skull"
+	. += "[span_notice("Dirty Hit")]: Grab Grab Shove. Disregard the rules of the ring and punch the liver of your opponent, making them puke and keel over."
+	. += "[span_notice("Dodging")]: Like any trained boxer, you are able to avoid punches thrown at you while in Combat Mode. Throw mode greatly increases the avoidance chance"
+
+	return .
 
 #undef UPPERCUT_COMBO
 #undef JAB_COMBO
