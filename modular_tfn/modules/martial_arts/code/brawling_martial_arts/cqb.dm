@@ -195,18 +195,19 @@
 	var/old_grab_state = attacker.grab_state
 	defender.grabbedby(attacker, TRUE)
 	if(old_grab_state == GRAB_PASSIVE)
-		defender.drop_all_held_items()
-		attacker.setGrabState(GRAB_AGGRESSIVE) //Instant aggressive grab if on grab intent
-		defender.update_incapacitated()
-		log_combat(attacker, defender, "grabbed", addition="aggressively")
-		defender.visible_message(
-			span_warning("[attacker] violently grabs [defender]!"),
-			span_userdanger("You're grabbed violently by [attacker]!"),
-			span_hear("You hear sounds of aggressive fondling!"),
-			COMBAT_MESSAGE_RANGE,
-			attacker,
-		)
-		to_chat(attacker, span_danger("You violently grab [defender]!"))
+		if(attacker.combat_mode)
+			defender.drop_all_held_items()
+			attacker.setGrabState(GRAB_AGGRESSIVE) //Instant aggressive grab if on grab intent
+			defender.update_incapacitated()
+			log_combat(attacker, defender, "grabbed", addition="aggressively")
+			defender.visible_message(
+				span_warning("[attacker] violently grabs [defender]!"),
+				span_userdanger("You're grabbed violently by [attacker]!"),
+				span_hear("You hear sounds of aggressive fondling!"),
+				COMBAT_MESSAGE_RANGE,
+				attacker,
+			)
+			to_chat(attacker, span_danger("You violently grab [defender]!"))
 	return MARTIAL_ATTACK_SUCCESS
 
 /datum/martial_art/darkpack_cqb/harm_act(mob/living/attacker, mob/living/defender)
