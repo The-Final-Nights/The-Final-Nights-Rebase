@@ -11,7 +11,7 @@
 
 /obj/item/ammo_box/magazine/internal/vampshotgun/sawnoff
 	name = "sawn-off shotgun internal magazine"
-	max_ammo = 3
+	max_ammo = 4
 
 /obj/item/gun/ballistic/shotgun/vampire/sawnoff
 	name = "sawn-off shotgun"
