@@ -154,12 +154,11 @@ SUBSYSTEM_DEF(tfnevents)
 	switch(SSmasquerade.masquerade_level)
 		if(MASQUERADE_MAX_LEVEL)
 			return
-		if(20 to MASQUERADE_MAX_LEVEL - 1)
-			if(prob(50))
-				hunter_count = 1
-		if(10 to 20)
+		if(6 to 8)
+			hunter_count = rand(1, 2)
+		if(3 to 5)
 			hunter_count = rand(3, 5)
-		if(0 to 10)
+		if(0 to 2)
 			hunter_count = rand(5, 10)
 	if(!hunter_count)
 		return
