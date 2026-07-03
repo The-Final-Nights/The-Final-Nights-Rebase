@@ -4,6 +4,7 @@
 	force = 3 LETHAL_TTRPG_DAMAGE
 	armour_penetration = 75
 	block_chance = 75
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
 
 /obj/item/vamp/keys/camarilla_ert
 	name = "whiterock keys"
