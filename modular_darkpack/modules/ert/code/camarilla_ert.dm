@@ -62,6 +62,12 @@
 	H.st_set_stat(STAT_PERMANENT_WILLPOWER, 8)
 	H.st_set_stat(STAT_TEMPORARY_WILLPOWER, 8)
 
+/datum/antagonist/ert/darkpack/camarilla_ert/medic/on_gain()
+	. = ..()
+	var/mob/living/carbon/human/H = owner.current
+	var/obj/item/organ/cyberimp/brain/surgical_processor/pre_loaded/surgery = new()
+	surgery.Insert(H)
+
 /datum/antagonist/ert/darkpack/camarilla_ert/melee/on_gain()
 	. = ..()
 	var/mob/living/carbon/human/H = owner.current
@@ -69,3 +75,6 @@
 	H.st_set_talents_traits(brawl_amount = 8, ignore_limits = TRUE) //Alertness, Athletics, Awareness, Brawl, Empathy, Expression, Intimidation, Leadership, Streetwise, Subterfuge
 	H.st_set_skills_traits(firearms_amount = 3,melee_amount = 8, ignore_limits = TRUE) //Animal Ken, Crafts, Drive, Etiquette, Firearms, Larceny, Melee, Performance, Stealth, Survival
 	H.AddElement(/datum/element/wall_smasher, ENVIRONMENT_SMASH_STRUCTURES)
+	H.give_st_power(/datum/discipline/fortitude, 3)
+	var/obj/item/organ/cyberimp/brain/anti_drop/drop = new()
+	drop.Insert(H)
