@@ -20197,13 +20197,6 @@
 "eWf" = (
 /turf/open/floor/plating/rough,
 /area/vtm/interior)
-"eWi" = (
-/obj/structure/vampipe{
-	icon_state = "piping6";
-	pixel_y = 32
-	},
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/ghetto)
 "eWn" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 1
@@ -21462,13 +21455,6 @@
 	},
 /turf/open/floor/plating/asphalt,
 /area/vtm/interior/trainyard)
-"fkG" = (
-/obj/structure/vampipe{
-	icon_state = "piping25";
-	pixel_y = 32
-	},
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/ghetto)
 "fkI" = (
 /obj/structure/railing{
 	dir = 1
@@ -68324,14 +68310,6 @@
 	},
 /turf/open/floor/wood/rough,
 /area/vtm)
-"qBZ" = (
-/obj/effect/landmark/npcactivity,
-/obj/structure/vampipe{
-	icon_state = "piping4";
-	pixel_y = 32
-	},
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/ghetto)
 "qCb" = (
 /obj/structure/stairs/north,
 /turf/open/floor/city/circled/large,
@@ -79479,15 +79457,6 @@
 /obj/item/lighter,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/littleitaly)
-"toP" = (
-/obj/effect/landmark/npcability,
-/obj/effect/landmark/npcbeacon,
-/obj/structure/vampipe{
-	icon_state = "piping5";
-	pixel_y = 32
-	},
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/ghetto)
 "toX" = (
 /obj/item/camera,
 /obj/item/camera,
@@ -80898,13 +80867,6 @@
 /obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/city/bacotell,
 /area/vtm/interior/shop)
-"tHQ" = (
-/obj/structure/vampipe{
-	icon_state = "piping24";
-	pixel_y = 32
-	},
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/ghetto)
 "tHT" = (
 /obj/structure/table/wood,
 /obj/item/kirbyplants/darkpack/plant3{
@@ -90162,11 +90124,7 @@
 /turf/open/floor/plating/grate,
 /area/vtm/interior/ghetto)
 "vZi" = (
-/obj/effect/landmark/npcability,
-/obj/effect/landmark/npcbeacon,
-/obj/structure/vampipe{
-	pixel_y = 32
-	},
+/obj/structure/sign/city/body_shop/directional/north,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/ghetto)
 "vZm" = (
@@ -97014,13 +96972,6 @@
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/endron_facility/restricted)
-"xEr" = (
-/obj/effect/landmark/npcbeacon,
-/obj/structure/vampipe{
-	pixel_y = 32
-	},
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/ghetto)
 "xEt" = (
 /obj/effect/turf_decal/bordur,
 /obj/structure/railing/corner{
@@ -166560,7 +166511,7 @@ dWQ
 oJC
 dWQ
 rOD
-tHQ
+xEh
 gii
 pJF
 afs
@@ -166764,7 +166715,7 @@ lxG
 lxG
 lxG
 lxG
-toP
+vZu
 ujL
 pJF
 afs
@@ -166968,7 +166919,7 @@ qYM
 pgJ
 vKc
 lxG
-qBZ
+wkP
 giq
 pJF
 afs
@@ -167172,7 +167123,7 @@ rgK
 oUd
 oUd
 iKJ
-vZi
+vZu
 giq
 pJF
 afs
@@ -167376,7 +167327,7 @@ eaa
 imT
 oUd
 iKJ
-eWi
+xEh
 rim
 pJF
 afs
@@ -167580,7 +167531,7 @@ eaa
 oUd
 oUd
 iKJ
-xEr
+vgI
 giq
 pJF
 afs
@@ -167784,7 +167735,7 @@ sps
 oUd
 cEP
 iKJ
-fkG
+xEh
 giq
 pJF
 afs
@@ -168397,11 +168348,11 @@ lzU
 gfJ
 lxG
 xEh
-giq
+dWN
 pJF
 afs
 pJF
-rMJ
+kWk
 wqF
 tiU
 hHk
@@ -168600,12 +168551,12 @@ svd
 cEP
 nLL
 lxG
-xEh
-dWN
+vZi
+giq
 pJF
 afs
 pJF
-kWk
+rMJ
 wqF
 tiU
 xQB
