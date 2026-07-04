@@ -37,6 +37,23 @@
 		preferences.ui_interact(usr)
 		return
 
+	if(href_list["wiki"])
+		play_lobby_button_sound()
+		var/wikiurl = CONFIG_GET(string/wikiurl)
+		if(!wikiurl)
+			to_chat(src, span_danger("The wiki URL is not set in the server configuration."))
+			return
+		var/wiki_html = {"
+			<html>
+				<head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'></head>
+				<body style='margin:0;'>
+					<iframe src="[wikiurl]" style="border:0;width:100%;height:100%;"></iframe>
+				</body>
+			</html>
+		"}
+		DIRECT_OUTPUT(src, browse(wiki_html, "window=tfn_wiki;size=970x710"))
+		return
+
 	if(href_list["toggle_ready"])
 		if(SSticker && SSticker.current_state > GAME_STATE_PREGAME)
 			to_chat(src, span_notice("It's too late for that, the round is already starting!"))

@@ -1,11 +1,16 @@
-
-#define MAX_STARTUP_MESSAGES 67 // thix theven!
+#define MAX_STARTUP_MESSAGES 10 // max messages displayed at once on the HUD
 GLOBAL_LIST_EMPTY(startup_messages)
 
 /mob/dead/new_player/proc/get_title_html()
 	var/dat = SStitle.title_html
 	if(SSticker.current_state == GAME_STATE_STARTUP)
 		dat += {"<img src="loading_screen.png" class="bg" alt="">"}
+		dat += {"
+			<div class="container_tv">
+				<img src="tv_static.gif" class="tv_screen" alt="">
+				<img src="tv_base.png" class="tv_frame" alt="">
+			</div>
+		"}
 		dat += {"<div class="container_terminal" id="terminal"></div>"}
 		dat += {"<div class="container_progress" id="progress_container"><div class="progress_bar" id="progress"><div class="sub_progress_bar" id="sub_progress"></div></div></div>"}
 
@@ -45,12 +50,10 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			var target_sub_start = 0;
 
 			setInterval(function() {
-				if(progress_current_time < progress_completion_time) {
-					var current_tick = new Date().getTime();
-					progress_current_time += (current_tick - previous_tick) / 100;
-					previous_tick = current_tick;
-				}
-				progress_current_position = Math.min(Math.max(progress_current_time / progress_completion_time * 100, progress_current_position), 100);
+				var current_tick = new Date().getTime();
+				progress_current_time += (current_tick - previous_tick) / 100;
+				previous_tick = current_tick;
+				progress_current_position = Math.min(Math.max(progress_current_time / progress_completion_time * 100, progress_current_position), 95);
 
 				if(progress_sub_start == 0) {
 					progress_sub_start = target_sub_start = progress_current_position;
@@ -70,6 +73,7 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			}
 
 			function update_current_character() {}
+			function update_tv_info() {}
 		</script>
 		"}
 
@@ -77,7 +81,20 @@ GLOBAL_LIST_EMPTY(startup_messages)
 		dat += {"<img src="loading_screen.png" class="bg" alt="">"}
 
 		dat += {"
+			<div class="container_tv">
+				<img src="tv_on.png" class="tv_screen" alt="">
+				<div class="tv_text">
+					<span id="tv_active">[LAZYLEN(GLOB.clients)] logged in</span>
+					<span id="tv_spawned">[LAZYLEN(GLOB.player_list)] in the city</span>
+					<span id="tv_timer">[round_timestamp()]</span>
+				</div>
+				<img src="tv_base.png" class="tv_frame" alt="">
+			</div>
+		"}
+
+		dat += {"
 			<div class="container_title">
+				<span id="intro-text">these are...</span>
 				<div class="title_wrap">
 					<span id="main-title"></span>
 					<span id="subtitle"></span>
@@ -107,6 +124,7 @@ GLOBAL_LIST_EMPTY(startup_messages)
 		dat += {"
 			<a class="menu_button" href='byond://?src=[text_ref(src)];character_setup=1' onmouseover='location.href="byond://?src=[text_ref(src)];button_hover=1"'>Setup Character (<span id="character_slot">[client.prefs.read_preference(/datum/preference/name/real_name)]</span>)</a>
 			<a class="menu_button" href='byond://?src=[text_ref(src)];game_options=1' onmouseover='location.href="byond://?src=[text_ref(src)];button_hover=1"'>Game Options</a>
+			<a class="menu_button" href='byond://?src=[text_ref(src)];wiki=1' onmouseover='location.href="byond://?src=[text_ref(src)];button_hover=1"'>Wiki</a>
 		"}
 
 		if(!is_guest_key(src.key))
@@ -134,6 +152,15 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			var character_name_slot = document.getElementById("character_slot");
 			function update_current_character(name) {
 				character_name_slot.textContent = name.toUpperCase();
+			}
+
+			var tv_active = document.getElementById("tv_active");
+			var tv_spawned = document.getElementById("tv_spawned");
+			var tv_timer = document.getElementById("tv_timer");
+			function update_tv_info(active, spawned, timer) {
+				tv_active.textContent = active + " logged in";
+				tv_spawned.textContent = spawned + " in the city";
+				tv_timer.textContent = timer;
 			}
 
 			function append_terminal_text() {}

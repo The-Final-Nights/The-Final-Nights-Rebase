@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(title)
 	name = "Title Screen"
-	ss_flags = SS_NO_FIRE
+	wait = 3 SECONDS
 	init_stage = INITSTAGE_FIRST
 
 	var/file_path
@@ -141,12 +141,28 @@ SUBSYSTEM_DEF(title)
 	progress_json = SStitle.progress_json
 	progress_reference_time = SStitle.progress_reference_time
 
+/datum/controller/subsystem/title/fire(resumed)
+	update_tv_info()
+
 /**
  * Show the title screen to all new players.
  */
 /datum/controller/subsystem/title/proc/show_title_screen()
 	for(var/mob/dead/new_player/new_player in GLOB.new_player_list)
 		INVOKE_ASYNC(new_player, TYPE_PROC_REF(/mob/dead/new_player, show_title_screen))
+
+/**
+ * this runs every wait as defined above on the subsystem. probably leave this alone
+ */
+/datum/controller/subsystem/title/proc/update_tv_info()
+	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
+		return
+
+	var/tv_params = list2params(list(LAZYLEN(GLOB.clients), LAZYLEN(GLOB.player_list), round_timestamp()))
+	for(var/mob/dead/new_player/new_player as anything in GLOB.new_player_list)
+		if(!new_player.title_screen_is_ready || isnull(new_player.client) || new_player.client.interviewee)
+			continue
+		new_player.client << output(tv_params, "tfn_title_browser:update_tv_info")
 
 /**
  * Adds a notice to the main title screen in the form of big red text!
