@@ -12,7 +12,7 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			</div>
 		"}
 		dat += {"<div class="container_terminal" id="terminal"></div>"}
-		dat += {"<div class="container_progress" id="progress_container"><div class="progress_bar" id="progress"><div class="sub_progress_bar" id="sub_progress"></div></div></div>"}
+		dat += {"<div class="container_progress" id="progress_container"><div class="progress_bar" id="progress"></div></div>"}
 
 		dat += {"
 		<script language="JavaScript">
@@ -40,36 +40,15 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			append_terminal_text();
 
 			var progress_bar = document.getElementById("progress");
-			var sub_progress_bar = document.getElementById("sub_progress");
-			var progress_container = document.getElementById("progress_container");
-			var previous_tick = new Date().getTime();
-			var progress_current_time = [world.timeofday - SStitle.progress_reference_time];
-			var progress_completion_time = [SStitle.average_completion_time];
 			var progress_current_position = 0;
-			var progress_sub_start = 0;
-			var target_sub_start = 0;
 
-			setInterval(function() {
-				var current_tick = new Date().getTime();
-				progress_current_time += (current_tick - previous_tick) / 100;
-				previous_tick = current_tick;
-				progress_current_position = Math.min(Math.max(progress_current_time / progress_completion_time * 100, progress_current_position), 95);
-
-				if(progress_sub_start == 0) {
-					progress_sub_start = target_sub_start = progress_current_position;
-				} else {
-					progress_sub_start = Math.min(progress_sub_start + 0.1, target_sub_start);
+			function update_loading_progress(received, expected) {
+				expected = parseFloat(expected);
+				if (!expected) {
+					return;
 				}
-				var progress_sub_current_position = (progress_current_position - progress_sub_start) / progress_current_position * 100;
-
+				progress_current_position = Math.min(Math.max(parseFloat(received) / expected * 100, progress_current_position), 95);
 				progress_bar.style.width = "" + progress_current_position + "%";
-				sub_progress_bar.style.width = "" + progress_sub_current_position + "%";
-			}, 16.666666667);
-
-			function update_loading_progress(current_time, total_time) {
-				progress_current_time = parseFloat(current_time);
-				progress_completion_time = parseFloat(total_time);
-				target_sub_start = progress_current_position;
 			}
 
 			function update_current_character() {}
@@ -85,7 +64,7 @@ GLOBAL_LIST_EMPTY(startup_messages)
 				<img src="tv_on.png" class="tv_screen" alt="">
 				<div class="tv_text">
 					<span id="tv_active">[LAZYLEN(GLOB.clients)] logged in</span>
-					<span id="tv_spawned">[LAZYLEN(GLOB.player_list)] in the city</span>
+					<span id="tv_spawned">[LAZYLEN(GLOB.alive_player_list)] in the city</span>
 					<span id="tv_timer">[round_timestamp()]</span>
 				</div>
 				<img src="tv_base.png" class="tv_frame" alt="">

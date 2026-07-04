@@ -15,14 +15,8 @@ SUBSYSTEM_DEF(title)
 	/// The list of possible title screens to rotate through, as file path texts.
 	var/title_screens = list()
 
-	/// average realtime seconds it takes to load the map we're currently running
-	var/average_completion_time = DEFAULT_TITLE_MAP_LOADTIME
-	/// a given startup message => average timestamp in realtime seconds
-	var/list/startup_message_timings = list()
-	/// Raw data to update later
-	var/list/progress_json = list()
-	/// The reference realtime that we're treating as 0 for this run
-	var/progress_reference_time = 0
+	var/expected_startup_messages = 0
+	var/received_startup_messages = 0
 
 /datum/controller/subsystem/title/Initialize()
 	var/dat
@@ -48,9 +42,7 @@ SUBSYSTEM_DEF(title)
 			ASSERT(fexists(file_path))
 			startup_splash = new(fcopy_rsc(file_path))
 
-	// Progress stuff
-	check_progress_reference_time()
-	load_progress_json()
+	expected_startup_messages = round(length(Master.subsystems) / 2) // halve the ceiling number since not all have an init message
 
 	if(startup_splash)
 		change_title_screen(startup_splash)
@@ -66,67 +58,6 @@ SUBSYSTEM_DEF(title)
 
 	return SS_INIT_SUCCESS
 
-/**
- * Make sure reference time is set up. If not, this is now time 0.
- */
-/datum/controller/subsystem/title/proc/check_progress_reference_time()
-	if(!progress_reference_time)
-		progress_reference_time = world.timeofday
-
-/**
- * Handle and clean up leaving startup
- */
-/datum/controller/subsystem/title/proc/check_finish_progress()
-	//It's the first time we're firing out of startup -> pregame
-	if(progress_json && SSticker.current_state == GAME_STATE_PREGAME)
-		save_progress_json()
-
-/**
- * Load the progress info json and setup that part of the SS.
-*/
-/datum/controller/subsystem/title/proc/load_progress_json()
-	var/json_file = file(TITLE_PROGRESS_CACHE_FILE)
-	if(!fexists(json_file))
-		return
-
-	// Load map progress cache info
-	progress_json = json_decode(file2text(json_file))
-
-	// Different format. Purge everything.
-	if(progress_json["_version"] != TITLE_PROGRESS_CACHE_VERSION)
-		progress_json.Cut()
-		return
-
-	// If there's no info about the current map, use the defaults.
-	var/list/map_info = progress_json[SSmapping.current_map.map_name]
-	if(!islist(map_info))
-		return
-
-	// Get expected total time and subpart time
-	average_completion_time = map_info["total"] || DEFAULT_TITLE_MAP_LOADTIME
-	startup_message_timings = map_info["messages"] || list()
-
-/datum/controller/subsystem/title/proc/save_progress_json()
-	var/json_file = file(TITLE_PROGRESS_CACHE_FILE)
-	var/list/map_info = list()
-
-	progress_json["_version"] = TITLE_PROGRESS_CACHE_VERSION
-
-	if(progress_json[SSmapping.current_map.map_name])
-		// Save total time and updated message timings. Latest time is worth 1/4 the "average"
-		map_info["total"] = 0.75 * average_completion_time + 0.25 * (world.timeofday - progress_reference_time)
-	else
-		// New. Just save the time it took.
-		map_info["total"] = world.timeofday - progress_reference_time
-	map_info["messages"] = startup_message_timings
-	progress_json[SSmapping.current_map.map_name] = map_info
-
-	fdel(json_file)
-	WRITE_FILE(json_file, json_encode(progress_json))
-
-	// We're done, don't touch it again this round.
-	progress_json = null
-
 /datum/controller/subsystem/title/Recover()
 	startup_splash = SStitle.startup_splash
 	file_path = SStitle.file_path
@@ -136,10 +67,8 @@ SUBSYSTEM_DEF(title)
 	title_html = SStitle.title_html
 	title_screens = SStitle.title_screens
 
-	average_completion_time = SStitle.average_completion_time
-	startup_message_timings = SStitle.startup_message_timings
-	progress_json = SStitle.progress_json
-	progress_reference_time = SStitle.progress_reference_time
+	expected_startup_messages = SStitle.expected_startup_messages
+	received_startup_messages = SStitle.received_startup_messages
 
 /datum/controller/subsystem/title/fire(resumed)
 	update_tv_info()
@@ -183,7 +112,6 @@ SUBSYSTEM_DEF(title)
 		else
 			current_title_screen = DEFAULT_TITLE_SCREEN_IMAGE
 
-	check_finish_progress()
 	show_title_screen()
 
 /**
@@ -206,33 +134,16 @@ SUBSYSTEM_DEF(title)
  * * warning - optional: TRUE to indicate this is an error/warning
  */
 /proc/add_startup_message(msg, warning)
-	// Remove the # second(s) / #s part of the message.
-	var/static/regex/msg_key_regex = new(@"[0-9.]+( second)?s?!", "ig")
-
 	// HTML displayed to user
 	var/msg_html = {"<p class="terminal_text">[warning ? "☒ " : ""][msg]</p>"}
-	// Key used to cache the timing info
-	var/msg_key = msg_key_regex.Replace(msg, "#")
 
 	GLOB.startup_messages += msg_html
 
-	// If we ran before SStitle initialized, set the ref time now.
-	SStitle.check_progress_reference_time()
-
-	// Add or update message history info.
-	var/old_timing = SStitle.startup_message_timings[msg_key]
-	var/new_timing
-	if(!old_timing)
-		// new message
-		new_timing = world.timeofday - SStitle.progress_reference_time
-	else
-		// old message. Latest time is worth 1/4 the "average"
-		new_timing = 0.75 * old_timing + 0.25 * (world.timeofday - SStitle.progress_reference_time)
-	SStitle.startup_message_timings[msg_key] = new_timing
+	SStitle.received_startup_messages = min(SStitle.received_startup_messages + 1, SStitle.expected_startup_messages)
 
 	for(var/mob/dead/new_player/new_player in GLOB.new_player_list)
 		if(!new_player.title_screen_is_ready)
 			continue
 
 		new_player.client << output(msg_html, "tfn_title_browser:append_terminal_text")
-		new_player.client << output(list2params(list(new_timing, SStitle.average_completion_time)), "tfn_title_browser:update_loading_progress")
+		new_player.client << output(list2params(list(SStitle.received_startup_messages, SStitle.expected_startup_messages)), "tfn_title_browser:update_loading_progress")
