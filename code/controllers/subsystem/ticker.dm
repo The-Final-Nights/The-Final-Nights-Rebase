@@ -149,6 +149,10 @@ SUBSYSTEM_DEF(ticker)
 			for(var/channel_tag in CONFIG_GET(str_list/channel_announce_new_game))
 				send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.current_map.map_name]!"), channel_tag)
 			current_state = GAME_STATE_PREGAME
+			// TFN EDIT ADD START - lobby screen 2.0
+			SStitle.change_title_screen()
+			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS)
+			// TFN EDIT ADD END
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
 
 			fire()
@@ -497,8 +501,13 @@ SUBSYSTEM_DEF(ticker)
 			GLOB.joined_player_list += player.ckey
 			var/atom/destination = player.mind.assigned_role.get_roundstart_spawn_point()
 			if(!destination) // Failed to fetch a proper roundstart location, won't be going anywhere.
+				player.show_title_screen() // TFN EDIT ADD - lobby screen 2.0
 				continue
 			player.create_character(destination)
+		// TFN EDIT ADD START - lobby screen 2.0
+		else
+			player.show_title_screen()
+		// TFN EDIT ADD END
 		CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/collect_minds()

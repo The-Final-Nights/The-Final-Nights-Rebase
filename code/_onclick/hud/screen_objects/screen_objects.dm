@@ -1040,6 +1040,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen) // I hate this place
 	if(!visible)
 		alpha = 0
 
+	// TFN EDIT REMOVAL START - lobby screen 2.0
+	/*
 	if(!use_previous_title)
 		if(SStitle.icon)
 			icon = SStitle.icon
@@ -1047,6 +1049,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen) // I hate this place
 		if(!SStitle.previous_icon)
 			return INITIALIZE_HINT_QDEL
 		icon = SStitle.previous_icon
+	*/
+	// TFN EDIT REMOVAL END
 
 	holder.screen += src
 

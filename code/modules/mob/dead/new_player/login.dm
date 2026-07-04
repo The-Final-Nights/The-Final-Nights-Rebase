@@ -45,6 +45,8 @@
 	if(!client) // client disconnected during asset transit
 		return FALSE
 
+	show_title_screen() // TFN EDIT - lobby screen 2.0
+
 	// The parent call for Login() may do a bunch of stuff, like add verbs.
 	// Delaying the register_for_interview until the very end makes sure it can clean everything up
 	// and set the player's client up for interview.

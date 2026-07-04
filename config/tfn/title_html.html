@@ -1,0 +1,355 @@
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      body,
+      html {
+        margin: 0;
+        overflow: hidden;
+        text-align: center;
+        background-color: black;
+        padding-top: 5vmin;
+        -ms-user-select: none;
+        cursor: default;
+      }
+
+      img {
+        border-style: none;
+      }
+
+      .bg {
+        position: absolute;
+        width: auto;
+        height: 100vmin;
+        min-width: 100vmin;
+        min-height: 100vmin;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        image-rendering: pixelated;
+      }
+
+      .container_terminal {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 7vmin);
+        overflow: clip;
+        box-sizing: border-box;
+        padding: 3vmin 2vmin;
+        top: 0%;
+        left: 0%;
+        z-index: 1;
+      }
+
+      .terminal_text {
+        display: inline-block;
+        font-weight: lighter;
+        text-decoration: none;
+        width: 100%;
+        text-align: right;
+        color: green;
+        text-shadow: 1px 1px black;
+        margin-right: 0%;
+        margin-top: 0px;
+        font-size: 2vmin;
+        line-height: 1vmin;
+        letter-spacing: 1px;
+      }
+
+      .container_progress {
+        position: absolute;
+        box-sizing: border-box;
+        bottom: 3vmin;
+        left: 2vmin;
+        height: 4vmin;
+        width: calc(100% - 4vmin);
+        border-left: 2px solid green;
+        border-right: 2px solid green;
+        padding: 4px;
+        background-color: black;
+      }
+
+      .progress_bar {
+        width: 0%;
+        height: 100%;
+        background-color: green;
+      }
+
+      @keyframes fade_out {
+        to {
+          opacity: 0;
+        }
+      }
+
+      .fade_out {
+        animation: fade_out 2s both;
+      }
+
+      .container_title {
+        position: absolute;
+        box-sizing: border-box;
+        width: 100%;
+        top: 12vmin;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 1;
+        text-align: center;
+      }
+
+      .title_wrap {
+        position: relative;
+        display: inline-block;
+      }
+
+      #main-title {
+        display: inline-block;
+        font-family: "Cinzel Decorative", cursive;
+        font-size: clamp(1.75rem, 5.5vw, 6rem);
+        color: #8b0000;
+        white-space: nowrap;
+        letter-spacing: 0;
+        position: relative;
+        text-shadow:
+          -1px -1px 2px rgba(0, 0, 0, 0.2),
+          1px -1px 2px rgba(0, 0, 0, 0.2),
+          -1px 1px 2px rgba(0, 0, 0, 0.2),
+          1px 1px 2px rgba(0, 0, 0, 0.2),
+          4px 4px 5px rgba(0, 0, 0, 0.5),
+          10px 2px 5px rgba(0, 0, 0, 0.8);
+        animation: pulseOutline 5s infinite ease-in-out;
+      }
+
+      @keyframes pulseOutline {
+        0%,
+        100% {
+          text-shadow:
+            -1px -1px 2px rgba(0, 0, 0, 0.2),
+            1px -1px 2px rgba(0, 0, 0, 0.2),
+            -1px 1px 2px rgba(0, 0, 0, 0.2),
+            1px 1px 2px rgba(0, 0, 0, 0.2),
+            4px 4px 5px rgba(0, 0, 0, 0.5),
+            10px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+        50% {
+          text-shadow:
+            -1px -1px 2px rgba(0, 0, 0, 0.2),
+            1px -1px 2px rgba(0, 0, 0, 0.2),
+            -1px 1px 2px rgba(0, 0, 0, 0.2),
+            1px 1px 2px rgba(0, 0, 0, 0.2),
+            4px 4px 5px rgba(0, 0, 0, 0.5),
+            12px 4px 8px rgba(0, 0, 0, 0.8);
+        }
+      }
+
+      .letter-span {
+        opacity: 0;
+        display: inline-block;
+        animation: fadeInLetter 3s forwards;
+        letter-spacing: 0.25em;
+      }
+
+      .letter-span.space-span {
+        letter-spacing: 0;
+        width: 1em;
+      }
+
+      .letter-span:has(+ .space-span) {
+        letter-spacing: 0;
+      }
+
+      @keyframes fadeInLetter {
+        to {
+          opacity: 1;
+        }
+      }
+
+      #main-title.glitching {
+        animation: glitchEffect 0.4s linear;
+      }
+
+      @keyframes glitchEffect {
+        0%,
+        100% {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+        20% {
+          transform: translate(3vmin, -2vmin);
+          opacity: 0;
+        }
+        40% {
+          transform: translate(-2.5vmin, 2.5vmin);
+          opacity: 1;
+        }
+        60% {
+          transform: translate(2vmin, 1.5vmin);
+          opacity: 0;
+        }
+        80% {
+          transform: translate(-1.5vmin, -1vmin);
+          opacity: 1;
+        }
+      }
+
+      #subtitle {
+        position: absolute;
+        bottom: -1.5em;
+        right: -6em;
+        transform-origin: left top;
+        text-align: center;
+        color: #ff0;
+        white-space: nowrap;
+        font-family: "Press Start 2P", monospace;
+        text-shadow:
+          1px 1px 0 #2a2a2a,
+          2px 2px 0 #1a1a1a,
+          3px 3px 0 #0a0a0a,
+          4px 4px 0 #000000;
+        text-transform: uppercase;
+        font-size: clamp(0.5rem, 1.25vw, 1.25rem);
+        animation: subtitle 0.25s alternate infinite;
+      }
+
+      @keyframes subtitle {
+        0% {
+          transform: rotate(-20deg) scale(0.875);
+        }
+        100% {
+          transform: rotate(-20deg) scale(1);
+        }
+      }
+
+      .container_nav {
+        position: absolute;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 1vmin;
+        width: 75vmin;
+        min-height: 10vmin;
+
+        top: calc(50% + 11.25vmin);
+        left: 8vmin;
+        transform: translateY(-50%);
+
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.25);
+        padding: 1.5vmin 2vmin;
+        border-radius: 4px;
+      }
+
+      .menu_button {
+        display: block;
+        box-sizing: border-box;
+        font-family: "Cinzel Decorative", serif;
+        text-decoration: none;
+        font-size: 3vmin;
+        line-height: 4vmin;
+        width: 100%;
+        text-align: left;
+        color: white;
+        height: 3vmin;
+        letter-spacing: 1px;
+        cursor: pointer;
+        white-space: nowrap;
+        text-transform: lowercase;
+      }
+
+      .menu_button:hover {
+        padding-left: 0px;
+        color: rgb(255, 0, 0);
+      }
+
+      .menu_button:hover::before {
+        content: "☞";
+        text-align: center;
+        width: 5vmin;
+        display: inline-block;
+      }
+
+      .menu_button:active {
+        padding-left: 0px;
+        transform: translate(2px, 2px);
+      }
+
+      @keyframes pollsbox {
+        0% {
+          color: #cde;
+        }
+        50% {
+          color: #f80;
+        }
+      }
+
+      .menu_newpoll {
+        animation: pollsbox 2s step-start infinite;
+        padding-left: 0px;
+      }
+
+      .menu_newpoll::before {
+        content: "→";
+        text-align: center;
+        width: 5vmin;
+        display: inline-block;
+      }
+
+      .menu_newpoll::after {
+        content: "←";
+        text-align: center;
+        width: 5vmin;
+        display: inline-block;
+      }
+
+      .container_notice {
+        position: absolute;
+        box-sizing: border-box;
+        width: auto;
+        padding-top: 1vmin;
+        top: calc(50% - 10vmin);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+
+      .menu_notice {
+        display: inline-block;
+        font-family: "Cinzel Decorative", serif;
+        font-weight: lighter;
+        text-decoration: none;
+        width: 100%;
+        text-align: left;
+        color: red;
+        text-shadow:
+          1px 0px black,
+          -1px 0px black,
+          0px 1px black,
+          0px -1px black,
+          2px 0px black,
+          -2px 0px black,
+          0px 2px black,
+          0px -2px black;
+        margin-right: 0%;
+        margin-top: 0px;
+        font-size: 3vmin;
+        line-height: 2vmin;
+      }
+
+      .unchecked {
+        color: #f44;
+      }
+
+      .checked {
+        color: #4f4;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

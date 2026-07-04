@@ -67,6 +67,7 @@
 
 INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 
+/* // TFN REMOVAL START
 /turf/closed/indestructible/splashscreen/Initialize(mapload)
 	. = ..()
 	SStitle.splash_turf = src
@@ -94,6 +95,7 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 /turf/closed/indestructible/splashscreen/examine()
 	desc = pick(strings(SPLASH_FILE, "splashes"))
 	return ..()
+*/ // TFN REMOVAL END
 
 /turf/closed/indestructible/reinforced
 	name = "reinforced wall"

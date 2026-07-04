@@ -546,6 +546,11 @@ SUBSYSTEM_DEF(dynamic)
 
 	queued_rulesets += new ruleset_typepath(dynamic_config)
 
+	// TFN EDIT ADD START - lobby screen 2.0
+	if(SSticker.current_state > GAME_STATE_SETTING_UP)
+		SStitle.show_title_screen()
+	// TFN EDIT ADD END
+
 /**
  * Unqueues a ruleset because it has executed
  */
@@ -554,6 +559,11 @@ SUBSYSTEM_DEF(dynamic)
 		CRASH("queue_ruleset() was called with an invalid type: [ruleset.type]")
 
 	queued_rulesets -= ruleset
+
+	// TFN EDIT ADD START - lobby screen 2.0
+	if(SSticker.current_state > GAME_STATE_SETTING_UP)
+		SStitle.show_title_screen()
+	// TFN EDIT ADD END
 
 /**
  * Get the cooldown between attempts to spawn a ruleset of the given type

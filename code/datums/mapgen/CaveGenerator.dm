@@ -169,7 +169,7 @@
 			new_turf.turf_flags |= NO_RUINS
 
 	var/message = "[name] terrain generation finished in [(REALTIMEOFDAY - start_time)/10]s!"
-	to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
+	add_startup_message(message) // TFN EDIT CHANGE - lobby screen 2.0 - ORIGINAL: to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
 	log_world(message)
 
 
@@ -259,7 +259,7 @@
 		area_list[generate_in] = generated_turfs
 
 	var/message = "[name] terrain generation finished in [(REALTIMEOFDAY - start_time)/10]s!"
-	to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
+	add_startup_message(message) // TFN EDIT CHANGE - lobby screen 2.0 - ORIGINAL: to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
 	log_world(message)
 
 /// Returns a biome datum that the turf was initialized with, or would be if it is present on our Z level and we use a consistent shared seed
@@ -385,7 +385,7 @@
 			megas_allowed = megas_allowed && length(megafauna_spawn_list)
 
 	var/message = "[name] terrain population finished in [(REALTIMEOFDAY - start_time)/10]s!"
-	to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
+	add_startup_message(message) // TFN EDIT CHANGE - lobby screen 2.0 - ORIGINAL: to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
 	log_world(message)
 
 /**
@@ -407,7 +407,7 @@
 	// No sense in doing anything here if nothing is allowed anyway.
 	if(!flora_allowed && !features_allowed && !fauna_allowed)
 		var/message = "[name] terrain population finished in [(REALTIMEOFDAY - start_time)/10]s!"
-		to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
+		add_startup_message(message) // TFN EDIT CHANGE - lobby screen 2.0 - ORIGINAL: to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
 		log_world(message)
 		return
 
@@ -419,7 +419,7 @@
 		CHECK_TICK
 
 	var/message = "[name] terrain population finished in [(REALTIMEOFDAY - start_time)/10]s!"
-	to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
+	add_startup_message(message) // TFN EDIT CHANGE - lobby screen 2.0 - ORIGINAL: to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
 	log_world(message)
 
 

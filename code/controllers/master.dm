@@ -334,7 +334,7 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	init_stage_completed = 0
 	var/mc_started = FALSE
 
-	to_chat(world, span_boldannounce("Initializing subsystems..."), MESSAGE_TYPE_DEBUG)
+	add_startup_message("Initializing subsystems...") // TFN EDIT CHANGE - lobby screen 2.0 - ORIGINAL: to_chat(world, span_boldannounce("Initializing subsystems..."), MESSAGE_TYPE_DEBUG)
 
 	var/list/stage_sorted_subsystems = new(INITSTAGE_MAX)
 	for (var/i in 1 to INITSTAGE_MAX)
@@ -451,6 +451,7 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 				SetRunLevel(1) // Intentionally not using the defines here because the MC doesn't care about them
 			// Loop.
 			Master.StartProcessing(0)
+			add_startup_message("Clearing clutter...") // TFN EDIT ADD - lobby screen 2.0
 
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
@@ -548,10 +549,12 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 			chat_warning = TRUE
 
 	var/message = "[message_prefix] [seconds] second[seconds == 1 ? "" : "s"]!"
-	var/chat_message = chat_warning ? span_boldwarning(message) : span_boldannounce(message)
+	// TFN EDIT REMOVAL START - lobby screen 2.0
+	// var/chat_message = chat_warning ? span_boldwarning(message) : span_boldannounce(message)
+	// TFN EDIT REMOVAL END
 
 	if(result != SS_INIT_NO_MESSAGE)
-		to_chat(world, chat_message, MESSAGE_TYPE_DEBUG)
+		add_startup_message(message, chat_warning) // TFN EDIT CHANGE - lobby screen 2.0 - ORIGINAL: to_chat(world, chat_message, MESSAGE_TYPE_DEBUG)
 	log_world(message)
 
 /datum/controller/master/proc/SetRunLevel(new_runlevel)

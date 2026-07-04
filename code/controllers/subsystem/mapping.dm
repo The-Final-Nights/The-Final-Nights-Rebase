@@ -434,7 +434,7 @@ Used by the AI doomsday and the self-destruct nuke.
 		if (!pm.load(x_offset, y_offset, start_z + parsed_maps[P], no_changeturf = TRUE, new_z = TRUE))
 			errorList |= pm.original_path
 	if(!silent)
-		INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!")
+		add_startup_message("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!") // TFN EDIT CHANGE - lobby screen 2.0 - ORIGINAL: INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!")
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/loadWorld()
@@ -446,7 +446,7 @@ Used by the AI doomsday and the self-destruct nuke.
 
 	// load the station
 	station_start = world.maxz + 1
-	INIT_ANNOUNCE("Loading [current_map.map_name]...")
+	add_startup_message("Loading [current_map.map_name]...") // TFN EDIT CHANGE - lobby screen 2.0 - ORIGINAL: INIT_ANNOUNCE("Loading [current_map.map_name]...")
 	LoadGroup(FailedZs, "City", current_map.map_path, current_map.map_file, current_map.traits, ZTRAITS_STATION, height_autosetup = current_map.height_autosetup) // DARKPACK EDIT CHANGE
 
 	if(SSdbcore.Connect())
