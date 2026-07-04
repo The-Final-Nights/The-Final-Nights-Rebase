@@ -242,6 +242,13 @@
 		GLOB.move_manager.stop_looping(src)
 		walktarget = null
 
+	if(prob(5))
+		var/datum/status_effect/inebriated/inebriation = has_status_effect(/datum/status_effect/inebriated)
+		if(inebriation)
+			inebriation.set_drunk_value(200)
+		else
+			apply_status_effect(/datum/status_effect/inebriated/tipsy, 200)
+
 	. = ..()
 
 /mob/living/carbon/human/npc/grabbedby(mob/living/carbon/user, supress_message = FALSE)
