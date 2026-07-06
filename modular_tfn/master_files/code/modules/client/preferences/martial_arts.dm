@@ -1,13 +1,14 @@
 /datum/preference/choiced/martial_arts_choice
-    category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-    savefile_identifier = PREFERENCE_CHARACTER
-    savefile_key = "martial_arts_choice"
-    can_randomize = FALSE
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "martial_arts_choice"
+	can_randomize = FALSE
+	must_be_accessible = TRUE
 
 /datum/preference/choiced/martial_arts_choice/init_possible_values(datum/preferences/preferences)
 	return list(
 		"None",
-        MARTIALART_DARKPACK_CQB,
+		MARTIALART_DARKPACK_CQB,
 		MARTIALART_DARKPACK_KUNGFU,
 		MARTIALART_DARKPACK_BOXING,
 	)
