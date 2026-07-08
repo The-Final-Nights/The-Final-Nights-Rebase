@@ -30,7 +30,7 @@
 	ambient_buzz_vol = 30
 
 /area/vtm/outside/baywalk
-	ambient_buzz = 'modular_tfn/modules/ambience/sound/ocean/surf_lite_loop.ogg'
+	ambient_buzz = 'modular_tfn/modules/ambience/sound/city/downtown_main.ogg'
 	ambient_buzz_vol = 30
 	max_ambience_cooldown = 10 SECONDS
 
