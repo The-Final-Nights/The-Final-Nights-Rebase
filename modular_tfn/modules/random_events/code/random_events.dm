@@ -7,14 +7,7 @@ SUBSYSTEM_DEF(tfnevents)
 	var/next_event = 0
 	var/frequency_lower = 20 MINUTES
 	var/frequency_upper = 120 MINUTES
-	var/list/power_outage_pool = list(
-		/area/vtm/interior/police,
-		/area/vtm/interior/jazzclub,
-		/area/vtm/interior/museum,
-		/area/vtm/interior/bianchiBank,
-		/area/vtm/interior/clinic,
-		/area/vtm/interior/techshop
-	)
+
 
 /datum/controller/subsystem/tfnevents/Initialize()
 	reschedule()
@@ -24,7 +17,6 @@ SUBSYSTEM_DEF(tfnevents)
 	if(world.time < next_event)
 		return
 	var/list/events = list(
-		PROC_REF(run_power_outage_event),
 		PROC_REF(run_turfwar_event),
 		PROC_REF(run_spider_event),
 	)
@@ -34,30 +26,6 @@ SUBSYSTEM_DEF(tfnevents)
 
 /datum/controller/subsystem/tfnevents/proc/reschedule()
 	next_event = world.time + rand(frequency_lower, frequency_upper)
-
-/datum/controller/subsystem/tfnevents/proc/run_power_outage_event()
-	if(!length(power_outage_pool))
-		return
-
-	var/target_area_type = pick(power_outage_pool)
-	power_outage_pool -= target_area_type
-	var/area/target_area = locate(target_area_type)
-	if(!target_area)
-		return
-
-	var/list/blown = list()
-	for(var/obj/fusebox/box in target_area)
-		if(box.damaged > 100) // dont doubly blow the thing if its already blown from say, the faulty grid event
-			continue
-		box.damaged = 150
-		box.power_off()
-		blown += box
-
-	if(!length(blown))
-		message_admins("ERROR: Power outage event called but [target_area.name] had no fuseboxes. Tell Nimi.")
-		return
-	message_admins("EVENT: The power outage event triggered in [target_area.name].")
-	endpost_announce("Reports of power outages in [target_area.name]. Bring wirecutters if you want to help.", "SF Grid Watchers")
 
 /datum/controller/subsystem/tfnevents/proc/run_turfwar_event()
 	if(length(GLOB.living_turfwar_npcs))
