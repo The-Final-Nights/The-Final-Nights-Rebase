@@ -34,11 +34,6 @@
 	ambient_buzz_vol = 30
 	max_ambience_cooldown = 10 SECONDS
 
-/area/vtm/outside/baywalk/Exited(atom/movable/AM, area/new_area)
-	. = ..()
-	if(ismob(AM))
-		stop_ocean_ambience(AM)
-
 /area/vtm/outside/northbeach
 	ambient_buzz = 'modular_tfn/modules/ambience/sound/ocean/surf_lite_loop.ogg'
 	ambient_buzz_vol = 30
