@@ -106,10 +106,18 @@
 	if (fire_stacks >= 1)
 		INVOKE_ASYNC(src, PROC_REF(execute_resist))
 
+	// TFN EDIT ADD START - the npc dancing update
+	if(dance_center && !danger_source && !dancing && get_dist(src, dance_center) <= 1)
+		INVOKE_ASYNC(src, PROC_REF(do_npc_dance))
+	if(dance_center && get_dist(src, dance_center) <= 1)
+		return
+	// TFN EDIT ADD END
 	if (staying)
 		return
 	if (!walktarget)
 		walktarget = ChoosePath()
+	if(walktarget)
+		EVLOG_PATH(src, EVLOG_CATEGORY_MOVELOOPS, "Set walktarget: [walktarget]", list(loc, get_turf(walktarget)))
 	if (loc == tupik_loc)
 		tupik_steps += 1
 	else
@@ -126,7 +134,10 @@
 		return
 	if (observed_by_player())
 		return
-	forceMove(get_turf(walktarget))
+	var/turf/old_loc = loc
+	var/turf/new_loc = get_turf(walktarget)
+	forceMove(new_loc)
+	EVLOG_PATH(src, EVLOG_CATEGORY_MOVELOOPS, "Teleported using evil russian shitcode", list(old_loc, new_loc))
 
 /mob/living/carbon/human/npc/proc/CreateWay(direction)
 	var/turf/location = get_turf(src)

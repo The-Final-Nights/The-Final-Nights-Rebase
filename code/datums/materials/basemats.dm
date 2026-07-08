@@ -136,6 +136,13 @@
 	points_per_boulder_unit = 4 / SHEET_MATERIAL_AMOUNT
 	texture_layer_icon_state = "shine"
 
+//TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
+/obj/item/stack/sheet/mineral/gold/Initialize(mapload)
+	. = ..()
+	if(!GetComponent(/datum/component/selling))
+		AddComponent(/datum/component/selling, 100, "precious_metals", FALSE)
+//TFN EDIT END - Making items that used to be sellable on prebase sellable again
+
 /datum/material/gold/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
 	. = ..()
 	if(!HAS_TRAIT(victim, TRAIT_ROCK_EATER))
@@ -168,6 +175,13 @@
 	mineral_rarity = MATERIAL_RARITY_RARE
 	points_per_unit = 50 / SHEET_MATERIAL_AMOUNT
 	points_per_boulder_unit = 10 / SHEET_MATERIAL_AMOUNT
+
+//TFN EDIT ADDITION - Making items that used to be sellable on prebase sellable again
+/obj/item/stack/sheet/mineral/diamond/Initialize(mapload)
+	. = ..()
+	// check if it's a named unique diamond
+	AddComponent(/datum/component/selling, 1000, "precious_gems", FALSE)
+//TFN EDIT END - Making items that used to be sellable on prebase sellable again
 
 /datum/material/diamond/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
 	. = ..()
