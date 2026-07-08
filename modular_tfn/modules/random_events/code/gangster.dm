@@ -4,14 +4,127 @@
 #define FACTION_GANGSTER_B "gangster_b"
 GLOBAL_LIST_EMPTY(living_turfwar_npcs)
 
+/datum/round_event_control/darkpack/turf_war
+	name = "Turf War"
+	typepath = /datum/round_event/turf_war
+	weight = 6
+	min_players = 5
+	max_occurrences = 3
+	earliest_start = 10 MINUTES
+	category = EVENT_CATEGORY_INVASION
+	description = "Two gangs have begun fighting for turf in the city!"
+	darkpack_allowed = TRUE
+
+/datum/round_event_control/darkpack/turf_war/can_spawn_event(players_amt, allow_magic)
+	if(!..())
+		return FALSE
+
+	var/found_a = FALSE
+	var/found_b = FALSE
+	for(var/obj/effect/landmark/event_spawn/gangster_spawn/L in GLOB.generic_event_spawns)
+		if(istype(L, /obj/effect/landmark/event_spawn/gangster_spawn/a))
+			found_a = TRUE
+		else if(istype(L, /obj/effect/landmark/event_spawn/gangster_spawn/b))
+			found_b = TRUE
+		if(found_a && found_b)
+			break
+
+	if(!found_a || !found_b) // these are message_admins because its not a critical enough issue that gangsters arent murdering each other or power grids failing to warrant runtimes
+		message_admins("ERROR: Turfwar event called but gangster spawn landmarks are missing.")
+		return FALSE
+
+	var/found_defend_area = FALSE
+	for(var/obj/effect/landmark/gangster_defend_area/D in GLOB.landmarks_list)
+		found_defend_area = TRUE
+		break
+
+	if(!found_defend_area)
+		message_admins("ERROR: Turfwar event called but no gangster defend area landmark is present.")
+		return FALSE
+
+
+	return TRUE
+
+/datum/round_event/turf_war
+	start_when = 1
+	announce_when = 5
+	var/list/gang_names = list(
+		"Three Fifths",
+		"The Boulevards",
+		"Bay Bikers",
+		"Bay Area 13",
+		"Red 7",
+		"Baywalk Club",
+		"Jets",
+		"Bluejays",
+		"Terror Time",
+		"Factory 13",
+		"Bay Block Warehouse",
+	)
+	var/list/warning = list("Watch out bay area", "BREAKING", "CRIME WATCH", "Holy shit", "Wow")
+	var/list/random_description = list("declared war on", "is beefing with", "said they are going to kill", "publicly declared their intent to wipe out", "is squaring up with")
+	var/list/spawns_a = list()
+	var/list/spawns_b = list()
+	var/chosen_gang_a_name
+	var/chosen_gang_b_name
+	var/chosen_warning
+
+/datum/round_event/turf_war/announce(fake)
+	endpost_announce("[pick(warning)], [chosen_gang_a_name] [pick(random_description)] [chosen_gang_b_name].", pick("friedman1990", "mel0nman","y3ll0wgl0v3s","d3bofn1ght"))
+
+/datum/round_event/turf_war/setup()
+	. = ..()
+	chosen_gang_a_name = pick(gang_names)
+	chosen_gang_b_name = pick(gang_names - chosen_gang_a_name)
+
+	for(var/obj/effect/landmark/event_spawn/gangster_spawn/L in GLOB.generic_event_spawns)
+		if(istype(L, /obj/effect/landmark/event_spawn/gangster_spawn/a))
+			spawns_a += L
+		else if(istype(L, /obj/effect/landmark/event_spawn/gangster_spawn/b))
+			spawns_b += L
+
+/datum/round_event/turf_war/start()
+	if(length(GLOB.living_turfwar_npcs))
+		return
+
+	var/a_count = rand(4, 8)
+	for(var/i in 1 to a_count)
+		var/obj/effect/landmark/event_spawn/gangster_spawn/a/entry_point = pick(spawns_a)
+		var/mob/living/basic/trooper/gangster/spawned
+		if(prob(15))
+			spawned = new /mob/living/basic/trooper/gangster/ranged(entry_point.loc)
+		else
+			spawned = new /mob/living/basic/trooper/gangster/melee(entry_point.loc)
+		spawned.name = "[chosen_gang_a_name] [pick("Thug", "Gangster", "Bruiser", "Recruit")]"
+		SSpoints_of_interest.make_point_of_interest(spawned)
+
+	var/b_count = rand(4, 8)
+	for(var/i in 1 to b_count)
+		var/obj/effect/landmark/event_spawn/gangster_spawn/b/entry_point = pick(spawns_b)
+		var/mob/living/basic/trooper/gangster/rival_spawned
+		if(prob(15))
+			rival_spawned = new /mob/living/basic/trooper/gangster/ranged/rival(entry_point.loc)
+		else
+			rival_spawned = new /mob/living/basic/trooper/gangster/melee/rival(entry_point.loc)
+		rival_spawned.name = "[chosen_gang_b_name] [pick("Thug", "Gangster", "Bruiser", "Recruit")]"
+		SSpoints_of_interest.make_point_of_interest(rival_spawned)
+	message_admins("EVENT: The turfwar event triggered.")
+
+
+
+
+
+
+
+
 // turf war event where two sets of NPC gangsters fight it out over a landmark
 /obj/effect/landmark/gangster_defend_area
 	name = "turfwar marker"
 
-/obj/effect/landmark/gangster_spawn/a
+/obj/effect/landmark/event_spawn/gangster_spawn/a
 	name = "gangster spawn (A)"
 
-/obj/effect/landmark/gangster_spawn/b
+/obj/effect/landmark/event_spawn/gangster_spawn/b
 	name = "gangster spawn (B)"
 
 /datum/outfit/gangster_a
@@ -81,11 +194,16 @@ GLOBAL_LIST_EMPTY(living_turfwar_npcs)
 	)
 
 /mob/living/basic/trooper/gangster/proc/find_defend_spot()
-	var/patrol_area = rand(4, 8) // how close theyll get to the actual landmark before they start npc wandering
+	var/patrol_area = rand(4, 8)
+	var/obj/effect/landmark/gangster_defend_area/closest_spot
+	var/closest_distance = INFINITY
 	for(var/obj/effect/landmark/gangster_defend_area/spot in GLOB.landmarks_list)
 		var/distance = get_dist(src, spot)
-		if(distance > patrol_area) // when they spawn, they run over to it until they're somewhere between 4-8 tiles away from the landmark
-			ai_controller.set_blackboard_key(BB_GANGSTER_DEFEND_SPOT, spot)
+		if(distance < closest_distance)
+			closest_distance = distance
+			closest_spot = spot
+	if(closest_spot && closest_distance > patrol_area)
+		ai_controller.set_blackboard_key(BB_GANGSTER_DEFEND_SPOT, closest_spot)
 
 /mob/living/basic/trooper/gangster
 	name = "Gangster"

@@ -17,7 +17,6 @@ SUBSYSTEM_DEF(tfnevents)
 	if(world.time < next_event)
 		return
 	var/list/events = list(
-		PROC_REF(run_turfwar_event),
 		PROC_REF(run_spider_event),
 	)
 	call(src, pick(events))()
@@ -26,63 +25,6 @@ SUBSYSTEM_DEF(tfnevents)
 
 /datum/controller/subsystem/tfnevents/proc/reschedule()
 	next_event = world.time + rand(frequency_lower, frequency_upper)
-
-/datum/controller/subsystem/tfnevents/proc/run_turfwar_event()
-	if(length(GLOB.living_turfwar_npcs))
-		return
-	var/list/spawns_a = list()
-	var/list/spawns_b = list()
-	var/list/gang_names = list(
-		"Three Fifths",
-		"The Boulevards",
-		"Bay Bikers",
-		"Bay Area 13",
-		"Red 7",
-		"Baywalk Club",
-		"Jets",
-		"Bluejays",
-		"Terror Time",
-		"Factory 13",
-		"Bay Block Warehouse",
-	)
-	var/list/warning = list("Watch out bay area", "BREAKING", "CRIME WATCH", "Holy shit", "Wow")
-	var/list/random_description = list("declared war on", "is beefing with", "said they are going to kill", "publicly declared their intent to wipe out", "is squaring up with")
-	for(var/obj/effect/landmark/L in GLOB.landmarks_list)
-		if(istype(L, /obj/effect/landmark/gangster_spawn/a))
-			spawns_a += L
-		else if(istype(L, /obj/effect/landmark/gangster_spawn/b))
-			spawns_b += L
-
-	if(!length(spawns_a) || !length(spawns_b)) // these are message_admins because its not a critical enough issue that gangsters arent murdering each other or power grids failing to warrant runtimes
-		message_admins("ERROR: Turfwar event called but gangster spawn landmarks are missing.")
-		return
-
-	var/gang_a_name = pick(gang_names)
-	var/gang_b_name = pick(gang_names - gang_a_name)
-
-	var/a_count = rand(4, 8)
-	for(var/i in 1 to a_count)
-		var/obj/effect/landmark/gangster_spawn/a/entry_point = pick(spawns_a)
-		var/mob/living/basic/trooper/gangster/spawned
-		if(prob(15))
-			spawned = new /mob/living/basic/trooper/gangster/ranged(entry_point.loc)
-		else
-			spawned = new /mob/living/basic/trooper/gangster/melee(entry_point.loc)
-		spawned.name = "[gang_a_name] [pick("Thug", "Gangster", "Bruiser", "Recruit")]"
-		SSpoints_of_interest.make_point_of_interest(spawned)
-
-	var/b_count = rand(4, 8)
-	for(var/i in 1 to b_count)
-		var/obj/effect/landmark/gangster_spawn/b/entry_point = pick(spawns_b)
-		var/mob/living/basic/trooper/gangster/rival_spawned
-		if(prob(15))
-			rival_spawned = new /mob/living/basic/trooper/gangster/ranged/rival(entry_point.loc)
-		else
-			rival_spawned = new /mob/living/basic/trooper/gangster/melee/rival(entry_point.loc)
-		rival_spawned.name = "[gang_b_name] [pick("Thug", "Gangster", "Bruiser", "Recruit")]"
-		SSpoints_of_interest.make_point_of_interest(rival_spawned)
-	message_admins("EVENT: The turfwar event triggered.")
-	endpost_announce("[pick(warning)], [gang_a_name] [pick(random_description)] [gang_b_name].", pick("friedman1990", "mel0nman","y3ll0wgl0v3s","d3bofn1ght"))
 
 // currently uncapped
 /datum/controller/subsystem/tfnevents/proc/run_spider_event()
