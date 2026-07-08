@@ -87,7 +87,7 @@ SUBSYSTEM_DEF(title)
 	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
 		return
 
-	var/tv_params = list2params(list(LAZYLEN(GLOB.clients), LAZYLEN(GLOB.player_list), round_timestamp()))
+	var/tv_params = list2params(list(LAZYLEN(GLOB.clients), LAZYLEN(GLOB.alive_player_list), round_timestamp()))
 	for(var/mob/dead/new_player/new_player as anything in GLOB.new_player_list)
 		if(!new_player.title_screen_is_ready || isnull(new_player.client) || new_player.client.interviewee)
 			continue
