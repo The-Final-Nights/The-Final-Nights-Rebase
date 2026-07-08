@@ -423,8 +423,31 @@
         pointer-events: none;
       }
 
-      .tv_frame {
+      .tv_crt {
+        position: absolute;
+        top: 5.06vmin;
+        left: 0.94vmin;
+        right: 5.44vmin;
+        bottom: 2.81vmin;
         z-index: 2;
+        pointer-events: none;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 0.1875vmin,
+            rgba(0, 0, 0, 0.2) 0.1875vmin,
+            rgba(0, 0, 0, 0.2) 0.375vmin
+          ),
+          radial-gradient(
+            ellipse at center,
+            transparent 55%,
+            rgba(0, 0, 0, 0.45) 100%
+          );
+      }
+
+      .tv_frame {
+        z-index: 3;
       }
     </style>
   </head>
