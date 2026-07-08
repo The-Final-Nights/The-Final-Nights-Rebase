@@ -3327,6 +3327,7 @@
 /area/vtm/interior/jazzclub)
 "aTe" = (
 /obj/item/kirbyplants/darkpack/random,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/evergreen)
 "aTi" = (
@@ -9654,9 +9655,7 @@
 	pixel_y = 13
 	},
 /obj/structure/table,
-/obj/structure/fluff/tv{
-	pixel_y = 29
-	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/carpet/black,
 /area/vtm/interior/nosferatu_office)
 "cpC" = (
@@ -10749,6 +10748,7 @@
 	pixel_y = 14
 	},
 /obj/structure/platform/lowwall/market,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/city/plating,
 /area/vtm/interior/setite)
 "cEq" = (
@@ -12312,6 +12312,7 @@
 /obj/structure/table/wood,
 /obj/structure/platform/lowwall/rich/old,
 /obj/structure/sink/basin/directional/south,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/tzimisce_manor)
 "daw" = (
@@ -17488,6 +17489,7 @@
 	dir = 2;
 	color = "#6d281e"
 	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/mall)
 "ekP" = (
@@ -22035,6 +22037,7 @@
 /area/vtm/interior/baali)
 "foT" = (
 /obj/structure/chair/darkpack/red,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/city/industrial,
 /area/vtm/interior/mall)
 "foU" = (
@@ -23582,6 +23585,7 @@
 	dir = 4;
 	color = "#5aa2fa"
 	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/strip)
 "fIa" = (
@@ -23744,6 +23748,12 @@
 	},
 /turf/open/floor/wood/ornate,
 /area/vtm/interior/millennium_tower/f3)
+"fKE" = (
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
+/turf/open/floor/plating/rough/cave{
+	icon_state = "stone8"
+	},
+/area/vtm/interior/sewer/nosferatu_warren)
 "fKL" = (
 /obj/effect/decal/wallpaper/paper,
 /obj/effect/decal/wallpaper/papers/eight{
@@ -31230,6 +31240,11 @@
 	},
 /turf/open/floor/plating/rough,
 /area/vtm/interior/clinic)
+"hDa" = (
+/mob/living/carbon/human/npc/guard,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
+/turf/open/floor/city/plating_stone,
+/area/vtm/interior/bianchiBank)
 "hDi" = (
 /obj/structure/bed/maint{
 	pixel_y = 2
@@ -36344,6 +36359,17 @@
 	},
 /turf/open/water/acid,
 /area/vtm/interior/endron_facility/plant)
+"iOO" = (
+/obj/structure/vampipe{
+	icon_state = "piping31"
+	},
+/obj/structure/vampipe{
+	icon_state = "piping4";
+	pixel_y = 32
+	},
+/obj/effect/realistic_fog/dense,
+/turf/open/water/vamp_sewer/border,
+/area/vtm/interior/sewer)
 "iOY" = (
 /obj/effect/turf_decal/bordur/corner,
 /obj/effect/decal/cleanable/litter,
@@ -40476,7 +40502,6 @@
 /area/vtm/interior/fightclub)
 "jQy" = (
 /obj/structure/closet/crate/freezer/blood,
-/obj/effect/turf_decal/weather/snow/corner,
 /obj/item/reagent_containers/blood/random,
 /obj/item/reagent_containers/blood/random,
 /obj/item/reagent_containers/blood/random,
@@ -46996,6 +47021,7 @@
 /obj/item/organ/lungs,
 /obj/item/organ/stomach,
 /obj/item/organ/stomach,
+/obj/effect/turf_decal/weather/snow/corner,
 /turf/open/floor/iron/freezer,
 /area/vtm/interior/clinic)
 "luB" = (
@@ -48871,6 +48897,7 @@
 /obj/structure/chair/sofa/corp/right{
 	color = "#CD5C5C"
 	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
 "lTI" = (
@@ -64536,7 +64563,7 @@
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/hotel)
 "pAA" = (
-/obj/structure/detectiveboard/directional/north,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/clinic/haven)
 "pAB" = (
@@ -68430,10 +68457,7 @@
 	icon_state = "tv_off";
 	pixel_y = 13
 	},
-/obj/structure/fluff/tv{
-	icon_state = "tv_analog";
-	pixel_y = 29
-	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/plating/rough{
 	icon_state = "carpet_black"
 	},
@@ -75390,13 +75414,11 @@
 /obj/effect/turf_decal/siding/grey{
 	dir = 4
 	},
-/obj/structure/sign/painting/library{
-	pixel_y = 32
-	},
 /obj/structure/chair/sofa/left/brown{
 	color = "#3c5a82";
 	dir = 4
 	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/clinic)
 "smM" = (
@@ -76882,6 +76904,12 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/apartment/pacific)
+"sDh" = (
+/obj/structure/table/wood,
+/obj/structure/platform/lowwall/bar,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
+/turf/open/floor/plating/rough,
+/area/vtm/interior/anarch)
 "sDi" = (
 /obj/structure/railing/corner,
 /turf/open/floor/plating/sidewalk/poor,
@@ -97008,6 +97036,7 @@
 /obj/item/pen{
 	pixel_y = 8
 	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/city/plating,
 /area/vtm/interior/magadon_facility)
 "xyP" = (
@@ -108723,7 +108752,7 @@ isY
 isY
 isY
 isY
-fUN
+fKE
 cOH
 tls
 amf
@@ -134107,7 +134136,7 @@ rzU
 uad
 svO
 uad
-vAM
+uad
 elG
 elG
 elG
@@ -134310,8 +134339,8 @@ cXv
 kpw
 kpw
 kpw
+kpw
 uad
-vAM
 elG
 vPf
 qEY
@@ -134515,7 +134544,7 @@ xAi
 uad
 kpw
 uad
-vAM
+uad
 elG
 gxE
 qEY
@@ -137169,7 +137198,7 @@ uvs
 uvs
 uvs
 tuX
-yiI
+iOO
 tuX
 uvs
 uvs
@@ -145083,7 +145112,7 @@ iQQ
 dSH
 dSH
 kBM
-dpa
+sDh
 dpa
 dpa
 ivd
@@ -177873,7 +177902,7 @@ oAD
 oAD
 oAD
 tIJ
-kPG
+hDa
 mkv
 mkv
 mkv
