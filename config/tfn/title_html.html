@@ -449,6 +449,25 @@
       .tv_frame {
         z-index: 3;
       }
+
+      .tv_music_wrap {
+        overflow: hidden;
+        width: 16vmin;
+        margin-left: 1vmin;
+        text-align: left;
+      }
+
+      #tv_music {
+        display: inline-block;
+        white-space: nowrap;
+        padding-left: 100%;
+        animation: tv_marquee 14s linear infinite;
+      }
+
+      @keyframes tv_marquee {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+      }
     </style>
   </head>
   <body></body>

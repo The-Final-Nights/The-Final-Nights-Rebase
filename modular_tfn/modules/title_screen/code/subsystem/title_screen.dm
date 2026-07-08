@@ -17,6 +17,7 @@ SUBSYSTEM_DEF(title)
 
 	var/expected_startup_messages = 0
 	var/received_startup_messages = 0
+	var/display_music = null
 
 /datum/controller/subsystem/title/Initialize()
 	var/dat
@@ -69,6 +70,7 @@ SUBSYSTEM_DEF(title)
 
 	expected_startup_messages = SStitle.expected_startup_messages
 	received_startup_messages = SStitle.received_startup_messages
+	display_music = SStitle.display_music
 
 /datum/controller/subsystem/title/fire(resumed)
 	update_tv_info()
@@ -86,8 +88,14 @@ SUBSYSTEM_DEF(title)
 /datum/controller/subsystem/title/proc/update_tv_info()
 	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
 		return
-
-	var/tv_params = list2params(list(LAZYLEN(GLOB.clients), LAZYLEN(GLOB.alive_player_list), round_timestamp()))
+	if(isnull(display_music) && SSticker.login_music)
+		var/list/path_parts = splittext(SSticker.login_music, "/")
+		var/filename = path_parts[LAZYLEN(path_parts)]
+		var/list/name_parts = splittext(filename, ".")
+		if(LAZYLEN(name_parts) > 1)
+			name_parts.Cut(LAZYLEN(name_parts))
+		display_music = jointext(name_parts, ".")
+	var/tv_params = list2params(list(LAZYLEN(GLOB.clients), LAZYLEN(GLOB.alive_player_list), round_timestamp(), display_music || ""))
 	for(var/mob/dead/new_player/new_player as anything in GLOB.new_player_list)
 		if(!new_player.title_screen_is_ready || isnull(new_player.client) || new_player.client.interviewee)
 			continue

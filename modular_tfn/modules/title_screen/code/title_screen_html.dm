@@ -60,13 +60,16 @@ GLOBAL_LIST_EMPTY(startup_messages)
 	else
 		dat += {"<img src="loading_screen.png" class="bg" alt="">"}
 
+		var/display_music = SStitle.display_music || ""
+
 		dat += {"
 			<div class="container_tv">
 				<img src="tv_on.png" class="tv_screen" alt="">
 				<div class="tv_text">
 					<span id="tv_active">[LAZYLEN(GLOB.clients)] logged in</span>
-					<span id="tv_spawned">[LAZYLEN(GLOB.alive_player_list) > 0 ? "[LAZYLEN(GLOB.alive_player_list)] in the city" : ""]</span>
+					<span id="tv_spawned">[LAZYLEN(GLOB.alive_player_list) > 20 ? "[LAZYLEN(GLOB.alive_player_list)] in the city" : ""]</span>
 					<span id="tv_timer">[round_timestamp()]</span>
+					<div class="tv_music_wrap"><span id="tv_music">[display_music ? "♪ [display_music] ♪" : ""]</span></div>
 				</div>
 				<div class="tv_crt"></div>
 				<img src="tv_base.png" class="tv_frame" alt="">
@@ -138,10 +141,12 @@ GLOBAL_LIST_EMPTY(startup_messages)
 			var tv_active = document.getElementById("tv_active");
 			var tv_spawned = document.getElementById("tv_spawned");
 			var tv_timer = document.getElementById("tv_timer");
-			function update_tv_info(active, spawned, timer) {
+			var tv_music = document.getElementById("tv_music");
+			function update_tv_info(active, spawned, timer, music) {
 				tv_active.textContent = active + " logged in";
-				tv_spawned.textContent = spawned > 0 ? spawned + " in the city" : "";
+				tv_spawned.textContent = spawned > 20 ? spawned + " in the city" : "";
 				tv_timer.textContent = timer;
+				tv_music.textContent = music ? "♪ " + music : "";
 			}
 
 			function append_terminal_text() {}
