@@ -1084,7 +1084,7 @@
 /datum/greyscale_config/faceplate_eyes
 	name = "Faceplate Mask"
 	json_config = 'code/datums/greyscale/json_configs/faceplate_eyes.json'
-	icon_file = 'modular_tfn/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+	icon_file = 'modular_tfn/modules/clothes/icons/clothing/greyscale.dmi'
 
 /datum/greyscale_config/faceplate_eyes/worn
 	name = "Faceplate Mask (Worn)"
@@ -1094,7 +1094,7 @@
 /datum/greyscale_config/faceplate
 	name = "Faceplate Mask"
 	json_config = 'code/datums/greyscale/json_configs/faceplate.json'
-	icon_file = 'modular_tfn/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+	icon_file = 'modular_tfn/modules/clothes/icons/clothing/greyscale.dmi'
 
 /datum/greyscale_config/faceplate/worn
 	name = "Faceplate Mask (Worn)"
