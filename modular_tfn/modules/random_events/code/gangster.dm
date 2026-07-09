@@ -68,6 +68,7 @@ GLOBAL_LIST_EMPTY(living_turfwar_npcs)
 	var/chosen_gang_a_name
 	var/chosen_gang_b_name
 	var/chosen_warning
+	var/obj/effect/landmark/gangster_defend_area/chosen_defend_spot
 
 /datum/round_event/turf_war/announce(fake)
 	endpost_announce("[pick(warning)], [chosen_gang_a_name] [pick(random_description)] [chosen_gang_b_name].", pick("friedman1990", "mel0nman","y3ll0wgl0v3s","d3bofn1ght"))
@@ -76,6 +77,12 @@ GLOBAL_LIST_EMPTY(living_turfwar_npcs)
 	. = ..()
 	chosen_gang_a_name = pick(gang_names)
 	chosen_gang_b_name = pick(gang_names - chosen_gang_a_name)
+
+	var/list/defend_spots = list()
+	for(var/obj/effect/landmark/gangster_defend_area/D in GLOB.landmarks_list)
+		defend_spots += D
+	if(length(defend_spots))
+		chosen_defend_spot = pick(defend_spots)
 
 	for(var/obj/effect/landmark/event_spawn/gangster_spawn/L in GLOB.generic_event_spawns)
 		if(istype(L, /obj/effect/landmark/event_spawn/gangster_spawn/a))
@@ -96,6 +103,7 @@ GLOBAL_LIST_EMPTY(living_turfwar_npcs)
 		else
 			spawned = new /mob/living/basic/trooper/gangster/melee(entry_point.loc)
 		spawned.name = "[chosen_gang_a_name] [pick("Thug", "Gangster", "Bruiser", "Recruit")]"
+		spawned.set_defend_spot(chosen_defend_spot)
 		SSpoints_of_interest.make_point_of_interest(spawned)
 
 	var/b_count = rand(4, 8)
@@ -107,6 +115,7 @@ GLOBAL_LIST_EMPTY(living_turfwar_npcs)
 		else
 			rival_spawned = new /mob/living/basic/trooper/gangster/melee/rival(entry_point.loc)
 		rival_spawned.name = "[chosen_gang_b_name] [pick("Thug", "Gangster", "Bruiser", "Recruit")]"
+		rival_spawned.set_defend_spot(chosen_defend_spot)
 		SSpoints_of_interest.make_point_of_interest(rival_spawned)
 	message_admins("EVENT: The turfwar event triggered.")
 
@@ -193,17 +202,12 @@ GLOBAL_LIST_EMPTY(living_turfwar_npcs)
 		/datum/ai_planning_subtree/travel_to_point/and_clear_target,
 	)
 
-/mob/living/basic/trooper/gangster/proc/find_defend_spot()
-	var/patrol_area = rand(4, 8)
-	var/obj/effect/landmark/gangster_defend_area/closest_spot
-	var/closest_distance = INFINITY
-	for(var/obj/effect/landmark/gangster_defend_area/spot in GLOB.landmarks_list)
-		var/distance = get_dist(src, spot)
-		if(distance < closest_distance)
-			closest_distance = distance
-			closest_spot = spot
-	if(closest_spot && closest_distance > patrol_area)
-		ai_controller.set_blackboard_key(BB_GANGSTER_DEFEND_SPOT, closest_spot)
+/mob/living/basic/trooper/gangster/proc/set_defend_spot(obj/effect/landmark/gangster_defend_area/spot)
+	if(!spot || !ai_controller)
+		return
+	var/patrol_area = rand(4, 8) // how close theyll get to the actual landmark before they start npc wandering
+	if(get_dist(src, spot) > patrol_area)
+		ai_controller.set_blackboard_key(BB_GANGSTER_DEFEND_SPOT, spot)
 
 /mob/living/basic/trooper/gangster
 	name = "Gangster"
@@ -215,7 +219,6 @@ GLOBAL_LIST_EMPTY(living_turfwar_npcs)
 /mob/living/basic/trooper/gangster/Initialize(mapload)
 	. = ..()
 	GLOB.living_turfwar_npcs += src
-	find_defend_spot()
 
 /mob/living/basic/trooper/gangster/Destroy()
 	GLOB.living_turfwar_npcs -= src

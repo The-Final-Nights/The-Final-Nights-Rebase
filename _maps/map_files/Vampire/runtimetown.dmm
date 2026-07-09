@@ -209,10 +209,6 @@
 /obj/structure/table/countertop/red,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
-"ez" = (
-/obj/effect/landmark/event_spawn/gangster_spawn/a,
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/pacificheights)
 "eG" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/plating/rough,
@@ -304,6 +300,10 @@
 "gF" = (
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
+"gL" = (
+/obj/effect/landmark/gangster_defend_area,
+/turf/open/floor/plating/sidewalk/rich,
+/area/vtm/outside/pacificheights)
 "gN" = (
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/shop)
@@ -670,6 +670,13 @@
 	},
 /turf/open/floor/plating/canal,
 /area/vtm/interior/techshop)
+"mf" = (
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/obj/effect/landmark/event_spawn/gangster_spawn/a,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/pacificheights)
 "mn" = (
 /obj/structure/barrels/rand,
 /turf/open/misc/dirt,
@@ -762,6 +769,10 @@
 "ok" = (
 /obj/effect/decal/cleanable/litter,
 /turf/open/misc/beach/vamp,
+/area/vtm/outside/pacificheights)
+"ol" = (
+/obj/effect/landmark/event_spawn/gangster_spawn/a,
+/turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
 "op" = (
 /obj/machinery/door/poddoor/shutters{
@@ -1206,13 +1217,6 @@
 	},
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/shop)
-"uW" = (
-/obj/effect/turf_decal/bordur{
-	dir = 1
-	},
-/obj/effect/landmark/event_spawn/gangster_spawn/a,
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/pacificheights)
 "uX" = (
 /obj/effect/landmark/navigate_destination,
 /turf/open/floor/plating/rough,
@@ -1318,6 +1322,10 @@
 	},
 /turf/open/misc/dirt/rails,
 /area/vtm/outside/supply)
+"wo" = (
+/obj/effect/landmark/gangster_defend_area,
+/turf/open/floor/plating/asphalt,
+/area/vtm/outside/pacificheights)
 "wr" = (
 /obj/structure/table/wood,
 /obj/item/occult_artifact/vampire/odious_chalice{
@@ -1330,6 +1338,10 @@
 	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/sewer)
+"wz" = (
+/obj/effect/landmark/event_spawn/gangster_spawn/b,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/pacificheights)
 "wO" = (
 /obj/effect/decal/cleanable/trash,
 /turf/open/misc/beach/vamp,
@@ -2199,7 +2211,6 @@
 /obj/effect/turf_decal/bordur{
 	dir = 8
 	},
-/obj/effect/landmark/gangster_defend_area,
 /turf/open/floor/plating/sidewalk,
 /area/vtm/outside/pacificheights)
 "Kk" = (
@@ -2467,11 +2478,6 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/plating/elevatorshaft,
 /area/vtm/outside/pacificheights)
-"Ng" = (
-/obj/effect/turf_decal/bordur,
-/obj/effect/landmark/event_spawn/gangster_spawn/b,
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/pacificheights)
 "Nm" = (
 /obj/machinery/button/elevator/directional/north{
 	id = "DebugElevator";
@@ -2706,10 +2712,6 @@
 /obj/structure/table/countertop/black,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/shop)
-"Qx" = (
-/obj/effect/landmark/gangster_defend_area,
-/turf/open/floor/plating/asphalt,
-/area/vtm/outside/pacificheights)
 "QD" = (
 /obj/machinery/light/directional/north,
 /obj/effect/decal/cleanable/trash,
@@ -2732,10 +2734,6 @@
 /obj/effect/decal/cleanable/litter,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/sewer)
-"QQ" = (
-/obj/effect/landmark/event_spawn/gangster_spawn/b,
-/turf/open/floor/plating/sidewalk,
-/area/vtm/outside/pacificheights)
 "QR" = (
 /obj/machinery/elevator_control_panel/directional/north{
 	linked_elevator_id = "DebugElevator";
@@ -3060,6 +3058,11 @@
 /obj/vampire_computer,
 /turf/open/floor/plating/rough,
 /area/vtm/interior/techshop)
+"Ww" = (
+/obj/effect/turf_decal/bordur,
+/obj/effect/landmark/event_spawn/gangster_spawn/b,
+/turf/open/floor/plating/sidewalk,
+/area/vtm/outside/pacificheights)
 "Wy" = (
 /obj/structure/retail/grocery_store,
 /obj/structure/table/countertop/green,
@@ -8988,7 +8991,7 @@ eQ
 eQ
 eQ
 eQ
-Ng
+Ww
 ik
 ik
 ik
@@ -9635,7 +9638,7 @@ GJ
 GJ
 MS
 eQ
-QQ
+wz
 eQ
 eQ
 eQ
@@ -9995,14 +9998,14 @@ Ys
 Ys
 Ys
 eR
-cf
+gL
 ty
 ik
 ik
 VQ
 ik
 ik
-Qx
+wo
 ik
 XM
 Ys
@@ -11271,7 +11274,7 @@ eQ
 eQ
 eQ
 eQ
-ez
+ol
 eQ
 eQ
 Hd
@@ -11498,7 +11501,7 @@ ik
 VQ
 ik
 ik
-uW
+mf
 eQ
 XM
 Ys
