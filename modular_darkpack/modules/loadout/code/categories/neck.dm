@@ -23,3 +23,4 @@
 /datum/loadout_item/neck/prayer_beads
 	name = "Prayer Beads"
 	item_path = /obj/item/clothing/neck/vampire/prayerbeads
+

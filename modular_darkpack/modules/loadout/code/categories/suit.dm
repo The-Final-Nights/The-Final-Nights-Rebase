@@ -152,3 +152,4 @@
 /datum/loadout_item/suit/robes/blue
 	name = "Robes (Blue)"
 	item_path = /obj/item/clothing/suit/hooded/robes/blue
+

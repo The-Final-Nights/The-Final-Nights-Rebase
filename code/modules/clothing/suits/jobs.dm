@@ -324,7 +324,7 @@
 	body_parts_covered = CHEST|ARMS
 
 /obj/item/clothing/suit/jacket/hos/blue
-	name = "head of security's jacket"
+	name = "formal parade blazer (royal blue)" //TFN EDIT CHANGE - ORIGINAL: name = "head of security's jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
 	icon_state = "hosbluejacket"
 	inhand_icon_state = null

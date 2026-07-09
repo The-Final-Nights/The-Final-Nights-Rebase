@@ -119,13 +119,13 @@
 	wound = 5
 
 /obj/item/clothing/head/hats/caphat/parade
-	name = "captain's parade cap"
-	desc = "Worn only by Captains with an abundance of class."
+	name = "parade cap (royal blue)" //TFN EDIT CHANGE - ORIGINAL: name = "captain's parade cap"
+	desc = "Worn only by those with an abundance of class." //TFN EDIT CHANGE - ORIGINAL: desc = "Worn only by Captains with an abundance of class."
 	icon_state = "capcap"
 	dog_fashion = null
 
 /obj/item/clothing/head/hats/caphat/bicorne
-	name = "captain's bicorne"
+	name = "royal bicorne" //TFN EDIT CHANGE - ORIGINAL: name = "captain's bicorne"
 	desc = "Why be king when you can be Emperor?"
 	icon_state = "capbicorne"
 	dog_fashion = null

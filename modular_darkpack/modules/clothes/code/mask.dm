@@ -93,3 +93,4 @@
 	name = "scary mask"
 	desc = "Do you like scary movies?"
 	icon_state = "chaser"
+

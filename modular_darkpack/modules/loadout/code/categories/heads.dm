@@ -108,3 +108,4 @@
 
 /datum/loadout_item/head/beret
 	item_path = /obj/item/clothing/head/beret
+

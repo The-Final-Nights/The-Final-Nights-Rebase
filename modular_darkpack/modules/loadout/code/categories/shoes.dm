@@ -62,3 +62,5 @@
 
 /datum/loadout_item/shoes/pumped
 	item_path = /obj/item/clothing/shoes/vampire/pumped
+
+
