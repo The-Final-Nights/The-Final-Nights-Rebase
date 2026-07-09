@@ -1,4 +1,3 @@
-
 /obj/item/clothing/head/cowboy/fancy
 	name = "COWBOY HAT DEBUG"
 	desc = "REPORT THIS IF FOUND"

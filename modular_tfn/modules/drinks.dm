@@ -1,4 +1,3 @@
-
 /obj/item/reagent_containers/cup/glass/mug/gromitmug
 	name = "gromit mug"
 	desc = "It's my turn for breakfast this morning, Gromit."
