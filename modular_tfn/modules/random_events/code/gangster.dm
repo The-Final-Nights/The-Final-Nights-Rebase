@@ -13,7 +13,6 @@ GLOBAL_LIST_EMPTY(living_turfwar_npcs)
 	earliest_start = 10 MINUTES
 	category = EVENT_CATEGORY_INVASION
 	description = "Two gangs have begun fighting for turf in the city!"
-	darkpack_allowed = TRUE
 
 /datum/round_event_control/darkpack/turf_war/can_spawn_event(players_amt, allow_magic)
 	if(!..())
