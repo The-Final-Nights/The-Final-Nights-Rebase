@@ -351,6 +351,10 @@
 	},
 /turf/open/floor/carpet,
 /area/vtm/interior/banu/haven)
+"adZ" = (
+/obj/effect/turf_decal/bordur/corner,
+/turf/open/openspace,
+/area/vtm)
 "aec" = (
 /obj/effect/turf_decal/bordur,
 /obj/effect/landmark/npcbeacon,
@@ -2666,6 +2670,12 @@
 /obj/item/clothing/under/vampire/burlesque/daisyd,
 /turf/open/floor/city/factory,
 /area/vtm/interior/strip)
+"aJs" = (
+/obj/effect/turf_decal/bordur{
+	dir = 4
+	},
+/turf/open/openspace,
+/area/vtm)
 "aJy" = (
 /obj/structure/noticeboard/directional/north,
 /obj/structure/table,
@@ -12351,6 +12361,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/dirt,
 /area/vtm/interior/sewer)
+"dbt" = (
+/obj/effect/turf_decal/bordur/corner{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/vtm)
 "dbG" = (
 /obj/structure/hedge,
 /obj/structure/flora/bush/flowers_yw/style_random,
@@ -23342,6 +23358,12 @@
 /obj/effect/turf_decal/siding/wideplating/dark/corner,
 /turf/open/floor/wood/herring,
 /area/vtm/interior/giovanni)
+"fFt" = (
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/vtm)
 "fFw" = (
 /obj/effect/decal/wallpaper/grey,
 /turf/closed/wall/vampwall/rich/old,
@@ -31483,6 +31505,10 @@
 /obj/effect/landmark/npcwall,
 /turf/open/floor/plating/sidewalk/poor,
 /area/vtm/interior/ghetto)
+"hGn" = (
+/obj/effect/turf_decal/bordur,
+/turf/open/openspace,
+/area/vtm)
 "hGu" = (
 /obj/structure/closet/crate/dumpster,
 /obj/effect/decal/wallpaper/stone/low{
@@ -57022,6 +57048,15 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/city/toilet,
 /area/vtm/interior/clinic)
+"nPQ" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/bordur{
+	dir = 1
+	},
+/turf/open/floor/plating/roofwalk,
+/area/vtm)
 "nPR" = (
 /obj/effect/decal/cleanable/trash{
 	icon_state = "trash8"
@@ -71178,6 +71213,12 @@
 /obj/structure/flora/bush/ferny/style_random,
 /turf/open/misc/dirt,
 /area/vtm/outside/pacificheights)
+"riB" = (
+/obj/effect/turf_decal/bordur{
+	dir = 8
+	},
+/turf/open/openspace,
+/area/vtm)
 "riN" = (
 /obj/structure/railing{
 	dir = 4
@@ -92920,6 +92961,12 @@
 	},
 /turf/open/floor/city/toilet,
 /area/vtm/interior/clinic)
+"wzz" = (
+/obj/effect/turf_decal/bordur/corner{
+	dir = 8
+	},
+/turf/open/openspace,
+/area/vtm)
 "wzA" = (
 /obj/effect/decal/coastline{
 	dir = 10
@@ -99098,6 +99145,12 @@
 	icon_state = "stone8"
 	},
 /area/vtm/interior/sewer/nosferatu_warren)
+"xYk" = (
+/obj/effect/turf_decal/bordur/corner{
+	dir = 4
+	},
+/turf/open/openspace,
+/area/vtm)
 "xYv" = (
 /obj/structure/flora/bush/pointy/style_random,
 /turf/open/misc/grass,
@@ -259804,14 +259857,14 @@ ssj
 ssj
 ssj
 fup
-lMY
-rfu
-rfu
-rfu
-rfu
-rfu
-rfu
-vcO
+nPQ
+xEp
+xEp
+xEp
+xEp
+xEp
+xEp
+wmS
 mjT
 mjT
 mjT
@@ -260015,7 +260068,7 @@ xEp
 xEp
 xEp
 xEp
-xEp
+wmS
 mjT
 mjT
 mjT
@@ -260213,13 +260266,13 @@ ssj
 ssj
 ssj
 nyT
-mjT
-mjT
-mjT
-mjT
-mjT
-mjT
-xEp
+wzz
+riB
+riB
+riB
+riB
+adZ
+wmS
 mjT
 mjT
 mjT
@@ -260417,13 +260470,13 @@ ssj
 ssj
 ssj
 nyT
+fFt
 mjT
 mjT
 mjT
 mjT
-mjT
-mjT
-xEp
+hGn
+wmS
 mjT
 mjT
 mjT
@@ -260621,13 +260674,13 @@ ssj
 ssj
 fup
 nyT
+fFt
 mjT
 mjT
 mjT
 mjT
-mjT
-mjT
-xEp
+hGn
+wmS
 mjT
 mjT
 mjT
@@ -260825,13 +260878,13 @@ ssj
 ssj
 fup
 nyT
+fFt
 mjT
 mjT
 mjT
 mjT
-mjT
-mjT
-xEp
+hGn
+wmS
 mjT
 mjT
 mjT
@@ -261029,13 +261082,13 @@ ssj
 ssj
 fup
 nyT
-mjT
-mjT
-mjT
-mjT
-mjT
-mjT
-xEp
+dbt
+aJs
+aJs
+aJs
+aJs
+xYk
+wmS
 mjT
 mjT
 mjT
@@ -261232,14 +261285,14 @@ nMo
 nMo
 nMo
 nMo
-nyT
-xEp
-xEp
-xEp
-xEp
-xEp
-xEp
-xEp
+lMY
+rfu
+rfu
+rfu
+rfu
+rfu
+rfu
+vcO
 mjT
 mjT
 mjT
