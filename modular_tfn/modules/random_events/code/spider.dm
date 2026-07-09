@@ -1,5 +1,5 @@
 // spider infestation event where a nest of spiders emerges somewhere in the city! oh no!
-/obj/effect/landmark/spider_spawn
+/obj/effect/landmark/event_spawn/spider_spawn
 	name = "spider spawn"
 
 /mob/living/basic/spider/growing/young/event

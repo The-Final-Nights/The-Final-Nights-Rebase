@@ -119,13 +119,6 @@ GLOBAL_LIST_EMPTY(living_turfwar_npcs)
 		SSpoints_of_interest.make_point_of_interest(rival_spawned)
 	message_admins("EVENT: The turfwar event triggered.")
 
-
-
-
-
-
-
-
 // turf war event where two sets of NPC gangsters fight it out over a landmark
 /obj/effect/landmark/gangster_defend_area
 	name = "turfwar marker"
