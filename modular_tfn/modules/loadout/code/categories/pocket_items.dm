@@ -14,6 +14,6 @@
 	name = "Earmuffs"
 	item_path = /obj/item/clothing/ears/earmuffs
 
-/datum/loadout_item/pocket_items/drinks_food/gromitmug
+/datum/loadout_item/pocket_items/drinks_food
 	name = "Mug (Gromit)"
 	item_path = /obj/item/reagent_containers/cup/glass/mug/gromitmug
