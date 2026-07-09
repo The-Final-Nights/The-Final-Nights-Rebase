@@ -45,7 +45,7 @@
 	alternate_worn_layer = UNIFORM_LAYER
 	icon = 'icons/map_icons/clothing/mask.dmi'
 	worn_icon = 'modular_tfn/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
-	icon_state = "neck_gaiter"
+	icon_state = "gaiter"
 	post_init_icon_state = "gaiter"
 	inhand_icon_state = "balaclava"
 	greyscale_config = /datum/greyscale_config/neck_gaiter
