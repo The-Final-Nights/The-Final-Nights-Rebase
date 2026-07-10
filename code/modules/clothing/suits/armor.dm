@@ -151,8 +151,8 @@
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_ARMOR_RUSTLE, 8)
 
 /obj/item/clothing/suit/armor/hos
-	name = "leather greatcoat"
-	desc = "A greatcoat with protection and style - for those who want to exude a commanding presence." //TFN EDIT CHANGE - ORIGINAL: desc = "A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence."
+	name = "armored greatcoat"
+	desc = "A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence."
 	icon_state = "hos"
 	inhand_icon_state = "greatcoat"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
@@ -172,8 +172,8 @@
 	wound = 10
 
 /obj/item/clothing/suit/armor/hos/trenchcoat
-	name = "gilded trenchcoat" //Surprisingly, the armor values on this thing are around the same ballpark as our regular trenchcoats.
-	desc = "A trenchcoat enhanced with a golden trim and flak. The epitome of tactical plainclothes." //TFN EDIT CHANGE - ORIGINAL: desc = "A trenchcoat enhanced with a special lightweight kevlar. The epitome of tactical plainclothes."
+	name = "armored trenchcoat"
+	desc = "A trenchcoat enhanced with a special lightweight kevlar. The epitome of tactical plainclothes."
 	icon_state = "hostrench"
 	inhand_icon_state = "hostrench"
 	flags_inv = 0
@@ -186,7 +186,7 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 
 /obj/item/clothing/suit/armor/hos/hos_formal
-	name = "militant parade coat (crimson red)" //TFN EDIT CHANGE - ORIGINAL: name = "Head of Security's parade jacket"
+	name = "\improper Head of Security's parade jacket"
 	desc = "For when an armoured vest isn't fashionable enough."
 	icon_state = "hosformal"
 	inhand_icon_state = "hostrench"
@@ -241,8 +241,8 @@
 	wound = 5
 
 /obj/item/clothing/suit/armor/vest/leather
-	name = "tacticool overcoat" //TFN EDIT CHANGE - ORIGINAL: name = "security overcoat"
-	desc = "A lightly armored leather overcoat, for when a regular trenchcoat isn't edgy enough." //TFN EDIT CHANGE - ORIGINAL: desc = "Lightly armored leather overcoat meant as casual wear for high-ranking officers. Bears the crest of Nanotrasen Security."
+	name = "security overcoat"
+	desc = "Lightly armored leather overcoat meant as casual wear for high-ranking officers. Bears the crest of Nanotrasen Security."
 	icon_state = "leathercoat-sec"
 	inhand_icon_state = "hostrench"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
@@ -261,8 +261,8 @@
 	resistance_flags = FIRE_PROOF
 
 /datum/armor/vest_capcarapace
-	melee = 30 //TFN EDIT CHANGE - ORIGINAL: melee = 50
-	bullet = 30 //TFN EDIT CHANGE - ORIGINAL: bullet = 50
+	melee = 50
+	bullet = 40
 	laser = 50
 	energy = 50
 	bomb = 25
@@ -276,7 +276,7 @@
 	icon_state = "syndievest"
 
 /obj/item/clothing/suit/armor/vest/capcarapace/captains_formal
-	name = "militant parade coat (royal blue)" //TFN EDIT CHANGE - ORIGINAL: name = "captain's formal coat"
+	name = "captain's parade coat"
 	desc = "For when an armoured vest isn't fashionable enough."
 	icon_state = "capformal"
 	inhand_icon_state = null
@@ -308,13 +308,13 @@
 	AddComponent(/datum/component/item_equipped_movement_rustle)
 
 /datum/armor/armor_riot
-	melee = 75 // TFN EDIT CHANGE
-	bullet = 50 // TFN EDIT CHANGE
+	melee = 50
+	bullet = 10
 	laser = 10
 	energy = 10
 	fire = 80
 	acid = 80
-	wound = 30 // TFN EDIT CHANGE
+	wound = 20
 
 /obj/item/clothing/suit/armor/balloon_vest
 	name = "balloon vest"

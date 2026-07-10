@@ -189,23 +189,23 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/rank/security/head_of_security/parade
-	name = "parade uniform (crimson red)" //TFN EDIT CHANGE - ORIGINAL: name = "head of security's parade uniform"
-	desc = "A set of luxury-wear, for special occasions. This one comes in red." //TFN EDIT CHANGE - ORIGINAL: desc = "A male head of security's luxury-wear, for special occasions."
+	name = "head of security's parade uniform"
+	desc = "A male head of security's luxury-wear, for special occasions."
 	icon_state = "hos_parade_male"
 	inhand_icon_state = "r_suit"
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/security/head_of_security/parade/female
-	name = "parade uniform (crimson red)" //TFN EDIT CHANGE - ORIGINAL: name = "head of security's parade uniform"
-	desc = "A set of luxury-wear, for special occasions. This one comes in red." //TFN EDIT CHANGE - ORIGINAL: desc = "A female head of security's luxury-wear, for special occasions."
+	name = "head of security's parade uniform"
+	desc = "A female head of security's luxury-wear, for special occasions."
 	icon_state = "hos_parade_fem"
 	inhand_icon_state = "r_suit"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/security/head_of_security/formal
-	desc = "A navy-blue uniform suitable for formal occasions and ceremonial events." //TFN EDIT CHANGE - ORIGINAL: desc = "The insignia on this uniform tells you that this uniform belongs to the Head of Security."
-	name = "formal military uniform" //TFN EDIT CHANGE - ORIGINAL: name = "head of security's formal uniform"
+	desc = "The insignia on this uniform tells you that this uniform belongs to the Head of Security."
+	name = "head of security's formal uniform"
 	icon_state = "hosblueclothes"
 	inhand_icon_state = null
 	alt_covers_chest = TRUE

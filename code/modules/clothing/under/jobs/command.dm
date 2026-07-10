@@ -23,13 +23,13 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/rank/captain/parade
-	name = "parade uniform (royal blue)" //TFN EDIT CHANGE - ORIGINAL: 	name = "captain's parade uniform"
-	desc = "A set of luxury-wear clothes, for special occasions." //TFN EDIT CHANGE - ORIGINAL: desc = "A captain's luxury-wear, for special occasions."
+	name = "captain's parade uniform"
+	desc = "A captain's luxury-wear, for special occasions."
 	icon_state = "captain_parade"
 	inhand_icon_state = null
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/captain/royal
-	name = "tasseted noble uniform"
-	desc = "A royal uniform fit for a king. Practically made for commanding your men into battle." //TFN EDIT CHANGE - ORIGINAL: desc = "A captain's royal uniform. Fit for commanding your Officers in the midst of a nuclear incursion."
+	name = "captain's royal uniform"
+	desc = "A captain's royal uniform. Fit for commanding your Officers in the midst of a nuclear incursion."
 	icon_state = "caproyal"

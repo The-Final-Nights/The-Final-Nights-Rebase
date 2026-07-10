@@ -677,16 +677,16 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 
 /obj/item/clothing/suit/costume/tmc
-	name = "\improper bay bikers jacket" ///TFN EDIT
-	desc = "Making sure everyone knows you're in the best biker gang this side of San Francisco." //TFN EDIT
+	name = "\improper Lost M.C. cut"
+	desc = "Making sure everyone knows you're in the best biker gang this side of Alderney."
 	icon_state = "tmc_suit"
 	inhand_icon_state = null
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/costume/pg
-	name = "pacific gangster jacket" ///TFN EDIT
-	desc = "Gaudy leather jacket with flashy designs, perfect for poseurs looking to make a statement." //TFN EDIT
+	name = "powder ganger jacket"
+	desc = "Remind Security of their mistakes in giving prisoners blasting charges."
 	icon_state = "pg_suit"
 	inhand_icon_state = null
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
