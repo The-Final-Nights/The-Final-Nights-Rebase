@@ -44,7 +44,7 @@
 	wound = 30
 
 /obj/item/clothing/suit/armor/vest/capcarapace/captains_formal
-	name = "militant parade coat (royal blue)" //TFN EDIT CHANGE - ORIGINAL: name = "captain's formal coat"
+	name = "militant parade coat (royal blue)"
 	desc = "A formal parade coat for militant occasions, in an authoritative royal blue."
 
 //Costumes
