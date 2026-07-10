@@ -25,7 +25,7 @@
 	desc = "A lightly armored leather overcoat, for when a regular trenchcoat isn't edgy enough."
 
 /datum/armor/vest_capcarapace
-	melee = 30 //TFN EDIT CHANGE - ORIGINAL: melee = 50
+	melee = 30
 	bullet = 30 //TFN EDIT CHANGE - ORIGINAL: bullet = 40
 	laser = 50
 	energy = 50
