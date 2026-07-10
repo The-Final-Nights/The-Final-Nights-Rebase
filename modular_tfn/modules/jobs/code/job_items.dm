@@ -69,7 +69,7 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 	worn_icon_state = "grey_id"
-  
+
 /obj/item/card/red_news
 	name = "RED Network Reporter badge"
 	desc = "An ID showing employment with RED Network."
