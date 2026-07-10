@@ -1128,3 +1128,4 @@
 /datum/greyscale_config/wide_cape/worn
 	name = "Wide Cape (Worn)"
 	icon_file = 'modular_tfn/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+	// TFN EDIT END
