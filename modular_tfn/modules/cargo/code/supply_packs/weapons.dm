@@ -60,4 +60,3 @@
 		/obj/item/clothing/head/costume/ushanka,
 	)
 	crate_name = "armor crate"
-// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul
