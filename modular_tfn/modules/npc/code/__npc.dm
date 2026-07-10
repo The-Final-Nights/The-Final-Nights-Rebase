@@ -115,7 +115,7 @@
 	. = ..()
 	var/mob/living/carbon/human/entered_mob = astype(entered, /mob/living/carbon/human)
 	var/mob/living/carbon/human/npc/host_mob = astype(host, /mob/living/carbon/human/npc)
-	if(!entered_mob || !host_mob)
+	if(!entered_mob || !host_mob || !entered_mob.client || istype(entered_mob, /mob/living/carbon/human/npc))
 		return
 	var/severity = check_criminal_violation(entered_mob)
 	if(!severity)
