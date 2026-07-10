@@ -26,7 +26,7 @@
 
 /datum/armor/vest_capcarapace
 	melee = 30
-	bullet = 30 //TFN EDIT CHANGE - ORIGINAL: bullet = 40
+	bullet = 30
 	laser = 50
 	energy = 50
 	bomb = 25
