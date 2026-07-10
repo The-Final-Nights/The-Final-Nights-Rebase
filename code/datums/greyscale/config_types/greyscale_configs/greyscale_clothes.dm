@@ -1026,7 +1026,7 @@
 	name = "Maid Headband Inhands Right"
 	icon_file = 'icons/mob/inhands/clothing/hats_righthand.dmi'
 	json_config = 'code/datums/greyscale/json_configs/maid.json'
-
+// TFN EDIT ADD START - DRESS TO IMPRESS - Loadout and Fashion Overhaul
 /datum/greyscale_config/cowboy_wide
 	name = "Wide brimmed hat"
 	icon_file = 'modular_tfn/modules/clothes/icons/clothing/greyscale.dmi'
