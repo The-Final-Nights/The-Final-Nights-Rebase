@@ -18,3 +18,9 @@
 		LOCKACCESS_PENTEX_LEADER
 	)
 	color = "#800080"
+/obj/item/vamp/keys/rednews
+	name = "news station keys"
+	accesslocks = list(
+		LOCKACCESS_REDNEWS
+	)
+	color = "#e0dca5"
