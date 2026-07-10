@@ -60,6 +60,13 @@ JOB_START_HELPER(supply/tech, JOB_SUPPLY_TECH)
 	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
 //TFN ADDITION END - Setite Faction
 
+//TFN ADDITION START - Red News
+/obj/effect/landmark/start/darkpack/rednews
+	name = JOB_RED_NEWS
+	icon_state = JOB_RED_NEWS
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+//TFN ADDITION END - Red News
+
 /* Camarilla */
 /obj/effect/landmark/start/darkpack/camarilla
 	name = "generic camarilla start"
