@@ -28,7 +28,7 @@
 	suit = /obj/item/clothing/suit/vampire/trench
 	shoes = /obj/item/clothing/shoes/vampire
 	l_pocket = /obj/item/smartphone/giovanni_squadra
-	r_pocket = /obj/item/vamp/keys/giovanni
+	//r_pocket = /obj/item/vamp/keys/giovanni //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 	backpack_contents = list(/obj/item/card/credit/rich=1, /obj/item/ritual_tome/necromancy=1, /obj/item/vamp/keys/graveyard = 1)
 
 
