@@ -62,7 +62,13 @@
 		. += span_warning("[p_They()] smell[p_s()] like petrichor and freshly turned soil.<br>")
 
 	if((!is_eyes_covered()) && HAS_TRAIT(src, TRAIT_GLOWING_EYES))
-		. += span_warning("[p_Their()] eyes glow unnaturally!<br>")
+		// TFN EDIT START - glowing eyes only glow in the dark
+		var/turf/our_turf = get_turf(src)
+		var/light_amount = our_turf.get_lumcount()
+		if(light_amount < 0.2)
+			. += span_warning("[p_Their()] eyes glow unnaturally!<br>")
+		// TFN EDIT END
+
 
 	if(!(obscured_slots & HIDEFACE))
 		switch(st_get_stat(STAT_APPEARANCE))

@@ -11,6 +11,7 @@ However, you MUST constantly disguise your condition, and the glow impairs your 
 	mob_trait = TRAIT_GLOWING_EYES
 	allowed_splats = list(SPLAT_KINDRED)
 	excluded_clans = list(VAMPIRE_CLAN_KIASYD)// They already have masq violating eyes!
+	COOLDOWN_DECLARE(check_eye_glow) // TFN EDIT ADD - glowing eyes only glow in the dark
 
 /*You have the stereotypical glowing eyes of vampire
 legend, which gives you a -1 difficulty on Intimidation
@@ -29,7 +30,7 @@ dark.*/
 	if(!human_holder)
 		return
 	ADD_TRAIT(quirk_holder, TRAIT_LUMINESCENT_EYES, QUIRK_TRAIT)
-	ADD_TRAIT(quirk_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
+	//ADD_TRAIT(quirk_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT) // TFN EDIT REMOVAL - glowing eyes only glow in the dark
 	human_holder.st_add_stat_mod(STAT_PERCEPTION, -1, "Glowing Eyes") // I guess this works. what would count as a sight-based roll is beyond me rn
 	var/obj/item/clothing/glasses/vampire/sun/new_glasses = new(human_holder.loc) // Give them glasses so they aren't immediately breaching on spawn or anything
 	human_holder.equip_to_appropriate_slot(new_glasses, TRUE)
@@ -43,3 +44,20 @@ dark.*/
 	REMOVE_TRAIT(quirk_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
 	human_holder.st_remove_stat_mod(STAT_PERCEPTION, "Glowing Eyes")
 
+// TFN EDIT ADD START - glowing eyes only glow in the dark
+/datum/quirk/darkpack/glowing_eyes/process(seconds_per_tick)
+	if(quirk_holder.IsSleeping() || quirk_holder.IsUnconscious())
+		REMOVE_TRAIT(quirk_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
+		return
+	if(!COOLDOWN_FINISHED(src, check_eye_glow))
+		return
+	COOLDOWN_START(src, check_eye_glow, 5 SECONDS)
+	var/turf/holder_turf = get_turf(quirk_holder)
+	var/light_amount = holder_turf.get_lumcount()
+	if(light_amount < 0.2)
+		ADD_TRAIT(quirk_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
+		to_chat(quirk_holder, span_warning("debug: eyes glowing"))
+	else
+		REMOVE_TRAIT(quirk_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
+		to_chat(quirk_holder, span_warning("debug: eyes not glowing"))
+// TFN EDIT END
