@@ -5,4 +5,4 @@
 #define CRIME_EMERGENCY "Emergency Alarm"
 #define CRIME_ATM_TAMPERING "Atm Tampering"
 #define CRIME_BATTERY "Battery" // TFN ADDITION
-#define CRIME_OPEN_CARRYING "Open Carrying a Weapon"
+#define CRIME_OPEN_CARRYING "Open Carrying a Weapon" // TFN ADDITION
