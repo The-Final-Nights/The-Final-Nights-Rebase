@@ -18,6 +18,7 @@
 #define JOB_STREET_JANITOR "Street Janitor"
 #define JOB_CLUB_WORKER "Club Worker"
 #define JOB_JAZZ_CLUB_ASSOCIATE "Jazz Club Associate" //TFN EDIT ADDITION - Crown Blues Jazz Club Rework
+#define JOB_RED_NEWS "Red News Reporter" //TFN EDIT ADDITION - Red News
 #define JOB_TAXI_DRIVER "Taxi Driver"
 
 //Camarilla
@@ -209,6 +210,8 @@
 #define JOB_DISPLAY_ORDER_CONDOTTIERI 63 // TFN EDIT CHANGE - Original: #define JOB_DISPLAY_ORDER_CONDOTTIERI 56
 #define JOB_DISPLAY_ORDER_NOVICE 64 // TFN EDIT CHANGE - Original: #define JOB_DISPLAY_ORDER_NOVICE 57
 
+#define JOB_DISPLAY_ORDER_REDNEWS 65 //TFN EDIT ADDITION START - Red News
+
 //TFN EDIT ADDITION END - Setite Faction
 //////////////////////////////////////////////////
 
@@ -254,6 +257,10 @@
 #define DEPARTMENT_BITFLAG_JAZZ_CLUB (1<<18)
 #define DEPARTMENT_JAZZ_CLUB "Jazz_Club"
 // TFN EDIT ADD END - Jazz Club Jobs
+// TFN EDIT ADD - Red News
+#define DEPARTMENT_BITFLAG_RED_NEWS (1<<19)
+#define DEPARTMENT_RED_NEWS "Red_News"
+// TFN EDIT ADD END - Red News
 
 DEFINE_BITFIELD(departments_bitflags, list(
 	"CITIZEN" = DEPARTMENT_BITFLAG_CITIZEN,
@@ -275,6 +282,7 @@ DEFINE_BITFIELD(departments_bitflags, list(
 	"CITY_SERVICES" = DEPARTMENT_BITFLAG_CITY_SERVICES,
 	"SOCIETY_OF_LEOPOLD" = DEPARTMENT_BITFLAG_SOCIETY_OF_LEOPOLD,
 	"TRUE_SABBAT" = DEPARTMENT_BITFLAG_TRUE_SABBAT, // TFN EDIT ADD - More Sabbat Jobs
+	"RED_NEWS" = DEPARTMENT_BITFLAG_RED_NEWS, // TFN EDIT ADD - Red News
 ))
 
 /// Combination flag for jobs which are considered regular crew members of the station.
@@ -320,3 +328,4 @@ DEFINE_BITFIELD(departments_bitflags, list(
 #define EXP_TYPE_CHURCH "Church"
 #define EXP_TYPE_CLUB "Strip Club"
 #define EXP_TYPE_JAZZ_CLUB "Jazz Club" //TFN EDIT ADDITION - Crown Blues Jazz Club Rework
+#define EXP_TYPE_REDNEWS "Red News" //TFN EDIT ADDITION - Red News
