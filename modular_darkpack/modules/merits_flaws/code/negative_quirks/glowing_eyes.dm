@@ -56,8 +56,6 @@ dark.*/
 	var/light_amount = holder_turf.get_lumcount()
 	if(light_amount < 0.2)
 		ADD_TRAIT(quirk_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
-		to_chat(quirk_holder, span_warning("debug: eyes glowing"))
 	else
 		REMOVE_TRAIT(quirk_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
-		to_chat(quirk_holder, span_warning("debug: eyes not glowing"))
 // TFN EDIT END
