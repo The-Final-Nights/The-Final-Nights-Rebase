@@ -134,7 +134,6 @@
 	witnessed_crimes = max(0, witnessed_crimes - 1) // each witnessed crime stack lasts 1 minute. police pursue them after 10 stacks.
 	if(!warrant)
 		return
-	to_chat(src, span_warning("(APB) Estimated police search timer: [witnessed_crimes] minutes remaining."))
 	if(witnessed_crimes == 0)
 		to_chat(src, span_info("(APB) The police call off their search for you. You are no longer wanted."))
 		warrant = FALSE
