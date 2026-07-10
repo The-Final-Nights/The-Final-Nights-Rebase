@@ -26,7 +26,6 @@
 	contains = list(/obj/item/claymore/longsword/silver)
 	crate_name = "weapon crate"
 
-// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 /datum/supply_pack/weapons/tallyho
 	name = "Revolutionary Reenactment Kit"
 	desc = "No taxation without representation! Contains a set of revolutionary attire, set with a pair of antique muskets."
