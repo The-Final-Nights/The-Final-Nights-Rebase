@@ -219,6 +219,10 @@
 /obj/effect/mapping_helpers/door/access/evergreen
 	lock_id = LOCKACCESS_EVERGREEN
 // TFN EDIT ADD END - ([LORE TEAM REQUESTED] map changes)
+// TFN EDIT ADD START - Red News
+/obj/effect/mapping_helpers/door/access/rednews
+	lock_id = LOCKACCESS_REDNEWS
+// TFN EDIT ADD END - Red News
 /obj/effect/mapping_helpers/door/access/npc
 	icon_state = "access_helper_rand"
 
