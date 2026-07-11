@@ -61,6 +61,15 @@
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 	worn_icon_state = "grey_id"
 
+/obj/item/card/red_news
+	name = "RED Network Reporter badge"
+	desc = "An ID showing employment with RED Network."
+	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
+	icon_state = "red_id"
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
+	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
+	worn_icon_state = "red_id"
+
 /obj/item/card/keeper
 	name = "keeper's badge"
 	desc = "This badge shows you're entrusted with keeping things orderly."
@@ -69,6 +78,7 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 	worn_icon_state = "emerald_badge"
+
 /obj/item/card/reeve
 	name = "reeve badge"
 	desc = "A badge which shows a favored fist, interlaced with gold thread."
