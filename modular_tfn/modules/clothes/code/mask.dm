@@ -11,7 +11,7 @@
 /obj/item/clothing/mask/gas/atmos/faceplate
 	name = "faceplate mask"
 	desc = "A solid mask that completely covers the face, or a lack of one."
-	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon = 'modular_tfn/modules/clothes/icons/clothing/mask.dmi'
 	worn_icon = 'modular_tfn/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
 	icon_state = "faceplate"
 	post_init_icon_state = "faceplate"
@@ -43,7 +43,7 @@
 	desc = "A cloth for covering your neck, and usually a part of your face too, but that part's optional."
 	actions_types = list(/datum/action/item_action/adjust)
 	alternate_worn_layer = UNIFORM_LAYER
-	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon = 'modular_tfn/modules/clothes/icons/clothing/mask.dmi'
 	worn_icon = 'modular_tfn/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
 	icon_state = "gaiter"
 	post_init_icon_state = "gaiter"
@@ -82,7 +82,7 @@
 /obj/item/clothing/mask/duelmask
 	name = "zorro mask"
 	desc = "A black cloth mask for those masked duelists, doesn't grant any protection, but covers your eyes, and your identity... somehow."
-	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon = 'modular_tfn/modules/clothes/icons/clothing/mask.dmi'
 	icon_state = "duelmask"
 	worn_icon = 'modular_tfn/modules/clothes/icons/clothing/worn/color_worn.dmi'
 	flags_inv = HIDEFACE
