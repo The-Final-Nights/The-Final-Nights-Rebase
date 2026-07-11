@@ -128,8 +128,8 @@
 /obj/effect/spawner/random/occult/artifact
 	name = "random occult artifact"
 	loot = list(
-		/obj/effect/spawner/random/occult/artifact/vampire_only = 55,
-		/obj/effect/spawner/random/occult/artifact/werewolf_only = 45,
+		/obj/effect/spawner/random/occult/artifact/vampire_only = 90, // TFN EDIT - adjusting spawn rate
+		/obj/effect/spawner/random/occult/artifact/werewolf_only = 10, // TFN EDIT - adjusting spawn rate
 	)
 
 /obj/effect/spawner/random/occult/artifact/Initialize(mapload)
