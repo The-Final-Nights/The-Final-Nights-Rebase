@@ -1,6 +1,6 @@
 /datum/voicepack
 
-/datum/voicepack/proc/get_sound(key)
+/datum/voicepack/proc/get_sound(key, mob/living/carbon/human/user)
 	return
 
 /datum/voicepack/human

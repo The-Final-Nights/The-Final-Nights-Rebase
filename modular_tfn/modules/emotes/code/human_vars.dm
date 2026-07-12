@@ -10,10 +10,10 @@
 		voice_pack = voicepack
 	if(!voice_pack)
 		return null
-	var/raw = voice_pack.get_sound(key)
+	var/raw = voice_pack.get_sound(key, src)
 	if(!raw && istype(voice_pack, /datum/voicepack/human))
 		var/datum/voicepack/fallback = gender == FEMALE ? new /datum/voicepack/human/female() : new /datum/voicepack/human/male()
-		raw = fallback.get_sound(key)
+		raw = fallback.get_sound(key, src)
 	if(!raw)
 		return null
 	var/sound/emote_sound = sound(islist(raw) ? pick(raw) : raw)
