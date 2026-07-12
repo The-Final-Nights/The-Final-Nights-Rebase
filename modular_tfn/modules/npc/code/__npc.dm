@@ -28,6 +28,10 @@
 		"Are you crazy? You can't just carry a weapon around like that.",
 		"This is California, psycho. Put the weapon away.",
 		"In what world is it okay to open carry a weapon like that? Put it away.",
+		"It's 2016, not 1816.",
+		"The cops are going to shoot you, dude.",
+		"Crazy. You should put that away before you get shot.",
+		"Holy crap, someone call the cops! That psycho has a weapon!"
 	)
 
 /mob/living/carbon/human/npc/proc/call_911(atom/attacker, open_carrying = FALSE)
