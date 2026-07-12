@@ -89,6 +89,8 @@
 	staying = FALSE
 
 /obj/item/proc/is_scary_weapon() // NPCs don't like seeing scary weapons
+	if(istype(src, /obj/item/instrument))
+		return FALSE
 	if(force > 20)
 		return TRUE
 	var/obj/item/storage/belt/sheath/sword_sheath = astype(src, /obj/item/storage/belt/sheath)
