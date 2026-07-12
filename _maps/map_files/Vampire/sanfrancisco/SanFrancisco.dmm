@@ -9750,13 +9750,9 @@
 /turf/open/floor/plating/granite/black,
 /area/vtm/interior/jazzclub)
 "cqO" = (
-/obj/structure/chair/sofa/corner/brown{
-	color = "#525252";
-	dir = 4
-	},
 /obj/effect/landmark/start/darkpack/anarch/sweeper,
-/turf/open/floor/carpet/darkpack/old,
-/area/vtm/interior/anarch)
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/anarch/basement)
 "crd" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/bordur,
@@ -11935,6 +11931,10 @@
 	},
 /turf/closed/wall/vampwall/bar,
 /area/vtm/interior/anarch/basement)
+"cVB" = (
+/obj/machinery/light/red/directional/east,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/anarch)
 "cVG" = (
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/strip)
@@ -14924,6 +14924,16 @@
 "dGK" = (
 /turf/open/floor/city/plating_mono,
 /area/vtm/interior/fightclub)
+"dGR" = (
+/obj/effect/turf_decal/siding/wood/dark{
+	dir = 1
+	},
+/obj/structure/vampdoor/wood,
+/obj/effect/mapping_helpers/door/lock_difficulty/eight,
+/obj/effect/mapping_helpers/door/access/anarch,
+/obj/effect/mapping_helpers/door/lock,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/anarch)
 "dGV" = (
 /obj/structure/railing/wooden_fence{
 	dir = 10
@@ -17010,8 +17020,8 @@
 	},
 /obj/structure/vampdoor/wood,
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
-/obj/effect/mapping_helpers/door/access/anarch,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/bar,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch)
 "egA" = (
@@ -18388,17 +18398,11 @@
 /area/vtm/interior/cabdepot)
 "ezc" = (
 /obj/structure/table/wood,
-/obj/item/gun/ballistic/automatic/darkpack/uzi{
-	pixel_y = 8;
-	pixel_x = 2
-	},
-/obj/item/ammo_box/magazine/darkpack9mm,
-/obj/item/ammo_box/magazine/darkpack9mm{
-	pixel_x = 6;
-	pixel_y = -3
-	},
 /obj/effect/decal/graffiti,
 /obj/machinery/light/small/directional/north,
+/obj/machinery/fax/admin/anarch{
+	pixel_y = 10
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "ezf" = (
@@ -26405,6 +26409,7 @@
 	color = "#525252";
 	dir = 8
 	},
+/obj/effect/landmark/start/darkpack/anarch/bruiser,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "guI" = (
@@ -31853,7 +31858,6 @@
 /area/vtm/interior)
 "hMM" = (
 /obj/machinery/light/red/directional/west,
-/obj/effect/landmark/start/darkpack/anarch/revee,
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/anarch)
 "hMN" = (
@@ -34623,7 +34627,6 @@
 /obj/structure/chair/plastic/darkpack{
 	dir = 1
 	},
-/obj/effect/landmark/start/darkpack/anarch/sweeper,
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/anarch)
 "itY" = (
@@ -34709,7 +34712,6 @@
 /obj/structure/chair/sofa/middle/brown{
 	color = "#525252"
 	},
-/obj/effect/landmark/start/darkpack/anarch/emissary,
 /obj/structure/noticeboard/directional/north,
 /obj/item/instrument/eguitar/vamp{
 	pixel_x = 7;
@@ -35365,7 +35367,6 @@
 /obj/structure/chair/sofa/left/brown{
 	color = "#525252"
 	},
-/obj/effect/landmark/start/darkpack/anarch/baron,
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/anarch)
 "iDD" = (
@@ -61835,7 +61836,7 @@
 /area/vtm/interior/magadon_facility/restricted)
 "oWt" = (
 /obj/effect/turf_decal/siding/wood/dark/corner,
-/turf/open/floor/wood/smooth/old,
+/turf/closed/wall/vampwall/bar,
 /area/vtm/interior/anarch)
 "oWv" = (
 /obj/effect/turf_decal/bordur/end{
@@ -64525,10 +64526,16 @@
 /area/vtm/interior/magadon_facility)
 "pDO" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cup/glass/bottle/whiskey{
-	pixel_x = -8;
-	pixel_y = 6
+/obj/item/gun/ballistic/automatic/darkpack/uzi{
+	pixel_y = 8;
+	pixel_x = 2
 	},
+/obj/item/ammo_box/magazine/darkpack9mm,
+/obj/item/ammo_box/magazine/darkpack9mm{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch/basement)
 "pDQ" = (
@@ -73505,10 +73512,9 @@
 /turf/closed/wall/vampwall/brick_old,
 /area/vtm/outside/fishermanswharf)
 "rNC" = (
-/obj/structure/chair/stool/bar/darkpack/red,
-/obj/effect/landmark/start/darkpack/anarch/bruiser,
-/turf/open/floor/carpet/darkpack/old,
-/area/vtm/interior/anarch)
+/obj/effect/landmark/start/darkpack/anarch/emissary,
+/turf/open/floor/wood/smooth/old,
+/area/vtm/interior/anarch/basement)
 "rNJ" = (
 /obj/effect/turf_decal/siding/wood/dark{
 	dir = 8
@@ -73851,8 +73857,8 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/lock_difficulty/eight,
-/obj/effect/mapping_helpers/door/access/anarch,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/bar,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "rTj" = (
@@ -83099,9 +83105,8 @@
 /turf/open/water/vamp_sewer/border,
 /area/vtm/interior/sewer)
 "ufa" = (
-/obj/structure/hedge,
 /obj/effect/turf_decal/siding/wood/dark,
-/turf/open/floor/wood/smooth/old,
+/turf/closed/wall/vampwall/bar,
 /area/vtm/interior/anarch)
 "ufe" = (
 /obj/effect/turf_decal/siding/wood/dark/corner{
@@ -83202,9 +83207,6 @@
 /area/vtm/interior/sewer/nosferatu_warren)
 "ugD" = (
 /obj/structure/table/wood,
-/obj/machinery/fax/anarch{
-	pixel_y = 8
-	},
 /obj/effect/decal/rugs,
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
@@ -88514,6 +88516,9 @@
 /area/vtm/interior/clinic)
 "vAE" = (
 /obj/structure/table/wood,
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = 8
+	},
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "vAM" = (
@@ -91541,12 +91546,8 @@
 /turf/open/floor/wood/smooth/old,
 /area/vtm/interior/evergreen)
 "wot" = (
-/obj/structure/chair/sofa/right/brown{
-	color = "#525252";
-	dir = 4
-	},
-/obj/effect/landmark/start/darkpack/anarch/sweeper,
-/turf/open/floor/carpet/darkpack/old,
+/obj/machinery/light/red/directional/west,
+/turf/open/floor/wood/smooth/old,
 /area/vtm/interior/anarch)
 "wou" = (
 /obj/structure/table/countertop/bubway,
@@ -94174,8 +94175,8 @@
 /obj/structure/vampdoor/wood,
 /obj/effect/mapping_helpers/door/lock_difficulty/six,
 /obj/effect/mapping_helpers/door/autoname,
-/obj/effect/mapping_helpers/door/access/anarch,
 /obj/effect/mapping_helpers/door/lock,
+/obj/effect/mapping_helpers/door/access/bar,
 /turf/open/floor/plating/concrete,
 /area/vtm/interior/anarch)
 "wRl" = (
@@ -99580,7 +99581,6 @@
 /obj/structure/chair/sofa/middle/brown{
 	color = "#525252"
 	},
-/obj/effect/landmark/start/darkpack/anarch/bruiser,
 /turf/open/floor/carpet/darkpack/old,
 /area/vtm/interior/anarch)
 "yhQ" = (
@@ -102609,13 +102609,13 @@ vFf
 kRM
 akl
 ezc
-tFd
+rNC
 tFd
 pmM
 fYu
 tFd
-tFd
-tFd
+cqO
+cqO
 fYu
 bWs
 wZc
@@ -102817,7 +102817,7 @@ tFd
 aRb
 lYA
 tFd
-tFd
+cqO
 pDO
 wta
 vmf
@@ -141778,8 +141778,8 @@ iDc
 iDc
 iDc
 wym
-cqO
-wot
+kUF
+uIR
 hMM
 eqY
 hZi
@@ -142188,7 +142188,7 @@ veZ
 uHB
 iuA
 rdp
-rNC
+svC
 eqY
 hZi
 kBM
@@ -142392,7 +142392,7 @@ veZ
 ffI
 iDn
 vSm
-rNC
+svC
 eqY
 hZi
 aJQ
@@ -142598,7 +142598,7 @@ akn
 uiT
 uwI
 ozi
-hZi
+kBM
 kBM
 kBM
 kBM
@@ -142802,8 +142802,8 @@ vAE
 lMI
 hZi
 hZi
-hZi
-hZi
+dGR
+wot
 hZi
 aJQ
 qOV
@@ -143208,7 +143208,7 @@ dSH
 wsM
 ugD
 hZi
-hZi
+cVB
 hZi
 ufa
 xrd
