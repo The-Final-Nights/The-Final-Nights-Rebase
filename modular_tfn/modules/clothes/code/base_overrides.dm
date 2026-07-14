@@ -13,7 +13,7 @@
 	desc = "A greatcoat with protection and style - for those who want to exude a commanding presence."
 
 /obj/item/clothing/suit/armor/hos/trenchcoat
-	name = "gilded trenchcoat" //Surprisingly, the armor values on this thing are around the same ballpark as our regular trenchcoats.
+	name = "gilded trenchcoat"
 	desc = "A trenchcoat enhanced with a golden trim and flak. The epitome of tactical plainclothes."
 
 /obj/item/clothing/suit/armor/hos/hos_formal
