@@ -296,7 +296,8 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 /obj/item/vamp/keys/brujah
 	name = "punk keys"
 	accesslocks = list(
-		LOCKACCESS_BRUJAH
+		LOCKACCESS_BRUJAH,
+		LOCKACCESS_FIGHT_CLUB
 	)
 	color = "#ecb586"
 
@@ -305,6 +306,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	accesslocks = list(
 		LOCKACCESS_PRIMOGEN_BRUJAH,
 		LOCKACCESS_BRUJAH,
+		LOCKACCESS_FIGHT_CLUB,
 		LOCKACCESS_PRIMOGEN,
 		LOCKACCESS_JAZZ_CLUB,
 		LOCKACCESS_CAMARILLA
