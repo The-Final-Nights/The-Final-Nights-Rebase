@@ -10,7 +10,7 @@
 
 
 /datum/quirk/darkpack/unbondable/ghoul
-	name = "Unbondable (Ghoul)"
+	name = "Unbondable (Mortal)" // TFN EDIT CHANGE - Unbondable for Humans and Kinfolk - Original - name = "Unbondable (Ghoul)"
 	desc = "You are immune to being blood bound.."
 	value = 6
-	allowed_splats = list(SPLAT_GHOUL)
+	allowed_splats = list(SPLAT_GHOUL, SPLAT_KINFOLK, SPLAT_NONE) // TFN EDIT CHANGE - Unbondable for Humans and Kinfolk - Original - allowed_splats = list(SPLAT_GHOUL)

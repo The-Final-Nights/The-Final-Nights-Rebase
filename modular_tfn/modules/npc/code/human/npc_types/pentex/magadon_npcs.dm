@@ -4,7 +4,7 @@
 	my_weapon_type = /obj/item/gun/ballistic/automatic/darkpack/mp5
 	my_backup_weapon_type = /obj/item/melee/baton/vamp
 
-/mob/living/carbon/human/npc/magadonsecurity/Initialize()
+/mob/living/carbon/human/npc/magadonsecurity/Initialize(mapload)
 	. = ..()
 	AssignSocialRole(/datum/socialrole/magadonsecurity)
 
@@ -15,7 +15,7 @@
 	my_weapon_type = /obj/item/gun/ballistic/automatic/darkpack/mp5
 	my_backup_weapon_type = /obj/item/melee/baton/vamp
 
-/mob/living/carbon/human/npc/magadonlabsecurity/Initialize()
+/mob/living/carbon/human/npc/magadonlabsecurity/Initialize(mapload)
 	. = ..()
 	AssignSocialRole(/datum/socialrole/magadonlabsecurity)
 
@@ -26,7 +26,7 @@
 	my_weapon_type = /obj/item/gun/ballistic/automatic/pistol/darkpack/deagle
 	my_backup_weapon_type = /obj/item/melee/baton/vamp
 
-/mob/living/carbon/human/npc/magadonexecsecurity/Initialize()
+/mob/living/carbon/human/npc/magadonexecsecurity/Initialize(mapload)
 	. = ..()
 	AssignSocialRole(/datum/socialrole/magadonexecsecurity)
 

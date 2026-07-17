@@ -19,6 +19,7 @@
 	enlightenment = TRUE
 	whitelisted = TRUE
 	subsplat_keys = /obj/item/vamp/keys/baali
+	hidden = TRUE // TFN EDIT ADD - the coteries update
 
 /datum/subsplat/vampire_clan/baali/psychomania_effect(mob/living/target, mob/living/owner)
 	to_chat(target, span_notice("The sacred icons appearing before you lack the true substance of faith"))

@@ -22,7 +22,7 @@
 /obj/item/coupon/bee
 	desc = "BEEEES???? AT AN AFFORDAbLE PORICE?!!!" //wordcoders seething
 
-	discounted_pack = /datum/supply_pack/organic/hydroponics/beekeeping_fullkit
+	//discounted_pack = /datum/supply_pack/organic/hydroponics/beekeeping_fullkit TFN EDIT REMOVAL - Removes Immersion breaking and exploitable content from the Cargo Console #323
 	discount_pct_off = 0.7
 
 /datum/outfit/job/assistant/gimmick/chicken
@@ -168,6 +168,7 @@
 	head = /obj/item/clothing/head/utility/hardhat
 	uniform = /obj/item/clothing/under/color/yellow
 	l_pocket = /obj/item/modular_computer/pda/assistant
+	pda_slot = ITEM_SLOT_LPOCKET
 
 	outfit_weight = 6
 
