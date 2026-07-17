@@ -19,7 +19,7 @@
 	display_order = JOB_DISPLAY_ORDER_BRUJAH
 	department_for_prefs = /datum/job_department/camarilla
 	departments_list = list(
-		/datum/job_department/camarilla
+		/datum/job_department/camarilla,
 	)
 
 	minimal_generation = 12

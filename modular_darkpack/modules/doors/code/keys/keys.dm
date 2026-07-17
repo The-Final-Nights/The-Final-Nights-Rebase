@@ -275,7 +275,8 @@
 /obj/item/vamp/keys/brujah
 	name = "punk keys"
 	accesslocks = list(
-		LOCKACCESS_BRUJAH
+		LOCKACCESS_BRUJAH,
+		LOCKACCESS_FIGHT_CLUB
 	)
 	color = "#ecb586"
 
@@ -284,6 +285,7 @@
 	accesslocks = list(
 		LOCKACCESS_PRIMOGEN_BRUJAH,
 		LOCKACCESS_BRUJAH,
+		LOCKACCESS_FIGHT_CLUB,
 		LOCKACCESS_PRIMOGEN,
 		LOCKACCESS_JAZZ_CLUB,
 		LOCKACCESS_CAMARILLA
