@@ -16,13 +16,12 @@
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/secchief
 
-	allowed_splats = list(SPLAT_GAROU) // TFN EDIT CHANGE
+	allowed_splats = list(SPLAT_GAROU) // TFN EDIT CHANGE - Original: allowed_splats = list(SPLAT_GAROU, SPLAT_KINDRED)
 //	allowed_tribes = list(TRIBE_WYRM, TRIBE_FORSWORN)
-	minimal_masquerade = 4
+	minimum_masquerade = 4
 	// minimal_renown_rank = 3
 	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)
 	display_order = JOB_DISPLAY_ORDER_SECCHIEF
-	department_for_prefs = /datum/job_department/pentex
 	departments_list = list(
 		/datum/job_department/pentex,
 	)

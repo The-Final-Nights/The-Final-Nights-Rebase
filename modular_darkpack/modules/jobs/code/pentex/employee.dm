@@ -24,10 +24,10 @@
 		"Endron Labourer"
 	)
 
-	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)	minimal_masquerade = 3
+	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)
+	//minimum_masquerade = 3 // TFN EDIT REMOVAL
 
 	display_order = JOB_DISPLAY_ORDER_EMPLOYEE
-	department_for_prefs = /datum/job_department/pentex
 	departments_list = list(
 		/datum/job_department/pentex,
 	)

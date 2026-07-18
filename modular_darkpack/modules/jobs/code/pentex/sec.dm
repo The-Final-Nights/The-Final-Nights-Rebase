@@ -16,10 +16,10 @@
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/pentex_sec
 
-	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)	minimal_masquerade = 3
+	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)
+	//minimum_masquerade = 3 // TFN EDIT REMOVAL
 
 	display_order = JOB_DISPLAY_ORDER_PENTEX_SEC
-	department_for_prefs = /datum/job_department/pentex
 	departments_list = list(
 		/datum/job_department/pentex,
 	)

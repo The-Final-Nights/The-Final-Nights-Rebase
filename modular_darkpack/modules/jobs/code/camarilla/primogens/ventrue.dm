@@ -17,7 +17,6 @@
 	outfit = /datum/outfit/job/vampire/ventrue
 
 	display_order = JOB_DISPLAY_ORDER_VENTRUE
-	department_for_prefs = /datum/job_department/camarilla
 	departments_list = list(
 		/datum/job_department/camarilla,
 		/datum/job_department/jazz_club, // TFN EDIT ADDITION
@@ -25,7 +24,7 @@
 
 	minimal_generation = 12
 	minimum_immortal_age = 100 // TFN EDIT ADDITION
-	minimal_masquerade = 5
+	minimum_masquerade = 5
 	allowed_splats = list(SPLAT_KINDRED)
 	allowed_clans = list(VAMPIRE_CLAN_VENTRUE)
 

@@ -2,6 +2,15 @@
 	group = "Livestock"
 	crate_type = /obj/structure/closet/crate/critter
 
+/datum/supply_pack/critter/stasis
+	group = "Livestock (Stasis)"
+	crate_type = /obj/structure/closet/crate/critter/stasis
+
+/datum/supply_pack/critter/stasis/fill(obj/container)
+	. = ..()
+	for(var/mob/living/stasis_mob in container)
+		stasis_mob.apply_status_effect(/datum/status_effect/grouped/stasis, STASIS_CRATE_EFFECT)
+
 /datum/supply_pack/critter/parrot
 	name = "Bird Crate"
 	desc = "Contains five expert telecommunication birds."
@@ -266,10 +275,10 @@
 	crate_name = "tiziran fish crate"
 */
 /* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
-/datum/supply_pack/critter/turtle
+/datum/supply_pack/critter/stasis/turtle
 	name = "Turtle Crate"
 	desc = "Cute flora turtles that'll emit good vibes to nearby plants!"
 	cost = CARGO_CRATE_VALUE * 2
 	contains = list(/mob/living/basic/turtle)
-	crate_name = "flora-turtle crate"
+	crate_name = "flora-turtle stasis crate"
 */ //TFN EDIT REMOVE END
