@@ -17,6 +17,9 @@
 		new /datum/data/vending_product("garlic", /obj/item/food/grown/garlic),
 		new /datum/data/vending_product("onion", /obj/item/food/grown/onion),
 		new /datum/data/vending_product("parsnip", /obj/item/food/grown/carrotlike/parsnip),
+		new /datum/data/vending_product("olive", /obj/item/food/grown/olive), // TFN EDIT - COOKING UPDATE
+		new /datum/data/vending_product("chili", /obj/item/food/grown/chili), // TFN EDIT - COOKING UPDATE
+		new /datum/data/vending_product("bell pepper", /obj/item/food/grown/bell_pepper), // TFN EDIT - COOKING UPDATE
 		new /datum/data/vending_product("peas", /obj/item/food/grown/peas),
 		new /datum/data/vending_product("corn", /obj/item/food/grown/corn),
 		new /datum/data/vending_product("apple", /obj/item/food/grown/apple),
