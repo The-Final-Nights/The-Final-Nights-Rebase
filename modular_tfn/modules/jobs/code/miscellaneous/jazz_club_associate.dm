@@ -27,7 +27,7 @@
 	allowed_splats = list(SPLAT_KINDRED, SPLAT_GHOUL, SPLAT_KINFOLK, SPLAT_NONE)
 
 	description = "You are employed by the jazz club, providing it's services to the public and it's special clients. You are either clueless, paid well enough not to talk, or bound to secrecy by other means."
-	minimal_masquerade = 3
+	minimum_masquerade = 3
 
 /datum/outfit/job/vampire/jazz_club_associate
 	name = "Jazz Club Associate"

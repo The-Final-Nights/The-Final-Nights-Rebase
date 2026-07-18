@@ -18,7 +18,6 @@
 
 	display_order = JOB_DISPLAY_ORDER_CLERK
 	departments_list = list(
-		/datum/job_department/prince, // TFN EDIT ADD
 		/datum/job_department/camarilla,
 	)
 

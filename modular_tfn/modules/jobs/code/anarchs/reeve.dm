@@ -18,7 +18,7 @@
 	disallowed_clans = list(VAMPIRE_CLAN_BAALI, VAMPIRE_CLAN_CAPPADOCIAN, VAMPIRE_CLAN_GIOVANNI, VAMPIRE_CLAN_HARBINGER, VAMPIRE_CLAN_HEALER_SALUBRI, VAMPIRE_CLAN_NAGARAJA, VAMPIRE_CLAN_OLD_CLAN_TZIMISCE, VAMPIRE_CLAN_WARRIOR_SALUBRI)
 	allowed_splats = list(SPLAT_KINDRED)
 	description = "A Keeper of order within Anarch domains. The Baron's enforcer, maintain the masquerade by obtaining warrents from the Baron before persuing those who break it, either on your lonesome or by gathering a posse of fellow Anarchs."
-	minimal_masquerade = 3
+	minimum_masquerade = 3
 
 /datum/outfit/job/vampire/reeve
 	name = "Reeve"

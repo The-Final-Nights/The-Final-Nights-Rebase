@@ -19,7 +19,7 @@
 	disallowed_clans = list(VAMPIRE_CLAN_GIOVANNI, VAMPIRE_CLAN_NAGARAJA, VAMPIRE_CLAN_HEALER_SALUBRI, VAMPIRE_CLAN_WARRIOR_SALUBRI)
 
 	description = "You work at the warehouse, moving boxes and selling not-quite legal goods to anyone who has the money. Your seniors and employers here are eccentric to say the least - it is best to look the other way."
-	minimal_masquerade = 0
+	minimum_masquerade = 0
 
 /datum/outfit/job/vampire/setite
 	name = "Associate"

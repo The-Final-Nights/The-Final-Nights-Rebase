@@ -18,8 +18,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_VENTRUE
 	departments_list = list(
-		/datum/job_department/camarilla,
 		/datum/job_department/jazz_club, // TFN EDIT ADDITION
+		/datum/job_department/camarilla,
 	)
 
 	minimal_generation = 12

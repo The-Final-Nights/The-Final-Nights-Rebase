@@ -16,7 +16,7 @@
 		/datum/job_department/true_sabbat,
 	)
 
-	minimal_masquerade = 3
+	minimum_masquerade = 3
 	allowed_splats = list(SPLAT_KINDRED)
 
 	known_contacts = list("Bishop")

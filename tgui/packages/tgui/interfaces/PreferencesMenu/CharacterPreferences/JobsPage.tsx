@@ -580,6 +580,11 @@ export function JobsPage() {
                   setDragging={setDragging}
                   hoveringOver={hoveringOver}
                   setHoveringOver={setHoveringOver}/>
+                <Department department="Jazz Club" // TFN EDIT ADD
+                                  dragging={dragging}
+                  setDragging={setDragging}
+                  hoveringOver={hoveringOver}
+                  setHoveringOver={setHoveringOver}/>
               </Stack>
             </Stack.Item>
             <Stack.Item mt={-3.9}>
@@ -599,7 +604,7 @@ export function JobsPage() {
                   setDragging={setDragging}
                   hoveringOver={hoveringOver}
                   setHoveringOver={setHoveringOver}/>
-                <Department department="Manor"
+                <Department department="True Sabbat" // TFN EDIT ADD
                                   dragging={dragging}
                   setDragging={setDragging}
                   hoveringOver={hoveringOver}
@@ -619,7 +624,7 @@ export function JobsPage() {
             <Stack.Item>
               <Stack vertical>
                 <PriorityHeaders />
-                <Department department="Magadon"                   dragging={dragging}
+                <Department department="Magadon"                   dragging={dragging} // TFN EDIT CHANGE - Original: <Department department="Pentex"
                   setDragging={setDragging}
                   hoveringOver={hoveringOver}
                   setHoveringOver={setHoveringOver}/>

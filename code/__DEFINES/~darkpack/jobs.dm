@@ -14,7 +14,6 @@
 #define JOB_CITIZEN "Citizen"
 #define JOB_ORDINARY_CITIZEN "Unassigned"
 #define JOB_STREET_JANITOR "Street Janitor"
-#define JOB_CLUB_WORKER "Club Worker"
 #define JOB_JAZZ_CLUB_ASSOCIATE "Jazz Club Associate" //TFN EDIT ADDITION - Crown Blues Jazz Club Rework
 #define JOB_RED_NEWS "Red News Reporter" //TFN EDIT ADDITION - Red News
 #define JOB_TAXI_DRIVER "Taxi Driver"
@@ -143,9 +142,10 @@
 
 #define JOB_DISPLAY_ORDER_CLINICS_DIRECTOR 1
 #define JOB_DISPLAY_ORDER_DOCTOR 2
+
 #define JOB_DISPLAY_ORDER_STREETJAN 1
-#define JOB_DISPLAY_ORDER_STRIP 2
-#define JOB_DISPLAY_ORDER_JAZZ 3 //TFN EDIT ADDITION START - Crown Blues Jazz Club Rework
+#define JOB_DISPLAY_ORDER_STRIP 12 // TFN EDIT CHANGE - This number needs to be higher than toreador so toreador goes above
+#define JOB_DISPLAY_ORDER_JAZZ 14 //TFN EDIT ADDITION START - Crown Blues Jazz Club Rework - This number needs to be higher than ventrue so ventrue goes above
 #define JOB_DISPLAY_ORDER_TAXI 4
 #define JOB_DISPLAY_ORDER_PRIEST 5
 

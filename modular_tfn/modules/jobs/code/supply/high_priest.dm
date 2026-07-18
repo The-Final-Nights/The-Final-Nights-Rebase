@@ -9,7 +9,7 @@
 	display_order = JOB_DISPLAY_ORDER_HIGH_PRIEST
 
 	description = "You are the High Priest of San Francisco's Temple of Set. Guide your brothers and sisters in serving your Dark God. Enlighten the ignorant; corruption and vice are your tools of liberation."
-	minimal_masquerade = 4
+	minimum_masquerade = 4
 	minimum_immortal_age = 100
 	minimal_generation = 12
 

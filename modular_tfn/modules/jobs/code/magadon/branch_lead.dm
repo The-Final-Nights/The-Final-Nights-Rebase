@@ -23,7 +23,7 @@
 		"Magadon Operations Director"
 	)
 
-	minimal_masquerade = 5
+	minimum_masquerade = 5
 	// minimal_renown_rank = 4
 	allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_FORSWORN) // TFN EDIT CHANGE - Original: allowed_tribes = list(TRIBE_BLACK_SPIRAL_DANCERS, TRIBE_RONIN)
 	display_order = JOB_DISPLAY_ORDER_BRANCH_LEAD

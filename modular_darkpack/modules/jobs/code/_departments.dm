@@ -45,17 +45,6 @@
 	display_order = 4
 	ui_color = "#a566a5ff"
 
-//TFN EDIT ADDITION START - Crown Blue Jazz Club OverHaul
-/datum/job_department/jazz_club
-	department_name = DEPARTMENT_JAZZ_CLUB
-	department_bitflags = DEPARTMENT_BITFLAG_JAZZ_CLUB
-	department_head = /datum/job/vampire/primogen_ventrue
-	department_experience_type = EXP_TYPE_JAZZ_CLUB
-	display_order = 1
-	label_class = "jazz_club"
-	ui_color = "#7372ac"
-//TFN EDIT ADDITION END - Crown Blue Jazz Club OverHaul
-
 // Anarch
 /datum/job_department/anarch
 	department_name = DEPARTMENT_ANARCH
@@ -122,7 +111,7 @@
 /datum/job_department/supply
 	department_name = DEPARTMENT_SUPPLY
 	department_bitflags = DEPARTMENT_BITFLAG_SUPPLY
-	department_head = /datum/job/vampire/dealer
+	department_head = /datum/job/vampire/setite/faithful/high_priest
 	department_experience_type = EXP_TYPE_WAREHOUSE
 	display_order = 12
 	ui_color = "#a58866"
@@ -142,14 +131,7 @@
 	display_order = 14
 	// give its own ui color?
 
-// TFN EDIT ADD START - Red News
-/datum/job_department/red_news
-	department_name = DEPARTMENT_RED_NEWS
-	department_bitflags = DEPARTMENT_BITFLAG_RED_NEWS
-	display_order = 1
-	ui_color = COLOR_CORP_OMNI_TV
-	label_class = "pentex"
-// TFN EDIT ADD END - Red News
+// wondering where display_order = 15, red news, is? its in modular_tfn/modules/jobs/code/_departments.dm
 
 // Antag*
 /datum/job_department/society_of_leopold
@@ -158,12 +140,12 @@
 	department_head = /datum/job/vampire/abbe
 	// why are you reusing the church xp.
 	department_experience_type = EXP_TYPE_CHURCH
-	display_order = 15
+	display_order = 16 // TFN EDIT CHANGE - Original: display_order = 15
 	ui_color = "#fff022"
 
 // Bottom of the barrel
 /datum/job_department/citizen
 	department_name = DEPARTMENT_CITIZEN
 	department_bitflags = DEPARTMENT_BITFLAG_CITIZEN
-	display_order = 16
+	display_order = 17 // TFN EDIT CHANGE - Original: display_order = 16
 	// Don't add department_head! citizens names should not be in bold.
