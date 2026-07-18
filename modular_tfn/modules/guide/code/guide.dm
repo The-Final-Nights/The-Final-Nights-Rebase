@@ -173,10 +173,7 @@ GLOBAL_DATUM(guide_datum, /datum/guide_manager)
 
 	return FALSE
 
-/client/verb/open_guide()
-	set name = "Guide"
-	set category = "OOC"
-	set desc = "Open the player guide."
+GAME_VERB_DESC(/client, open_guide, "Guide", "Open the player guide.", "OOC")
 	var/datum/guide_manager/guide = get_guide()
 	guide.ui_interact(mob)
 

@@ -273,11 +273,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 			SStgui.close_user_uis(usr, src)
 			return TRUE
 
-/client/verb/create_coterie()
-	set name = "Create Coterie"
-	set category = "Character"
-	set desc = "Form a new coterie."
-
+GAME_VERB_DESC(/client, create_coterie, "Create Coterie", "Form a new coterie.", "Character")
 	if(!get_vampire_splat(mob))
 		to_chat(mob, span_warning("Only kindred and ghouls may form a coterie."))
 		return
@@ -301,10 +297,7 @@ GLOBAL_DATUM_INIT(coterie_controller, /datum/coterie_controller, new())
 	prefs.save_character()
 	mob.coterie.ui_interact(mob)
 
-/client/verb/view_coterie()
-	set name = "View Coterie"
-	set category = "Character"
-	set desc = "View coterie information."
+GAME_VERB_DESC(/client, view_coterie, "View Coterie", "View coterie information.", "Character")
 	var/datum/coterie/coterie = mob.get_coterie()
 	if(!coterie)
 		to_chat(mob, span_warning("You are not in a coterie."))

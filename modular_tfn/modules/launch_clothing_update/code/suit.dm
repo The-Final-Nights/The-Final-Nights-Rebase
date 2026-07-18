@@ -436,10 +436,7 @@
 	var/tucked = 0
 	var/buttoned = 0
 
-/obj/item/clothing/suit/vampire/flannel/verb/roll_sleeves()
-	set name = "Roll Sleeves"
-	set category = "Object"
-	set src in usr
+GAME_VERB_SRC(/obj/item/clothing/suit/vampire/flannel, roll_sleeves, usr, "Roll Sleeves", "Object")
 	if(!istype(usr, /mob/living))
 		return
 	if(usr.stat)
@@ -456,10 +453,7 @@
 	update_icon_state()
 	usr.update_worn_oversuit()
 
-/obj/item/clothing/suit/vampire/flannel/verb/tuck()
-	set name = "Toggle Shirt Tucking"
-	set category = "Object"
-	set src in usr
+GAME_VERB_SRC(/obj/item/clothing/suit/vampire/flannel, tuck, usr, "Toggle Shirt Tucking", "Object")
 	if(!istype(usr, /mob/living)||usr.stat)
 		return
 
@@ -472,10 +466,7 @@
 	update_icon_state()
 	usr.update_worn_oversuit()
 
-/obj/item/clothing/suit/vampire/flannel/verb/button()
-	set name = "Toggle Shirt Buttons"
-	set category = "Object"
-	set src in usr
+GAME_VERB_SRC(/obj/item/clothing/suit/vampire/flannel, button, usr, "Toggle Shirt Buttons", "Object")
 	if(!istype(usr, /mob/living)||usr.stat)
 		return
 
