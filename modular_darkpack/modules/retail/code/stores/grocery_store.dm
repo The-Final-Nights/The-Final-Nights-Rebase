@@ -12,6 +12,7 @@
 		new /datum/data/vending_product("bread", /obj/item/food/bread/plain, 8),
 		new /datum/data/vending_product("spaghetti", /obj/item/food/spaghetti/raw, 6),
 		new /datum/data/vending_product("tomato", /obj/item/food/grown/tomato),
+		new /datum/data/vending_product("potato", /obj/item/food/grown/potato), // TFN EDIT - COOKING UPDATE
 		new /datum/data/vending_product("cabbage", /obj/item/food/grown/cabbage),
 		new /datum/data/vending_product("garlic", /obj/item/food/grown/garlic),
 		new /datum/data/vending_product("onion", /obj/item/food/grown/onion),
