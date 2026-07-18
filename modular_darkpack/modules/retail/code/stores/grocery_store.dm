@@ -16,13 +16,13 @@
 		new /datum/data/vending_product("creamer", /obj/item/reagent_containers/cup/glass/bottle/juice/cream, 10), // TFN EDIT - COOKING UPDATE
 		new /datum/data/vending_product("butter", /obj/item/food/butter, 5), // TFN EDIT - COOKING UPDATE
 		new /datum/data/vending_product("bread", /obj/item/food/bread/plain, 8),
-		new /datum/data/vending_product("spaghetti", /obj/item/food/spaghetti, 6),
+		new /datum/data/vending_product("spaghetti", /obj/item/food/spaghetti/raw, 6),
 		new /datum/data/vending_product("tomato", /obj/item/food/grown/tomato),
 		new /datum/data/vending_product("potato", /obj/item/food/grown/potato), // TFN EDIT - COOKING UPDATE
 		new /datum/data/vending_product("cabbage", /obj/item/food/grown/cabbage),
 		new /datum/data/vending_product("garlic", /obj/item/food/grown/garlic),
 		new /datum/data/vending_product("onion", /obj/item/food/grown/onion),
-		new /datum/data/vending_product("parsnip", /obj/item/food/grown/parsnip),
+		new /datum/data/vending_product("parsnip", /obj/item/food/grown/carrotlike/parsnip),
 		new /datum/data/vending_product("olive", /obj/item/food/grown/olive), // TFN EDIT - COOKING UPDATE
 		new /datum/data/vending_product("chili", /obj/item/food/grown/chili), // TFN EDIT - COOKING UPDATE
 		new /datum/data/vending_product("bell pepper", /obj/item/food/grown/bell_pepper), // TFN EDIT - COOKING UPDATE
