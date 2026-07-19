@@ -1,3 +1,5 @@
+// NOTE - this list differs from modular_darkpack/modules/retail/code/stores/grocery_store.dm. update both as necessary.
+
 /obj/structure/retail/grocery_store
 	desc = "A small grocery store."
 	products_list = list(
