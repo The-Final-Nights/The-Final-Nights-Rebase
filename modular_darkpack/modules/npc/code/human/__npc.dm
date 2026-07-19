@@ -92,6 +92,7 @@
 	// Be annoyed if helped
 	RegisterSignal(src, COMSIG_CARBON_HELP_ACT, PROC_REF(handle_helped))
 	st_set_stat(STAT_APPEARANCE, rand(1,5)) // TFN EDIT ADD - the npc dancing update
+	update_bloodquality_from_appearance() // TFN EDIT ADD - blood rework
 	return INITIALIZE_HINT_LATELOAD
 
 /mob/living/carbon/human/npc/LateInitialize(mapload)
