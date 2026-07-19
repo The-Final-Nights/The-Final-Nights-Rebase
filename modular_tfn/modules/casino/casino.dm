@@ -45,7 +45,7 @@
 	. = ..()
 	. += mutable_appearance(icon, spinning ? "slots_screen_working" : "slots_screen")
 
-/obj/structure/casino/slotmachine/Initialize()
+/obj/structure/casino/slotmachine/Initialize(mapload)
 	. = ..()
 	reel_delay_1 = pick(3 SECONDS, 4 SECONDS)
 	reel_delay_2 = pick(5 SECONDS, 6 SECONDS)
@@ -258,7 +258,7 @@
 	var/coinflip
 	item_flags = NO_MAT_REDEMPTION
 
-/obj/item/stack/casino/chip/Initialize()
+/obj/item/stack/casino/chip/Initialize(mapload)
 	. = ..()
 	coinflip = pick(sideslist)
 	pixel_x = base_pixel_x + rand(0, 16) - 8
@@ -305,7 +305,7 @@
 	value = 100
 	merge_type = /obj/item/stack/casino/chip/onehundred
 
-/obj/item/stack/casino/chip/onehundred/Initialize()
+/obj/item/stack/casino/chip/onehundred/Initialize(mapload)
 	. = ..()
 	if(!QDELETED(src))
 		AddComponent(/datum/component/selling/casino, 100, "casino_chips", FALSE)
@@ -317,7 +317,7 @@
 	value = 1000
 	merge_type = /obj/item/stack/casino/chip/onethousand
 
-/obj/item/stack/casino/chip/onethousand/Initialize()
+/obj/item/stack/casino/chip/onethousand/Initialize(mapload)
 	. = ..()
 	if(!QDELETED(src))
 		AddComponent(/datum/component/selling/casino, 1000, "casino_chips", FALSE)

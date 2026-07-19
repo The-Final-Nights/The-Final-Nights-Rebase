@@ -1,10 +1,10 @@
 // mostly for crafting recipes
-/obj/structure/retail/hardware_store/Initialize()
+/obj/structure/retail/hardware_store/Initialize(mapload)
 	. = ..()
 	products_list += new /datum/data/vending_product("fifty sheets of glass", /obj/item/stack/sheet/glass/fifty, 500)
 	products_list += new /datum/data/vending_product("fifty sheets of iron", /obj/item/stack/sheet/iron/fifty, 500)
 
-/obj/structure/retail/camping/Initialize()
+/obj/structure/retail/camping/Initialize(mapload)
 	. = ..()
 	products_list += new /datum/data/vending_product("aquarium assembly kit", /obj/item/aquarium_kit, 200)
 	products_list += new /datum/data/vending_product("aquarium upgrade kit", /obj/item/aquarium_upgrade, 150)

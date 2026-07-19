@@ -223,7 +223,9 @@
 /datum/supply_pack/weapons/ammo12gsilver
 	name = "Ammo (12g, silver)"
 	desc = "Contains a box of 12g silver shotgun slugs."
-	cost = 4000
+	//TFN EDIT START - Silver rounds price adjustment  PR#381
+	cost = 9000
+	//TFN EDIT END - Silver rounds price adjustment  PR#381
 	contains = list(/obj/item/ammo_box/darkpack/c12g/silver)
 	crate_name = "ammo crate"
 
@@ -258,21 +260,27 @@
 /datum/supply_pack/weapons/ammo9/silver
 	name = "Ammo (9mm, silver)"
 	desc = "Contains a box of silver 9mm ammunition."
-	cost = 2000
+	//TFN EDIT START - Silver rounds price adjustment  PR#381
+	cost = 7000
+	//TFN EDIT END - Silver rounds price adjustment  PR#381
 	contains = list(/obj/item/ammo_box/darkpack/c9mm/silver)
 	crate_name = "ammo crate"
 
 /datum/supply_pack/weapons/ammo44/silver
 	name = "Ammo (.44, silver)"
 	desc = "Contains a box of silver .44 ammunition."
-	cost = 2000
+	//TFN EDIT START - Silver rounds price adjustment  PR#381
+	cost = 8000
+	//TFN EDIT END - Silver rounds price adjustment  PR#381
 	contains = list(/obj/item/ammo_box/darkpack/c44/silver)
 	crate_name = "ammo crate"
 
 /datum/supply_pack/weapons/ammo45/silver
 	name = "Ammo (.45, silver)"
 	desc = "Contains a box of silver .45 ammunition."
-	cost = 2000
+	//TFN EDIT START - Silver rounds price adjustment  PR#381
+	cost = 7500
+	//TFN EDIT END - Silver rounds price adjustment  PR#381
 	contains = list(/obj/item/ammo_box/darkpack/c45acp/silver)
 	crate_name = "ammo crate"
 
@@ -330,7 +338,9 @@
 /datum/supply_pack/weapons/ammo75_silver
 	name = "Cartriages (.75 Ball Silver)"
 	desc = "Contains a bag of silver .75 ball cartriages."
-	cost = 7000
+	//TFN EDIT START - Silver rounds price adjustment  PR#381
+	cost = 9000
+	//TFN EDIT END - Silver rounds price adjustment  PR#381
 	contains = list(/obj/item/ammo_box/darkpack/c75/silver)
 	crate_name = "ammo crate"
 
