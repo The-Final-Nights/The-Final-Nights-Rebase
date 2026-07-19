@@ -5,6 +5,7 @@
 
 // Layouts
 @include meta.load-css('./interfaces/Atm.scss');
+@include meta.load-css('./interfaces/Coterie.scss'); // TFN EDIT ADD - the coteries update
 @include meta.load-css('./interfaces/Telephone.scss');
 
 // NT Theme

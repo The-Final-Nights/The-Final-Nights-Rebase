@@ -5,6 +5,7 @@
 	icon = "daughters_of_cacophony"
 	curse = "Hear more than should."
 	sense_the_sin_text = "has a mind that is envelopped by nonstopping music."
+	hidden = TRUE // TFN EDIT ADD - the coteries update
 	clan_disciplines = list(
 		/datum/discipline/fortitude,
 		/datum/discipline/melpominee,
@@ -14,4 +15,4 @@
 	female_clothes = /obj/item/clothing/under/vampire/toreador/female
 	enlightenment = FALSE
 	whitelisted = TRUE
-	subsplat_keys = /obj/item/vamp/keys/daughters
+	//subsplat_keys = /obj/item/vamp/keys/daughters //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
