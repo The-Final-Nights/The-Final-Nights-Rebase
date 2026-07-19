@@ -320,7 +320,7 @@
 
 	var/flavor_index = clamp(successes, 1, 5)
 	to_chat(summon_target, span_yellowteamradio(flavor_texts[flavor_index]))
-	to_chat(summon_target, span_info("Summon only affects targets who have reasonably met the summoner. If you believe your character would reasonably have never met the summoner, this power is ineffective. You can safely ignore this message if there is present or impending danger, and/or if your character reasonably believes they would be in danger by complying with this summoning."))
+	to_chat(summon_target, span_info("Summon only affects targets who have reasonably met the summoner. If you believe your character would reasonably have never met the summoner, this power is ineffective. You can safely ignore this message if there is present or impending danger, and/or if your character reasonably believes they would be in danger by complying with this summoning.")) // TFN EDIT - Original: 	to_chat(summon_target, span_info("Summon only affects targets who have reasonably met the summoner. If you believe your character would reasonably have never met the summoner, this power is ineffective."))
 	to_chat(owner, span_warning("You've successfully summoned [summon_target.real_name] to your presence! ([successes] success\s)"))
 	summon_target.do_jitter_animation(3 SECONDS)
 
