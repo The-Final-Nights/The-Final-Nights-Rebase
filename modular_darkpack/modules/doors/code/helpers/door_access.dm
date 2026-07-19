@@ -97,6 +97,9 @@
 /obj/effect/mapping_helpers/door/access/brujah
 	lock_id = LOCKACCESS_BRUJAH
 
+//TFN EDIT ADDITION - Body Shop Fight Club
+/obj/effect/mapping_helpers/door/access/fight_club
+	lock_id = LOCKACCESS_FIGHT_CLUB
 
 /obj/effect/mapping_helpers/door/access/primogen_nosferatu
 	lock_id = LOCKACCESS_PRIMOGEN_NOSFERATU

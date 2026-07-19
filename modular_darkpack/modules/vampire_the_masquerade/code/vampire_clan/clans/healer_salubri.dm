@@ -5,6 +5,7 @@
 	icon = "salubri"
 	curse = "Hunted and consensual feeding."
 	sense_the_sin_text = "is ruled by consent."
+	hidden = TRUE // TFN EDIT ADD - the coteries update
 	clan_disciplines = list(
 		/datum/discipline/auspex,
 		/datum/discipline/fortitude,
