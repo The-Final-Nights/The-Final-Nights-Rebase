@@ -7,3 +7,4 @@
 	clan_disciplines = list()
 	male_clothes = /obj/item/clothing/under/vampire/homeless
 	female_clothes = /obj/item/clothing/under/vampire/homeless/female
+	hidden = TRUE // TFN EDIT ADD - the coteries update

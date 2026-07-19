@@ -53,7 +53,7 @@
 	if(ishuman(drunk_from))
 		var/mob/living/carbon/human/H = drunk_from
 		if(!get_kindred_splat(drunk_from))
-			H.blood_volume = max(H.blood_volume-50, 150)
+			H.adjust_blood_volume(-50, minimum = 150) // TFN EDIT CHANGE - blood rework - ORIGINAL: H.blood_volume = max(H.blood_volume-50, 150)
 
 		if(H.reagents)
 			if(length(H.reagents.reagent_list))
