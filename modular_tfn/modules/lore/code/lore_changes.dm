@@ -7,9 +7,10 @@
 	<br>
 	The Warrior caste are the judges, assassins, and soldiers of Clan Banu Haqim. In San Francisco, most Warrior defectors who joined the Camarilla are viewed as outsiders, caught between loyalty to their clan and rejection of Ur-Shulgi's hardline vision. Like all Banu Haqim, their curse twists their relationship with Kindred vitae, giving them an unnatural hunger for the blood of other Vampires, often leading to diablerie.
 	<br>ROLEPLAY LEVEL: Intermediate
-	<br>
-	Banu Haqim Viziers
-	<br>The Banu Haqim are the newest clan admitted into the Camarilla, following a major schism caused by the awakening of the Methuselah Ur-Shulgi. In San Francisco they remain outsiders struggling to secure stable political footing, despite holding a fragile Primogen position supported largely by the Ventrue. The Viziers are the scholars, diplomats, and advisors of Clan Banu Haqim, valuing intellect and careful judgment over open violence.
+	<br>"}
+
+/datum/subsplat/vampire_clan/banu_haqim/vizier
+	desc = {"<br>The Banu Haqim are the newest clan admitted into the Camarilla, following a major schism caused by the awakening of the Methuselah Ur-Shulgi. In San Francisco they remain outsiders struggling to secure stable political footing, despite holding a fragile Primogen position supported largely by the Ventrue. The Viziers are the scholars, diplomats, and advisors of Clan Banu Haqim, valuing intellect and careful judgment over open violence.
 	<br>
 	Many of the Banu Haqim who defected to the Camarilla are Viziers, fearing Ur-Shulgi's fanaticism. Like all Banu Haqim, their curse leaves them burdened with a dangerous thirst for Kindred blood and the temptation of diablerie, though the added curse of their caste furthermore drives them into obsessive fixation on their studies, crafts, or personal pursuits.
 	<br>ROLEPLAY LEVEL: Advanced"}
