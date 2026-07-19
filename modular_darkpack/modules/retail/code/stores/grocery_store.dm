@@ -11,7 +11,6 @@
 		new /datum/data/vending_product("summer thaw", /obj/item/reagent_containers/cup/soda_cans/summer_thaw),
 	*/ // TFN EDIT REMOVE END - COOKING UPDATE
 		new /datum/data/vending_product("raisins", /obj/item/food/no_raisin, 3), // TFN EDIT ADD - COOKING UPDATE
-
 		new /datum/data/vending_product("milk", /obj/item/reagent_containers/condiment/milk),
 	// TFN EDIT ADD START - COOKING UPDATE
 		new /datum/data/vending_product("soy milk", /obj/item/reagent_containers/condiment/soymilk, 8),
