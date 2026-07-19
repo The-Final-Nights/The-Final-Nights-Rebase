@@ -40,4 +40,3 @@
 	name = "prayer beads"
 	desc = "These beads are used for prayer."
 	icon_state = "beads"
-

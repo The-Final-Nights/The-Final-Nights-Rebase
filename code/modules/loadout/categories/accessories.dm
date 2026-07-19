@@ -86,4 +86,3 @@
 	name = "Pride Pin"
 	item_path = /obj/item/clothing/accessory/pride
 	reskin_datum = /datum/atom_skin/pride_pin
-

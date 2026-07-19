@@ -143,4 +143,3 @@
 	spillable = TRUE
 	custom_materials = list(/datum/material/glass=500)
 	custom_price = 10 // ECONOMY
-

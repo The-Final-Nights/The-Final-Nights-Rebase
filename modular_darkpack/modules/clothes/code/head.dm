@@ -375,4 +375,3 @@
 	name = "black beret"
 	desc = "A black beret, perfect for war veterans and dark, brooding, anti-hero mimes."
 	greyscale_colors = "#3f3c40"
-
