@@ -3,15 +3,13 @@
 	trait_type = STATION_TRAIT_NEGATIVE
 	can_revert = FALSE
 
-	darkpack_allowed = TRUE
+	darkpack_allowed = FALSE
 	newspaper_message = "Expect a pretty fierce storm tonight."
 	newspaper_chance = 75
 
 /datum/station_trait/thunder_storm/on_round_start()
 	. = ..()
-	/*
 	SSweather.run_weather(/datum/weather/rain_storm/endless)
-	*/
 
 /datum/weather/rain_storm/endless
 	name = "endless rain"
