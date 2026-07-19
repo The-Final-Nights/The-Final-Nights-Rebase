@@ -61,7 +61,7 @@
 		new /datum/data/vending_product("sugar bag", /obj/item/reagent_containers/condiment/sugar, 3),
 	//	new /datum/data/vending_product("beer bottle", /obj/item/reagent_containers/cup/glass/bottle/beer/vampire),
 	//	new /datum/data/vending_product("blue stripe", /obj/item/reagent_containers/cup/glass/bottle/beer/vampire/blue_stripe),
-	//	new /datum/data/vending_product("candle pack", /obj/item/storage/fancy/candle_box),
+		new /datum/data/vending_product("candle pack", /obj/item/storage/fancy/candle_box),
 	//	new /datum/data/vending_product("bruise pack", /obj/item/stack/medical/bruise_pack),
 		new /datum/data/vending_product("mixing bowl", /obj/item/reagent_containers/cup/mixing_bowl),
 		new /datum/data/vending_product("drinking glass", /obj/item/reagent_containers/cup/glass/drinkingglass, 10),
