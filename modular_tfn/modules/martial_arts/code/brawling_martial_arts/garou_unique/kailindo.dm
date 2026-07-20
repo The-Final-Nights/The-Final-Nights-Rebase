@@ -385,7 +385,7 @@
 	. += "[span_notice("Deceptive Wind")]: Shove Punch Shove. First, a front-kick feint before you quickly turn and nail them in the side, taking them off guard. Not only will you harm them, but wind, and in larger forms knock them away and down such as Glabro or Crinos!"
 	. += "[span_notice("Tornado Kick")]: Punch Shove Punch. Using your incredible speed you are able to lean and spin into a kick, landing a hit directly into your targets head! This will disorient them, even possibly blinding or deafening in larger forms such as Glabro or Crinos!"
 	. += "[span_notice("Binding Wind")]: Grab Punch. By using your speed you may grab your opponent by their arm and disarm them, possibly dislocating their arm in the process! Glabro get bonus damage, in Crinos form you may also lock your target down to floor using your maw! "
-	. += "[span_notice("Whirlwind")]: Punch Punch Grab. Unleash a flurry of punches upon your opponant in a single, quick action. Rolls dice based on your dexternity and brawl. Crinos recieve a free bonus success, Glabro recieve two free bonus successes."
+	. += "[span_notice("Whirlwind")]: Punch Punch Grab. Unleash a flurry of punches upon your opponant in a single, quick action. Rolls dice based on your dexterity and brawl. Crinos recieve a free bonus success, Glabro recieve two free bonus successes."
 	. += "[span_notice("Dodging/Parrying")]: The art of Kailindo has hightened your reaction time, you are able to avoid attacks thrown at you while in Combat Mode. In Lupus form you will increase avoidance chance. Throw mode also increases the avoidance chance. Large forms such as Crinos though leave you unable to dodge most attacks."
 
 	return .
