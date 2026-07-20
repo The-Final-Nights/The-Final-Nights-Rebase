@@ -11,6 +11,12 @@
 	var/list/included_clans
 	/// Minimum Generation
 	var/minimum_generation
+	//TFN EDIT START - MARTIAL ARTS
+	/// Included tribes from this quirk (exclusive to Garou)
+	var/list/included_tribes
+	/// Excluded tribes from this quirk (exclusive to Garou)
+	var/list/excluded_tribes
+	// TFN EDIT END
 	/// Unique failure message on joining the round (in case someone joins with an incompatible quirk on their savefile for some reason)
 	var/failure_message = "One of the quirks you've selected hasn't applied - your character is ineligible to use it!"
 
@@ -78,3 +84,19 @@
 
 	return TRUE
 
+//TFN EDIT START - MARTIAL ARTS
+/datum/quirk/darkpack/proc/is_tribe_appropriate(datum/subsplat/werewolf/tribe/garou/tribe)
+	if(!excluded_tribes && !included_tribes)
+		return TRUE
+
+	if(!tribe)
+		return TRUE
+
+	if(excluded_tribes && (tribe.id in excluded_tribes))
+		return FALSE
+
+	if(included_tribes && !(tribe.id in included_tribes))
+		return FALSE
+
+	return TRUE
+//TFN EDIT END

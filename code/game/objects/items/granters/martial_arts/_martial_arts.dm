@@ -11,6 +11,11 @@
 		CRASH("Someone attempted to learn [type], which did not have a martial arts set.")
 	if(!isliving(user))
 		return FALSE
+	// TFN EDIT ADD START	- MARTIAL ARTS
+	if(user.st_get_stat(STAT_BRAWL) < 4)
+		to_chat(user, span_warning("[martial_name] seems too complicated for me!"))
+		return FALSE
+	// TFN EDIT ADD END
 	if(locate(martial) in user.martial_arts)
 		to_chat(user, span_warning("You already know [martial_name]!"))
 		return FALSE

@@ -18,7 +18,7 @@
 	male_clothes = /obj/item/clothing/under/vampire/emo
 	female_clothes = /obj/item/clothing/under/vampire/business
 	enlightenment = TRUE
-	subsplat_keys = /obj/item/vamp/keys/lasombra
+	//subsplat_keys = /obj/item/vamp/keys/lasombra //TFN EDIT REMOVE - Removes Defunct Keys and Give Relevant Keys for some Splats
 
 
 /datum/subsplat/vampire_clan/lasombra/psychomania_effect(mob/living/target, mob/living/owner)
