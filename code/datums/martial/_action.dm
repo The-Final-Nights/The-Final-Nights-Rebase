@@ -1,7 +1,7 @@
 /datum/action/swap_arts
 	name = "Remember the Basics" //this is dynamic, uses `update_button_name`
 	desc = "LMB: See your movelist. RMB: Swap artstyle, if you have more than one."
-	background_icon_state = "bg_martial_arts"
+	//background_icon_state = "bg_martial_arts"		TFN EDIT - MARTIAL ARTS PR
 	button_icon_state = "martial"
 
 	///The martial arts currently used for the name & help information.

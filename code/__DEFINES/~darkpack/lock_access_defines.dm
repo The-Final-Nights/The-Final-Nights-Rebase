@@ -17,6 +17,7 @@
 #define LOCKACCESS_THEATRE "theatre"
 #define LOCKACCESS_JAZZ_CLUB "milleniumCommon"
 #define LOCKACCESS_JAZZ_CLUB_DELIVERY "millenium_delivery"
+#define LOCKACCESS_FIGHT_CLUB "bodyShopGym" //TFN EDIT ADDITION - Body Shop Fight Club
 
 #define LOCKACCESS_DIRECTOR "director"
 #define LOCKACCESS_CLINIC "clinic"
@@ -81,6 +82,7 @@
 #define LOCKACCESS_PENTEX_LEADER "pentexleader"
 #define LOCKACCESS_EVERGREEN "evergreen" // TFN EDIT ADD - ([LORE TEAM REQUESTED] map changes)
 #define LOCKACCESS_SPIRAL "spiral" // TFN MAGADONIFICATION EDIT
+#define LOCKACCESS_REDNEWS "rednews" // TFN EDIT ADD - Red News
 
 #define LOCK_OWNERSHIP_CAR "car"
 #define LOCK_OWNERSHIP_APARTMENT "apartment"
