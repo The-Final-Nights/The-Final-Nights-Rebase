@@ -345,10 +345,12 @@
 		to_chat(helper, span_notice("You shake [src] trying to pick [p_them()] up!"))
 		to_chat(src, span_notice("[helper] shakes you to get you up!"))
 	else if(check_zone(helper.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD)) //Headpats!
-		helper.visible_message(span_notice("[helper] gives [src] a pat on the head to make [p_them()] feel better!"), \
+		// TFN EDIT START - ORIGINAL: helper.visible_message(span_notice("[helper] gives [src] a pat on the head to make [p_them()] feel better!"))
+		helper.visible_message(span_notice("[helper] gives [src] a pat on the head."), \
 					null, span_hear("You hear a soft patter."), DEFAULT_MESSAGE_RANGE, list(helper, src))
-		to_chat(helper, span_notice("You give [src] a pat on the head to make [p_them()] feel better!"))
-		to_chat(src, span_notice("[helper] gives you a pat on the head to make you feel better! "))
+		// TFN EDIT END
+		to_chat(helper, span_notice("You give [src] a pat on the head.")) // TFN EDIT - ORIGINAL: to_chat(helper, span_notice("You give [src] a pat on the head to make [p_them()] feel better!"))
+		to_chat(src, span_notice("[helper] gives you a pat on the head.")) // TFN EDIT - ORIGINAL: to_chat(src, span_notice("[helper] gives you a pat on the head to make you feel better!"))
 
 		share_blood_on_touch(helper, ITEM_SLOT_HEAD|ITEM_SLOT_MASK)
 		if(HAS_TRAIT(src, TRAIT_BADTOUCH))
@@ -382,10 +384,12 @@
 			to_chat(helper, span_notice("You wrap [src] into a tight bear hug!"))
 			to_chat(src, span_notice("[helper] squeezes you super tightly in a firm bear hug!"))
 		else
-			helper.visible_message(span_notice("[helper] hugs [src] to make [p_them()] feel better!"), \
+			// TFN EDIT START - ORIGINAL: helper.visible_message(span_notice("[helper] hugs [src] to make [p_them()] feel better!")
+			helper.visible_message(span_notice("[helper] hugs [src]."), \
 						null, span_hear("You hear the rustling of clothes."), DEFAULT_MESSAGE_RANGE, list(helper, src))
-			to_chat(helper, span_notice("You hug [src] to make [p_them()] feel better!"))
-			to_chat(src, span_notice("[helper] hugs you to make you feel better!"))
+			// TFN EDIT END
+			to_chat(helper, span_notice("You hug [src].")) // TFN EDIT - ORIGINAL: to_chat(helper, span_notice("You hug [src] to make [p_them()] feel better!"))
+			to_chat(src, span_notice("[helper] hugs you.")) // TFN EDIT - ORIGINAL: to_chat(src, span_notice("[helper] hugs you to make you feel better!"))
 
 		share_blood_on_touch(helper, ITEM_SLOT_HEAD|ITEM_SLOT_MASK|ITEM_SLOT_GLOVES)
 		// Warm them up with hugs
@@ -661,6 +665,9 @@
 	if (HAS_TRAIT(src, TRAIT_GENELESS))
 		return FALSE
 
+	if(flags_1 & HOLOGRAM_1)
+		return FALSE
+
 	if (run_armor_check(attack_flag = BIO, silent = TRUE) >= 100)
 		to_chat(src, span_warning("Your armor shields you from [scramble_source]!"))
 		return FALSE
@@ -671,7 +678,7 @@
 	var/changed_something = FALSE
 	var/obj/item/organ/new_organ = pick(GLOB.bioscrambler_valid_organs)
 	var/obj/item/organ/replaced = get_organ_slot(initial(new_organ.slot))
-	if (!replaced || !IS_ROBOTIC_ORGAN(replaced))
+	if (!replaced || ORGAN_CAN_BE_BIOSCRAMBLED(replaced))
 		changed_something = TRUE
 		new_organ = new new_organ()
 		new_organ.replace_into(src)
@@ -680,7 +687,7 @@
 	if (!HAS_TRAIT(src, TRAIT_NODISMEMBER))
 		var/obj/item/bodypart/new_part = pick(GLOB.bioscrambler_valid_parts)
 		var/obj/item/bodypart/picked_user_part = get_bodypart(initial(new_part.body_zone))
-		if (picked_user_part && BODYTYPE_CAN_BE_BIOSCRAMBLED(picked_user_part.bodytype))
+		if (picked_user_part && BODYPART_CAN_BE_BIOSCRAMBLED(picked_user_part))
 			changed_something = TRUE
 			new_part = new new_part()
 			new_part.replace_limb(src)
@@ -698,7 +705,7 @@
 /mob/living/carbon/proc/init_bioscrambler_lists()
 	var/list/body_parts = typesof(/obj/item/bodypart/chest) + typesof(/obj/item/bodypart/head) + subtypesof(/obj/item/bodypart/arm) + subtypesof(/obj/item/bodypart/leg)
 	for(var/obj/item/bodypart/part as anything in body_parts)
-		if(!is_type_in_typecache(part, GLOB.bioscrambler_parts_blacklist) && BODYTYPE_CAN_BE_BIOSCRAMBLED(initial(part.bodytype)))
+		if(!is_type_in_typecache(part, GLOB.bioscrambler_parts_blacklist) && BODYPART_CAN_BE_BIOSCRAMBLED(part))
 			continue
 		body_parts -= part
 	GLOB.bioscrambler_valid_parts = body_parts

@@ -18,8 +18,8 @@
 
 	mutual_understanding = list(
 		/datum/language/polish = 60,
-		/datum/language/czech = 30,
-		/datum/language/russian = 70,
+		/datum/language/czech = 20,
+		/datum/language/russian = 60,
 		/datum/language/common = 10,
 	)
 

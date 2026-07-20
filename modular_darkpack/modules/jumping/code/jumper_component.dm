@@ -115,8 +115,14 @@
 		var/dy = target.y - jumper.loc.y
 		var/scale = adjusted_jump_range / distance
 		adjusted_target = locate(jumper.loc.x + round(dx * scale), jumper.loc.y + round(dy * scale), jumper.loc.z)
-
 	playsound(jumper.loc, 'modular_darkpack/modules/jumping/sounds/jump_neutral.ogg', 50, TRUE)
+	// TFN EDIT START - emote sounds
+	if(ishuman(jumper))
+		var/mob/living/carbon/human/human_jumper = jumper
+		var/sound/jump_sound = human_jumper.get_voicepack_sound("jump")
+		if(jump_sound)
+			playsound(jumper, jump_sound, 50, FALSE)
+	// TFN EDIT END
 
 	if(jumper.combat_mode && get_dist(jumper.loc, target) <= 3 && strength >= 8)
 		addtimer(CALLBACK(src, PROC_REF(jump_boom), jumper),(distance * 0.5))
@@ -146,7 +152,14 @@
 
 //Produces a boom effect for ludicrously high strength/physique scores
 /datum/component/jumper/proc/jump_boom(mob/living/jumper)
+	// TFN EDIT START - emote sounds
 	playsound(get_turf(jumper), 'modular_darkpack/modules/jumping/sounds/jump_slam.ogg', 40, FALSE)
+	if(ishuman(jumper))
+		var/mob/living/carbon/human/person = jumper
+		var/sound/leap_sound = person.get_voicepack_sound("leap")
+		if(leap_sound)
+			playsound(jumper, leap_sound, 40, FALSE)
+	// TFN EDIT END
 	new /obj/effect/temp_visual/dir_setting/crack_effect(get_turf(jumper))
 	for(var/mob/living/shaken_person in range(2, jumper))	// TFN EDIT - JUMPER (5 -> 2)
 		if(shaken_person == jumper)

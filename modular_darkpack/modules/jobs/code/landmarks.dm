@@ -60,6 +60,13 @@ JOB_START_HELPER(supply/tech, JOB_SUPPLY_TECH)
 	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
 //TFN ADDITION END - Setite Faction
 
+//TFN ADDITION START - Red News
+/obj/effect/landmark/start/darkpack/rednews
+	name = JOB_RED_NEWS
+	icon_state = JOB_RED_NEWS
+	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
+//TFN ADDITION END - Red News
+
 /* Camarilla */
 /obj/effect/landmark/start/darkpack/camarilla
 	name = "generic camarilla start"
@@ -127,12 +134,12 @@ JOB_START_HELPER(citizen/priest, JOB_PRIEST)
 JOB_START_HELPER(citizen/taxi, JOB_TAXI_DRIVER)
 JOB_START_HELPER(citizen/graveyardkeeper, JOB_GRAVEYARD_KEEPER)
 
- // TFN EDIT ADDITION - Crown Blue Jazz Club Overhaul
+// TFN EDIT ADDITION - Crown Blue Jazz Club Overhaul
 /obj/effect/landmark/start/darkpack/citizen/jazz_club_associate
 	name = JOB_JAZZ_CLUB_ASSOCIATE
 	icon_state = JOB_JAZZ_CLUB_ASSOCIATE
 	icon = 'modular_tfn/modules/jobs/icons/landmarks.dmi'
- // TFN EDIT ADDITION END - Crown Blue Jazz Club Overhaul
+// TFN EDIT ADDITION END - Crown Blue Jazz Club Overhaul
 
 /* Sabbat */
 /obj/effect/landmark/start/darkpack/sabbat

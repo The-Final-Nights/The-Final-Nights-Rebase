@@ -19,12 +19,14 @@
 	crate_name = "cigarette supply crate"
 	crate_type = /obj/structure/closet/crate/robust
 
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/vending/science/cytopro
 	name = "Cytology Vendor Supply Crate"
 	desc = "For all your vat-growing needs! Contains a CytoPro machine refill."
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/vending_refill/cytopro)
 	crate_name = "cytopro supply crate"
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/vending/dinnerware
 	name = "Dinnerware Supply Crate"
@@ -33,6 +35,7 @@
 	contains = list(/obj/item/vending_refill/dinnerware)
 	crate_name = "dinnerware supply crate"
 
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/vending/science/modularpc
 	name = "Deluxe Silicate Selections Restock"
 	desc = "What's a computer? Contains a Deluxe Silicate Selections restocking unit."
@@ -46,6 +49,7 @@
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/vending_refill/engivend)
 	crate_name = "engineering supply crate"
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/vending/games
 	name = "Games Supply Crate"
@@ -55,6 +59,7 @@
 	crate_name = "games supply crate"
 	crate_type = /obj/structure/closet/crate
 
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/vending/hydro_refills
 	name = "Hydroponics Vending Machines Refills"
 	desc = "When the clown takes all the banana seeds. \
@@ -105,6 +110,7 @@
 	contains = list(/obj/item/vending_refill/security)
 	crate_name = "\improper SecTech supply crate"
 	crate_type = /obj/structure/closet/crate/secure/gear
+*/ //TFN EDIT REMOVE END
 
 /datum/supply_pack/vending/snack
 	name = "Snack Supply Crate"
@@ -172,7 +178,7 @@
 		ChefDrobe and ChapDrobe."
 	cost = CARGO_CRATE_VALUE * 6
 	contains = list(/obj/item/vending_refill/wardrobe/curator_wardrobe,
-					/obj/item/vending_refill/wardrobe/bar_wardrobe,
+					// /obj/item/vending_refill/wardrobe/bar_wardrobe, TFN EDIT REMOVE - Removes Immersion breaking and exploitable content from the Cargo Console #323
 					/obj/item/vending_refill/wardrobe/chef_wardrobe,
 					/obj/item/vending_refill/wardrobe/chap_wardrobe,
 				)
@@ -200,7 +206,7 @@
 	contains = list(/obj/item/vending_refill/wardrobe/medi_wardrobe,
 					/obj/item/vending_refill/wardrobe/chem_wardrobe,
 					/obj/item/vending_refill/wardrobe/viro_wardrobe,
-					/obj/item/vending_refill/wardrobe/coroner_wardrobe,
+					// /obj/item/vending_refill/wardrobe/coroner_wardrobe, TFN EDIT REMOVE - Removes Immersion breaking and exploitable content from the Cargo Console #323
 				)
 	crate_name = "medical department wardrobe supply crate"
 
@@ -215,6 +221,7 @@
 				)
 	crate_name = "science department wardrobe supply crate"
 
+/* //TFN EDIT REMOVE START- Removes Immersion breaking and exploitable content from the Cargo Console #323
 /datum/supply_pack/vending/wardrobes/security
 	name = "Security Wardrobe Supply Crate"
 	desc = "This crate contains refills for the SecDrobe, \
@@ -225,3 +232,4 @@
 					/obj/item/vending_refill/wardrobe/law_wardrobe,
 				)
 	crate_name = "security department supply crate"
+*/ //TFN EDIT REMOVE END

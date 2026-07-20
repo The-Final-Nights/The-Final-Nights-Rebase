@@ -262,6 +262,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			for(var/datum/preference_middleware/preference_middleware as anything in middleware)
 				preference_middleware.post_set_preference(ui.user, requested_preference_key, value)
+			requested_preference.post_set_preference(ui.user, value) // DARKPACK EDIT ADD - SPLATS - (lore primers)
 			return TRUE
 		if ("set_color_preference")
 			var/requested_preference_key = params["preference"]
@@ -349,7 +350,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/preferences = list()
 
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
-		if (!preference.is_accessible(src))
+		if (!preference.visible_in_page(src)) // DARKPACK EDIT CHANGE - (is_accessible to visible_in_page)
 			continue
 
 		var/value = read_preference(preference.type)
@@ -581,6 +582,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if (preference.must_have_relevant_trait && preference.relevant_inherent_trait)
 			if (!HAS_TRAIT(character, preference.relevant_inherent_trait))
 				continue
+
+		if (preference.must_be_accessible && !preference.is_accessible(src))
+			continue
 		// DARKPACK EDIT ADD END - TTRPG preferences
 
 		preference.apply_to_human(character, read_preference(preference.type))
