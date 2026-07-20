@@ -25,7 +25,7 @@
 	/// Is the microphone turned on
 	var/active_microphone = TRUE
 	/// The name of the broadcast
-	var/broadcast_name = "Curator News"
+	var/broadcast_name = "RED News" // TFN EDIT CHANGE - Red News - ORIG: var/broadcast_name = "Curator News"
 	/// The networks it broadcasts to, default is CAMERANET_NETWORK_CURATOR
 	var/list/camera_networks = list(CAMERANET_NETWORK_CURATOR)
 	/// Range of the camera

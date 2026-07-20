@@ -314,12 +314,17 @@
 	if(HAS_TRAIT(human_who_gained_species, TRAIT_FERA_FLIGHT))
 		var/datum/action/innate/toggle_fera_flight/ability = new(human_who_gained_species)
 		ability.Grant(human_who_gained_species)
+		human_who_gained_species.AddElementTrait(TRAIT_WADDLING, INNATE_TRAIT, /datum/element/waddling) // TFN EDIT ADD - emote sounds
 
 /datum/species/human/shifter/feral/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
 	. = ..()
 	for(var/datum/action/innate/toggle_fera_flight/action in human.actions)
 		action.Remove(human)
 
+	// TFN EDIT ADD START - emote sounds
+	if(HAS_TRAIT(human, TRAIT_FERA_FLIGHT))
+		REMOVE_TRAIT(human, TRAIT_WADDLING, INNATE_TRAIT)
+	// TFN EDIT END
 
 /datum/movespeed_modifier/shifter
 	abstract_type = /datum/movespeed_modifier/shifter

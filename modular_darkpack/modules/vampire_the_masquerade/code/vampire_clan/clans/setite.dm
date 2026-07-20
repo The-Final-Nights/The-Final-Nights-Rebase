@@ -16,6 +16,7 @@
 	male_clothes = /obj/item/clothing/under/vampire/slickback
 	female_clothes = /obj/item/clothing/under/vampire/burlesque
 	subsplat_keys = /obj/item/vamp/keys/setite
+	hidden = TRUE // TFN EDIT ADD - the coteries update
 
 /datum/subsplat/vampire_clan/setite/tlacique
 	name = "Tlacique"
@@ -28,6 +29,7 @@
 		/datum/discipline/protean
 	)
 	whitelisted = TRUE
+	hidden = TRUE // TFN EDIT ADD - the coteries update
 
 /datum/subsplat/vampire_clan/setite/warrior
 	name = "Warrior Setite"
@@ -38,3 +40,4 @@
 		/datum/discipline/presence,
 		/datum/discipline/serpentis
 	)
+	hidden = TRUE // TFN EDIT ADD - the coteries update

@@ -106,6 +106,12 @@
 	if (fire_stacks >= 1)
 		INVOKE_ASYNC(src, PROC_REF(execute_resist))
 
+	// TFN EDIT ADD START - the npc dancing update
+	if(dance_center && !danger_source && !dancing && get_dist(src, dance_center) <= 1)
+		INVOKE_ASYNC(src, PROC_REF(do_npc_dance))
+	if(dance_center && get_dist(src, dance_center) <= 1)
+		return
+	// TFN EDIT ADD END
 	if (staying)
 		return
 	if (!walktarget)
