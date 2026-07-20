@@ -57,6 +57,6 @@
 
 /datum/outfit/job/vampire/police_captain/post_equip(mob/living/carbon/human/H)
 	. = ..()
-	var/datum/martial_art/martial_art = new /datum/martial_art/cqc
+	var/datum/martial_art/martial_art = new /datum/martial_art/darkpack_cqb		//TFN EDIT - MARTIAL ARTS
 	H.ignores_warrant = TRUE
 	martial_art.teach(H)

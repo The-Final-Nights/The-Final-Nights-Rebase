@@ -61,6 +61,15 @@
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 	worn_icon_state = "grey_id"
 
+/obj/item/card/fight_club_worker
+	name = "Body Shop Worker ID"
+	desc = "An ID showing employment with the Body Shop Gym."
+	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
+	icon_state = "grey_id"
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
+	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
+	worn_icon_state = "grey_id"
+
 /obj/item/card/red_news
 	name = "RED Network Reporter badge"
 	desc = "An ID showing employment with RED Network."

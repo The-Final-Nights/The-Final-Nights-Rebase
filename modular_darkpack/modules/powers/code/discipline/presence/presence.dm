@@ -72,6 +72,15 @@
 			sorted += target
 	return sorted
 
+// TFN EDIT START - presence adjustments
+/datum/discipline_power/presence/activate(atom/target)
+	. = ..()
+	owner.visible_message(
+		span_danger("[owner] visibly starts concentrating, closing their eyes!"),
+		span_info("You start focusing on [name]..."))
+	if(!do_after(owner, delay = level * 1 SECONDS, target = owner, icon = 'modular_darkpack/modules/powers/icons/actions.dmi', iconstate = "presence"))
+		return FALSE
+// TFN EDIT END
 
 /datum/storyteller_roll/presence_awe
 	difficulty = 7
@@ -107,6 +116,10 @@
 
 /datum/discipline_power/presence/awe/activate()
 	. = ..()
+// TFN EDIT START - presence adjustments
+	if(!.)
+		return
+// TFN EDIT END
 
 	var/list/potential_targets = list()
 	for(var/mob/living/carbon/target in hearers(range, owner))
@@ -126,7 +139,7 @@
 	for(var/i = 1; i <= min(targets_to_affect, length(potential_targets)); i++)
 		var/mob/living/carbon/target = potential_targets[i]
 		apply_presence_overlay(target)
-		to_chat(target, span_yellowteamradio("You feel extremely attracted to and persuaded by [owner]'s words, no matter what they're saying, however danger will break this spell of fascination! You will remember how you felt around this person after but you will not notice that you were under the effect of a discipline.")) // TFN EDIT CHANGE - Presence Wording Change  Original - "You feel extremely attracted to and persuaded by [owner]'s words, no matter what they're saying!"
+		to_chat(target, span_yellowteamradio("You feel extremely attracted to and persuaded by [owner]'s words, no matter what they're saying, however danger will break this spell of fascination! You will remember how you felt around this person after but you will not notice that you were under the effect of a discipline. You can safely ignore this message if there is present or impending danger.")) // TFN EDIT CHANGE - Presence Wording Change  Original - "You feel extremely attracted to and persuaded by [owner]'s words, no matter what they're saying!"
 		target.apply_status_effect(STATUS_EFFECT_AWE)
 		affected_targets += target
 
@@ -169,6 +182,10 @@
 
 /datum/discipline_power/presence/dread_gaze/activate(mob/living/carbon/human/target)
 	. = ..()
+// TFN EDIT START - presence adjustments
+	if(!.)
+		return
+// TFN EDIT END
 	apply_presence_overlay(target)
 	if(successes >= (target.st_get_stat(STAT_WITS) + target.st_get_stat(STAT_COURAGE)))	//We check if you just flat out have more successes than their dice pool total.
 		var/extended_action_prompt = tgui_input_list(owner, "Attempt to force your target to cower in fear? This will take time to preform this extended action to stun and debuff your opponent!", "Terrifying Presence", list("Yes", "No"), "No")
@@ -231,7 +248,7 @@
 
 	apply_presence_overlay(target, successes * 1 MINUTES)
 	to_chat(target, span_hypnophrase("You find yourself becoming completely entraced by [owner]. You are now their willing servant."))
-	to_chat(target, span_info("You are now the willing servant of [owner]. You will seek to please them and fulfill their every desire, but this desire will fade soon."))
+	to_chat(target, span_info("You are now the willing servant of [owner]. You will seek to please them and fulfill their every desire, but this desire will fade soon. You can safely ignore this message if there is present or impending danger.")) // TFN EDIT - presence adjustments ORIGINAL: "You are now the willing servant of [owner]. You will seek to please them and fulfill their every desire, but this desire will fade soon."
 	addtimer(CALLBACK(src, PROC_REF(end_entrancement), target), successes * 10 MINUTES)
 
 /datum/discipline_power/presence/entrancement/proc/end_entrancement(mob/living/carbon/human/target)
@@ -303,7 +320,7 @@
 
 	var/flavor_index = clamp(successes, 1, 5)
 	to_chat(summon_target, span_yellowteamradio(flavor_texts[flavor_index]))
-	to_chat(summon_target, span_info("Summon only affects targets who have reasonably met the summoner. If you believe your character would reasonably have never met the summoner, this power is ineffective."))
+	to_chat(summon_target, span_info("Summon only affects targets who have reasonably met the summoner. If you believe your character would reasonably have never met the summoner, this power is ineffective. You can safely ignore this message if there is present or impending danger, and/or if your character reasonably believes they would be in danger by complying with this summoning.")) // TFN EDIT - Original: 	to_chat(summon_target, span_info("Summon only affects targets who have reasonably met the summoner. If you believe your character would reasonably have never met the summoner, this power is ineffective."))
 	to_chat(owner, span_warning("You've successfully summoned [summon_target.real_name] to your presence! ([successes] success\s)"))
 	summon_target.do_jitter_animation(3 SECONDS)
 
@@ -331,6 +348,10 @@
 
 /datum/discipline_power/presence/majesty/activate(mob/living/carbon/human/target)
 	. = ..()
+// TFN EDIT START - presence adjustments
+	if(!.)
+		return
+// TFN EDIT END
 	affected_targets = list()
 	for(var/mob/living/carbon/human/hearer in get_hearers_in_view(range, owner))
 		if(hearer == owner)
@@ -344,7 +365,7 @@
 		apply_presence_overlay(hearer, 3 MINUTES)
 		affected_targets[hearer] = hearer_successes
 
-		to_chat(hearer, span_hypnophrase("You find yourself completely submitting to the Majesty of [owner]. Their every word is your utmost priority, every frown of displeasure crushing your soul. You find yourself humbled entirely in their overwhelming presence. Despite this your mind is still your own and you need not listen to suicidal or ridiculous directives, although such directives will not break the spell in it's entirety.")) // TFN EDIT CHANGE - Presence Wording Change - Original - "You find yourself completely submitting to the Majesty of [owner]. Their every word is your utmost priority, every frown of displeasure crushing your soul. You find yourself humbled entirely in their overwhelming presence."
+		to_chat(hearer, span_hypnophrase("You find yourself completely submitting to the Majesty of [owner]. Their every word is your utmost priority, every frown of displeasure crushing your soul. You find yourself humbled entirely in their overwhelming presence. Despite this your mind is still your own and you need not listen to suicidal or ridiculous directives, although such directives will not break the spell in it's entirety. You can safely ignore this effect and any commands in their entirety if there is present or impending danger, with the exception that the pacifism effect towards the caster may only be broken if the caster attacks you during the duration.")) // TFN EDIT CHANGE - Presence Wording Change - Original - "You find yourself completely submitting to the Majesty of [owner]. Their every word is your utmost priority, every frown of displeasure crushing your soul. You find yourself humbled entirely in their overwhelming presence."
 
 		// this ability is often used to end combat scenes but it often ignored.
 		var/pacifism_delay = hearer_successes * 10 SECONDS
