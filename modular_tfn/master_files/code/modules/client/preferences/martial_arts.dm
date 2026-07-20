@@ -14,7 +14,7 @@
 	)
 
 /datum/preference/choiced/martial_arts_choice/create_default_value()
-    return "None"
+	return "None"
 
 /datum/preference/choiced/martial_arts_choice/apply_to_human(mob/living/carbon/human/target, value)
 	var/datum/martial_art/learned_art
