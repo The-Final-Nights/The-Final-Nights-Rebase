@@ -168,8 +168,3 @@
 
 /mob/living/proc/is_clan(clan_type)
 	return istype(get_clan(), clan_type)
-
-/datum/subsplat/vampire_clan/show_lore(mob/user)
-	. = ..()
-	if(curse)
-		to_chat(user, span_danger("<br>CURSE: [curse]"))
