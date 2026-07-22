@@ -168,3 +168,4 @@
 
 /mob/living/proc/is_clan(clan_type)
 	return istype(get_clan(), clan_type)
+
