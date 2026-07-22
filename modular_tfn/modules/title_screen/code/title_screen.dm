@@ -36,7 +36,7 @@
 /mob/dead/new_player/proc/play_lobby_hover_sound()
 	SEND_SOUND(src, sound('modular_tfn/modules/title_screen/sound/hover.ogg'))
 
-/mob/dead/new_player/create_character(atom/destination)
+/mob/dead/new_player/create_character(atom/destination, forced_slot)
 	. = ..()
 	SEND_SOUND(src, sound('modular_tfn/modules/title_screen/sound/login_hit.ogg'))
 
