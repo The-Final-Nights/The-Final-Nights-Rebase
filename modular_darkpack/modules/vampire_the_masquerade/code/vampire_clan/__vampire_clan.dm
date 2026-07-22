@@ -171,8 +171,3 @@
 
 	if(needs_update && !(losing_mob.living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
 		losing_mob.update_body_parts()
-
-/datum/subsplat/vampire_clan/show_lore(mob/user)
-	. = ..()
-	if(curse)
-		to_chat(user, span_danger("<br>CURSE: [curse]"))
