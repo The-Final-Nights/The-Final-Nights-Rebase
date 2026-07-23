@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_tfn/modules/emotes/readme.md - San Francisco</title></head><body><header><a href="index.html">San Francisco</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>EMOTE_VOICES <aside>modular_tfn/modules/emotes/readme.md</aside> <a href="https://github.com/The-Final-Nights/The-Final-Nights-Rebase/blob/b8bd37dbaf91b1377738921f05b795c8f872ad1e/modular_tfn/modules/emotes/readme.md"><img src="git.png" width="16" height="16" title="modular_tfn/modules/emotes/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p>Adds a character preference for selecting a voice style that changes the sounds played during emotes, along with a pitch preference for fine-tuning voice frequency.</p>
+<h2 id="core-files-changed">Core files changed</h2>
+<ul>
+<li><code>modular_tfn/master_files/code/datums/emotes.dm</code>: Overrides <code>/datum/emote/get_sound()</code> to check the human's <code>voicepack</code> var and return a pitched sound datum when a voicepack is set.</li>
+</ul>
+<h2 id="description">Description</h2>
+<p>Players can select a voice pack and pitch value in the Vocals section of character preferences. When an emote plays a sound, it checks if the character has a voicepack assigned. If so, the voicepack is queried by the emote's key string. If a matching sound exists, it is returned as a <code>/sound</code> datum with the character's pitch applied. Emotes with no matching voicepack entry fall through to the default emote sound.</p>
+<p>The default <code>Masculine</code> and <code>Feminine</code> packs use tgstation base sounds and work without any additional files. The <code>Haughty</code> pack requires copying the <code>sound/vo/</code> directory from Azure-Peak.</p>
+<h2 id="adding-new-voice-packs">Adding new voice packs</h2>
+<ol>
+<li>Create a new subtype of <code>/datum/voicepack</code> in <code>code/voicepacks/</code>.</li>
+<li>Override <code>get_sound(key)</code> with a switch block mapping emote key strings to sound file references or lists. Return <code>..()</code> at the end for fallback to a parent pack.</li>
+<li>Add an entry to <code>GLOBAL_LIST_INIT(voicepack_list, ...)</code> in <code>code/__DEFINES/~tfn/voicepack.dm</code>.</li>
+<li>Ask your local host REALLY NICELY to add your files to the <code>tfn_config/vo</code> folder. On your local fork, you will place files here to test them (making sure not to accidentally commit them to the repository!)</li>
+</ol>
+<h2 id="server-side-stuff">Server-side Stuff</h2>
+<ul>
+<li>The server end of things holds the files in the path of <code>tfn_config/vo/</code> followed by male or female (or mobs for werewolf sounds), then the folder name.</li>
+</ul>
+<p>For example, in the voicepack_list, there is an entry called <code>Noble II</code>.</p>
+<p>This entry paths to the 'haughty' voicepack folder. The 'haughty' files on the TFN server are located at: <code>tfn_config/vo/female/haughty</code></p>
+<h2 id="credits">Credits</h2>
+<p>Voice system design ported from Azure-Peak.</p></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/The-Final-Nights/The-Final-Nights-Rebase/tree/b8bd37dbaf91b1377738921f05b795c8f872ad1e">b8bd37d</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>
