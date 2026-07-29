@@ -441,10 +441,7 @@ GLOBAL_DATUM(announcements_datum, /datum/announcement_manager)
 			return TRUE
 	return FALSE
 
-/client/verb/open_announcements()
-	set name = "Announcements"
-	set category = "Character"
-	set desc = "Open the announcements and news menu."
+GAME_VERB_DESC(/client, open_announcements, "Announcements", "Open the announcements and news menu.", "Character")
 	if(!istype(mob, /mob/living/carbon/human)) // observers must join the round to view the announcements ingame
 		to_chat(src, "You must join the round to view the announcements menu.")
 		return
